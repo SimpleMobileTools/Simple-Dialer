@@ -3,6 +3,7 @@ package com.simplemobiletools.dialer.fragments
 import android.content.Context
 import android.util.AttributeSet
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.underlineText
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.config
@@ -24,5 +25,9 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
 
             fragment_placeholder_2?.underlineText()
         }
+    }
+
+    fun finishActMode() {
+        (fragment_list.adapter as? MyRecyclerViewAdapter)?.finishActMode()
     }
 }
