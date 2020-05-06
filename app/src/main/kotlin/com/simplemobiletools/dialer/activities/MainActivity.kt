@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.viewpager.widget.ViewPager
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.PERMISSION_GET_ACCOUNTS
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
 import com.simplemobiletools.commons.models.FAQItem
@@ -139,6 +140,10 @@ class MainActivity : SimpleActivity() {
         if (viewpager.adapter == null) {
             viewpager.adapter = ViewPagerAdapter(this)
             viewpager.currentItem = config.lastUsedViewPagerPage
+        }
+
+        ContactsHelper(this).getAvailableContacts { contacts ->
+
         }
     }
 

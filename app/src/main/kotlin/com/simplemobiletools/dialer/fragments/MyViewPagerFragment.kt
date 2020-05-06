@@ -5,15 +5,15 @@ import android.util.AttributeSet
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.underlineText
+import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.Config
-import com.simplemobiletools.dialer.models.Contact
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 
 abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet) : CoordinatorLayout(context, attributeSet) {
     protected var activity: SimpleActivity? = null
-    protected var allContacts = ArrayList<Contact>()
+    protected var allContacts = ArrayList<SimpleContact>()
 
     private var lastHashCode = 0
     private lateinit var config: Config
