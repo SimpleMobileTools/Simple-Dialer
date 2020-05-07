@@ -30,6 +30,11 @@ class MainActivity : SimpleActivity() {
         checkContactPermissions()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        config.lastUsedViewPagerPage = viewpager.currentItem
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
         updateMenuItemColors(menu)
