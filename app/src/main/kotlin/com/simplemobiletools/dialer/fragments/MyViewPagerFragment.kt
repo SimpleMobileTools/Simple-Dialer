@@ -7,6 +7,7 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.underlineText
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.Config
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
@@ -29,5 +30,13 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
 
     fun finishActMode() {
         (fragment_list.adapter as? MyRecyclerViewAdapter)?.finishActMode()
+    }
+
+    fun refreshContacts(contacts: ArrayList<SimpleContact>) {
+        ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, null) {
+
+        }.apply {
+            fragment_list.adapter = this
+        }
     }
 }

@@ -143,7 +143,9 @@ class MainActivity : SimpleActivity() {
         }
 
         ContactsHelper(this).getAvailableContacts { contacts ->
-
+            runOnUiThread {
+                contacts_fragment.refreshContacts(contacts)
+            }
         }
     }
 
