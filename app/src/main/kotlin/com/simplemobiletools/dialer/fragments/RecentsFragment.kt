@@ -6,6 +6,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.fragment_recents.view.*
 
@@ -18,12 +19,11 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         }
 
         recents_placeholder.text = context.getString(placeholderResId)
-
         recents_placeholder_2.apply {
             setTextColor(context.config.primaryColor)
             underlineText()
             setOnClickListener {
-
+                requestCallLogPermission()
             }
         }
     }
@@ -37,6 +37,21 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             recents_placeholder.beGone()
             recents_placeholder_2.beGone()
             recents_list.beVisible()
+        }
+    }
+
+    private fun requestCallLogPermission() {
+        activity?.handlePermission(PERMISSION_READ_CALL_LOG) {
+            if (it) {
+                recents_placeholder.text = context.getString(R.string.no_previous_calls)
+                recents_placeholder_2.beGone()
+
+                RecentsHelper(context).getRecentCalls { recents ->
+                    activity?.runOnUiThread {
+                        updateRecents(recents)
+                    }
+                }
+            }
         }
     }
 }

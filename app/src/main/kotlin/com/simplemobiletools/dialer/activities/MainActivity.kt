@@ -9,9 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.viewpager.widget.ViewPager
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.ContactsHelper
-import com.simplemobiletools.commons.helpers.PERMISSION_GET_ACCOUNTS
-import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
 import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
@@ -159,7 +157,7 @@ class MainActivity : SimpleActivity() {
     private fun getAllFragments() = arrayListOf(contacts_fragment)
 
     private fun launchAbout() {
-        val licenses = 0
+        val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL
 
         val faqItems = arrayListOf(
             FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),

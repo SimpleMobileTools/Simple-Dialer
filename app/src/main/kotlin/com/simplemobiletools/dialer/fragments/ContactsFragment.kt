@@ -4,21 +4,38 @@ import android.content.Context
 import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ContactsHelper
+import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
 import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.config
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
-import kotlinx.android.synthetic.main.fragment_recents.view.*
 import java.util.*
 
 class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet) {
     override fun setupFragment() {
+        val placeholderResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
+            R.string.no_contacts_found
+        } else {
+            R.string.could_not_access_contacts
+        }
+
+        fragment_placeholder.text = context.getString(placeholderResId)
+
+        val placeholderActionResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
+            R.string.create_new
+        } else {
+            R.string.request_access
+        }
+
         fragment_placeholder_2.apply {
+            text = context.getString(placeholderActionResId)
             setTextColor(context.config.primaryColor)
             underlineText()
             setOnClickListener {
-
+                requestReadContactsPermission()
             }
         }
 
@@ -55,5 +72,20 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                 FastScrollItemIndicator.Text("")
             }
         })
+    }
+
+    private fun requestReadContactsPermission() {
+        activity?.handlePermission(PERMISSION_READ_CONTACTS) {
+            if (it) {
+                fragment_placeholder.text = context.getString(R.string.no_contacts_found)
+                fragment_placeholder_2.text = context.getString(R.string.create_new)
+
+                ContactsHelper(context).getAvailableContacts { contacts ->
+                    activity?.runOnUiThread {
+                        refreshContacts(contacts)
+                    }
+                }
+            }
+        }
     }
 }
