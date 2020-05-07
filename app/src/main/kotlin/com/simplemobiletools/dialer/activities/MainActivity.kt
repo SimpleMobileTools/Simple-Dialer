@@ -17,12 +17,10 @@ import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.helpers.ALL_TABS_MASK
-import com.simplemobiletools.dialer.helpers.CONTACTS_TAB_MASK
-import com.simplemobiletools.dialer.helpers.RECENTS_TAB_MASK
-import com.simplemobiletools.dialer.helpers.tabsList
+import com.simplemobiletools.dialer.helpers.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
+import kotlinx.android.synthetic.main.fragment_recents.*
 
 class MainActivity : SimpleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -150,7 +148,11 @@ class MainActivity : SimpleActivity() {
         }
 
         if (refreshTabsMask and RECENTS_TAB_MASK != 0) {
-
+            RecentsHelper(this).getRecentCalls { recents ->
+                runOnUiThread {
+                    recents_fragment.updateRecents(recents)
+                }
+            }
         }
     }
 

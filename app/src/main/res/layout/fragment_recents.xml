@@ -24,7 +24,7 @@
         android:id="@+id/recents_placeholder_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/fragment_placeholder"
+        android:layout_below="@+id/recents_placeholder"
         android:layout_centerHorizontal="true"
         android:background="?attr/selectableItemBackground"
         android:gravity="center"
