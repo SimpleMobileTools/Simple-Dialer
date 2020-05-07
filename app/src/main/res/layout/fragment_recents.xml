@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.simplemobiletools.dialer.fragments.RecentsFragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recents_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/recents_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:alpha="0.8"
+        android:gravity="center"
+        android:paddingStart="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingEnd="@dimen/activity_margin"
+        android:text="@string/no_previous_calls"
+        android:textSize="@dimen/bigger_text_size"
+        android:textStyle="italic"
+        android:visibility="gone" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/recents_placeholder_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_placeholder"
+        android:layout_centerHorizontal="true"
+        android:background="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="@dimen/activity_margin"
+        android:text="@string/request_access"
+        android:textSize="@dimen/bigger_text_size"
+        android:visibility="gone" />
+
+    <com.simplemobiletools.commons.views.MyRecyclerView
+        android:id="@+id/recents_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+
+</com.simplemobiletools.dialer.fragments.RecentsFragment>

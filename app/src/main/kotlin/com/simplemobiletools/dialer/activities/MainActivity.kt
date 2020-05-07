@@ -18,13 +18,13 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.ALL_TABS_MASK
+import com.simplemobiletools.dialer.helpers.CONTACTS_TAB_MASK
+import com.simplemobiletools.dialer.helpers.RECENTS_TAB_MASK
 import com.simplemobiletools.dialer.helpers.tabsList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
 
 class MainActivity : SimpleActivity() {
-    private var isGettingContacts = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -94,7 +94,7 @@ class MainActivity : SimpleActivity() {
         })
 
         viewpager.onGlobalLayout {
-            refreshContacts(ALL_TABS_MASK)
+            refreshItems(ALL_TABS_MASK)
         }
 
         main_tabs_holder.onTabSelectionChanged(
@@ -124,28 +124,33 @@ class MainActivity : SimpleActivity() {
 
     private fun getTabIcon(position: Int): Drawable {
         val drawableId = when (position) {
-            else -> R.drawable.ic_person_vector
+            0 -> R.drawable.ic_person_vector
+            else -> R.drawable.ic_clock_vector
         }
 
         return resources.getColoredDrawableWithColor(drawableId, config.textColor)
     }
 
-    fun refreshContacts(refreshTabsMask: Int) {
-        if (isDestroyed || isFinishing || isGettingContacts) {
+    fun refreshItems(refreshTabsMask: Int) {
+        if (isDestroyed || isFinishing) {
             return
         }
-
-        isGettingContacts = true
 
         if (viewpager.adapter == null) {
             viewpager.adapter = ViewPagerAdapter(this)
             viewpager.currentItem = config.lastUsedViewPagerPage
         }
 
-        ContactsHelper(this).getAvailableContacts { contacts ->
-            runOnUiThread {
-                contacts_fragment.refreshContacts(contacts)
+        if (refreshTabsMask and CONTACTS_TAB_MASK != 0) {
+            ContactsHelper(this).getAvailableContacts { contacts ->
+                runOnUiThread {
+                    contacts_fragment.refreshContacts(contacts)
+                }
             }
+        }
+
+        if (refreshTabsMask and RECENTS_TAB_MASK != 0) {
+
         }
     }
 

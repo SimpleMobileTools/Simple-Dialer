@@ -25,11 +25,15 @@ class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
         container.removeView(item as View)
     }
 
-    override fun getCount() = 1
+    override fun getCount() = 2
 
     override fun isViewFromObject(view: View, item: Any) = view == item
 
     private fun getFragment(position: Int): Int {
-        return R.layout.fragment_contacts
+        return if (position == 0) {
+            R.layout.fragment_contacts
+        } else {
+            R.layout.fragment_recents
+        }
     }
 }
