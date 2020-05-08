@@ -36,7 +36,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
 
     override fun onActionModeDestroyed() {}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_contact_with_number, parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_contact_without_number, parent)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contact = contacts[position]
@@ -51,7 +51,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isDestroyed && !activity.isFinishing) {
-            Glide.with(activity).clear(holder.itemView.findViewById<ImageView>(R.id.item_contact_tmb))
+            Glide.with(activity).clear(holder.itemView.findViewById<ImageView>(R.id.item_contact_image))
         }
     }
 
@@ -60,10 +60,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
             findViewById<TextView>(R.id.item_contact_name).text = contact.name
             findViewById<TextView>(R.id.item_contact_name).setTextColor(textColor)
 
-            findViewById<TextView>(R.id.item_contact_number).text = contact.phoneNumber
-            findViewById<TextView>(R.id.item_contact_number).setTextColor(textColor)
-
-            ContactsHelper(context).loadContactImage(contact.photoUri, findViewById(R.id.item_contact_tmb), contact.name)
+            ContactsHelper(context).loadContactImage(contact.photoUri, findViewById(R.id.item_contact_image), contact.name)
         }
     }
 }
