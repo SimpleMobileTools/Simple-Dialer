@@ -1,10 +1,14 @@
 package com.simplemobiletools.dialer.adapters
 
+import android.provider.CallLog.Calls
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.formatDateOrTime
+import com.simplemobiletools.commons.extensions.getFormattedDuration
 import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
@@ -56,8 +60,12 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
     private fun setupView(view: View, call: RecentCall) {
         view.apply {
             item_recents_name.text = call.name
+            item_recents_date_time.text = call.startTS.formatDateOrTime(context, true)
 
-            ContactsHelper(context).loadContactImage(call.photoUri, findViewById(R.id.item_recents_image), call.name)
+            item_recents_duration.beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
+            item_recents_duration.text = call.duration.getFormattedDuration()
+
+            ContactsHelper(context).loadContactImage(call.photoUri, item_recents_image, call.name)
         }
     }
 }
