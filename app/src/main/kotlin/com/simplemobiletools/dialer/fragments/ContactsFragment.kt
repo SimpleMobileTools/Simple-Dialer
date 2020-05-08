@@ -1,11 +1,13 @@
 package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
+import android.net.Uri
+import android.provider.ContactsContract
 import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
+import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -55,7 +57,9 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             fragment_placeholder_2.beGone()
             fragment_list.beVisible()
             ContactsAdapter(activity as SimpleActivity, contacts, fragment_list) {
-
+                val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((it as SimpleContact).rawId.toString())
+                val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
+                activity!!.launchViewContactIntent(publicUri)
             }.apply {
                 fragment_list.adapter = this
             }
@@ -80,7 +84,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                 fragment_placeholder.text = context.getString(R.string.no_contacts_found)
                 fragment_placeholder_2.text = context.getString(R.string.create_new)
 
-                ContactsHelper(context).getAvailableContacts { contacts ->
+                SimpleContactsHelper(context).getAvailableContacts { contacts ->
                     activity?.runOnUiThread {
                         refreshContacts(contacts)
                     }

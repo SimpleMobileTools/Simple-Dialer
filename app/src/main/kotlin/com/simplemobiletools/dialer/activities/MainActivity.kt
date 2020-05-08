@@ -143,7 +143,7 @@ class MainActivity : SimpleActivity() {
         }
 
         if (refreshTabsMask and CONTACTS_TAB_MASK != 0) {
-            ContactsHelper(this).getAvailableContacts { contacts ->
+            SimpleContactsHelper(this).getAvailableContacts { contacts ->
                 runOnUiThread {
                     contacts_fragment.refreshContacts(contacts)
                 }

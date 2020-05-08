@@ -9,7 +9,7 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.formatDateOrTime
 import com.simplemobiletools.commons.extensions.getFormattedDuration
-import com.simplemobiletools.commons.helpers.ContactsHelper
+import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -65,7 +65,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             item_recents_duration.beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
             item_recents_duration.text = call.duration.getFormattedDuration()
 
-            ContactsHelper(context).loadContactImage(call.photoUri, item_recents_image, call.name)
+            SimpleContactsHelper(context).loadContactImage(call.photoUri, item_recents_image, call.name)
         }
     }
 }
