@@ -54,7 +54,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             fragment_placeholder.beGone()
             fragment_placeholder_2.beGone()
             fragment_list.beVisible()
-            ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, null) {
+            ContactsAdapter(activity as SimpleActivity, contacts, fragment_list) {
 
             }.apply {
                 fragment_list.adapter = this

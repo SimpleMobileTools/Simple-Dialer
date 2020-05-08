@@ -5,6 +5,8 @@ import android.util.AttributeSet
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.models.RecentCall
@@ -37,6 +39,11 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             recents_placeholder.beGone()
             recents_placeholder_2.beGone()
             recents_list.beVisible()
+            RecentCallsAdapter(activity as SimpleActivity, recents, recents_list) {
+
+            }.apply {
+                recents_list.adapter = this
+            }
         }
     }
 

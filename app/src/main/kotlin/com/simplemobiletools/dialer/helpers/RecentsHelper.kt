@@ -8,7 +8,7 @@ import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.dialer.models.RecentCall
 
-class RecentsHelper(val context: Context) {
+class RecentsHelper(private val context: Context) {
     @SuppressLint("MissingPermission")
     fun getRecentCalls(callback: (ArrayList<RecentCall>) -> Unit) {
         ensureBackgroundThread {
@@ -23,6 +23,7 @@ class RecentsHelper(val context: Context) {
                 Calls._ID,
                 Calls.NUMBER,
                 Calls.CACHED_NAME,
+                Calls.CACHED_PHOTO_URI,
                 Calls.DATE,
                 Calls.DURATION,
                 Calls.TYPE
@@ -34,10 +35,11 @@ class RecentsHelper(val context: Context) {
                 val id = cursor.getIntValue(Calls._ID)
                 val number = cursor.getStringValue(Calls.NUMBER)
                 val name = cursor.getStringValue(Calls.CACHED_NAME) ?: number
+                val photoUri = cursor.getStringValue(Calls.CACHED_PHOTO_URI) ?: ""
                 val startTS = (cursor.getLongValue(Calls.DATE) / 1000L).toInt()
                 val duration = cursor.getIntValue(Calls.DURATION)
                 val type = cursor.getIntValue(Calls.TYPE)
-                val recentCall = RecentCall(id, number, name, startTS, duration, type)
+                val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type)
                 recentCalls.add(recentCall)
             }
 
