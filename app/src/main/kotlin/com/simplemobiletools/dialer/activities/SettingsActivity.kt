@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.activities
 
 import android.os.Bundle
 import android.view.Menu
+import com.simplemobiletools.commons.dialogs.ChangeDateTimeFormatDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.dialer.R
@@ -20,6 +21,7 @@ class SettingsActivity : SimpleActivity() {
 
         setupCustomizeColors()
         setupUseEnglish()
+        setupChangeDateTimeFormat()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
     }
@@ -42,6 +44,12 @@ class SettingsActivity : SimpleActivity() {
             settings_use_english.toggle()
             config.useEnglish = settings_use_english.isChecked
             System.exit(0)
+        }
+    }
+
+    private fun setupChangeDateTimeFormat() {
+        settings_change_date_time_format_holder.setOnClickListener {
+            ChangeDateTimeFormatDialog(this) {}
         }
     }
 }
