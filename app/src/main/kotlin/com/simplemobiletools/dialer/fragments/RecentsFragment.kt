@@ -40,7 +40,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             recents_placeholder_2.beGone()
             recents_list.beVisible()
             RecentCallsAdapter(activity as SimpleActivity, recents, recents_list) {
-
+                activity?.launchCallIntent((it as RecentCall).phoneNumber)
             }.apply {
                 recents_list.adapter = this
             }
