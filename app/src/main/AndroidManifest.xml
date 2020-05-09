@@ -71,6 +71,19 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.DialerActivity"
+            android:label="@string/dialer"
+            android:theme="@style/Theme.Transparent">
+
+            <intent-filter>
+                <action android:name="android.intent.action.CALL" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="tel" />
+            </intent-filter>
+        </activity>
+
         <activity-alias
             android:name=".activities.SplashActivity.Red"
             android:enabled="false"
