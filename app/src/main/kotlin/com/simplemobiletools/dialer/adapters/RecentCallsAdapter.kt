@@ -8,17 +8,22 @@ import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.formatDateOrTime
+import com.simplemobiletools.commons.extensions.getColoredDrawableWithColor
 import com.simplemobiletools.commons.extensions.getFormattedDuration
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.item_recent_call.view.*
 import java.util.*
 
 class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) :
         MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
+
+    private val incomingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, activity.config.textColor)
+    private val outgoingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, activity.config.textColor)
 
     override fun getActionMenuId() = 0
 
@@ -66,6 +71,14 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             item_recents_duration.text = call.duration.getFormattedDuration()
 
             SimpleContactsHelper(context).loadContactImage(call.photoUri, item_recents_image, call.name)
+
+            val drawable = if (call.type == Calls.OUTGOING_TYPE) {
+                outgoingCallIcon
+            } else {
+                incomingCallIcon
+            }
+
+            item_recents_type.setImageDrawable(drawable)
         }
     }
 }
