@@ -12,3 +12,7 @@ const val ALL_TABS_MASK = CONTACTS_TAB_MASK or FAVORITES_TAB_MASK or RECENTS_TAB
 val tabsList = arrayListOf(CONTACTS_TAB_MASK, RECENTS_TAB_MASK)
 
 const val KEY_PHONE = "phone"
+
+private const val PATH = "com.simplemobiletools.contacts.action."
+const val ACCEPT_CALL = PATH + "accept_call"
+const val DECLINE_CALL = PATH + "decline_call"
