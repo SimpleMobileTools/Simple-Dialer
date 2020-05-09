@@ -30,6 +30,15 @@ class MainActivity : SimpleActivity() {
         checkContactPermissions()
     }
 
+    override fun onResume() {
+        super.onResume()
+        val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, getFABIconColor())
+        main_dialpad_button.apply {
+            setImageDrawable(dialpadIcon)
+            background.applyColorFilter(getAdjustedPrimaryColor())
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         config.lastUsedViewPagerPage = viewpager.currentItem
@@ -120,6 +129,12 @@ class MainActivity : SimpleActivity() {
                 main_tabs_holder.getTabAt(config.lastUsedViewPagerPage)?.select()
                 invalidateOptionsMenu()
             }, 100L)
+        }
+
+        main_dialpad_button.setOnClickListener {
+            Intent(applicationContext, DialpadActivity::class.java).apply {
+                startActivity(this)
+            }
         }
     }
 

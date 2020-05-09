@@ -9,4 +9,22 @@
     <string name="no_previous_calls">No previous calls have been found</string>
     <string name="could_not_access_the_call_history">Could not access the call history</string>
     <string name="request_access">Request access</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Dialpad</string>
+    <string name="add_number_to_contact">Add number to contact</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Dialer</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="unknown_caller">Unknown Caller</string>
+    <string name="is_calling">Is Calling…</string>
+    <string name="dialing">Dialing…</string>
+    <string name="call_ended">Call Ended</string>
+    <string name="call_ending">Call Ending</string>
+    <string name="ongoing_call">Ongoing Call</string>
+    <string name="select_sim">Select a SIM for this call</string>
+    <string name="always_use_this_sim">Always use this SIM for this number</string>
+
 </resources>

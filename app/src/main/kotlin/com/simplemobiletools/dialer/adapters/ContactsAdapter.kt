@@ -7,6 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.extensions.getAdjustedPrimaryColor
+import com.simplemobiletools.commons.extensions.highlightTextFromNumbers
+import com.simplemobiletools.commons.extensions.highlightTextPart
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -14,8 +17,11 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import java.util.*
 
-class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleContact>, recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) :
-        MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
+class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleContact>, recyclerView: MyRecyclerView, highlightText: String = "",
+                      itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
+
+    private var textToHighlight = highlightText
+    private var adjustedPrimaryColor = activity.getAdjustedPrimaryColor()
 
     override fun getActionMenuId() = 0
 
@@ -47,6 +53,19 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
 
     override fun getItemCount() = contacts.size
 
+    fun updateItems(newItems: ArrayList<SimpleContact>, highlightText: String = "") {
+        if (newItems.hashCode() != contacts.hashCode()) {
+            contacts = newItems.clone() as ArrayList<SimpleContact>
+            textToHighlight = highlightText
+            notifyDataSetChanged()
+            finishActMode()
+        } else if (textToHighlight != highlightText) {
+            textToHighlight = highlightText
+            notifyDataSetChanged()
+        }
+        fastScroller?.measureRecyclerView()
+    }
+
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isDestroyed && !activity.isFinishing) {
@@ -56,8 +75,14 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
 
     private fun setupView(view: View, contact: SimpleContact) {
         view.apply {
-            findViewById<TextView>(R.id.item_contact_name).text = contact.name
             findViewById<TextView>(R.id.item_contact_name).setTextColor(textColor)
+            findViewById<TextView>(R.id.item_contact_name).text = if (textToHighlight.isEmpty()) contact.name else {
+                if (contact.name.contains(textToHighlight, true)) {
+                    contact.name.highlightTextPart(textToHighlight, adjustedPrimaryColor)
+                } else {
+                    contact.name.highlightTextFromNumbers(textToHighlight, adjustedPrimaryColor)
+                }
+            }
 
             SimpleContactsHelper(context).loadContactImage(contact.photoUri, findViewById(R.id.item_contact_image), contact.name)
         }
