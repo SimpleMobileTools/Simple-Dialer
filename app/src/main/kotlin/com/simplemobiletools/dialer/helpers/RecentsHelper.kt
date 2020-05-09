@@ -31,6 +31,7 @@ class RecentsHelper(private val context: Context) {
 
             val sortOrder = "${Calls._ID} DESC LIMIT 100"
 
+            var previousRecentCallFrom = ""
             context.queryCursor(uri, projection, sortOrder = sortOrder) { cursor ->
                 val id = cursor.getIntValue(Calls._ID)
                 val number = cursor.getStringValue(Calls.NUMBER)
@@ -40,7 +41,12 @@ class RecentsHelper(private val context: Context) {
                 val duration = cursor.getIntValue(Calls.DURATION)
                 val type = cursor.getIntValue(Calls.TYPE)
                 val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type)
-                recentCalls.add(recentCall)
+
+                if ("$number$name" != previousRecentCallFrom) {
+                    recentCalls.add(recentCall)
+                }
+
+                previousRecentCallFrom = "$number$name"
             }
 
             callback(recentCalls)
