@@ -27,6 +27,7 @@ class SettingsActivity : SimpleActivity() {
         setupCustomizeColors()
         setupUseEnglish()
         setupManageBlockedNumbers()
+        setupManageSpeedDial()
         setupChangeDateTimeFormat()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
@@ -59,6 +60,14 @@ class SettingsActivity : SimpleActivity() {
         settings_manage_blocked_numbers_holder.beVisibleIf(isNougatPlus())
         settings_manage_blocked_numbers_holder.setOnClickListener {
             Intent(this, ManageBlockedNumbersActivity::class.java).apply {
+                startActivity(this)
+            }
+        }
+    }
+
+    private fun setupManageSpeedDial() {
+        settings_manage_speed_dial_holder.setOnClickListener {
+            Intent(this, ManageSpeedDialActivity::class.java).apply {
                 startActivity(this)
             }
         }

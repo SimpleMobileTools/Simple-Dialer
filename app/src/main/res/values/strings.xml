@@ -27,6 +27,11 @@
     <string name="select_sim">Select a SIM for this call</string>
     <string name="always_use_this_sim">Always use this SIM for this number</string>
 
+    <!-- Speed dial -->
+    <string name="speed_dial">Speed dial</string>
+    <string name="manage_speed_dial">Manage speed dial</string>
+    <string name="speed_dial_label">Click on a number to assign a contact to it. You can then quickly call the given contact by long pressing the given number at the dialer.</string>
+
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - Manage your phone calls easily</string>

@@ -56,7 +56,12 @@
         <activity
             android:name="com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity"
             android:label="@string/blocked_numbers"
-            android:parentActivityName=".activities.SettingsActivity"/>
+            android:parentActivityName=".activities.SettingsActivity" />
+
+        <activity
+            android:name=".activities.ManageSpeedDialActivity"
+            android:label="@string/speed_dial"
+            android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.SettingsActivity"
