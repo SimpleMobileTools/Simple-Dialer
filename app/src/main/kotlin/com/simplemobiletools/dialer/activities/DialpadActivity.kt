@@ -3,6 +3,7 @@ package com.simplemobiletools.dialer.activities
 import android.annotation.TargetApi
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -13,6 +14,7 @@ import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.REQUEST_CODE_SET_DEFAULT_DIALER
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
@@ -29,6 +31,8 @@ import com.simplemobiletools.dialer.models.SpeedDial
 import kotlinx.android.synthetic.main.activity_dialpad.*
 import kotlinx.android.synthetic.main.activity_dialpad.dialpad_holder
 import kotlinx.android.synthetic.main.dialpad.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DialpadActivity : SimpleActivity() {
     private var contacts = ArrayList<SimpleContact>()
@@ -78,6 +82,12 @@ class DialpadActivity : SimpleActivity() {
         val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_vector, if (isBlackAndWhiteTheme()) Color.BLACK else config.primaryColor.getContrastColor())
         dialpad_call_button.setImageDrawable(callIcon)
         dialpad_call_button.background.applyColorFilter(getAdjustedPrimaryColor())
+
+        letter_fastscroller.textColor = config.textColor.getColorStateList()
+        letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
+        letter_fastscroller_thumb.textColor = config.primaryColor.getContrastColor()
+
+        dialpad_bottom_background.background = ColorDrawable(config.backgroundColor)
     }
 
     override fun onResume() {
@@ -176,6 +186,16 @@ class DialpadActivity : SimpleActivity() {
         }.sortedWith(compareBy {
             !it.doesContainPhoneNumber(text)
         }).toMutableList() as ArrayList<SimpleContact>
+
+        letter_fastscroller.setupWithRecyclerView(dialpad_list, { position ->
+            try {
+                val name = filtered[position].name
+                val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
+                FastScrollItemIndicator.Text(character.toUpperCase(Locale.getDefault()))
+            } catch (e: Exception) {
+                FastScrollItemIndicator.Text("")
+            }
+        })
 
         ContactsAdapter(this, filtered, dialpad_list, text) {
             startCallIntent((it as SimpleContact).phoneNumber)
