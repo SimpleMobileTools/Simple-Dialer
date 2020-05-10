@@ -7,9 +7,12 @@ import android.os.Bundle
 import android.view.Menu
 import com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity
 import com.simplemobiletools.commons.dialogs.ChangeDateTimeFormatDialog
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.getFontSizeText
 import com.simplemobiletools.commons.extensions.updateTextColors
-import com.simplemobiletools.commons.helpers.isNougatPlus
+import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.config
 import kotlinx.android.synthetic.main.activity_settings.*
@@ -29,6 +32,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageBlockedNumbers()
         setupManageSpeedDial()
         setupChangeDateTimeFormat()
+        setupFontSize()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
     }
@@ -76,6 +80,22 @@ class SettingsActivity : SimpleActivity() {
     private fun setupChangeDateTimeFormat() {
         settings_change_date_time_format_holder.setOnClickListener {
             ChangeDateTimeFormatDialog(this) {}
+        }
+    }
+
+    private fun setupFontSize() {
+        settings_font_size.text = getFontSizeText()
+        settings_font_size_holder.setOnClickListener {
+            val items = arrayListOf(
+                RadioItem(FONT_SIZE_SMALL, getString(R.string.small)),
+                RadioItem(FONT_SIZE_MEDIUM, getString(R.string.medium)),
+                RadioItem(FONT_SIZE_LARGE, getString(R.string.large)),
+                RadioItem(FONT_SIZE_EXTRA_LARGE, getString(R.string.extra_large)))
+
+            RadioGroupDialog(this@SettingsActivity, items, config.fontSize) {
+                config.fontSize = it as Int
+                settings_font_size.text = getFontSizeText()
+            }
         }
     }
 }
