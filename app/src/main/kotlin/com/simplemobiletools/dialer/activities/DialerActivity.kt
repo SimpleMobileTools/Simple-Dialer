@@ -23,7 +23,7 @@ class DialerActivity : SimpleActivity() {
         if (intent.action == Intent.ACTION_CALL && intent.data != null) {
             callNumber = intent.data
 
-            // make sure Simple Contacts is the default Phone app before initiating an outgoing call
+            // make sure Simple Dialer is the default Phone app before initiating an outgoing call
             if (!isDefaultDialer()) {
                 launchSetDefaultDialerIntent()
             } else {

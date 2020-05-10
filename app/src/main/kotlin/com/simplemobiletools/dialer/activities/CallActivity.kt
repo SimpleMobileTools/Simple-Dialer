@@ -304,14 +304,14 @@ class CallActivity : SimpleActivity() {
 
     private fun initProximitySensor() {
         val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
-        proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "com.simplemobiletools.contacts.pro:wake_lock")
+        proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "com.simplemobiletools.dialer.pro:wake_lock")
         proximityWakeLock!!.acquire(10 * MINUTE_SECONDS * 1000L)
     }
 
     @SuppressLint("NewApi")
     private fun setupNotification() {
         val callState = CallManager.getState()
-        val channelId = "simple_contacts_call"
+        val channelId = "simple_dialer_call"
         if (isOreoPlus()) {
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val name = "call_notification_channel"
