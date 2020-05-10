@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Eenvoudige Telefoon</string>
+    <string name="app_launcher_name">Telefoon</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Kon geen toegang krijgen tot de contacten</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Er zijn geen gesprekken gevonden</string>
+    <string name="could_not_access_the_call_history">Kon geen toegang krijgen tot de oproepgeschiedenis</string>
+    <string name="request_access">Toegang verzoeken</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Telefoonkiezer</string>
+    <string name="add_number_to_contact">Nummer aan contact toevoegen</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Telefoon</string>
+    <string name="accept">Beantwoorden</string>
+    <string name="decline">Weigeren</string>
+    <string name="unknown_caller">Nummer onbekend</string>
+    <string name="is_calling">Bellen…</string>
+    <string name="dialing">Bellen…</string>
+    <string name="call_ended">Gesprek beëindigd</string>
+    <string name="call_ending">Gesprek beëindigen</string>
+    <string name="ongoing_call">Gesprek gaande</string>
+    <string name="select_sim">Selecteer de SIM-kaart voor dit gesprek</string>
+    <string name="always_use_this_sim">Voor dit nummer altijd deze SIM-kaart gebruiken</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Snelkiezer</string>
+    <string name="manage_speed_dial">Snelkiezer bewerken</string>
+    <string name="speed_dial_label">Klik op een cijfer om er een contact aan te koppelen. Vervolgens kan deze persoon direct gebeld worden door in de kiezer lang op het gekoppelde cijfer te drukken.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Eenvoudige Telefoon - Beheer gesprekken met gemak</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Een handige telefoon met nummerblokkering en ondersteuning voor meerdere SIM\'s</string>
+    <string name="app_long_description">
+        Een lichtgewicht app om gesprekken mee te beheren, met een handige oproepgeschiedenis.
+
+        Bevat een telefoonkiezer met slimme suggesties voor contacten. Ondersteunt ook het invoeren van namen met letters.
+
+        Ongewenste telefoonnummers zijn eenvoudig te blokkeren.
+
+        De ondersteunde snelkiezer maakt het eenvoudig om favoriete contacten direct te bellen.
+
+        De app is ontworpen volgens material design en heeft standaard een donker thema. De app heeft geen toegang tot het internet nodig en voorziet van meer privacy, veiligheid en stabiliteit dan andere apps.
+
+        Bevat geen advertenties of onnodige machtigingen. Volledig open-source. Kleuren van de app kunnen worden aangepast.
+
+        <b>Probeer ook eens de andere apps van Simple Tools:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
