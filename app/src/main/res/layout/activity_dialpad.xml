@@ -20,8 +20,10 @@
     <com.reddit.indicatorfastscroll.FastScrollerView
         android:id="@+id/letter_fastscroller"
         android:layout_width="32dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:gravity="top"
+        android:paddingTop="@dimen/medium_margin"
+        app:layout_constraintBottom_toTopOf="@+id/dialpad_divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/dialpad_list" />
 
@@ -30,7 +32,7 @@
         android:layout_width="@dimen/fab_size"
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/activity_margin"
-        app:layout_constraintBottom_toBottomOf="@+id/dialpad_list"
+        app:layout_constraintBottom_toTopOf="@+id/dialpad_divider"
         app:layout_constraintEnd_toStartOf="@+id/letter_fastscroller"
         app:layout_constraintTop_toTopOf="@+id/dialpad_list" />
 
@@ -40,14 +42,6 @@
         android:layout_height="1dp"
         android:background="@drawable/divider"
         app:layout_constraintBottom_toTopOf="@+id/dialpad_input" />
-
-    <ImageView
-        android:id="@+id/dialpad_bottom_background"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:src="@color/theme_dark_background_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dialpad_divider" />
 
     <com.simplemobiletools.commons.views.MyEditText
         android:id="@+id/dialpad_input"

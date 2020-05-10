@@ -3,7 +3,6 @@ package com.simplemobiletools.dialer.activities
 import android.annotation.TargetApi
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -86,8 +85,6 @@ class DialpadActivity : SimpleActivity() {
         letter_fastscroller.textColor = config.textColor.getColorStateList()
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
         letter_fastscroller_thumb.textColor = config.primaryColor.getContrastColor()
-
-        dialpad_bottom_background.background = ColorDrawable(config.backgroundColor)
     }
 
     override fun onResume() {
