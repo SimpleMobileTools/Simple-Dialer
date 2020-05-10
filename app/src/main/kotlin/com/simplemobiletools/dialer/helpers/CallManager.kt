@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
 import android.telecom.Call
+import android.telecom.InCallService
 import android.telecom.VideoProfile
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.dialer.models.CallContact
@@ -13,6 +14,7 @@ import com.simplemobiletools.dialer.models.CallContact
 class CallManager {
     companion object {
         var call: Call? = null
+        var inCallService: InCallService? = null
 
         fun accept() {
             call?.answer(VideoProfile.STATE_AUDIO_ONLY)

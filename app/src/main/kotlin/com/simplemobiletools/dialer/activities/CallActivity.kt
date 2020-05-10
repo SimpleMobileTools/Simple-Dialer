@@ -12,6 +12,7 @@ import android.os.Handler
 import android.os.PowerManager
 import android.provider.MediaStore
 import android.telecom.Call
+import android.telecom.CallAudioState
 import android.util.Size
 import android.view.WindowManager
 import android.widget.RemoteViews
@@ -159,6 +160,9 @@ class CallActivity : SimpleActivity() {
         val drawable = if (isSpeakerOn) R.drawable.ic_speaker_on_vector else R.drawable.ic_speaker_off_vector
         call_toggle_speaker.setImageDrawable(getDrawable(drawable))
         audioManager.isSpeakerphoneOn = isSpeakerOn
+
+        val newRoute = if (isSpeakerOn) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_EARPIECE
+        CallManager.inCallService?.setAudioRoute(newRoute)
     }
 
     private fun toggleMicrophone() {
@@ -166,6 +170,7 @@ class CallActivity : SimpleActivity() {
         val drawable = if (isMicrophoneOn) R.drawable.ic_microphone_vector else R.drawable.ic_microphone_off_vector
         call_toggle_microphone.setImageDrawable(getDrawable(drawable))
         audioManager.isMicrophoneMute = !isMicrophoneOn
+        CallManager.inCallService?.setMuted(!isMicrophoneOn)
     }
 
     private fun toggleDialpadVisibility() {
