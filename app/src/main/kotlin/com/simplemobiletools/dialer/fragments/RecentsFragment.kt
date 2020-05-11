@@ -3,19 +3,19 @@ package com.simplemobiletools.dialer.fragments
 import android.content.Context
 import android.util.AttributeSet
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CALL_LOG
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
-import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
+import com.simplemobiletools.dialer.interfaces.RefreshRecentsListener
 import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.fragment_recents.view.*
 
-class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet) {
+class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshRecentsListener {
     override fun setupFragment() {
-        val placeholderResId = if (context.hasPermission(PERMISSION_READ_CALL_LOG)) {
+        val placeholderResId = if (context.hasPermission(PERMISSION_WRITE_CALL_LOG)) {
             R.string.no_previous_calls
         } else {
             R.string.could_not_access_the_call_history
@@ -40,10 +40,13 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
     override fun primaryColorChanged(color: Int) {}
 
+    override fun refreshRecents() {
+    }
+
     fun updateRecents(recents: ArrayList<RecentCall>) {
         if (recents.isEmpty()) {
             recents_placeholder.beVisible()
-            recents_placeholder_2.beVisibleIf(!context.hasPermission(PERMISSION_READ_CALL_LOG))
+            recents_placeholder_2.beVisibleIf(!context.hasPermission(PERMISSION_WRITE_CALL_LOG))
             recents_list.beGone()
         } else {
             recents_placeholder.beGone()
@@ -52,7 +55,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
             val currAdapter = recents_list.adapter
             if (currAdapter == null) {
-                RecentCallsAdapter(activity as SimpleActivity, recents, recents_list) {
+                RecentCallsAdapter(activity as SimpleActivity, recents, recents_list, this) {
                     activity?.launchCallIntent((it as RecentCall).phoneNumber)
                 }.apply {
                     recents_list.adapter = this
@@ -64,7 +67,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     }
 
     private fun requestCallLogPermission() {
-        activity?.handlePermission(PERMISSION_READ_CALL_LOG) {
+        activity?.handlePermission(PERMISSION_WRITE_CALL_LOG) {
             if (it) {
                 recents_placeholder.text = context.getString(R.string.no_previous_calls)
                 recents_placeholder_2.beGone()

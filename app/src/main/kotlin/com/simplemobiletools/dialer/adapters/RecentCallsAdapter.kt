@@ -8,18 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.helpers.RecentsHelper
+import com.simplemobiletools.dialer.interfaces.RefreshRecentsListener
 import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.item_recent_call.view.*
 import java.util.*
 
-class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) :
-        MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
+class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshRecentsListener: RefreshRecentsListener,
+                         itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
     private lateinit var incomingCallIcon: Drawable
     private lateinit var outgoingCallIcon: Drawable
@@ -27,13 +30,22 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
     init {
         initDrawables()
+        setupDragListener(true)
     }
 
-    override fun getActionMenuId() = 0
+    override fun getActionMenuId() = R.menu.cab_remove_only
 
     override fun prepareActionMode(menu: Menu) {}
 
-    override fun actionItemPressed(id: Int) {}
+    override fun actionItemPressed(id: Int) {
+        if (selectedKeys.isEmpty()) {
+            return
+        }
+
+        when (id) {
+            R.id.cab_remove -> askConfirmRemove()
+        }
+    }
 
     override fun getSelectableItemCount() = recentCalls.size
 
@@ -51,7 +63,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val recentCall = recentCalls[position]
-        holder.bindView(recentCall, true, false) { itemView, layoutPosition ->
+        holder.bindView(recentCall, true, true) { itemView, layoutPosition ->
             setupView(itemView, recentCall)
         }
         bindViewHolder(holder)
@@ -71,6 +83,35 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         outgoingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, activity.config.textColor)
     }
 
+
+    private fun askConfirmRemove() {
+        ConfirmationDialog(activity, activity.getString(R.string.remove_confirmation)) {
+            removeRecents()
+        }
+    }
+
+    private fun removeRecents() {
+        if (selectedKeys.isEmpty()) {
+            return
+        }
+
+        val callsToRemove = getSelectedItems()
+        val positions = getSelectedItemPositions()
+        val ids = selectedKeys.toMutableList() as ArrayList<Int>
+
+        RecentsHelper(activity).removeRecentCalls(ids) {
+            recentCalls.removeAll(callsToRemove)
+            activity.runOnUiThread {
+                if (recentCalls.isEmpty()) {
+                    refreshRecentsListener.refreshRecents()
+                    finishActMode()
+                } else {
+                    removeSelectedItems(positions)
+                }
+            }
+        }
+    }
+
     fun updateItems(newItems: ArrayList<RecentCall>) {
         if (newItems.hashCode() != recentCalls.hashCode()) {
             recentCalls = newItems.clone() as ArrayList<RecentCall>
@@ -79,8 +120,11 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         }
     }
 
+    private fun getSelectedItems() = recentCalls.filter { selectedKeys.contains(it.id) } as ArrayList<RecentCall>
+
     private fun setupView(view: View, call: RecentCall) {
         view.apply {
+            item_recents_frame.isSelected = selectedKeys.contains(call.id)
             item_recents_name.apply {
                 text = call.name
                 setTextColor(textColor)

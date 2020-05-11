@@ -9,6 +9,7 @@
     <string name="no_previous_calls">Não existem chamadas anteriores</string>
     <string name="could_not_access_the_call_history">Não foi possível aceder ao histórico de chamadas</string>
     <string name="request_access">Pedir acesso</string>
+    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History?</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Marcador</string>
