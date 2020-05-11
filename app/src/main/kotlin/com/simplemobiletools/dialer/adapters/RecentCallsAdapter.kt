@@ -11,7 +11,6 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
-import com.simplemobiletools.commons.helpers.mydebug
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -98,9 +97,13 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
         val callsToRemove = getSelectedItems()
         val positions = getSelectedItemPositions()
-        val ids = selectedKeys.toMutableList() as ArrayList<Int>
+        val idsToRemove = ArrayList<Int>()
+        callsToRemove.forEach {
+            idsToRemove.add(it.id)
+            it.neighbourIDs.mapTo(idsToRemove, { it })
+        }
 
-        RecentsHelper(activity).removeRecentCalls(ids) {
+        RecentsHelper(activity).removeRecentCalls(idsToRemove) {
             recentCalls.removeAll(callsToRemove)
             activity.runOnUiThread {
                 if (recentCalls.isEmpty()) {
