@@ -11,6 +11,7 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.helpers.mydebug
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -125,8 +126,13 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
     private fun setupView(view: View, call: RecentCall) {
         view.apply {
             item_recents_frame.isSelected = selectedKeys.contains(call.id)
+            var nameToShow = call.name
+            if (call.neighbourIDs.isNotEmpty()) {
+                nameToShow += " (${call.neighbourIDs.size + 1})"
+            }
+
             item_recents_name.apply {
-                text = call.name
+                text = nameToShow
                 setTextColor(textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
             }

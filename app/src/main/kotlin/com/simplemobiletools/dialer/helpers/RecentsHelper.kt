@@ -41,10 +41,14 @@ class RecentsHelper(private val context: Context) {
                 val startTS = (cursor.getLongValue(Calls.DATE) / 1000L).toInt()
                 val duration = cursor.getIntValue(Calls.DURATION)
                 val type = cursor.getIntValue(Calls.TYPE)
-                val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type)
+                val neighbourIDs = ArrayList<Int>()
+                val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs)
 
+                // if we have 3 missed calls from the same number, show it just once
                 if ("$number$name" != previousRecentCallFrom) {
                     recentCalls.add(recentCall)
+                } else {
+                    recentCalls.lastOrNull()?.neighbourIDs?.add(id)
                 }
 
                 previousRecentCallFrom = "$number$name"
