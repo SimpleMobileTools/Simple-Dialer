@@ -1,6 +1,7 @@
 package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.provider.ContactsContract
 import android.util.AttributeSet
@@ -45,6 +46,18 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         letter_fastscroller.textColor = context.config.textColor.getColorStateList()
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
         letter_fastscroller_thumb.textColor = context.config.primaryColor.getContrastColor()
+
+        fragment_fab.setOnClickListener {
+            Intent(Intent.ACTION_INSERT).apply {
+                data = ContactsContract.Contacts.CONTENT_URI
+
+                if (resolveActivity(context.packageManager) != null) {
+                    activity?.startActivity(this)
+                } else {
+                    context.toast(R.string.no_app_found)
+                }
+            }
+        }
     }
 
     override fun textColorChanged(color: Int) {
