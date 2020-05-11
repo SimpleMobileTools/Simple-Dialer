@@ -8,8 +8,8 @@
     <!-- Recents -->
     <string name="no_previous_calls">Er zijn geen gesprekken gevonden</string>
     <string name="could_not_access_the_call_history">Kon geen toegang krijgen tot de oproepgeschiedenis</string>
-    <string name="request_access">Toegang verzoeken</string>
-    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History?</string>
+    <string name="request_access">Toegang aanvragen</string>
+    <string name="remove_confirmation">Geselecteerde items uit de oproepgeschiedenis verwijderen?</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Telefoonkiezer</string>
@@ -20,7 +20,7 @@
     <string name="accept">Beantwoorden</string>
     <string name="decline">Weigeren</string>
     <string name="unknown_caller">Nummer onbekend</string>
-    <string name="is_calling">Bellen…</string>
+    <string name="is_calling">Inkomend gesprek…</string>
     <string name="dialing">Bellen…</string>
     <string name="call_ended">Gesprek beëindigd</string>
     <string name="call_ending">Gesprek beëindigen</string>
