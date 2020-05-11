@@ -1,5 +1,6 @@
 package com.simplemobiletools.dialer.adapters
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.provider.CallLog.Calls
 import android.util.TypedValue
@@ -15,6 +16,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.helpers.KEY_PHONE
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshRecentsListener
 import com.simplemobiletools.dialer.models.RecentCall
@@ -33,9 +35,13 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         setupDragListener(true)
     }
 
-    override fun getActionMenuId() = R.menu.cab_remove_only
+    override fun getActionMenuId() = R.menu.cab_recent_calls
 
-    override fun prepareActionMode(menu: Menu) {}
+    override fun prepareActionMode(menu: Menu) {
+        menu.apply {
+            findItem(R.id.cab_add_number).isVisible = isOneItemSelected()
+        }
+    }
 
     override fun actionItemPressed(id: Int) {
         if (selectedKeys.isEmpty()) {
@@ -44,6 +50,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
         when (id) {
             R.id.cab_remove -> askConfirmRemove()
+            R.id.cab_add_number -> addNumberToContact()
         }
     }
 
@@ -83,6 +90,20 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         outgoingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, activity.config.textColor)
     }
 
+    private fun addNumberToContact() {
+        val recentCall = getSelectedItems().firstOrNull() ?: return
+        Intent().apply {
+            action = Intent.ACTION_INSERT_OR_EDIT
+            type = "vnd.android.cursor.item/contact"
+            putExtra(KEY_PHONE, recentCall.phoneNumber)
+
+            if (resolveActivity(activity.packageManager) != null) {
+                activity.startActivity(this)
+            } else {
+                activity.toast(R.string.no_app_found)
+            }
+        }
+    }
 
     private fun askConfirmRemove() {
         ConfirmationDialog(activity, activity.getString(R.string.remove_confirmation)) {
