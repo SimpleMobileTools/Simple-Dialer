@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_recents.*
 class MainActivity : SimpleActivity() {
     private var storedTextColor = 0
     private var storedPrimaryColor = 0
-    private var wasFragmentInit = false
+    private var isFirstResume = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,9 +69,11 @@ class MainActivity : SimpleActivity() {
             }
         }
 
-        if (wasFragmentInit) {
+        if (!isFirstResume) {
             refreshItems()
         }
+
+        isFirstResume = false
     }
 
     override fun onPause() {
@@ -158,10 +160,6 @@ class MainActivity : SimpleActivity() {
             }
         })
 
-        viewpager.onGlobalLayout {
-            refreshItems()
-        }
-
         main_tabs_holder.onTabSelectionChanged(
             tabUnselectedAction = {
                 it.icon?.applyColorFilter(config.textColor)
@@ -191,8 +189,6 @@ class MainActivity : SimpleActivity() {
                 startActivity(this)
             }
         }
-
-        wasFragmentInit = true
     }
 
     private fun getTabIcon(position: Int): Drawable {
