@@ -43,7 +43,7 @@ class DialerActivity : SimpleActivity() {
     @SuppressLint("MissingPermission")
     private fun initOutgoingCall() {
         try {
-            getHandleToUse(intent, callNumber.toString()) { handle ->
+            getHandleToUse(intent, callNumber.toString()) { handle, setAsDefault ->
                 Bundle().apply {
                     putParcelable(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE, handle)
                     putBoolean(TelecomManager.EXTRA_START_CALL_WITH_VIDEO_STATE, false)

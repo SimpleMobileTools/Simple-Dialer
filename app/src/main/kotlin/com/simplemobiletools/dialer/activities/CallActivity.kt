@@ -26,7 +26,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.addCharacter
 import com.simplemobiletools.dialer.extensions.audioManager
 import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.extensions.startCallIntent
+import com.simplemobiletools.dialer.extensions.getHandleToUse
 import com.simplemobiletools.dialer.helpers.ACCEPT_CALL
 import com.simplemobiletools.dialer.helpers.CallManager
 import com.simplemobiletools.dialer.helpers.DECLINE_CALL
@@ -239,10 +239,8 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun showPhoneAccountPicker() {
-        if (callContact == null || callContact!!.number.isEmpty()) {
-            toast(R.string.unknown_error_occurred)
-        } else {
-            startCallIntent(callContact!!.number)
+        getHandleToUse(intent, callContact!!.number) { handle, setAsDefault ->
+            CallManager.call?.phoneAccountSelected(handle, setAsDefault)
         }
     }
 
