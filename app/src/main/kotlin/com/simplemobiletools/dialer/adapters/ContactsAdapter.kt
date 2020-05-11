@@ -66,7 +66,6 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
             textToHighlight = highlightText
             notifyDataSetChanged()
         }
-        fastScroller?.measureRecyclerView()
     }
 
     override fun onViewRecycled(holder: ViewHolder) {

@@ -8,6 +8,7 @@ import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.Config
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
+import kotlinx.android.synthetic.main.fragment_recents.view.*
 
 abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet) : RelativeLayout(context, attributeSet) {
     protected var activity: SimpleActivity? = null
@@ -24,7 +25,8 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
     }
 
     fun finishActMode() {
-        (fragment_list.adapter as? MyRecyclerViewAdapter)?.finishActMode()
+        (fragment_list?.adapter as? MyRecyclerViewAdapter)?.finishActMode()
+        (recents_list?.adapter as? MyRecyclerViewAdapter)?.finishActMode()
     }
 
     abstract fun setupFragment()

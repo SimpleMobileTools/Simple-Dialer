@@ -71,6 +71,14 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         outgoingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, activity.config.textColor)
     }
 
+    fun updateItems(newItems: ArrayList<RecentCall>) {
+        if (newItems.hashCode() != recentCalls.hashCode()) {
+            recentCalls = newItems.clone() as ArrayList<RecentCall>
+            notifyDataSetChanged()
+            finishActMode()
+        }
+    }
+
     private fun setupView(view: View, call: RecentCall) {
         view.apply {
             item_recents_name.apply {

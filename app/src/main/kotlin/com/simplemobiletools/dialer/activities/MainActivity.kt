@@ -15,7 +15,8 @@ import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.helpers.*
+import com.simplemobiletools.dialer.helpers.RecentsHelper
+import com.simplemobiletools.dialer.helpers.tabsList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.fragment_recents.*
@@ -23,6 +24,7 @@ import kotlinx.android.synthetic.main.fragment_recents.*
 class MainActivity : SimpleActivity() {
     private var storedTextColor = 0
     private var storedPrimaryColor = 0
+    private var wasFragmentInit = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +68,10 @@ class MainActivity : SimpleActivity() {
             getAllFragments().forEach {
                 it?.primaryColorChanged(configPrimaryColor)
             }
+        }
+
+        if (wasFragmentInit) {
+            refreshItems()
         }
     }
 
@@ -154,7 +160,7 @@ class MainActivity : SimpleActivity() {
         })
 
         viewpager.onGlobalLayout {
-            refreshItems(ALL_TABS_MASK)
+            refreshItems()
         }
 
         main_tabs_holder.onTabSelectionChanged(
@@ -186,6 +192,8 @@ class MainActivity : SimpleActivity() {
                 startActivity(this)
             }
         }
+
+        wasFragmentInit = true
     }
 
     private fun getTabIcon(position: Int): Drawable {
@@ -197,7 +205,7 @@ class MainActivity : SimpleActivity() {
         return resources.getColoredDrawableWithColor(drawableId, config.textColor)
     }
 
-    fun refreshItems(refreshTabsMask: Int) {
+    private fun refreshItems() {
         if (isDestroyed || isFinishing) {
             return
         }
@@ -207,19 +215,15 @@ class MainActivity : SimpleActivity() {
             viewpager.currentItem = config.lastUsedViewPagerPage
         }
 
-        if (refreshTabsMask and CONTACTS_TAB_MASK != 0) {
-            SimpleContactsHelper(this).getAvailableContacts { contacts ->
-                runOnUiThread {
-                    contacts_fragment.refreshContacts(contacts)
-                }
+        SimpleContactsHelper(this).getAvailableContacts { contacts ->
+            runOnUiThread {
+                contacts_fragment.refreshContacts(contacts)
             }
         }
 
-        if (refreshTabsMask and RECENTS_TAB_MASK != 0) {
-            RecentsHelper(this).getRecentCalls { recents ->
-                runOnUiThread {
-                    recents_fragment.updateRecents(recents)
-                }
+        RecentsHelper(this).getRecentCalls { recents ->
+            runOnUiThread {
+                recents_fragment.updateRecents(recents)
             }
         }
     }

@@ -81,12 +81,18 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             fragment_placeholder.beGone()
             fragment_placeholder_2.beGone()
             fragment_list.beVisible()
-            ContactsAdapter(activity as SimpleActivity, contacts, fragment_list) {
-                val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((it as SimpleContact).rawId.toString())
-                val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
-                activity!!.launchViewContactIntent(publicUri)
-            }.apply {
-                fragment_list.adapter = this
+
+            val currAdapter = fragment_list.adapter
+            if (currAdapter == null) {
+                ContactsAdapter(activity as SimpleActivity, contacts, fragment_list) {
+                    val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((it as SimpleContact).rawId.toString())
+                    val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
+                    activity!!.launchViewContactIntent(publicUri)
+                }.apply {
+                    fragment_list.adapter = this
+                }
+            } else {
+                (currAdapter as ContactsAdapter).updateItems(contacts)
             }
         }
     }
