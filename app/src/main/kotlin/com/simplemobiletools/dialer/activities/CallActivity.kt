@@ -63,6 +63,7 @@ class CallActivity : SimpleActivity() {
             runOnUiThread {
                 setupNotification()
                 updateOtherPersonsInfo()
+                checkCalledSIMCard()
             }
         }
 
@@ -192,6 +193,23 @@ class CallActivity : SimpleActivity() {
 
         if (callContactAvatar != null) {
             caller_avatar.setImageBitmap(callContactAvatar)
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun checkCalledSIMCard() {
+        try {
+            val accounts = telecomManager.callCapablePhoneAccounts
+            if (accounts.size > 1) {
+                accounts.forEachIndexed { index, account ->
+                    if (account == CallManager.call?.details?.accountHandle) {
+                        call_sim_id.text = "${index + 1}"
+                        call_sim_id.beVisible()
+                        call_sim_image.beVisible()
+                    }
+                }
+            }
+        } catch (ignored: Exception) {
         }
     }
 
