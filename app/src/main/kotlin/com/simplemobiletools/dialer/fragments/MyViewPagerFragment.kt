@@ -28,4 +28,8 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
     }
 
     abstract fun setupFragment()
+
+    abstract fun textColorChanged(color: Int)
+
+    abstract fun primaryColorChanged(color: Int)
 }

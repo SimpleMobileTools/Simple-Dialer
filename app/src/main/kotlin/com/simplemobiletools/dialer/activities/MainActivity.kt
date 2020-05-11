@@ -21,11 +21,15 @@ import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.fragment_recents.*
 
 class MainActivity : SimpleActivity() {
+    private var storedTextColor = 0
+    private var storedPrimaryColor = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
         setupTabColors()
+        storeStateVariables()
 
         if (isDefaultDialer()) {
             checkContactPermissions()
@@ -41,6 +45,33 @@ class MainActivity : SimpleActivity() {
             setImageDrawable(dialpadIcon)
             background.applyColorFilter(getAdjustedPrimaryColor())
         }
+
+        main_tabs_holder.setBackgroundColor(config.backgroundColor)
+
+        val configTextColor = config.textColor
+        if (storedTextColor != configTextColor) {
+            getInactiveTabIndexes(viewpager.currentItem).forEach {
+                main_tabs_holder.getTabAt(it)?.icon?.applyColorFilter(configTextColor)
+            }
+
+            getAllFragments().forEach {
+                it?.textColorChanged(configTextColor)
+            }
+        }
+
+        val configPrimaryColor = config.primaryColor
+        if (storedPrimaryColor != configPrimaryColor) {
+            main_tabs_holder.setSelectedTabIndicatorColor(getAdjustedPrimaryColor())
+            main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(getAdjustedPrimaryColor())
+            getAllFragments().forEach {
+                it?.primaryColorChanged(configPrimaryColor)
+            }
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        storeStateVariables()
     }
 
     override fun onDestroy() {
@@ -68,6 +99,13 @@ class MainActivity : SimpleActivity() {
         // we dont really care about the result, the app can work without being the default Dialer too
         if (requestCode == REQUEST_CODE_SET_DEFAULT_DIALER) {
             checkContactPermissions()
+        }
+    }
+
+    private fun storeStateVariables() {
+        config.apply {
+            storedTextColor = textColor
+            storedPrimaryColor = primaryColor
         }
     }
 
@@ -186,7 +224,7 @@ class MainActivity : SimpleActivity() {
         }
     }
 
-    private fun getAllFragments() = arrayListOf(contacts_fragment)
+    private fun getAllFragments() = arrayListOf(contacts_fragment, recents_fragment)
 
     private fun launchAbout() {
         val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL

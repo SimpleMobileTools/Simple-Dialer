@@ -30,6 +30,15 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         }
     }
 
+    override fun textColorChanged(color: Int) {
+        (recents_list?.adapter as? RecentCallsAdapter)?.apply {
+            initDrawables()
+            updateTextColor(color)
+        }
+    }
+
+    override fun primaryColorChanged(color: Int) {}
+
     fun updateRecents(recents: ArrayList<RecentCall>) {
         if (recents.isEmpty()) {
             recents_placeholder.beVisible()

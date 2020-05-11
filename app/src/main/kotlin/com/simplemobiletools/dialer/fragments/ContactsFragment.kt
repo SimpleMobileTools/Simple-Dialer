@@ -5,6 +5,7 @@ import android.net.Uri
 import android.provider.ContactsContract
 import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
+import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
@@ -44,6 +45,17 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         letter_fastscroller.textColor = context.config.textColor.getColorStateList()
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
         letter_fastscroller_thumb.textColor = context.config.primaryColor.getContrastColor()
+    }
+
+    override fun textColorChanged(color: Int) {
+        (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(color)
+        letter_fastscroller?.textColor = color.getColorStateList()
+    }
+
+    override fun primaryColorChanged(color: Int) {
+        letter_fastscroller_thumb?.thumbColor = color.getColorStateList()
+        letter_fastscroller_thumb?.textColor = color.getContrastColor()
+        fragment_fab.background.applyColorFilter(context.getAdjustedPrimaryColor())
     }
 
     fun refreshContacts(contacts: ArrayList<SimpleContact>) {

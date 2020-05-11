@@ -1,5 +1,6 @@
 package com.simplemobiletools.dialer.adapters
 
+import android.graphics.drawable.Drawable
 import android.provider.CallLog.Calls
 import android.util.TypedValue
 import android.view.Menu
@@ -20,9 +21,13 @@ import java.util.*
 class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) :
         MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
-    private val incomingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, activity.config.textColor)
-    private val outgoingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, activity.config.textColor)
+    private lateinit var incomingCallIcon: Drawable
+    private lateinit var outgoingCallIcon: Drawable
     private var fontSize = activity.getTextSize()
+
+    init {
+        initDrawables()
+    }
 
     override fun getActionMenuId() = 0
 
@@ -59,6 +64,11 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         if (!activity.isDestroyed && !activity.isFinishing) {
             Glide.with(activity).clear(holder.itemView.item_recents_image)
         }
+    }
+
+    fun initDrawables() {
+        incomingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, activity.config.textColor)
+        outgoingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, activity.config.textColor)
     }
 
     private fun setupView(view: View, call: RecentCall) {
