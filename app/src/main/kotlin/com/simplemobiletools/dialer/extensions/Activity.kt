@@ -15,7 +15,7 @@ import com.simplemobiletools.dialer.dialogs.SelectSIMDialog
 
 fun SimpleActivity.startCallIntent(recipient: String) {
     if (isDefaultDialer()) {
-        getHandleToUse(null, recipient) { handle, setAsDefault ->
+        getHandleToUse(null, recipient) { handle ->
             launchCallIntent(recipient, handle)
         }
     } else {
@@ -25,22 +25,22 @@ fun SimpleActivity.startCallIntent(recipient: String) {
 
 // used at devices with multiple SIM cards
 @SuppressLint("MissingPermission")
-fun SimpleActivity.getHandleToUse(intent: Intent?, phoneNumber: String, callback: (handle: PhoneAccountHandle, setAsDefault: Boolean) -> Unit) {
+fun SimpleActivity.getHandleToUse(intent: Intent?, phoneNumber: String, callback: (handle: PhoneAccountHandle) -> Unit) {
     handlePermission(PERMISSION_READ_PHONE_STATE) {
         if (it) {
             val defaultHandle = telecomManager.getDefaultOutgoingPhoneAccount(PhoneAccount.SCHEME_TEL)
             when {
-                intent?.hasExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE) == true -> callback(intent.getParcelableExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE)!!, false)
+                intent?.hasExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE) == true -> callback(intent.getParcelableExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE)!!)
                 config.getCustomSIM(phoneNumber)?.isNotEmpty() == true -> {
                     val storedLabel = Uri.decode(config.getCustomSIM(phoneNumber))
                     val availableSIMs = getAvailableSIMCardLabels()
                     val firstornull = availableSIMs.firstOrNull { it.label == storedLabel }?.handle ?: availableSIMs.first().handle
-                    callback(firstornull, false)
+                    callback(firstornull)
                 }
-                defaultHandle != null -> callback(defaultHandle, true)
+                defaultHandle != null -> callback(defaultHandle)
                 else -> {
-                    SelectSIMDialog(this, phoneNumber) { handle, setAsDefault ->
-                        callback(handle, setAsDefault)
+                    SelectSIMDialog(this, phoneNumber) { handle ->
+                        callback(handle)
                     }
                 }
             }

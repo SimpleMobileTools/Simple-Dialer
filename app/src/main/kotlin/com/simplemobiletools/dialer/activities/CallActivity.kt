@@ -259,8 +259,8 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun showPhoneAccountPicker() {
-        getHandleToUse(intent, callContact!!.number) { handle, setAsDefault ->
-            CallManager.call?.phoneAccountSelected(handle, setAsDefault)
+        getHandleToUse(intent, callContact!!.number) { handle ->
+            CallManager.call?.phoneAccountSelected(handle, false)
         }
     }
 
