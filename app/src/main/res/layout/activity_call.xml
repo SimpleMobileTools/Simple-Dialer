@@ -41,6 +41,33 @@
         app:layout_constraintTop_toBottomOf="@+id/caller_name_label"
         tools:text="Is Calling" />
 
+    <ImageView
+        android:id="@+id/call_sim_image"
+        android:layout_width="@dimen/normal_icon_size"
+        android:layout_height="0dp"
+        android:alpha="0.8"
+        android:background="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_sim_vector"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/call_status_label"
+        app:layout_constraintEnd_toStartOf="@+id/call_status_label"
+        app:layout_constraintTop_toTopOf="@+id/call_status_label" />
+
+    <TextView
+        android:id="@+id/call_sim_id"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.8"
+        android:gravity="center"
+        android:textColor="@color/md_grey_black"
+        android:textSize="@dimen/bigger_text_size"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/call_sim_image"
+        app:layout_constraintEnd_toEndOf="@+id/call_sim_image"
+        app:layout_constraintStart_toStartOf="@+id/call_sim_image"
+        app:layout_constraintTop_toTopOf="@+id/call_sim_image"
+        tools:text="1" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ongoing_call_holder"
         android:layout_width="match_parent"
