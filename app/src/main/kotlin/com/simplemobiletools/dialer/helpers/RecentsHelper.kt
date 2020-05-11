@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.CallLog.Calls
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CALL_LOG
+import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.overloads.times
 import com.simplemobiletools.dialer.models.RecentCall
@@ -14,7 +14,7 @@ class RecentsHelper(private val context: Context) {
     fun getRecentCalls(callback: (ArrayList<RecentCall>) -> Unit) {
         ensureBackgroundThread {
             val recentCalls = ArrayList<RecentCall>()
-            if (!context.hasPermission(PERMISSION_WRITE_CALL_LOG)) {
+            if (!context.hasPermission(PERMISSION_READ_CALL_LOG)) {
                 callback(recentCalls)
                 return@ensureBackgroundThread
             }

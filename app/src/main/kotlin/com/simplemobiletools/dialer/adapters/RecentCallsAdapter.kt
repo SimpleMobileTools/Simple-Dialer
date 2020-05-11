@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CALL_LOG
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
@@ -107,7 +109,9 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
     private fun askConfirmRemove() {
         ConfirmationDialog(activity, activity.getString(R.string.remove_confirmation)) {
-            removeRecents()
+            activity.handlePermission(PERMISSION_WRITE_CALL_LOG) {
+                removeRecents()
+            }
         }
     }
 
