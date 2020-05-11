@@ -41,9 +41,14 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     override fun primaryColorChanged(color: Int) {}
 
     override fun refreshRecents() {
+        RecentsHelper(context).getRecentCalls { recents ->
+            activity?.runOnUiThread {
+                gotRecents(recents)
+            }
+        }
     }
 
-    fun updateRecents(recents: ArrayList<RecentCall>) {
+    private fun gotRecents(recents: ArrayList<RecentCall>) {
         if (recents.isEmpty()) {
             recents_placeholder.beVisible()
             recents_placeholder_2.beVisibleIf(!context.hasPermission(PERMISSION_WRITE_CALL_LOG))
@@ -74,7 +79,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
                 RecentsHelper(context).getRecentCalls { recents ->
                     activity?.runOnUiThread {
-                        updateRecents(recents)
+                        gotRecents(recents)
                     }
                 }
             }

@@ -15,6 +15,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.config
+import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.*
 
@@ -71,7 +72,15 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         fragment_fab.background.applyColorFilter(context.getAdjustedPrimaryColor())
     }
 
-    fun refreshContacts(contacts: ArrayList<SimpleContact>) {
+    fun refreshContacts() {
+        SimpleContactsHelper(context).getAvailableContacts { contacts ->
+            activity?.runOnUiThread {
+                gotContacts(contacts)
+            }
+        }
+    }
+
+    fun gotContacts(contacts: ArrayList<SimpleContact>) {
         setupLetterFastscroller(contacts)
         if (contacts.isEmpty()) {
             fragment_placeholder.beVisible()
@@ -117,7 +126,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
                 SimpleContactsHelper(context).getAvailableContacts { contacts ->
                     activity?.runOnUiThread {
-                        refreshContacts(contacts)
+                        gotContacts(contacts)
                     }
                 }
             }

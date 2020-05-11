@@ -15,7 +15,6 @@ import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.helpers.tabsList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
@@ -215,17 +214,8 @@ class MainActivity : SimpleActivity() {
             viewpager.currentItem = config.lastUsedViewPagerPage
         }
 
-        SimpleContactsHelper(this).getAvailableContacts { contacts ->
-            runOnUiThread {
-                contacts_fragment.refreshContacts(contacts)
-            }
-        }
-
-        RecentsHelper(this).getRecentCalls { recents ->
-            runOnUiThread {
-                recents_fragment.updateRecents(recents)
-            }
-        }
+        contacts_fragment.refreshContacts()
+        recents_fragment.refreshRecents()
     }
 
     private fun getAllFragments() = arrayListOf(contacts_fragment, recents_fragment)
