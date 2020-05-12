@@ -10,7 +10,6 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
-import com.simplemobiletools.commons.helpers.mydebug
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -95,7 +94,6 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             val currAdapter = fragment_list.adapter
             if (currAdapter == null) {
                 ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this) {
-                    mydebug("clicked $it")
                     val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((it as SimpleContact).rawId.toString())
                     val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
                     activity!!.launchViewContactIntent(publicUri)
