@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.*
 
 class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
+    private var allContacts = ArrayList<SimpleContact>()
+
     override fun setupFragment() {
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
             R.string.no_contacts_found
@@ -74,13 +76,14 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
     override fun refreshItems() {
         SimpleContactsHelper(context).getAvailableContacts { contacts ->
+            allContacts = contacts
             activity?.runOnUiThread {
                 gotContacts(contacts)
             }
         }
     }
 
-    fun gotContacts(contacts: ArrayList<SimpleContact>) {
+    private fun gotContacts(contacts: ArrayList<SimpleContact>) {
         setupLetterFastscroller(contacts)
         if (contacts.isEmpty()) {
             fragment_placeholder.beVisible()
@@ -118,16 +121,14 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         })
     }
 
-    fun onSearchOpened() {
-
-    }
-
     fun onSearchClosed() {
-
+        (fragment_list.adapter as? ContactsAdapter)?.updateItems(allContacts)
     }
 
     fun onSearchQueryChanged(text: String) {
-
+        val contacts = allContacts.filter { it.name.contains(text, true) }.toMutableList() as ArrayList<SimpleContact>
+        (fragment_list.adapter as? ContactsAdapter)?.updateItems(contacts, text)
+        setupLetterFastscroller(contacts)
     }
 
     private fun requestReadContactsPermission() {

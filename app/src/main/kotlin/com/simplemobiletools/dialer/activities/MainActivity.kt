@@ -164,8 +164,6 @@ class MainActivity : SimpleActivity() {
 
         MenuItemCompat.setOnActionExpandListener(searchMenuItem, object : MenuItemCompat.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
-                mydebug("search open")
-                contacts_fragment.onSearchOpened()
                 isSearchOpen = true
                 main_dialpad_button.beGone()
                 return true
