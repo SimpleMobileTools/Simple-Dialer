@@ -123,6 +123,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
     fun onSearchClosed() {
         (fragment_list.adapter as? ContactsAdapter)?.updateItems(allContacts)
+        setupLetterFastscroller(allContacts)
     }
 
     fun onSearchQueryChanged(text: String) {
