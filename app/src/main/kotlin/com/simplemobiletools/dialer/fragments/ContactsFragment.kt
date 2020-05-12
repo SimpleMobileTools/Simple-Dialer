@@ -118,6 +118,18 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         })
     }
 
+    fun onSearchOpened() {
+
+    }
+
+    fun onSearchClosed() {
+
+    }
+
+    fun onSearchQueryChanged(text: String) {
+
+    }
+
     private fun requestReadContactsPermission() {
         activity?.handlePermission(PERMISSION_READ_CONTACTS) {
             if (it) {

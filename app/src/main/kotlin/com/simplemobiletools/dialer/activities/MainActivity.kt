@@ -1,5 +1,7 @@
 package com.simplemobiletools.dialer.activities
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
@@ -7,6 +9,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuItemCompat
 import androidx.viewpager.widget.ViewPager
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -25,6 +29,8 @@ class MainActivity : SimpleActivity() {
     private var storedTextColor = 0
     private var storedPrimaryColor = 0
     private var isFirstResume = true
+    private var isSearchOpen = false
+    private var searchMenuItem: MenuItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,6 +88,11 @@ class MainActivity : SimpleActivity() {
         storeStateVariables()
     }
 
+    override fun onStop() {
+        super.onStop()
+        searchMenuItem?.collapseActionView()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         config.lastUsedViewPagerPage = viewpager.currentItem
@@ -89,6 +100,9 @@ class MainActivity : SimpleActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
+        menu.findItem(R.id.search).isVisible = viewpager.currentItem == 0
+
+        setupSearch(menu)
         updateMenuItemColors(menu)
         return true
     }
@@ -129,6 +143,43 @@ class MainActivity : SimpleActivity() {
         }
     }
 
+    private fun setupSearch(menu: Menu) {
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        searchMenuItem = menu.findItem(R.id.search)
+        (searchMenuItem!!.actionView as SearchView).apply {
+            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            isSubmitButtonEnabled = false
+            queryHint = getString(R.string.search)
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String) = false
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    if (isSearchOpen) {
+                        contacts_fragment.onSearchQueryChanged(newText)
+                    }
+                    return true
+                }
+            })
+        }
+
+        MenuItemCompat.setOnActionExpandListener(searchMenuItem, object : MenuItemCompat.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                mydebug("search open")
+                contacts_fragment.onSearchOpened()
+                isSearchOpen = true
+                main_dialpad_button.beGone()
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                contacts_fragment.onSearchClosed()
+                isSearchOpen = false
+                main_dialpad_button.beVisible()
+                return true
+            }
+        })
+    }
+
     private fun setupTabColors() {
         val lastUsedPage = config.lastUsedViewPagerPage
         main_tabs_holder.apply {
@@ -148,7 +199,9 @@ class MainActivity : SimpleActivity() {
     private fun initFragments() {
         viewpager.offscreenPageLimit = tabsList.size - 1
         viewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {}
+            override fun onPageScrollStateChanged(state: Int) {
+                searchMenuItem?.collapseActionView()
+            }
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
