@@ -11,12 +11,12 @@ import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CALL_LOG
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.KEY_PHONE
 import com.simplemobiletools.dialer.helpers.RecentsHelper
@@ -31,6 +31,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
     private lateinit var incomingCallIcon: Drawable
     private lateinit var outgoingCallIcon: Drawable
     private var fontSize = activity.getTextSize()
+    private val areMultipleSIMsAvailable = activity.areMultipleSIMsAvailable()
 
     init {
         initDrawables()
@@ -176,6 +177,14 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
+            }
+
+            item_recents_sim_image.beVisibleIf(areMultipleSIMsAvailable)
+            item_recents_sim_id.beVisibleIf(areMultipleSIMsAvailable)
+            if (areMultipleSIMsAvailable) {
+                item_recents_sim_image.applyColorFilter(textColor)
+                item_recents_sim_id.setTextColor(textColor.getContrastColor())
+                item_recents_sim_id.text = call.simID.toString()
             }
 
             SimpleContactsHelper(context).loadContactImage(call.photoUri, item_recents_image, call.name)

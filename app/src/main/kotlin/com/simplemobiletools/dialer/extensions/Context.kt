@@ -23,8 +23,11 @@ fun Context.getAvailableSIMCardLabels(): ArrayList<SIMAccount> {
             address = Uri.decode(address.substringAfter("tel:"))
             label += " ($address)"
         }
-        val SIM = SIMAccount(index + 1, phoneAccount.accountHandle, label)
+        val SIM = SIMAccount(index + 1, phoneAccount.accountHandle, label, address.substringAfter("tel:"))
         SIMAccounts.add(SIM)
     }
     return SIMAccounts
 }
+
+@SuppressLint("MissingPermission")
+fun Context.areMultipleSIMsAvailable() = telecomManager.callCapablePhoneAccounts.size > 1
