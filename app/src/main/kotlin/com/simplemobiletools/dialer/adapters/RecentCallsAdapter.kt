@@ -20,12 +20,12 @@ import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.KEY_PHONE
 import com.simplemobiletools.dialer.helpers.RecentsHelper
-import com.simplemobiletools.dialer.interfaces.RefreshRecentsListener
+import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.item_recent_call.view.*
 import java.util.*
 
-class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshRecentsListener: RefreshRecentsListener,
+class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener,
                          itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
     private lateinit var incomingCallIcon: Drawable
@@ -133,7 +133,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             recentCalls.removeAll(callsToRemove)
             activity.runOnUiThread {
                 if (recentCalls.isEmpty()) {
-                    refreshRecentsListener.refreshRecents()
+                    refreshItemsListener.refreshItems()
                     finishActMode()
                 } else {
                     removeSelectedItems(positions)

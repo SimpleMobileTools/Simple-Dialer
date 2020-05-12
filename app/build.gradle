@@ -36,6 +36,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.27.24'
+    implementation 'com.simplemobiletools:commons:5.27.26'
     implementation 'com.github.tibbi:IndicatorFastScroll:08f512858a'
 }

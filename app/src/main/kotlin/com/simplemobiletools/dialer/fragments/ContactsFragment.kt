@@ -10,16 +10,17 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.helpers.mydebug
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.config
-import kotlinx.android.synthetic.main.fragment_contacts.*
+import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.*
 
-class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet) {
+class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
     override fun setupFragment() {
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
             R.string.no_contacts_found
@@ -72,7 +73,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         fragment_fab.background.applyColorFilter(context.getAdjustedPrimaryColor())
     }
 
-    fun refreshContacts() {
+    override fun refreshItems() {
         SimpleContactsHelper(context).getAvailableContacts { contacts ->
             activity?.runOnUiThread {
                 gotContacts(contacts)
@@ -93,7 +94,8 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
             val currAdapter = fragment_list.adapter
             if (currAdapter == null) {
-                ContactsAdapter(activity as SimpleActivity, contacts, fragment_list) {
+                ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this) {
+                    mydebug("clicked $it")
                     val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((it as SimpleContact).rawId.toString())
                     val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
                     activity!!.launchViewContactIntent(publicUri)

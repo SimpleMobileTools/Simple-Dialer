@@ -9,11 +9,11 @@ import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
-import com.simplemobiletools.dialer.interfaces.RefreshRecentsListener
+import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.fragment_recents.view.*
 
-class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshRecentsListener {
+class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
     override fun setupFragment() {
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CALL_LOG)) {
             R.string.no_previous_calls
@@ -40,7 +40,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
     override fun primaryColorChanged(color: Int) {}
 
-    override fun refreshRecents() {
+    override fun refreshItems() {
         RecentsHelper(context).getRecentCalls { recents ->
             activity?.runOnUiThread {
                 gotRecents(recents)

@@ -6,7 +6,7 @@ import android.provider.CallLog.Calls
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
-import com.simplemobiletools.commons.overloads.times
+import com.simplemobiletools.commons.helpers.getQuestionMarks
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
 import com.simplemobiletools.dialer.models.RecentCall
 
@@ -79,6 +79,4 @@ class RecentsHelper(private val context: Context) {
             callback()
         }
     }
-
-    private fun getQuestionMarks(size: Int) = ("?," * size).trimEnd(',')
 }

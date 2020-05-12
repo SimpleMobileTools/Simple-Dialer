@@ -15,6 +15,7 @@ import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
 import com.simplemobiletools.dialer.helpers.tabsList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
@@ -56,7 +57,7 @@ class MainActivity : SimpleActivity() {
             }
 
             getAllFragments().forEach {
-                it?.textColorChanged(configTextColor)
+                it.textColorChanged(configTextColor)
             }
         }
 
@@ -65,7 +66,7 @@ class MainActivity : SimpleActivity() {
             main_tabs_holder.setSelectedTabIndicatorColor(getAdjustedPrimaryColor())
             main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(getAdjustedPrimaryColor())
             getAllFragments().forEach {
-                it?.primaryColorChanged(configPrimaryColor)
+                it.primaryColorChanged(configPrimaryColor)
             }
         }
 
@@ -154,7 +155,7 @@ class MainActivity : SimpleActivity() {
             override fun onPageSelected(position: Int) {
                 main_tabs_holder.getTabAt(position)?.select()
                 getAllFragments().forEach {
-                    it?.finishActMode()
+                    it.finishActMode()
                 }
                 invalidateOptionsMenu()
             }
@@ -210,11 +211,11 @@ class MainActivity : SimpleActivity() {
             viewpager.currentItem = config.lastUsedViewPagerPage
         }
 
-        contacts_fragment.refreshContacts()
-        recents_fragment.refreshRecents()
+        contacts_fragment.refreshItems()
+        recents_fragment.refreshItems()
     }
 
-    private fun getAllFragments() = arrayListOf(contacts_fragment, recents_fragment)
+    private fun getAllFragments() = arrayListOf(contacts_fragment, recents_fragment).toMutableList() as ArrayList<MyViewPagerFragment>
 
     private fun launchAbout() {
         val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL
