@@ -1,10 +1,15 @@
 package com.simplemobiletools.dialer.activities
 
+import android.annotation.SuppressLint
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ShortcutInfo
+import android.content.pm.ShortcutManager
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.Icon
+import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.view.Menu
@@ -24,6 +29,7 @@ import com.simplemobiletools.dialer.helpers.tabsList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.fragment_recents.*
+import java.util.*
 
 class MainActivity : SimpleActivity() {
     private var storedTextColor = 0
@@ -80,6 +86,7 @@ class MainActivity : SimpleActivity() {
             refreshItems()
         }
 
+        checkShortcuts()
         isFirstResume = false
     }
 
@@ -176,6 +183,37 @@ class MainActivity : SimpleActivity() {
                 return true
             }
         })
+    }
+
+    @SuppressLint("NewApi")
+    private fun checkShortcuts() {
+        val appIconColor = config.appIconColor
+        if (isNougatMR1Plus() && config.lastHandledShortcutColor != appIconColor) {
+            val launchDialpad = getLaunchDialpadShortcut(appIconColor)
+
+            try {
+                getSystemService(ShortcutManager::class.java)!!.dynamicShortcuts = listOf(launchDialpad)
+                config.lastHandledShortcutColor = appIconColor
+            } catch (ignored: Exception) {
+            }
+        }
+    }
+
+    @SuppressLint("NewApi")
+    private fun getLaunchDialpadShortcut(appIconColor: Int): ShortcutInfo {
+        val newEvent = getString(R.string.dialpad)
+        val drawable = resources.getDrawable(R.drawable.shortcut_dialpad)
+        (drawable as LayerDrawable).findDrawableByLayerId(R.id.shortcut_dialpad_background).applyColorFilter(appIconColor)
+        val bmp = drawable.convertToBitmap()
+
+        val intent = Intent(this, DialpadActivity::class.java)
+        intent.action = Intent.ACTION_VIEW
+        return ShortcutInfo.Builder(this, "launch_dialpad")
+            .setShortLabel(newEvent)
+            .setLongLabel(newEvent)
+            .setIcon(Icon.createWithBitmap(bmp))
+            .setIntent(intent)
+            .build()
     }
 
     private fun setupTabColors() {
