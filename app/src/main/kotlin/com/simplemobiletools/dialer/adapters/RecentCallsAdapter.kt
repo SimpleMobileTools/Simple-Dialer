@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.KEY_PHONE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CALL_LOG
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -18,7 +19,6 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
 import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.helpers.KEY_PHONE
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall

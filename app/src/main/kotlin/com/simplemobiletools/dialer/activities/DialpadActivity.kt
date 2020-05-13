@@ -15,6 +15,7 @@ import android.view.MenuItem
 import android.view.View
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.KEY_PHONE
 import com.simplemobiletools.commons.helpers.REQUEST_CODE_SET_DEFAULT_DIALER
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.helpers.isOreoPlus
@@ -25,7 +26,6 @@ import com.simplemobiletools.dialer.extensions.addCharacter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getKeyEvent
 import com.simplemobiletools.dialer.extensions.startCallIntent
-import com.simplemobiletools.dialer.helpers.KEY_PHONE
 import com.simplemobiletools.dialer.models.SpeedDial
 import kotlinx.android.synthetic.main.activity_dialpad.*
 import kotlinx.android.synthetic.main.activity_dialpad.dialpad_holder
