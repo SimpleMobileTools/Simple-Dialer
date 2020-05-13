@@ -5,7 +5,6 @@ import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ShortcutInfo
-import android.content.pm.ShortcutManager
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon
@@ -192,7 +191,7 @@ class MainActivity : SimpleActivity() {
             val launchDialpad = getLaunchDialpadShortcut(appIconColor)
 
             try {
-                getSystemService(ShortcutManager::class.java)!!.dynamicShortcuts = listOf(launchDialpad)
+                shortcutManager.dynamicShortcuts = listOf(launchDialpad)
                 config.lastHandledShortcutColor = appIconColor
             } catch (ignored: Exception) {
             }

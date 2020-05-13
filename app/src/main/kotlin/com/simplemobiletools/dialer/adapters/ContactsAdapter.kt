@@ -3,9 +3,6 @@ package com.simplemobiletools.dialer.adapters
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ShortcutInfo
-import android.content.pm.ShortcutManager
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Icon
 import android.net.Uri
 import android.util.TypedValue
@@ -16,16 +13,13 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DecodeFormat
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.extensions.getAdjustedPrimaryColor
-import com.simplemobiletools.commons.extensions.getTextSize
-import com.simplemobiletools.commons.extensions.highlightTextFromNumbers
-import com.simplemobiletools.commons.extensions.highlightTextPart
-import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_CALL_PHONE
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CONTACTS
+import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
@@ -144,52 +138,24 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
     @SuppressLint("NewApi")
     private fun createShortcut() {
         val contact = contacts.firstOrNull { selectedKeys.contains(it.rawId) } ?: return
-        val manager = activity.getSystemService(ShortcutManager::class.java)!!
+        val manager = activity.shortcutManager
         if (manager.isRequestPinShortcutSupported) {
-            getShortcutImage(contact.photoUri, contact.name) { image ->
-                activity.handlePermission(PERMISSION_CALL_PHONE) { hasPermission ->
-                    val action = if (hasPermission) Intent.ACTION_CALL else Intent.ACTION_DIAL
-                    val intent = Intent(action).apply {
-                        data = Uri.fromParts("tel", contact.phoneNumber, null)
+            SimpleContactsHelper(activity).getShortcutImage(contact.photoUri, contact.name) { image ->
+                activity.runOnUiThread {
+                    activity.handlePermission(PERMISSION_CALL_PHONE) { hasPermission ->
+                        val action = if (hasPermission) Intent.ACTION_CALL else Intent.ACTION_DIAL
+                        val intent = Intent(action).apply {
+                            data = Uri.fromParts("tel", contact.phoneNumber, null)
+                        }
+
+                        val shortcut = ShortcutInfo.Builder(activity, contact.hashCode().toString())
+                            .setShortLabel(contact.name)
+                            .setIcon(Icon.createWithBitmap(image))
+                            .setIntent(intent)
+                            .build()
+
+                        manager.requestPinShortcut(shortcut, null)
                     }
-
-                    val shortcut = ShortcutInfo.Builder(activity, contact.hashCode().toString())
-                        .setShortLabel(contact.name)
-                        .setIcon(Icon.createWithBitmap(image))
-                        .setIntent(intent)
-                        .build()
-
-                    manager.requestPinShortcut(shortcut, null)
-                }
-            }
-        }
-    }
-
-    private fun getShortcutImage(path: String, placeholderName: String, callback: (image: Bitmap) -> Unit) {
-        ensureBackgroundThread {
-            val placeholder = BitmapDrawable(activity.resources, SimpleContactsHelper(activity).getContactLetterIcon(placeholderName))
-            try {
-                val options = RequestOptions()
-                    .format(DecodeFormat.PREFER_ARGB_8888)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .error(placeholder)
-                    .centerCrop()
-
-                val size = resources.getDimension(R.dimen.shortcut_size).toInt()
-                val bitmap = Glide.with(activity).asBitmap()
-                    .load(path)
-                    .placeholder(placeholder)
-                    .apply(options)
-                    .apply(RequestOptions.circleCropTransform())
-                    .into(size, size)
-                    .get()
-
-                activity.runOnUiThread {
-                    callback(bitmap)
-                }
-            } catch (ignored: Exception) {
-                activity.runOnUiThread {
-                    callback(placeholder.bitmap)
                 }
             }
         }

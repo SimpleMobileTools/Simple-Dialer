@@ -75,7 +75,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     }
 
     override fun refreshItems() {
-        SimpleContactsHelper(context).getAvailableContacts { contacts ->
+        SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
             allContacts = contacts
             activity?.runOnUiThread {
                 gotContacts(contacts)
@@ -138,7 +138,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                 fragment_placeholder.text = context.getString(R.string.no_contacts_found)
                 fragment_placeholder_2.text = context.getString(R.string.create_new)
 
-                SimpleContactsHelper(context).getAvailableContacts { contacts ->
+                SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
                     activity?.runOnUiThread {
                         gotContacts(contacts)
                     }
