@@ -262,8 +262,8 @@ class MainActivity : SimpleActivity() {
             viewpager.currentItem = config.lastUsedViewPagerPage
         }
 
-        contacts_fragment.refreshItems()
-        recents_fragment.refreshItems()
+        contacts_fragment?.refreshItems()
+        recents_fragment?.refreshItems()
     }
 
     private fun getAllFragments() = arrayListOf(contacts_fragment, recents_fragment).toMutableList() as ArrayList<MyViewPagerFragment>
