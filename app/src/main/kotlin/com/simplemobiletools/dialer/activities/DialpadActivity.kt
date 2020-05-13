@@ -199,6 +199,9 @@ class DialpadActivity : SimpleActivity() {
         }.apply {
             dialpad_list.adapter = this
         }
+
+        dialpad_placeholder.beVisibleIf(filtered.isEmpty())
+        dialpad_list.beVisibleIf(filtered.isNotEmpty())
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
