@@ -27,7 +27,8 @@ import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 
 class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleContact>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener? = null,
-                      highlightText: String = "", itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
+                      highlightText: String = "", val showDeleteButton: Boolean = true, itemClick: (Any) -> Unit) :
+        MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
     private var textToHighlight = highlightText
     private var adjustedPrimaryColor = activity.getAdjustedPrimaryColor()
@@ -41,6 +42,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
 
     override fun prepareActionMode(menu: Menu) {
         menu.apply {
+            findItem(R.id.cab_delete).isVisible = showDeleteButton
             findItem(R.id.cab_create_shortcut).isVisible = isOneItemSelected() && isOreoPlus()
         }
     }

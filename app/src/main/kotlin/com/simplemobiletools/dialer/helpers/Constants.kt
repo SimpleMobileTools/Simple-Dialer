@@ -8,7 +8,7 @@ const val CONTACTS_TAB_MASK = 1
 const val FAVORITES_TAB_MASK = 2
 const val RECENTS_TAB_MASK = 4
 
-val tabsList = arrayListOf(CONTACTS_TAB_MASK, RECENTS_TAB_MASK)
+val tabsList = arrayListOf(CONTACTS_TAB_MASK, FAVORITES_TAB_MASK, RECENTS_TAB_MASK)
 
 private const val PATH = "com.simplemobiletools.dialer.action."
 const val ACCEPT_CALL = PATH + "accept_call"

@@ -27,6 +27,7 @@ import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
 import com.simplemobiletools.dialer.helpers.tabsList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
+import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_recents.*
 import java.util.*
 
@@ -283,6 +284,7 @@ class MainActivity : SimpleActivity() {
     private fun getTabIcon(position: Int): Drawable {
         val drawableId = when (position) {
             0 -> R.drawable.ic_person_vector
+            1 -> R.drawable.ic_star_on_vector
             else -> R.drawable.ic_clock_vector
         }
 
@@ -300,10 +302,11 @@ class MainActivity : SimpleActivity() {
         }
 
         contacts_fragment?.refreshItems()
+        favorites_fragment?.refreshItems()
         recents_fragment?.refreshItems()
     }
 
-    private fun getAllFragments() = arrayListOf(contacts_fragment, recents_fragment).toMutableList() as ArrayList<MyViewPagerFragment>
+    private fun getAllFragments() = arrayListOf(contacts_fragment, favorites_fragment, recents_fragment).toMutableList() as ArrayList<MyViewPagerFragment>
 
     private fun launchAbout() {
         val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL
