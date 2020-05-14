@@ -69,7 +69,7 @@ class MainActivity : SimpleActivity() {
             }
 
             getAllFragments().forEach {
-                it.textColorChanged(configTextColor)
+                it?.textColorChanged(configTextColor)
             }
         }
 
@@ -78,7 +78,7 @@ class MainActivity : SimpleActivity() {
             main_tabs_holder.setSelectedTabIndicatorColor(getAdjustedPrimaryColor())
             main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(getAdjustedPrimaryColor())
             getAllFragments().forEach {
-                it.primaryColorChanged(configPrimaryColor)
+                it?.primaryColorChanged(configPrimaryColor)
             }
         }
 
@@ -177,7 +177,7 @@ class MainActivity : SimpleActivity() {
             }
 
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                contacts_fragment.onSearchClosed()
+                contacts_fragment?.onSearchClosed()
                 isSearchOpen = false
                 main_dialpad_button.beVisible()
                 return true
@@ -244,7 +244,7 @@ class MainActivity : SimpleActivity() {
             override fun onPageSelected(position: Int) {
                 main_tabs_holder.getTabAt(position)?.select()
                 getAllFragments().forEach {
-                    it.finishActMode()
+                    it?.finishActMode()
                 }
                 invalidateOptionsMenu()
             }
@@ -306,7 +306,7 @@ class MainActivity : SimpleActivity() {
         recents_fragment?.refreshItems()
     }
 
-    private fun getAllFragments() = arrayListOf(contacts_fragment, favorites_fragment, recents_fragment).toMutableList() as ArrayList<MyViewPagerFragment>
+    private fun getAllFragments() = arrayListOf(contacts_fragment, favorites_fragment, recents_fragment).toMutableList() as ArrayList<MyViewPagerFragment?>
 
     private fun launchAbout() {
         val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL

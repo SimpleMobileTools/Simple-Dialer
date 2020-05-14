@@ -15,16 +15,20 @@ val Context.audioManager: AudioManager get() = getSystemService(Context.AUDIO_SE
 @SuppressLint("MissingPermission")
 fun Context.getAvailableSIMCardLabels(): ArrayList<SIMAccount> {
     val SIMAccounts = ArrayList<SIMAccount>()
-    telecomManager.callCapablePhoneAccounts.forEachIndexed { index, account ->
-        val phoneAccount = telecomManager.getPhoneAccount(account)
-        var label = phoneAccount.label.toString()
-        var address = phoneAccount.address.toString()
-        if (address.startsWith("tel:") && address.substringAfter("tel:").isNotEmpty()) {
-            address = Uri.decode(address.substringAfter("tel:"))
-            label += " ($address)"
+    try {
+        telecomManager.callCapablePhoneAccounts.forEachIndexed { index, account ->
+            val phoneAccount = telecomManager.getPhoneAccount(account)
+            var label = phoneAccount.label.toString()
+            var address = phoneAccount.address.toString()
+            if (address.startsWith("tel:") && address.substringAfter("tel:").isNotEmpty()) {
+                address = Uri.decode(address.substringAfter("tel:"))
+                label += " ($address)"
+            }
+
+            val SIM = SIMAccount(index + 1, phoneAccount.accountHandle, label, address.substringAfter("tel:"))
+            SIMAccounts.add(SIM)
         }
-        val SIM = SIMAccount(index + 1, phoneAccount.accountHandle, label, address.substringAfter("tel:"))
-        SIMAccounts.add(SIM)
+    } catch (ignored: Exception) {
     }
     return SIMAccounts
 }
