@@ -4,7 +4,9 @@ Bevat een telefoonkiezer met slimme suggesties voor contacten. Ondersteunt ook h
 
 Ongewenste telefoonnummers zijn eenvoudig te blokkeren.
 
-De ondersteunde snelkiezer maakt het eenvoudig om favoriete contacten direct te bellen.
+De snelkiezer maakt het eenvoudig om favoriete contacten direct te bellen.
+
+Om het kiezen te versnellen bevat de app een sectie met favoriete contacten en wordt het aanmaken van snelkoppelingen op het thuisscherm ondersteund.
 
 De app is ontworpen volgens material design en heeft standaard een donker thema. De app heeft geen toegang tot het internet nodig en voorziet van meer privacy, veiligheid en stabiliteit dan andere apps.
 
