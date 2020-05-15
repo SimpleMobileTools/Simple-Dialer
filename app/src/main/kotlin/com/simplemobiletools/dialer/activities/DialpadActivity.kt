@@ -2,7 +2,6 @@ package com.simplemobiletools.dialer.activities
 
 import android.annotation.TargetApi
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -78,7 +77,7 @@ class DialpadActivity : SimpleActivity() {
         SimpleContactsHelper(this).getAvailableContacts(false) { gotContacts(it) }
         disableKeyboardPopping()
 
-        val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_vector, if (isBlackAndWhiteTheme()) Color.BLACK else config.primaryColor.getContrastColor())
+        val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_vector, getFABIconColor())
         dialpad_call_button.setImageDrawable(callIcon)
         dialpad_call_button.background.applyColorFilter(getAdjustedPrimaryColor())
 
