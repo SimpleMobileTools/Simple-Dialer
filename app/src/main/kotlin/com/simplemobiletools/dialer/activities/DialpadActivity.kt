@@ -151,8 +151,8 @@ class DialpadActivity : SimpleActivity() {
 
     private fun gotContacts(newContacts: ArrayList<SimpleContact>) {
         contacts = newContacts
-        if (!checkDialIntent() && dialpad_input.value.isEmpty()) {
-            runOnUiThread {
+        runOnUiThread {
+            if (!checkDialIntent() && dialpad_input.value.isEmpty()) {
                 dialpadValueChanged("")
             }
         }
