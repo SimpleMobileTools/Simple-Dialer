@@ -34,4 +34,10 @@ fun Context.getAvailableSIMCardLabels(): ArrayList<SIMAccount> {
 }
 
 @SuppressLint("MissingPermission")
-fun Context.areMultipleSIMsAvailable() = telecomManager.callCapablePhoneAccounts.size > 1
+fun Context.areMultipleSIMsAvailable(): Boolean {
+    return try {
+        telecomManager.callCapablePhoneAccounts.size > 1
+    } catch (ignored: Exception) {
+        false
+    }
+}
