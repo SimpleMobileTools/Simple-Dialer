@@ -1,0 +1,1 @@
+ * Properly handle one more third party intent

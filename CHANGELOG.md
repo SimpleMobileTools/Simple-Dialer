@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 5.1.3 *(2020-05-16)*
+----------------------------
+
+ * Properly handle one more third party intent
+
 Version 5.1.2 *(2020-05-15)*
 ----------------------------
 
