@@ -162,7 +162,7 @@ class MainActivity : SimpleActivity() {
 
                 override fun onQueryTextChange(newText: String): Boolean {
                     if (isSearchOpen) {
-                        contacts_fragment.onSearchQueryChanged(newText)
+                        contacts_fragment?.onSearchQueryChanged(newText)
                     }
                     return true
                 }

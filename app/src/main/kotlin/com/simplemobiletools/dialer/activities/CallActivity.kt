@@ -255,7 +255,10 @@ class CallActivity : SimpleActivity() {
     private fun callStarted() {
         incoming_call_holder.beGone()
         ongoing_call_holder.beVisible()
-        callTimer.scheduleAtFixedRate(getCallTimerUpdateTask(), 1000, 1000)
+        try {
+            callTimer.scheduleAtFixedRate(getCallTimerUpdateTask(), 1000, 1000)
+        } catch (ignored: Exception) {
+        }
     }
 
     private fun showPhoneAccountPicker() {
@@ -270,10 +273,14 @@ class CallActivity : SimpleActivity() {
             proximityWakeLock!!.release()
         }
 
-        audioManager.mode = AudioManager.MODE_NORMAL
         if (isCallEnded) {
             finish()
             return
+        }
+
+        try {
+            audioManager.mode = AudioManager.MODE_NORMAL
+        } catch (ignored: Exception) {
         }
 
         isCallEnded = true
@@ -400,14 +407,19 @@ class CallActivity : SimpleActivity() {
         var bitmap: Bitmap? = null
         if (callContact?.photoUri?.isNotEmpty() == true) {
             val photoUri = Uri.parse(callContact!!.photoUri)
-            bitmap = if (isQPlus()) {
-                val tmbSize = resources.getDimension(R.dimen.list_avatar_size).toInt()
-                contentResolver.loadThumbnail(photoUri, Size(tmbSize, tmbSize), null)
-            } else {
-                MediaStore.Images.Media.getBitmap(contentResolver, photoUri)
-            }
+            try {
+                bitmap = if (isQPlus()) {
+                    val tmbSize = resources.getDimension(R.dimen.list_avatar_size).toInt()
+                    contentResolver.loadThumbnail(photoUri, Size(tmbSize, tmbSize), null)
+                } else {
+                    MediaStore.Images.Media.getBitmap(contentResolver, photoUri)
 
-            bitmap = getCircularBitmap(bitmap!!)
+                }
+
+                bitmap = getCircularBitmap(bitmap!!)
+            } catch (ignored: Exception) {
+                return null
+            }
         }
 
         return bitmap
