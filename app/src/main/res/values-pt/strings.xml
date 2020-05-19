@@ -9,7 +9,7 @@
     <string name="no_previous_calls">Não existem chamadas anteriores</string>
     <string name="could_not_access_the_call_history">Não foi possível aceder ao histórico de chamadas</string>
     <string name="request_access">Pedir acesso</string>
-    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History?</string>
+    <string name="remove_confirmation">Tem a certeza de que deseja remover do hitórico os itens selecionados?</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Marcador</string>
@@ -30,29 +30,29 @@
     <!-- Speed dial -->
     <string name="speed_dial">Ligação rápida</string>
     <string name="manage_speed_dial">Gerir ligações rápidas</string>
-    <string name="speed_dial_label">Clique no número para atribuir um contacto a uma ligação rápida. Posteriormente, poderá ligar diretamente ao contacto através da tecla de ligação rápida.</string>
+    <string name="speed_dial_label">Clique no número para atribuir um contacto à ligação rápida. Posteriormente, poderá ligar diretamente ao contacto através da tecla de ligação rápida.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Manage your phone calls easily</string>
+    <string name="app_title">Simple Dialer - Gestão de chamadas</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A handy phone call manager with phonebook, number blocking and multi-SIM support</string>
+    <string name="app_short_description">Uma aplicação que permite telefonar, bloquear números e com suporte a diversos SIM</string>
     <string name="app_long_description">
-        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
+        Uma aplicação para gerir chamadas, independentemente do sítio em que esteja. Possui um registo de chamadas para acesso rápido.
 
-        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
+        Existe também um marcador, com sugestão de contactos.
 
-        You can easily block phone numbers to avoid unwanted incoming calls.
+        Pode bloquear núemros facilmente, para evitar chamadas indesejadas.
 
-        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
+        Pode ajustar os números para ligação rápida, tornando a ligação aos contactos favoritos muito rápida.
 
-        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+        Para ajudar a gerir as suas chamadas, a aplicação Telefone também tem suporte aos contactos favoritos e permite criar atalhos para os contactos no seu ecrã inicial.
 
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+        Disponível em Material Design e com tema escuro, por definição, proporciona uma experiência muito agradável. Não necessita de aceder à Internet o que lhe confere privacidade, segurança e estabilidade.
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+        Não possui anúncios nem utiliza permissões desnecessárias. É open source e permite personalização de cores.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Consulte o conjunto completo de aplicações Simple Tools aqui:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
