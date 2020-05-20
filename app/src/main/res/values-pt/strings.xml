@@ -36,13 +36,13 @@
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - Gestão de chamadas</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Uma aplicação que permite telefonar, bloquear números e com suporte a diversos SIM</string>
+    <string name="app_short_description">Aplicação que permite telefonar e bloquear números, com suporte multi-SIM</string>
     <string name="app_long_description">
         Uma aplicação para gerir chamadas, independentemente do sítio em que esteja. Possui um registo de chamadas para acesso rápido.
 
-        Existe também um marcador, com sugestão de contactos.
+        Existe também um marcador com sugestão de contactos.
 
-        Pode bloquear núemros facilmente, para evitar chamadas indesejadas.
+        Pode bloquear números facilmente e evitar chamadas indesejadas.
 
         Pode ajustar os números para ligação rápida, tornando a ligação aos contactos favoritos muito rápida.
 
