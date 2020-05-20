@@ -8,8 +8,7 @@ import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -75,8 +74,16 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     }
 
     override fun refreshItems() {
+        val privateCursor = context?.getMyContactsContentProviderCursorLoader()?.loadInBackground()
         SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
             allContacts = contacts
+
+            val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+            if (privateContacts.isNotEmpty()) {
+                allContacts.addAll(privateContacts)
+                allContacts.sort()
+            }
+
             activity?.runOnUiThread {
                 gotContacts(contacts)
             }
