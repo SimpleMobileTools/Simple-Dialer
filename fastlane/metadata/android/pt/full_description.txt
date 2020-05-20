@@ -1,0 +1,22 @@
+Uma aplicação para gerir chamadas, independentemente do sítio em que esteja. Possui um registo de chamadas para acesso rápido.
+
+Existe também um marcador, com sugestão de contactos.
+
+Pode bloquear núemros facilmente, para evitar chamadas indesejadas.
+
+Pode ajustar os números para ligação rápida, tornando a ligação aos contactos favoritos muito rápida.
+
+Para ajudar a gerir as suas chamadas, a aplicação Telefone também tem suporte aos contactos favoritos e permite criar atalhos para os contactos no seu ecrã inicial.
+
+Disponível em Material Design e com tema escuro, por definição, proporciona uma experiência muito agradável. Não necessita de aceder à Internet o que lhe confere privacidade, segurança e estabilidade.
+
+Não possui anúncios nem utiliza permissões desnecessárias. É open source e permite personalização de cores.
+
+<b>Consulte o conjunto completo de aplicações Simple Tools aqui:</b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools
