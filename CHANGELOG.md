@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 5.2.0 *(2020-05-21)*
+
+ * Adding support for accessing private contacts stored in Simple Contacts Pro (to be added soon)
+ * Allow customizing the default tab opened at app start
+
 Version 5.1.4 *(2020-05-18)*
 ----------------------------
 
