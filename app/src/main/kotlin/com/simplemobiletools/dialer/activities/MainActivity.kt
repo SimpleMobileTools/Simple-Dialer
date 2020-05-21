@@ -217,7 +217,7 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun setupTabColors() {
-        val lastUsedPage = config.lastUsedViewPagerPage
+        val lastUsedPage = getDefaultTab()
         main_tabs_holder.apply {
             background = ColorDrawable(config.backgroundColor)
             setSelectedTabIndicatorColor(getAdjustedPrimaryColor())
@@ -263,13 +263,13 @@ class MainActivity : SimpleActivity() {
         main_tabs_holder.removeAllTabs()
         tabsList.forEachIndexed { index, value ->
             val tab = main_tabs_holder.newTab().setIcon(getTabIcon(index))
-            main_tabs_holder.addTab(tab, index, config.lastUsedViewPagerPage == index)
+            main_tabs_holder.addTab(tab, index, getDefaultTab() == index)
         }
 
         // selecting the proper tab sometimes glitches, add an extra selector to make sure we have it right
         main_tabs_holder.onGlobalLayout {
             Handler().postDelayed({
-                main_tabs_holder.getTabAt(config.lastUsedViewPagerPage)?.select()
+                main_tabs_holder.getTabAt(getDefaultTab())?.select()
                 invalidateOptionsMenu()
             }, 100L)
         }
@@ -298,7 +298,7 @@ class MainActivity : SimpleActivity() {
 
         if (viewpager.adapter == null) {
             viewpager.adapter = ViewPagerAdapter(this)
-            viewpager.currentItem = config.lastUsedViewPagerPage
+            viewpager.currentItem = getDefaultTab()
         }
 
         contacts_fragment?.refreshItems()
@@ -307,6 +307,15 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun getAllFragments() = arrayListOf(contacts_fragment, favorites_fragment, recents_fragment).toMutableList() as ArrayList<MyViewPagerFragment?>
+
+    private fun getDefaultTab(): Int {
+        return when (config.defaultTab) {
+            TAB_LAST_USED -> config.lastUsedViewPagerPage
+            TAB_CONTACTS -> 0
+            TAB_FAVORITES -> 1
+            else -> 2
+        }
+    }
 
     private fun launchAbout() {
         val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL

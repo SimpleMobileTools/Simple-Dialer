@@ -8,6 +8,7 @@ import android.view.Menu
 import com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity
 import com.simplemobiletools.commons.dialogs.ChangeDateTimeFormatDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
+import com.simplemobiletools.commons.extensions.baseConfig
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.getFontSizeText
 import com.simplemobiletools.commons.extensions.updateTextColors
@@ -33,6 +34,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageSpeedDial()
         setupChangeDateTimeFormat()
         setupFontSize()
+        setupDefaultTab()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
     }
@@ -98,4 +100,27 @@ class SettingsActivity : SimpleActivity() {
             }
         }
     }
+
+    private fun setupDefaultTab() {
+        settings_default_tab.text = getDefaultTabText()
+        settings_default_tab_holder.setOnClickListener {
+            val items = arrayListOf(
+                RadioItem(TAB_CONTACTS, getString(R.string.contacts_tab)),
+                RadioItem(TAB_FAVORITES, getString(R.string.favorites_tab)),
+                RadioItem(TAB_CALL_HISTORY, getString(R.string.call_history_tab)),
+                RadioItem(TAB_LAST_USED, getString(R.string.last_used_tab)))
+
+            RadioGroupDialog(this@SettingsActivity, items, config.defaultTab) {
+                config.defaultTab = it as Int
+                settings_default_tab.text = getDefaultTabText()
+            }
+        }
+    }
+
+    private fun getDefaultTabText() = getString(when (baseConfig.defaultTab) {
+        TAB_CONTACTS -> R.string.contacts_tab
+        TAB_FAVORITES -> R.string.favorites_tab
+        TAB_CALL_HISTORY -> R.string.call_history_tab
+        else -> R.string.last_used_tab
+    })
 }
