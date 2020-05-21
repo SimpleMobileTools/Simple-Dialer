@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.activities
 
 import android.annotation.TargetApi
 import android.content.Intent
+import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -14,10 +15,7 @@ import android.view.MenuItem
 import android.view.View
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.KEY_PHONE
-import com.simplemobiletools.commons.helpers.REQUEST_CODE_SET_DEFAULT_DIALER
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
@@ -33,8 +31,9 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class DialpadActivity : SimpleActivity() {
-    private var contacts = ArrayList<SimpleContact>()
+    private var allContacts = ArrayList<SimpleContact>()
     private var speedDialValues = ArrayList<SpeedDial>()
+    private var privateCursor: Cursor? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +44,7 @@ class DialpadActivity : SimpleActivity() {
         }
 
         speedDialValues = config.getSpeedDialValues()
+        privateCursor = getMyContactsContentProviderCursorLoader().loadInBackground()
 
         dialpad_0_holder.setOnClickListener { dialpadPressed('0', it) }
         dialpad_1.setOnClickListener { dialpadPressed('1', it) }
@@ -149,7 +149,14 @@ class DialpadActivity : SimpleActivity() {
     }
 
     private fun gotContacts(newContacts: ArrayList<SimpleContact>) {
-        contacts = newContacts
+        allContacts = newContacts
+
+        val privateContacts = MyContactsContentProvider.getSimpleContacts(this, privateCursor)
+        if (privateContacts.isNotEmpty()) {
+            allContacts.addAll(privateContacts)
+            allContacts.sort()
+        }
+
         runOnUiThread {
             if (!checkDialIntent() && dialpad_input.value.isEmpty()) {
                 dialpadValueChanged("")
@@ -176,7 +183,7 @@ class DialpadActivity : SimpleActivity() {
         }
 
         (dialpad_list.adapter as? ContactsAdapter)?.finishActMode()
-        val filtered = contacts.filter {
+        val filtered = allContacts.filter {
             val convertedName = PhoneNumberUtils.convertKeypadLettersToDigits(it.name.normalizeString())
             it.doesContainPhoneNumber(text) || (convertedName.contains(text, true))
         }.sortedWith(compareBy {
