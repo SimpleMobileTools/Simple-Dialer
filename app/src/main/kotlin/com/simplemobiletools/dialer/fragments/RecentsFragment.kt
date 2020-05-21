@@ -3,6 +3,7 @@ package com.simplemobiletools.dialer.fragments
 import android.content.Context
 import android.util.AttributeSet
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -41,7 +42,18 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     override fun primaryColorChanged(color: Int) {}
 
     override fun refreshItems() {
+        val privateCursor = context?.getMyContactsContentProviderCursorLoader()?.loadInBackground()
         RecentsHelper(context).getRecentCalls { recents ->
+            val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+            if (privateContacts.isNotEmpty()) {
+                recents.filter { it.phoneNumber == it.name }.forEach { recent ->
+                    val privateContact = privateContacts.firstOrNull { it.phoneNumber == recent.phoneNumber }
+                    if (privateContact != null) {
+                        recent.name = privateContact.name
+                    }
+                }
+            }
+
             activity?.runOnUiThread {
                 gotRecents(recents)
             }
