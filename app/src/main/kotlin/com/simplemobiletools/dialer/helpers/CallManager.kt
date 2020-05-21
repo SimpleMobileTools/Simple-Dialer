@@ -6,7 +6,10 @@ import android.net.Uri
 import android.telecom.Call
 import android.telecom.InCallService
 import android.telecom.VideoProfile
+import com.simplemobiletools.commons.extensions.getMyContactsContentProviderCursorLoader
+import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.dialer.models.CallContact
 
 // inspired by https://github.com/Chooloo/call_manage
@@ -65,7 +68,19 @@ class CallManager {
                 callContact.name = SimpleContactsHelper(context).getNameFromPhoneNumber(number)
                 callContact.photoUri = SimpleContactsHelper(context).getPhotoUriFromPhoneNumber(number)
 
-                callback(callContact)
+                if (callContact.name != callContact.number) {
+                    callback(callContact)
+                } else {
+                    val privateCursor = context.getMyContactsContentProviderCursorLoader().loadInBackground()
+                    ensureBackgroundThread {
+                        val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+                        val privateContact = privateContacts.firstOrNull { it.phoneNumber == callContact.number }
+                        if (privateContact != null) {
+                            callContact.name = privateContact.name
+                        }
+                        callback(callContact)
+                    }
+                }
             }
         }
     }
