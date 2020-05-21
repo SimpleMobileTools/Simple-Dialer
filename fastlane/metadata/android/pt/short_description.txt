@@ -1,1 +1,1 @@
-Uma aplicação que permite telefonar, bloquear números e com suporte a SIM
+Aplicação que permite telefonar e bloquear números, com suporte multi-SIM

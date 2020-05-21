@@ -1,8 +1,8 @@
 Uma aplicação para gerir chamadas, independentemente do sítio em que esteja. Possui um registo de chamadas para acesso rápido.
 
-Existe também um marcador, com sugestão de contactos.
+Existe também um marcador com sugestão de contactos.
 
-Pode bloquear núemros facilmente, para evitar chamadas indesejadas.
+Pode bloquear números facilmente e evitar chamadas indesejadas.
 
 Pode ajustar os números para ligação rápida, tornando a ligação aos contactos favoritos muito rápida.
 
