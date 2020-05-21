@@ -5,6 +5,7 @@ import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ShortcutInfo
+import android.content.res.Configuration
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon
@@ -129,6 +130,11 @@ class MainActivity : SimpleActivity() {
         if (requestCode == REQUEST_CODE_SET_DEFAULT_DIALER) {
             checkContactPermissions()
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        refreshItems()
     }
 
     private fun storeStateVariables() {
