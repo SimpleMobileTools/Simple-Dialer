@@ -96,7 +96,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
 
     private fun askConfirmDelete() {
         val itemsCnt = selectedKeys.size
-        val firstItem = getSelectedItems().first()
+        val firstItem = getSelectedItems().firstOrNull() ?: return
         val items = if (itemsCnt == 1) {
             "\"${firstItem.name}\""
         } else {
