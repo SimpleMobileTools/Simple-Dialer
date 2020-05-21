@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
+import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
@@ -44,18 +45,29 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     override fun refreshItems() {
         val privateCursor = context?.getMyContactsContentProviderCursorLoader()?.loadInBackground()
         RecentsHelper(context).getRecentCalls { recents ->
-            val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
-            if (privateContacts.isNotEmpty()) {
+            SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
+                val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
                 recents.filter { it.phoneNumber == it.name }.forEach { recent ->
-                    val privateContact = privateContacts.firstOrNull { it.phoneNumber == recent.phoneNumber }
-                    if (privateContact != null) {
-                        recent.name = privateContact.name
+                    var wasNameFilled = false
+                    if (privateContacts.isNotEmpty()) {
+                        val privateContact = privateContacts.firstOrNull { it.phoneNumber == recent.phoneNumber }
+                        if (privateContact != null) {
+                            recent.name = privateContact.name
+                            wasNameFilled = true
+                        }
+                    }
+
+                    if (!wasNameFilled) {
+                        val contact = contacts.firstOrNull { it.phoneNumber == recent.phoneNumber }
+                        if (contact != null) {
+                            recent.name = contact.name
+                        }
                     }
                 }
-            }
 
-            activity?.runOnUiThread {
-                gotRecents(recents)
+                activity?.runOnUiThread {
+                    gotRecents(recents)
+                }
             }
         }
     }
