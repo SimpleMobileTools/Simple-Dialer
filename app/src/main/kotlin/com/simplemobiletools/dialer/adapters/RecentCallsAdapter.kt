@@ -3,6 +3,7 @@ package com.simplemobiletools.dialer.adapters
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.provider.CallLog.Calls
+import android.text.TextUtils
 import android.util.TypedValue
 import android.view.Menu
 import android.view.View
@@ -11,10 +12,7 @@ import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.KEY_PHONE
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CALL_LOG
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
-import com.simplemobiletools.commons.helpers.isNougatPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -55,7 +53,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         }
 
         when (id) {
-            R.id.cab_block_number -> blockNumber()
+            R.id.cab_block_number -> askConfirmBlock()
             R.id.cab_add_number -> addNumberToContact()
             R.id.cab_remove -> askConfirmRemove()
         }
@@ -98,8 +96,35 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         incomingMissedCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, redColor)
     }
 
-    private fun blockNumber() {
+    private fun askConfirmBlock() {
+        val numbers = TextUtils.join(", ", getSelectedItems().distinctBy { it.phoneNumber }.map { it.phoneNumber })
+        val baseString = R.string.block_confirmation
+        val question = String.format(resources.getString(baseString), numbers)
 
+        ConfirmationDialog(activity, question) {
+            blockNumbers()
+        }
+    }
+
+    private fun blockNumbers() {
+        if (selectedKeys.isEmpty()) {
+            return
+        }
+
+        val callsToBlock = getSelectedItems()
+        val positions = getSelectedItemPositions()
+        recentCalls.removeAll(callsToBlock)
+
+        ensureBackgroundThread {
+            callsToBlock.map { it.phoneNumber }.forEach { number ->
+                activity.addBlockedNumber(number)
+            }
+
+            activity.runOnUiThread {
+                removeSelectedItems(positions)
+                finishActMode()
+            }
+        }
     }
 
     private fun addNumberToContact() {
