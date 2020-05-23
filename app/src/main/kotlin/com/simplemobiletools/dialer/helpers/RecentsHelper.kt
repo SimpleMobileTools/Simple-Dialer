@@ -7,6 +7,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.getQuestionMarks
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
 import com.simplemobiletools.dialer.models.RecentCall
 
@@ -14,7 +15,8 @@ class RecentsHelper(private val context: Context) {
     @SuppressLint("MissingPermission")
     fun getRecentCalls(callback: (ArrayList<RecentCall>) -> Unit) {
         ensureBackgroundThread {
-            val recentCalls = ArrayList<RecentCall>()
+            var recentCalls = ArrayList<RecentCall>()
+            val blockedNumbers = context.getBlockedNumbers()
             if (!context.hasPermission(PERMISSION_READ_CALL_LOG)) {
                 callback(recentCalls)
                 return@ensureBackgroundThread
@@ -63,6 +65,7 @@ class RecentsHelper(private val context: Context) {
                 previousRecentCallFrom = "$number$name"
             }
 
+            recentCalls = recentCalls.filter { !context.isNumberBlocked(it.phoneNumber) }.toMutableList() as ArrayList<RecentCall>
             callback(recentCalls)
         }
     }
