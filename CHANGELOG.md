@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 5.2.2 *(2020-05-23)*
+----------------------------
+
+ * Fixing a glitch related to setting the default tab to use
+
 Version 5.2.1 *(2020-05-23)*
 ----------------------------
 
