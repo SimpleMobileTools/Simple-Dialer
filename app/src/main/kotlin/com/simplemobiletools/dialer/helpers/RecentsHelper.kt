@@ -44,7 +44,11 @@ class RecentsHelper(private val context: Context) {
             context.queryCursor(uri, projection, sortOrder = sortOrder, showErrors = true) { cursor ->
                 val id = cursor.getIntValue(Calls._ID)
                 val number = cursor.getStringValue(Calls.NUMBER)
-                val name = cursor.getStringValue(Calls.CACHED_NAME) ?: number
+                var name = cursor.getStringValue(Calls.CACHED_NAME)
+                if (name == null || name.isEmpty()) {
+                    name = number
+                }
+
                 val photoUri = cursor.getStringValue(Calls.CACHED_PHOTO_URI) ?: ""
                 val startTS = (cursor.getLongValue(Calls.DATE) / 1000L).toInt()
                 val duration = cursor.getIntValue(Calls.DURATION)
