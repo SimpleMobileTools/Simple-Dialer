@@ -18,7 +18,6 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
-import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
@@ -28,10 +27,12 @@ import java.util.*
 class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener,
                          itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
-    private lateinit var incomingCallIcon: Drawable
     private lateinit var outgoingCallIcon: Drawable
+    private lateinit var incomingCallIcon: Drawable
+    private lateinit var incomingMissedCallIcon: Drawable
     private var fontSize = activity.getTextSize()
     private val areMultipleSIMsAvailable = activity.areMultipleSIMsAvailable()
+    private val redColor = resources.getColor(R.color.md_red_700)
 
     init {
         initDrawables()
@@ -89,8 +90,9 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
     }
 
     fun initDrawables() {
-        incomingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, activity.config.textColor)
-        outgoingCallIcon = activity.resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, activity.config.textColor)
+        outgoingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, baseConfig.textColor)
+        incomingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, baseConfig.textColor)
+        incomingMissedCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, redColor)
     }
 
     private fun addNumberToContact() {
@@ -168,7 +170,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
             item_recents_date_time.apply {
                 text = call.startTS.formatDateOrTime(context, true)
-                setTextColor(textColor)
+                setTextColor(if (call.type == Calls.MISSED_TYPE) redColor else textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
             }
 
@@ -189,10 +191,10 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
             SimpleContactsHelper(context).loadContactImage(call.photoUri, item_recents_image, call.name)
 
-            val drawable = if (call.type == Calls.OUTGOING_TYPE) {
-                outgoingCallIcon
-            } else {
-                incomingCallIcon
+            val drawable = when (call.type) {
+                Calls.OUTGOING_TYPE -> outgoingCallIcon
+                Calls.MISSED_TYPE -> incomingMissedCallIcon
+                else -> incomingCallIcon
             }
 
             item_recents_type.setImageDrawable(drawable)
