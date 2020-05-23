@@ -10,7 +10,6 @@
     <string name="could_not_access_the_call_history">Kon geen toegang krijgen tot de oproepgeschiedenis</string>
     <string name="request_access">Toegang aanvragen</string>
     <string name="remove_confirmation">Geselecteerde items uit de oproepgeschiedenis verwijderen?</string>
-    <string name="block_confirmation">Are you sure you want to block the selected numbers?</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Telefoonkiezer</string>
