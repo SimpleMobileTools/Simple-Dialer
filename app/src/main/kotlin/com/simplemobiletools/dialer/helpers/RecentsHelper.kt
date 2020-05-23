@@ -16,7 +16,6 @@ class RecentsHelper(private val context: Context) {
     fun getRecentCalls(callback: (ArrayList<RecentCall>) -> Unit) {
         ensureBackgroundThread {
             var recentCalls = ArrayList<RecentCall>()
-            val blockedNumbers = context.getBlockedNumbers()
             if (!context.hasPermission(PERMISSION_READ_CALL_LOG)) {
                 callback(recentCalls)
                 return@ensureBackgroundThread
@@ -65,7 +64,8 @@ class RecentsHelper(private val context: Context) {
                 previousRecentCallFrom = "$number$name"
             }
 
-            recentCalls = recentCalls.filter { !context.isNumberBlocked(it.phoneNumber) }.toMutableList() as ArrayList<RecentCall>
+            val blockedNumbers = context.getBlockedNumbers()
+            recentCalls = recentCalls.filter { !context.isNumberBlocked(it.phoneNumber, blockedNumbers) }.toMutableList() as ArrayList<RecentCall>
             callback(recentCalls)
         }
     }
