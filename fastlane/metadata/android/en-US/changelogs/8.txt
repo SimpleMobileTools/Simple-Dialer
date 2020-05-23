@@ -1,0 +1,3 @@
+ * Highlight missed calls with red icon and text
+ * Properly show some call numbers at the Recent Calls tab
+ * Allow blocking numbers directly from the Recent Calls

@@ -1,7 +1,15 @@
 Changelog
 ==========
 
+Version 5.2.1 *(2020-05-23)*
+----------------------------
+
+ * Highlight missed calls with red icon and text
+ * Properly show some call numbers at the Recent Calls tab
+ * Allow blocking numbers directly from the Recent Calls
+
 Version 5.2.0 *(2020-05-21)*
+----------------------------
 
  * Adding support for accessing private contacts stored in Simple Contacts Pro (to be added soon)
  * Allow customizing the default tab opened at app start
