@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.KEY_PHONE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CALL_LOG
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -43,6 +44,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
     override fun prepareActionMode(menu: Menu) {
         menu.apply {
+            findItem(R.id.cab_block_number).isVisible = isNougatPlus()
             findItem(R.id.cab_add_number).isVisible = isOneItemSelected()
         }
     }
@@ -53,8 +55,9 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         }
 
         when (id) {
-            R.id.cab_remove -> askConfirmRemove()
+            R.id.cab_block_number -> blockNumber()
             R.id.cab_add_number -> addNumberToContact()
+            R.id.cab_remove -> askConfirmRemove()
         }
     }
 
@@ -93,6 +96,10 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         outgoingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, baseConfig.textColor)
         incomingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, baseConfig.textColor)
         incomingMissedCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, redColor)
+    }
+
+    private fun blockNumber() {
+
     }
 
     private fun addNumberToContact() {
