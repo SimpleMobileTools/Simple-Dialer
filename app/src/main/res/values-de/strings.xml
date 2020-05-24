@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">Simple Telefon</string>
+    <string name="app_launcher_name">Telefon</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">kein Zugriff auf Kontakte</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Deine Anrufliste ist leer.</string>
+    <string name="could_not_access_the_call_history">kein Zugriff auf Anrufliste</string>
+    <string name="request_access">Zugriff anfordern</string>
+    <string name="remove_confirmation">Möchtest du die ausgewählten Anrufe definitiv aus der Anrufliste löschen?</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Wählpad</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Telefon</string>
+    <string name="accept">akzeptieren</string>
+    <string name="decline">ablehnen</string>
+    <string name="unknown_caller">unbekannter Anruf</string>
+    <string name="is_calling">ruft an…</string>
+    <string name="dialing">anruf…</string>
+    <string name="call_ended">Anruf beendet</string>
+    <string name="call_ending">Anruf beenden</string>
+    <string name="ongoing_call">aktueller Anruf</string>
+    <string name="select_sim">währe die SIM Karte aus für diesen Anruf</string>
+    <string name="always_use_this_sim">benutze immer diese SIM Karte</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Kurzwahl</string>
+    <string name="manage_speed_dial">Kurzwahlnummern verwalten</string>
+    <string name="speed_dial_label">klicke auf eine Zahl um einen Kontakt zuzuweisen. Danach kannst du den Kontakt schnell durch langes drücken der entsprechenden Zahl anrufen</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Schlichtes Telefon</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Ein Telefon App mit Adressbuch, Wählpad und mehrfach-SIM unterstützung</string>
+    <string name="app_long_description">
+        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
+
+        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
+
+        You can easily block phone numbers to avoid unwanted incoming calls.
+
+        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
+
+        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+
+        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+
+        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+
+        <b>Check out the full suite of Simple Tools here:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
