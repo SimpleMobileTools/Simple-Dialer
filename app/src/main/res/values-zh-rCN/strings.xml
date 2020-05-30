@@ -32,6 +32,9 @@
     <string name="manage_speed_dial">管理快速拨号</string>
     <string name="speed_dial_label">点击一个数字来分配一个联系人。之后你可以在拨号盘长按指定的号码来快速呼叫指定的联系人。</string>
 
+    <!-- Settings -->
+    <string name="group_calls_at_history">Group subsequent calls with the same number at the call log</string>
+
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">简易拨号器 - 轻松管理你的手机通话</string>
