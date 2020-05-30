@@ -1,0 +1,69 @@
+<resources>
+    <string name="app_name">简易拨号器</string>
+    <string name="app_launcher_name">拨号器</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">无法访问你的通讯录</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">未找到先前的通话</string>
+    <string name="could_not_access_the_call_history">无法访问通话记录</string>
+    <string name="request_access">请求访问</string>
+    <string name="remove_confirmation">你确定想要从通话记录删除选定的条目吗？</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">拨号盘</string>
+
+    <!-- Dialer -->
+    <string name="dialer">拨号器</string>
+    <string name="accept">接听</string>
+    <string name="decline">拒绝</string>
+    <string name="unknown_caller">未知呼叫</string>
+    <string name="is_calling">正在呼叫…</string>
+    <string name="dialing">拨号中…</string>
+    <string name="call_ended">通话结束</string>
+    <string name="call_ending">通话正在结束</string>
+    <string name="ongoing_call">呼入通话</string>
+    <string name="select_sim">为此通话选择一个 SIM 卡</string>
+    <string name="always_use_this_sim">为此号码一直使用该 SIM 卡</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">快速拨号</string>
+    <string name="manage_speed_dial">管理快速拨号</string>
+    <string name="speed_dial_label">点击一个数字来分配一个联系人。之后你可以在拨号盘长按指定的号码来快速呼叫指定的联系人。</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">简易拨号器 - 轻松管理你的手机通话</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">易于上手的通话管理器，包含电话本、号码阻止和多 SIM 卡支持</string>
+    <string name="app_long_description">
+        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
+
+        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
+
+        You can easily block phone numbers to avoid unwanted incoming calls.
+
+        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
+
+        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+
+        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+
+        不包含广告及非必要的权限，而且完全开放源代码，并提供自定义颜色。
+
+        <b>于此查看简易工具系列全套:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
