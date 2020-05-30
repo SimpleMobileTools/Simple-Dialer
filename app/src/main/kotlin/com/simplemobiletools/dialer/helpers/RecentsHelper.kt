@@ -6,6 +6,7 @@ import android.provider.CallLog.Calls
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
 import com.simplemobiletools.dialer.models.RecentCall
 
@@ -34,6 +35,9 @@ class RecentsHelper(private val context: Context) {
 
     private fun getRecents(contacts: ArrayList<SimpleContact>, callback: (ArrayList<RecentCall>) -> Unit) {
         var recentCalls = ArrayList<RecentCall>()
+        var previousRecentCallFrom = ""
+        val contactsNumbersMap = HashMap<String, String>()
+        val groupSubsequentCalls = context.config.groupSubsequentCalls
         val uri = Calls.CONTENT_URI
         val projection = arrayOf(
             Calls._ID,
@@ -52,8 +56,6 @@ class RecentsHelper(private val context: Context) {
         }
 
         val sortOrder = "${Calls._ID} DESC LIMIT 100"
-        var previousRecentCallFrom = ""
-        val contactsNumbersMap = HashMap<String, String>()
         context.queryCursor(uri, projection, sortOrder = sortOrder, showErrors = true) { cursor ->
             val id = cursor.getIntValue(Calls._ID)
             val number = cursor.getStringValue(Calls.NUMBER)
@@ -92,7 +94,7 @@ class RecentsHelper(private val context: Context) {
             val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs, simID)
 
             // if we have multiple missed calls from the same number, show it just once
-            if ("$number$name" != previousRecentCallFrom) {
+            if (!groupSubsequentCalls || "$number$name" != previousRecentCallFrom) {
                 recentCalls.add(recentCall)
             } else {
                 recentCalls.lastOrNull()?.neighbourIDs?.add(id)
