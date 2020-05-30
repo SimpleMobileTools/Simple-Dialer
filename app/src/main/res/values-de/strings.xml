@@ -33,7 +33,7 @@
     <string name="speed_dial_label">klicke auf eine Zahl um einen Kontakt zuzuweisen. Danach kannst du den Kontakt schnell durch langes drücken der entsprechenden Zahl anrufen</string>
 
     <!-- Settings -->
-    <string name="group_calls_at_history">Group subsequent calls with the same number at the call log</string>
+    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

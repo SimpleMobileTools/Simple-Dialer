@@ -33,7 +33,7 @@
     <string name="speed_dial_label">Pre priradenie kontaktu kliknite na číslo. Následne viete daný kontakt rýchlo vytočiť dlhým podržaním čísla na číselníku.</string>
 
     <!-- Settings -->
-    <string name="group_calls_at_history">Zoskupiť susedné volania s rovnakým číslom v histórií volaní</string>
+    <string name="group_subsequent_calls">Zoskupiť susedné volania s rovnakým číslom v histórií volaní</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
