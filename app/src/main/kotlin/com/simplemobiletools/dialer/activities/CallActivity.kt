@@ -190,6 +190,11 @@ class CallActivity : SimpleActivity() {
         }
 
         caller_name_label.text = if (callContact!!.name.isNotEmpty()) callContact!!.name else getString(R.string.unknown_caller)
+        if (callContact!!.number.isNotEmpty() && callContact!!.number != callContact!!.name) {
+            caller_number_label.text = callContact!!.number
+        } else {
+            caller_number_label.beGone()
+        }
 
         if (callContactAvatar != null) {
             caller_avatar.setImageBitmap(callContactAvatar)
