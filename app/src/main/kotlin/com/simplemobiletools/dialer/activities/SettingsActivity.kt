@@ -36,6 +36,7 @@ class SettingsActivity : SimpleActivity() {
         setupFontSize()
         setupDefaultTab()
         setupGroupSubsequentCalls()
+        setupStartNameWithSurname()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
     }
@@ -130,6 +131,14 @@ class SettingsActivity : SimpleActivity() {
         settings_group_subsequent_calls_holder.setOnClickListener {
             settings_group_subsequent_calls.toggle()
             config.groupSubsequentCalls = settings_group_subsequent_calls.isChecked
+        }
+    }
+
+    private fun setupStartNameWithSurname() {
+        settings_start_with_surname.isChecked = config.startNameWithSurname
+        settings_start_with_surname_holder.setOnClickListener {
+            settings_start_with_surname.toggle()
+            config.startNameWithSurname = settings_start_with_surname.isChecked
         }
     }
 }
