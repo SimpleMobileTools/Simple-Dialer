@@ -3,6 +3,7 @@ package com.simplemobiletools.dialer.helpers
 // shared prefs
 const val SPEED_DIAL = "speed_dial"
 const val REMEMBER_SIM_PREFIX = "remember_sim_"
+const val GROUP_SUBSEQUENT_CALLS = "group_subsequent_calls"
 
 const val CONTACTS_TAB_MASK = 1
 const val FAVORITES_TAB_MASK = 2

@@ -35,6 +35,8 @@ class SettingsActivity : SimpleActivity() {
         setupChangeDateTimeFormat()
         setupFontSize()
         setupDefaultTab()
+        setupGroupSubsequentCalls()
+        setupStartNameWithSurname()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
     }
@@ -123,4 +125,20 @@ class SettingsActivity : SimpleActivity() {
         TAB_CALL_HISTORY -> R.string.call_history_tab
         else -> R.string.last_used_tab
     })
+
+    private fun setupGroupSubsequentCalls() {
+        settings_group_subsequent_calls.isChecked = config.groupSubsequentCalls
+        settings_group_subsequent_calls_holder.setOnClickListener {
+            settings_group_subsequent_calls.toggle()
+            config.groupSubsequentCalls = settings_group_subsequent_calls.isChecked
+        }
+    }
+
+    private fun setupStartNameWithSurname() {
+        settings_start_with_surname.isChecked = config.startNameWithSurname
+        settings_start_with_surname_holder.setOnClickListener {
+            settings_start_with_surname.toggle()
+            config.startNameWithSurname = settings_start_with_surname.isChecked
+        }
+    }
 }

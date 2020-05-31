@@ -31,6 +31,18 @@
         tools:text="Caller name" />
 
     <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/caller_number_label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/call_status_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caller_name_label"
+        tools:text="0912 345 678" />
+
+    <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/call_status_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +51,7 @@
         android:textSize="@dimen/call_status_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caller_name_label"
+        app:layout_constraintTop_toBottomOf="@+id/caller_number_label"
         tools:text="Is Calling" />
 
     <ImageView
