@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 5.3.0 *(2020-05-31)*
+----------------------------
+
+ * Try harder at fetching names at the Call Log
+ * Make subsequent calls from the same number at the call log optional
+ * Allow toggling name start with surname
+ * Show the other ends number at the call screen
+ * Some other UI and translation improvements
+
 Version 5.2.2 *(2020-05-23)*
 ----------------------------
 
