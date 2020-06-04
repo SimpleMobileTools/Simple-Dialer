@@ -37,11 +37,11 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Basit Çevirici - Telefon görüşmelerinizi kolayca yönetin</string>
+    <string name="app_title">Basit Çevirici</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Telefon defteri, numara engelleme ve çoklu SIM desteğine sahip kullanışlı bir telefon görüşmesi yöneticisi</string>
+    <string name="app_short_description">A handy phone call manager with phonebook, number blocking and multi-SIM support</string>
     <string name="app_long_description">
-       Nerede olursanız olun, aramalarınızı yönetmek için hafif bir uygulama.  Kolay arama başlatmak için kullanışlı bir arama kaydı ile birlikte gelir.
+        Nerede olursanız olun, aramalarınızı yönetmek için hafif bir uygulama.  Kolay arama başlatmak için kullanışlı bir arama kaydı ile birlikte gelir.
 
         Akıllı iletişim önerileri ile hizmetinizde de hızlı bir tuş takımı var.  Harfleri de destekler.
 
