@@ -1,1 +1,1 @@
-A handy phone call manager with phonebook, number blocking and multi-SIM support
+Rehber, numara engelleme ve çoklu SIM destekli bir çağrı yöneticisi
