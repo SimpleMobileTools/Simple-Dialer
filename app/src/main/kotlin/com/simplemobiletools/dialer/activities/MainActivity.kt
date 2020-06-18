@@ -234,7 +234,6 @@ class MainActivity : SimpleActivity() {
     private fun getInactiveTabIndexes(activeIndex: Int) = (0 until tabsList.size).filter { it != activeIndex }
 
     private fun initFragments() {
-        viewpager.offscreenPageLimit = tabsList.size - 1
         viewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
                 searchMenuItem?.collapseActionView()
@@ -298,6 +297,7 @@ class MainActivity : SimpleActivity() {
         }
 
         if (viewpager.adapter == null) {
+            viewpager.offscreenPageLimit = tabsList.size - 1
             viewpager.adapter = ViewPagerAdapter(this)
             viewpager.currentItem = getDefaultTab()
         }
