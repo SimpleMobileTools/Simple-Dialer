@@ -83,7 +83,7 @@ class MainActivity : SimpleActivity() {
             }
         }
 
-        if (!isFirstResume) {
+        if (!isFirstResume && !isSearchOpen) {
             refreshItems()
         }
 
@@ -94,11 +94,6 @@ class MainActivity : SimpleActivity() {
     override fun onPause() {
         super.onPause()
         storeStateVariables()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        searchMenuItem?.collapseActionView()
     }
 
     override fun onDestroy() {
