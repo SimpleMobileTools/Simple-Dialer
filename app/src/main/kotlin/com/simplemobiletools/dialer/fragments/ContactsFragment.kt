@@ -108,7 +108,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                     val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
 
                     // handle private contacts differently, only Simple Contacts Pro can open them
-                    val simpleContacts = "com.simplemobiletools.contacts.pro.debug"
+                    val simpleContacts = "com.simplemobiletools.contacts.pro"
                     if (lookupKey.isEmpty() && it.rawId > 1000000 && it.contactId > 1000000 && it.rawId == it.contactId && context.isPackageInstalled(simpleContacts)) {
                         Intent().apply {
                             action = Intent.ACTION_VIEW
