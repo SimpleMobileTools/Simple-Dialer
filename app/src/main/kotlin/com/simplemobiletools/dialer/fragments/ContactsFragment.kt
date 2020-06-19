@@ -8,9 +8,7 @@ import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.MyContactsContentProvider
-import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -108,7 +106,25 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                 ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this) {
                     val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((it as SimpleContact).rawId.toString())
                     val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
-                    activity!!.launchViewContactIntent(publicUri)
+
+                    // handle private contacts differently, only Simple Contacts Pro can open them
+                    val simpleContacts = "com.simplemobiletools.contacts.pro.debug"
+                    if (lookupKey.isEmpty() && it.rawId > 1000000 && it.contactId > 1000000 && it.rawId == it.contactId && context.isPackageInstalled(simpleContacts)) {
+                        Intent().apply {
+                            action = Intent.ACTION_VIEW
+                            putExtra(CONTACT_ID, it.rawId)
+                            putExtra(IS_PRIVATE, true)
+                            `package` = simpleContacts
+                            setDataAndType(publicUri, "vnd.android.cursor.dir/person")
+                            if (resolveActivity(context.packageManager) != null) {
+                                activity?.startActivity(this)
+                            } else {
+                                context.toast(R.string.no_app_found)
+                            }
+                        }
+                    } else {
+                        activity!!.launchViewContactIntent(publicUri)
+                    }
                 }.apply {
                     fragment_list.adapter = this
                 }
