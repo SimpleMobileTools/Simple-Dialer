@@ -7,20 +7,20 @@
 
     <TextView
         android:id="@+id/notification_caller_name"
+        style="@style/TextAppearance.Compat.Notification.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/md_grey_black"
         android:textSize="@dimen/bigger_text_size"
         android:textStyle="bold"
         tools:text="Caller name" />
 
     <TextView
         android:id="@+id/notification_call_status"
+        style="@style/TextAppearance.Compat.Notification.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/notification_caller_name"
         android:alpha="0.8"
-        android:textColor="@color/md_grey_black"
         tools:text="123 456 789" />
 
     <ImageView
