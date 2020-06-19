@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.models.SimpleContact
@@ -47,8 +48,16 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     override fun refreshItems() {
+        val privateCursor = context?.getMyFavoriteContactsCursor()?.loadInBackground()
         SimpleContactsHelper(context).getAvailableContacts(true) { contacts ->
             allContacts = contacts
+
+            val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+            if (privateContacts.isNotEmpty()) {
+                allContacts.addAll(privateContacts)
+                allContacts.sort()
+            }
+
             activity?.runOnUiThread {
                 gotContacts(contacts)
             }

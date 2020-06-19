@@ -6,7 +6,7 @@ import android.net.Uri
 import android.telecom.Call
 import android.telecom.InCallService
 import android.telecom.VideoProfile
-import com.simplemobiletools.commons.extensions.getMyContactsContentProviderCursorLoader
+import com.simplemobiletools.commons.extensions.getMyContactsCursor
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
@@ -71,7 +71,7 @@ class CallManager {
                 if (callContact.name != callContact.number) {
                     callback(callContact)
                 } else {
-                    val privateCursor = context.getMyContactsContentProviderCursorLoader().loadInBackground()
+                    val privateCursor = context.getMyContactsCursor().loadInBackground()
                     ensureBackgroundThread {
                         val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
                         val privateContact = privateContacts.firstOrNull { it.phoneNumber == callContact.number }

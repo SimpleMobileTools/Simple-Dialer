@@ -43,7 +43,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     override fun primaryColorChanged(color: Int) {}
 
     override fun refreshItems() {
-        val privateCursor = context?.getMyContactsContentProviderCursorLoader()?.loadInBackground()
+        val privateCursor = context?.getMyContactsCursor()?.loadInBackground()
         RecentsHelper(context).getRecentCalls { recents ->
             SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
                 val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)

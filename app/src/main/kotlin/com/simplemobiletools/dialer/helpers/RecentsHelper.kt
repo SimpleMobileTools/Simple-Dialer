@@ -15,7 +15,7 @@ class RecentsHelper(private val context: Context) {
 
     @SuppressLint("MissingPermission")
     fun getRecentCalls(callback: (ArrayList<RecentCall>) -> Unit) {
-        val privateCursor = context.getMyContactsContentProviderCursorLoader().loadInBackground()
+        val privateCursor = context.getMyContactsCursor().loadInBackground()
         ensureBackgroundThread {
             if (!context.hasPermission(PERMISSION_READ_CALL_LOG)) {
                 callback(ArrayList())
