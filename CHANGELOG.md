@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 5.4.0 *(2020-06-19)*
+----------------------------
+
+ * Allow opening private contacts from the first tab in Simple Contacts Pro
+ * Properly show privately stored contacts at Favorites
+ * Use proper colors at the call notification texts with dark theme too
+ * Many other smaller UX improvements
+
 Version 5.3.0 *(2020-05-31)*
 ----------------------------
 
