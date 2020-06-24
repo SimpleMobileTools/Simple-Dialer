@@ -9,7 +9,7 @@
     <string name="no_previous_calls">Não existem chamadas anteriores</string>
     <string name="could_not_access_the_call_history">Não foi possível aceder ao histórico de chamadas</string>
     <string name="request_access">Pedir acesso</string>
-    <string name="remove_confirmation">Tem a certeza de que deseja remover do hitórico os itens selecionados?</string>
+    <string name="remove_confirmation">Tem a certeza de que deseja remover do histórico os itens selecionados?</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Marcador</string>
@@ -19,7 +19,7 @@
     <string name="accept">Aceitar</string>
     <string name="decline">Recusar</string>
     <string name="unknown_caller">Desconhecido</string>
-    <string name="is_calling">Está a chamar…</string>
+    <string name="is_calling">A chamar…</string>
     <string name="dialing">A ligar…</string>
     <string name="call_ended">Chamada terminada</string>
     <string name="call_ending">A terminar chamada</string>
@@ -33,7 +33,7 @@
     <string name="speed_dial_label">Clique no número para atribuir um contacto à ligação rápida. Posteriormente, poderá ligar diretamente ao contacto através da tecla de ligação rápida.</string>
 
     <!-- Settings -->
-    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
+    <string name="group_subsequent_calls">Agrupar chamadas para o mesmo contacto no registo de chamadas</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
