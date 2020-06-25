@@ -33,7 +33,7 @@
     <string name="speed_dial_label">Κάντε κλικ σε έναν αριθμό για να αντιστοιχίσετε μια επαφή σε αυτόν. Στη συνέχεια, μπορείτε να καλέσετε γρήγορα τη δεδομένη επαφή πατώντας τον  αριθμό αυτόν.</string>
 
     <!-- Settings -->
-    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
+    <string name="group_subsequent_calls">Ομαδοποίηση των επόμενων κλήσεων του ίδιου αριθμού στο αρχείο καταγραφής κλήσεων</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
