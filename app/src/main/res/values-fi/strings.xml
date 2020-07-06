@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">Simple Dialer</string>
+    <string name="app_launcher_name">Puhelin</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Ei käyttöoikeutta yhteystietoihin</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Ei puheluita</string>
+    <string name="could_not_access_the_call_history">Ei käyttöoikeutta puheluhistoriaan</string>
+    <string name="request_access">Pyydä käyttöoikeutta</string>
+    <string name="remove_confirmation">Haluatko varmasti poistaa valitut kohteet puheluhistoriasta?</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Numerovalitsin</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Puhelin</string>
+    <string name="accept">Hyväksy</string>
+    <string name="decline">Hylkää</string>
+    <string name="unknown_caller">Tuntematon soittaja</string>
+    <string name="is_calling">Soittaa…</string>
+    <string name="dialing">Soitetaan…</string>
+    <string name="call_ended">Puhelu päättyi</string>
+    <string name="call_ending">Puhelu päättyy</string>
+    <string name="ongoing_call">Lähtevä puhelu</string>
+    <string name="select_sim">Valitse SIM-kortti puhelulle</string>
+    <string name="always_use_this_sim">Käytä tälle numerolle aina tätä SIM-korttia</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Pikavalinta</string>
+    <string name="manage_speed_dial">Pikavalinnan asetukset</string>
+    <string name="speed_dial_label">Paina numeroa asettaaksesi sille yhteystiedon. Yhteystiedolle soitetaan, kun painat numeroa pitkään numerovalitsimessa.</string>
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Ryhmitä saman numeron peräkkäiset puhelut puheluhistoriassa</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Dialer - Manage your phone calls easily</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">A handy phone call manager with phonebook, number blocking and multi-SIM support</string>
+    <string name="app_long_description">
+        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
+
+        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
+
+        You can easily block phone numbers to avoid unwanted incoming calls.
+
+        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
+
+        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+
+        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+
+        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+
+        <b>Check out the full suite of Simple Tools here:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
