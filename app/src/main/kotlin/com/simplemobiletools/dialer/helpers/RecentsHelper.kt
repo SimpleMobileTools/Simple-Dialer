@@ -55,7 +55,7 @@ class RecentsHelper(private val context: Context) {
             numberToSimIDMap[it.phoneNumber] = it.id
         }
 
-        val sortOrder = "${Calls._ID} DESC LIMIT 100"
+        val sortOrder = "${Calls._ID} DESC"
         context.queryCursor(uri, projection, sortOrder = sortOrder, showErrors = true) { cursor ->
             val id = cursor.getIntValue(Calls._ID)
             val number = cursor.getStringValue(Calls.NUMBER)
