@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.4.1 *(2020-07-12)*
+----------------------------
+
+ * Search the given string at contact phone numbers too, not just names
+ * Improved the handling of contacts with multiple phone numbers
+
 Version 5.4.0 *(2020-06-19)*
 ----------------------------
 

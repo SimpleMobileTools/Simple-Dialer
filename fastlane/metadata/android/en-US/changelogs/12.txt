@@ -1,0 +1,2 @@
+ * Search the given string at contact phone numbers too, not just names
+ * Improved the handling of contacts with multiple phone numbers
