@@ -4,10 +4,12 @@ import android.content.Context
 import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -76,7 +78,19 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             val currAdapter = fragment_list.adapter
             if (currAdapter == null) {
                 ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this, showDeleteButton = false) {
-                    activity?.launchCallIntent((it as SimpleContact).phoneNumbers.first())
+                    val phoneNumbers = (it as SimpleContact).phoneNumbers
+                    if (phoneNumbers.size <= 1) {
+                        activity?.launchCallIntent(it.phoneNumbers.first())
+                    } else {
+                        val items = ArrayList<RadioItem>()
+                        phoneNumbers.forEachIndexed { index, phoneNumber ->
+                            items.add(RadioItem(index, phoneNumber))
+                        }
+
+                        RadioGroupDialog(activity!!, items) {
+                            activity?.launchCallIntent(phoneNumbers[it as Int])
+                        }
+                    }
                 }.apply {
                     fragment_list.adapter = this
                 }
