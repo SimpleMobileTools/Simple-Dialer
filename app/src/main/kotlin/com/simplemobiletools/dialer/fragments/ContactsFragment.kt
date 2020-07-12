@@ -154,7 +154,10 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     }
 
     fun onSearchQueryChanged(text: String) {
-        val contacts = allContacts.filter { it.name.contains(text, true) }.toMutableList() as ArrayList<SimpleContact>
+        val contacts = allContacts.filter {
+            it.name.contains(text, true) || it.doesContainPhoneNumber(text)
+        }.toMutableList() as ArrayList<SimpleContact>
+
         (fragment_list.adapter as? ContactsAdapter)?.updateItems(contacts, text)
         setupLetterFastscroller(contacts)
     }
