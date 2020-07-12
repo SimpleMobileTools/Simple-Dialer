@@ -109,12 +109,14 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
                     // handle private contacts differently, only Simple Contacts Pro can open them
                     val simpleContacts = "com.simplemobiletools.contacts.pro"
-                    if (lookupKey.isEmpty() && it.rawId > 1000000 && it.contactId > 1000000 && it.rawId == it.contactId && context.isPackageInstalled(simpleContacts)) {
+                    val simpleContactsDebug = "com.simplemobiletools.contacts.pro.debug"
+                    if (lookupKey.isEmpty() && it.rawId > 1000000 && it.contactId > 1000000 && it.rawId == it.contactId &&
+                        (context.isPackageInstalled(simpleContacts) || context.isPackageInstalled(simpleContactsDebug))) {
                         Intent().apply {
                             action = Intent.ACTION_VIEW
                             putExtra(CONTACT_ID, it.rawId)
                             putExtra(IS_PRIVATE, true)
-                            `package` = simpleContacts
+                            `package` = if (context.isPackageInstalled(simpleContacts)) simpleContacts else simpleContactsDebug
                             setDataAndType(publicUri, "vnd.android.cursor.dir/person")
                             if (resolveActivity(context.packageManager) != null) {
                                 activity?.startActivity(this)
