@@ -147,7 +147,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
                     activity.handlePermission(PERMISSION_CALL_PHONE) { hasPermission ->
                         val action = if (hasPermission) Intent.ACTION_CALL else Intent.ACTION_DIAL
                         val intent = Intent(action).apply {
-                            data = Uri.fromParts("tel", contact.phoneNumber, null)
+                            data = Uri.fromParts("tel", contact.phoneNumbers.first(), null)
                         }
 
                         val shortcut = ShortcutInfo.Builder(activity, contact.hashCode().toString())

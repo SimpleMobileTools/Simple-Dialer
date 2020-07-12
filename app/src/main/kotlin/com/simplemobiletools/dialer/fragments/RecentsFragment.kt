@@ -50,7 +50,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                 recents.filter { it.phoneNumber == it.name }.forEach { recent ->
                     var wasNameFilled = false
                     if (privateContacts.isNotEmpty()) {
-                        val privateContact = privateContacts.firstOrNull { it.phoneNumber == recent.phoneNumber }
+                        val privateContact = privateContacts.firstOrNull { it.phoneNumbers.first() == recent.phoneNumber }
                         if (privateContact != null) {
                             recent.name = privateContact.name
                             wasNameFilled = true
@@ -58,7 +58,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                     }
 
                     if (!wasNameFilled) {
-                        val contact = contacts.firstOrNull { it.phoneNumber == recent.phoneNumber }
+                        val contact = contacts.firstOrNull { it.phoneNumbers.first() == recent.phoneNumber }
                         if (contact != null) {
                             recent.name = contact.name
                         }

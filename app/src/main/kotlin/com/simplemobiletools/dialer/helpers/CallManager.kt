@@ -74,7 +74,7 @@ class CallManager {
                     val privateCursor = context.getMyContactsCursor().loadInBackground()
                     ensureBackgroundThread {
                         val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
-                        val privateContact = privateContacts.firstOrNull { it.phoneNumber == callContact.number }
+                        val privateContact = privateContacts.firstOrNull { it.phoneNumbers.first() == callContact.number }
                         if (privateContact != null) {
                             callContact.name = privateContact.name
                         }

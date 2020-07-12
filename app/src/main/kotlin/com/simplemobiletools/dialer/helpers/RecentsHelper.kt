@@ -71,7 +71,7 @@ class RecentsHelper(private val context: Context) {
                     val normalizedNumber = number.normalizePhoneNumber()
                     if (normalizedNumber!!.length >= COMPARABLE_PHONE_NUMBER_LENGTH) {
                         name = contacts.firstOrNull { contact ->
-                            val curNumber = contact.phoneNumber.normalizePhoneNumber()
+                            val curNumber = contact.phoneNumbers.first().normalizePhoneNumber()
                             if (curNumber!!.length >= COMPARABLE_PHONE_NUMBER_LENGTH) {
                                 if (curNumber.substring(curNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH) == normalizedNumber.substring(normalizedNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH)) {
                                     contactsNumbersMap[number] = contact.name

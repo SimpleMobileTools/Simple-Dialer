@@ -76,7 +76,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             val currAdapter = fragment_list.adapter
             if (currAdapter == null) {
                 ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this, showDeleteButton = false) {
-                    activity?.launchCallIntent((it as SimpleContact).phoneNumber)
+                    activity?.launchCallIntent((it as SimpleContact).phoneNumbers.first())
                 }.apply {
                     fragment_list.adapter = this
                 }
