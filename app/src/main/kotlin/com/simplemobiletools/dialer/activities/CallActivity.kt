@@ -83,9 +83,7 @@ class CallActivity : SimpleActivity() {
             proximityWakeLock!!.release()
         }
 
-        if (CallManager.getState() == Call.STATE_DIALING) {
-            endCall()
-        }
+        endCall()
     }
 
     override fun onBackPressed() {
