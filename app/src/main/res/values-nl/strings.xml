@@ -10,7 +10,7 @@
     <string name="could_not_access_the_call_history">Kon geen toegang krijgen tot de oproepgeschiedenis</string>
     <string name="request_access">Toegang aanvragen</string>
     <string name="remove_confirmation">Geselecteerde items uit de oproepgeschiedenis verwijderen?</string>
-    <string name="send_sms">Send SMS</string>
+    <string name="send_sms">SMS sturen</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Telefoonkiezer</string>
