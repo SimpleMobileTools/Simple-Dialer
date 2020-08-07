@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.adapters
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.provider.CallLog.Calls
 import android.text.TextUtils
 import android.util.TypedValue
@@ -55,6 +56,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         when (id) {
             R.id.cab_block_number -> askConfirmBlock()
             R.id.cab_add_number -> addNumberToContact()
+            R.id.cab_send_sms -> sendSMS()
             R.id.cab_remove -> askConfirmRemove()
         }
     }
@@ -134,6 +136,23 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             type = "vnd.android.cursor.item/contact"
             putExtra(KEY_PHONE, recentCall.phoneNumber)
 
+            if (resolveActivity(activity.packageManager) != null) {
+                activity.startActivity(this)
+            } else {
+                activity.toast(R.string.no_app_found)
+            }
+        }
+    }
+
+    private fun sendSMS() {
+        val numbers = getSelectedItems().map { it.phoneNumber }
+        val numbersString = StringBuilder()
+        numbers.forEach {
+            numbersString.append("${Uri.encode(it)};")
+        }
+
+        val uriString = "smsto:${numbersString.toString().trimEnd(';')}"
+        Intent(Intent.ACTION_SENDTO, Uri.parse(uriString)).apply {
             if (resolveActivity(activity.packageManager) != null) {
                 activity.startActivity(this)
             } else {
