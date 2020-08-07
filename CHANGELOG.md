@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.5.0 *(2020-08-07)*
+----------------------------
+
+ * Allow sending SMS to contacts directly from the call log
+ * End the call if the call screen gets shut down
+
 Version 5.4.1 *(2020-07-12)*
 ----------------------------
 
