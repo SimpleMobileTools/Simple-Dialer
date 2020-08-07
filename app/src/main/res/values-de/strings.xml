@@ -10,6 +10,7 @@
     <string name="could_not_access_the_call_history">kein Zugriff auf Anrufliste</string>
     <string name="request_access">Zugriff anfordern</string>
     <string name="remove_confirmation">Ausgewählte Anrufe definitiv aus der Anrufliste löschen?</string>
+    <string name="send_sms">Send SMS</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Wählpad</string>

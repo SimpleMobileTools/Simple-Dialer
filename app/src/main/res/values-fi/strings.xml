@@ -10,6 +10,7 @@
     <string name="could_not_access_the_call_history">Ei käyttöoikeutta puheluhistoriaan</string>
     <string name="request_access">Pyydä käyttöoikeutta</string>
     <string name="remove_confirmation">Haluatko varmasti poistaa valitut kohteet puheluhistoriasta?</string>
+    <string name="send_sms">Send SMS</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Numerovalitsin</string>

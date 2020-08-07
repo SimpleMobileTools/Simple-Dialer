@@ -10,6 +10,7 @@
     <string name="could_not_access_the_call_history">Nepodarilo sa dostať ku histórií hovorov</string>
     <string name="request_access">Vyžiadať prístup</string>
     <string name="remove_confirmation">Ste si istý, že chcete z histórií volaní odstrániť zvolené položky?</string>
+    <string name="send_sms">Odoslať SMS</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Číselník</string>
