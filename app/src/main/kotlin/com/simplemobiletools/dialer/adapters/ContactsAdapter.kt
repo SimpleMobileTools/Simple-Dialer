@@ -5,6 +5,9 @@ import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.graphics.drawable.Icon
 import android.net.Uri
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.util.TypedValue
 import android.view.Menu
 import android.view.View
@@ -24,6 +27,7 @@ import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.helpers.ExtPhoneNumberUtils
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 
 class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleContact>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener? = null,
@@ -168,6 +172,22 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
         if (!activity.isDestroyed && !activity.isFinishing) {
             Glide.with(activity).clear(holder.itemView.findViewById<ImageView>(R.id.item_contact_image))
         }
+    }
+
+    // Override original implementation to allow multi locale highlight
+    private fun String.highlightTextFromNumbers(textToHighlight: String, adjustedPrimaryColor: Int): SpannableString {
+        val spannableString = SpannableString(this)
+        val digits = ExtPhoneNumberUtils.convertKeypadLettersToDigits(this)
+        if (digits.contains(textToHighlight)) {
+            val startIndex = digits.indexOf(textToHighlight, 0, true)
+            val endIndex = Math.min(startIndex + textToHighlight.length, length)
+            try {
+                spannableString.setSpan(ForegroundColorSpan(adjustedPrimaryColor), startIndex, endIndex, Spannable.SPAN_EXCLUSIVE_INCLUSIVE)
+            } catch (ignored: IndexOutOfBoundsException) {
+            }
+        }
+
+        return spannableString
     }
 
     private fun setupView(view: View, contact: SimpleContact) {

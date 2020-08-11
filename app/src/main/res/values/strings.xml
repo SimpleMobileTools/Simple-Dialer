@@ -66,6 +66,53 @@
         https://www.reddit.com/r/SimpleMobileTools
     </string>
 
+    <!-- GUI -->
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="no_contacts_found">No contacts found</string>
+    <string name="create_new">Create new</string>
+    <string name="no_items_found">No items found.</string>
+    <string name="dial_two">ABC</string>
+    <string name="dial_three">DEF</string>
+    <string name="dial_four">GHI</string>
+    <string name="dial_five">JKL</string>
+    <string name="dial_six">MNO</string>
+    <string name="dial_seven">PQRS</string>
+    <string name="dial_eight">TUV</string>
+    <string name="dial_nine">WXYZ</string>
+    <string name="customize_colors">Customize colors</string>
+    <string name="use_english_language">Use English language</string>
+    <string name="manage_blocked_numbers">Manage blocked numbers</string>
+    <string name="change_date_and_time_format">Change date and time format</string>
+    <string name="font_size">Font size</string>
+    <string name="small">Small</string>
+    <string name="medium">Medium</string>
+    <string name="large">Large</string>
+    <string name="extra_large">Extra large</string>
+    <string name="start_name_with_surname">Start name with surname</string>
+    <string name="last_used_tab">Last used one</string>
+    <string name="default_tab_to_open">Tab to open at app start</string>
+    <string name="call_history_tab">Call History</string>
+    <string name="favorites_tab">Favorites</string>
+    <string name="contacts_tab">Contacts</string>
+    <string name="blocked_numbers">Blocked numbers</string>
+    <string name="not_blocking_anyone">You are not blocking anyone.</string>
+    <string name="add_a_blocked_number">Add a blocked number</string>
+    <string name="text_color">Text color</string>
+    <string name="theme">Theme</string>
+    <string name="light_theme">Light</string>
+    <string name="dark_red">Dark red</string>
+    <string name="dark_theme">Dark</string>
+    <string name="black_white">Black &amp; White</string>
+    <string name="background_color">Background color</string>
+    <string name="primary_color">Primary color</string>
+    <string name="app_icon_color">App icon color</string>
+    <string name="bottom_navigation_bar_color">Bottom navigation bar color</string>
+    <string name="apply_to_all_apps">Apply colors to all Simple Apps</string>
+    <string name="use_24_hour_time_format">Use 24-hour time format</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

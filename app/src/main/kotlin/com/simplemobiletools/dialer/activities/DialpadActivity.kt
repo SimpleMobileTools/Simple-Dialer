@@ -23,12 +23,15 @@ import com.simplemobiletools.dialer.extensions.addCharacter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getKeyEvent
 import com.simplemobiletools.dialer.extensions.startCallIntent
+import com.simplemobiletools.dialer.helpers.ExtPhoneNumberUtils
 import com.simplemobiletools.dialer.models.SpeedDial
 import kotlinx.android.synthetic.main.activity_dialpad.*
 import kotlinx.android.synthetic.main.activity_dialpad.dialpad_holder
 import kotlinx.android.synthetic.main.dialpad.*
+import java.lang.StringBuilder
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class DialpadActivity : SimpleActivity() {
     private var allContacts = ArrayList<SimpleContact>()
@@ -77,7 +80,8 @@ class DialpadActivity : SimpleActivity() {
         SimpleContactsHelper(this).getAvailableContacts(false) { gotContacts(it) }
         disableKeyboardPopping()
 
-        val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_vector, getFABIconColor())
+        val callIcon =
+            resources.getColoredDrawableWithColor(R.drawable.ic_phone_vector, getFABIconColor())
         dialpad_call_button.setImageDrawable(callIcon)
         dialpad_call_button.background.applyColorFilter(getAdjustedPrimaryColor())
 
@@ -107,7 +111,10 @@ class DialpadActivity : SimpleActivity() {
     }
 
     private fun checkDialIntent(): Boolean {
-        return if ((intent.action == Intent.ACTION_DIAL || intent.action == Intent.ACTION_VIEW) && intent.data != null && intent.dataString?.contains("tel:") == true) {
+        return if ((intent.action == Intent.ACTION_DIAL || intent.action == Intent.ACTION_VIEW) && intent.data != null && intent.dataString?.contains(
+                "tel:"
+            ) == true
+        ) {
             val number = Uri.decode(intent.dataString).substringAfter("tel:")
             dialpad_input.setText(number)
             dialpad_input.setSelection(number.length)
@@ -176,7 +183,8 @@ class DialpadActivity : SimpleActivity() {
                     launchSetDefaultDialerIntent()
                 }
             } else {
-                val intent = Intent(SECRET_CODE_ACTION, Uri.parse("android_secret_code://$secretCode"))
+                val intent =
+                    Intent(SECRET_CODE_ACTION, Uri.parse("android_secret_code://$secretCode"))
                 sendBroadcast(intent)
             }
             return
@@ -184,8 +192,8 @@ class DialpadActivity : SimpleActivity() {
 
         (dialpad_list.adapter as? ContactsAdapter)?.finishActMode()
         val filtered = allContacts.filter {
-            val convertedName = PhoneNumberUtils.convertKeypadLettersToDigits(it.name.normalizeString())
-            it.doesContainPhoneNumber(text) || (convertedName.contains(text, true))
+            val digits = ExtPhoneNumberUtils.convertKeypadLettersToDigits(it.name)
+            it.doesContainPhoneNumber(text) || (digits.contains(text, true))
         }.sortedWith(compareBy {
             !it.doesContainPhoneNumber(text)
         }).toMutableList() as ArrayList<SimpleContact>
