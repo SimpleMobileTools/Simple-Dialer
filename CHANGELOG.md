@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.5.1 *(2020-09-18)*
+----------------------------
+
+ * Properly recognize contact name from number in some new cases
+ * Do not always require the Contacts permission
+
 Version 5.5.0 *(2020-08-07)*
 ----------------------------
 

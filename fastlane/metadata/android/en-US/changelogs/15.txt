@@ -1,0 +1,2 @@
+ * Properly recognize contact name from number in some new cases
+ * Do not always require the Contacts permission
