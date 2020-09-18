@@ -104,20 +104,19 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             val currAdapter = fragment_list.adapter
             if (currAdapter == null) {
                 ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this) {
-                    val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((it as SimpleContact).rawId.toString())
-                    val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
+                    val contact = it as SimpleContact
 
                     // handle private contacts differently, only Simple Contacts Pro can open them
                     val simpleContacts = "com.simplemobiletools.contacts.pro"
                     val simpleContactsDebug = "com.simplemobiletools.contacts.pro.debug"
-                    if (lookupKey.isEmpty() && it.rawId > 1000000 && it.contactId > 1000000 && it.rawId == it.contactId &&
+                    if (it.rawId > 1000000 && it.contactId > 1000000 && it.rawId == it.contactId &&
                         (context.isPackageInstalled(simpleContacts) || context.isPackageInstalled(simpleContactsDebug))) {
                         Intent().apply {
                             action = Intent.ACTION_VIEW
                             putExtra(CONTACT_ID, it.rawId)
                             putExtra(IS_PRIVATE, true)
                             `package` = if (context.isPackageInstalled(simpleContacts)) simpleContacts else simpleContactsDebug
-                            setDataAndType(publicUri, "vnd.android.cursor.dir/person")
+                            setDataAndType(ContactsContract.Contacts.CONTENT_LOOKUP_URI, "vnd.android.cursor.dir/person")
                             if (resolveActivity(context.packageManager) != null) {
                                 activity?.startActivity(this)
                             } else {
@@ -125,6 +124,8 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                             }
                         }
                     } else {
+                        val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((contact).rawId.toString())
+                        val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
                         activity!!.launchViewContactIntent(publicUri)
                     }
                 }.apply {
