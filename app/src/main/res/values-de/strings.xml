@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Simple Telefon</string>
+    <string name="app_name">Schlichtes Telefon</string>
     <string name="app_launcher_name">Telefon</string>
 
     <!-- Contacts -->
@@ -42,21 +42,21 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Eine Telefon App mit Adressbuch, Wählpad und mehrfach-SIM Unterstützung</string>
     <string name="app_long_description">
-        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
+        Eine App um Anrufe zu verwalten. Aus dem praktisches Anrufprotokoll können direkt Anrufe getätigt werden.
 
-        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
+        Das Wähltastenfeld bietet intelligente Kontaktvorschlägen. Es unterstützt auch Buchstaben.
 
-        You can easily block phone numbers to avoid unwanted incoming calls.
+        Sie können Telefonnummern einfach blockieren, um unerwünschte eingehende Anrufe zu vermeiden.
 
-        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
+        Die unterstützte Kurzwahl macht das Anrufen Ihrer Lieblingskontakte mit dieser App zum Kinderspiel.
 
-        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+        Um Ihnen zu helfen, Ihre Anrufe schnell zu verwalten, unterstützt die Telefon-App auch Favoriten und erstellt Verknüpfungen für jeden Kontakt auf dem Startbildschirm.
 
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+        Weiter unterstützt die App standardmässig das Materialdesign und Dark-Theme und bietet eine hervorragende Benutzererfahrung für eine einfache Verwendung. Keine Internetverbindung nötig, dadurch mehr Privatsphäre, Sicherheit und Stabilität als andere Apps.
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+        Enthält keine Werbungen und benötigt keine unnötigen Berechtigungen. Vollständig OpenSource und bietet anpassbare Farben.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Schau dir die vollständige Serie der Schlichten Apps hier an:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
