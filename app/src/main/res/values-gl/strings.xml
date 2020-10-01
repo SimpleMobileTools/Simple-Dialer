@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Simple Dialer</string>
+    <string name="app_launcher_name">Marcador</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Non foi posible acceder aos contactos</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Non existen chamadas anteriores</string>
+    <string name="could_not_access_the_call_history">Non foi posible acceder ao historial de chamadas</string>
+    <string name="request_access">Pedir acceso</string>
+    <string name="remove_confirmation">Quere eliminar do historial os elementos seleccionados?</string>
+    <string name="send_sms">Enviar SMS</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Marcador</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Marcador</string>
+    <string name="accept">Aceptar</string>
+    <string name="decline">Rexeitar</string>
+    <string name="unknown_caller">Descoñecido</string>
+    <string name="is_calling">Está chamando…</string>
+    <string name="dialing">Marcando…</string>
+    <string name="call_ended">Chamada rematada</string>
+    <string name="call_ending">Rematando chamada</string>
+    <string name="ongoing_call">Chamada en curso</string>
+    <string name="select_sim">Seleciona unha SIM para esta chamada</string>
+    <string name="always_use_this_sim">Utilizar sempre esta SIM para chamar a este número</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Marcación rápida</string>
+    <string name="manage_speed_dial">Xestionar marcacións rápidas</string>
+    <string name="speed_dial_label">Preme no número para atribuír un contacto á marcación rápida. Posteriormente, poderá chamar directamente ao contacto a través da tecla da marcación rápida.</string>
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Agrupar, no rexisto, as chamadas para o mesmo contacto</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Dialer - Xestor de chamadas</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Aplicativo para chamar e bloquear números, con soporte multi-SIM</string>
+    <string name="app_long_description">
+        Un aplicativo para xestionar chamadas, independentemente do sitio no que estea. Posúe un rexistro de chamadas de acceso rápido.
+
+        Existe tamén un marcador que suxire contactos.
+
+        Pode bloquear números facilmente e evitar chamadas non desexadas.
+
+        Pode ligar números á marcación rápida, facendo que chamar aos contactos favoritos sexa moito máis rápido.
+
+        Para xestionar as suas chamadas, o aplicativo Teléfono tamén dá soporte aos contactos favoritos e permite crear atallos para os contactos na súa pantalla inicial.
+
+        Dispoñible cun deseño material e cun tema escuro que proporciona unha experiencia moi agradable. Non pide acesso a Internet o que lle confire privacidade, seguranza e estabilidade.
+
+        Non posúe anuncios nin utiliza permisos innecesarios. É de código aberto e permite personalización de cores.
+
+        <b>Consulta a nosa páxina aqui:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
