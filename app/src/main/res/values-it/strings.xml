@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Simple Dialer</string>
+    <string name="app_launcher_name">Dialer</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Impossibile accedere ai contatti</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Non sono state trovate chiamate precedenti</string>
+    <string name="could_not_access_the_call_history">Impossibile accedere alla cronologia delle chiamate</string>
+    <string name="request_access">Richiedo accesso</string>
+    <string name="remove_confirmation">Rimuovere davvero l\'elemento selezionato dalla cronologia delle chiamate?</string>
+    <string name="send_sms">Invia SMS</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Compositore numerico</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Compositore</string>
+    <string name="accept">Accetta</string>
+    <string name="decline">Rifiuta</string>
+    <string name="unknown_caller">Sconosciuto</string>
+    <string name="is_calling">Chiamata in corso…</string>
+    <string name="dialing">Composizione…</string>
+    <string name="call_ended">Chiamata terminata</string>
+    <string name="call_ending">Chiamata in terminazione</string>
+    <string name="ongoing_call">Chiamata in corso</string>
+    <string name="select_sim">Seleziona una SIM per questa chiamata</string>
+    <string name="always_use_this_sim">Usa sempre questa SIM per questo numero</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Velocità della composizione</string>
+    <string name="manage_speed_dial">Gestisci la velocità della composizione</string>
+    <string name="speed_dial_label">Seleziona un numero per assegnare un contatto. In questo modo puoi chiamare rapidamente il contatto tenendo premuto sul numero assegnato nel compositore.</string>
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Raggruppa chiamate successive con lo stesso numero nel registro delle chiamate</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Dialer - Gestisci le chiamate</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Un gestore di chiamate con rubrica, blocco dei numeri e supporto per più SIM</string>
+    <string name="app_long_description">
+        Un\'app leggera per gestire le proprie chiamate, non importa dove ti trovi. È dotata di un comodo registro delle chiamate.
+
+        Ha un rapido compositore al tuo servizio, con il suggerimento intelligente dei contatti. Supporta anche le lettere.
+
+        Puoi facilmente bloccare un numero per evitare chiamate indesiderate.
+
+        Supporta la composizione rapida dei tuoi contatti preferiti.
+
+        Per aiutarti nella gestione rapida delle chiamata, l\'app supporta la selezione di contatti preferiti e la creazione di scorciatoie nella schermata principale di qualsiasi contatto.
+
+        È dotata di un\'interfaccia in material design con il tema scuro predefinito, fornisce un\'ottima esperienza utente. La mancanza di accesso internet è garanzia di maggiore privacy, sicurezza e stabilità rispetto ad altre applicazioni.
+
+        Non contiene publicità o permessi non necessari. È completamente opensource, permette la personalizzazione dei colori.
+
+        <b>Dai un\'occhiata alle altre applicazioni Simple Tools:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
