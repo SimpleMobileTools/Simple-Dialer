@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Simple Dialer</string>
+    <string name="app_launcher_name">Téléphone</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Impossible d'accéder à vos contacts</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Aucun appel précédent n'a été trouvé</string>
+    <string name="could_not_access_the_call_history">Impossible d'accéder à l'historique des appels</string>
+    <string name="request_access">Demande d'accès</string>
+    <string name="remove_confirmation">Êtes-vous sûr de vouloir supprimer les éléments sélectionnés de l'historique des appels ?</string>
+    <string name="send_sms">Envoyer un SMS</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Pavé numérique</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Compositeur</string>
+    <string name="accept">Accepter</string>
+    <string name="decline">Décliner</string>
+    <string name="unknown_caller">Appelant inconnu</string>
+    <string name="is_calling">Appelle…</string>
+    <string name="dialing">Numérotation…</string>
+    <string name="call_ended">Appel terminé</string>
+    <string name="call_ending">Fin de l'appel</string>
+    <string name="ongoing_call">Appel en cours</string>
+    <string name="select_sim">Sélectionnez une carte SIM pour cet appel</string>
+    <string name="always_use_this_sim">Toujours utiliser cette carte SIM pour ce numéro</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Numérotation rapide</string>
+    <string name="manage_speed_dial">Gérer la numérotation rapide</string>
+    <string name="speed_dial_label">Cliquez sur un numéro pour lui attribuer un contact. Vous pouvez ensuite appeler rapidement le contact donné en appuyant longuement sur le numéro donné sur le pavé numérique.</string>
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Regrouper les appels suivants avec le même numéro dans le journal des appels</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Dialer - Gérez facilement vos appels</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Un gestionnaire d'appels pratique, avec blocage de numéro et gestion multi-SIM</string>
+    <string name="app_long_description">
+        Une application légère pour gérer vos appels, où que vous soyez. Fourni avec un journal d'appels pratique pour initier facilement des appels.
+
+        Il y aussi un clavier de numérotation rapide à votre service, avec une suggestion intelligente des contacts, qui prend également en charge les lettres.
+
+        Vous pouvez facilement bloquer des numéros pour éviter les appels entrants indésirables.
+
+        La numérotation rapide facilite l'appel de vos contacts préférés.
+
+        Pour vous aider à gérer rapidement vos appels, l'application prend également en charge les contacts favoris et la création de raccourcis vers n'importe quel contact sur l'écran d'accueil.
+
+        Avec un Material Design et un thème sombre par défaut, il offre une excellente expérience utilisateur pour une utilisation facile. L'absence d'accès à internet vous donne plus de confidentialité, de sécurité et de stabilité que les autres applications.
+
+        Ne contient aucune publicité ou autorisation inutile. Il est entièrement open source, avec des couleurs personnalisables.
+
+        <b>Découvrez la suite complète des applications Simple Mobile Tools ici :</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook :</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit :</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
