@@ -298,7 +298,6 @@ class MainActivity : SimpleActivity() {
         }
 
         if (viewpager.adapter == null) {
-            viewpager.offscreenPageLimit = tabsList.size - 1
             viewpager.adapter = ViewPagerAdapter(this)
             viewpager.currentItem = getDefaultTab()
         }
