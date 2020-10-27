@@ -15,7 +15,10 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.extensions.getTextSize
+import com.simplemobiletools.commons.extensions.highlightTextFromNumbers
+import com.simplemobiletools.commons.extensions.highlightTextPart
+import com.simplemobiletools.commons.extensions.shortcutManager
 import com.simplemobiletools.commons.helpers.PERMISSION_CALL_PHONE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CONTACTS
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
@@ -31,7 +34,6 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
         MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
     private var textToHighlight = highlightText
-    private var adjustedPrimaryColor = activity.getAdjustedPrimaryColor()
     private var fontSize = activity.getTextSize()
 
     init {
