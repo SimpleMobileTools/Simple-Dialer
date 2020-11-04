@@ -6,6 +6,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.helpers.mydebug
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
@@ -16,6 +17,8 @@ import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.fragment_recents.view.*
 
 class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
+    private var allRecentCalls = ArrayList<RecentCall>()
+
     override fun setupFragment() {
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CALL_LOG)) {
             R.string.no_previous_calls
@@ -47,6 +50,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         RecentsHelper(context).getRecentCalls { recents ->
             SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
                 val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+
                 recents.filter { it.phoneNumber == it.name }.forEach { recent ->
                     var wasNameFilled = false
                     if (privateContacts.isNotEmpty()) {
@@ -65,6 +69,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                     }
                 }
 
+                allRecentCalls = recents
                 activity?.runOnUiThread {
                     gotRecents(recents)
                 }
@@ -111,10 +116,14 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     }
 
     override fun onSearchClosed() {
-
+        (recents_list.adapter as? RecentCallsAdapter)?.updateItems(allRecentCalls)
     }
 
     override fun onSearchQueryChanged(text: String) {
+        val recentCalls = allRecentCalls.filter {
+            it.name.contains(text, true) || it.doesContainPhoneNumber(text)
+        }.toMutableList() as ArrayList<RecentCall>
 
+        (recents_list.adapter as? RecentCallsAdapter)?.updateItems(recentCalls, text)
     }
 }
