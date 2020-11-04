@@ -141,13 +141,7 @@ class MainActivity : SimpleActivity() {
 
     private fun checkContactPermissions() {
         handlePermission(PERMISSION_READ_CONTACTS) {
-            if (it) {
-                handlePermission(PERMISSION_GET_ACCOUNTS) {
-                    initFragments()
-                }
-            } else {
-                initFragments()
-            }
+            initFragments()
         }
     }
 
