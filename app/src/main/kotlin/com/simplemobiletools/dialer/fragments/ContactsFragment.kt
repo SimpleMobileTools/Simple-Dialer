@@ -150,6 +150,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     }
 
     override fun onSearchClosed() {
+        fragment_placeholder.beVisibleIf(allContacts.isEmpty())
         (fragment_list.adapter as? ContactsAdapter)?.updateItems(allContacts)
         setupLetterFastscroller(allContacts)
     }
@@ -159,6 +160,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             it.name.contains(text, true) || it.doesContainPhoneNumber(text)
         }.toMutableList() as ArrayList<SimpleContact>
 
+        fragment_placeholder.beVisibleIf(contacts.isEmpty())
         (fragment_list.adapter as? ContactsAdapter)?.updateItems(contacts, text)
         setupLetterFastscroller(contacts)
     }

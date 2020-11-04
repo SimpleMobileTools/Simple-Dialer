@@ -6,7 +6,6 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
-import com.simplemobiletools.commons.helpers.mydebug
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
@@ -116,6 +115,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     }
 
     override fun onSearchClosed() {
+        recents_placeholder.beVisibleIf(allRecentCalls.isEmpty())
         (recents_list.adapter as? RecentCallsAdapter)?.updateItems(allRecentCalls)
     }
 
@@ -124,6 +124,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             it.name.contains(text, true) || it.doesContainPhoneNumber(text)
         }.toMutableList() as ArrayList<RecentCall>
 
+        recents_placeholder.beVisibleIf(recentCalls.isEmpty())
         (recents_list.adapter as? RecentCallsAdapter)?.updateItems(recentCalls, text)
     }
 }
