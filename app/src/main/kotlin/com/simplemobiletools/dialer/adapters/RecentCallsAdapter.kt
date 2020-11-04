@@ -45,6 +45,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         menu.apply {
             findItem(R.id.cab_block_number).isVisible = isNougatPlus()
             findItem(R.id.cab_add_number).isVisible = isOneItemSelected()
+            findItem(R.id.cab_copy_number).isVisible = isOneItemSelected()
         }
     }
 
@@ -57,6 +58,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             R.id.cab_block_number -> askConfirmBlock()
             R.id.cab_add_number -> addNumberToContact()
             R.id.cab_send_sms -> sendSMS()
+            R.id.cab_copy_number -> copyNumber()
             R.id.cab_remove -> askConfirmRemove()
         }
     }
@@ -159,6 +161,12 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
                 activity.toast(R.string.no_app_found)
             }
         }
+    }
+
+    private fun copyNumber() {
+        val recentCall = getSelectedItems().firstOrNull() ?: return
+        activity.copyToClipboard(recentCall.phoneNumber)
+        finishActMode()
     }
 
     private fun askConfirmRemove() {
