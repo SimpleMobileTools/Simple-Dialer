@@ -41,7 +41,11 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             setTextColor(context.config.primaryColor)
             underlineText()
             setOnClickListener {
-                requestReadContactsPermission()
+                if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
+                    launchCreateNewIntent()
+                } else {
+                    requestReadContactsPermission()
+                }
             }
         }
 
@@ -50,15 +54,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         letter_fastscroller_thumb.textColor = context.config.primaryColor.getContrastColor()
 
         fragment_fab.setOnClickListener {
-            Intent(Intent.ACTION_INSERT).apply {
-                data = ContactsContract.Contacts.CONTENT_URI
-
-                if (resolveActivity(context.packageManager) != null) {
-                    activity?.startActivity(this)
-                } else {
-                    context.toast(R.string.no_app_found)
-                }
-            }
+            launchCreateNewIntent()
         }
     }
 
@@ -172,12 +168,27 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             if (it) {
                 fragment_placeholder.text = context.getString(R.string.no_contacts_found)
                 fragment_placeholder_2.text = context.getString(R.string.create_new)
+                fragment_placeholder_2.setOnClickListener {
+                    launchCreateNewIntent()
+                }
 
                 SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
                     activity?.runOnUiThread {
                         gotContacts(contacts)
                     }
                 }
+            }
+        }
+    }
+
+    private fun launchCreateNewIntent() {
+        Intent().apply {
+            action = Intent.ACTION_INSERT
+            data = ContactsContract.Contacts.CONTENT_URI
+            if (resolveActivity(context.packageManager) != null) {
+                context.startActivity(this)
+            } else {
+                context.toast(R.string.no_app_found)
             }
         }
     }
