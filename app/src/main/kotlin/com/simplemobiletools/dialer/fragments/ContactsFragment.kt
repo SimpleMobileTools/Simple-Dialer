@@ -124,9 +124,13 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                             }
                         }
                     } else {
-                        val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((contact).rawId.toString())
-                        val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
-                        activity!!.launchViewContactIntent(publicUri)
+                        ensureBackgroundThread {
+                            val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((contact).rawId.toString())
+                            val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
+                            activity?.runOnUiThread {
+                                activity!!.launchViewContactIntent(publicUri)
+                            }
+                        }
                     }
                 }.apply {
                     fragment_list.adapter = this

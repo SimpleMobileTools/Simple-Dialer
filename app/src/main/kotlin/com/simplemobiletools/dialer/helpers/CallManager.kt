@@ -3,6 +3,8 @@ package com.simplemobiletools.dialer.helpers
 import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
 import android.telecom.Call
 import android.telecom.InCallService
 import android.telecom.VideoProfile
@@ -55,30 +57,34 @@ class CallManager {
         }
 
         fun getCallContact(context: Context, callback: (CallContact?) -> Unit) {
-            val callContact = CallContact("", "", "")
-            if (call == null || call!!.details == null || call!!.details!!.handle == null) {
-                callback(callContact)
-                return
-            }
-
-            val uri = Uri.decode(call!!.details.handle.toString())
-            if (uri.startsWith("tel:")) {
-                val number = uri.substringAfter("tel:")
-                callContact.number = number
-                callContact.name = SimpleContactsHelper(context).getNameFromPhoneNumber(number)
-                callContact.photoUri = SimpleContactsHelper(context).getPhotoUriFromPhoneNumber(number)
-
-                if (callContact.name != callContact.number) {
+            ensureBackgroundThread {
+                val callContact = CallContact("", "", "")
+                if (call == null || call!!.details == null || call!!.details!!.handle == null) {
                     callback(callContact)
-                } else {
-                    val privateCursor = context.getMyContactsCursor().loadInBackground()
-                    ensureBackgroundThread {
-                        val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
-                        val privateContact = privateContacts.firstOrNull { it.doesContainPhoneNumber(callContact.number) }
-                        if (privateContact != null) {
-                            callContact.name = privateContact.name
-                        }
+                    return@ensureBackgroundThread
+                }
+
+                val uri = Uri.decode(call!!.details.handle.toString())
+                if (uri.startsWith("tel:")) {
+                    val number = uri.substringAfter("tel:")
+                    callContact.number = number
+                    callContact.name = SimpleContactsHelper(context).getNameFromPhoneNumber(number)
+                    callContact.photoUri = SimpleContactsHelper(context).getPhotoUriFromPhoneNumber(number)
+
+                    if (callContact.name != callContact.number) {
                         callback(callContact)
+                    } else {
+                        Handler(Looper.getMainLooper()).post {
+                            val privateCursor = context.getMyContactsCursor().loadInBackground()
+                            ensureBackgroundThread {
+                                val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+                                val privateContact = privateContacts.firstOrNull { it.doesContainPhoneNumber(callContact.number) }
+                                if (privateContact != null) {
+                                    callContact.name = privateContact.name
+                                }
+                                callback(callContact)
+                            }
+                        }
                     }
                 }
             }
