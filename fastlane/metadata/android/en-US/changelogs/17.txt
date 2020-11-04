@@ -1,0 +1,4 @@
+ * Allow easily copying phone number from the Recents tab
+ * Adding Search at Favorites and Recents tabs
+ * Fixed a glitch with contacts sometimes not loading in properly
+ * Added some stability, translation and UI improvements

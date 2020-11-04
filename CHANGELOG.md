@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 5.5.3 *(2020-11-04)*
+----------------------------
+
+ * Allow easily copying phone number from the Recents tab
+ * Adding Search at Favorites and Recents tabs
+ * Fixed a glitch with contacts sometimes not loading in properly
+ * Added some stability, translation and UI improvements
+
 Version 5.5.2 *(2020-10-27)*
 ----------------------------
 
