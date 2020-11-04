@@ -153,7 +153,7 @@ class MainActivity : SimpleActivity() {
 
                 override fun onQueryTextChange(newText: String): Boolean {
                     if (isSearchOpen) {
-                        contacts_fragment?.onSearchQueryChanged(newText)
+                        getCurrentFragment()?.onSearchQueryChanged(newText)
                     }
                     return true
                 }
@@ -168,7 +168,7 @@ class MainActivity : SimpleActivity() {
             }
 
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                contacts_fragment?.onSearchClosed()
+                getCurrentFragment()?.onSearchClosed()
                 isSearchOpen = false
                 main_dialpad_button.beVisible()
                 return true
@@ -305,6 +305,12 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun getAllFragments() = arrayListOf(contacts_fragment, favorites_fragment, recents_fragment).toMutableList() as ArrayList<MyViewPagerFragment?>
+
+    private fun getCurrentFragment(): MyViewPagerFragment? = when (viewpager.currentItem) {
+        0 -> contacts_fragment
+        1 -> favorites_fragment
+        else -> recents_fragment
+    }
 
     private fun getDefaultTab(): Int {
         return when (config.defaultTab) {

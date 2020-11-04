@@ -113,10 +113,16 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     override fun onSearchClosed() {
-
+        (fragment_list.adapter as? ContactsAdapter)?.updateItems(allContacts)
+        setupLetterFastscroller(allContacts)
     }
 
     override fun onSearchQueryChanged(text: String) {
+        val contacts = allContacts.filter {
+            it.name.contains(text, true) || it.doesContainPhoneNumber(text)
+        }.toMutableList() as ArrayList<SimpleContact>
 
+        (fragment_list.adapter as? ContactsAdapter)?.updateItems(contacts, text)
+        setupLetterFastscroller(contacts)
     }
 }
