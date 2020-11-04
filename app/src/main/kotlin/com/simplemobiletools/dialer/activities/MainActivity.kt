@@ -35,7 +35,6 @@ import java.util.*
 class MainActivity : SimpleActivity() {
     private var storedTextColor = 0
     private var storedPrimaryColor = 0
-    private var isFirstResume = true
     private var isSearchOpen = false
     private var searchMenuItem: MenuItem? = null
 
@@ -83,12 +82,11 @@ class MainActivity : SimpleActivity() {
             }
         }
 
-        if (!isFirstResume && !isSearchOpen) {
+        if (!isSearchOpen) {
             refreshItems()
         }
 
         checkShortcuts()
-        isFirstResume = false
     }
 
     override fun onPause() {
@@ -294,8 +292,15 @@ class MainActivity : SimpleActivity() {
         if (viewpager.adapter == null) {
             viewpager.adapter = ViewPagerAdapter(this)
             viewpager.currentItem = getDefaultTab()
+            viewpager.onGlobalLayout {
+                refreshFragments()
+            }
+        } else {
+            refreshFragments()
         }
+    }
 
+    private fun refreshFragments() {
         contacts_fragment?.refreshItems()
         favorites_fragment?.refreshItems()
         recents_fragment?.refreshItems()
