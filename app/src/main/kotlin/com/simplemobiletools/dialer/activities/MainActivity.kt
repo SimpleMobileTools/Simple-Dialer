@@ -101,8 +101,6 @@ class MainActivity : SimpleActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
-        menu.findItem(R.id.search).isVisible = viewpager.currentItem == 0
-
         setupSearch(menu)
         updateMenuItemColors(menu)
         return true

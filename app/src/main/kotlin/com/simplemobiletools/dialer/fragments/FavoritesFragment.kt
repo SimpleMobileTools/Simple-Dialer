@@ -111,4 +111,12 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             }
         })
     }
+
+    override fun onSearchClosed() {
+
+    }
+
+    override fun onSearchQueryChanged(text: String) {
+
+    }
 }

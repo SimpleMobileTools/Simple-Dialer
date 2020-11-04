@@ -109,4 +109,12 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             }
         }
     }
+
+    override fun onSearchClosed() {
+
+    }
+
+    override fun onSearchQueryChanged(text: String) {
+
+    }
 }
