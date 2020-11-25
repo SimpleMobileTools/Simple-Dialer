@@ -7,10 +7,10 @@
 
     <!-- Recents -->
     <string name="no_previous_calls">Önceki arama bulunamadı</string>
-    <string name="could_not_access_the_call_history">Çağrı geçmişine erişilemedi</string>
+    <string name="could_not_access_the_call_history">Arama geçmişine erişilemedi</string>
     <string name="request_access">Erişim isteği</string>
     <string name="remove_confirmation">Seçilen öğeleri Arama Geçmişinden kaldırmak istediğinizden emin misiniz?</string>
-    <string name="send_sms">Send SMS</string>
+    <string name="send_sms">SMS gönder</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Tuş takımı</string>
@@ -38,9 +38,9 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Basit Çevirici - Çağrıları kolayca yönetin</string>
+    <string name="app_title">Basit Çevirici - Aramaları kolayca yönetin</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Rehber, numara engelleme ve çoklu SIM destekli bir çağrı yöneticisi</string>
+    <string name="app_short_description">Rehber, numara engelleme ve çoklu SIM destekli bir arama yöneticisi</string>
     <string name="app_long_description">
         Nerede olursanız olun, aramalarınızı yönetmek için hafif bir uygulama.  Kolay arama başlatmak için kullanışlı bir arama kaydı ile birlikte gelir.
 
