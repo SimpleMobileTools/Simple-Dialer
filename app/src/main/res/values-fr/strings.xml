@@ -9,7 +9,7 @@
     <string name="no_previous_calls">Aucun appel précédent n\'a été trouvé</string>
     <string name="could_not_access_the_call_history">Impossible d\'accéder à l\'historique des appels</string>
     <string name="request_access">Demande d\'accès</string>
-    <string name="remove_confirmation">Êtes-vous sûr de vouloir supprimer les éléments sélectionnés de l\'historique des appels ?</string>
+    <string name="remove_confirmation">Êtes vous sûr de vouloir effacer de l\'historique les éléments sélectionnés ?</string>
     <string name="send_sms">Envoyer un SMS</string>
 
     <!-- Dialpad -->
