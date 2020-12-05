@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Simpleダイヤラー</string>
+    <string name="app_launcher_name">ダイヤラー</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">コンタクトにアクセスできませんでした</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">通話履歴が見つかりませんでした</string>
+    <string name="could_not_access_the_call_history">通話履歴にアクセスできませんでした</string>
+    <string name="request_access">アクセスを要求する</string>
+    <string name="remove_confirmation">本当に履歴から選択したアイテムを消去しますか？</string>
+    <string name="send_sms">ショートメール送信</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">ダイヤルパッド</string>
+
+    <!-- Dialer -->
+    <string name="dialer">ダイヤラー</string>
+    <string name="accept">許可</string>
+    <string name="decline">拒否</string>
+    <string name="unknown_caller">不明</string>
+    <string name="is_calling">から着信中…</string>
+    <string name="dialing">発信中…</string>
+    <string name="call_ended">通話終了</string>
+    <string name="call_ending">通話終了</string>
+    <string name="ongoing_call">通話中</string>
+    <string name="select_sim">SIMを選択</string>
+    <string name="always_use_this_sim">この番号ではこのSIMを常に使用</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">スピードダイヤル</string>
+    <string name="manage_speed_dial">スピードダイヤルの管理</string>
+    <string name="speed_dial_label">番号をクリックすると連絡先を割り当てることが出来ます。ダイヤラーで指定された番号を長押しすると、指定された連絡先に素早く電話をかけることが出来ます。</string>
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">後続の通話をコールログの同じ番号でグループ化する</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">シンプルなダイヤラー-通話を簡単に管理</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">アドレス管理、電話番号ブロック、マルチSIMサポートを備えた便利なアドレス帳</string>
+    <string name="app_long_description">
+        容量の軽いこのアプリは、どこにいても電話をかけることが出来ます。便利な着信履歴は電話をかけやすくします。
+
+        ダイヤルパッドもサービスに含まれており、スマートな連絡を提案致します。メールも対応内です。
+
+        不必要な電話を避けるため、電話番号は簡単にブロックすることが出来ます。
+
+        スピードダイヤリングはお気に入りの連絡先に気軽に電話をかけることを可能にします。
+        携帯アプリから素早く電話がかけられるよう、お気に入りの連絡先やその他の連絡先のショートカットを作成し、ホーム画面に追加することが出来ます。
+
+        広告や不要な権限はありません。 完全にオープンソースで、カラーもカスタマイズ可能。
+
+        <b>シンプルツールの完全なリストはこちらからご確認ください：</b>
+         https://www.simplemobiletools.com
+
+        <b> Facebook:</b>
+         https://www.facebook.com/simplemobiletools
+
+        <b> Reddit:</b>
+         https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
