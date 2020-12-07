@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.5.4 *(2020-12-07)*
+----------------------------
+
+ * Properly show private contacts on Android 11+
+ * Some translation and stability improvements
+
 Version 5.5.3 *(2020-11-04)*
 ----------------------------
 
