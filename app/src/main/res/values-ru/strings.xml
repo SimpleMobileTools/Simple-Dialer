@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Simple Dialer</string>
+    <string name="app_launcher_name">Dialer</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Could not access your contacts</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">No previous calls have been found</string>
+    <string name="could_not_access_the_call_history">Could not access the call history</string>
+    <string name="request_access">Request access</string>
+    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History?</string>
+    <string name="send_sms">Send SMS</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Dialpad</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Dialer</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="unknown_caller">Unknown Caller</string>
+    <string name="is_calling">Is Calling…</string>
+    <string name="dialing">Dialing…</string>
+    <string name="call_ended">Call Ended</string>
+    <string name="call_ending">Call Ending</string>
+    <string name="ongoing_call">Ongoing Call</string>
+    <string name="select_sim">Select a SIM for this call</string>
+    <string name="always_use_this_sim">Always use this SIM for this number</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Speed dial</string>
+    <string name="manage_speed_dial">Manage speed dial</string>
+    <string name="speed_dial_label">Click on a number to assign a contact to it. You can then quickly call the given contact by long pressing the given number at the dialer.</string>
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Dialer - Manage your phone calls easily</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">A handy phone call manager with phonebook, number blocking and multi-SIM support</string>
+    <string name="app_long_description">
+        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
+
+        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
+
+        You can easily block phone numbers to avoid unwanted incoming calls.
+
+        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
+
+        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+
+        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+
+        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+
+        <b>Check out the full suite of Simple Tools here:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
