@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Dialer</string>
+    <string name="app_launcher_name">Телефон</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Не удалось получить доступ к контактам</string>
@@ -8,30 +8,30 @@
     <!-- Recents -->
     <string name="no_previous_calls">Предыдущие звонки не найдены</string>
     <string name="could_not_access_the_call_history">Не удалось получить доступ к истории звонков</string>
-    <string name="request_access">Request access</string>
+    <string name="request_access">Запросить доступ</string>
     <string name="remove_confirmation">Вы действительно хотите удалить выбранные элементы из истории звонков?</string>
     <string name="send_sms">Послать SMS</string>
 
     <!-- Dialpad -->
-    <string name="dialpad">Dialpad</string>
+    <string name="dialpad">Номеронобиратель</string>
 
     <!-- Dialer -->
-    <string name="dialer">Dialer</string>
+    <string name="dialer">Телефон</string>
     <string name="accept">Принять</string>
     <string name="decline">Отклонить</string>
     <string name="unknown_caller">Неизвестный абонент</string>
-    <string name="is_calling">Is Calling…</string>
+    <string name="is_calling">Звонит…</string>
     <string name="dialing">Набор номера…</string>
     <string name="call_ended">Вызов завершен</string>
-    <string name="call_ending">Call Ending</string>
-    <string name="ongoing_call">Ongoing Call</string>
+    <string name="call_ending">Завершение звонка</string>
+    <string name="ongoing_call">Текущий вызов</string>
     <string name="select_sim">Выберите SIM для этого вызова</string>
     <string name="always_use_this_sim">Всегда использовать эту SIM для этого номера</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Быстрый вызов</string>
     <string name="manage_speed_dial">Управление быстрым вызовом</string>
-    <string name="speed_dial_label">Click on a number to assign a contact to it. You can then quickly call the given contact by long pressing the given number at the dialer.</string>
+    <string name="speed_dial_label">Нажмите на номер, чтобы назначить ему контакт. Затем вы можете быстро позвонить данному контакту, долго нажимая на указанный номер в номеронабирателе.</string>
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Группировать последующие вызовы с тем же номером в журнале вызовов</string>
