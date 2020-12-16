@@ -13,7 +13,7 @@
     <string name="send_sms">Послать SMS</string>
 
     <!-- Dialpad -->
-    <string name="dialpad">Номеронобиратель</string>
+    <string name="dialpad">номеронабиратель</string>
 
     <!-- Dialer -->
     <string name="dialer">Телефон</string>
