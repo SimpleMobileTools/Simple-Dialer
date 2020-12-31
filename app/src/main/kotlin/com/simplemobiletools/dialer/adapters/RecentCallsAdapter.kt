@@ -2,7 +2,6 @@ package com.simplemobiletools.dialer.adapters
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.provider.CallLog.Calls
 import android.text.SpannableString
 import android.text.TextUtils
@@ -150,19 +149,8 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
     private fun sendSMS() {
         val numbers = getSelectedItems().map { it.phoneNumber }
-        val numbersString = StringBuilder()
-        numbers.forEach {
-            numbersString.append("${Uri.encode(it)};")
-        }
-
-        val uriString = "smsto:${numbersString.toString().trimEnd(';')}"
-        Intent(Intent.ACTION_SENDTO, Uri.parse(uriString)).apply {
-            if (resolveActivity(activity.packageManager) != null) {
-                activity.startActivity(this)
-            } else {
-                activity.toast(R.string.no_app_found)
-            }
-        }
+        val recipient = TextUtils.join(";", numbers)
+        activity.launchSendSMSIntent(recipient)
     }
 
     private fun copyNumber() {

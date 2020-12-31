@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.graphics.drawable.Icon
 import android.net.Uri
+import android.text.TextUtils
 import android.util.TypedValue
 import android.view.Menu
 import android.view.View
@@ -15,10 +16,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.extensions.getTextSize
-import com.simplemobiletools.commons.extensions.highlightTextFromNumbers
-import com.simplemobiletools.commons.extensions.highlightTextPart
-import com.simplemobiletools.commons.extensions.shortcutManager
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_CALL_PHONE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CONTACTS
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
@@ -56,6 +54,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
 
         when (id) {
             R.id.cab_delete -> askConfirmDelete()
+            R.id.cab_send_sms -> sendSMS()
             R.id.cab_create_shortcut -> createShortcut()
         }
     }
@@ -94,6 +93,12 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
             textToHighlight = highlightText
             notifyDataSetChanged()
         }
+    }
+
+    private fun sendSMS() {
+        val numbers = getSelectedItems().map { it.phoneNumbers.first() }
+        val recipient = TextUtils.join(";", numbers)
+        activity.launchSendSMSIntent(recipient)
     }
 
     private fun askConfirmDelete() {

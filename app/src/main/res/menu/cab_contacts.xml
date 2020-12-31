@@ -5,7 +5,12 @@
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/cab_send_sms"
+        android:icon="@drawable/ic_sms_vector"
+        android:title="@string/send_sms"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_create_shortcut"
         android:title="@string/create_shortcut"
