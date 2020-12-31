@@ -12,10 +12,6 @@
         android:title="@string/call_from_sim_2"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/cab_remove_default_sim"
-        android:title="@string/unset_default_sim"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
@@ -33,6 +29,10 @@
     <item
         android:id="@+id/cab_create_shortcut"
         android:title="@string/create_shortcut"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/cab_remove_default_sim"
+        android:title="@string/unset_default_sim"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_select_all"
