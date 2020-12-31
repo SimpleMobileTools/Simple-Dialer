@@ -27,6 +27,7 @@
     <string name="ongoing_call">Llamada en curso</string>
     <string name="select_sim">Selecciona una tarjeta SIM para esta llamada</string>
     <string name="always_use_this_sim">Siempre usar esta tarjeta SIM para este número</string>
+    <string name="remove_default_sim">Remove default SIM from this number</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Marcado rápido</string>

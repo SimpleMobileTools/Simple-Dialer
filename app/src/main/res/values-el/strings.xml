@@ -27,6 +27,7 @@
     <string name="ongoing_call">Τρέχουσα κλήση</string>
     <string name="select_sim">Επιλέξτε SIM για αυτήν την κλήση</string>
     <string name="always_use_this_sim">Να χρησιμοποιείται πάντα αυτή η SIM για αυτόν τον αριθμό</string>
+    <string name="remove_default_sim">Remove default SIM from this number</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Ταχεία κλήση</string>
