@@ -69,7 +69,6 @@ class CallActivity : SimpleActivity() {
         }
 
         addLockScreenFlags()
-        initProximitySensor()
 
         CallManager.registerCallback(callCallback)
         updateCallState(CallManager.getState())
@@ -248,6 +247,7 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun initOutgoingCallUI() {
+        initProximitySensor()
         incoming_call_holder.beGone()
         ongoing_call_holder.beVisible()
     }
@@ -257,6 +257,7 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun callStarted() {
+        initProximitySensor()
         incoming_call_holder.beGone()
         ongoing_call_holder.beVisible()
         try {
