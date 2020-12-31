@@ -11,6 +11,7 @@
     <string name="request_access">Toegang aanvragen</string>
     <string name="remove_confirmation">Geselecteerde items uit de oproepgeschiedenis verwijderen?</string>
     <string name="send_sms">SMS sturen</string>
+    <string name="show_grouped_calls">Show grouped calls</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Telefoonkiezer</string>

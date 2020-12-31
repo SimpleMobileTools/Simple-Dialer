@@ -11,6 +11,7 @@
     <string name="request_access">Vyžiadať prístup</string>
     <string name="remove_confirmation">Ste si istý, že chcete z histórií volaní odstrániť zvolené položky?</string>
     <string name="send_sms">Odoslať SMS</string>
+    <string name="show_grouped_calls">Zobraziť zoskupené volania</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Číselník</string>

@@ -11,6 +11,7 @@
     <string name="request_access">アクセスを要求する</string>
     <string name="remove_confirmation">本当に履歴から選択したアイテムを消去しますか？</string>
     <string name="send_sms">ショートメール送信</string>
+    <string name="show_grouped_calls">Show grouped calls</string>
 
     <!-- Dialpad -->
     <string name="dialpad">ダイヤルパッド</string>

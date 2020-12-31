@@ -11,6 +11,7 @@
     <string name="request_access">Zugriff anfordern</string>
     <string name="remove_confirmation">Ausgewählte Anrufe definitiv aus der Anrufliste löschen?</string>
     <string name="send_sms">Send SMS</string>
+    <string name="show_grouped_calls">Show grouped calls</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Wählpad</string>

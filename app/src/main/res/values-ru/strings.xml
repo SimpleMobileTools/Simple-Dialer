@@ -11,6 +11,7 @@
     <string name="request_access">Запросить доступ</string>
     <string name="remove_confirmation">Вы действительно хотите удалить выбранные элементы из истории звонков?</string>
     <string name="send_sms">Послать SMS</string>
+    <string name="show_grouped_calls">Show grouped calls</string>
 
     <!-- Dialpad -->
     <string name="dialpad">номеронабиратель</string>

@@ -11,6 +11,7 @@
     <string name="request_access">请求访问</string>
     <string name="remove_confirmation">您确定想要从通话记录删除选定的条目吗？</string>
     <string name="send_sms">Send SMS</string>
+    <string name="show_grouped_calls">Show grouped calls</string>
 
     <!-- Dialpad -->
     <string name="dialpad">拨号盘</string>

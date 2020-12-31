@@ -11,6 +11,7 @@
     <string name="request_access">Erişim isteği</string>
     <string name="remove_confirmation">Seçilen öğeleri Arama Geçmişinden kaldırmak istediğinizden emin misiniz?</string>
     <string name="send_sms">SMS gönder</string>
+    <string name="show_grouped_calls">Show grouped calls</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Tuş takımı</string>

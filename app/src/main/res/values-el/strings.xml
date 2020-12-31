@@ -11,6 +11,7 @@
     <string name="request_access">Αίτηση πρόσβασης</string>
     <string name="remove_confirmation">Είστε βέβαιοι ότι θέλετε να καταργήσετε τα επιλεγμένα στοιχεία από το ιστορικό κλήσεων;</string>
     <string name="send_sms">Αποστολή SMS</string>
+    <string name="show_grouped_calls">Show grouped calls</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Πληκτρολόγιο κλήσης</string>

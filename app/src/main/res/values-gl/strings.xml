@@ -11,6 +11,7 @@
     <string name="request_access">Pedir acceso</string>
     <string name="remove_confirmation">Quere eliminar do historial os elementos seleccionados?</string>
     <string name="send_sms">Enviar SMS</string>
+    <string name="show_grouped_calls">Show grouped calls</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Marcador</string>
