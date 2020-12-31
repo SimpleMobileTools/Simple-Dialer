@@ -46,7 +46,8 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
     override fun refreshItems() {
         val privateCursor = context?.getMyContactsCursor()?.loadInBackground()
-        RecentsHelper(context).getRecentCalls { recents ->
+        val groupSubsequentCalls = context?.config?.groupSubsequentCalls ?: false
+        RecentsHelper(context).getRecentCalls(groupSubsequentCalls) { recents ->
             SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
                 val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
 
@@ -105,7 +106,8 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                 recents_placeholder.text = context.getString(R.string.no_previous_calls)
                 recents_placeholder_2.beGone()
 
-                RecentsHelper(context).getRecentCalls { recents ->
+                val groupSubsequentCalls = context?.config?.groupSubsequentCalls ?: false
+                RecentsHelper(context).getRecentCalls(groupSubsequentCalls) { recents ->
                     activity?.runOnUiThread {
                         gotRecents(recents)
                     }

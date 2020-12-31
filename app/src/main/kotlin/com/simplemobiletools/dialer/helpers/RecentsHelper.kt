@@ -14,7 +14,7 @@ class RecentsHelper(private val context: Context) {
     private val COMPARABLE_PHONE_NUMBER_LENGTH = 9
 
     @SuppressLint("MissingPermission")
-    fun getRecentCalls(callback: (ArrayList<RecentCall>) -> Unit) {
+    fun getRecentCalls(groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
         val privateCursor = context.getMyContactsCursor()?.loadInBackground()
         ensureBackgroundThread {
             if (!context.hasPermission(PERMISSION_READ_CALL_LOG)) {
@@ -28,16 +28,15 @@ class RecentsHelper(private val context: Context) {
                     contacts.addAll(privateContacts)
                 }
 
-                getRecents(contacts, callback)
+                getRecents(contacts, groupSubsequentCalls, callback)
             }
         }
     }
 
-    private fun getRecents(contacts: ArrayList<SimpleContact>, callback: (ArrayList<RecentCall>) -> Unit) {
+    private fun getRecents(contacts: ArrayList<SimpleContact>, groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
         var recentCalls = ArrayList<RecentCall>()
         var previousRecentCallFrom = ""
         val contactsNumbersMap = HashMap<String, String>()
-        val groupSubsequentCalls = context.config.groupSubsequentCalls
         val uri = Calls.CONTENT_URI
         val projection = arrayOf(
             Calls._ID,

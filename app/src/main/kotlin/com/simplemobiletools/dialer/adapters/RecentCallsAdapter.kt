@@ -17,6 +17,7 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.dialogs.ShowGroupedCallsDialog
 import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
 import com.simplemobiletools.dialer.extensions.callContactWithSim
 import com.simplemobiletools.dialer.extensions.config
@@ -26,7 +27,7 @@ import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.item_recent_call.view.*
 import java.util.*
 
-class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener,
+class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener?,
                          itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
     private lateinit var outgoingCallIcon: Drawable
@@ -97,7 +98,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val recentCall = recentCalls[position]
-        holder.bindView(recentCall, true, true) { itemView, layoutPosition ->
+        holder.bindView(recentCall, refreshItemsListener != null, refreshItemsListener != null) { itemView, layoutPosition ->
             setupView(itemView, recentCall)
         }
         bindViewHolder(holder)
@@ -182,7 +183,10 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
     }
 
     private fun showGroupedCalls() {
-
+        val recentCall = getSelectedItems().firstOrNull() ?: return
+        val callIds = recentCall.neighbourIDs.map { it }.toMutableList() as ArrayList<Int>
+        callIds.add(recentCall.id)
+        ShowGroupedCallsDialog(activity, callIds)
     }
 
     private fun copyNumber() {
@@ -216,7 +220,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             recentCalls.removeAll(callsToRemove)
             activity.runOnUiThread {
                 if (recentCalls.isEmpty()) {
-                    refreshItemsListener.refreshItems()
+                    refreshItemsListener?.refreshItems()
                     finishActMode()
                 } else {
                     removeSelectedItems(positions)
