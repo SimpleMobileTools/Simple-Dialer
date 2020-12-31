@@ -22,6 +22,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     private var allContacts = ArrayList<SimpleContact>()
 
     override fun setupFragment() {
+        val config = context.config
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
             R.string.no_contacts_found
         } else {
@@ -38,7 +39,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
         fragment_placeholder_2.apply {
             text = context.getString(placeholderActionResId)
-            setTextColor(context.config.primaryColor)
+            setTextColor(config.primaryColor)
             underlineText()
             setOnClickListener {
                 if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
@@ -49,10 +50,11 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             }
         }
 
-        letter_fastscroller.textColor = context.config.textColor.getColorStateList()
+        letter_fastscroller.textColor = config.textColor.getColorStateList()
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = context.config.primaryColor.getContrastColor()
+        letter_fastscroller_thumb.textColor = config.primaryColor.getContrastColor()
 
+        fragment_fab.setColors(config.textColor, config.primaryColor, config.backgroundColor)
         fragment_fab.setOnClickListener {
             launchCreateNewIntent()
         }
