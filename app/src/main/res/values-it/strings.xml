@@ -10,6 +10,7 @@
     <string name="could_not_access_the_call_history">Impossibile accedere alla cronologia delle chiamate</string>
     <string name="request_access">Richiedo accesso</string>
     <string name="remove_confirmation">Rimuovere davvero l\'elemento selezionato dalla cronologia delle chiamate?</string>
+    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
     <string name="send_sms">Invia SMS</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>

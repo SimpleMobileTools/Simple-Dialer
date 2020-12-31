@@ -10,6 +10,7 @@
     <string name="could_not_access_the_call_history">Arama geçmişine erişilemedi</string>
     <string name="request_access">Erişim isteği</string>
     <string name="remove_confirmation">Seçilen öğeleri Arama Geçmişinden kaldırmak istediğinizden emin misiniz?</string>
+    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
     <string name="send_sms">SMS gönder</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>

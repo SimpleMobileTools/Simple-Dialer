@@ -10,6 +10,7 @@
     <string name="could_not_access_the_call_history">Не удалось получить доступ к истории звонков</string>
     <string name="request_access">Запросить доступ</string>
     <string name="remove_confirmation">Вы действительно хотите удалить выбранные элементы из истории звонков?</string>
+    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
     <string name="send_sms">Послать SMS</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>

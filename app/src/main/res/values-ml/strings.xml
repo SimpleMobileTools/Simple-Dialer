@@ -10,6 +10,7 @@
     <string name="could_not_access_the_call_history">കോൾ ചരിത്രം ആക്‌സസ്സുചെയ്യാനായില്ല</string>
     <string name="request_access">ആക്‌സസ്സ് അഭ്യർത്ഥിക്കുക</string>
     <string name="remove_confirmation">കോൾ ചരിത്രത്തിൽ നിന്ന് തിരഞ്ഞെടുത്ത ഇനങ്ങൾ നീക്കംചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?</string>
+    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
     <string name="send_sms">SMS അയയ്‌ക്കുക</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>
