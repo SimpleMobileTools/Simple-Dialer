@@ -27,6 +27,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
 import com.simplemobiletools.dialer.extensions.callContactWithSim
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 
@@ -45,10 +46,12 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
 
     override fun prepareActionMode(menu: Menu) {
         val hasMultipleSIMs = activity.areMultipleSIMsAvailable()
+        val selectedNumber = "tel:${getSelectedPhoneNumber()}"
 
         menu.apply {
             findItem(R.id.cab_call_sim_1).isVisible = hasMultipleSIMs && isOneItemSelected()
             findItem(R.id.cab_call_sim_2).isVisible = hasMultipleSIMs && isOneItemSelected()
+            findItem(R.id.cab_remove_default_sim).isVisible = isOneItemSelected() && activity.config.getCustomSIM(selectedNumber) != ""
 
             findItem(R.id.cab_delete).isVisible = showDeleteButton
             findItem(R.id.cab_create_shortcut).isVisible = isOneItemSelected() && isOreoPlus()
@@ -64,6 +67,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
         when (id) {
             R.id.cab_call_sim_1 -> callContact(true)
             R.id.cab_call_sim_2 -> callContact(false)
+            R.id.cab_remove_default_sim -> removeDefaultSIM()
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_send_sms -> sendSMS()
             R.id.cab_view_details -> viewContactDetails()
@@ -109,8 +113,14 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
 
     @SuppressLint("MissingPermission")
     private fun callContact(useSimOne: Boolean) {
-        val contact = getSelectedItems().firstOrNull() ?: return
-        activity.callContactWithSim(contact.phoneNumbers.first(), useSimOne)
+        val number = getSelectedPhoneNumber() ?: return
+        activity.callContactWithSim(number, useSimOne)
+    }
+
+    private fun removeDefaultSIM() {
+        val phoneNumber = getSelectedPhoneNumber() ?: return
+        activity.config.removeCustomSIM("tel:$phoneNumber")
+        finishActMode()
     }
 
     private fun sendSMS() {
@@ -166,6 +176,8 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
     }
 
     private fun getSelectedItems() = contacts.filter { selectedKeys.contains(it.rawId) } as ArrayList<SimpleContact>
+
+    private fun getSelectedPhoneNumber() = getSelectedItems().firstOrNull()?.phoneNumbers?.firstOrNull()
 
     @SuppressLint("NewApi")
     private fun createShortcut() {

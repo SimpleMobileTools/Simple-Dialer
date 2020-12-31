@@ -19,6 +19,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
 import com.simplemobiletools.dialer.extensions.callContactWithSim
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
@@ -45,10 +46,12 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
     override fun prepareActionMode(menu: Menu) {
         val hasMultipleSIMs = activity.areMultipleSIMsAvailable()
+        val selectedNumber = "tel:${getSelectedPhoneNumber()}"
 
         menu.apply {
             findItem(R.id.cab_call_sim_1).isVisible = hasMultipleSIMs && isOneItemSelected()
             findItem(R.id.cab_call_sim_2).isVisible = hasMultipleSIMs && isOneItemSelected()
+            findItem(R.id.cab_remove_default_sim).isVisible = isOneItemSelected() && activity.config.getCustomSIM(selectedNumber) != ""
 
             findItem(R.id.cab_block_number).isVisible = isNougatPlus()
             findItem(R.id.cab_add_number).isVisible = isOneItemSelected()
@@ -64,6 +67,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         when (id) {
             R.id.cab_call_sim_1 -> callContact(true)
             R.id.cab_call_sim_2 -> callContact(false)
+            R.id.cab_remove_default_sim -> removeDefaultSIM()
             R.id.cab_block_number -> askConfirmBlock()
             R.id.cab_add_number -> addNumberToContact()
             R.id.cab_send_sms -> sendSMS()
@@ -110,8 +114,14 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
     }
 
     private fun callContact(useSimOne: Boolean) {
-        val recentCall = getSelectedItems().firstOrNull() ?: return
-        activity.callContactWithSim(recentCall.phoneNumber, useSimOne)
+        val phoneNumber = getSelectedPhoneNumber() ?: return
+        activity.callContactWithSim(phoneNumber, useSimOne)
+    }
+
+    private fun removeDefaultSIM() {
+        val phoneNumber = getSelectedPhoneNumber() ?: return
+        activity.config.removeCustomSIM("tel:$phoneNumber")
+        finishActMode()
     }
 
     private fun askConfirmBlock() {
@@ -146,11 +156,11 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
     }
 
     private fun addNumberToContact() {
-        val recentCall = getSelectedItems().firstOrNull() ?: return
+        val phoneNumber = getSelectedPhoneNumber() ?: return
         Intent().apply {
             action = Intent.ACTION_INSERT_OR_EDIT
             type = "vnd.android.cursor.item/contact"
-            putExtra(KEY_PHONE, recentCall.phoneNumber)
+            putExtra(KEY_PHONE, phoneNumber)
 
             if (resolveActivity(activity.packageManager) != null) {
                 activity.startActivity(this)
@@ -219,6 +229,8 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
     }
 
     private fun getSelectedItems() = recentCalls.filter { selectedKeys.contains(it.id) } as ArrayList<RecentCall>
+
+    private fun getSelectedPhoneNumber() = getSelectedItems().firstOrNull()?.phoneNumber ?: null
 
     private fun setupView(view: View, call: RecentCall) {
         view.apply {

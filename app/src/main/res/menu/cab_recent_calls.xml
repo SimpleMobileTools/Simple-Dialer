@@ -12,6 +12,10 @@
         android:title="@string/call_from_sim_2"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/cab_remove_default_sim"
+        android:title="@string/unset_default_sim"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/cab_add_number"
         android:icon="@drawable/ic_add_person_vector"
         android:title="@string/add_number_to_contact"
