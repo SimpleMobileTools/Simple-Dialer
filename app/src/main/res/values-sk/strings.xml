@@ -27,7 +27,7 @@
     <string name="ongoing_call">Prebiehajúci hovor</string>
     <string name="select_sim">Zvoľte SIM kartu pre tento hovor</string>
     <string name="always_use_this_sim">Vždy použiť túto SIM kartu pre toto číslo</string>
-    <string name="remove_default_sim">Odstrániť predvolenú SIM kartu pre toto číslo</string>
+    <string name="unset_default_sim">Odstrániť predvolenú SIM</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Rýchle vytáčanie</string>

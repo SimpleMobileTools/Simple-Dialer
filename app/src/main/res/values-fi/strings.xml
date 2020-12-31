@@ -27,7 +27,7 @@
     <string name="ongoing_call">Lähtevä puhelu</string>
     <string name="select_sim">Valitse SIM-kortti puhelulle</string>
     <string name="always_use_this_sim">Käytä tälle numerolle aina tätä SIM-korttia</string>
-    <string name="remove_default_sim">Remove default SIM from this number</string>
+    <string name="unset_default_sim">Unset default SIM</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Pikavalinta</string>

@@ -27,7 +27,7 @@
     <string name="ongoing_call">തുടർന്നുകൊണ്ടിരിക്കുന്ന കോൾ</string>
     <string name="select_sim">ഈ കോളിനായി ഒരു സിം തിരഞ്ഞെടുക്കുക</string>
     <string name="always_use_this_sim">ഈ നമ്പറിനായി എല്ലായ്പ്പോഴും ഈ സിം ഉപയോഗിക്കുക</string>
-    <string name="remove_default_sim">Remove default SIM from this number</string>
+    <string name="unset_default_sim">Unset default SIM</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">സ്പീഡ് ഡയൽ</string>

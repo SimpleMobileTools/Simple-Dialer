@@ -27,7 +27,7 @@
     <string name="ongoing_call">Ongoing Call</string>
     <string name="select_sim">Select a SIM for this call</string>
     <string name="always_use_this_sim">Always use this SIM for this number</string>
-    <string name="remove_default_sim">Remove default SIM from this number</string>
+    <string name="unset_default_sim">Unset default SIM</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Швидкий виклик</string>

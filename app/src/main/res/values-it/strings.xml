@@ -27,7 +27,7 @@
     <string name="ongoing_call">Chiamata in corso</string>
     <string name="select_sim">Seleziona una SIM per questa chiamata</string>
     <string name="always_use_this_sim">Usa sempre questa SIM per questo numero</string>
-    <string name="remove_default_sim">Remove default SIM from this number</string>
+    <string name="unset_default_sim">Unset default SIM</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Velocità della composizione</string>

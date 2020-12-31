@@ -27,7 +27,7 @@
     <string name="ongoing_call">Aktueller Anruf</string>
     <string name="select_sim">wähle die SIM Karte für diesen Anruf aus</string>
     <string name="always_use_this_sim">benutze immer diese SIM Karte</string>
-    <string name="remove_default_sim">Remove default SIM from this number</string>
+    <string name="unset_default_sim">Unset default SIM</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Kurzwahl</string>
