@@ -73,6 +73,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             R.id.cab_send_sms -> sendSMS()
             R.id.cab_copy_number -> copyNumber()
             R.id.cab_remove -> askConfirmRemove()
+            R.id.cab_select_all -> selectAll()
         }
     }
 

@@ -72,6 +72,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
             R.id.cab_send_sms -> sendSMS()
             R.id.cab_view_details -> viewContactDetails()
             R.id.cab_create_shortcut -> createShortcut()
+            R.id.cab_select_all -> selectAll()
         }
     }
 

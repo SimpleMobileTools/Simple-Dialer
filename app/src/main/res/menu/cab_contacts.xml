@@ -34,4 +34,8 @@
         android:id="@+id/cab_create_shortcut"
         android:title="@string/create_shortcut"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/cab_select_all"
+        android:title="@string/select_all"
+        app:showAsAction="never" />
 </menu>
