@@ -46,16 +46,19 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
     override fun prepareActionMode(menu: Menu) {
         val hasMultipleSIMs = activity.areMultipleSIMsAvailable()
+        val selectedItems = getSelectedItems()
+        val isOneItemSelected = selectedItems.size == 1
         val selectedNumber = "tel:${getSelectedPhoneNumber()}"
 
         menu.apply {
-            findItem(R.id.cab_call_sim_1).isVisible = hasMultipleSIMs && isOneItemSelected()
-            findItem(R.id.cab_call_sim_2).isVisible = hasMultipleSIMs && isOneItemSelected()
-            findItem(R.id.cab_remove_default_sim).isVisible = isOneItemSelected() && activity.config.getCustomSIM(selectedNumber) != ""
+            findItem(R.id.cab_call_sim_1).isVisible = hasMultipleSIMs && isOneItemSelected
+            findItem(R.id.cab_call_sim_2).isVisible = hasMultipleSIMs && isOneItemSelected
+            findItem(R.id.cab_remove_default_sim).isVisible = isOneItemSelected && activity.config.getCustomSIM(selectedNumber) != ""
 
             findItem(R.id.cab_block_number).isVisible = isNougatPlus()
-            findItem(R.id.cab_add_number).isVisible = isOneItemSelected()
-            findItem(R.id.cab_copy_number).isVisible = isOneItemSelected()
+            findItem(R.id.cab_add_number).isVisible = isOneItemSelected
+            findItem(R.id.cab_copy_number).isVisible = isOneItemSelected
+            findItem(R.id.cab_show_grouped_calls).isVisible = isOneItemSelected && selectedItems.first().neighbourIDs.isNotEmpty()
         }
     }
 
@@ -71,6 +74,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             R.id.cab_block_number -> askConfirmBlock()
             R.id.cab_add_number -> addNumberToContact()
             R.id.cab_send_sms -> sendSMS()
+            R.id.cab_show_grouped_calls -> showGroupedCalls()
             R.id.cab_copy_number -> copyNumber()
             R.id.cab_remove -> askConfirmRemove()
             R.id.cab_select_all -> selectAll()
@@ -177,6 +181,10 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         activity.launchSendSMSIntent(recipient)
     }
 
+    private fun showGroupedCalls() {
+
+    }
+
     private fun copyNumber() {
         val recentCall = getSelectedItems().firstOrNull() ?: return
         activity.copyToClipboard(recentCall.phoneNumber)
@@ -231,7 +239,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
 
     private fun getSelectedItems() = recentCalls.filter { selectedKeys.contains(it.id) } as ArrayList<RecentCall>
 
-    private fun getSelectedPhoneNumber() = getSelectedItems().firstOrNull()?.phoneNumber ?: null
+    private fun getSelectedPhoneNumber() = getSelectedItems().firstOrNull()?.phoneNumber
 
     private fun setupView(view: View, call: RecentCall) {
         view.apply {

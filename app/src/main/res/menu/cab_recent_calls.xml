@@ -32,6 +32,10 @@
         android:title="@string/send_sms"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/cab_show_grouped_calls"
+        android:title="@string/show_grouped_calls"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/cab_copy_number"
         android:title="@string/copy_number_to_clipboard"
         app:showAsAction="never" />
