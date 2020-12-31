@@ -8,10 +8,7 @@ import android.view.Menu
 import com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity
 import com.simplemobiletools.commons.dialogs.ChangeDateTimeFormatDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
-import com.simplemobiletools.commons.extensions.baseConfig
-import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.getFontSizeText
-import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.dialer.R
@@ -28,6 +25,7 @@ class SettingsActivity : SimpleActivity() {
     override fun onResume() {
         super.onResume()
 
+        setupPurchaseThankYou()
         setupCustomizeColors()
         setupUseEnglish()
         setupManageBlockedNumbers()
@@ -46,9 +44,17 @@ class SettingsActivity : SimpleActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
+    private fun setupPurchaseThankYou() {
+        settings_purchase_thank_you_holder.beGoneIf(isOrWasThankYouInstalled())
+        settings_purchase_thank_you_holder.setOnClickListener {
+            launchPurchaseThankYouIntent()
+        }
+    }
+
     private fun setupCustomizeColors() {
+        settings_customize_colors_label.text = getCustomizeColorsString()
         settings_customize_colors_holder.setOnClickListener {
-            startCustomizationActivity()
+            handleCustomizeColorsClick()
         }
     }
 
