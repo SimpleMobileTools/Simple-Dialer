@@ -119,4 +119,13 @@ class RecentsHelper(private val context: Context) {
             callback()
         }
     }
+
+    @SuppressLint("MissingPermission")
+    fun removeAllRecentCalls(callback: () -> Unit) {
+        ensureBackgroundThread {
+            val uri = Calls.CONTENT_URI
+            context.contentResolver.delete(uri, null, null)
+            callback()
+        }
+    }
 }

@@ -17,6 +17,7 @@ import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.viewpager.widget.ViewPager
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
@@ -25,6 +26,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
+import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.helpers.tabsList
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
@@ -101,13 +103,18 @@ class MainActivity : SimpleActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
-        setupSearch(menu)
-        updateMenuItemColors(menu)
+        menu.apply {
+            findItem(R.id.clear_call_history).isVisible = getCurrentFragment() == recents_fragment
+
+            setupSearch(this)
+            updateMenuItemColors(this)
+        }
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.clear_call_history -> clearCallHistory()
             R.id.settings -> startActivity(Intent(applicationContext, SettingsActivity::class.java))
             R.id.about -> launchAbout()
             else -> return super.onOptionsItemSelected(item)
@@ -174,6 +181,16 @@ class MainActivity : SimpleActivity() {
                 return true
             }
         })
+    }
+
+    private fun clearCallHistory() {
+        ConfirmationDialog(this, "", R.string.clear_history_confirmation) {
+            RecentsHelper(this).removeAllRecentCalls {
+                runOnUiThread {
+                    recents_fragment?.refreshItems()
+                }
+            }
+        }
     }
 
     @SuppressLint("NewApi")
