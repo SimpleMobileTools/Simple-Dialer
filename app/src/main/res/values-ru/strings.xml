@@ -12,6 +12,7 @@
     <string name="remove_confirmation">Вы действительно хотите удалить выбранные элементы из истории звонков?</string>
     <string name="send_sms">Послать SMS</string>
     <string name="show_grouped_calls">Show grouped calls</string>
+    <string name="clear_call_history">Clear call history</string>
 
     <!-- Dialpad -->
     <string name="dialpad">номеронабиратель</string>

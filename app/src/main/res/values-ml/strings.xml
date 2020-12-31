@@ -12,6 +12,7 @@
     <string name="remove_confirmation">കോൾ ചരിത്രത്തിൽ നിന്ന് തിരഞ്ഞെടുത്ത ഇനങ്ങൾ നീക്കംചെയ്യണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?</string>
     <string name="send_sms">SMS അയയ്‌ക്കുക</string>
     <string name="show_grouped_calls">Show grouped calls</string>
+    <string name="clear_call_history">Clear call history</string>
 
     <!-- Dialpad -->
     <string name="dialpad">ഡയൽപാഡ്</string>

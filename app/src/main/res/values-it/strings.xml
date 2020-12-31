@@ -12,6 +12,7 @@
     <string name="remove_confirmation">Rimuovere davvero l\'elemento selezionato dalla cronologia delle chiamate?</string>
     <string name="send_sms">Invia SMS</string>
     <string name="show_grouped_calls">Show grouped calls</string>
+    <string name="clear_call_history">Clear call history</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Compositore numerico</string>

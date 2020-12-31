@@ -12,6 +12,7 @@
     <string name="remove_confirmation">Apakah Anda yakin ingin menghapus item yang dipilih dari Call History?</string>
     <string name="send_sms">Kirim SMS</string>
     <string name="show_grouped_calls">Show grouped calls</string>
+    <string name="clear_call_history">Clear call history</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Tombol nomor</string>
