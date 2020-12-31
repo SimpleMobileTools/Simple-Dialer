@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.graphics.drawable.Icon
 import android.net.Uri
+import android.provider.ContactsContract
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.Menu
@@ -44,6 +45,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
         menu.apply {
             findItem(R.id.cab_delete).isVisible = showDeleteButton
             findItem(R.id.cab_create_shortcut).isVisible = isOneItemSelected() && isOreoPlus()
+            findItem(R.id.cab_view_details).isVisible = isOneItemSelected()
         }
     }
 
@@ -55,6 +57,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
         when (id) {
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_send_sms -> sendSMS()
+            R.id.cab_view_details -> viewContactDetails()
             R.id.cab_create_shortcut -> createShortcut()
         }
     }
@@ -99,6 +102,15 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
         val numbers = getSelectedItems().map { it.phoneNumbers.first() }
         val recipient = TextUtils.join(";", numbers)
         activity.launchSendSMSIntent(recipient)
+    }
+
+    private fun viewContactDetails() {
+        val contact = getSelectedItems().firstOrNull() ?: return
+        val lookupKey = SimpleContactsHelper(activity).getContactLookupKey((contact).rawId.toString())
+        val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
+        activity.runOnUiThread {
+            activity.launchViewContactIntent(publicUri)
+        }
     }
 
     private fun askConfirmDelete() {
