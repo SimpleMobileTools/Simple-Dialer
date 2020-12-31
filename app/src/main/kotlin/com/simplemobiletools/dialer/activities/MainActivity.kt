@@ -89,6 +89,9 @@ class MainActivity : SimpleActivity() {
         }
 
         checkShortcuts()
+        Handler().postDelayed({
+            recents_fragment?.refreshItems()
+        }, 2000)
     }
 
     override fun onPause() {
