@@ -2,7 +2,6 @@ package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.provider.ContactsContract
 import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
@@ -14,6 +13,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.*
@@ -101,33 +101,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             if (currAdapter == null) {
                 ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this) {
                     val contact = it as SimpleContact
-
-                    // handle private contacts differently, only Simple Contacts Pro can open them
-                    val simpleContacts = "com.simplemobiletools.contacts.pro"
-                    val simpleContactsDebug = "com.simplemobiletools.contacts.pro.debug"
-                    if (it.rawId > 1000000 && it.contactId > 1000000 && it.rawId == it.contactId &&
-                        (context.isPackageInstalled(simpleContacts) || context.isPackageInstalled(simpleContactsDebug))) {
-                        Intent().apply {
-                            action = Intent.ACTION_VIEW
-                            putExtra(CONTACT_ID, it.rawId)
-                            putExtra(IS_PRIVATE, true)
-                            `package` = if (context.isPackageInstalled(simpleContacts)) simpleContacts else simpleContactsDebug
-                            setDataAndType(ContactsContract.Contacts.CONTENT_LOOKUP_URI, "vnd.android.cursor.dir/person")
-                            if (resolveActivity(context.packageManager) != null) {
-                                activity?.startActivity(this)
-                            } else {
-                                context.toast(R.string.no_app_found)
-                            }
-                        }
-                    } else {
-                        ensureBackgroundThread {
-                            val lookupKey = SimpleContactsHelper(activity!!).getContactLookupKey((contact).rawId.toString())
-                            val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
-                            activity?.runOnUiThread {
-                                activity!!.launchViewContactIntent(publicUri)
-                            }
-                        }
-                    }
+                    activity?.startContactDetailsIntent(contact)
                 }.apply {
                     fragment_list.adapter = this
                 }

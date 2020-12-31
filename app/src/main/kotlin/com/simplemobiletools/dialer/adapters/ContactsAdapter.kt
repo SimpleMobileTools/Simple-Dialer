@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.graphics.drawable.Icon
 import android.net.Uri
-import android.provider.ContactsContract
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.Menu
@@ -26,6 +25,7 @@ import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 
 class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleContact>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener? = null,
@@ -106,11 +106,7 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
 
     private fun viewContactDetails() {
         val contact = getSelectedItems().firstOrNull() ?: return
-        val lookupKey = SimpleContactsHelper(activity).getContactLookupKey((contact).rawId.toString())
-        val publicUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey)
-        activity.runOnUiThread {
-            activity.launchViewContactIntent(publicUri)
-        }
+        activity.startContactDetailsIntent(contact)
     }
 
     private fun askConfirmDelete() {
