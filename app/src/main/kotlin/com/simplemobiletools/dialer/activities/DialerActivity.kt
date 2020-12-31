@@ -44,11 +44,13 @@ class DialerActivity : SimpleActivity() {
     private fun initOutgoingCall() {
         try {
             getHandleToUse(intent, callNumber.toString()) { handle ->
-                Bundle().apply {
-                    putParcelable(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE, handle)
-                    putBoolean(TelecomManager.EXTRA_START_CALL_WITH_VIDEO_STATE, false)
-                    putBoolean(TelecomManager.EXTRA_START_CALL_WITH_SPEAKERPHONE, false)
-                    telecomManager.placeCall(callNumber, this)
+                if (handle != null) {
+                    Bundle().apply {
+                        putParcelable(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE, handle)
+                        putBoolean(TelecomManager.EXTRA_START_CALL_WITH_VIDEO_STATE, false)
+                        putBoolean(TelecomManager.EXTRA_START_CALL_WITH_SPEAKERPHONE, false)
+                        telecomManager.placeCall(callNumber, this)
+                    }
                 }
                 finish()
             }

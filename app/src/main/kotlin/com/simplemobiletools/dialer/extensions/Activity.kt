@@ -65,7 +65,7 @@ fun Activity.startContactDetailsIntent(contact: SimpleContact) {
 
 // used at devices with multiple SIM cards
 @SuppressLint("MissingPermission")
-fun SimpleActivity.getHandleToUse(intent: Intent?, phoneNumber: String, callback: (handle: PhoneAccountHandle) -> Unit) {
+fun SimpleActivity.getHandleToUse(intent: Intent?, phoneNumber: String, callback: (handle: PhoneAccountHandle?) -> Unit) {
     handlePermission(PERMISSION_READ_PHONE_STATE) {
         if (it) {
             val defaultHandle = telecomManager.getDefaultOutgoingPhoneAccount(PhoneAccount.SCHEME_TEL)

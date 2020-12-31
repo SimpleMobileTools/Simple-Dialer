@@ -14,7 +14,7 @@ import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
 import kotlinx.android.synthetic.main.dialog_select_sim.view.*
 
 @SuppressLint("MissingPermission")
-class SelectSIMDialog(val activity: BaseSimpleActivity, val phoneNumber: String, val callback: (handle: PhoneAccountHandle) -> Unit) {
+class SelectSIMDialog(val activity: BaseSimpleActivity, val phoneNumber: String, val callback: (handle: PhoneAccountHandle?) -> Unit) {
     private var dialog: AlertDialog? = null
     private val view = activity.layoutInflater.inflate(R.layout.dialog_select_sim, null)
 
@@ -31,6 +31,7 @@ class SelectSIMDialog(val activity: BaseSimpleActivity, val phoneNumber: String,
         }
 
         dialog = AlertDialog.Builder(activity)
+            .setOnCancelListener { callback.invoke(null) }
             .create().apply {
                 activity.setupDialogStuff(view, this)
             }
