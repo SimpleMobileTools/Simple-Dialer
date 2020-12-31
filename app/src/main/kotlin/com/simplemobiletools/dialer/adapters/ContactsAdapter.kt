@@ -25,6 +25,8 @@ import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
+import com.simplemobiletools.dialer.extensions.callContactWithSim
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 
@@ -42,7 +44,12 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
     override fun getActionMenuId() = R.menu.cab_contacts
 
     override fun prepareActionMode(menu: Menu) {
+        val hasMultipleSIMs = activity.areMultipleSIMsAvailable()
+
         menu.apply {
+            findItem(R.id.cab_call_sim_1).isVisible = hasMultipleSIMs && isOneItemSelected()
+            findItem(R.id.cab_call_sim_2).isVisible = hasMultipleSIMs && isOneItemSelected()
+
             findItem(R.id.cab_delete).isVisible = showDeleteButton
             findItem(R.id.cab_create_shortcut).isVisible = isOneItemSelected() && isOreoPlus()
             findItem(R.id.cab_view_details).isVisible = isOneItemSelected()
@@ -55,6 +62,8 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
         }
 
         when (id) {
+            R.id.cab_call_sim_1 -> callContact(true)
+            R.id.cab_call_sim_2 -> callContact(false)
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_send_sms -> sendSMS()
             R.id.cab_view_details -> viewContactDetails()
@@ -96,6 +105,12 @@ class ContactsAdapter(activity: SimpleActivity, var contacts: ArrayList<SimpleCo
             textToHighlight = highlightText
             notifyDataSetChanged()
         }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun callContact(useSimOne: Boolean) {
+        val contact = getSelectedItems().firstOrNull() ?: return
+        activity.callContactWithSim(contact.phoneNumbers.first(), useSimOne)
     }
 
     private fun sendSMS() {

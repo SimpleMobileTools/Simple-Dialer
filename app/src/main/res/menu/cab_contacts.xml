@@ -2,13 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/cab_call_sim_1"
+        android:icon="@drawable/ic_phone_one_vector"
+        android:title="@string/call_from_sim_1"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/cab_call_sim_2"
+        android:icon="@drawable/ic_phone_two_vector"
+        android:title="@string/call_from_sim_2"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_view_details"
-        android:icon="@drawable/ic_view_contact_details"
+        android:icon="@drawable/ic_view_contact_details_vector"
         android:title="@string/view_contact_details"
         app:showAsAction="ifRoom" />
     <item

@@ -18,6 +18,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
+import com.simplemobiletools.dialer.extensions.callContactWithSim
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
@@ -43,7 +44,12 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
     override fun getActionMenuId() = R.menu.cab_recent_calls
 
     override fun prepareActionMode(menu: Menu) {
+        val hasMultipleSIMs = activity.areMultipleSIMsAvailable()
+
         menu.apply {
+            findItem(R.id.cab_call_sim_1).isVisible = hasMultipleSIMs && isOneItemSelected()
+            findItem(R.id.cab_call_sim_2).isVisible = hasMultipleSIMs && isOneItemSelected()
+
             findItem(R.id.cab_block_number).isVisible = isNougatPlus()
             findItem(R.id.cab_add_number).isVisible = isOneItemSelected()
             findItem(R.id.cab_copy_number).isVisible = isOneItemSelected()
@@ -56,6 +62,8 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         }
 
         when (id) {
+            R.id.cab_call_sim_1 -> callContact(true)
+            R.id.cab_call_sim_2 -> callContact(false)
             R.id.cab_block_number -> askConfirmBlock()
             R.id.cab_add_number -> addNumberToContact()
             R.id.cab_send_sms -> sendSMS()
@@ -99,6 +107,11 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
         outgoingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, baseConfig.textColor)
         incomingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, baseConfig.textColor)
         incomingMissedCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, redColor)
+    }
+
+    private fun callContact(useSimOne: Boolean) {
+        val recentCall = getSelectedItems().firstOrNull() ?: return
+        activity.callContactWithSim(recentCall.phoneNumber, useSimOne)
     }
 
     private fun askConfirmBlock() {

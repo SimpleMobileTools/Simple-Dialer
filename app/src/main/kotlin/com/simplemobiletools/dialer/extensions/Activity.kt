@@ -8,6 +8,7 @@ import android.provider.ContactsContract
 import android.telecom.PhoneAccount
 import android.telecom.PhoneAccountHandle
 import android.telecom.TelecomManager
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
@@ -22,6 +23,14 @@ fun SimpleActivity.startCallIntent(recipient: String) {
         }
     } else {
         launchCallIntent(recipient, null)
+    }
+}
+
+fun BaseSimpleActivity.callContactWithSim(recipient: String, useSimOne: Boolean) {
+    handlePermission(PERMISSION_READ_PHONE_STATE) {
+        val wantedSimIndex = if (useSimOne) 0 else 1
+        val handle = getAvailableSIMCardLabels().sortedBy { it.id }[wantedSimIndex].handle
+        launchCallIntent(recipient, handle)
     }
 }
 
@@ -65,8 +74,8 @@ fun SimpleActivity.getHandleToUse(intent: Intent?, phoneNumber: String, callback
                 config.getCustomSIM(phoneNumber)?.isNotEmpty() == true -> {
                     val storedLabel = Uri.decode(config.getCustomSIM(phoneNumber))
                     val availableSIMs = getAvailableSIMCardLabels()
-                    val firstornull = availableSIMs.firstOrNull { it.label == storedLabel }?.handle ?: availableSIMs.first().handle
-                    callback(firstornull)
+                    val firstOrNull = availableSIMs.firstOrNull { it.label == storedLabel }?.handle ?: availableSIMs.first().handle
+                    callback(firstOrNull)
                 }
                 defaultHandle != null -> callback(defaultHandle)
                 else -> {

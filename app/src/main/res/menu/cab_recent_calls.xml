@@ -2,6 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/cab_call_sim_1"
+        android:icon="@drawable/ic_phone_one_vector"
+        android:title="@string/call_from_sim_1"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/cab_call_sim_2"
+        android:icon="@drawable/ic_phone_two_vector"
+        android:title="@string/call_from_sim_2"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/cab_add_number"
         android:icon="@drawable/ic_add_person_vector"
         android:title="@string/add_number_to_contact"
