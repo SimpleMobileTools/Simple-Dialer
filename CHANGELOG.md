@@ -1,6 +1,17 @@
 Changelog
 ==========
 
+Version 5.6.0 *(2021-01-01)*
+----------------------------
+
+ * Allow easily cleaning the whole call history
+ * Allow showing grouped call history items
+ * Allow sending SMS and viewing details of contacts
+ * Multiple dual-SIM related improvements
+ * Do not activate the proximity sensor at incoming calls before accepting
+ * Require Simple Thank You for color customization
+ * Some other stability, translation and UX improvements
+
 Version 5.5.4 *(2020-12-07)*
 ----------------------------
 
