@@ -10,10 +10,10 @@
     <string name="could_not_access_the_call_history">Kon geen toegang krijgen tot de oproepgeschiedenis</string>
     <string name="request_access">Toegang aanvragen</string>
     <string name="remove_confirmation">Geselecteerde items uit de oproepgeschiedenis verwijderen?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
+    <string name="clear_history_confirmation">Alle items uit de oproepgeschiedenis verwijderen?</string>
     <string name="send_sms">SMS sturen</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
+    <string name="show_grouped_calls">Gegroepeerde gesprekken tonen</string>
+    <string name="clear_call_history">Oproepgeschiedenis wissen</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Telefoonkiezer</string>
@@ -30,7 +30,7 @@
     <string name="ongoing_call">Gesprek gaande</string>
     <string name="select_sim">Selecteer de SIM-kaart voor dit gesprek</string>
     <string name="always_use_this_sim">Voor dit nummer altijd deze SIM-kaart gebruiken</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="unset_default_sim">Standaard-SIM wissen</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Snelkiezer</string>
