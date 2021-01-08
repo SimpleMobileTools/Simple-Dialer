@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 5.6.1 *(2021-01-08)*
+----------------------------
+
+ * Make sure the app has proper permissions at clearing call log
+ * Fix some promixity sensor related glitches after calls
+ * Some stability and translation improvements
+
 Version 5.6.0 *(2021-01-01)*
 ----------------------------
 

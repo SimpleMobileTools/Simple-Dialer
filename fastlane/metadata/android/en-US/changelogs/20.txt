@@ -1,0 +1,3 @@
+ * Make sure the app has proper permissions at clearing call log
+ * Fix some promixity sensor related glitches after calls
+ * Some stability and translation improvements
