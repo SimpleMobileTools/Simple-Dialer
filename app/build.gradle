@@ -16,8 +16,8 @@ android {
         applicationId "com.simplemobiletools.dialer"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 19
-        versionName "5.6.0"
+        versionCode 20
+        versionName "5.6.1"
         setProperty("archivesBaseName", "dialer")
     }
 
