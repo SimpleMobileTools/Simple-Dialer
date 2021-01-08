@@ -340,9 +340,11 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun initProximitySensor() {
-        val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
-        proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "com.simplemobiletools.dialer.pro:wake_lock")
-        proximityWakeLock!!.acquire(10 * MINUTE_SECONDS * 1000L)
+        if (proximityWakeLock == null || proximityWakeLock?.isHeld == false) {
+            val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
+            proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "com.simplemobiletools.dialer.pro:wake_lock")
+            proximityWakeLock!!.acquire(10 * MINUTE_SECONDS * 1000L)
+        }
     }
 
     @SuppressLint("NewApi")
