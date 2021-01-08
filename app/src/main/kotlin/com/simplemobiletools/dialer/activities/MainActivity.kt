@@ -188,7 +188,7 @@ class MainActivity : SimpleActivity() {
 
     private fun clearCallHistory() {
         ConfirmationDialog(this, "", R.string.clear_history_confirmation) {
-            RecentsHelper(this).removeAllRecentCalls {
+            RecentsHelper(this).removeAllRecentCalls(this) {
                 runOnUiThread {
                     recents_fragment?.refreshItems()
                 }

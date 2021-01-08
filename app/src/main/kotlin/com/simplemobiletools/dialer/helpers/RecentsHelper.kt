@@ -6,7 +6,7 @@ import android.provider.CallLog.Calls
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
-import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
 import com.simplemobiletools.dialer.models.RecentCall
 
@@ -121,11 +121,15 @@ class RecentsHelper(private val context: Context) {
     }
 
     @SuppressLint("MissingPermission")
-    fun removeAllRecentCalls(callback: () -> Unit) {
-        ensureBackgroundThread {
-            val uri = Calls.CONTENT_URI
-            context.contentResolver.delete(uri, null, null)
-            callback()
+    fun removeAllRecentCalls(activity: SimpleActivity, callback: () -> Unit) {
+        activity.handlePermission(PERMISSION_WRITE_CALL_LOG) {
+            if (it) {
+                ensureBackgroundThread {
+                    val uri = Calls.CONTENT_URI
+                    context.contentResolver.delete(uri, null, null)
+                    callback()
+                }
+            }
         }
     }
 }
