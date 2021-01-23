@@ -1,0 +1,22 @@
+En enkel app för att hantera dina telefonsamtal oavsett var du är. Levereras med en praktisk samtalshistorik för enkel uppringning.
+
+Den har också en snabb knappsats med bokstäver och smarta kontaktförslag.
+
+Du kan enkelt blockera telefonnummer för att undvika oönskade inkommande samtal.
+
+Snabbuppringningsfunktionen gör det mycket enkelt att ringa dina favoritkontakter.
+
+För att hjälpa dig att hantera dina samtal snabbt har telefonappen även stöd för favoritkontakter och genvägar till kontakter på startskärmen.
+
+Den levereras med Material Design och mörkt tema som standard, och ger en bra användarupplevelse för enkel användning. Avsaknaden av internetåtkomst ger dig mer integritet, säkerhet och stabilitet än andra appar.
+
+Innehåller ingen reklam eller onödiga behörigheter. Den har helt öppen källkod och anpassningsbara färger.
+
+<b>Kolla in hela uppsättningen av Simple-verktyg här:</b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools
