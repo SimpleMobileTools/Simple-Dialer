@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">Simple Dialer</string>
+    <string name="app_launcher_name">Telefon</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Det gick inte att komma åt dina kontakter</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Inga tidigare samtal hittades</string>
+    <string name="could_not_access_the_call_history">Det gick inte att komma åt samtalshistoriken</string>
+    <string name="request_access">Begär åtkomst</string>
+    <string name="remove_confirmation">Är du säker på att du vill ta bort de valda objekten från samtalshistoriken?</string>
+    <string name="clear_history_confirmation">Är du säker på att du vill ta bort allt från samtalshistoriken?</string>
+    <string name="send_sms">Skicka sms</string>
+    <string name="show_grouped_calls">Visa grupperade samtal</string>
+    <string name="clear_call_history">Rensa samtalshistorik</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Knappsats</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Telefon</string>
+    <string name="accept">Svara</string>
+    <string name="decline">Avvisa</string>
+    <string name="unknown_caller">Okänd uppringare</string>
+    <string name="is_calling">Ringer…</string>
+    <string name="dialing">Ringer…</string>
+    <string name="call_ended">Samtalet har avslutats</string>
+    <string name="call_ending">Samtalet avslutas</string>
+    <string name="ongoing_call">Pågående samtal</string>
+    <string name="select_sim">Välj ett SIM-kort för samtalet</string>
+    <string name="always_use_this_sim">Använd alltid det här SIM-kortet för detta nummer</string>
+    <string name="unset_default_sim">Ta bort standard-SIM-kort</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Snabbuppringning</string>
+    <string name="manage_speed_dial">Hantera snabbuppringning</string>
+    <string name="speed_dial_label">Tryck på en siffra för att tilldela en kontakt till den. Du kan sedan snabbt ringa kontakten genom att trycka länge på siffran på knappsatsen.</string>
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Gruppera samtal till och från samma nummer i samtalshistoriken</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Dialer - hantera dina telefonsamtal enkelt</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">En telefonsamtalshanterare med nummerblockering och stöd för flera SIM-kort</string>
+    <string name="app_long_description">
+        En enkel app för att hantera dina telefonsamtal oavsett var du är. Levereras med en praktisk samtalshistorik för enkel uppringning.
+
+        Den har också en snabb knappsats med bokstäver och smarta kontaktförslag.
+
+        Du kan enkelt blockera telefonnummer för att undvika oönskade inkommande samtal.
+
+        Snabbuppringningsfunktionen gör det mycket enkelt att ringa dina favoritkontakter.
+
+        För att hjälpa dig att hantera dina samtal snabbt har telefonappen även stöd för favoritkontakter och genvägar till kontakter på startskärmen.
+
+        Den levereras med Material Design och mörkt tema som standard, och ger en bra användarupplevelse för enkel användning. Avsaknaden av internetåtkomst ger dig mer integritet, säkerhet och stabilitet än andra appar.
+
+        Innehåller ingen reklam eller onödiga behörigheter. Den har helt öppen källkod och anpassningsbara färger.
+
+        <b>Kolla in hela uppsättningen av Simple-verktyg här:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
