@@ -16,7 +16,7 @@
     <string name="clear_call_history">Clear call history</string>
 
     <!-- Dialpad -->
-    <string name="dialpad">номеронабиратель</string>
+    <string name="dialpad">Номеронабиратель</string>
 
     <!-- Dialer -->
     <string name="dialer">Телефон</string>
