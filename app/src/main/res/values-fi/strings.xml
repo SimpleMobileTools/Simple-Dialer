@@ -11,7 +11,7 @@
     <string name="request_access">Pyydä käyttöoikeutta</string>
     <string name="remove_confirmation">Haluatko varmasti poistaa valitut kohteet puheluhistoriasta?</string>
     <string name="clear_history_confirmation">Haluatko varmasti tyhjentää koko puheluhistorian?</string>
-    <string name="send_sms">Lähetä SMS</string>
+    <string name="send_sms">Lähetä tekstiviesti</string>
     <string name="show_grouped_calls">Näytä ryhmitetyt puhelut</string>
     <string name="clear_call_history">Tyhjennä puheluhistoria</string>
 
