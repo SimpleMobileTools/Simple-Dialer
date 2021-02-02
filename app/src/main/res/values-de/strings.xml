@@ -10,10 +10,10 @@
     <string name="could_not_access_the_call_history">kein Zugriff auf Anrufliste</string>
     <string name="request_access">Zugriff anfordern</string>
     <string name="remove_confirmation">Ausgewählte Anrufe definitiv aus der Anrufliste löschen?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
-    <string name="send_sms">Send SMS</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
+    <string name="clear_history_confirmation">Bist du sicher, dass du alles aus der Anrufliste löschen möchtest?</string>
+    <string name="send_sms">Sende SMS</string>
+    <string name="show_grouped_calls">Zeige gruppierte Anrufe</string>
+    <string name="clear_call_history">Anrufliste löschen</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Wählpad</string>
@@ -30,12 +30,12 @@
     <string name="ongoing_call">Aktueller Anruf</string>
     <string name="select_sim">wähle die SIM Karte für diesen Anruf aus</string>
     <string name="always_use_this_sim">benutze immer diese SIM Karte</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="unset_default_sim">Standard SIM abstellen</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Kurzwahl</string>
     <string name="manage_speed_dial">Kurzwahlnummern verwalten</string>
-    <string name="speed_dial_label">klicke auf eine Zahl um einen Kontakt zuzuweisen. Danach kannst du den Kontakt schnell durch langes drücken der entsprechenden Zahl anrufen</string>
+    <string name="speed_dial_label">Klicke auf eine Zahl um einen Kontakt zuzuweisen. Danach kannst du den Kontakt schnell durch langes drücken der entsprechenden Zahl anrufen</string>
 
     <!-- Settings -->
     <string name="group_subsequent_calls">In der Anrufliste aufeinanderfolgende Anrufe mit derselben Nummer gruppieren</string>
