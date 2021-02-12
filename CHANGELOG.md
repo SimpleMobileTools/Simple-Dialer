@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 5.6.2 *(2021-02-12)*
+----------------------------
+
+ * Adding a White theme with special handling
+ * Require the Microphone permission to fix some glitches
+ * Some translation and stability fixes
+
 Version 5.6.1 *(2021-01-08)*
 ----------------------------
 

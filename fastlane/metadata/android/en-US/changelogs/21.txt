@@ -1,0 +1,3 @@
+ * Adding a White theme with special handling
+ * Require the Microphone permission to fix some glitches
+ * Some translation and stability fixes
