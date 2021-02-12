@@ -34,6 +34,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     override fun setupColors(textColor: Int, primaryColor: Int, adjustedPrimaryColor: Int) {
+        fragment_placeholder.setTextColor(textColor)
         (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
 
         letter_fastscroller.textColor = textColor.getColorStateList()
