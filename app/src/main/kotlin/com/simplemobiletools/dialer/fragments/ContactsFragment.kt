@@ -7,12 +7,13 @@ import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.helpers.MyContactsContentProvider
+import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
+import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
@@ -22,7 +23,6 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     private var allContacts = ArrayList<SimpleContact>()
 
     override fun setupFragment() {
-        val config = context.config
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
             R.string.no_contacts_found
         } else {
@@ -39,7 +39,6 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
         fragment_placeholder_2.apply {
             text = context.getString(placeholderActionResId)
-            setTextColor(config.primaryColor)
             underlineText()
             setOnClickListener {
                 if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
@@ -50,26 +49,25 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             }
         }
 
-        letter_fastscroller.textColor = config.textColor.getColorStateList()
-        letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = config.primaryColor.getContrastColor()
-
-        val adjustedPrimaryColor = context.getAdjustedPrimaryColor()
-        fragment_fab.setColors(config.textColor, adjustedPrimaryColor, adjustedPrimaryColor.getContrastColor())
         fragment_fab.setOnClickListener {
             launchCreateNewIntent()
         }
     }
 
-    override fun textColorChanged(color: Int) {
-        (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(color)
-        letter_fastscroller?.textColor = color.getColorStateList()
-    }
+    override fun setupColors(textColor: Int, primaryColor: Int, adjustedPrimaryColor: Int) {
+        (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
+        fragment_placeholder_2.setTextColor(primaryColor)
 
-    override fun primaryColorChanged(color: Int) {
-        letter_fastscroller_thumb?.thumbColor = color.getColorStateList()
-        letter_fastscroller_thumb?.textColor = color.getContrastColor()
-        fragment_fab.background.applyColorFilter(context.getAdjustedPrimaryColor())
+        letter_fastscroller.textColor = textColor.getColorStateList()
+        letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
+        letter_fastscroller_thumb.textColor = adjustedPrimaryColor.getContrastColor()
+        letter_fastscroller_thumb.thumbColor = adjustedPrimaryColor.getColorStateList()
+
+        fragment_fab.setColors(
+            textColor,
+            adjustedPrimaryColor,
+            adjustedPrimaryColor.getContrastColor()
+        )
     }
 
     override fun refreshItems() {

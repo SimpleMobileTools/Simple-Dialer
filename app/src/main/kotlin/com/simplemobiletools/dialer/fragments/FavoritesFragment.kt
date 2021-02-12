@@ -14,7 +14,6 @@ import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.*
@@ -30,23 +29,17 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         }
 
         fragment_placeholder.text = context.getString(placeholderResId)
-
-        letter_fastscroller.textColor = context.config.textColor.getColorStateList()
-        letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = context.config.primaryColor.getContrastColor()
-
         fragment_fab.beGone()
         fragment_placeholder_2.beGone()
     }
 
-    override fun textColorChanged(color: Int) {
-        (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(color)
-        letter_fastscroller?.textColor = color.getColorStateList()
-    }
+    override fun setupColors(textColor: Int, primaryColor: Int, adjustedPrimaryColor: Int) {
+        (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
 
-    override fun primaryColorChanged(color: Int) {
-        letter_fastscroller_thumb?.thumbColor = color.getColorStateList()
-        letter_fastscroller_thumb?.textColor = color.getContrastColor()
+        letter_fastscroller.textColor = textColor.getColorStateList()
+        letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
+        letter_fastscroller_thumb.textColor = adjustedPrimaryColor.getContrastColor()
+        letter_fastscroller_thumb.thumbColor = adjustedPrimaryColor.getColorStateList()
     }
 
     override fun refreshItems() {

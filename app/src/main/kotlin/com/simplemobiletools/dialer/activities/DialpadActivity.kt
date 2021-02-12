@@ -83,7 +83,8 @@ class DialpadActivity : SimpleActivity() {
 
         letter_fastscroller.textColor = config.textColor.getColorStateList()
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = config.primaryColor.getContrastColor()
+        letter_fastscroller_thumb.textColor = getAdjustedPrimaryColor().getContrastColor()
+        letter_fastscroller_thumb.thumbColor = getAdjustedPrimaryColor().getColorStateList()
     }
 
     override fun onResume() {

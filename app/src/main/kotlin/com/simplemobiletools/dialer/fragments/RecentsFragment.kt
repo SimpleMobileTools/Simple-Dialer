@@ -26,9 +26,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         }
 
         recents_placeholder.text = context.getString(placeholderResId)
-        recents_placeholder.setTextColor(context.config.textColor)
         recents_placeholder_2.apply {
-            setTextColor(context.getAdjustedPrimaryColor())
             underlineText()
             setOnClickListener {
                 requestCallLogPermission()
@@ -36,14 +34,15 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         }
     }
 
-    override fun textColorChanged(color: Int) {
+    override fun setupColors(textColor: Int, primaryColor: Int, adjustedPrimaryColor: Int) {
+        recents_placeholder.setTextColor(textColor)
+        recents_placeholder_2.setTextColor(adjustedPrimaryColor)
+
         (recents_list?.adapter as? RecentCallsAdapter)?.apply {
             initDrawables()
-            updateTextColor(color)
+            updateTextColor(textColor)
         }
     }
-
-    override fun primaryColorChanged(color: Int) {}
 
     override fun refreshItems() {
         val privateCursor = context?.getMyContactsCursor()?.loadInBackground()

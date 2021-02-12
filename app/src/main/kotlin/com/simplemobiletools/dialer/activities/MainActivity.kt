@@ -35,8 +35,6 @@ import kotlinx.android.synthetic.main.fragment_recents.*
 import java.util.*
 
 class MainActivity : SimpleActivity() {
-    private var storedTextColor = 0
-    private var storedPrimaryColor = 0
     private var isSearchOpen = false
     private var searchMenuItem: MenuItem? = null
 
@@ -45,7 +43,6 @@ class MainActivity : SimpleActivity() {
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
         setupTabColors()
-        storeStateVariables()
 
         if (isDefaultDialer()) {
             checkContactPermissions()
@@ -65,24 +62,14 @@ class MainActivity : SimpleActivity() {
 
         main_tabs_holder.setBackgroundColor(config.backgroundColor)
 
-        val configTextColor = config.textColor
-        if (storedTextColor != configTextColor) {
-            getInactiveTabIndexes(viewpager.currentItem).forEach {
-                main_tabs_holder.getTabAt(it)?.icon?.applyColorFilter(configTextColor)
-            }
-
-            getAllFragments().forEach {
-                it?.textColorChanged(configTextColor)
-            }
+        getInactiveTabIndexes(viewpager.currentItem).forEach {
+            main_tabs_holder.getTabAt(it)?.icon?.applyColorFilter(config.textColor)
         }
 
-        val configPrimaryColor = config.primaryColor
-        if (storedPrimaryColor != configPrimaryColor) {
-            main_tabs_holder.setSelectedTabIndicatorColor(adjustedPrimaryColor)
-            main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(adjustedPrimaryColor)
-            getAllFragments().forEach {
-                it?.primaryColorChanged(configPrimaryColor)
-            }
+        main_tabs_holder.setSelectedTabIndicatorColor(adjustedPrimaryColor)
+        main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(adjustedPrimaryColor)
+        getAllFragments().forEach {
+            it?.setupColors(config.textColor, config.primaryColor, getAdjustedPrimaryColor())
         }
 
         if (!isSearchOpen) {
@@ -93,11 +80,6 @@ class MainActivity : SimpleActivity() {
         Handler().postDelayed({
             recents_fragment?.refreshItems()
         }, 2000)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        storeStateVariables()
     }
 
     override fun onDestroy() {
@@ -137,13 +119,6 @@ class MainActivity : SimpleActivity() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         refreshItems()
-    }
-
-    private fun storeStateVariables() {
-        config.apply {
-            storedTextColor = textColor
-            storedPrimaryColor = primaryColor
-        }
     }
 
     private fun checkContactPermissions() {

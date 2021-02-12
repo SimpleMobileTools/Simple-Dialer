@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.dialogs
 
 import androidx.appcompat.app.AlertDialog
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
+import com.simplemobiletools.commons.extensions.getAdjustedPrimaryColor
 import com.simplemobiletools.commons.extensions.getColorStateList
 import com.simplemobiletools.commons.extensions.getContrastColor
 import com.simplemobiletools.commons.extensions.setupDialogStuff
@@ -21,7 +22,8 @@ class SelectContactDialog(val activity: SimpleActivity, contacts: ArrayList<Simp
         view.apply {
             letter_fastscroller.textColor = context.config.textColor.getColorStateList()
             letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-            letter_fastscroller_thumb.textColor = context.config.primaryColor.getContrastColor()
+            letter_fastscroller_thumb.textColor = context.getAdjustedPrimaryColor().getContrastColor()
+            letter_fastscroller_thumb.thumbColor = context.getAdjustedPrimaryColor().getColorStateList()
 
             letter_fastscroller.setupWithRecyclerView(select_contact_list, { position ->
                 try {
