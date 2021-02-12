@@ -26,8 +26,9 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         }
 
         recents_placeholder.text = context.getString(placeholderResId)
+        recents_placeholder.setTextColor(context.config.textColor)
         recents_placeholder_2.apply {
-            setTextColor(context.config.primaryColor)
+            setTextColor(context.getAdjustedPrimaryColor())
             underlineText()
             setOnClickListener {
                 requestCallLogPermission()
@@ -80,7 +81,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     private fun gotRecents(recents: ArrayList<RecentCall>) {
         if (recents.isEmpty()) {
             recents_placeholder.beVisible()
-            recents_placeholder_2.beVisibleIf(!context.hasPermission(PERMISSION_READ_CALL_LOG))
+            recents_placeholder_2.beGoneIf(context.hasPermission(PERMISSION_READ_CALL_LOG))
             recents_list.beGone()
         } else {
             recents_placeholder.beGone()

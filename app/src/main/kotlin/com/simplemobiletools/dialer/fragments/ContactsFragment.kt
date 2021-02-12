@@ -54,7 +54,8 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
         letter_fastscroller_thumb.textColor = config.primaryColor.getContrastColor()
 
-        fragment_fab.setColors(config.textColor, config.primaryColor, config.backgroundColor)
+        val adjustedPrimaryColor = context.getAdjustedPrimaryColor()
+        fragment_fab.setColors(config.textColor, adjustedPrimaryColor, adjustedPrimaryColor.getContrastColor())
         fragment_fab.setOnClickListener {
             launchCreateNewIntent()
         }

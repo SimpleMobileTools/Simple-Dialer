@@ -56,10 +56,11 @@ class MainActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, getFABIconColor())
+        val adjustedPrimaryColor = getAdjustedPrimaryColor()
+        val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, adjustedPrimaryColor.getContrastColor())
         main_dialpad_button.apply {
             setImageDrawable(dialpadIcon)
-            background.applyColorFilter(getAdjustedPrimaryColor())
+            background.applyColorFilter(adjustedPrimaryColor)
         }
 
         main_tabs_holder.setBackgroundColor(config.backgroundColor)
@@ -77,8 +78,8 @@ class MainActivity : SimpleActivity() {
 
         val configPrimaryColor = config.primaryColor
         if (storedPrimaryColor != configPrimaryColor) {
-            main_tabs_holder.setSelectedTabIndicatorColor(getAdjustedPrimaryColor())
-            main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(getAdjustedPrimaryColor())
+            main_tabs_holder.setSelectedTabIndicatorColor(adjustedPrimaryColor)
+            main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(adjustedPrimaryColor)
             getAllFragments().forEach {
                 it?.primaryColorChanged(configPrimaryColor)
             }
