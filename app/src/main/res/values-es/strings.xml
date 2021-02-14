@@ -10,10 +10,10 @@
     <string name="could_not_access_the_call_history">No se pudo acceder al historial de llamadas</string>
     <string name="request_access">Solicitar acceso</string>
     <string name="remove_confirmation">¿Estás seguro que quieres eliminar los elementos seleccionados del historial de llamadas?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
+    <string name="clear_history_confirmation">¿Está seguro de que desea eliminar todo del historial de llamadas?</string>
     <string name="send_sms">Enviar SMS</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
+    <string name="show_grouped_calls">Mostrar llamadas agrupadas</string>
+    <string name="clear_call_history">Borrar historial de llamadas</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Teclado de marcado</string>
@@ -30,7 +30,7 @@
     <string name="ongoing_call">Llamada en curso</string>
     <string name="select_sim">Selecciona una tarjeta SIM para esta llamada</string>
     <string name="always_use_this_sim">Siempre usar esta tarjeta SIM para este número</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="unset_default_sim">Desarmado predeterminado SIM</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Marcado rápido</string>
