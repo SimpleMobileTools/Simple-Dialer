@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Dialer</string>
+    <string name="app_launcher_name">Telefono</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Impossibile accedere ai contatti</string>
