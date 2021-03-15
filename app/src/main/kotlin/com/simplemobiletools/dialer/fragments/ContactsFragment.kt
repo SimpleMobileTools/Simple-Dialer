@@ -133,7 +133,10 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
     override fun onSearchQueryChanged(text: String) {
         val contacts = allContacts.filter {
-            it.name.contains(text, true) || it.doesContainPhoneNumber(text)
+            it.doesContainPhoneNumber(text) ||
+                it.name.contains(text, true) ||
+                it.name.normalizeString().contains(text, true) ||
+                it.name.contains(text.normalizeString(), true)
         }.toMutableList() as ArrayList<SimpleContact>
 
         fragment_placeholder.beVisibleIf(contacts.isEmpty())
