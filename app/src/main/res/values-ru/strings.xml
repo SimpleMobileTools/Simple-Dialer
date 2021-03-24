@@ -3,17 +3,17 @@
     <string name="app_launcher_name">Телефон</string>
 
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Не удалось получить доступ к контактам</string>
+    <string name="could_not_access_contacts">Невозможно получить доступ к контактам</string>
 
     <!-- Recents -->
-    <string name="no_previous_calls">Предыдущие звонки не найдены</string>
-    <string name="could_not_access_the_call_history">Не удалось получить доступ к истории звонков</string>
-    <string name="request_access">Запросить доступ</string>
-    <string name="remove_confirmation">Вы действительно хотите удалить выбранные элементы из истории звонков?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
-    <string name="send_sms">Послать SMS</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
+    <string name="no_previous_calls">Предыдущие вызовы не найдены</string>
+    <string name="could_not_access_the_call_history">Невозможно получить доступ к истории вызовов</string>
+    <string name="request_access">Запрос доступа</string>
+    <string name="remove_confirmation">Удалить выбранные записи из истории вызовов?</string>
+    <string name="clear_history_confirmation">Удалить всю историю вызовов?</string>
+    <string name="send_sms">Отправить SMS</string>
+    <string name="show_grouped_calls">Сгруппировать вызовы</string>
+    <string name="clear_call_history">Очистить историю вызовов</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Номеронабиратель</string>
@@ -25,42 +25,42 @@
     <string name="unknown_caller">Неизвестный абонент</string>
     <string name="is_calling">Звонит…</string>
     <string name="dialing">Набор номера…</string>
-    <string name="call_ended">Вызов завершен</string>
+    <string name="call_ended">Вызов завершён</string>
     <string name="call_ending">Завершение звонка</string>
     <string name="ongoing_call">Текущий вызов</string>
     <string name="select_sim">Выберите SIM для этого вызова</string>
-    <string name="always_use_this_sim">Всегда использовать эту SIM для этого номера</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="always_use_this_sim">Всегда использовать эту SIM для данного номера</string>
+    <string name="unset_default_sim">Снять выбор SIM по умолчанию</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Быстрый вызов</string>
     <string name="manage_speed_dial">Управление быстрым вызовом</string>
-    <string name="speed_dial_label">Нажмите на номер, чтобы назначить ему контакт. Затем вы можете быстро позвонить данному контакту, долго нажимая на указанный номер в номеронабирателе.</string>
+    <string name="speed_dial_label">Нажмите на цифру, чтобы назначить ей контакт. Затем вы сможете быстро вызвать данный контакт длительным нажатием на выбранную цифру в номеронабирателе.</string>
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Группировать последующие вызовы с тем же номером в журнале вызовов</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Manage your phone calls easily</string>
+    <string name="app_title">Simple Dialer - управление телефонными звонками</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A handy phone call manager with phonebook, number blocking and multi-SIM support</string>
+    <string name="app_short_description">Управление звонками + книга контактов, чёрный список, поддержка мульти-SIM</string>
     <string name="app_long_description">
-        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
+        Простое приложение для управления звонками независимо от того, где вы находитесь. Имеет удобный журнал вызовов для лёгкого инициирования звонков.
 
-        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
+        К вашим услугам также есть панель быстрого набора номера с умными предложениями контактов. Буквы она тоже поддерживает.
 
-        You can easily block phone numbers to avoid unwanted incoming calls.
+        Вы можете легко заблокировать телефонные номера, чтобы избежать нежелательных входящих звонков.
 
-        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
+        Функция быстрого набора делает вызов ваших любимых контактов с помощью этого приложения лёгким, как ветер.
 
-        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+        Чтобы помочь вам быстро управлять звонками, приложение поддерживает функцию избранных контактов и создание ярлыков любого контакта на главном экране.
 
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+        Приложение выпускается с материальным дизайном и тёмной темой по умолчанию, что обеспечивает удобное использование. Отсутствие доступа в интернет обеспечивает вам больше приватности, безопасности и стабильности, чем в других приложениях.
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+        Не содержит рекламы или ненужных разрешений. Полностью открытый исходный код, есть возможность настроить цвета интерфейса.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Ознакомьтесь с полным набором инструментов серии Simple здесь:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
