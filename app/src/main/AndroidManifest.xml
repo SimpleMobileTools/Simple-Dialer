@@ -22,6 +22,11 @@
         android:name="android.permission.USE_FINGERPRINT"
         tools:node="remove" />
 
+    <queries>
+        <package android:name="com.simplemobiletools.contacts.pro.debug" />
+        <package android:name="com.simplemobiletools.contacts.pro" />
+    </queries>
+
     <application
         android:name=".App"
         android:allowBackup="true"
