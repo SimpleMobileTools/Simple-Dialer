@@ -315,7 +315,6 @@ class CallActivity : SimpleActivity() {
         }
     }
 
-    @SuppressLint("NewApi")
     private val callCallback = object : Call.Callback() {
         override fun onStateChanged(call: Call, state: Int) {
             super.onStateChanged(call, state)

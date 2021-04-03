@@ -15,7 +15,6 @@ import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.dialer.models.CallContact
 
 // inspired by https://github.com/Chooloo/call_manage
-@SuppressLint("NewApi")
 class CallManager {
     companion object {
         var call: Call? = null
