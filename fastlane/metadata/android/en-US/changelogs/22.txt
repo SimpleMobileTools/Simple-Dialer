@@ -1,0 +1,2 @@
+ * Added some search related improvements
+ * Some smaller translaton and stability improvements
