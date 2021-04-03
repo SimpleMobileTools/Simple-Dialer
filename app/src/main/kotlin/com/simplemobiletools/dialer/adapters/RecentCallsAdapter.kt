@@ -264,7 +264,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             }
 
             item_recents_date_time.apply {
-                text = call.startTS.formatDateOrTime(context, refreshItemsListener != null)
+                text = call.startTS.formatDateOrTime(context, refreshItemsListener != null, false)
                 setTextColor(if (call.type == Calls.MISSED_TYPE) redColor else textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
             }
