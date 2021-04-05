@@ -123,11 +123,7 @@ class DialpadActivity : SimpleActivity() {
             action = Intent.ACTION_INSERT_OR_EDIT
             type = "vnd.android.cursor.item/contact"
             putExtra(KEY_PHONE, dialpad_input.value)
-            if (resolveActivity(packageManager) != null) {
-                startActivity(this)
-            } else {
-                toast(R.string.no_app_found)
-            }
+            launchActivityIntent(this)
         }
     }
 

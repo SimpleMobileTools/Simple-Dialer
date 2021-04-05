@@ -166,11 +166,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         Intent().apply {
             action = Intent.ACTION_INSERT
             data = ContactsContract.Contacts.CONTENT_URI
-            if (resolveActivity(context.packageManager) != null) {
-                context.startActivity(this)
-            } else {
-                context.toast(R.string.no_app_found)
-            }
+            context.launchActivityIntent(this)
         }
     }
 }

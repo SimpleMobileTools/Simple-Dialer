@@ -12,7 +12,6 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
-import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.dialogs.SelectSIMDialog
 
@@ -39,18 +38,15 @@ fun Activity.startContactDetailsIntent(contact: SimpleContact) {
     val simpleContacts = "com.simplemobiletools.contacts.pro"
     val simpleContactsDebug = "com.simplemobiletools.contacts.pro.debug"
     if (contact.rawId > 1000000 && contact.contactId > 1000000 && contact.rawId == contact.contactId &&
-        (isPackageInstalled(simpleContacts) || isPackageInstalled(simpleContactsDebug))) {
+        (isPackageInstalled(simpleContacts) || isPackageInstalled(simpleContactsDebug))
+    ) {
         Intent().apply {
             action = Intent.ACTION_VIEW
             putExtra(CONTACT_ID, contact.rawId)
             putExtra(IS_PRIVATE, true)
             `package` = if (isPackageInstalled(simpleContacts)) simpleContacts else simpleContactsDebug
             setDataAndType(ContactsContract.Contacts.CONTENT_LOOKUP_URI, "vnd.android.cursor.dir/person")
-            if (resolveActivity(packageManager) != null) {
-                startActivity(this)
-            } else {
-                toast(R.string.no_app_found)
-            }
+            launchActivityIntent(this)
         }
     } else {
         ensureBackgroundThread {

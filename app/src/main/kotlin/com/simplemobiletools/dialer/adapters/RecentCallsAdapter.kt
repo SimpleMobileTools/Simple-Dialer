@@ -27,8 +27,10 @@ import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.item_recent_call.view.*
 import java.util.*
 
-class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener?,
-                         itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
+class RecentCallsAdapter(
+    activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener?,
+    itemClick: (Any) -> Unit
+) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
     private lateinit var outgoingCallIcon: Drawable
     private lateinit var incomingCallIcon: Drawable
@@ -167,12 +169,7 @@ class RecentCallsAdapter(activity: SimpleActivity, var recentCalls: ArrayList<Re
             action = Intent.ACTION_INSERT_OR_EDIT
             type = "vnd.android.cursor.item/contact"
             putExtra(KEY_PHONE, phoneNumber)
-
-            if (resolveActivity(activity.packageManager) != null) {
-                activity.startActivity(this)
-            } else {
-                activity.toast(R.string.no_app_found)
-            }
+            activity.launchActivityIntent(this)
         }
     }
 
