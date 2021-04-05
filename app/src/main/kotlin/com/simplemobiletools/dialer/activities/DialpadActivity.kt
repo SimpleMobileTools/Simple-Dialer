@@ -44,7 +44,7 @@ class DialpadActivity : SimpleActivity() {
         }
 
         speedDialValues = config.getSpeedDialValues()
-        privateCursor = getMyContactsCursor()?.loadInBackground()
+        privateCursor = getMyContactsCursor(false, true)?.loadInBackground()
 
         dialpad_0_holder.setOnClickListener { dialpadPressed('0', it) }
         dialpad_1.setOnClickListener { dialpadPressed('1', it) }

@@ -74,7 +74,7 @@ class CallManager {
                         callback(callContact)
                     } else {
                         Handler(Looper.getMainLooper()).post {
-                            val privateCursor = context.getMyContactsCursor()?.loadInBackground()
+                            val privateCursor = context.getMyContactsCursor(false, true)?.loadInBackground()
                             ensureBackgroundThread {
                                 val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
                                 val privateContact = privateContacts.firstOrNull { it.doesContainPhoneNumber(callContact.number) }

@@ -44,7 +44,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     override fun refreshItems() {
-        val privateCursor = context?.getMyFavoriteContactsCursor()?.loadInBackground()
+        val privateCursor = context?.getMyContactsCursor(true, true)?.loadInBackground()
         SimpleContactsHelper(context).getAvailableContacts(true) { contacts ->
             allContacts = contacts
 
