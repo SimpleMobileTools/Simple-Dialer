@@ -3,62 +3,62 @@
     <string name="app_launcher_name">Dialer</string>
 
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Could not access your contacts</string>
+    <string name="could_not_access_contacts">Nejde získat přístup k vašim kontaktům</string>
 
     <!-- Recents -->
-    <string name="no_previous_calls">No previous calls have been found</string>
-    <string name="could_not_access_the_call_history">Could not access the call history</string>
-    <string name="request_access">Request access</string>
-    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
-    <string name="send_sms">Send SMS</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
+    <string name="no_previous_calls">Nebyly nalezeny žádné předchozí hovory</string>
+    <string name="could_not_access_the_call_history">Nelze získat přístup k historii hovorů</string>
+    <string name="request_access">Požádat o přístup</string>
+    <string name="remove_confirmation">Opravdu chcete odebrat vybrané položky z historie hovorů?</string>
+    <string name="clear_history_confirmation">Opravdu chcete z historie hovorů odebrat vše?</string>
+    <string name="send_sms">Poslat SMS</string>
+    <string name="show_grouped_calls">Zobrazit seskupené hovory</string>
+    <string name="clear_call_history">Vymazat historii hovorů</string>
 
     <!-- Dialpad -->
-    <string name="dialpad">Dialpad</string>
+    <string name="dialpad">Číselník</string>
 
     <!-- Dialer -->
-    <string name="dialer">Dialer</string>
-    <string name="accept">Accept</string>
-    <string name="decline">Decline</string>
-    <string name="unknown_caller">Unknown Caller</string>
-    <string name="is_calling">Is Calling…</string>
-    <string name="dialing">Dialing…</string>
-    <string name="call_ended">Call Ended</string>
-    <string name="call_ending">Call Ending</string>
-    <string name="ongoing_call">Ongoing Call</string>
-    <string name="select_sim">Select a SIM for this call</string>
-    <string name="always_use_this_sim">Always use this SIM for this number</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="dialer">Telefon</string>
+    <string name="accept">Přijmout</string>
+    <string name="decline">Odmítnout</string>
+    <string name="Neznámý volající">Unknown Caller</string>
+    <string name="is_calling">Volání…</string>
+    <string name="dialing">Vytáčení…</string>
+    <string name="call_ended">Hovor ukončen</string>
+    <string name="call_ending">Zavěsit</string>
+    <string name="ongoing_call">Odchozí hovor</string>
+    <string name="select_sim">Vyberte SIM pro tento hovor</string>
+    <string name="always_use_this_sim">Pro toto číslo vždy použijte tuto SIM kartu</string>
+    <string name="unset_default_sim">Zrušit nastavení výchozí SIM karty</string>
 
     <!-- Speed dial -->
-    <string name="speed_dial">Speed dial</string>
-    <string name="manage_speed_dial">Manage speed dial</string>
-    <string name="speed_dial_label">Click on a number to assign a contact to it. You can then quickly call the given contact by long pressing the given number at the dialer.</string>
+    <string name="speed_dial">Rychlé vytáčení</string>
+    <string name="manage_speed_dial">Spravujte rychlou volbu</string>
+    <string name="speed_dial_label">Kliknutím na číslo mu přiřadíte kontakt. Potom můžete rychle zavolat danému kontaktu dlouhým stisknutím daného čísla na číselníku.</string>
 
     <!-- Settings -->
-    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
+    <string name="group_subsequent_calls">Seskupte další hovory se stejným číslem v protokolu hovorů</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Manage your phone calls easily</string>
+    <string name="app_title">Simple Dialer - Spravujte své telefonní hovory snadno</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A handy phone call manager with phonebook, number blocking and multi-SIM support</string>
+    <string name="app_short_description">Šikovný správce telefonních hovorů s telefonním seznamem, blokováním čísel a podporou více SIM karet</string>
     <string name="app_long_description">
-        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
+        Lehká aplikace pro vyřizování vašich hovorů, ať jste kdekoli. Dodává se s praktickým protokolem hovorů pro snadné zahájení hovoru.
 
-        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
+        K dispozici je také rychlá číselná klávesnice s inteligentními návrhy kontaktů. Podporuje také písmena.
 
-        You can easily block phone numbers to avoid unwanted incoming calls.
+        Telefonní čísla můžete snadno zablokovat, abyste předešli nechtěným příchozím hovorům.
 
-        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
+        Díky podporované rychlé volbě je volání vašich oblíbených kontaktů pomocí tohoto skutečného telefonu hračkou.
 
-        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+        Abychom vám mohli rychle spravovat hovory, podporuje aplikace Telefon také oblíbené kontakty a vytváření zkratek všech kontaktů na domovské obrazovce.
 
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+        Ve výchozím nastavení je dodáván s materiálovým designem a tmavým motivem a poskytuje skvělé uživatelské prostředí pro snadné použití. Nedostatek přístupu k internetu vám poskytuje více soukromí, zabezpečení a stability než jiné aplikace.
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+        Neobsahuje žádné reklamy ani zbytečná oprávnění. Je plně opensource a poskytuje přizpůsobitelné barvy.
 
         <b>Check out the full suite of Simple Tools here:</b>
         https://www.simplemobiletools.com
