@@ -3,11 +3,13 @@ package com.simplemobiletools.dialer.helpers
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.CallLog.Calls
+import android.util.Log
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
+import com.simplemobiletools.dialer.extensions.getSimIds
 import com.simplemobiletools.dialer.models.RecentCall
 
 class RecentsHelper(private val context: Context) {
@@ -34,7 +36,11 @@ class RecentsHelper(private val context: Context) {
     }
 
     private fun getRecents(contacts: ArrayList<SimpleContact>, groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
+
         var recentCalls = ArrayList<RecentCall>()
+        var simIds = mutableListOf<String>()
+        simIds.addAll(context.getSimIds())
+
         var previousRecentCallFrom = ""
         val contactsNumbersMap = HashMap<String, String>()
         val uri = Calls.CONTENT_URI
@@ -46,7 +52,8 @@ class RecentsHelper(private val context: Context) {
             Calls.DATE,
             Calls.DURATION,
             Calls.TYPE,
-            "phone_account_address"
+            "phone_account_address",
+            Calls.PHONE_ACCOUNT_ID
         )
 
         val numberToSimIDMap = HashMap<String, Int>()
@@ -87,8 +94,14 @@ class RecentsHelper(private val context: Context) {
             val startTS = (cursor.getLongValue(Calls.DATE) / 1000L).toInt()
             val duration = cursor.getIntValue(Calls.DURATION)
             val type = cursor.getIntValue(Calls.TYPE)
-            val accountAddress = cursor.getStringValue("phone_account_address")
-            val simID = numberToSimIDMap[accountAddress] ?: 1
+            val accountAddress:String? = cursor.getStringValue("phone_account_address")
+            val accountId = cursor.getStringValue(Calls.PHONE_ACCOUNT_ID)
+            var simID = numberToSimIDMap[accountAddress] ?: 1
+
+            if(accountAddress.isNullOrEmpty()){
+                simID = 1 + simIds.indexOf( removeAllNonNumbericChars(accountId))
+                Log.d("__RecentsHelper", "getRecents: simid is $simID")
+            }
             val neighbourIDs = ArrayList<Int>()
             val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs, simID)
 
@@ -131,5 +144,9 @@ class RecentsHelper(private val context: Context) {
                 }
             }
         }
+    }
+    fun removeAllNonNumbericChars(str:String): String {
+
+        return str.replace(Regex("[^0-9]"), "")
     }
 }

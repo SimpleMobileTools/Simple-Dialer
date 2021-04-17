@@ -22,7 +22,6 @@
     <string name="dialer">Telefon</string>
     <string name="accept">Přijmout</string>
     <string name="decline">Odmítnout</string>
-    <string name="Neznámý volající">Unknown Caller</string>
     <string name="is_calling">Volání…</string>
     <string name="dialing">Vytáčení…</string>
     <string name="call_ended">Hovor ukončen</string>

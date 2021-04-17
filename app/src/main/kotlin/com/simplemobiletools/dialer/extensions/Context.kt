@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.media.AudioManager
 import android.net.Uri
+import android.telephony.SubscriptionManager
 import com.simplemobiletools.commons.extensions.telecomManager
 import com.simplemobiletools.dialer.helpers.Config
 import com.simplemobiletools.dialer.models.SIMAccount
@@ -40,4 +41,19 @@ fun Context.areMultipleSIMsAvailable(): Boolean {
     } catch (ignored: Exception) {
         false
     }
+}
+
+@SuppressLint("MissingPermission")
+fun Context.getSimIds(): List<String> {
+    val subscriptionManager = getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE) as SubscriptionManager
+    val availableSIMs  = subscriptionManager.activeSubscriptionInfoList
+    var simIds = mutableListOf<String>()
+    if(availableSIMs.size > 0){
+        for(subScriptionInfo in availableSIMs){
+            simIds.add(subScriptionInfo.iccId)
+        }
+    }
+    return simIds
+
+
 }
