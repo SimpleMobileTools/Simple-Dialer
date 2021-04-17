@@ -100,7 +100,6 @@ class RecentsHelper(private val context: Context) {
 
             if(accountAddress.isNullOrEmpty()){
                 simID = 1 + simIds.indexOf( removeAllNonNumbericChars(accountId))
-                Log.d("__RecentsHelper", "getRecents: simid is $simID")
             }
             val neighbourIDs = ArrayList<Int>()
             val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs, simID)
