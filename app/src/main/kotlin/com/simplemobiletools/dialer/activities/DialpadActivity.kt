@@ -46,6 +46,17 @@ class DialpadActivity : SimpleActivity() {
         speedDialValues = config.getSpeedDialValues()
         privateCursor = getMyContactsCursor(false, true)?.loadInBackground()
 
+        if (Locale.getDefault().language == "ru") {
+            dialpad_2_letters.append("\nАБВГ")
+            dialpad_3_letters.append("\nДЕЁЖЗ")
+            dialpad_4_letters.append("\nИЙКЛ")
+            dialpad_5_letters.append("\nМНОП")
+            dialpad_6_letters.append("\nРСТУ")
+            dialpad_7_letters.append("\nФХЦЧ")
+            dialpad_8_letters.append("\nШЩЪЫ")
+            dialpad_9_letters.append("\nЬЭЮЯ")
+        }
+
         dialpad_0_holder.setOnClickListener { dialpadPressed('0', it) }
         dialpad_1_holder.setOnClickListener { dialpadPressed('1', it) }
         dialpad_2_holder.setOnClickListener { dialpadPressed('2', it) }
