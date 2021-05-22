@@ -18,10 +18,7 @@ import android.view.WindowManager
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
-import com.simplemobiletools.commons.helpers.isOreoMr1Plus
-import com.simplemobiletools.commons.helpers.isOreoPlus
-import com.simplemobiletools.commons.helpers.isQPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.addCharacter
 import com.simplemobiletools.dialer.extensions.audioManager
@@ -129,19 +126,19 @@ class CallActivity : SimpleActivity() {
         }
 
         dialpad_0_holder.setOnClickListener { dialpadPressed('0') }
-        dialpad_1.setOnClickListener { dialpadPressed('1') }
-        dialpad_2.setOnClickListener { dialpadPressed('2') }
-        dialpad_3.setOnClickListener { dialpadPressed('3') }
-        dialpad_4.setOnClickListener { dialpadPressed('4') }
-        dialpad_5.setOnClickListener { dialpadPressed('5') }
-        dialpad_6.setOnClickListener { dialpadPressed('6') }
-        dialpad_7.setOnClickListener { dialpadPressed('7') }
-        dialpad_8.setOnClickListener { dialpadPressed('8') }
-        dialpad_9.setOnClickListener { dialpadPressed('9') }
+        dialpad_1_holder.setOnClickListener { dialpadPressed('1') }
+        dialpad_2_holder.setOnClickListener { dialpadPressed('2') }
+        dialpad_3_holder.setOnClickListener { dialpadPressed('3') }
+        dialpad_4_holder.setOnClickListener { dialpadPressed('4') }
+        dialpad_5_holder.setOnClickListener { dialpadPressed('5') }
+        dialpad_6_holder.setOnClickListener { dialpadPressed('6') }
+        dialpad_7_holder.setOnClickListener { dialpadPressed('7') }
+        dialpad_8_holder.setOnClickListener { dialpadPressed('8') }
+        dialpad_9_holder.setOnClickListener { dialpadPressed('9') }
 
         dialpad_0_holder.setOnLongClickListener { dialpadPressed('+'); true }
-        dialpad_asterisk.setOnClickListener { dialpadPressed('*') }
-        dialpad_hashtag.setOnClickListener { dialpadPressed('#') }
+        dialpad_asterisk_holder.setOnClickListener { dialpadPressed('*') }
+        dialpad_hashtag_holder.setOnClickListener { dialpadPressed('#') }
 
         dialpad_wrapper.setBackgroundColor(config.backgroundColor)
         arrayOf(call_toggle_microphone, call_toggle_speaker, call_dialpad, dialpad_close, call_sim_image).forEach {
