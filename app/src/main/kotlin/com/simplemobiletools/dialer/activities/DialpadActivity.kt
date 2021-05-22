@@ -34,11 +34,14 @@ import kotlin.collections.ArrayList
 class DialpadActivity : SimpleActivity() {
     private var allContacts = ArrayList<SimpleContact>()
     private var speedDialValues = ArrayList<SpeedDial>()
+    private val russianCharsMap = HashMap<Char, Int>()
+    private var hasRussianLocale = false
     private var privateCursor: Cursor? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dialpad)
+        hasRussianLocale = Locale.getDefault().language == "ru"
 
         if (checkAppSideloading()) {
             return
@@ -47,7 +50,8 @@ class DialpadActivity : SimpleActivity() {
         speedDialValues = config.getSpeedDialValues()
         privateCursor = getMyContactsCursor(false, true)?.loadInBackground()
 
-        if (Locale.getDefault().language == "ru") {
+        if (hasRussianLocale) {
+            initRussianChars()
             dialpad_2_letters.append("\nАБВГ")
             dialpad_3_letters.append("\nДЕЁЖЗ")
             dialpad_4_letters.append("\nИЙКЛ")
@@ -200,8 +204,19 @@ class DialpadActivity : SimpleActivity() {
         }
 
         (dialpad_list.adapter as? ContactsAdapter)?.finishActMode()
+
         val filtered = allContacts.filter {
-            val convertedName = PhoneNumberUtils.convertKeypadLettersToDigits(it.name.normalizeString())
+            var convertedName = PhoneNumberUtils.convertKeypadLettersToDigits(it.name.normalizeString())
+
+            if (hasRussianLocale) {
+                var currConvertedName = ""
+                convertedName.toLowerCase().forEach { char ->
+                    val convertedChar = russianCharsMap.getOrElse(char) { char }
+                    currConvertedName += convertedChar
+                }
+                convertedName = currConvertedName
+            }
+
             it.doesContainPhoneNumber(text) || (convertedName.contains(text, true))
         }.sortedWith(compareBy {
             !it.doesContainPhoneNumber(text)
@@ -247,5 +262,16 @@ class DialpadActivity : SimpleActivity() {
                 initCall(speedDial.number)
             }
         }
+    }
+
+    private fun initRussianChars() {
+        russianCharsMap['а'] = 2; russianCharsMap['б'] = 2; russianCharsMap['в'] = 2; russianCharsMap['г'] = 2
+        russianCharsMap['д'] = 3; russianCharsMap['е'] = 3; russianCharsMap['ё'] = 3; russianCharsMap['ж'] = 3; russianCharsMap['з'] = 3
+        russianCharsMap['и'] = 4; russianCharsMap['й'] = 4; russianCharsMap['к'] = 4; russianCharsMap['л'] = 4
+        russianCharsMap['м'] = 5; russianCharsMap['н'] = 5; russianCharsMap['о'] = 5; russianCharsMap['п'] = 5
+        russianCharsMap['р'] = 6; russianCharsMap['с'] = 6; russianCharsMap['т'] = 6; russianCharsMap['у'] = 6
+        russianCharsMap['ф'] = 7; russianCharsMap['х'] = 7; russianCharsMap['ц'] = 7; russianCharsMap['ч'] = 7
+        russianCharsMap['ш'] = 8; russianCharsMap['щ'] = 8; russianCharsMap['ъ'] = 8; russianCharsMap['ы'] = 8
+        russianCharsMap['ь'] = 9; russianCharsMap['э'] = 9; russianCharsMap['ю'] = 9; russianCharsMap['я'] = 9
     }
 }
