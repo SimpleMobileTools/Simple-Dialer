@@ -61,15 +61,17 @@ class MainActivity : SimpleActivity() {
         }
 
         main_tabs_holder.setBackgroundColor(config.backgroundColor)
-
-        getInactiveTabIndexes(viewpager.currentItem).forEach {
-            main_tabs_holder.getTabAt(it)?.icon?.applyColorFilter(config.textColor)
-        }
-
         main_tabs_holder.setSelectedTabIndicatorColor(adjustedPrimaryColor)
-        main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(adjustedPrimaryColor)
-        getAllFragments().forEach {
-            it?.setupColors(config.textColor, config.primaryColor, getAdjustedPrimaryColor())
+
+        if (viewpager.adapter != null) {
+            getInactiveTabIndexes(viewpager.currentItem).forEach {
+                main_tabs_holder.getTabAt(it)?.icon?.applyColorFilter(config.textColor)
+            }
+
+            main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(adjustedPrimaryColor)
+            getAllFragments().forEach {
+                it?.setupColors(config.textColor, config.primaryColor, getAdjustedPrimaryColor())
+            }
         }
 
         if (!isSearchOpen) {
