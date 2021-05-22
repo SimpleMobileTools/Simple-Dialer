@@ -258,7 +258,14 @@ class MainActivity : SimpleActivity() {
         // selecting the proper tab sometimes glitches, add an extra selector to make sure we have it right
         main_tabs_holder.onGlobalLayout {
             Handler().postDelayed({
-                main_tabs_holder.getTabAt(getDefaultTab())?.select()
+                var wantedTab = getDefaultTab()
+
+                // open the Recents tab if we got here by clicking a missed call notification
+                if (intent.action == Intent.ACTION_VIEW) {
+                    wantedTab = main_tabs_holder.tabCount - 1
+                }
+
+                main_tabs_holder.getTabAt(wantedTab)?.select()
                 invalidateOptionsMenu()
             }, 100L)
         }
