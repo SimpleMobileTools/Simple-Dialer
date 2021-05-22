@@ -15,21 +15,21 @@
         android:id="@+id/cab_remove"
         android:icon="@drawable/ic_delete_vector"
         android:title="@string/delete"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/cab_add_number"
         android:icon="@drawable/ic_add_person_vector"
         android:title="@string/add_number_to_contact"
-        app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/cab_block_number"
-        android:icon="@drawable/ic_minus_circle_vector"
-        android:title="@string/block_number"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/cab_send_sms"
         android:icon="@drawable/ic_sms_vector"
         android:title="@string/send_sms"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/cab_block_number"
+        android:icon="@drawable/ic_minus_circle_vector"
+        android:title="@string/block_number"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/cab_show_grouped_calls"
