@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.provider.Telephony.Sms.Intents.SECRET_CODE_ACTION
 import android.telephony.PhoneNumberUtils
 import android.telephony.TelephonyManager
+import android.util.TypedValue
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
@@ -55,6 +56,14 @@ class DialpadActivity : SimpleActivity() {
             dialpad_7_letters.append("\nФХЦЧ")
             dialpad_8_letters.append("\nШЩЪЫ")
             dialpad_9_letters.append("\nЬЭЮЯ")
+
+            val fontSize = resources.getDimension(R.dimen.small_text_size)
+            arrayOf(
+                dialpad_2_letters, dialpad_3_letters, dialpad_4_letters, dialpad_5_letters, dialpad_6_letters, dialpad_7_letters, dialpad_8_letters,
+                dialpad_9_letters
+            ).forEach {
+                it.setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
+            }
         }
 
         dialpad_0_holder.setOnClickListener { dialpadPressed('0', it) }
