@@ -6,6 +6,7 @@ import android.provider.CallLog.Calls
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
 import com.simplemobiletools.dialer.models.RecentCall
@@ -81,6 +82,10 @@ class RecentsHelper(private val context: Context) {
                         }?.name ?: number
                     }
                 }
+            }
+
+            if (name.isEmpty()) {
+                name = context.getString(R.string.unknown)
             }
 
             val photoUri = cursor.getStringValue(Calls.CACHED_PHOTO_URI) ?: ""
