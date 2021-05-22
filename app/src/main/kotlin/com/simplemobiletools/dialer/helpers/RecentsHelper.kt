@@ -95,7 +95,7 @@ class RecentsHelper(private val context: Context) {
             var simID = numberToSimIDMap[accountAddress] ?: 1
 
             if(accountAddress.isNullOrEmpty()){
-                simID = 1 + simIds.indexOf(removeAllNonNumbericChars(accountId))
+                simID = 1 + simIds.indexOf(removeAllNonNumericChars(accountId))
             }
             val neighbourIDs = ArrayList<Int>()
             val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs, simID)
@@ -141,5 +141,5 @@ class RecentsHelper(private val context: Context) {
         }
     }
     
-    fun removeAllNonNumbericChars(str: String) = str.replace(Regex("[^0-9]"), "")
+    fun removeAllNonNumericChars(str: String) = str.replace(Regex("[^0-9]"), "")
 }
