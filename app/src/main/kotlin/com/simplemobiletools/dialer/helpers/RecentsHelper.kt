@@ -3,7 +3,6 @@ package com.simplemobiletools.dialer.helpers
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.CallLog.Calls
-import android.util.Log
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
@@ -38,7 +37,6 @@ class RecentsHelper(private val context: Context) {
     private fun getRecents(contacts: ArrayList<SimpleContact>, groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
         var recentCalls = ArrayList<RecentCall>()
         var simIds = context.getSimIds()
-
         var previousRecentCallFrom = ""
         val contactsNumbersMap = HashMap<String, String>()
         val uri = Calls.CONTENT_URI
