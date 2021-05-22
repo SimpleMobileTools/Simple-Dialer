@@ -47,29 +47,29 @@ class DialpadActivity : SimpleActivity() {
         privateCursor = getMyContactsCursor(false, true)?.loadInBackground()
 
         dialpad_0_holder.setOnClickListener { dialpadPressed('0', it) }
-        dialpad_1.setOnClickListener { dialpadPressed('1', it) }
-        dialpad_2.setOnClickListener { dialpadPressed('2', it) }
-        dialpad_3.setOnClickListener { dialpadPressed('3', it) }
-        dialpad_4.setOnClickListener { dialpadPressed('4', it) }
-        dialpad_5.setOnClickListener { dialpadPressed('5', it) }
-        dialpad_6.setOnClickListener { dialpadPressed('6', it) }
-        dialpad_7.setOnClickListener { dialpadPressed('7', it) }
-        dialpad_8.setOnClickListener { dialpadPressed('8', it) }
-        dialpad_9.setOnClickListener { dialpadPressed('9', it) }
+        dialpad_1_holder.setOnClickListener { dialpadPressed('1', it) }
+        dialpad_2_holder.setOnClickListener { dialpadPressed('2', it) }
+        dialpad_3_holder.setOnClickListener { dialpadPressed('3', it) }
+        dialpad_4_holder.setOnClickListener { dialpadPressed('4', it) }
+        dialpad_5_holder.setOnClickListener { dialpadPressed('5', it) }
+        dialpad_6_holder.setOnClickListener { dialpadPressed('6', it) }
+        dialpad_7_holder.setOnClickListener { dialpadPressed('7', it) }
+        dialpad_8_holder.setOnClickListener { dialpadPressed('8', it) }
+        dialpad_9_holder.setOnClickListener { dialpadPressed('9', it) }
 
-        dialpad_1.setOnLongClickListener { speedDial(1); true }
-        dialpad_2.setOnLongClickListener { speedDial(2); true }
-        dialpad_3.setOnLongClickListener { speedDial(3); true }
-        dialpad_4.setOnLongClickListener { speedDial(4); true }
-        dialpad_5.setOnLongClickListener { speedDial(5); true }
-        dialpad_6.setOnLongClickListener { speedDial(6); true }
-        dialpad_7.setOnLongClickListener { speedDial(7); true }
-        dialpad_8.setOnLongClickListener { speedDial(8); true }
-        dialpad_9.setOnLongClickListener { speedDial(9); true }
+        dialpad_1_holder.setOnLongClickListener { speedDial(1); true }
+        dialpad_2_holder.setOnLongClickListener { speedDial(2); true }
+        dialpad_3_holder.setOnLongClickListener { speedDial(3); true }
+        dialpad_4_holder.setOnLongClickListener { speedDial(4); true }
+        dialpad_5_holder.setOnLongClickListener { speedDial(5); true }
+        dialpad_6_holder.setOnLongClickListener { speedDial(6); true }
+        dialpad_7_holder.setOnLongClickListener { speedDial(7); true }
+        dialpad_8_holder.setOnLongClickListener { speedDial(8); true }
+        dialpad_9_holder.setOnLongClickListener { speedDial(9); true }
 
         dialpad_0_holder.setOnLongClickListener { dialpadPressed('+', null); true }
-        dialpad_asterisk.setOnClickListener { dialpadPressed('*', it) }
-        dialpad_hashtag.setOnClickListener { dialpadPressed('#', it) }
+        dialpad_asterisk_holder.setOnClickListener { dialpadPressed('*', it) }
+        dialpad_hashtag_holder.setOnClickListener { dialpadPressed('#', it) }
         dialpad_clear_char.setOnClickListener { clearChar(it) }
         dialpad_clear_char.setOnLongClickListener { clearInput(); true }
         dialpad_call_button.setOnClickListener { initCall() }
