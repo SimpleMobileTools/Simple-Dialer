@@ -262,9 +262,7 @@ class MainActivity : SimpleActivity() {
         }
 
         main_dialpad_button.setOnClickListener {
-            Intent(applicationContext, DialpadActivity::class.java).apply {
-                startActivity(this)
-            }
+            launchDialpad()
         }
     }
 
@@ -291,6 +289,12 @@ class MainActivity : SimpleActivity() {
             }
         } else {
             refreshFragments()
+        }
+    }
+
+    private fun launchDialpad() {
+        Intent(applicationContext, DialpadActivity::class.java).apply {
+            startActivity(this)
         }
     }
 
