@@ -46,14 +46,12 @@ fun Context.areMultipleSIMsAvailable(): Boolean {
 @SuppressLint("MissingPermission")
 fun Context.getSimIds(): List<String> {
     val subscriptionManager = getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE) as SubscriptionManager
-    val availableSIMs  = subscriptionManager.activeSubscriptionInfoList
-    var simIds = mutableListOf<String>()
-    if(availableSIMs.size > 0){
-        for(subScriptionInfo in availableSIMs){
-            simIds.add(subScriptionInfo.iccId)
+    val availableSIMs = subscriptionManager.activeSubscriptionInfoList
+    val simIds = mutableListOf<String>()
+    if (availableSIMs.size > 0) {
+        for (subscriptionInfo in availableSIMs) {
+            simIds.add(subscriptionInfo.iccId)
         }
     }
     return simIds
-
-
 }
