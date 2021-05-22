@@ -36,10 +36,8 @@ class RecentsHelper(private val context: Context) {
     }
 
     private fun getRecents(contacts: ArrayList<SimpleContact>, groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
-
         var recentCalls = ArrayList<RecentCall>()
-        var simIds = mutableListOf<String>()
-        simIds.addAll(context.getSimIds())
+        var simIds = context.getSimIds()
 
         var previousRecentCallFrom = ""
         val contactsNumbersMap = HashMap<String, String>()
@@ -52,8 +50,8 @@ class RecentsHelper(private val context: Context) {
             Calls.DATE,
             Calls.DURATION,
             Calls.TYPE,
-            "phone_account_address",
-            Calls.PHONE_ACCOUNT_ID
+            Calls.PHONE_ACCOUNT_ID,
+            "phone_account_address"
         )
 
         val numberToSimIDMap = HashMap<String, Int>()
@@ -94,12 +92,12 @@ class RecentsHelper(private val context: Context) {
             val startTS = (cursor.getLongValue(Calls.DATE) / 1000L).toInt()
             val duration = cursor.getIntValue(Calls.DURATION)
             val type = cursor.getIntValue(Calls.TYPE)
-            val accountAddress:String? = cursor.getStringValue("phone_account_address")
+            val accountAddress = cursor.getStringValue("phone_account_address")
             val accountId = cursor.getStringValue(Calls.PHONE_ACCOUNT_ID)
             var simID = numberToSimIDMap[accountAddress] ?: 1
 
             if(accountAddress.isNullOrEmpty()){
-                simID = 1 + simIds.indexOf( removeAllNonNumbericChars(accountId))
+                simID = 1 + simIds.indexOf(removeAllNonNumbericChars(accountId))
             }
             val neighbourIDs = ArrayList<Int>()
             val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs, simID)
@@ -144,8 +142,6 @@ class RecentsHelper(private val context: Context) {
             }
         }
     }
-    fun removeAllNonNumbericChars(str:String): String {
-
-        return str.replace(Regex("[^0-9]"), "")
-    }
+    
+    fun removeAllNonNumbericChars(str: String) = str.replace(Regex("[^0-9]"), "")
 }
