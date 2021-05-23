@@ -115,6 +115,8 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     override fun onSearchQueryChanged(text: String) {
         val contacts = allContacts.filter {
             it.name.contains(text, true) || it.doesContainPhoneNumber(text)
+        }.sortedByDescending {
+            it.name.startsWith(text, true)
         }.toMutableList() as ArrayList<SimpleContact>
 
         fragment_placeholder.beVisibleIf(contacts.isEmpty())

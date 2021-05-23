@@ -124,6 +124,8 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     override fun onSearchQueryChanged(text: String) {
         val recentCalls = allRecentCalls.filter {
             it.name.contains(text, true) || it.doesContainPhoneNumber(text)
+        }.sortedByDescending {
+            it.name.startsWith(text, true)
         }.toMutableList() as ArrayList<RecentCall>
 
         recents_placeholder.beVisibleIf(recentCalls.isEmpty())

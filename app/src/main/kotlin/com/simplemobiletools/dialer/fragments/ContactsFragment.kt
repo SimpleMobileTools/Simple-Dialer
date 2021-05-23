@@ -137,6 +137,8 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                 it.name.contains(text, true) ||
                 it.name.normalizeString().contains(text, true) ||
                 it.name.contains(text.normalizeString(), true)
+        }.sortedByDescending {
+            it.name.startsWith(text, true)
         }.toMutableList() as ArrayList<SimpleContact>
 
         fragment_placeholder.beVisibleIf(contacts.isEmpty())
