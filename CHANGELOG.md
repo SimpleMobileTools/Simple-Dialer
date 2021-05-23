@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 5.7.0 *(2021-05-23)*
+----------------------------
+
+ * Add handling for intents invoked by clicking missed call notifications
+ * Improve search result sorting
+ * Improved the keyboard behaviour during calls
+ * Added russian letters at the dialpad keyboard
+ * Some other UX, translation and stability improvements
+
 Version 5.6.4 *(2021-04-05)*
 ----------------------------
 
