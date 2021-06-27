@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">Prosty telefon</string>
+    <string name="app_launcher_name">Telefon</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Nie można uzyskać dostępu do Twoich kontaktów</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Nie znaleziono wcześniejszych połączeń</string>
+    <string name="could_not_access_the_call_history">Nie można uzyskać dostępu do historii połączeń</string>
+    <string name="request_access">Poproś o dostęp</string>
+    <string name="remove_confirmation">Czy na pewno chcesz usunąć wybrane elementy z historii połączeń?</string>
+    <string name="clear_history_confirmation">Czy na pewno chcesz usunąć całą historię połączeń?</string>
+    <string name="send_sms">Wyślij SMS-a</string>
+    <string name="show_grouped_calls">Pokaż zgrupowane połączenia</string>
+    <string name="clear_call_history">Wyczyść historię połączeń</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Panel wybierania</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Telefon</string>
+    <string name="accept">Odbierz</string>
+    <string name="decline">Odrzuć</string>
+    <string name="unknown_caller">Nieznany rozmówca</string>
+    <string name="is_calling">Dzwoni…</string>
+    <string name="dialing">Dzwonię…</string>
+    <string name="call_ended">Połączenie zakończone</string>
+    <string name="call_ending">Kończenie połączenia</string>
+    <string name="ongoing_call">Trwające połączenie</string>
+    <string name="select_sim">Wybierz kartę SIM dla tego połączenia</string>
+    <string name="always_use_this_sim">Zawsze używaj tej karty SIM dla tego numeru</string>
+    <string name="unset_default_sim">Anuluj ustawienie domyślnej karty SIM</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Szybkie wybieranie</string>
+    <string name="manage_speed_dial">Zarządzaj szybkim wybieraniem</string>
+    <string name="speed_dial_label">Kliknij liczbę, aby przypisać do niej kontakt. Możesz wtedy szybko zadzwonić do danego kontaktu przez długie naciśnięcie odpowiedniej cyfry na panelu wybierania.</string>
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Grupuj kolejne połączenia z tym samym numerem w rejestrze połączeń</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Prosty telefon - Łatwe połączenia telefoniczne</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Poręczny menedżer połączeń z kontaktami, blokowaniem i z obsługą wielu kart SIM</string>
+    <string name="app_long_description">
+        Lekka aplikacja do obsługi połączeń, bez względu na to, gdzie jesteś. Zawiera poręczny rejestr połączeń ułatwiający inicjowanie połączeń telefonicznych.
+
+        Do Twojej dyspozycji jest również szybki panel wybierania z inteligentnymi sugestiami kontaktów. Obsługuje także litery.
+
+        Możesz łatwo blokować numery telefonów, aby uniknąć niechcianych połączeń przychodzących.
+
+        Obsługuje szybkie wybieranie, dzięki czemu można bezproblemowo dzwonić do ulubionych kontaktów.
+
+        Aby ułatwić szybkie zarządzanie połączeniami, aplikacja Telefon obsługuje również ulubione kontakty i tworzenie skrótów dowolnego kontaktu na ekranie głównym.
+
+        Domyślnie jest wyposażony w Material Design i ciemny motyw, zapewniając doskonałe doświadczenie użytkownika dla łatwego użytkowania. Brak dostępu do Internetu zapewnia większą prywatność, bezpieczeństwo i stabilność niż inne aplikacje.
+
+        Nie zawiera reklam ani niepotrzebnych uprawnień. Jest w pełni otwartoźródłowy, zapewnia konfigurowalną kolorystykę.
+
+        <b>Sprawdź pełen zestaw od Simple Tools tutaj:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
