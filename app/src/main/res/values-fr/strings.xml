@@ -9,11 +9,11 @@
     <string name="no_previous_calls">Aucun appel précédent n\'a été trouvé</string>
     <string name="could_not_access_the_call_history">Impossible d\'accéder à l\'historique des appels</string>
     <string name="request_access">Demande d\'accès</string>
-    <string name="remove_confirmation">Êtes vous sûr de vouloir effacer de l\'historique les éléments sélectionnés ?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
+    <string name="remove_confirmation">Êtes-vous sûr de vouloir effacer de l\'historique les éléments sélectionnés ?</string>
+    <string name="clear_history_confirmation">Êtes-vous sûr de vouloir supprimer votre historique d\'appel ?</string>
     <string name="send_sms">Envoyer un SMS</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
+    <string name="show_grouped_calls">Afficher les appels groupés/string>
+    <string name="clear_call_history">Nettoyer l\'historique d'appel</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Pavé numérique</string>
@@ -30,7 +30,7 @@
     <string name="ongoing_call">Appel en cours</string>
     <string name="select_sim">Sélectionnez une carte SIM pour cet appel</string>
     <string name="always_use_this_sim">Toujours utiliser cette carte SIM pour ce numéro</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="unset_default_sim">Désassocier la SIM par défaut</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Numérotation rapide</string>
