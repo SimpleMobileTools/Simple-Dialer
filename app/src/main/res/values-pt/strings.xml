@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Marcador</string>
+    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Não foi possível aceder aos contactos</string>

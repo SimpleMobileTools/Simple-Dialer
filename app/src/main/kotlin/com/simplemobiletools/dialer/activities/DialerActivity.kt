@@ -4,8 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.telecom.TelecomManager
 import android.view.Menu
+import android.widget.Toast
 import com.simplemobiletools.commons.extensions.isDefaultDialer
 import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.telecomManager
@@ -64,6 +66,14 @@ class DialerActivity : SimpleActivity() {
         super.onActivityResult(requestCode, resultCode, resultData)
         if (requestCode == REQUEST_CODE_SET_DEFAULT_DIALER) {
             if (!isDefaultDialer()) {
+                try {
+                    Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                        data = Uri.parse("package:$packageName")
+                        startActivity(this)
+                    }
+                    toast(R.string.default_phone_app_prompt, Toast.LENGTH_LONG)
+                } catch (ignored: Exception) {
+                }
                 finish()
             } else {
                 initOutgoingCall()
