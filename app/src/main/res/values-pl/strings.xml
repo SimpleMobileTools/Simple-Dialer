@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Prosty telefon</string>
     <string name="app_launcher_name">Telefon</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
+    <string name="default_phone_app_prompt">Ustaw tę aplikację jako domyślną aplikację telefonu</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Nie można uzyskać dostępu do Twoich kontaktów</string>
@@ -36,7 +36,7 @@
     <!-- Speed dial -->
     <string name="speed_dial">Szybkie wybieranie</string>
     <string name="manage_speed_dial">Zarządzaj szybkim wybieraniem</string>
-    <string name="speed_dial_label">Kliknij liczbę, aby przypisać do niej kontakt. Możesz wtedy szybko zadzwonić do danego kontaktu przez długie naciśnięcie odpowiedniej cyfry na panelu wybierania.</string>
+    <string name="speed_dial_label">Naciśnij cyfrę, aby przypisać do niej kontakt. Możesz wtedy szybko zadzwonić do danego kontaktu przez długie naciśnięcie odpowiedniej cyfry na panelu wybierania.</string>
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Grupuj kolejne połączenia z tym samym numerem w rejestrze połączeń</string>
