@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
 import android.util.AttributeSet
+import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
@@ -90,7 +91,14 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             val currAdapter = recents_list.adapter
             if (currAdapter == null) {
                 RecentCallsAdapter(activity as SimpleActivity, recents, recents_list, this) {
-                    activity?.launchCallIntent((it as RecentCall).phoneNumber)
+                    val recentCall = it as RecentCall
+                    if (context.config.showCallConfirmation) {
+                        CallConfirmationDialog(activity as SimpleActivity, recentCall.name) {
+                            activity?.launchCallIntent(recentCall.phoneNumber)
+                        }
+                    } else {
+                        activity?.launchCallIntent(recentCall.phoneNumber)
+                    }
                 }.apply {
                     recents_list.adapter = this
                 }

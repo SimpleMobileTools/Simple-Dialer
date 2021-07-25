@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
@@ -14,6 +15,7 @@ import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.*
@@ -72,24 +74,34 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             val currAdapter = fragment_list.adapter
             if (currAdapter == null) {
                 ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this, showDeleteButton = false) {
-                    val phoneNumbers = (it as SimpleContact).phoneNumbers
-                    if (phoneNumbers.size <= 1) {
-                        activity?.launchCallIntent(it.phoneNumbers.first())
+                    if (context.config.showCallConfirmation) {
+                        CallConfirmationDialog(activity as SimpleActivity, (it as SimpleContact).name) {
+                            callContact(it)
+                        }
                     } else {
-                        val items = ArrayList<RadioItem>()
-                        phoneNumbers.forEachIndexed { index, phoneNumber ->
-                            items.add(RadioItem(index, phoneNumber))
-                        }
-
-                        RadioGroupDialog(activity!!, items) {
-                            activity?.launchCallIntent(phoneNumbers[it as Int])
-                        }
+                        callContact(it as SimpleContact)
                     }
                 }.apply {
                     fragment_list.adapter = this
                 }
             } else {
                 (currAdapter as ContactsAdapter).updateItems(contacts)
+            }
+        }
+    }
+
+    private fun callContact(simpleContact: SimpleContact) {
+        val phoneNumbers = simpleContact.phoneNumbers
+        if (phoneNumbers.size <= 1) {
+            activity?.launchCallIntent(phoneNumbers.first())
+        } else {
+            val items = ArrayList<RadioItem>()
+            phoneNumbers.forEachIndexed { index, phoneNumber ->
+                items.add(RadioItem(index, phoneNumber))
+            }
+
+            RadioGroupDialog(activity!!, items) {
+                activity?.launchCallIntent(phoneNumbers[it as Int])
             }
         }
     }

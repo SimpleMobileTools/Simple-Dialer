@@ -35,6 +35,7 @@ class SettingsActivity : SimpleActivity() {
         setupDefaultTab()
         setupGroupSubsequentCalls()
         setupStartNameWithSurname()
+        setupShowCallConfirmation()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
     }
@@ -145,6 +146,14 @@ class SettingsActivity : SimpleActivity() {
         settings_start_with_surname_holder.setOnClickListener {
             settings_start_with_surname.toggle()
             config.startNameWithSurname = settings_start_with_surname.isChecked
+        }
+    }
+
+    private fun setupShowCallConfirmation() {
+        settings_show_call_confirmation.isChecked = config.showCallConfirmation
+        settings_show_call_confirmation_holder.setOnClickListener {
+            settings_show_call_confirmation.toggle()
+            config.showCallConfirmation = settings_show_call_confirmation.isChecked
         }
     }
 }
