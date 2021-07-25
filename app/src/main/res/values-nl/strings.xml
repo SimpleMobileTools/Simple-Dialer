@@ -14,6 +14,7 @@
     <string name="send_sms">SMS sturen</string>
     <string name="show_grouped_calls">Gegroepeerde gesprekken tonen</string>
     <string name="clear_call_history">Oproepgeschiedenis wissen</string>
+    <string name="call_person">%s bellen</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Telefoonkiezer</string>

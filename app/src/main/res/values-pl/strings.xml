@@ -14,6 +14,7 @@
     <string name="send_sms">Wyślij SMS-a</string>
     <string name="show_grouped_calls">Pokaż zgrupowane połączenia</string>
     <string name="clear_call_history">Wyczyść historię połączeń</string>
+    <string name="call_person">Zadzwoń do: %s</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Panel wybierania</string>

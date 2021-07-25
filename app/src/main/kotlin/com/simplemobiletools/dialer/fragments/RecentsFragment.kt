@@ -9,6 +9,7 @@ import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
+import com.simplemobiletools.dialer.dialogs.CallConfirmationDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
@@ -90,7 +91,10 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             val currAdapter = recents_list.adapter
             if (currAdapter == null) {
                 RecentCallsAdapter(activity as SimpleActivity, recents, recents_list, this) {
-                    activity?.launchCallIntent((it as RecentCall).phoneNumber)
+                    val phoneNumber = (it as RecentCall).phoneNumber
+                    CallConfirmationDialog(activity as SimpleActivity, phoneNumber) {
+                        activity?.launchCallIntent(phoneNumber)
+                    }
                 }.apply {
                     recents_list.adapter = this
                 }

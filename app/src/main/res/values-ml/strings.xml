@@ -14,6 +14,7 @@
     <string name="send_sms">SMS അയയ്‌ക്കുക</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>
+    <string name="call_person">വിളിക്കുക %s</string>
 
     <!-- Dialpad -->
     <string name="dialpad">ഡയൽപാഡ്</string>

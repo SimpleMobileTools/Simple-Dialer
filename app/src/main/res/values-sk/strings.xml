@@ -14,6 +14,7 @@
     <string name="send_sms">Odoslať SMS</string>
     <string name="show_grouped_calls">Zobraziť zoskupené volania</string>
     <string name="clear_call_history">Vymazať históriu hovorov</string>
+    <string name="call_person">Zavolať %s</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Číselník</string>

@@ -14,6 +14,7 @@
     <string name="send_sms">ショートメール送信</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>
+    <string name="call_person">%sに発信</string>
 
     <!-- Dialpad -->
     <string name="dialpad">ダイヤルパッド</string>

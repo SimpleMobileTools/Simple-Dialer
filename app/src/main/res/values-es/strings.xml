@@ -14,6 +14,7 @@
     <string name="send_sms">Enviar SMS</string>
     <string name="show_grouped_calls">Mostrar llamadas agrupadas</string>
     <string name="clear_call_history">Borrar historial de llamadas</string>
+    <string name="call_person">Llamar a %s</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Teclado de marcado</string>

@@ -14,6 +14,7 @@
     <string name="send_sms">SMS gönder</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>
+    <string name="call_person">%s kişisini ara</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Tuş takımı</string>

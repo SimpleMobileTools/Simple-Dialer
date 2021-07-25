@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
+import com.simplemobiletools.dialer.dialogs.CallConfirmationDialog
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.*
@@ -74,7 +75,10 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                 ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this, showDeleteButton = false) {
                     val phoneNumbers = (it as SimpleContact).phoneNumbers
                     if (phoneNumbers.size <= 1) {
-                        activity?.launchCallIntent(it.phoneNumbers.first())
+                        val phoneNumber = it.phoneNumbers.first()
+                        CallConfirmationDialog(activity as SimpleActivity, phoneNumber) {
+                            activity?.launchCallIntent(phoneNumber)
+                        }
                     } else {
                         val items = ArrayList<RadioItem>()
                         phoneNumbers.forEachIndexed { index, phoneNumber ->

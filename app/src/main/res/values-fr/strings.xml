@@ -12,8 +12,9 @@
     <string name="remove_confirmation">Êtes-vous sûr de vouloir effacer de l\'historique les éléments sélectionnés ?</string>
     <string name="clear_history_confirmation">Êtes-vous sûr de vouloir supprimer votre historique d\'appel ?</string>
     <string name="send_sms">Envoyer un SMS</string>
-    <string name="show_grouped_calls">Afficher les appels groupés/string>
-    <string name="clear_call_history">Nettoyer l\'historique d'appel</string>
+    <string name="show_grouped_calls">Afficher les appels groupés</string>
+    <string name="clear_call_history">Nettoyer l\'historique d\'appel</string>
+    <string name="call_person">Appeler %s</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Pavé numérique</string>

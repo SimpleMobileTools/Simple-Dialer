@@ -14,6 +14,7 @@
     <string name="send_sms">Lähetä tekstiviesti</string>
     <string name="show_grouped_calls">Näytä ryhmitetyt puhelut</string>
     <string name="clear_call_history">Tyhjennä puheluhistoria</string>
+    <string name="call_person">Soita %s</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Numerovalitsin</string>

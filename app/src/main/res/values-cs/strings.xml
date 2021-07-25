@@ -14,6 +14,7 @@
     <string name="send_sms">Poslat SMS</string>
     <string name="show_grouped_calls">Zobrazit seskupené hovory</string>
     <string name="clear_call_history">Vymazat historii hovorů</string>
+    <string name="call_person">Zavolat %s</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Číselník</string>

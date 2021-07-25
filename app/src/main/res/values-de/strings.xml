@@ -14,6 +14,7 @@
     <string name="send_sms">Sende SMS</string>
     <string name="show_grouped_calls">Zeige gruppierte Anrufe</string>
     <string name="clear_call_history">Anrufliste löschen</string>
+    <string name="call_person">%s anrufen</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Wählpad</string>

@@ -14,6 +14,7 @@
     <string name="send_sms">Invia SMS</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>
+    <string name="call_person">Chiama %s</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Compositore numerico</string>
