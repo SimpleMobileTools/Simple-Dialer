@@ -38,10 +38,11 @@ class RecentsHelper(private val context: Context) {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("NewApi")
     private fun getRecents(contacts: ArrayList<SimpleContact>, groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
         var recentCalls = ArrayList<RecentCall>()
         var previousRecentCallFrom = ""
+        var previousStartTS = 0
         val contactsNumbersMap = HashMap<String, String>()
         val uri = Calls.CONTENT_URI
         val projection = arrayOf(
@@ -64,7 +65,7 @@ class RecentsHelper(private val context: Context) {
             val bundle = Bundle().apply {
                 putStringArray(ContentResolver.QUERY_ARG_SORT_COLUMNS, arrayOf(Calls._ID))
                 putInt(ContentResolver.QUERY_ARG_SORT_DIRECTION, ContentResolver.QUERY_SORT_DIRECTION_DESCENDING)
-                putInt(ContentResolver.QUERY_ARG_LIMIT, 20)
+                putInt(ContentResolver.QUERY_ARG_LIMIT, 100)
             }
 
             context.contentResolver.query(uri, projection, bundle, null)
@@ -108,6 +109,12 @@ class RecentsHelper(private val context: Context) {
 
                 val photoUri = cursor.getStringValue(Calls.CACHED_PHOTO_URI) ?: ""
                 val startTS = (cursor.getLongValue(Calls.DATE) / 1000L).toInt()
+                if (previousStartTS == startTS) {
+                    continue
+                } else {
+                    previousStartTS = startTS
+                }
+
                 val duration = cursor.getIntValue(Calls.DURATION)
                 val type = cursor.getIntValue(Calls.TYPE)
                 val accountAddress = cursor.getStringValue("phone_account_address")
