@@ -40,6 +40,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
 
         letter_fastscroller.textColor = textColor.getColorStateList()
+        letter_fastscroller.pressedTextColor = adjustedPrimaryColor
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
         letter_fastscroller_thumb.textColor = adjustedPrimaryColor.getContrastColor()
         letter_fastscroller_thumb.thumbColor = adjustedPrimaryColor.getColorStateList()

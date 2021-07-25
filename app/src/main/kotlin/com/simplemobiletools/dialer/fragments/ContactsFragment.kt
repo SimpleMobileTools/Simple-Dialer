@@ -60,6 +60,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         fragment_placeholder_2.setTextColor(adjustedPrimaryColor)
 
         letter_fastscroller.textColor = textColor.getColorStateList()
+        letter_fastscroller.pressedTextColor = adjustedPrimaryColor
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
         letter_fastscroller_thumb.textColor = adjustedPrimaryColor.getContrastColor()
         letter_fastscroller_thumb.thumbColor = adjustedPrimaryColor.getColorStateList()
