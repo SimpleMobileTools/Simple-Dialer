@@ -3,10 +3,8 @@ package com.simplemobiletools.dialer.helpers
 import android.annotation.SuppressLint
 import android.content.ContentResolver
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.provider.CallLog.Calls
-import androidx.annotation.RequiresApi
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
@@ -44,6 +42,8 @@ class RecentsHelper(private val context: Context) {
         var previousRecentCallFrom = ""
         var previousStartTS = 0
         val contactsNumbersMap = HashMap<String, String>()
+        val contactPhotosMap = HashMap<String, String>()
+
         val uri = Calls.CONTENT_URI
         val projection = arrayOf(
             Calls._ID,
@@ -107,7 +107,19 @@ class RecentsHelper(private val context: Context) {
                     name = context.getString(R.string.unknown)
                 }
 
-                val photoUri = cursor.getStringValue(Calls.CACHED_PHOTO_URI) ?: ""
+                var photoUri = cursor.getStringValue(Calls.CACHED_PHOTO_URI) ?: ""
+                if (photoUri.isEmpty()) {
+                    if (contactPhotosMap.containsKey(number)) {
+                        photoUri = contactPhotosMap[number]!!
+                    } else {
+                        val contact = contacts.firstOrNull { it.doesContainPhoneNumber(number) }
+                        if (contact != null) {
+                            photoUri = contact.photoUri
+                            contactPhotosMap[number] = contact.photoUri
+                        }
+                    }
+                }
+
                 val startTS = (cursor.getLongValue(Calls.DATE) / 1000L).toInt()
                 if (previousStartTS == startTS) {
                     continue
