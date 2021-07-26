@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 5.8.0 *(2021-07-26)*
+----------------------------
+
+ * Added an optional confirmation dialog for outgoing calls
+ * Fixed a glitch with broken photos at items at the recent calls
+ * Allow copying blocked numbers to clipboard
+ * Properly handle outgoing calls if the app isn't the default Phone app
+ * Fixed duplicate recent call entries in some cases
+
 Version 5.7.0 *(2021-05-23)*
 ----------------------------
 
