@@ -101,14 +101,16 @@ class DialpadActivity : SimpleActivity() {
         SimpleContactsHelper(this).getAvailableContacts(false) { gotContacts(it) }
         disableKeyboardPopping()
 
-        val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_vector, getAdjustedPrimaryColor().getContrastColor())
+        val adjustedPrimaryColor = getAdjustedPrimaryColor()
+        val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_vector, adjustedPrimaryColor.getContrastColor())
         dialpad_call_button.setImageDrawable(callIcon)
-        dialpad_call_button.background.applyColorFilter(getAdjustedPrimaryColor())
+        dialpad_call_button.background.applyColorFilter(adjustedPrimaryColor)
 
         letter_fastscroller.textColor = config.textColor.getColorStateList()
+        letter_fastscroller.pressedTextColor = adjustedPrimaryColor
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = getAdjustedPrimaryColor().getContrastColor()
-        letter_fastscroller_thumb.thumbColor = getAdjustedPrimaryColor().getColorStateList()
+        letter_fastscroller_thumb.textColor = adjustedPrimaryColor.getContrastColor()
+        letter_fastscroller_thumb.thumbColor = adjustedPrimaryColor.getColorStateList()
     }
 
     override fun onResume() {
