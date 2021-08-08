@@ -1,0 +1,22 @@
+Lekka aplikacja do obsługi połączeń, bez względu na to, gdzie jesteś. Zawiera poręczny rejestr połączeń ułatwiający inicjowanie połączeń telefonicznych.
+
+Do Twojej dyspozycji jest również szybki panel wybierania z inteligentnymi sugestiami kontaktów. Obsługuje także litery.
+
+Możesz łatwo blokować numery telefonów, aby uniknąć niechcianych połączeń przychodzących.
+
+Obsługuje szybkie wybieranie, dzięki czemu można bezproblemowo dzwonić do ulubionych kontaktów.
+
+Aby ułatwić szybkie zarządzanie połączeniami, aplikacja Telefon obsługuje również ulubione kontakty i tworzenie skrótów dowolnego kontaktu na ekranie głównym.
+
+Domyślnie jest wyposażony w Material Design i ciemny motyw, zapewniając doskonałe doświadczenie użytkownika dla łatwego użytkowania. Brak dostępu do Internetu zapewnia większą prywatność, bezpieczeństwo i stabilność niż inne aplikacje.
+
+Nie zawiera reklam ani niepotrzebnych uprawnień. Jest w pełni otwartoźródłowy, zapewnia konfigurowalną kolorystykę.
+
+<b>Sprawdź pełen zestaw od Simple Tools tutaj:</b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools
