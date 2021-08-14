@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Telefono</string>
-    <string name="default_phone_app_prompt">Per favore, rendi l'app la predefinita per le chiamate</string>
+    <string name="default_phone_app_prompt">Per favore, rendi l\'app la predefinita per le chiamate</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Impossibile accedere ai contatti</string>
@@ -70,6 +70,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
 
     <!--
         Haven't found some strings? There's more at

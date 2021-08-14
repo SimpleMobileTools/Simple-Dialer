@@ -33,6 +33,7 @@ class SettingsActivity : SimpleActivity() {
         setupChangeDateTimeFormat()
         setupFontSize()
         setupDefaultTab()
+        setupDialPadOpen()
         setupGroupSubsequentCalls()
         setupStartNameWithSurname()
         setupShowCallConfirmation()
@@ -132,6 +133,14 @@ class SettingsActivity : SimpleActivity() {
         TAB_CALL_HISTORY -> R.string.call_history_tab
         else -> R.string.last_used_tab
     })
+
+    private fun setupDialPadOpen() {
+        settings_open_dialpad_at_launch.isChecked = config.openDialPadAtLaunch
+        settings_open_dialpad_at_launch_holder.setOnClickListener {
+            settings_open_dialpad_at_launch.toggle()
+            config.openDialPadAtLaunch = settings_open_dialpad_at_launch.isChecked
+        }
+    }
 
     private fun setupGroupSubsequentCalls() {
         settings_group_subsequent_calls.isChecked = config.groupSubsequentCalls

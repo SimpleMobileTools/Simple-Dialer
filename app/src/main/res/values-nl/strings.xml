@@ -70,6 +70,7 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
+    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
 
     <!--
         Haven't found some strings? There's more at

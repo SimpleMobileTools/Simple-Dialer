@@ -26,6 +26,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
+import com.simplemobiletools.dialer.helpers.OPEN_DIAL_PAD_AT_LAUNCH
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.helpers.tabsList
 import kotlinx.android.synthetic.main.activity_main.*
@@ -36,6 +37,7 @@ import java.util.*
 
 class MainActivity : SimpleActivity() {
     private var isSearchOpen = false
+    private var launchedDialer = false
     private var searchMenuItem: MenuItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,11 +46,18 @@ class MainActivity : SimpleActivity() {
         appLaunched(BuildConfig.APPLICATION_ID)
         setupTabColors()
 
+        launchedDialer = savedInstanceState?.getBoolean(OPEN_DIAL_PAD_AT_LAUNCH) ?: false
+
         if (isDefaultDialer()) {
             checkContactPermissions()
         } else {
             launchSetDefaultDialerIntent()
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(OPEN_DIAL_PAD_AT_LAUNCH, launchedDialer)
     }
 
     override fun onResume() {
@@ -272,6 +281,11 @@ class MainActivity : SimpleActivity() {
 
         main_dialpad_button.setOnClickListener {
             launchDialpad()
+        }
+
+        if(config.openDialPadAtLaunch && !launchedDialer){
+            launchDialpad()
+            launchedDialer = true
         }
     }
 
