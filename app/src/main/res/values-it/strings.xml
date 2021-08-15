@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Telefono</string>
-    <string name="default_phone_app_prompt">Per favore, rendi l'app la predefinita per le chiamate</string>
+    <string name="default_phone_app_prompt">Per favore, rendi l\'app la predefinita per le chiamate</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Impossibile accedere ai contatti</string>
@@ -40,6 +40,7 @@
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Raggruppa chiamate successive con lo stesso numero nel registro delle chiamate</string>
+    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

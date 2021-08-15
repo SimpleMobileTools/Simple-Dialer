@@ -40,6 +40,7 @@
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Oproepgeschiedenis: opeenvolgende items van hetzelfde nummer groeperen</string>
+    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
