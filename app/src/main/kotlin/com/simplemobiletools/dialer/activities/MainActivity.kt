@@ -283,7 +283,7 @@ class MainActivity : SimpleActivity() {
             launchDialpad()
         }
 
-        if(config.openDialPadAtLaunch && !launchedDialer){
+        if (config.openDialPadAtLaunch && !launchedDialer) {
             launchDialpad()
             launchedDialer = true
         }

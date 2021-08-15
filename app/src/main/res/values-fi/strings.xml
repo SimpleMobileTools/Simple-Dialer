@@ -40,6 +40,7 @@
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Ryhmitä saman numeron peräkkäiset puhelut puheluhistoriassa</string>
+    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
@@ -70,7 +71,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
 
     <!--
         Haven't found some strings? There's more at
