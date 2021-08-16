@@ -88,8 +88,7 @@ class CallActivity : SimpleActivity() {
         if (dialpad_wrapper.isVisible()) {
             dialpad_wrapper.beGone()
             return
-        }
-        else {
+        } else {
             super.onBackPressed()
         }
 
@@ -143,13 +142,7 @@ class CallActivity : SimpleActivity() {
         dialpad_hashtag_holder.setOnClickListener { dialpadPressed('#') }
 
         dialpad_wrapper.setBackgroundColor(config.backgroundColor)
-        arrayOf(
-            call_toggle_microphone,
-            call_toggle_speaker,
-            call_dialpad,
-            dialpad_close,
-            call_sim_image
-        ).forEach {
+        arrayOf(call_toggle_microphone, call_toggle_speaker, call_dialpad, dialpad_close, call_sim_image).forEach {
             it.applyColorFilter(config.textColor)
         }
 
@@ -163,20 +156,17 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleSpeaker() {
         isSpeakerOn = !isSpeakerOn
-        val drawable =
-            if (isSpeakerOn) R.drawable.ic_speaker_on_vector else R.drawable.ic_speaker_off_vector
+        val drawable = if (isSpeakerOn) R.drawable.ic_speaker_on_vector else R.drawable.ic_speaker_off_vector
         call_toggle_speaker.setImageDrawable(getDrawable(drawable))
         audioManager.isSpeakerphoneOn = isSpeakerOn
 
-        val newRoute =
-            if (isSpeakerOn) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_EARPIECE
+        val newRoute = if (isSpeakerOn) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_EARPIECE
         CallManager.inCallService?.setAudioRoute(newRoute)
     }
 
     private fun toggleMicrophone() {
         isMicrophoneOn = !isMicrophoneOn
-        val drawable =
-            if (isMicrophoneOn) R.drawable.ic_microphone_vector else R.drawable.ic_microphone_off_vector
+        val drawable = if (isMicrophoneOn) R.drawable.ic_microphone_vector else R.drawable.ic_microphone_off_vector
         call_toggle_microphone.setImageDrawable(getDrawable(drawable))
         audioManager.isMicrophoneMute = !isMicrophoneOn
         CallManager.inCallService?.setMuted(!isMicrophoneOn)
@@ -185,8 +175,7 @@ class CallActivity : SimpleActivity() {
     private fun toggleDialpadVisibility() {
         if (dialpad_wrapper.isVisible()) {
             dialpad_wrapper.beGone()
-        }
-        else {
+        } else {
             dialpad_wrapper.beVisible()
         }
     }
@@ -196,12 +185,10 @@ class CallActivity : SimpleActivity() {
             return
         }
 
-        caller_name_label.text =
-            if (callContact!!.name.isNotEmpty()) callContact!!.name else getString(R.string.unknown_caller)
+        caller_name_label.text = if (callContact!!.name.isNotEmpty()) callContact!!.name else getString(R.string.unknown_caller)
         if (callContact!!.number.isNotEmpty() && callContact!!.number != callContact!!.name) {
             caller_number_label.text = callContact!!.number
-        }
-        else {
+        } else {
             caller_number_label.beGone()
         }
 
@@ -223,8 +210,7 @@ class CallActivity : SimpleActivity() {
                     }
                 }
             }
-        }
-        catch (ignored: Exception) {
+        } catch (ignored: Exception) {
         }
     }
 
@@ -274,8 +260,7 @@ class CallActivity : SimpleActivity() {
         ongoing_call_holder.beVisible()
         try {
             callTimer.scheduleAtFixedRate(getCallTimerUpdateTask(), 1000, 1000)
-        }
-        catch (ignored: Exception) {
+        } catch (ignored: Exception) {
         }
     }
 
@@ -300,21 +285,18 @@ class CallActivity : SimpleActivity() {
 
         try {
             audioManager.mode = AudioManager.MODE_NORMAL
-        }
-        catch (ignored: Exception) {
+        } catch (ignored: Exception) {
         }
 
         isCallEnded = true
         if (callDuration > 0) {
             runOnUiThread {
-                call_status_label.text =
-                    "${callDuration.getFormattedDuration()} (${getString(R.string.call_ended)})"
+                call_status_label.text = "${callDuration.getFormattedDuration()} (${getString(R.string.call_ended)})"
                 Handler(Looper.getMainLooper()).postDelayed({
                     finishAndRemoveTask()
                 }, 3000)
             }
-        }
-        else {
+        } else {
             call_status_label.text = getString(R.string.call_ended)
             finish()
         }
@@ -343,18 +325,13 @@ class CallActivity : SimpleActivity() {
         if (isOreoMr1Plus()) {
             setShowWhenLocked(true)
             setTurnScreenOn(true)
-        }
-        else {
+        } else {
             window.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
         }
 
         if (isOreoPlus()) {
-            (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager).requestDismissKeyguard(
-                this,
-                null
-            )
-        }
-        else {
+            (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager).requestDismissKeyguard(this, null)
+        } else {
             window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD)
         }
     }
@@ -362,10 +339,7 @@ class CallActivity : SimpleActivity() {
     private fun initProximitySensor() {
         if (proximityWakeLock == null || proximityWakeLock?.isHeld == false) {
             val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
-            proximityWakeLock = powerManager.newWakeLock(
-                PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK,
-                "com.simplemobiletools.dialer.pro:wake_lock"
-            )
+            proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "com.simplemobiletools.dialer.pro:wake_lock")
             proximityWakeLock!!.acquire(10 * MINUTE_SECONDS * 1000L)
         }
     }
@@ -390,21 +364,13 @@ class CallActivity : SimpleActivity() {
 
         val acceptCallIntent = Intent(this, CallActionReceiver::class.java)
         acceptCallIntent.action = ACCEPT_CALL
-        val acceptPendingIntent =
-            PendingIntent.getBroadcast(this, 0, acceptCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+        val acceptPendingIntent = PendingIntent.getBroadcast(this, 0, acceptCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
 
         val declineCallIntent = Intent(this, CallActionReceiver::class.java)
         declineCallIntent.action = DECLINE_CALL
-        val declinePendingIntent = PendingIntent.getBroadcast(
-            this,
-            1,
-            declineCallIntent,
-            PendingIntent.FLAG_CANCEL_CURRENT
-        )
+        val declinePendingIntent = PendingIntent.getBroadcast(this, 1, declineCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
 
-        val callerName =
-            if (callContact != null && callContact!!.name.isNotEmpty()) callContact!!.name
-            else getString(R.string.unknown_caller)
+        val callerName = if (callContact != null && callContact!!.name.isNotEmpty()) callContact!!.name else getString(R.string.unknown_caller)
         val contentTextId = when (callState) {
             Call.STATE_RINGING -> R.string.is_calling
             Call.STATE_DIALING -> R.string.dialing
@@ -422,10 +388,7 @@ class CallActivity : SimpleActivity() {
             setOnClickPendingIntent(R.id.notification_accept_call, acceptPendingIntent)
 
             if (callContactAvatar != null) {
-                setImageViewBitmap(
-                    R.id.notification_thumbnail,
-                    getCircularBitmap(callContactAvatar!!)
-                )
+                setImageViewBitmap(R.id.notification_thumbnail, getCircularBitmap(callContactAvatar!!))
             }
         }
 
@@ -454,15 +417,13 @@ class CallActivity : SimpleActivity() {
                 bitmap = if (isQPlus()) {
                     val tmbSize = resources.getDimension(R.dimen.list_avatar_size).toInt()
                     contentResolver.loadThumbnail(photoUri, Size(tmbSize, tmbSize), null)
-                }
-                else {
+                } else {
                     MediaStore.Images.Media.getBitmap(contentResolver, photoUri)
 
                 }
 
                 bitmap = getCircularBitmap(bitmap!!)
-            }
-            catch (ignored: Exception) {
+            } catch (ignored: Exception) {
                 return null
             }
         }
