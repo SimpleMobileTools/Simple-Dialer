@@ -9,6 +9,7 @@ import android.media.AudioManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.PowerManager
 import android.provider.MediaStore
 import android.telecom.Call
@@ -278,7 +279,7 @@ class CallActivity : SimpleActivity() {
         }
 
         if (isCallEnded) {
-            finish()
+            finishAndRemoveTask()
             return
         }
 
@@ -292,7 +293,7 @@ class CallActivity : SimpleActivity() {
             runOnUiThread {
                 call_status_label.text = "${callDuration.getFormattedDuration()} (${getString(R.string.call_ended)})"
                 Handler().postDelayed({
-                    finish()
+                    finishAndRemoveTask()
                 }, 3000)
             }
         } else {
