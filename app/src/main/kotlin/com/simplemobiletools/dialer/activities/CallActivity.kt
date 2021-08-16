@@ -292,7 +292,7 @@ class CallActivity : SimpleActivity() {
         if (callDuration > 0) {
             runOnUiThread {
                 call_status_label.text = "${callDuration.getFormattedDuration()} (${getString(R.string.call_ended)})"
-                Handler(Looper.getMainLooper()).postDelayed({
+                Handler().postDelayed({
                     finishAndRemoveTask()
                 }, 3000)
             }
