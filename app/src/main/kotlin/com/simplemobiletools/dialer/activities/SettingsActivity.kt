@@ -102,7 +102,8 @@ class SettingsActivity : SimpleActivity() {
                 RadioItem(FONT_SIZE_SMALL, getString(R.string.small)),
                 RadioItem(FONT_SIZE_MEDIUM, getString(R.string.medium)),
                 RadioItem(FONT_SIZE_LARGE, getString(R.string.large)),
-                RadioItem(FONT_SIZE_EXTRA_LARGE, getString(R.string.extra_large)))
+                RadioItem(FONT_SIZE_EXTRA_LARGE, getString(R.string.extra_large))
+            )
 
             RadioGroupDialog(this@SettingsActivity, items, config.fontSize) {
                 config.fontSize = it as Int
@@ -118,7 +119,8 @@ class SettingsActivity : SimpleActivity() {
                 RadioItem(TAB_CONTACTS, getString(R.string.contacts_tab)),
                 RadioItem(TAB_FAVORITES, getString(R.string.favorites_tab)),
                 RadioItem(TAB_CALL_HISTORY, getString(R.string.call_history_tab)),
-                RadioItem(TAB_LAST_USED, getString(R.string.last_used_tab)))
+                RadioItem(TAB_LAST_USED, getString(R.string.last_used_tab))
+            )
 
             RadioGroupDialog(this@SettingsActivity, items, config.defaultTab) {
                 config.defaultTab = it as Int
@@ -127,12 +129,14 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun getDefaultTabText() = getString(when (baseConfig.defaultTab) {
-        TAB_CONTACTS -> R.string.contacts_tab
-        TAB_FAVORITES -> R.string.favorites_tab
-        TAB_CALL_HISTORY -> R.string.call_history_tab
-        else -> R.string.last_used_tab
-    })
+    private fun getDefaultTabText() = getString(
+        when (baseConfig.defaultTab) {
+            TAB_CONTACTS -> R.string.contacts_tab
+            TAB_FAVORITES -> R.string.favorites_tab
+            TAB_CALL_HISTORY -> R.string.call_history_tab
+            else -> R.string.last_used_tab
+        }
+    )
 
     private fun setupDialPadOpen() {
         settings_open_dialpad_at_launch.isChecked = config.openDialPadAtLaunch
