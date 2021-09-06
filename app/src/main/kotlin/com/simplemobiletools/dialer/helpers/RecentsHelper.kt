@@ -10,6 +10,7 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
 import com.simplemobiletools.dialer.models.RecentCall
 
@@ -61,16 +62,19 @@ class RecentsHelper(private val context: Context) {
             numberToSimIDMap[it.phoneNumber] = it.id
         }
 
+        val callLimit : Int = if(context?.config?.limitShownCalls) -1
+            else 1000
+
         val cursor = if (isRPlus()) {
             val bundle = Bundle().apply {
                 putStringArray(ContentResolver.QUERY_ARG_SORT_COLUMNS, arrayOf(Calls._ID))
                 putInt(ContentResolver.QUERY_ARG_SORT_DIRECTION, ContentResolver.QUERY_SORT_DIRECTION_DESCENDING)
-                putInt(ContentResolver.QUERY_ARG_LIMIT, 100)
+                putInt(ContentResolver.QUERY_ARG_LIMIT, callLimit)
             }
 
             context.contentResolver.query(uri, projection, bundle, null)
         } else {
-            val sortOrder = "${Calls._ID} DESC LIMIT 100"
+            val sortOrder = String.format("${Calls._ID} DESC LIMIT %d", callLimit)
             context.contentResolver.query(uri, projection, null, null, sortOrder)
         }
 

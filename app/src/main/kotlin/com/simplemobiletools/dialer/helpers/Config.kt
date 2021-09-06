@@ -47,4 +47,8 @@ class Config(context: Context) : BaseConfig(context) {
     var openDialPadAtLaunch: Boolean
         get() = prefs.getBoolean(OPEN_DIAL_PAD_AT_LAUNCH, false)
         set(openDialPad) = prefs.edit().putBoolean(OPEN_DIAL_PAD_AT_LAUNCH, openDialPad).apply()
+
+    var limitShownCalls: Boolean
+        get() = prefs.getBoolean(LIMIT_SHOWN_CALLS, false)
+        set(limitShownCalls) = prefs.edit().putBoolean(LIMIT_SHOWN_CALLS, limitShownCalls).apply()
 }

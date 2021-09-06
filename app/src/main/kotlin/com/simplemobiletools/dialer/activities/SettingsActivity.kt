@@ -36,6 +36,7 @@ class SettingsActivity : SimpleActivity() {
         setupDialPadOpen()
         setupGroupSubsequentCalls()
         setupStartNameWithSurname()
+        setupLimitShownCalls()
         setupShowCallConfirmation()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
@@ -167,6 +168,14 @@ class SettingsActivity : SimpleActivity() {
         settings_show_call_confirmation_holder.setOnClickListener {
             settings_show_call_confirmation.toggle()
             config.showCallConfirmation = settings_show_call_confirmation.isChecked
+        }
+    }
+
+    private fun setupLimitShownCalls() {
+        settings_limit_shown_calls.isChecked = config.limitShownCalls
+        settings_limit_shown_calls_holder.setOnClickListener {
+            settings_limit_shown_calls.toggle()
+            config.limitShownCalls = settings_limit_shown_calls.isChecked
         }
     }
 }
