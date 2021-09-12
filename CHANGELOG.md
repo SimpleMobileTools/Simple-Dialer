@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 5.9.0 *(2021-09-12)*
+----------------------------
+
+ * Allow opening the dialpad automatically at launching the app
+ * Allow exporting and importing blocked numbers
+ * Fixed a glitch with incoming call screen not appearing
+
 Version 5.8.0 *(2021-07-26)*
 ----------------------------
 

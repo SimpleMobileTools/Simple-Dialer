@@ -1,0 +1,3 @@
+ * Allow opening the dialpad automatically at launching the app
+ * Allow exporting and importing blocked numbers
+ * Fixed a glitch with incoming call screen not appearing
