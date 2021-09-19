@@ -39,8 +39,7 @@ class CallNotificationManager(private val context: Context) {
                 }
             }
 
-            val openAppIntent = Intent(context, CallActivity::class.java)
-            openAppIntent.flags = Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT
+            val openAppIntent = CallActivity.getStartIntent(context)
             val openAppPendingIntent = PendingIntent.getActivity(context, 0, openAppIntent, 0)
 
             val acceptCallIntent = Intent(context, CallActionReceiver::class.java)

@@ -3,6 +3,7 @@ package com.simplemobiletools.dialer.activities
 import android.annotation.SuppressLint
 import android.app.KeyguardManager
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.media.AudioManager
 import android.os.Bundle
@@ -29,6 +30,14 @@ import kotlinx.android.synthetic.main.activity_call.*
 import kotlinx.android.synthetic.main.dialpad.*
 
 class CallActivity : SimpleActivity() {
+    companion object {
+        fun getStartIntent(context: Context): Intent {
+            val openAppIntent = Intent(context, CallActivity::class.java)
+            openAppIntent.flags = Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK
+            return openAppIntent
+        }
+    }
+
     private var isSpeakerOn = false
     private var isMicrophoneOn = true
     private var isCallEnded = false
