@@ -4,7 +4,7 @@ import java.util.Timer
 import java.util.TimerTask
 
 class CallDurationHelper {
-    private var callTimer = Timer()
+    private var callTimer: Timer? = null
     private var callDuration = 0
     private var callback: ((durationSecs: Int) -> Unit)? = null
 
@@ -14,13 +14,15 @@ class CallDurationHelper {
 
     fun start() {
         try {
-            callTimer.scheduleAtFixedRate(getTimerUpdateTask(), 1000, 1000)
+            callDuration = 0
+            callTimer = Timer()
+            callTimer?.scheduleAtFixedRate(getTimerUpdateTask(), 1000, 1000)
         } catch (ignored: Exception) {
         }
     }
 
     fun cancel() {
-        callTimer.cancel()
+        callTimer?.cancel()
     }
 
     private fun getTimerUpdateTask() = object : TimerTask() {
