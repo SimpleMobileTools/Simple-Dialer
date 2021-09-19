@@ -70,8 +70,6 @@ class CallActivity : SimpleActivity() {
         if (proximityWakeLock?.isHeld == true) {
             proximityWakeLock!!.release()
         }
-
-        endCall()
     }
 
     override fun onBackPressed() {
@@ -82,7 +80,8 @@ class CallActivity : SimpleActivity() {
             super.onBackPressed()
         }
 
-        if (CallManager.getState() == Call.STATE_DIALING) {
+        val callState = CallManager.getState()
+        if (callState == Call.STATE_CONNECTING || callState == Call.STATE_DIALING) {
             endCall()
         }
     }
