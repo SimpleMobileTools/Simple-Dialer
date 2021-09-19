@@ -1,50 +1,44 @@
 package com.simplemobiletools.dialer.activities
 
 import android.annotation.SuppressLint
-import android.app.*
+import android.app.KeyguardManager
 import android.content.Context
-import android.content.Intent
-import android.graphics.*
+import android.graphics.Bitmap
 import android.media.AudioManager
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.os.Looper
 import android.os.PowerManager
-import android.provider.MediaStore
 import android.telecom.Call
 import android.telecom.CallAudioState
-import android.util.Size
 import android.view.WindowManager
-import android.widget.RemoteViews
-import androidx.core.app.NotificationCompat
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
+import com.simplemobiletools.commons.helpers.isOreoMr1Plus
+import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.addCharacter
 import com.simplemobiletools.dialer.extensions.audioManager
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getHandleToUse
-import com.simplemobiletools.dialer.helpers.ACCEPT_CALL
+import com.simplemobiletools.dialer.helpers.CallContactAvatarHelper
 import com.simplemobiletools.dialer.helpers.CallManager
-import com.simplemobiletools.dialer.helpers.DECLINE_CALL
+import com.simplemobiletools.dialer.helpers.CallNotificationManager
 import com.simplemobiletools.dialer.models.CallContact
-import com.simplemobiletools.dialer.receivers.CallActionReceiver
+import java.util.Timer
+import java.util.TimerTask
 import kotlinx.android.synthetic.main.activity_call.*
 import kotlinx.android.synthetic.main.dialpad.*
-import java.util.*
 
 class CallActivity : SimpleActivity() {
-    private val CALL_NOTIFICATION_ID = 1
-
     private var isSpeakerOn = false
     private var isMicrophoneOn = true
     private var isCallEnded = false
     private var callDuration = 0
     private var callContact: CallContact? = null
-    private var callContactAvatar: Bitmap? = null
     private var proximityWakeLock: PowerManager.WakeLock? = null
     private var callTimer = Timer()
+    private val callContactAvatarHelper by lazy { CallContactAvatarHelper(this) }
+    private val callNotificationManager by lazy { CallNotificationManager(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
@@ -58,10 +52,10 @@ class CallActivity : SimpleActivity() {
 
         CallManager.getCallContact(applicationContext) { contact ->
             callContact = contact
-            callContactAvatar = getCallContactAvatar()
+            val avatar = callContactAvatarHelper.getCallContactAvatar(contact)
             runOnUiThread {
-                setupNotification()
-                updateOtherPersonsInfo()
+                callNotificationManager.setupNotification()
+                updateOtherPersonsInfo(avatar)
                 checkCalledSIMCard()
             }
         }
@@ -74,7 +68,7 @@ class CallActivity : SimpleActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        notificationManager.cancel(CALL_NOTIFICATION_ID)
+        callNotificationManager.cancelNotification()
         CallManager.unregisterCallback(callCallback)
         callTimer.cancel()
         if (proximityWakeLock?.isHeld == true) {
@@ -180,7 +174,7 @@ class CallActivity : SimpleActivity() {
         }
     }
 
-    private fun updateOtherPersonsInfo() {
+    private fun updateOtherPersonsInfo(avatar: Bitmap?) {
         if (callContact == null) {
             return
         }
@@ -192,8 +186,8 @@ class CallActivity : SimpleActivity() {
             caller_number_label.beGone()
         }
 
-        if (callContactAvatar != null) {
-            caller_avatar.setImageBitmap(callContactAvatar)
+        if (avatar != null) {
+            caller_avatar.setImageBitmap(avatar)
         }
     }
 
@@ -236,8 +230,6 @@ class CallActivity : SimpleActivity() {
         if (statusTextId != 0) {
             call_status_label.text = getString(statusTextId)
         }
-
-        setupNotification()
     }
 
     private fun acceptCall() {
@@ -347,107 +339,5 @@ class CallActivity : SimpleActivity() {
             proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "com.simplemobiletools.dialer.pro:wake_lock")
             proximityWakeLock!!.acquire(10 * MINUTE_SECONDS * 1000L)
         }
-    }
-
-    @SuppressLint("NewApi")
-    private fun setupNotification() {
-        val callState = CallManager.getState()
-        val channelId = "simple_dialer_call"
-        if (isOreoPlus()) {
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val name = "call_notification_channel"
-
-            NotificationChannel(channelId, name, importance).apply {
-                setSound(null, null)
-                notificationManager.createNotificationChannel(this)
-            }
-        }
-
-        val openAppIntent = Intent(this, CallActivity::class.java)
-        openAppIntent.flags = Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT
-        val openAppPendingIntent = PendingIntent.getActivity(this, 0, openAppIntent, 0)
-
-        val acceptCallIntent = Intent(this, CallActionReceiver::class.java)
-        acceptCallIntent.action = ACCEPT_CALL
-        val acceptPendingIntent = PendingIntent.getBroadcast(this, 0, acceptCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
-
-        val declineCallIntent = Intent(this, CallActionReceiver::class.java)
-        declineCallIntent.action = DECLINE_CALL
-        val declinePendingIntent = PendingIntent.getBroadcast(this, 1, declineCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
-
-        val callerName = if (callContact != null && callContact!!.name.isNotEmpty()) callContact!!.name else getString(R.string.unknown_caller)
-        val contentTextId = when (callState) {
-            Call.STATE_RINGING -> R.string.is_calling
-            Call.STATE_DIALING -> R.string.dialing
-            Call.STATE_DISCONNECTED -> R.string.call_ended
-            Call.STATE_DISCONNECTING -> R.string.call_ending
-            else -> R.string.ongoing_call
-        }
-
-        val collapsedView = RemoteViews(packageName, R.layout.call_notification).apply {
-            setText(R.id.notification_caller_name, callerName)
-            setText(R.id.notification_call_status, getString(contentTextId))
-            setVisibleIf(R.id.notification_accept_call, callState == Call.STATE_RINGING)
-
-            setOnClickPendingIntent(R.id.notification_decline_call, declinePendingIntent)
-            setOnClickPendingIntent(R.id.notification_accept_call, acceptPendingIntent)
-
-            if (callContactAvatar != null) {
-                setImageViewBitmap(R.id.notification_thumbnail, getCircularBitmap(callContactAvatar!!))
-            }
-        }
-
-        val builder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_phone_vector)
-            .setContentIntent(openAppPendingIntent)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setCategory(Notification.CATEGORY_CALL)
-            .setCustomContentView(collapsedView)
-            .setOngoing(true)
-            .setSound(null)
-            .setUsesChronometer(callState == Call.STATE_ACTIVE)
-            .setChannelId(channelId)
-            .setStyle(NotificationCompat.DecoratedCustomViewStyle())
-
-        val notification = builder.build()
-        notificationManager.notify(CALL_NOTIFICATION_ID, notification)
-    }
-
-    @SuppressLint("NewApi")
-    private fun getCallContactAvatar(): Bitmap? {
-        var bitmap: Bitmap? = null
-        if (callContact?.photoUri?.isNotEmpty() == true) {
-            val photoUri = Uri.parse(callContact!!.photoUri)
-            try {
-                bitmap = if (isQPlus()) {
-                    val tmbSize = resources.getDimension(R.dimen.list_avatar_size).toInt()
-                    contentResolver.loadThumbnail(photoUri, Size(tmbSize, tmbSize), null)
-                } else {
-                    MediaStore.Images.Media.getBitmap(contentResolver, photoUri)
-
-                }
-
-                bitmap = getCircularBitmap(bitmap!!)
-            } catch (ignored: Exception) {
-                return null
-            }
-        }
-
-        return bitmap
-    }
-
-    private fun getCircularBitmap(bitmap: Bitmap): Bitmap {
-        val output = Bitmap.createBitmap(bitmap.width, bitmap.width, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(output)
-        val paint = Paint()
-        val rect = Rect(0, 0, bitmap.width, bitmap.height)
-        val radius = bitmap.width / 2.toFloat()
-
-        paint.isAntiAlias = true
-        canvas.drawARGB(0, 0, 0, 0)
-        canvas.drawCircle(radius, radius, radius, paint)
-        paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-        canvas.drawBitmap(bitmap, rect, rect, paint)
-        return output
     }
 }
