@@ -16,6 +16,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
 import com.simplemobiletools.commons.helpers.isOreoMr1Plus
 import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.dialer.App
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.addCharacter
 import com.simplemobiletools.dialer.extensions.audioManager
@@ -24,8 +25,6 @@ import com.simplemobiletools.dialer.extensions.getHandleToUse
 import com.simplemobiletools.dialer.helpers.CallContactAvatarHelper
 import com.simplemobiletools.dialer.helpers.CallManager
 import com.simplemobiletools.dialer.models.CallContact
-import java.util.Timer
-import java.util.TimerTask
 import kotlinx.android.synthetic.main.activity_call.*
 import kotlinx.android.synthetic.main.dialpad.*
 
@@ -41,11 +40,11 @@ class CallActivity : SimpleActivity() {
     private var isSpeakerOn = false
     private var isMicrophoneOn = true
     private var isCallEnded = false
-    private var callDuration = 0
     private var callContact: CallContact? = null
     private var proximityWakeLock: PowerManager.WakeLock? = null
-    private var callTimer = Timer()
+    private var callDuration = 0
     private val callContactAvatarHelper by lazy { CallContactAvatarHelper(this) }
+    private val callDurationHelper by lazy {  (application as App).callDurationHelper }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
@@ -75,7 +74,6 @@ class CallActivity : SimpleActivity() {
     override fun onDestroy() {
         super.onDestroy()
         CallManager.unregisterCallback(callCallback)
-        callTimer.cancel()
         if (proximityWakeLock?.isHeld == true) {
             proximityWakeLock!!.release()
         }
@@ -221,10 +219,6 @@ class CallActivity : SimpleActivity() {
             Call.STATE_SELECT_PHONE_ACCOUNT -> showPhoneAccountPicker()
         }
 
-        if (state == Call.STATE_DISCONNECTED || state == Call.STATE_DISCONNECTING) {
-            callTimer.cancel()
-        }
-
         val statusTextId = when (state) {
             Call.STATE_RINGING -> R.string.is_calling
             Call.STATE_DIALING -> R.string.dialing
@@ -254,9 +248,13 @@ class CallActivity : SimpleActivity() {
         initProximitySensor()
         incoming_call_holder.beGone()
         ongoing_call_holder.beVisible()
-        try {
-            callTimer.scheduleAtFixedRate(getCallTimerUpdateTask(), 1000, 1000)
-        } catch (ignored: Exception) {
+        callDurationHelper.onDurationChange {
+            callDuration = it
+            runOnUiThread {
+                if (!isCallEnded) {
+                    call_status_label.text = callDuration.getFormattedDuration()
+                }
+            }
         }
     }
 
@@ -295,17 +293,6 @@ class CallActivity : SimpleActivity() {
         } else {
             call_status_label.text = getString(R.string.call_ended)
             finish()
-        }
-    }
-
-    private fun getCallTimerUpdateTask() = object : TimerTask() {
-        override fun run() {
-            callDuration++
-            runOnUiThread {
-                if (!isCallEnded) {
-                    call_status_label.text = callDuration.getFormattedDuration()
-                }
-            }
         }
     }
 
