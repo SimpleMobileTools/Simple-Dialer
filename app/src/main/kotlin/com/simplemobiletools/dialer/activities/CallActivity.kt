@@ -22,7 +22,6 @@ import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getHandleToUse
 import com.simplemobiletools.dialer.helpers.CallContactAvatarHelper
 import com.simplemobiletools.dialer.helpers.CallManager
-import com.simplemobiletools.dialer.helpers.CallNotificationManager
 import com.simplemobiletools.dialer.models.CallContact
 import java.util.Timer
 import java.util.TimerTask
@@ -38,7 +37,6 @@ class CallActivity : SimpleActivity() {
     private var proximityWakeLock: PowerManager.WakeLock? = null
     private var callTimer = Timer()
     private val callContactAvatarHelper by lazy { CallContactAvatarHelper(this) }
-    private val callNotificationManager by lazy { CallNotificationManager(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
@@ -54,7 +52,6 @@ class CallActivity : SimpleActivity() {
             callContact = contact
             val avatar = callContactAvatarHelper.getCallContactAvatar(contact)
             runOnUiThread {
-                callNotificationManager.setupNotification()
                 updateOtherPersonsInfo(avatar)
                 checkCalledSIMCard()
             }
@@ -68,7 +65,6 @@ class CallActivity : SimpleActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        callNotificationManager.cancelNotification()
         CallManager.unregisterCallback(callCallback)
         callTimer.cancel()
         if (proximityWakeLock?.isHeld == true) {
