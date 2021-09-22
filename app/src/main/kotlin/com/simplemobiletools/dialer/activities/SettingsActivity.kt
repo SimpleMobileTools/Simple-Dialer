@@ -37,6 +37,7 @@ class SettingsActivity : SimpleActivity() {
         setupGroupSubsequentCalls()
         setupStartNameWithSurname()
         setupShowCallConfirmation()
+        setupDisableProximitySensor()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
     }
@@ -167,6 +168,14 @@ class SettingsActivity : SimpleActivity() {
         settings_show_call_confirmation_holder.setOnClickListener {
             settings_show_call_confirmation.toggle()
             config.showCallConfirmation = settings_show_call_confirmation.isChecked
+        }
+    }
+
+    private fun setupDisableProximitySensor() {
+        settings_disable_proximity_sensor.isChecked = config.disableProximitySensor
+        settings_disable_proximity_sensor_holder.setOnClickListener {
+            settings_disable_proximity_sensor.toggle()
+            config.disableProximitySensor = settings_disable_proximity_sensor.isChecked
         }
     }
 }
