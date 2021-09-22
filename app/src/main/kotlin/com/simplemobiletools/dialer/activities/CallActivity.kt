@@ -44,7 +44,7 @@ class CallActivity : SimpleActivity() {
     private var proximityWakeLock: PowerManager.WakeLock? = null
     private var callDuration = 0
     private val callContactAvatarHelper by lazy { CallContactAvatarHelper(this) }
-    private val callDurationHelper by lazy {  (application as App).callDurationHelper }
+    private val callDurationHelper by lazy { (application as App).callDurationHelper }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
