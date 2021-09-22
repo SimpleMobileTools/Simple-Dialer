@@ -20,6 +20,8 @@ import com.simplemobiletools.dialer.receivers.CallActionReceiver
 
 class CallNotificationManager(private val context: Context) {
     private val CALL_NOTIFICATION_ID = 1
+    private val ACCEPT_CALL_CODE = 0
+    private val DECLINE_CALL_CODE = 1
     private val notificationManager = context.notificationManager
     private val callContactAvatarHelper = CallContactAvatarHelper(context)
 
@@ -44,11 +46,11 @@ class CallNotificationManager(private val context: Context) {
 
             val acceptCallIntent = Intent(context, CallActionReceiver::class.java)
             acceptCallIntent.action = ACCEPT_CALL
-            val acceptPendingIntent = PendingIntent.getBroadcast(context, 0, acceptCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+            val acceptPendingIntent = PendingIntent.getBroadcast(context, ACCEPT_CALL_CODE, acceptCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
 
             val declineCallIntent = Intent(context, CallActionReceiver::class.java)
             declineCallIntent.action = DECLINE_CALL
-            val declinePendingIntent = PendingIntent.getBroadcast(context, 1, declineCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+            val declinePendingIntent = PendingIntent.getBroadcast(context, DECLINE_CALL_CODE, declineCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
 
             val callerName = if (callContact != null && callContact.name.isNotEmpty()) callContact.name else context.getString(R.string.unknown_caller)
             val contentTextId = when (callState) {
