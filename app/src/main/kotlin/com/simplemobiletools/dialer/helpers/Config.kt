@@ -47,4 +47,8 @@ class Config(context: Context) : BaseConfig(context) {
     var openDialPadAtLaunch: Boolean
         get() = prefs.getBoolean(OPEN_DIAL_PAD_AT_LAUNCH, false)
         set(openDialPad) = prefs.edit().putBoolean(OPEN_DIAL_PAD_AT_LAUNCH, openDialPad).apply()
+
+    var disableProximitySensor: Boolean
+        get() = prefs.getBoolean(DISABLE_PROXIMITY_SENSOR, false)
+        set(disableProximitySensor) = prefs.edit().putBoolean(DISABLE_PROXIMITY_SENSOR, disableProximitySensor).apply()
 }
