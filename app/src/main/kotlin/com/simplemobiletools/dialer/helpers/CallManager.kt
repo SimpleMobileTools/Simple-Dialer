@@ -1,6 +1,5 @@
 package com.simplemobiletools.dialer.helpers
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
 import android.os.Handler
