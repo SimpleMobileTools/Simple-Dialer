@@ -14,9 +14,10 @@ class CallService : InCallService() {
     private val callListener = object : Call.Callback() {
         override fun onStateChanged(call: Call, state: Int) {
             super.onStateChanged(call, state)
-            if(state != Call.STATE_DISCONNECTED){
+            if (state != Call.STATE_DISCONNECTED) {
                 callNotificationManager.setupNotification()
             }
+
             if (state == Call.STATE_ACTIVE) {
                 callDurationHelper.start()
             } else if (state == Call.STATE_DISCONNECTED || state == Call.STATE_DISCONNECTING) {
