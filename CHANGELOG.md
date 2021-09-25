@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.10.0 *(2021-09-25)*
+----------------------------
+
+ * Rewrite call handling, do not end calls on pressing Back
+ * Allow disabling the proximity sensor in the app settings
+
 Version 5.9.0 *(2021-09-12)*
 ----------------------------
 

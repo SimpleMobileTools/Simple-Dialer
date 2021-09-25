@@ -1,0 +1,2 @@
+ * Rewrite call handling, do not end calls on pressing Back
+ * Allow disabling the proximity sensor in the app settings
