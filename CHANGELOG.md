@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 5.10.1 *(2021-10-04)*
+----------------------------
+
+ * Added some stability and translation improvements
+
 Version 5.10.0 *(2021-09-25)*
 ----------------------------
 
