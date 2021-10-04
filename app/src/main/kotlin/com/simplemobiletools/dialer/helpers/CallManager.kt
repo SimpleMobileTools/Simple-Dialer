@@ -34,9 +34,7 @@ class CallManager {
         }
 
         fun registerCallback(callback: Call.Callback) {
-            if (call != null) {
-                call!!.registerCallback(callback)
-            }
+            call?.registerCallback(callback)
         }
 
         fun unregisterCallback(callback: Call.Callback) {
@@ -62,7 +60,14 @@ class CallManager {
                     return@ensureBackgroundThread
                 }
 
-                val uri = Uri.decode(call!!.details.handle.toString())
+                // something here can be null even after the previous check, so do it like this
+                val handle = call?.details?.handle?.toString()
+                if (handle == null) {
+                    callback(callContact)
+                    return@ensureBackgroundThread
+                }
+
+                val uri = Uri.decode(handle)
                 if (uri.startsWith("tel:")) {
                     val number = uri.substringAfter("tel:")
                     callContact.number = number
