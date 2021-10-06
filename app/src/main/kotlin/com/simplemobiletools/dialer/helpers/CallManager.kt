@@ -55,7 +55,7 @@ class CallManager {
         fun getCallContact(context: Context, callback: (CallContact?) -> Unit) {
             ensureBackgroundThread {
                 val callContact = CallContact("", "", "")
-                if (call == null || call!!.details == null || call!!.details!!.handle == null) {
+                if (call == null || call?.details == null || call?.details?.handle == null) {
                     callback(callContact)
                     return@ensureBackgroundThread
                 }
