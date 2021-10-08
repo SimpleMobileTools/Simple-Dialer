@@ -44,7 +44,7 @@ class CallService : InCallService() {
 
     override fun onDestroy() {
         super.onDestroy()
-        CallManager.registerCallback(callListener)
+        CallManager.unregisterCallback(callListener)
         callNotificationManager.cancelNotification()
         callDurationHelper.cancel()
     }
