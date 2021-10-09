@@ -374,12 +374,22 @@ class MainActivity : SimpleActivity() {
             TAB_CONTACTS -> 0
             TAB_FAVORITES -> if (showTabsMask and TAB_CONTACTS > 0) 1 else 0
             else -> {
-                if (showTabsMask and TAB_CONTACTS > 0) {
-                    if (showTabsMask and TAB_FAVORITES > 0 && showTabsMask and TAB_CALL_HISTORY > 0) 2
-                    else if (showTabsMask and TAB_CALL_HISTORY > 0) 1
-                    else 0
+                if (showTabsMask and TAB_CALL_HISTORY > 0) {
+                    if (showTabsMask and TAB_CONTACTS > 0) {
+                        if (showTabsMask and TAB_FAVORITES > 0) {
+                            2
+                        } else {
+                            1
+                        }
+                    } else {
+                        if (showTabsMask and TAB_FAVORITES > 0) {
+                            1
+                        } else {
+                            0
+                        }
+                    }
                 } else {
-                    if (showTabsMask and TAB_FAVORITES > 0 && showTabsMask and TAB_CALL_HISTORY > 0) 1 else 0
+                    0
                 }
             }
         }
