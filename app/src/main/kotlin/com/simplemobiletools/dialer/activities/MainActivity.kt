@@ -265,7 +265,7 @@ class MainActivity : SimpleActivity() {
                 var wantedTab = getDefaultTab()
 
                 // open the Recents tab if we got here by clicking a missed call notification
-                if (intent.action == Intent.ACTION_VIEW) {
+                if (intent.action == Intent.ACTION_VIEW && config.showTabs and TAB_CALL_HISTORY > 0) {
                     wantedTab = main_tabs_holder.tabCount - 1
                 }
 
@@ -375,9 +375,11 @@ class MainActivity : SimpleActivity() {
             TAB_FAVORITES -> if (showTabsMask and TAB_CONTACTS > 0) 1 else 0
             else -> {
                 if (showTabsMask and TAB_CONTACTS > 0) {
-                    if (showTabsMask and TAB_FAVORITES > 0) 2 else 1
+                    if (showTabsMask and TAB_FAVORITES > 0 && showTabsMask and TAB_CALL_HISTORY > 0) 2
+                    else if (showTabsMask and TAB_CALL_HISTORY > 0) 1
+                    else 0
                 } else {
-                    if (showTabsMask and TAB_FAVORITES > 0) 1 else 0
+                    if (showTabsMask and TAB_FAVORITES > 0 && showTabsMask and TAB_CALL_HISTORY > 0) 1 else 0
                 }
             }
         }

@@ -9,6 +9,7 @@ import com.simplemobiletools.commons.helpers.TAB_CALL_HISTORY
 import com.simplemobiletools.commons.views.MyAppCompatCheckbox
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.helpers.ALL_TABS_MASK
 
 class ManageVisibleTabsDialog(val activity: BaseSimpleActivity) {
     private var view = activity.layoutInflater.inflate(R.layout.dialog_manage_visible_tabs, null)
@@ -40,6 +41,10 @@ class ManageVisibleTabsDialog(val activity: BaseSimpleActivity) {
             if (view.findViewById<MyAppCompatCheckbox>(value).isChecked) {
                 result += key
             }
+        }
+
+        if (result == 0) {
+            result = ALL_TABS_MASK
         }
 
         activity.config.showTabs = result
