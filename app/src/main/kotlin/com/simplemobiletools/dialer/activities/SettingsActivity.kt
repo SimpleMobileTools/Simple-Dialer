@@ -12,6 +12,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.dialogs.ManageVisibleTabsDialog
 import com.simplemobiletools.dialer.extensions.config
 import kotlinx.android.synthetic.main.activity_settings.*
 import java.util.*
@@ -32,6 +33,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageSpeedDial()
         setupChangeDateTimeFormat()
         setupFontSize()
+        setupManageShownTabs()
         setupDefaultTab()
         setupDialPadOpen()
         setupGroupSubsequentCalls()
@@ -110,6 +112,12 @@ class SettingsActivity : SimpleActivity() {
                 config.fontSize = it as Int
                 settings_font_size.text = getFontSizeText()
             }
+        }
+    }
+
+    private fun setupManageShownTabs() {
+        settings_manage_tabs_holder.setOnClickListener {
+            ManageVisibleTabsDialog(this)
         }
     }
 

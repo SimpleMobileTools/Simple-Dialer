@@ -51,4 +51,8 @@ class Config(context: Context) : BaseConfig(context) {
     var disableProximitySensor: Boolean
         get() = prefs.getBoolean(DISABLE_PROXIMITY_SENSOR, false)
         set(disableProximitySensor) = prefs.edit().putBoolean(DISABLE_PROXIMITY_SENSOR, disableProximitySensor).apply()
+
+    var showTabs: Int
+        get() = prefs.getInt(SHOW_TABS, ALL_TABS_MASK)
+        set(showTabs) = prefs.edit().putInt(SHOW_TABS, showTabs).apply()
 }
