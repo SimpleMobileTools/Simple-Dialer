@@ -45,7 +45,7 @@
     <!-- Settings -->
     <string name="group_subsequent_calls">Группировать последующие вызовы с тем же номером в журнале вызовов</string>
     <string name="open_dialpad_by_default">По умолчанию открывать номеронабиратель при запуске приложения</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
+    <string name="disable_proximity_sensor">Отключать датчик приближения во время вызовов</string>
     <string name="show_duration_units">Show units for call duration in the call log</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
