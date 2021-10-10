@@ -15,6 +15,10 @@
     <string name="send_sms">Wyślij SMS-a</string>
     <string name="show_grouped_calls">Pokaż zgrupowane połączenia</string>
     <string name="clear_call_history">Wyczyść historię połączeń</string>
+    <!-- Formatting for call duration with units. It will result in e.g. 1h 20m 37s -->
+    <string name="hours_formatted">%d godz.</string> <!-- e.g. 1h -->
+    <string name="minutes_formatted">%d min.</string> <!-- e.g. 20m -->
+    <string name="seconds_formatted">%d sek.</string> <!-- e.g. 37s -->
 
     <!-- Dialpad -->
     <string name="dialpad">Panel wybierania</string>
@@ -42,6 +46,7 @@
     <string name="group_subsequent_calls">Grupuj kolejne połączenia z tym samym numerem w rejestrze połączeń</string>
     <string name="open_dialpad_by_default">Otwieraj domyślnie panel wybierania przy uruchomieniu aplikacji</string>
     <string name="disable_proximity_sensor">Wyłączaj czujnik zbliżeniowy podczas połączeń</string>
+    <string name="show_duration_units">Pokazuj jednostki w czasach trwania połączeń w rejestrze połączeń</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

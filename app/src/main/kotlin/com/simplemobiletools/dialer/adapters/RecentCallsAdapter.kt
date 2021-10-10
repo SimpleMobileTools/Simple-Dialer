@@ -267,7 +267,13 @@ class RecentCallsAdapter(
             }
 
             item_recents_duration.apply {
-                text = call.duration.getFormattedDuration()
+                text = if (activity.config.showDurationUnits) {
+                    call.getFormattedDuration(context.getString(R.string.hours_formatted),
+                        context.getString(R.string.minutes_formatted),
+                        context.getString(R.string.seconds_formatted))
+                } else {
+                    call.duration.getFormattedDuration()
+                }
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)

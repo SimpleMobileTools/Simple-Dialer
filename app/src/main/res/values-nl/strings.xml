@@ -15,6 +15,10 @@
     <string name="send_sms">SMS sturen</string>
     <string name="show_grouped_calls">Gegroepeerde gesprekken tonen</string>
     <string name="clear_call_history">Oproepgeschiedenis wissen</string>
+    <!-- Formatting for call duration with units. It will result in e.g. 1h 20m 37s -->
+    <string name="hours_formatted">%dh</string> <!-- e.g. 1h -->
+    <string name="minutes_formatted">%dm</string> <!-- e.g. 20m -->
+    <string name="seconds_formatted">%ds</string> <!-- e.g. 37s -->
 
     <!-- Dialpad -->
     <string name="dialpad">Toetsenblok</string>
@@ -41,7 +45,8 @@
     <!-- Settings -->
     <string name="group_subsequent_calls">Oproepgeschiedenis: opeenvolgende items van hetzelfde nummer groeperen</string>
     <string name="open_dialpad_by_default">Standaard het toetsenblok openen bij starten</string>
-    <string name="disable_proximity_sensor">Nabijheidssensor uitschakelen tijdens bellen</string>v
+    <string name="disable_proximity_sensor">Nabijheidssensor uitschakelen tijdens bellen</string>
+    <string name="show_duration_units">Show units for call duration in the call log</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

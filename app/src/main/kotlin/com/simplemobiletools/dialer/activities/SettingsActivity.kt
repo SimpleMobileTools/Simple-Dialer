@@ -31,6 +31,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageBlockedNumbers()
         setupManageSpeedDial()
         setupChangeDateTimeFormat()
+        setupShowDurationUnits()
         setupFontSize()
         setupDefaultTab()
         setupDialPadOpen()
@@ -93,6 +94,14 @@ class SettingsActivity : SimpleActivity() {
     private fun setupChangeDateTimeFormat() {
         settings_change_date_time_format_holder.setOnClickListener {
             ChangeDateTimeFormatDialog(this) {}
+        }
+    }
+
+    private fun setupShowDurationUnits() {
+        settings_show_duration_units.isChecked = config.showDurationUnits
+        settings_show_duration_units_holder.setOnClickListener {
+            settings_show_duration_units.toggle()
+            config.showDurationUnits = settings_show_duration_units.isChecked
         }
     }
 

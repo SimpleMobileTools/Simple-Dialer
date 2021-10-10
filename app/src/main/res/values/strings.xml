@@ -15,6 +15,10 @@
     <string name="send_sms">Send SMS</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>
+    <!-- Formatting for call duration with units. It will result in e.g. 1h 20m 37s -->
+    <string name="hours_formatted">%dh</string> <!-- e.g. 1h -->
+    <string name="minutes_formatted">%dm</string> <!-- e.g. 20m -->
+    <string name="seconds_formatted">%ds</string> <!-- e.g. 37s -->
 
     <!-- Dialpad -->
     <string name="dialpad">Dialpad</string>
@@ -42,6 +46,7 @@
     <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
     <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
     <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
+    <string name="show_duration_units">Show units for call duration in the call log</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
