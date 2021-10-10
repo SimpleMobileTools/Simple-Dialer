@@ -41,7 +41,7 @@
     <!-- Settings -->
     <string name="group_subsequent_calls">Группировать последующие вызовы с тем же номером в журнале вызовов</string>
     <string name="open_dialpad_by_default">По умолчанию открывать номеронабиратель при запуске приложения</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
+    <string name="disable_proximity_sensor">Отключать датчик приближения во время вызовов</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
