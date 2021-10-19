@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Απλή Κλήση</string>
     <string name="app_launcher_name">Κλήση</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
+    <string name="default_phone_app_prompt">Παρακαλώ κάντε αυτή την εφαρμογή προεπιλεγμένη εφαρμογή Κλήσης</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Αδυναμία πρόσβασης στις επαφές σας</string>
@@ -11,10 +11,10 @@
     <string name="could_not_access_the_call_history">Αδυναμία πρόσβασης στο ιστορικό κλήσεων</string>
     <string name="request_access">Αίτηση πρόσβασης</string>
     <string name="remove_confirmation">Είστε βέβαιοι ότι θέλετε να καταργήσετε τα επιλεγμένα στοιχεία από το ιστορικό κλήσεων;</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
+    <string name="clear_history_confirmation">Είστε σίγουροι ότι θέλετε να αφαιρέσετε τα πάντα από το ιστορικό κλήσεων;</string>
     <string name="send_sms">Αποστολή SMS</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
+    <string name="show_grouped_calls">Προβολή ομαδοποιημένων κλήσεων</string>
+    <string name="clear_call_history">Διαγραφή ιστορικού κλήσεων</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Πληκτρολόγιο κλήσης</string>
@@ -31,7 +31,7 @@
     <string name="ongoing_call">Τρέχουσα κλήση</string>
     <string name="select_sim">Επιλέξτε SIM για αυτήν την κλήση</string>
     <string name="always_use_this_sim">Να χρησιμοποιείται πάντα αυτή η SIM για αυτόν τον αριθμό</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="unset_default_sim">Χωρίς προεπ/μένη SIM</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Ταχεία κλήση</string>
@@ -40,8 +40,8 @@
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Ομαδοποίηση των επόμενων κλήσεων του ίδιου αριθμού στο αρχείο καταγραφής κλήσεων</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
+    <string name="open_dialpad_by_default">Ανοίξτε το πληκτρολόγιο από προεπιλογή όταν ανοίγει η εφαρμογή</string>
+    <string name="disable_proximity_sensor">Απενεργοποίηση του αισθητήρα εγγύτητας κατά τη διάρκεια κλήσεων</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
