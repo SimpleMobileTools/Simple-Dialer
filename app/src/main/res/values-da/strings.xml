@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Simple Dialer</string>
+    <string name="app_launcher_name">Opkald</string>
+    <string name="default_phone_app_prompt">Vælg venligst denne app som standard til opkald</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Kunne ikke få adgang til dine kontakter</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Der blev ikke fundet nogle tidligere opkald</string>
+    <string name="could_not_access_the_call_history">Kunne ikke få adgang til opkaldshistorikken</string>
+    <string name="request_access">Anmod om adgang</string>
+    <string name="remove_confirmation">Er du sikker på du vil fjerne de valgte emner fra opkaldshistorikken?</string>
+    <string name="clear_history_confirmation">Er du sikker på at du vil fjerne alt i opkaldshistorikken?</string>
+    <string name="send_sms">Send SMS</string>
+    <string name="show_grouped_calls">Vis gruppérede opkald</string>
+    <string name="clear_call_history">Ryd opkaldshistorik</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Numerisk tastatur</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Opkald</string>
+    <string name="accept">Acceptér</string>
+    <string name="decline">Afvis</string>
+    <string name="unknown_caller">Ukendt nummer</string>
+    <string name="is_calling">Ringer...</string>
+    <string name="dialing">Ringer op...</string>
+    <string name="call_ended">Opkald afsluttet</string>
+    <string name="call_ending">Opkald afsluttes</string>
+    <string name="ongoing_call">Igangværende opkald</string>
+    <string name="select_sim">Vælg et SIM-kort til dette opkald</string>
+    <string name="always_use_this_sim">Brug altid dette SIM-kort til dette nummer</string>
+    <string name="unset_default_sim">Fravælg standard SIM</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Hurtigopkald</string>
+    <string name="manage_speed_dial">Administrér hurtigopkald</string>
+    <string name="speed_dial_label">Klik på et nummer for at tilknytte en kontakt til det. Derefter kan du hurtigt ringe op til den givne kontkakt ved at trykke længe på det givne nummer via det numeriske tastatur</string> 
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Gruppér efterfølgende opkald med samme nummer i opkaldsloggen</string>
+    <string name="open_dialpad_by_default">Åben det numeriske tastatur som standard når appen åbner</string>
+    <string name="disable_proximity_sensor">Deaktivér nærhedssensor under opkald</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Dialer - Håndtér dine telefonopkald nemt</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">En praktisk opkaldsapp med telefonbog, nummerblokering og multi-SIM support.</string>
+    <string name="app_long_description">
+        En letvægtsapp til at håndtére dine opkald uanset hvor du er. Udstyret med en praktisk opkaldslog, så du nemt kan foretage dine opkald.
+
+        Der er et hurtigt numerisk tastatur til din tjeneste, med smarte kontaktforslag. Den indeholder også bogstavssupport.
+
+        Du kan nemt blokére telefonnumre og undgå uønskede opkald.
+
+        Hurtigopkald support gør det let som en brise at ringe dine favoritkontakter op.
+
+        For at hjælpe med at håndtére dine opkald hurtigt kan du udvælge favoritkontakter og oprette genveje til enhver kontakt på startskærmen.
+
+        Appen kommer med materielt design og mørkt tema som standard, der giver en god brugeroplevelse og let brugbarhed. Manglen på internetadgang giver dig mere privatliv, sikkerhed og stabilitet end andre apps.
+
+        Indeholder ingen reklamer eller unødvendige tilladelser. Den er fuldt open source og giver mulighed for brugerdefinerede farver.
+
+        <b>Tjek den fulde pakke af vores Simple Tools her:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Kan du ikke finde nogle strenge? Der er mere på
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
