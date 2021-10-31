@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Marcador</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
+    <string name="default_phone_app_prompt">Tem que tornar esta a aplicação padrão para a poder utilizar</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Não foi possível aceder aos contactos</string>
@@ -11,7 +11,7 @@
     <string name="could_not_access_the_call_history">Não foi possível aceder ao histórico de chamadas</string>
     <string name="request_access">Pedir acesso</string>
     <string name="remove_confirmation">Tem a certeza de que deseja remover do histórico os itens selecionados?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
+    <string name="clear_history_confirmation">Tem a certeza de que deseja remover todo o histórico de chamadas?</string>
     <string name="send_sms">Enviar SMS</string>
     <string name="show_grouped_calls">Mostrar chamadas em grupo</string>
     <string name="clear_call_history">Limpar registo de chamadas</string>
@@ -40,8 +40,8 @@
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Agrupar, no registo, as chamadas para o mesmo contacto</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
+    <string name="open_dialpad_by_default">Mostrar teclado de marcação ao abrir a aplicação</string>
+    <string name="disable_proximity_sensor">Desativar sensor de procimidade durante as chamadas</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
