@@ -20,6 +20,11 @@ class SelectSIMDialog(val activity: BaseSimpleActivity, val phoneNumber: String,
 
     init {
         val radioGroup = view.select_sim_radio_group
+        view.apply {
+            select_sim_remember_holder.setOnClickListener {
+                select_sim_remember.toggle()
+            }
+        }
 
         activity.getAvailableSIMCardLabels().forEachIndexed { index, SIMAccount ->
             val radioButton = (activity.layoutInflater.inflate(R.layout.radio_button, null) as RadioButton).apply {
