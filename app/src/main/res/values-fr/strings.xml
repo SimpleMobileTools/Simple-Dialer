@@ -32,6 +32,7 @@
     <string name="select_sim">Sélectionnez une carte SIM pour cet appel</string>
     <string name="always_use_this_sim">Toujours utiliser cette carte SIM pour ce numéro</string>
     <string name="unset_default_sim">Désassocier la SIM par défaut</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Numérotation rapide</string>

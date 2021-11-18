@@ -32,6 +32,7 @@
     <string name="select_sim">Selecteer de SIM-kaart voor dit gesprek</string>
     <string name="always_use_this_sim">Voor dit nummer altijd deze SIM-kaart gebruiken</string>
     <string name="unset_default_sim">Standaard-SIM wissen</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Snelkiezer</string>

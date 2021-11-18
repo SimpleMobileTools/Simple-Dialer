@@ -32,6 +32,7 @@
     <string name="select_sim">Bu arama için bir SIM seçin</string>
     <string name="always_use_this_sim">Bu numara için her zaman bu SIM\'i kullan</string>
     <string name="unset_default_sim">Varsayılan SIM ayarını kaldır</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Hızlı arama</string>

@@ -32,6 +32,7 @@
     <string name="select_sim">Vælg et SIM-kort til dette opkald</string>
     <string name="always_use_this_sim">Brug altid dette SIM-kort til dette nummer</string>
     <string name="unset_default_sim">Fravælg standard SIM</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Hurtigopkald</string>

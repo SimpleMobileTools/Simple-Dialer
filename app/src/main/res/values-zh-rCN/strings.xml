@@ -32,6 +32,7 @@
     <string name="select_sim">为此通话选择一个 SIM 卡</string>
     <string name="always_use_this_sim">为此号码一直使用该 SIM 卡</string>
     <string name="unset_default_sim">Unset default SIM</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">快速拨号</string>

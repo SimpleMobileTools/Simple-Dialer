@@ -32,6 +32,7 @@
     <string name="select_sim">Valitse SIM-kortti puhelulle</string>
     <string name="always_use_this_sim">Käytä tälle numerolle aina tätä SIM-korttia</string>
     <string name="unset_default_sim">Poista oletus-SIM</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Pikavalinta</string>

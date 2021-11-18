@@ -32,6 +32,7 @@
     <string name="select_sim">Επιλέξτε SIM για αυτήν την κλήση</string>
     <string name="always_use_this_sim">Να χρησιμοποιείται πάντα αυτή η SIM για αυτόν τον αριθμό</string>
     <string name="unset_default_sim">Χωρίς προεπ/μένη SIM</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Ταχεία κλήση</string>
