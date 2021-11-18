@@ -292,7 +292,7 @@ class MainActivity : SimpleActivity() {
     private fun getTabIcon(position: Int): Drawable {
         val drawableId = when (position) {
             0 -> R.drawable.ic_person_vector
-            1 -> R.drawable.ic_star_on_vector
+            1 -> R.drawable.ic_star_vector
             else -> R.drawable.ic_clock_vector
         }
 

@@ -61,19 +61,9 @@
             android:parentActivityName=".activities.MainActivity" />
 
         <activity
-            android:name="com.simplemobiletools.commons.activities.LicenseActivity"
-            android:label="@string/third_party_licences"
-            android:parentActivityName="com.simplemobiletools.commons.activities.AboutActivity" />
-
-        <activity
             android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
             android:label="@string/customize_colors"
             android:parentActivityName=".activities.SettingsActivity" />
-
-        <activity
-            android:name="com.simplemobiletools.commons.activities.FAQActivity"
-            android:label="@string/frequently_asked_questions"
-            android:parentActivityName="com.simplemobiletools.commons.activities.AboutActivity" />
 
         <activity
             android:name="com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity"
@@ -92,16 +82,16 @@
 
         <activity
             android:name=".activities.CallActivity"
-            android:label="@string/ongoing_call"
             android:excludeFromRecents="true"
+            android:label="@string/ongoing_call"
             android:screenOrientation="portrait"
             android:showOnLockScreen="true" />
 
         <activity
             android:name=".activities.DialpadActivity"
             android:label="@string/dialpad"
-            android:windowSoftInputMode="stateHidden"
-            android:parentActivityName=".activities.MainActivity">
+            android:parentActivityName=".activities.MainActivity"
+            android:windowSoftInputMode="stateHidden">
 
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
