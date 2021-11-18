@@ -102,6 +102,10 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                 }.apply {
                     recents_list.adapter = this
                 }
+
+                if (context.areSystemAnimationsEnabled) {
+                    recents_list.scheduleLayoutAnimation()
+                }
             } else {
                 (currAdapter as RecentCallsAdapter).updateItems(recents)
             }
