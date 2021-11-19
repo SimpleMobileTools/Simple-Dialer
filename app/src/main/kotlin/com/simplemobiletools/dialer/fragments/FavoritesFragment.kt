@@ -85,6 +85,10 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                 }.apply {
                     fragment_list.adapter = this
                 }
+
+                if (context.areSystemAnimationsEnabled) {
+                    fragment_list.scheduleLayoutAnimation()
+                }
             } else {
                 (currAdapter as ContactsAdapter).updateItems(contacts)
             }

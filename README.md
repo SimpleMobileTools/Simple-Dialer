@@ -22,8 +22,8 @@ https://www.facebook.com/simplemobiletools
 <b>Reddit:</b>
 https://www.reddit.com/r/SimpleMobileTools
 
-<a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.dialer'><img src='https://simplemobiletools.com/assets/images/google-play.png' alt='Get it on Google Play' height='45' /></a>
-<a href='https://f-droid.org/packages/com.simplemobiletools.dialer'><img src='https://simplemobiletools.com/assets/images/f-droid.png' alt='Get it on F-Droid' height='45' /></a>
+<a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.dialer'><img src='https://simplemobiletools.com/images/button-google-play.svg' alt='Get it on Google Play' height='45' /></a>
+<a href='https://f-droid.org/packages/com.simplemobiletools.dialer'><img src='https://simplemobiletools.com/images/button-f-droid.png' alt='Get it on F-Droid' height='45' /></a>
 
 <div style="display:flex;">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/english/1.jpg" width="30%">

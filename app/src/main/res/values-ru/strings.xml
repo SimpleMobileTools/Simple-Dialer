@@ -32,6 +32,7 @@
     <string name="select_sim">Выберите SIM для этого вызова</string>
     <string name="always_use_this_sim">Всегда использовать эту SIM для данного номера</string>
     <string name="unset_default_sim">Снять выбор SIM по умолчанию</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Быстрый вызов</string>
@@ -41,7 +42,7 @@
     <!-- Settings -->
     <string name="group_subsequent_calls">Группировать последующие вызовы с тем же номером в журнале вызовов</string>
     <string name="open_dialpad_by_default">По умолчанию открывать номеронабиратель при запуске приложения</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
+    <string name="disable_proximity_sensor">Отключать датчик приближения во время вызовов</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

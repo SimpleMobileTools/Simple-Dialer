@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Téléphone</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
+    <string name="default_phone_app_prompt">Veuillez faire de cette application votre application de téléphone par défaut</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Impossible d\'accéder à vos contacts</string>
@@ -32,6 +32,7 @@
     <string name="select_sim">Sélectionnez une carte SIM pour cet appel</string>
     <string name="always_use_this_sim">Toujours utiliser cette carte SIM pour ce numéro</string>
     <string name="unset_default_sim">Désassocier la SIM par défaut</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Numérotation rapide</string>
@@ -40,8 +41,8 @@
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Regrouper les appels suivants avec le même numéro dans le journal des appels</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
+    <string name="open_dialpad_by_default">Ouvrir le pavé numérique par défaut à l\'ouverture de l\'application</string>
+    <string name="disable_proximity_sensor">Désactiver le capteur de proximité pendant les appels</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

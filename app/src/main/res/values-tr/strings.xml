@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Basit Çevirici</string>
     <string name="app_launcher_name">Çevirici</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
+    <string name="default_phone_app_prompt">Lütfen bu uygulamayı varsayılan Telefon uygulaması yapın</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Kişilerinize erişilemedi</string>
@@ -10,11 +10,11 @@
     <string name="no_previous_calls">Önceki arama bulunamadı</string>
     <string name="could_not_access_the_call_history">Arama geçmişine erişilemedi</string>
     <string name="request_access">Erişim isteği</string>
-    <string name="remove_confirmation">Seçilen öğeleri Arama Geçmişinden kaldırmak istediğinizden emin misiniz?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
+    <string name="remove_confirmation">Seçilen ögeleri Arama Geçmişinden kaldırmak istediğinizden emin misiniz?</string>
+    <string name="clear_history_confirmation">Arama Geçmişindeki her şeyi kaldırmak istediğinizden emin misiniz?</string>
     <string name="send_sms">SMS gönder</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
+    <string name="show_grouped_calls">Gruplandırılmış aramaları göster</string>
+    <string name="clear_call_history">Arama geçmişini temizle</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Tuş takımı</string>
@@ -31,7 +31,8 @@
     <string name="ongoing_call">Devam Eden Arama</string>
     <string name="select_sim">Bu arama için bir SIM seçin</string>
     <string name="always_use_this_sim">Bu numara için her zaman bu SIM\'i kullan</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="unset_default_sim">Varsayılan SIM ayarını kaldır</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Hızlı arama</string>
@@ -40,8 +41,8 @@
 
     <!-- Settings -->
     <string name="group_subsequent_calls">Arama kaydında aynı numaraya sahip sonraki aramaları gruplandır</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
+    <string name="open_dialpad_by_default">Uygulama açıldığında varsayılan olarak tuş takımını aç</string>
+    <string name="disable_proximity_sensor">Aramalar sırasında yakınlık sensörünü devre dışı bırak</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
@@ -63,7 +64,7 @@
 
         Hiçbir reklam veya gereksiz izin içermiyor.  Tamamen açık kaynaklıdır, özelleştirilebilir renkler sağlar.
 
-        <b>Basit Araçlar paketinin tamamını burada görebilirsiniz:</b>
+        <b>Basit Araçlar paketinin tamamını buradan inceleyin:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>

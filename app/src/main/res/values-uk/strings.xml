@@ -32,6 +32,7 @@
     <string name="select_sim">Select a SIM for this call</string>
     <string name="always_use_this_sim">Always use this SIM for this number</string>
     <string name="unset_default_sim">Unset default SIM</string>
+    <string name="calls">Calls</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Швидкий виклик</string>
