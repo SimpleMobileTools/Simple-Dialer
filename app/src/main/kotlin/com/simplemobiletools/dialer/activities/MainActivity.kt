@@ -93,8 +93,8 @@ class MainActivity : SimpleActivity() {
         }, 2000)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onPause() {
+        super.onPause()
         config.lastUsedViewPagerPage = viewpager.currentItem
     }
 
