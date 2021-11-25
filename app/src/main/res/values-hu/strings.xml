@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="no_previous_calls">Nem találhatók híváselőzmények</string>
+    <string name="clear_history_confirmation">Biztos, hogy mindent eltávolít a híváselőzményekből\?</string>
+    <string name="clear_call_history">Híváselőzmények törlése</string>
+    <string name="unset_default_sim">Alapértelmezett SIM-kártya beállítás törlése</string>
+    <string name="calls">Hívások</string>
+    <string name="manage_speed_dial">Gyors tárcsázó kezelése</string>
+    <string name="open_dialpad_by_default">Tárcsázó alapértelmezett kinyitása az alkalmazás megnyitásakor</string>
+    <string name="disable_proximity_sensor">Közelségérzékelő kikapcsolása a hívások során</string>
+    <string name="app_short_description">Egy ügyes telefonhívás-kezelő telefonkönyvvel, számblokkolással és több SIM-kártya támogatásával</string>
+    <string name="app_name">Egyszerű tárcsázó</string>
+    <string name="decline">Elutasítás</string>
+    <string name="send_sms">SMS küldése</string>
+    <string name="dialer">Tárcsázó</string>
+    <string name="is_calling">Hívás…</string>
+    <string name="app_launcher_name">Tárcsázó</string>
+    <string name="default_phone_app_prompt">Tegye az alkalmazást az alapértelmezett Telefon alkalmazássá</string>
+    <string name="could_not_access_contacts">A névjegyei nem érhetők el</string>
+    <string name="could_not_access_the_call_history">A híváselőzmények nem érhetők el</string>
+    <string name="request_access">Hozzáférés kérése</string>
+    <string name="remove_confirmation">Biztos, hogy eltávolítja a kiválasztott elemeket a híváselőzményekből\?</string>
+    <string name="show_grouped_calls">Csoportosított hívások megjelenítése</string>
+    <string name="dialpad">Tárcsázó</string>
+    <string name="accept">Fogadás</string>
+    <string name="speed_dial">Gyors tárcsázó</string>
+    <string name="group_subsequent_calls">Ugyanazon szám egymást követő hívásainak csoportosítása a hívásnaplóban</string>
+    <string name="unknown_caller">Ismeretlen hívó</string>
+    <string name="dialing">Tárcsázás…</string>
+    <string name="call_ending">Hívás befejezése</string>
+    <string name="call_ended">Hívás vége</string>
+    <string name="ongoing_call">Folyamatban lévő hívás</string>
+    <string name="select_sim">Válasszon SIM-kártyát ehhez a híváshoz</string>
+    <string name="always_use_this_sim">Mindig ezt a SIM-kártyát használja</string>
+    <string name="speed_dial_label">Koppintson egy számra, hogy névjegyet rendeljen hozzá. Aztán gyorsan felhívhatja az adott szám hosszú érintésével a tárcsázón.</string>
+    <string name="app_title">Simple Dialer – Telefonhívások kezelése egyszerűen</string>
+</resources>
