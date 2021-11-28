@@ -21,6 +21,7 @@
     <string name="dialpad">Číselník</string>
     <string name="asterisk">Hviezdička</string>
     <string name="hashtag">Mriežka</string>
+    <string name="call_number">Zavolať číslo</string>
 
     <!-- Dialer -->
     <string name="dialer">Telefón</string>

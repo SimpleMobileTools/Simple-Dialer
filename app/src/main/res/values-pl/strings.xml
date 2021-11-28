@@ -19,6 +19,7 @@
     <string name="dialpad">Panel wybierania</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
+    <string name="call_number">Call number</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Odbierz</string>

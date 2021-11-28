@@ -19,6 +19,7 @@
     <string name="dialpad">Tuş takımı</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
+    <string name="call_number">Call number</string>
     <!-- Dialer -->
     <string name="dialer">Çevirici</string>
     <string name="accept">Kabul Et</string>

@@ -21,6 +21,7 @@
     <string name="dialpad">Teclado de marcado</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
+    <string name="call_number">Call number</string>
 
     <!-- Dialer -->
     <string name="dialer">Marcador</string>
