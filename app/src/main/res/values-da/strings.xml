@@ -15,6 +15,7 @@
     <string name="send_sms">Send SMS</string>
     <string name="show_grouped_calls">Vis gruppérede opkald</string>
     <string name="clear_call_history">Ryd opkaldshistorik</string>
+    <string name="show_call_details">Show call details</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Numerisk tastatur</string>

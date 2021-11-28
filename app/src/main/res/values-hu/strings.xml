@@ -14,6 +14,7 @@
     <string name="send_sms">SMS küldése</string>
     <string name="show_grouped_calls">Csoportosított hívások megjelenítése</string>
     <string name="clear_call_history">Híváselőzmények törlése</string>
+    <string name="show_call_details">Show call details</string>
     <!-- Dialpad -->
     <string name="dialpad">Tárcsázó</string>
     <string name="asterisk">Asterisk</string>

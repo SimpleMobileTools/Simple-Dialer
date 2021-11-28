@@ -15,6 +15,7 @@
     <string name="send_sms">SMS sturen</string>
     <string name="show_grouped_calls">Gegroepeerde gesprekken tonen</string>
     <string name="clear_call_history">Oproepgeschiedenis wissen</string>
+    <string name="show_call_details">Show call details</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Toetsenblok</string>

@@ -15,6 +15,7 @@
     <string name="send_sms">Skicka sms</string>
     <string name="show_grouped_calls">Visa grupperade samtal</string>
     <string name="clear_call_history">Rensa samtalshistorik</string>
+    <string name="show_call_details">Show call details</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Knappsats</string>

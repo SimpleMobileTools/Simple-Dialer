@@ -15,6 +15,7 @@
     <string name="send_sms">Invia SMS</string>
     <string name="show_grouped_calls">Mostra chiamate raggruppate</string>
     <string name="clear_call_history">Svuota la cronologia delle chiamate</string>
+    <string name="show_call_details">Show call details</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Tastierino numerico</string>

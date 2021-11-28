@@ -14,6 +14,7 @@
     <string name="send_sms">Отправить SMS</string>
     <string name="show_grouped_calls">Сгруппировать вызовы</string>
     <string name="clear_call_history">Очистить историю вызовов</string>
+    <string name="show_call_details">Show call details</string>
     <!-- Dialpad -->
     <string name="dialpad">Номеронабиратель</string>
     <string name="asterisk">Asterisk</string>

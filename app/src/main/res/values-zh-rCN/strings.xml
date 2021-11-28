@@ -14,6 +14,7 @@
     <string name="send_sms">Send SMS</string>
     <string name="show_grouped_calls">显示分组呼叫</string>
     <string name="clear_call_history">清除通话记录</string>
+    <string name="show_call_details">Show call details</string>
     <!-- Dialpad -->
     <string name="dialpad">拨号盘</string>
     <string name="asterisk">Asterisk</string>

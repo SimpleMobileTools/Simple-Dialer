@@ -14,6 +14,7 @@
     <string name="send_sms">Envoyer un SMS</string>
     <string name="show_grouped_calls">Afficher les appels groupés</string>
     <string name="clear_call_history">Nettoyer l\'historique d\'appel</string>
+    <string name="show_call_details">Show call details</string>
     <!-- Dialpad -->
     <string name="dialpad">Pavé numérique</string>
     <string name="asterisk">Asterisk</string>
