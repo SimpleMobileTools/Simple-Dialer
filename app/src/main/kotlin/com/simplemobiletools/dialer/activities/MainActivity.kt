@@ -306,6 +306,7 @@ class MainActivity : SimpleActivity() {
         if (!isAnySelected) {
             main_tabs_holder.selectTab(main_tabs_holder.getTabAt(getDefaultTab()))
         }
+        main_tabs_holder.beGoneIf(main_tabs_holder.tabCount == 1)
     }
 
     private fun getTabIcon(position: Int): Drawable {
@@ -329,8 +330,6 @@ class MainActivity : SimpleActivity() {
             viewpager.onGlobalLayout {
                 refreshFragments()
             }
-        } else {
-            refreshFragments()
         }
     }
 
