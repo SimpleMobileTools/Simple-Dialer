@@ -14,18 +14,18 @@
     <string name="send_sms">SMS gönder</string>
     <string name="show_grouped_calls">Gruplandırılmış aramaları göster</string>
     <string name="clear_call_history">Arama geçmişini temizle</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Arama ayrıntılarını göster</string>
     <!-- Dialpad -->
     <string name="dialpad">Tuş takımı</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
+    <string name="asterisk">Yıldız işareti</string>
+    <string name="hashtag">Kare işareti</string>
     <string name="call_number">Call number</string>
     <!-- Dialer -->
     <string name="dialer">Çevirici</string>
     <string name="accept">Kabul Et</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Aramayı kabul et</string>
     <string name="decline">Reddet</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Aramayı reddet</string>
     <string name="unknown_caller">Bilinmeyen Arama</string>
     <string name="is_calling">Arıyor…</string>
     <string name="dialing">Aranıyor…</string>
@@ -36,13 +36,13 @@
     <string name="always_use_this_sim">Bu numara için her zaman bu SIM\'i kullan</string>
     <string name="unset_default_sim">Varsayılan SIM ayarını kaldır</string>
     <string name="calls">Aramalar</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="turn_microphone_on">Mikrofonu aç</string>
+    <string name="turn_microphone_off">Mikrofonu kapat</string>
+    <string name="turn_speaker_on">Hoparlörü aç</string>
+    <string name="turn_speaker_off">Hoparlörü kapat</string>
+    <string name="show_dialpad">Tuş takımını göster</string>
+    <string name="hide_dialpad">Tuş takımını gizle</string>
+    <string name="end_call">Aramayı sonlandır</string>
     <!-- Speed dial -->
     <string name="speed_dial">Hızlı arama</string>
     <string name="manage_speed_dial">Hızlı aramayı yönet</string>
