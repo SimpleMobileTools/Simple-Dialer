@@ -68,13 +68,14 @@
             android:id="@+id/item_recents_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/item_recents_name"
             android:layout_alignTop="@+id/item_recents_date_time"
             android:layout_alignBottom="@+id/item_recents_date_time"
-            android:layout_marginEnd="@dimen/tiny_margin"
             android:layout_toEndOf="@+id/item_recents_sim_image"
             android:alpha="0.6"
-            android:paddingTop="@dimen/tiny_margin"
-            android:paddingBottom="@dimen/tiny_margin"
+            android:paddingTop="@dimen/one_dp"
+            android:paddingBottom="@dimen/one_dp"
+            android:scaleType="fitStart"
             android:src="@drawable/ic_incoming_call_vector" />
 
         <TextView

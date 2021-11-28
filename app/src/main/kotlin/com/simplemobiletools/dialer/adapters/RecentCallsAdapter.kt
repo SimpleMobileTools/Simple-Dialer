@@ -61,7 +61,7 @@ class RecentCallsAdapter(
             findItem(R.id.cab_block_number).isVisible = isNougatPlus()
             findItem(R.id.cab_add_number).isVisible = isOneItemSelected
             findItem(R.id.cab_copy_number).isVisible = isOneItemSelected
-            findItem(R.id.cab_show_grouped_calls).isVisible = isOneItemSelected && selectedItems.first().neighbourIDs.isNotEmpty()
+            findItem(R.id.cab_show_call_details).isVisible = isOneItemSelected
         }
     }
 
@@ -77,7 +77,7 @@ class RecentCallsAdapter(
             R.id.cab_block_number -> askConfirmBlock()
             R.id.cab_add_number -> addNumberToContact()
             R.id.cab_send_sms -> sendSMS()
-            R.id.cab_show_grouped_calls -> showGroupedCalls()
+            R.id.cab_show_call_details -> showCallDetails()
             R.id.cab_copy_number -> copyNumber()
             R.id.cab_remove -> askConfirmRemove()
             R.id.cab_select_all -> selectAll()
@@ -179,7 +179,7 @@ class RecentCallsAdapter(
         activity.launchSendSMSIntent(recipient)
     }
 
-    private fun showGroupedCalls() {
+    private fun showCallDetails() {
         val recentCall = getSelectedItems().firstOrNull() ?: return
         val callIds = recentCall.neighbourIDs.map { it }.toMutableList() as ArrayList<Int>
         callIds.add(recentCall.id)

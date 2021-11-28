@@ -32,8 +32,8 @@
         android:title="@string/block_number"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/cab_show_grouped_calls"
-        android:title="@string/show_grouped_calls"
+        android:id="@+id/cab_show_call_details"
+        android:title="@string/show_call_details"
         app:showAsAction="never" />
     <item
         android:id="@+id/cab_copy_number"
