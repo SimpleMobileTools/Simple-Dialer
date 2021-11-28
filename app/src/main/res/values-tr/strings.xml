@@ -1,11 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Basit Çevirici</string>
     <string name="app_launcher_name">Çevirici</string>
     <string name="default_phone_app_prompt">Lütfen bu uygulamayı varsayılan Telefon uygulaması yapın</string>
-
     <!-- Contacts -->
     <string name="could_not_access_contacts">Kişilerinize erişilemedi</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">Önceki arama bulunamadı</string>
     <string name="could_not_access_the_call_history">Arama geçmişine erişilemedi</string>
@@ -15,10 +14,8 @@
     <string name="send_sms">SMS gönder</string>
     <string name="show_grouped_calls">Gruplandırılmış aramaları göster</string>
     <string name="clear_call_history">Arama geçmişini temizle</string>
-
     <!-- Dialpad -->
     <string name="dialpad">Tuş takımı</string>
-
     <!-- Dialer -->
     <string name="dialer">Çevirici</string>
     <string name="accept">Kabul Et</string>
@@ -32,18 +29,15 @@
     <string name="select_sim">Bu arama için bir SIM seçin</string>
     <string name="always_use_this_sim">Bu numara için her zaman bu SIM\'i kullan</string>
     <string name="unset_default_sim">Varsayılan SIM ayarını kaldır</string>
-    <string name="calls">Calls</string>
-
+    <string name="calls">Aramalar</string>
     <!-- Speed dial -->
     <string name="speed_dial">Hızlı arama</string>
     <string name="manage_speed_dial">Hızlı aramayı yönet</string>
     <string name="speed_dial_label">Bir kişiyi atamak için bir numaraya tıklayın. Daha sonra numarayı çeviricide verilen numaraya uzun basarak hızlıca arayabilirsiniz.</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">Arama kaydında aynı numaraya sahip sonraki aramaları gruplandır</string>
     <string name="open_dialpad_by_default">Uygulama açıldığında varsayılan olarak tuş takımını aç</string>
     <string name="disable_proximity_sensor">Aramalar sırasında yakınlık sensörünü devre dışı bırak</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Basit Çevirici - Aramaları kolayca yönetin</string>
@@ -73,7 +67,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Bazı dizeleri bulamadınız mı? Burada daha fazlası var:
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.11.0 *(2021-11-21)*
+----------------------------
+
+ * Redesigned some screens, added an Auto theme
+ * Some translation, stability and UX improvements
+
 Version 5.10.1 *(2021-10-04)*
 ----------------------------
 

@@ -1,24 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Телефон</string>
     <string name="default_phone_app_prompt">Сделайте это приложение основным для совершения телефонных вызовов</string>
-
     <!-- Contacts -->
     <string name="could_not_access_contacts">Невозможно получить доступ к контактам</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">Предыдущие вызовы не найдены</string>
     <string name="could_not_access_the_call_history">Невозможно получить доступ к истории вызовов</string>
     <string name="request_access">Запрос доступа</string>
-    <string name="remove_confirmation">Удалить выбранные записи из истории вызовов?</string>
-    <string name="clear_history_confirmation">Удалить всю историю вызовов?</string>
+    <string name="remove_confirmation">Удалить выбранные записи из истории вызовов\?</string>
+    <string name="clear_history_confirmation">Удалить всю историю вызовов\?</string>
     <string name="send_sms">Отправить SMS</string>
     <string name="show_grouped_calls">Сгруппировать вызовы</string>
     <string name="clear_call_history">Очистить историю вызовов</string>
-
     <!-- Dialpad -->
     <string name="dialpad">Номеронабиратель</string>
-
     <!-- Dialer -->
     <string name="dialer">Телефон</string>
     <string name="accept">Принять</string>
@@ -32,18 +29,15 @@
     <string name="select_sim">Выберите SIM для этого вызова</string>
     <string name="always_use_this_sim">Всегда использовать эту SIM для данного номера</string>
     <string name="unset_default_sim">Снять выбор SIM по умолчанию</string>
-    <string name="calls">Calls</string>
-
+    <string name="calls">Вызовы</string>
     <!-- Speed dial -->
     <string name="speed_dial">Быстрый вызов</string>
     <string name="manage_speed_dial">Управление быстрым вызовом</string>
     <string name="speed_dial_label">Нажмите на цифру, чтобы назначить ей контакт. Затем вы сможете быстро вызвать данный контакт длительным нажатием на выбранную цифру в номеронабирателе.</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">Группировать последующие вызовы с тем же номером в журнале вызовов</string>
     <string name="open_dialpad_by_default">По умолчанию открывать номеронабиратель при запуске приложения</string>
     <string name="disable_proximity_sensor">Отключать датчик приближения во время вызовов</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - управление телефонными звонками</string>
@@ -73,7 +67,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
