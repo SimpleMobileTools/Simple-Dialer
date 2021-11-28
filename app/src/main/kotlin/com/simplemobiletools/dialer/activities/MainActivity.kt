@@ -299,6 +299,7 @@ class MainActivity : SimpleActivity() {
                 skippedTabs++
             } else {
                 val tab = main_tabs_holder.newTab().setIcon(getTabIcon(index))
+                tab.contentDescription = getTabContentDescription(index)
                 val wasAlreadySelected = selectedTabIndex > -1 && selectedTabIndex == index - skippedTabs
                 val shouldSelect = !isAnySelected && wasAlreadySelected
                 if (shouldSelect) {
@@ -322,6 +323,16 @@ class MainActivity : SimpleActivity() {
         }
 
         return resources.getColoredDrawableWithColor(drawableId, config.textColor)
+    }
+
+    private fun getTabContentDescription(position: Int): String {
+        val stringId = when (position) {
+            0 -> R.string.contacts_tab
+            1 -> R.string.favorites_tab
+            else -> R.string.call_history_tab
+        }
+
+        return resources.getString(stringId)
     }
 
     private fun refreshItems(openLastTab: Boolean = false) {

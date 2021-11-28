@@ -158,6 +158,7 @@ class CallActivity : SimpleActivity() {
 
         val newRoute = if (isSpeakerOn) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_EARPIECE
         CallManager.inCallService?.setAudioRoute(newRoute)
+        call_toggle_speaker.contentDescription = getString(if (isSpeakerOn) R.string.turn_speaker_off else R.string.turn_speaker_on)
     }
 
     private fun toggleMicrophone() {
@@ -166,6 +167,7 @@ class CallActivity : SimpleActivity() {
         call_toggle_microphone.setImageDrawable(getDrawable(drawable))
         audioManager.isMicrophoneMute = !isMicrophoneOn
         CallManager.inCallService?.setMuted(!isMicrophoneOn)
+        call_toggle_microphone.contentDescription = getString(if (isMicrophoneOn) R.string.turn_microphone_off else R.string.turn_microphone_on)
     }
 
     private fun toggleDialpadVisibility() {
