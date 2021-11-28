@@ -14,7 +14,7 @@
     <string name="send_sms">Wyślij SMS-a</string>
     <string name="show_grouped_calls">Pokaż zgrupowane połączenia</string>
     <string name="clear_call_history">Wyczyść historię połączeń</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Pokaż szczegóły połączenia</string>
     <!-- Dialpad -->
     <string name="dialpad">Panel wybierania</string>
     <string name="asterisk">Gwiazdka</string>
