@@ -227,6 +227,16 @@ class MainActivity : SimpleActivity() {
                 getTabAt(it)?.icon?.applyColorFilter(config.textColor)
             }
         }
+
+        main_tabs_holder.onTabSelectionChanged(
+            tabUnselectedAction = {
+                it.icon?.applyColorFilter(config.textColor)
+            },
+            tabSelectedAction = {
+                viewpager.currentItem = it.position
+                it.icon?.applyColorFilter(getAdjustedPrimaryColor())
+            }
+        )
     }
 
     private fun getInactiveTabIndexes(activeIndex: Int) = (0 until tabsList.size).filter { it != activeIndex }
@@ -248,16 +258,6 @@ class MainActivity : SimpleActivity() {
                 invalidateOptionsMenu()
             }
         })
-
-        main_tabs_holder.onTabSelectionChanged(
-            tabUnselectedAction = {
-                it.icon?.applyColorFilter(config.textColor)
-            },
-            tabSelectedAction = {
-                viewpager.currentItem = it.position
-                it.icon?.applyColorFilter(getAdjustedPrimaryColor())
-            }
-        )
 
         // selecting the proper tab sometimes glitches, add an extra selector to make sure we have it right
         main_tabs_holder.onGlobalLayout {
@@ -346,9 +346,9 @@ class MainActivity : SimpleActivity() {
         recents_fragment?.refreshItems()
     }
 
-    private fun getAllFragments(): ArrayList<MyViewPagerFragment> {
+    private fun getAllFragments(): ArrayList<MyViewPagerFragment?> {
         val showTabs = config.showTabs
-        val fragments = arrayListOf<MyViewPagerFragment>()
+        val fragments = arrayListOf<MyViewPagerFragment?>()
 
         if (showTabs and TAB_CONTACTS > 0) {
             fragments.add(contacts_fragment)
