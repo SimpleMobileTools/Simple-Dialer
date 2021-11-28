@@ -91,7 +91,8 @@
         android:id="@+id/ongoing_call_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/call_toggle_microphone"

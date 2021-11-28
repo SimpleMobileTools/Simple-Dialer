@@ -16,10 +16,14 @@
     <string name="clear_call_history">Arama geçmişini temizle</string>
     <!-- Dialpad -->
     <string name="dialpad">Tuş takımı</string>
+    <string name="asterisk">Asterisk</string>
+    <string name="hashtag">Hashtag</string>
     <!-- Dialer -->
     <string name="dialer">Çevirici</string>
     <string name="accept">Kabul Et</string>
+    <string name="accept_call">Accept call</string>
     <string name="decline">Reddet</string>
+    <string name="decline_call">Decline call</string>
     <string name="unknown_caller">Bilinmeyen Arama</string>
     <string name="is_calling">Arıyor…</string>
     <string name="dialing">Aranıyor…</string>
@@ -30,6 +34,13 @@
     <string name="always_use_this_sim">Bu numara için her zaman bu SIM\'i kullan</string>
     <string name="unset_default_sim">Varsayılan SIM ayarını kaldır</string>
     <string name="calls">Aramalar</string>
+    <string name="turn_microphone_on">Turn microphone on</string>
+    <string name="turn_microphone_off">Turn microphone off</string>
+    <string name="turn_speaker_on">Turn speaker on</string>
+    <string name="turn_speaker_off">Turn speaker off</string>
+    <string name="show_dialpad">Show dialpad</string>
+    <string name="hide_dialpad">Hide dialpad</string>
+    <string name="end_call">End call</string>
     <!-- Speed dial -->
     <string name="speed_dial">Hızlı arama</string>
     <string name="manage_speed_dial">Hızlı aramayı yönet</string>

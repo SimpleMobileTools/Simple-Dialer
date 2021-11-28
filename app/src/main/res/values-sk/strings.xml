@@ -18,11 +18,15 @@
 
     <!-- Dialpad -->
     <string name="dialpad">Číselník</string>
+    <string name="asterisk">Hviezdička</string>
+    <string name="hashtag">Mriežka</string>
 
     <!-- Dialer -->
     <string name="dialer">Telefón</string>
     <string name="accept">Prijať</string>
+    <string name="accept_call">Prijať hovor</string>
     <string name="decline">Odmietnuť</string>
+    <string name="decline_call">Odmietnuť hovor</string>
     <string name="unknown_caller">Neznámy volajúci</string>
     <string name="is_calling">Volá…</string>
     <string name="dialing">Vytáča sa…</string>
@@ -33,6 +37,13 @@
     <string name="always_use_this_sim">Vždy použiť túto SIM kartu pre toto číslo</string>
     <string name="unset_default_sim">Odstrániť predvolenú SIM</string>
     <string name="calls">Hovory</string>
+    <string name="turn_microphone_on">Zapnúť mikrofón</string>
+    <string name="turn_microphone_off">Vypnúť mikrofón</string>
+    <string name="turn_speaker_on">Zapnúť reproduktor</string>
+    <string name="turn_speaker_off">Vypnúť reproduktor</string>
+    <string name="show_dialpad">Zobraziť číselník</string>
+    <string name="hide_dialpad">Skryť číselník</string>
+    <string name="end_call">Ukončiť hovor</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Rýchle vytáčanie</string>

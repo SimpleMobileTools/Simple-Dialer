@@ -16,10 +16,14 @@
     <string name="clear_call_history">Nettoyer l\'historique d\'appel</string>
     <!-- Dialpad -->
     <string name="dialpad">Pavé numérique</string>
+    <string name="asterisk">Asterisk</string>
+    <string name="hashtag">Hashtag</string>
     <!-- Dialer -->
     <string name="dialer">Compositeur</string>
     <string name="accept">Accepter</string>
+    <string name="accept_call">Accept call</string>
     <string name="decline">Décliner</string>
+    <string name="decline_call">Decline call</string>
     <string name="unknown_caller">Appelant inconnu</string>
     <string name="is_calling">Appelle…</string>
     <string name="dialing">Numérotation…</string>
@@ -30,6 +34,13 @@
     <string name="always_use_this_sim">Toujours utiliser cette carte SIM pour ce numéro</string>
     <string name="unset_default_sim">Désassocier la SIM par défaut</string>
     <string name="calls">Appels</string>
+    <string name="turn_microphone_on">Turn microphone on</string>
+    <string name="turn_microphone_off">Turn microphone off</string>
+    <string name="turn_speaker_on">Turn speaker on</string>
+    <string name="turn_speaker_off">Turn speaker off</string>
+    <string name="show_dialpad">Show dialpad</string>
+    <string name="hide_dialpad">Hide dialpad</string>
+    <string name="end_call">End call</string>
     <!-- Speed dial -->
     <string name="speed_dial">Numérotation rapide</string>
     <string name="manage_speed_dial">Gérer la numérotation rapide</string>

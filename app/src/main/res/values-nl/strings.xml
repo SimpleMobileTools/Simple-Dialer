@@ -18,11 +18,15 @@
 
     <!-- Dialpad -->
     <string name="dialpad">Toetsenblok</string>
+    <string name="asterisk">Asterisk</string>
+    <string name="hashtag">Hashtag</string>
 
     <!-- Dialer -->
     <string name="dialer">Telefoon</string>
     <string name="accept">Beantwoorden</string>
+    <string name="accept_call">Accept call</string>
     <string name="decline">Weigeren</string>
+    <string name="decline_call">Decline call</string>
     <string name="unknown_caller">Nummer onbekend</string>
     <string name="is_calling">Inkomend gesprek…</string>
     <string name="dialing">Bellen…</string>
@@ -33,6 +37,13 @@
     <string name="always_use_this_sim">Voor dit nummer altijd deze SIM-kaart gebruiken</string>
     <string name="unset_default_sim">Standaard-SIM wissen</string>
     <string name="calls">Gesprekken</string>
+    <string name="turn_microphone_on">Turn microphone on</string>
+    <string name="turn_microphone_off">Turn microphone off</string>
+    <string name="turn_speaker_on">Turn speaker on</string>
+    <string name="turn_speaker_off">Turn speaker off</string>
+    <string name="show_dialpad">Show dialpad</string>
+    <string name="hide_dialpad">Hide dialpad</string>
+    <string name="end_call">End call</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Snelkiezer</string>

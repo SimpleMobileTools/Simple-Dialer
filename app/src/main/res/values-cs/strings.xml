@@ -16,10 +16,14 @@
     <string name="clear_call_history">Vymazat historii hovorů</string>
     <!-- Dialpad -->
     <string name="dialpad">Číselník</string>
+    <string name="asterisk">Asterisk</string>
+    <string name="hashtag">Hashtag</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Přijmout</string>
+    <string name="accept_call">Accept call</string>
     <string name="decline">Odmítnout</string>
+    <string name="decline_call">Decline call</string>
     <string name="unknown_caller">Neznámý volající</string>
     <string name="is_calling">Volání…</string>
     <string name="dialing">Vytáčení…</string>
@@ -30,6 +34,13 @@
     <string name="always_use_this_sim">Pro toto číslo vždy použijte tuto SIM kartu</string>
     <string name="unset_default_sim">Zrušit nastavení výchozí SIM karty</string>
     <string name="calls">Calls</string>
+    <string name="turn_microphone_on">Turn microphone on</string>
+    <string name="turn_microphone_off">Turn microphone off</string>
+    <string name="turn_speaker_on">Turn speaker on</string>
+    <string name="turn_speaker_off">Turn speaker off</string>
+    <string name="show_dialpad">Show dialpad</string>
+    <string name="hide_dialpad">Hide dialpad</string>
+    <string name="end_call">End call</string>
     <!-- Speed dial -->
     <string name="speed_dial">Rychlé vytáčení</string>
     <string name="manage_speed_dial">Spravujte rychlou volbu</string>
