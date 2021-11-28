@@ -1,37 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="no_previous_calls">Nem találhatók híváselőzmények</string>
-    <string name="clear_history_confirmation">Biztos, hogy mindent eltávolít a híváselőzményekből\?</string>
-    <string name="clear_call_history">Híváselőzmények törlése</string>
-    <string name="unset_default_sim">Alapértelmezett SIM-kártya beállítás törlése</string>
-    <string name="calls">Hívások</string>
-    <string name="manage_speed_dial">Gyors tárcsázó kezelése</string>
-    <string name="open_dialpad_by_default">Tárcsázó alapértelmezett kinyitása az alkalmazás megnyitásakor</string>
-    <string name="disable_proximity_sensor">Közelségérzékelő kikapcsolása a hívások során</string>
-    <string name="app_short_description">Egy ügyes telefonhívás-kezelő telefonkönyvvel, számblokkolással és több SIM-kártya támogatásával</string>
     <string name="app_name">Egyszerű tárcsázó</string>
-    <string name="decline">Elutasítás</string>
-    <string name="send_sms">SMS küldése</string>
-    <string name="dialer">Tárcsázó</string>
-    <string name="is_calling">Hívás…</string>
     <string name="app_launcher_name">Tárcsázó</string>
     <string name="default_phone_app_prompt">Tegye az alkalmazást az alapértelmezett Telefon alkalmazássá</string>
+    <!-- Contacts -->
     <string name="could_not_access_contacts">A névjegyei nem érhetők el</string>
+    <!-- Recents -->
+    <string name="no_previous_calls">Nem találhatók híváselőzmények</string>
     <string name="could_not_access_the_call_history">A híváselőzmények nem érhetők el</string>
     <string name="request_access">Hozzáférés kérése</string>
     <string name="remove_confirmation">Biztos, hogy eltávolítja a kiválasztott elemeket a híváselőzményekből\?</string>
+    <string name="clear_history_confirmation">Biztos, hogy mindent eltávolít a híváselőzményekből\?</string>
+    <string name="send_sms">SMS küldése</string>
     <string name="show_grouped_calls">Csoportosított hívások megjelenítése</string>
+    <string name="clear_call_history">Híváselőzmények törlése</string>
+    <!-- Dialpad -->
     <string name="dialpad">Tárcsázó</string>
+    <!-- Dialer -->
+    <string name="dialer">Tárcsázó</string>
     <string name="accept">Fogadás</string>
-    <string name="speed_dial">Gyors tárcsázó</string>
-    <string name="group_subsequent_calls">Ugyanazon szám egymást követő hívásainak csoportosítása a hívásnaplóban</string>
+    <string name="decline">Elutasítás</string>
     <string name="unknown_caller">Ismeretlen hívó</string>
+    <string name="is_calling">Hívás…</string>
     <string name="dialing">Tárcsázás…</string>
-    <string name="call_ending">Hívás befejezése</string>
     <string name="call_ended">Hívás vége</string>
+    <string name="call_ending">Hívás befejezése</string>
     <string name="ongoing_call">Folyamatban lévő hívás</string>
     <string name="select_sim">Válasszon SIM-kártyát ehhez a híváshoz</string>
     <string name="always_use_this_sim">Mindig ezt a SIM-kártyát használja</string>
+    <string name="unset_default_sim">Alapértelmezett SIM-kártya beállítás törlése</string>
+    <string name="calls">Hívások</string>
+    <!-- Speed dial -->
+    <string name="speed_dial">Gyors tárcsázó</string>
+    <string name="manage_speed_dial">Gyors tárcsázó kezelése</string>
     <string name="speed_dial_label">Koppintson egy számra, hogy névjegyet rendeljen hozzá. Aztán gyorsan felhívhatja az adott szám hosszú érintésével a tárcsázón.</string>
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Ugyanazon szám egymást követő hívásainak csoportosítása a hívásnaplóban</string>
+    <string name="open_dialpad_by_default">Tárcsázó alapértelmezett kinyitása az alkalmazás megnyitásakor</string>
+    <string name="disable_proximity_sensor">Közelségérzékelő kikapcsolása a hívások során</string>
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer – Telefonhívások kezelése egyszerűen</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Egy ügyes telefonhívás-kezelő telefonkönyvvel, számblokkolással és több SIM-kártya támogatásával</string>
+    <string name="app_long_description">
+        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
+
+        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
+
+        You can easily block phone numbers to avoid unwanted incoming calls.
+
+        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
+
+        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+
+        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+
+        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+
+        <b>Check out the full suite of Simple Tools here:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
 </resources>
