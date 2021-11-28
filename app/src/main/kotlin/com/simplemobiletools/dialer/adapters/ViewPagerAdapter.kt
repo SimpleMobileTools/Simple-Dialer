@@ -3,8 +3,12 @@ package com.simplemobiletools.dialer.adapters
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
+import com.simplemobiletools.commons.helpers.TAB_CALL_HISTORY
+import com.simplemobiletools.commons.helpers.TAB_CONTACTS
+import com.simplemobiletools.commons.helpers.TAB_FAVORITES
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
 
 class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
@@ -30,10 +34,20 @@ class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
     override fun isViewFromObject(view: View, item: Any) = view == item
 
     private fun getFragment(position: Int): Int {
-        return when (position) {
-            0 -> R.layout.fragment_contacts
-            1 -> R.layout.fragment_favorites
-            else -> R.layout.fragment_recents
+        val showTabs = activity.config.showTabs
+        val fragments = arrayListOf<Int>()
+        if (showTabs and TAB_CONTACTS > 0) {
+            fragments.add(R.layout.fragment_contacts)
         }
+
+        if (showTabs and TAB_FAVORITES > 0) {
+            fragments.add(R.layout.fragment_favorites)
+        }
+
+        if (showTabs and TAB_CALL_HISTORY > 0) {
+            fragments.add(R.layout.fragment_recents)
+        }
+
+        return if (position < fragments.size) fragments[position] else fragments.last()
     }
 }

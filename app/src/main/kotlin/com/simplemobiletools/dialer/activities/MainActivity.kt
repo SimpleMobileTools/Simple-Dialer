@@ -39,6 +39,7 @@ class MainActivity : SimpleActivity() {
     private var isSearchOpen = false
     private var launchedDialer = false
     private var searchMenuItem: MenuItem? = null
+    private var storedShowTabs = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,7 +85,10 @@ class MainActivity : SimpleActivity() {
         }
 
         if (!isSearchOpen) {
-            refreshItems()
+            if (storedShowTabs != config.showTabs) {
+                hideTabs()
+            }
+            refreshItems(true)
         }
 
         checkShortcuts()
@@ -95,6 +99,7 @@ class MainActivity : SimpleActivity() {
 
     override fun onPause() {
         super.onPause()
+        storedShowTabs = config.showTabs
         config.lastUsedViewPagerPage = viewpager.currentItem
     }
 
@@ -226,6 +231,16 @@ class MainActivity : SimpleActivity() {
                 getTabAt(it)?.icon?.applyColorFilter(config.textColor)
             }
         }
+
+        main_tabs_holder.onTabSelectionChanged(
+            tabUnselectedAction = {
+                it.icon?.applyColorFilter(config.textColor)
+            },
+            tabSelectedAction = {
+                viewpager.currentItem = it.position
+                it.icon?.applyColorFilter(getAdjustedPrimaryColor())
+            }
+        )
     }
 
     private fun getInactiveTabIndexes(activeIndex: Int) = (0 until tabsList.size).filter { it != activeIndex }
@@ -248,29 +263,13 @@ class MainActivity : SimpleActivity() {
             }
         })
 
-        main_tabs_holder.onTabSelectionChanged(
-            tabUnselectedAction = {
-                it.icon?.applyColorFilter(config.textColor)
-            },
-            tabSelectedAction = {
-                viewpager.currentItem = it.position
-                it.icon?.applyColorFilter(getAdjustedPrimaryColor())
-            }
-        )
-
-        main_tabs_holder.removeAllTabs()
-        tabsList.forEachIndexed { index, value ->
-            val tab = main_tabs_holder.newTab().setIcon(getTabIcon(index))
-            main_tabs_holder.addTab(tab, index, getDefaultTab() == index)
-        }
-
         // selecting the proper tab sometimes glitches, add an extra selector to make sure we have it right
         main_tabs_holder.onGlobalLayout {
             Handler().postDelayed({
                 var wantedTab = getDefaultTab()
 
                 // open the Recents tab if we got here by clicking a missed call notification
-                if (intent.action == Intent.ACTION_VIEW) {
+                if (intent.action == Intent.ACTION_VIEW && config.showTabs and TAB_CALL_HISTORY > 0) {
                     wantedTab = main_tabs_holder.tabCount - 1
                 }
 
@@ -289,6 +288,32 @@ class MainActivity : SimpleActivity() {
         }
     }
 
+    private fun hideTabs() {
+        val selectedTabIndex = main_tabs_holder.selectedTabPosition
+        viewpager.adapter = null
+        main_tabs_holder.removeAllTabs()
+        var skippedTabs = 0
+        var isAnySelected = false
+        tabsList.forEachIndexed { index, value ->
+            if (config.showTabs and value == 0) {
+                skippedTabs++
+            } else {
+                val tab = main_tabs_holder.newTab().setIcon(getTabIcon(index))
+                val wasAlreadySelected = selectedTabIndex > -1 && selectedTabIndex == index - skippedTabs
+                val shouldSelect = !isAnySelected && wasAlreadySelected
+                if (shouldSelect) {
+                    isAnySelected = true
+                }
+                main_tabs_holder.addTab(tab, index - skippedTabs, shouldSelect)
+            }
+        }
+        if (!isAnySelected) {
+            main_tabs_holder.selectTab(main_tabs_holder.getTabAt(getDefaultTab()))
+        }
+        main_tabs_holder.beGoneIf(main_tabs_holder.tabCount == 1)
+        storedShowTabs = config.showTabs
+    }
+
     private fun getTabIcon(position: Int): Drawable {
         val drawableId = when (position) {
             0 -> R.drawable.ic_person_vector
@@ -299,14 +324,14 @@ class MainActivity : SimpleActivity() {
         return resources.getColoredDrawableWithColor(drawableId, config.textColor)
     }
 
-    private fun refreshItems() {
+    private fun refreshItems(openLastTab: Boolean = false) {
         if (isDestroyed || isFinishing) {
             return
         }
 
         if (viewpager.adapter == null) {
             viewpager.adapter = ViewPagerAdapter(this)
-            viewpager.currentItem = getDefaultTab()
+            viewpager.currentItem = if (openLastTab) main_tabs_holder.selectedTabPosition else getDefaultTab()
             viewpager.onGlobalLayout {
                 refreshFragments()
             }
@@ -327,20 +352,52 @@ class MainActivity : SimpleActivity() {
         recents_fragment?.refreshItems()
     }
 
-    private fun getAllFragments() = arrayListOf(contacts_fragment, favorites_fragment, recents_fragment).toMutableList() as ArrayList<MyViewPagerFragment?>
+    private fun getAllFragments(): ArrayList<MyViewPagerFragment?> {
+        val showTabs = config.showTabs
+        val fragments = arrayListOf<MyViewPagerFragment?>()
 
-    private fun getCurrentFragment(): MyViewPagerFragment? = when (viewpager.currentItem) {
-        0 -> contacts_fragment
-        1 -> favorites_fragment
-        else -> recents_fragment
+        if (showTabs and TAB_CONTACTS > 0) {
+            fragments.add(contacts_fragment)
+        }
+
+        if (showTabs and TAB_FAVORITES > 0) {
+            fragments.add(favorites_fragment)
+        }
+
+        if (showTabs and TAB_CALL_HISTORY > 0) {
+            fragments.add(recents_fragment)
+        }
+
+        return fragments
     }
 
+    private fun getCurrentFragment(): MyViewPagerFragment? = getAllFragments().getOrNull(viewpager.currentItem)
+
     private fun getDefaultTab(): Int {
+        val showTabsMask = config.showTabs
         return when (config.defaultTab) {
-            TAB_LAST_USED -> config.lastUsedViewPagerPage
+            TAB_LAST_USED -> if (config.lastUsedViewPagerPage < main_tabs_holder.tabCount) config.lastUsedViewPagerPage else 0
             TAB_CONTACTS -> 0
-            TAB_FAVORITES -> 1
-            else -> 2
+            TAB_FAVORITES -> if (showTabsMask and TAB_CONTACTS > 0) 1 else 0
+            else -> {
+                if (showTabsMask and TAB_CALL_HISTORY > 0) {
+                    if (showTabsMask and TAB_CONTACTS > 0) {
+                        if (showTabsMask and TAB_FAVORITES > 0) {
+                            2
+                        } else {
+                            1
+                        }
+                    } else {
+                        if (showTabsMask and TAB_FAVORITES > 0) {
+                            1
+                        } else {
+                            0
+                        }
+                    }
+                } else {
+                    0
+                }
+            }
         }
     }
 
