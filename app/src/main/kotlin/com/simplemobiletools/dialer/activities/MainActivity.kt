@@ -39,6 +39,7 @@ class MainActivity : SimpleActivity() {
     private var isSearchOpen = false
     private var launchedDialer = false
     private var searchMenuItem: MenuItem? = null
+    private var storedShowTabs = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,7 +85,9 @@ class MainActivity : SimpleActivity() {
         }
 
         if (!isSearchOpen) {
-            hideTabs()
+            if (storedShowTabs != config.showTabs) {
+                hideTabs()
+            }
             refreshItems(true)
         }
 
@@ -96,6 +99,7 @@ class MainActivity : SimpleActivity() {
 
     override fun onPause() {
         super.onPause()
+        storedShowTabs = config.showTabs
         config.lastUsedViewPagerPage = viewpager.currentItem
     }
 
@@ -307,6 +311,7 @@ class MainActivity : SimpleActivity() {
             main_tabs_holder.selectTab(main_tabs_holder.getTabAt(getDefaultTab()))
         }
         main_tabs_holder.beGoneIf(main_tabs_holder.tabCount == 1)
+        storedShowTabs = config.showTabs
     }
 
     private fun getTabIcon(position: Int): Drawable {
@@ -330,6 +335,8 @@ class MainActivity : SimpleActivity() {
             viewpager.onGlobalLayout {
                 refreshFragments()
             }
+        } else {
+            refreshFragments()
         }
     }
 
