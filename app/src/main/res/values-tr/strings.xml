@@ -14,7 +14,7 @@
     <string name="send_sms">SMS gönder</string>
     <string name="show_grouped_calls">Gruplandırılmış aramaları göster</string>
     <string name="clear_call_history">Arama geçmişini temizle</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Arama ayrıntılarını göster</string>
     <!-- Dialpad -->
     <string name="dialpad">Tuş takımı</string>
     <string name="asterisk">Yıldız işareti</string>
