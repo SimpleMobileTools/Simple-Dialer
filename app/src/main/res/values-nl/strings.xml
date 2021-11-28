@@ -15,20 +15,20 @@
     <string name="send_sms">SMS sturen</string>
     <string name="show_grouped_calls">Gegroepeerde gesprekken tonen</string>
     <string name="clear_call_history">Oproepgeschiedenis wissen</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Gespreksdetails tonen</string>
 
     <!-- Dialpad -->
     <string name="dialpad">Toetsenblok</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="asterisk">Sterretje</string>
+    <string name="hashtag">Hekje</string>
+    <string name="call_number">Bellen</string>
 
     <!-- Dialer -->
     <string name="dialer">Telefoon</string>
     <string name="accept">Beantwoorden</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Oproep beantwoorden</string>
     <string name="decline">Weigeren</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Oproep weigeren</string>
     <string name="unknown_caller">Nummer onbekend</string>
     <string name="is_calling">Inkomend gesprek…</string>
     <string name="dialing">Bellen…</string>
@@ -39,13 +39,13 @@
     <string name="always_use_this_sim">Voor dit nummer altijd deze SIM-kaart gebruiken</string>
     <string name="unset_default_sim">Standaard-SIM wissen</string>
     <string name="calls">Gesprekken</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="turn_microphone_on">Microfoon inschakelen</string>
+    <string name="turn_microphone_off">Microfoon uitschakelen</string>
+    <string name="turn_speaker_on">Luidspreker inschakelen</string>
+    <string name="turn_speaker_off">Luidspreker uitschakelen</string>
+    <string name="show_dialpad">Toetsenblok tonen</string>
+    <string name="hide_dialpad">Toetsenblok verbergen</string>
+    <string name="end_call">Gesprek beëindigen</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Snelkiezer</string>
