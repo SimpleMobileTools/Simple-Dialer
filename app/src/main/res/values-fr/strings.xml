@@ -19,6 +19,7 @@
     <string name="dialpad">Pavé numérique</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
+    <string name="call_number">Call number</string>
     <!-- Dialer -->
     <string name="dialer">Compositeur</string>
     <string name="accept">Accepter</string>

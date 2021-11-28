@@ -19,6 +19,7 @@
     <string name="dialpad">Номеронабиратель</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
+    <string name="call_number">Call number</string>
     <!-- Dialer -->
     <string name="dialer">Телефон</string>
     <string name="accept">Принять</string>

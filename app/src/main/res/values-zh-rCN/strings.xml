@@ -19,6 +19,7 @@
     <string name="dialpad">拨号盘</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
+    <string name="call_number">Call number</string>
     <!-- Dialer -->
     <string name="dialer">拨号器</string>
     <string name="accept">接听</string>
