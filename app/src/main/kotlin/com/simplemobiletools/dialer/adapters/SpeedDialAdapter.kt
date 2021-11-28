@@ -12,9 +12,10 @@ import com.simplemobiletools.dialer.models.SpeedDial
 import kotlinx.android.synthetic.main.item_speed_dial.view.*
 import java.util.*
 
-class SpeedDialAdapter(activity: SimpleActivity, var speedDialValues: ArrayList<SpeedDial>, private val removeListener: RemoveSpeedDialListener,
-                       recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
-
+class SpeedDialAdapter(
+    activity: SimpleActivity, var speedDialValues: ArrayList<SpeedDial>, private val removeListener: RemoveSpeedDialListener,
+    recyclerView: MyRecyclerView, itemClick: (Any) -> Unit
+) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
     init {
         setupDragListener(true)
     }

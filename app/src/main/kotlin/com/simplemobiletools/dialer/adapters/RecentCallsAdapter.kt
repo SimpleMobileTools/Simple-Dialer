@@ -30,7 +30,7 @@ import java.util.*
 class RecentCallsAdapter(
     activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener?,
     itemClick: (Any) -> Unit
-) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
+) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
 
     private lateinit var outgoingCallIcon: Drawable
     private lateinit var incomingCallIcon: Drawable
