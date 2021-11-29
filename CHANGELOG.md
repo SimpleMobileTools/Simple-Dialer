@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 5.11.1 *(2021-11-29)*
+----------------------------
+
+ * Allow customizing visible tabs
+ * Added multiple content descriptions for improving Talkback usage
+ * Fixed some in-call proximity sensor related glitches
+ * Allow checking the call details of every call, to see its date and time
+ * Added some other translation, stability and UX improvements
+
 Version 5.11.0 *(2021-11-21)*
 ----------------------------
 
