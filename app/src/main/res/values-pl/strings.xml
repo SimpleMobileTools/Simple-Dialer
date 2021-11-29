@@ -19,7 +19,7 @@
     <string name="dialpad">Panel wybierania</string>
     <string name="asterisk">Gwiazdka</string>
     <string name="hashtag">Kratka</string>
-    <string name="call_number">Call number</string>
+    <string name="call_number">Zadzwoń na numer</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Odbierz</string>
