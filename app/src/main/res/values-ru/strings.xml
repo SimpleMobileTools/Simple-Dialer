@@ -14,18 +14,18 @@
     <string name="send_sms">Отправить SMS</string>
     <string name="show_grouped_calls">Сгруппировать вызовы</string>
     <string name="clear_call_history">Очистить историю вызовов</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Показать сведения о вызове</string>
     <!-- Dialpad -->
     <string name="dialpad">Номеронабиратель</string>
     <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="hashtag">Хэштег</string>
+    <string name="call_number">Номер вызова</string>
     <!-- Dialer -->
     <string name="dialer">Телефон</string>
     <string name="accept">Принять</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Принять вызов</string>
     <string name="decline">Отклонить</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Отклонить вызов</string>
     <string name="unknown_caller">Неизвестный абонент</string>
     <string name="is_calling">Звонит…</string>
     <string name="dialing">Набор номера…</string>
@@ -36,13 +36,13 @@
     <string name="always_use_this_sim">Всегда использовать эту SIM для данного номера</string>
     <string name="unset_default_sim">Снять выбор SIM по умолчанию</string>
     <string name="calls">Вызовы</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="turn_microphone_on">Включить микрофон</string>
+    <string name="turn_microphone_off">Отключить микрофон</string>
+    <string name="turn_speaker_on">Включить динамик</string>
+    <string name="turn_speaker_off">Отключить динамик</string>
+    <string name="show_dialpad">Показать номеронабиратель</string>
+    <string name="hide_dialpad">Скрыть номеронабиратель</string>
+    <string name="end_call">Завершить вызов</string>
     <!-- Speed dial -->
     <string name="speed_dial">Быстрый вызов</string>
     <string name="manage_speed_dial">Управление быстрым вызовом</string>
