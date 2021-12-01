@@ -160,14 +160,16 @@
             android:id="@+id/call_decline"
             android:layout_width="@dimen/incoming_call_button_size"
             android:layout_height="@dimen/incoming_call_button_size"
+            android:clickable="false"
+            android:padding="@dimen/medium_margin"
             android:contentDescription="@string/decline_call"
             android:src="@drawable/ic_call_decline"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintBottom_toBottomOf="@+id/call_draggable"
+            app:layout_constraintEnd_toStartOf="@+id/call_draggable"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.85" />
+            app:layout_constraintTop_toTopOf="@+id/call_draggable" />
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/call_decline_label"
@@ -181,17 +183,48 @@
             app:layout_constraintTop_toBottomOf="@+id/call_decline" />
 
         <ImageView
+            android:id="@+id/call_draggable_background"
+            android:layout_width="@dimen/incoming_call_button_size"
+            android:layout_height="@dimen/incoming_call_button_size"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:alpha="0.2"
+            android:padding="@dimen/medium_margin"
+            android:src="@drawable/pulsing_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/call_accept"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.85"
+            app:layout_constraintStart_toEndOf="@+id/call_decline" />
+
+        <ImageView
+            android:id="@+id/call_draggable"
+            android:layout_width="@dimen/incoming_call_button_size"
+            android:layout_height="@dimen/incoming_call_button_size"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:padding="@dimen/activity_margin"
+            android:src="@drawable/ic_phone_down_vector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/call_accept"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.85"
+            app:layout_constraintStart_toEndOf="@+id/call_decline" />
+
+        <ImageView
             android:id="@+id/call_accept"
             android:layout_width="@dimen/incoming_call_button_size"
             android:layout_height="@dimen/incoming_call_button_size"
+            android:clickable="false"
+            android:padding="@dimen/medium_margin"
             android:contentDescription="@string/accept_call"
             android:src="@drawable/ic_call_accept"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/call_draggable"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.85" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.85"
+            app:layout_constraintStart_toEndOf="@+id/call_draggable"
+            app:layout_constraintTop_toTopOf="@+id/call_draggable" />
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/call_accept_label"

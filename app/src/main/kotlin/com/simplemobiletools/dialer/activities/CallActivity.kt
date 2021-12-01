@@ -11,6 +11,7 @@ import android.os.Handler
 import android.os.PowerManager
 import android.telecom.Call
 import android.telecom.CallAudioState
+import android.view.MotionEvent
 import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
@@ -45,6 +46,7 @@ class CallActivity : SimpleActivity() {
     private var callDuration = 0
     private val callContactAvatarHelper by lazy { CallContactAvatarHelper(this) }
     private val callDurationHelper by lazy { (application as App).callDurationHelper }
+    private var dragDownX = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
@@ -94,12 +96,19 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun initButtons() {
-        call_decline.setOnClickListener {
-            endCall()
-        }
+        if (config.enableSwipeToAnswer) {
+            handleSwipe()
+        } else {
+            call_draggable.beGone()
+            call_draggable_background.beGone()
 
-        call_accept.setOnClickListener {
-            acceptCall()
+            call_decline.setOnClickListener {
+                endCall()
+            }
+
+            call_accept.setOnClickListener {
+                acceptCall()
+            }
         }
 
         call_toggle_microphone.setOnClickListener {
@@ -143,6 +152,55 @@ class CallActivity : SimpleActivity() {
         }
 
         call_sim_id.setTextColor(config.textColor.getContrastColor())
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun handleSwipe() {
+        var minDragX = 0f
+        var maxDragX = 0f
+        var initialDraggableX = 0f
+
+        call_accept.onGlobalLayout {
+            minDragX = call_decline.left.toFloat()
+            maxDragX = call_accept.left.toFloat()
+            initialDraggableX = call_draggable.left.toFloat()
+        }
+
+        call_draggable.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    dragDownX = event.x
+                    call_draggable_background.animate().alpha(0f)
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    dragDownX = 0f
+                    call_draggable.animate().x(initialDraggableX).withEndAction {
+                        call_draggable_background.animate().alpha(0.2f)
+                    }
+                    call_draggable.setImageDrawable(getDrawable(R.drawable.ic_phone_down_vector))
+                }
+                MotionEvent.ACTION_MOVE -> {
+                    call_draggable.x = Math.min(maxDragX, Math.max(minDragX, event.rawX - dragDownX))
+                    when {
+                        call_draggable.x >= maxDragX - 50f -> {
+                            call_draggable.performHapticFeedback()
+                            acceptCall()
+                        }
+                        call_draggable.x <= minDragX + 50f -> {
+                            call_draggable.performHapticFeedback()
+                            endCall()
+                        }
+                        call_draggable.x > initialDraggableX -> {
+                            call_draggable.setImageDrawable(getDrawable(R.drawable.ic_phone_green_vector))
+                        }
+                        call_draggable.x <= initialDraggableX -> {
+                            call_draggable.setImageDrawable(getDrawable(R.drawable.ic_phone_down_red_vector))
+                        }
+                    }
+                }
+            }
+            true
+        }
     }
 
     private fun dialpadPressed(char: Char) {
