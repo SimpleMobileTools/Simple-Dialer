@@ -183,6 +183,21 @@
             app:layout_constraintTop_toBottomOf="@+id/call_decline" />
 
         <ImageView
+            android:id="@+id/call_left_arrow"
+            android:layout_width="@dimen/incoming_call_arrow_size"
+            android:layout_height="@dimen/incoming_call_arrow_size"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:alpha="0.2"
+            android:padding="@dimen/medium_margin"
+            android:src="@drawable/ic_chevron_left_vector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/call_accept"
+            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8375"
+            app:layout_constraintStart_toEndOf="@+id/call_decline" />
+
+        <ImageView
             android:id="@+id/call_draggable_background"
             android:layout_width="@dimen/incoming_call_button_size"
             android:layout_height="@dimen/incoming_call_button_size"
@@ -209,6 +224,21 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.85"
+            app:layout_constraintStart_toEndOf="@+id/call_decline" />
+
+        <ImageView
+            android:id="@+id/call_right_arrow"
+            android:layout_width="@dimen/incoming_call_arrow_size"
+            android:layout_height="@dimen/incoming_call_arrow_size"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:alpha="0.2"
+            android:padding="@dimen/medium_margin"
+            android:src="@drawable/ic_chevron_right_vector"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/call_accept"
+            app:layout_constraintHorizontal_bias="0.85"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8375"
             app:layout_constraintStart_toEndOf="@+id/call_decline" />
 
         <ImageView
