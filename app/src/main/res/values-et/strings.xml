@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_launcher_name">Telefon</string>
+    <string name="default_phone_app_prompt">Palun muuda see rakendus helistamisel vaikimisi kasutatavaks rakenduseks</string>
+    <string name="no_previous_calls">Varasemaid kõnesid ei leidu</string>
+    <string name="could_not_access_the_call_history">Puudub ligipääs kõnede ajaloole</string>
+    <string name="could_not_access_contacts">Puudub ligipääs telefoniraamatule</string>
+</resources>
