@@ -1,34 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Telefono</string>
     <string name="default_phone_app_prompt">Per favore, rendi l\'app la predefinita per le chiamate</string>
-
     <!-- Contacts -->
     <string name="could_not_access_contacts">Impossibile accedere ai contatti</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">Non sono state trovate chiamate precedenti</string>
     <string name="could_not_access_the_call_history">Impossibile accedere alla cronologia delle chiamate</string>
     <string name="request_access">Richiedo accesso</string>
     <string name="remove_confirmation">Rimuovere davvero l\'elemento selezionato dalla cronologia delle chiamate?</string>
-    <string name="clear_history_confirmation">Sicuro di voler svuotare la cronologia delle chiamate?</string>
+    <string name="clear_history_confirmation">Sicuro/a di voler svuotare la cronologia delle chiamate\?</string>
     <string name="send_sms">Invia SMS</string>
     <string name="show_grouped_calls">Mostra chiamate raggruppate</string>
     <string name="clear_call_history">Svuota la cronologia delle chiamate</string>
-    <string name="show_call_details">Show call details</string>
-
+    <string name="show_call_details">Mostra i dettagli della chiamata</string>
     <!-- Dialpad -->
     <string name="dialpad">Tastierino numerico</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
-
+    <string name="asterisk">Asterisco</string>
+    <string name="hashtag">Cancelletto</string>
+    <string name="call_number">Numero di chiamata</string>
     <!-- Dialer -->
     <string name="dialer">Compositore</string>
     <string name="accept">Accetta</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Accetta la chiamata</string>
     <string name="decline">Rifiuta</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Rifiuta la chiamata</string>
     <string name="unknown_caller">Sconosciuto</string>
     <string name="is_calling">Chiamata in corso…</string>
     <string name="dialing">Composizione…</string>
@@ -46,17 +43,14 @@
     <string name="show_dialpad">Show dialpad</string>
     <string name="hide_dialpad">Hide dialpad</string>
     <string name="end_call">End call</string>
-
     <!-- Speed dial -->
     <string name="speed_dial">Contatti veloci</string>
     <string name="manage_speed_dial">Gestisci i contatti veloci</string>
     <string name="speed_dial_label">Seleziona un numero per assegnargli un contatto. In questo modo puoi chiamarlo rapidamente tenendo premuto sul numero scelto nel tastierino.</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">Raggruppa chiamate successive con lo stesso numero nel registro delle chiamate</string>
     <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
     <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - Gestisci le chiamate</string>
@@ -86,7 +80,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
