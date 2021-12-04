@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">Simple Dialer</string>
+    <string name="app_launcher_name">Apeluri</string>
+    <string name="default_phone_app_prompt">Vă rugăm să schimbaţi această aplicație să fie aplicația implicită pentru telefon</string>
+
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Contactele dumneavoastră nu au putut fi accesate</string>
+
+    <!-- Recents -->
+    <string name="no_previous_calls">Nu au fost găsite apeluri anterioare</string>
+    <string name="could_not_access_the_call_history">Nu s-a putut accesa istoricul apelurilor</string>
+    <string name="request_access">Solicitați acces</string>
+    <string name="remove_confirmation">Sunteți sigur că doriți să eliminați elementele selectate din istoricul apelurilor?</string>
+    <string name="clear_history_confirmation">Sunteți sigur că doriți să eliminați totul din istoricul apelurilor?</string>
+    <string name="send_sms">Trimiteți SMS</string>
+    <string name="show_grouped_calls">Afișați apelurile grupate</string>
+    <string name="clear_call_history">Ștergeți istoricul apelurilor</string>
+    <string name="show_call_details">Afișați detaliile apelului</string>
+
+    <!-- Dialpad -->
+    <string name="dialpad">Tastatură telefonică</string>
+    <string name="asterisk">Asterisc</string>
+    <string name="hashtag">Hashtag</string>
+    <string name="call_number">Apelaţi numărul</string>
+
+    <!-- Dialer -->
+    <string name="dialer">Apeluri</string>
+    <string name="accept">Acceptați</string>
+    <string name="accept_call">Acceptați apelul</string>
+    <string name="decline">Refuzaţi</string>
+    <string name="decline_call">Refuzaţi apelul</string>
+    <string name="unknown_caller">Apelant necunoscut</string>
+    <string name="is_calling">Apelează…</string>
+    <string name="dialing">Apelare…</string>
+    <string name="call_ended">Apel terminat</string>
+    <string name="call_ending">Apel în terminare</string>
+    <string name="ongoing_call">Apel în curs de desfășurare</string>
+    <string name="select_sim">Selectați un SIM pentru acest apel</string>
+    <string name="always_use_this_sim">Utilizați întotdeauna acest SIM pentru acest număr</string>
+    <string name="unset_default_sim">Dezactivaţi utilizarea implicită a SIM-ului ales</string>
+    <string name="calls">Apeluri</string>
+    <string name="turn_microphone_on">Porniți microfonul</string>
+    <string name="turn_microphone_off">Opriți microfonul</string>
+    <string name="turn_speaker_on">Porniți difuzorul</string>
+    <string name="turn_speaker_off">Opriți difuzorul</string>
+    <string name="show_dialpad">Afișați tastatură telefonică</string>
+    <string name="hide_dialpad">Ascundeți tastatură telefonică</string>
+    <string name="end_call">Încheiaţi apelul</string>
+
+    <!-- Speed dial -->
+    <string name="speed_dial">Apelare rapidă</string>
+    <string name="manage_speed_dial">Gestionați apelarea rapidă</string>
+    <string name="speed_dial_label">Apăsaţi pe un număr pentru a-i atribui un contact. Apoi, puteți apela rapid contactul dat prin apăsarea lungă a numărului dat în apelator.</string>
+
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Grupaţi apelurile ulterioare cu același număr în jurnalul de apeluri</string>
+    <string name="open_dialpad_by_default">Deschideți în mod implicit tastatura telefonică la deschiderea aplicației</string>
+    <string name="disable_proximity_sensor">Dezactivați senzorul de proximitate în timpul apelurilor</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Dialer - Gestionați apelurile telefonice</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Manager de apeluri cu agendă telefonică, blocarea numerelor și suport multi-SIM</string>
+    <string name="app_long_description">
+        O aplicație ușoară pentru a vă gestiona apelurile, indiferent unde vă aflați. Este însoțită de un jurnal de apeluri la îndemână pentru inițierea ușoară a apelurilor.
+
+        De asemenea, aveți la dispoziție o tastatură de apelare rapidă, cu sugestii inteligente de contacte. Suportă și literele.
+
+        Puteți bloca cu ușurință numere de telefon pentru a evita apelurile primite nedorite.
+
+        Apelarea rapidă face ca apelarea contactelor dumneavoastră preferate cu acest telefon să fie cu adevărat foarte ușoară.
+
+        Pentru a vă ajuta să vă gestionați rapid apelurile, aplicația Telefon acceptă, de asemenea, contactele favorite și crearea de comenzi rapide pentru orice contact pe ecranul principal.
+
+        Aplicaţia vine cu design material şi temă întunecată în mod implicit. Limitarea necesităţii accesului la internet vă oferă mai multă intimitate, securitate şi stabilitate decât alte aplicaţii.
+
+        Nu conţine reclame sau permisiuni inutile. Codul sursă este complet open source şi oferă culori personalizabile.
+
+        <b>Consultaţi întreaga suită de aplicaţii Simple Tools aici:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
