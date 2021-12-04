@@ -9,23 +9,23 @@
     <string name="no_previous_calls">Aucun appel précédent n\'a été trouvé</string>
     <string name="could_not_access_the_call_history">Impossible d\'accéder à l\'historique des appels</string>
     <string name="request_access">Demande d\'accès</string>
-    <string name="remove_confirmation">Êtes-vous sûr de vouloir effacer de l\'historique les éléments sélectionnés ?</string>
-    <string name="clear_history_confirmation">Êtes-vous sûr de vouloir supprimer votre historique d\'appel ?</string>
+    <string name="remove_confirmation">Êtes-vous sûr(e) de vouloir effacer de l\'historique les éléments sélectionnés \?</string>
+    <string name="clear_history_confirmation">Êtes-vous sûr(e) de vouloir supprimer votre historique d\'appel \?</string>
     <string name="send_sms">Envoyer un SMS</string>
     <string name="show_grouped_calls">Afficher les appels groupés</string>
     <string name="clear_call_history">Nettoyer l\'historique d\'appel</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Afficher les détails de l\'appel</string>
     <!-- Dialpad -->
     <string name="dialpad">Pavé numérique</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="asterisk">Étoile</string>
+    <string name="hashtag">Dièse</string>
+    <string name="call_number">Numéro d\'appel</string>
     <!-- Dialer -->
-    <string name="dialer">Compositeur</string>
+    <string name="dialer">Clavier</string>
     <string name="accept">Accepter</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Accepter l\'appel</string>
     <string name="decline">Décliner</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Décliner l\'appel</string>
     <string name="unknown_caller">Appelant inconnu</string>
     <string name="is_calling">Appelle…</string>
     <string name="dialing">Numérotation…</string>
@@ -36,13 +36,13 @@
     <string name="always_use_this_sim">Toujours utiliser cette carte SIM pour ce numéro</string>
     <string name="unset_default_sim">Désassocier la SIM par défaut</string>
     <string name="calls">Appels</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="turn_microphone_on">Activer le microphone</string>
+    <string name="turn_microphone_off">Désactiver le microphone</string>
+    <string name="turn_speaker_on">Activer le haut-parleur</string>
+    <string name="turn_speaker_off">Désactiver le haut-parleur</string>
+    <string name="show_dialpad">Afficher le clavier</string>
+    <string name="hide_dialpad">Masquer le clavier</string>
+    <string name="end_call">Finir l\'appel</string>
     <!-- Speed dial -->
     <string name="speed_dial">Numérotation rapide</string>
     <string name="manage_speed_dial">Gérer la numérotation rapide</string>
