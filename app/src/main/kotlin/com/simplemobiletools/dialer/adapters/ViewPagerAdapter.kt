@@ -10,6 +10,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
+import com.simplemobiletools.dialer.helpers.tabsList
 
 class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
 
@@ -29,7 +30,7 @@ class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
         container.removeView(item as View)
     }
 
-    override fun getCount() = 3
+    override fun getCount() = tabsList.filter { it and activity.config.showTabs != 0 }.size
 
     override fun isViewFromObject(view: View, item: Any) = view == item
 
