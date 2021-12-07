@@ -35,22 +35,22 @@
     <string name="select_sim">Seleziona una SIM per questa chiamata</string>
     <string name="always_use_this_sim">Usa sempre questa SIM per questo numero</string>
     <string name="unset_default_sim">Non utilizzare più questa SIM come predefinita</string>
-    <string name="calls">Calls</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="calls">Chiamate</string>
+    <string name="turn_microphone_on">Attiva il microfono</string>
+    <string name="turn_microphone_off">Spegni il microfono</string>
+    <string name="turn_speaker_on">Attiva l\'altoparlante</string>
+    <string name="turn_speaker_off">Spegni l\'altoparlante</string>
+    <string name="show_dialpad">Mostra il tastierino</string>
+    <string name="hide_dialpad">Nascondi il tastierino</string>
+    <string name="end_call">Termina la chiamata</string>
     <!-- Speed dial -->
     <string name="speed_dial">Contatti veloci</string>
     <string name="manage_speed_dial">Gestisci i contatti veloci</string>
     <string name="speed_dial_label">Seleziona un numero per assegnargli un contatto. In questo modo puoi chiamarlo rapidamente tenendo premuto sul numero scelto nel tastierino.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Raggruppa chiamate successive con lo stesso numero nel registro delle chiamate</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
+    <string name="open_dialpad_by_default">Apri il tastierino per impostazione predefinita quando l\'app si apre</string>
+    <string name="disable_proximity_sensor">Disattiva il sensore di prossimità durante le chiamate</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - Gestisci le chiamate</string>
