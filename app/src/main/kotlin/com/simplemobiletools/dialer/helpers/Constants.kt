@@ -10,7 +10,6 @@ const val REMEMBER_SIM_PREFIX = "remember_sim_"
 const val GROUP_SUBSEQUENT_CALLS = "group_subsequent_calls"
 const val OPEN_DIAL_PAD_AT_LAUNCH = "open_dial_pad_at_launch"
 const val DISABLE_PROXIMITY_SENSOR = "disable_proximity_sensor"
-const val ENABLE_SWIPE_TO_ANSWER = "enable_swipe_to_answer"
 const val SHOW_TABS = "show_tabs"
 
 const val ALL_TABS_MASK = TAB_CONTACTS or TAB_FAVORITES or TAB_CALL_HISTORY

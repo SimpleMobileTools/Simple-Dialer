@@ -52,10 +52,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(DISABLE_PROXIMITY_SENSOR, false)
         set(disableProximitySensor) = prefs.edit().putBoolean(DISABLE_PROXIMITY_SENSOR, disableProximitySensor).apply()
 
-    var enableSwipeToAnswer: Boolean
-        get() = prefs.getBoolean(ENABLE_SWIPE_TO_ANSWER, false)
-        set(enableSwipeToAnswer) = prefs.edit().putBoolean(ENABLE_SWIPE_TO_ANSWER, enableSwipeToAnswer).apply()
-
     var showTabs: Int
         get() = prefs.getInt(SHOW_TABS, ALL_TABS_MASK)
         set(showTabs) = prefs.edit().putInt(SHOW_TABS, showTabs).apply()
