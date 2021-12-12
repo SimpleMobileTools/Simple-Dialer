@@ -14,18 +14,18 @@
     <string name="send_sms">Send SMS</string>
     <string name="show_grouped_calls">显示分组呼叫</string>
     <string name="clear_call_history">清除通话记录</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">显示通话详情</string>
     <!-- Dialpad -->
     <string name="dialpad">拨号盘</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="asterisk">星号键</string>
+    <string name="hashtag">标签</string>
+    <string name="call_number">呼叫号码</string>
     <!-- Dialer -->
     <string name="dialer">拨号器</string>
     <string name="accept">接听</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">接受通话</string>
     <string name="decline">拒绝</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">拒绝通话</string>
     <string name="unknown_caller">未知呼叫</string>
     <string name="is_calling">正在呼叫…</string>
     <string name="dialing">拨号中…</string>
@@ -36,13 +36,13 @@
     <string name="always_use_this_sim">为此号码一直使用该 SIM 卡</string>
     <string name="unset_default_sim">取消设置默认  SIM 卡</string>
     <string name="calls">通话</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="turn_microphone_on">打开麦克风</string>
+    <string name="turn_microphone_off">关闭麦克风</string>
+    <string name="turn_speaker_on">打开扬声器</string>
+    <string name="turn_speaker_off">关闭扬声器</string>
+    <string name="show_dialpad">显示拨号盘</string>
+    <string name="hide_dialpad">隐藏拨号盘</string>
+    <string name="end_call">结束通话</string>
     <!-- Speed dial -->
     <string name="speed_dial">快速拨号</string>
     <string name="manage_speed_dial">管理快速拨号</string>

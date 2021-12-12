@@ -1,11 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Puhelin</string>
     <string name="default_phone_app_prompt">Aseta tämä sovellus oletukseksi puheluille</string>
-
     <!-- Contacts -->
     <string name="could_not_access_contacts">Ei käyttöoikeutta yhteystietoihin</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">Ei puheluita</string>
     <string name="could_not_access_the_call_history">Ei käyttöoikeutta puheluhistoriaan</string>
@@ -15,20 +14,18 @@
     <string name="send_sms">Lähetä tekstiviesti</string>
     <string name="show_grouped_calls">Näytä ryhmitetyt puhelut</string>
     <string name="clear_call_history">Tyhjennä puheluhistoria</string>
-    <string name="show_call_details">Show call details</string>
-
+    <string name="show_call_details">Näytä puhelun tiedot</string>
     <!-- Dialpad -->
     <string name="dialpad">Numerovalitsin</string>
-    <string name="asterisk">Asterisk</string>
+    <string name="asterisk">Asteriski</string>
     <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
-
+    <string name="call_number">Soita numeroon</string>
     <!-- Dialer -->
     <string name="dialer">Puhelin</string>
     <string name="accept">Hyväksy</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Vastaa puheluun</string>
     <string name="decline">Hylkää</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Hylkää puhelu</string>
     <string name="unknown_caller">Tuntematon soittaja</string>
     <string name="is_calling">Soittaa…</string>
     <string name="dialing">Soitetaan…</string>
@@ -38,57 +35,28 @@
     <string name="select_sim">Valitse SIM-kortti puhelulle</string>
     <string name="always_use_this_sim">Käytä tälle numerolle aina tätä SIM-korttia</string>
     <string name="unset_default_sim">Poista oletus-SIM</string>
-    <string name="calls">Calls</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
-
+    <string name="calls">Puhelut</string>
+    <string name="turn_microphone_on">Laita mikrofoni päälle</string>
+    <string name="turn_microphone_off">Laita mikrofoni pois päältä</string>
+    <string name="turn_speaker_on">Laita kaiutin päälle</string>
+    <string name="turn_speaker_off">Laita kaiutin pois päältä</string>
+    <string name="show_dialpad">Näytä valintanäppäimistö</string>
+    <string name="hide_dialpad">Piilota valintanäppäimistö</string>
+    <string name="end_call">Lopeta puhelu</string>
     <!-- Speed dial -->
     <string name="speed_dial">Pikavalinta</string>
     <string name="manage_speed_dial">Pikavalinnan asetukset</string>
     <string name="speed_dial_label">Paina numeroa asettaaksesi sille yhteystiedon. Yhteystiedolle soitetaan, kun painat numeroa pitkään numerovalitsimessa.</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">Ryhmitä saman numeron peräkkäiset puhelut puheluhistoriassa</string>
     <string name="open_dialpad_by_default">Avaa numeronäppäimistö, kun sovellus avataan</string>
     <string name="disable_proximity_sensor">Poista läheisyysanturi käytöstä puheluiden aikana</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - Hallitse puheluitasi helposti</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Näppärä puhelinsovellus osoitteistolla, numeroestolla ja usean SIM-kortin tuella</string>
-    <string name="app_long_description">
-        Kevyt sovellus puheluiden hallintaan, missä tahansa oletkin. Sovelluksessa on myös puheluhistoria, josta teet puheluita helposti.
-
-        Sinua varten sovelluksessa on myös pikatoiminen numeronäppäimistö älykkäällä yhteystietojen ehdotuksella. Se tukee myös kirjaimia.
-
-        Voit helposti estää numeroita välttääksesi saapuvia puheluita valitsemistasi numeroista.
-
-        Puheluiden hallintaa helpottaa mahdollisuus valita suosikkiyhteystietoja, joille voit luoda myös pikakuvakkeita puhelimen aloitusnäytölle
-
-        Pikavalintatuki tekee suosikkiyhteystiedoille soittamisesta salamannopeaa.
-        
-        Sovelluksen ulkoasu noudattelee material designia, tumma teema on oletuksena käytettävissä. Ulkoasu tarjoaa loistavan ja mutkattoman käyttökokemuksen. Voit mukauttaa sovelluksen värejä.
-
-        Internet-yhteyttä ei käytetä, joten puhelimesi turvallisuus ja yksityisyytesi ja ovat turvattu.
-
-        Ei sisällä mainoksia eikä vaadi tarpeettomia käyttöoikeuksia. Sovellus on täysin avointa lähädekoodia.
-
-        <b>Katso koko Simple Tools-sovellusvalikoima täältä:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
-
+    <string name="app_long_description"> Kevyt sovellus puheluiden hallintaan, kaikkialla missä oletkin. Sovelluksesta näet puheluhistorian, jonka kautta voit tehdä puheluita. Sinua varten sovelluksessa on myös pikatoiminen numeronäppäimistö älykkäällä yhteystietojen ehdotuksella. Se tukee myös kirjaimia. Voit helposti estää numeroita välttääksesi puheluita valitsemistasi numeroista. Puheluiden hallintaa helpottaa mahdollisuus valita suosikkiyhteystietoja, joille voit luoda myös pikakuvakkeita puhelimen aloitusnäytölle. Pikavalinta tekee suosikkiyhteystiedoille soittamisesta salamannopeaa. Sovelluksen ulkoasu noudattelee material designia, tumma teema on oletuksena käytettävissä. Ulkoasu tarjoaa loistavan ja mutkattoman käyttökokemuksen. Voit mukauttaa sovelluksen värejä. Sovellus takaa turvallisuutesi ja yksityisyytesi, sillä se ei käytä Internet-yhteyttä. Ei sisällä mainoksia eikä vaadi tarpeettomia käyttöoikeuksia. Sovellus on täysin avointa lähdekoodia. <b>Katso koko Simple Tools-sovellusvalikoima täältä:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

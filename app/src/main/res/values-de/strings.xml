@@ -6,7 +6,7 @@
     <!-- Contacts -->
     <string name="could_not_access_contacts">kein Zugriff auf Kontakte</string>
     <!-- Recents -->
-    <string name="no_previous_calls">Deine Anrufliste ist leer.</string>
+    <string name="no_previous_calls">Deine Anrufliste ist leer</string>
     <string name="could_not_access_the_call_history">kein Zugriff auf Anrufliste</string>
     <string name="request_access">Zugriff anfordern</string>
     <string name="remove_confirmation">Ausgewählte Anrufe definitiv aus der Anrufliste löschen?</string>
@@ -14,18 +14,18 @@
     <string name="send_sms">Sende SMS</string>
     <string name="show_grouped_calls">Zeige gruppierte Anrufe</string>
     <string name="clear_call_history">Anrufliste löschen</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Anrufdetails anzeigen</string>
     <!-- Dialpad -->
     <string name="dialpad">Wählpad</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="asterisk">Sternchen</string>
+    <string name="hashtag">Raute</string>
+    <string name="call_number">Rufnummer</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">akzeptieren</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Anruf annehmen</string>
     <string name="decline">ablehnen</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Anruf ablehnen</string>
     <string name="unknown_caller">Unbekannter Anruf</string>
     <string name="is_calling">ruft an…</string>
     <string name="dialing">rufe an…</string>
@@ -36,50 +36,27 @@
     <string name="always_use_this_sim">benutze immer diese SIM Karte</string>
     <string name="unset_default_sim">Standard SIM abstellen</string>
     <string name="calls">Anrufe</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="turn_microphone_on">Mikrofon einschalten</string>
+    <string name="turn_microphone_off">Mikrofon ausschalten</string>
+    <string name="turn_speaker_on">Lautsprecher einschalten</string>
+    <string name="turn_speaker_off">Lautsprecher ausschalten</string>
+    <string name="show_dialpad">Wähltasten anzeigen</string>
+    <string name="hide_dialpad">Wähltasten ausblenden</string>
+    <string name="end_call">Anruf beenden</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kurzwahl</string>
     <string name="manage_speed_dial">Kurzwahlnummern verwalten</string>
-    <string name="speed_dial_label">Klicke auf eine Zahl um einen Kontakt zuzuweisen. Danach kannst du den Kontakt schnell durch langes drücken der entsprechenden Zahl anrufen</string>
+    <string name="speed_dial_label">Klicke auf eine Zahl um einen Kontakt zuzuweisen. Danach kannst du den Kontakt schnell durch langes drücken der entsprechenden Zahl anrufen.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">In der Anrufliste aufeinanderfolgende Anrufe mit derselben Nummer gruppieren</string>
     <string name="open_dialpad_by_default">Öffnen Sie die Wähltastatur als Standard, wenn die App geöffnet wird</string>
     <string name="disable_proximity_sensor">Näherungssensor bei Anrufen deaktivieren</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Schlichtes Telefon</string>
+    <string name="app_title">Schlichtes Telefon – Verwalten Sie Ihre Anrufe ganz einfach</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Eine Telefon App mit Adressbuch, Wählpad und mehrfach-SIM Unterstützung</string>
-    <string name="app_long_description">
-        Eine App um Anrufe zu verwalten. Aus dem praktisches Anrufprotokoll können direkt Anrufe getätigt werden.
-
-        Das Wähltastenfeld bietet intelligente Kontaktvorschlägen. Es unterstützt auch Buchstaben.
-
-        Sie können Telefonnummern einfach blockieren, um unerwünschte eingehende Anrufe zu vermeiden.
-
-        Die unterstützte Kurzwahl macht das Anrufen Ihrer Lieblingskontakte mit dieser App zum Kinderspiel.
-
-        Um Ihnen zu helfen, Ihre Anrufe schnell zu verwalten, unterstützt die Telefon-App auch Favoriten und erstellt Verknüpfungen für jeden Kontakt auf dem Startbildschirm.
-
-        Weiter unterstützt die App standardmässig das Materialdesign und Dark-Theme und bietet eine hervorragende Benutzererfahrung für eine einfache Verwendung. Keine Internetverbindung nötig, dadurch mehr Privatsphäre, Sicherheit und Stabilität als andere Apps.
-
-        Enthält keine Werbungen und benötigt keine unnötigen Berechtigungen. Vollständig OpenSource und bietet anpassbare Farben.
-
-        <b>Schau dir die vollständige Serie der Schlichten Apps hier an:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
+    <string name="app_long_description"> Eine Anwendung um Anrufe zu verwalten. Aus dem praktisches Anrufprotokoll können direkt Anrufe getätigt werden. Das Wähltastenfeld bietet intelligente Kontaktvorschlägen. Es unterstützt auch Buchstaben. Sie können Telefonnummern einfach blockieren, um unerwünschte eingehende Anrufe zu vermeiden. Die unterstützte Kurzwahl macht das Anrufen Ihrer Lieblingskontakte mit dieser Anwendung zum Kinderspiel. Um Ihnen zu helfen, Ihre Anrufe schnell zu verwalten, unterstützt die Telefonanwendung auch Favoriten und erstellt Verknüpfungen für jeden Kontakt auf dem Startbildschirm. Weiter unterstützt die Anwendung standardmäßig das Materialdesign und dunkles Farbschema und bietet eine hervorragende Benutzererfahrung für eine einfache Verwendung. Keine Internetverbindung nötig, dadurch mehr Privatsphäre, Sicherheit und Stabilität als andere Apps. Enthält keine Werbungen und benötigt keine unnötigen Berechtigungen. Vollständig quelloffen und bietet anpassbare Farben. <b>Schau dir die vollständige Serie der Schlichten Anwendungen hier an:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
