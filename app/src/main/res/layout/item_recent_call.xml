@@ -68,7 +68,6 @@
             android:id="@+id/item_recents_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/item_recents_name"
             android:layout_alignTop="@+id/item_recents_date_time"
             android:layout_alignBottom="@+id/item_recents_date_time"
             android:layout_toEndOf="@+id/item_recents_sim_image"
