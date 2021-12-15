@@ -177,6 +177,7 @@ class CallActivity : SimpleActivity() {
             startArrowAnimation(call_right_arrow, initialRightArrowX, initialRightArrowScaleX, initialRightArrowScaleY, rightArrowTranslation)
         }
 
+        var lock = false
         call_draggable.setOnTouchListener { v, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
@@ -185,6 +186,7 @@ class CallActivity : SimpleActivity() {
                     stopAnimation = true
                     call_left_arrow.animate().alpha(0f)
                     call_right_arrow.animate().alpha(0f)
+                    lock = false
                 }
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                     dragDownX = 0f
@@ -202,17 +204,25 @@ class CallActivity : SimpleActivity() {
                     call_draggable.x = Math.min(maxDragX, Math.max(minDragX, event.rawX - dragDownX))
                     when {
                         call_draggable.x >= maxDragX - 50f -> {
-                            call_draggable.performHapticFeedback()
-                            acceptCall()
+                            if (!lock) {
+                                lock = true
+                                call_draggable.performHapticFeedback()
+                                acceptCall()
+                            }
                         }
                         call_draggable.x <= minDragX + 50f -> {
-                            call_draggable.performHapticFeedback()
-                            endCall()
+                            if (!lock) {
+                                lock = true
+                                call_draggable.performHapticFeedback()
+                                endCall()
+                            }
                         }
                         call_draggable.x > initialDraggableX -> {
+                            lock = false
                             call_draggable.setImageDrawable(getDrawable(R.drawable.ic_phone_green_vector))
                         }
                         call_draggable.x <= initialDraggableX -> {
+                            lock = false
                             call_draggable.setImageDrawable(getDrawable(R.drawable.ic_phone_down_red_vector))
                         }
                     }
