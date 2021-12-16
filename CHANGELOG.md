@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.11.2 *(2021-12-16)*
+----------------------------
+
+ * Changed the accept and decline actions from click to swipe
+ * Added some stability, translation and UX improvements
+
 Version 5.11.1 *(2021-11-29)*
 ----------------------------
 
