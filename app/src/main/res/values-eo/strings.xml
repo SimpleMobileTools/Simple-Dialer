@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="accept">Akcepti</string>
+    <string name="accept_call">Akcepti alvokon</string>
+    <string name="decline">Rifuzi</string>
+    <string name="decline_call">Rifuzi alvokon</string>
+</resources>
