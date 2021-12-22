@@ -98,7 +98,20 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun initButtons() {
-        handleSwipe()
+        if (config.enableSwipeToAnswer) {
+            handleSwipe()
+        } else {
+            call_draggable.beGone()
+            call_draggable_background.beGone()
+
+            call_decline.setOnClickListener {
+                endCall()
+            }
+
+            call_accept.setOnClickListener {
+                acceptCall()
+            }
+        }
 
         call_toggle_microphone.setOnClickListener {
             toggleMicrophone()
@@ -169,9 +182,6 @@ class CallActivity : SimpleActivity() {
             initialRightArrowScaleY = call_right_arrow.scaleY
             leftArrowTranslation = -call_decline.x
             rightArrowTranslation = call_decline.x
-
-            call_left_arrow.applyColorFilter(getColor(R.color.md_red_400))
-            call_right_arrow.applyColorFilter(getColor(R.color.md_green_400))
 
             startArrowAnimation(call_left_arrow, initialLeftArrowX, initialLeftArrowScaleX, initialLeftArrowScaleY, leftArrowTranslation)
             startArrowAnimation(call_right_arrow, initialRightArrowX, initialRightArrowScaleX, initialRightArrowScaleY, rightArrowTranslation)
