@@ -51,7 +51,7 @@
     <string name="group_subsequent_calls">Grupuj kolejne połączenia z tym samym numerem w rejestrze połączeń</string>
     <string name="open_dialpad_by_default">Otwieraj panel wybierania numeru domyślnie przy uruchomieniu aplikacji</string>
     <string name="disable_proximity_sensor">Wyłączaj czujnik zbliżeniowy podczas połączeń</string>
-    <string name="enable_swipe_to_answer">Włącz gest przesunięcia do odpowiadania na połączenia przychodzące</string>
+    <string name="disable_swipe_to_answer">Zastąp naciśnięciem gest przesunięcia do odpowiadania na połączenia przychodzące</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Prosty telefon - Łatwe połączenia telefoniczne</string>

@@ -40,7 +40,7 @@ class SettingsActivity : SimpleActivity() {
         setupStartNameWithSurname()
         setupShowCallConfirmation()
         setupDisableProximitySensor()
-        setupEnableSwipeToAnswer()
+        setupDisableSwipeToAnswer()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
 
@@ -222,11 +222,11 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupEnableSwipeToAnswer() {
-        settings_enable_swipe_to_answer.isChecked = config.enableSwipeToAnswer
-        settings_enable_swipe_to_answer_holder.setOnClickListener {
-            settings_enable_swipe_to_answer.toggle()
-            config.enableSwipeToAnswer = settings_enable_swipe_to_answer.isChecked
+    private fun setupDisableSwipeToAnswer() {
+        settings_disable_swipe_to_answer.isChecked = config.disableSwipeToAnswer
+        settings_disable_swipe_to_answer_holder.setOnClickListener {
+            settings_disable_swipe_to_answer.toggle()
+            config.disableSwipeToAnswer = settings_disable_swipe_to_answer.isChecked
         }
     }
 }

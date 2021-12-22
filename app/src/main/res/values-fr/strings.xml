@@ -51,7 +51,7 @@
     <string name="group_subsequent_calls">Regrouper les appels suivants avec le même numéro dans le journal des appels</string>
     <string name="open_dialpad_by_default">Ouvrir le pavé numérique par défaut à l\'ouverture de l\'application</string>
     <string name="disable_proximity_sensor">Désactiver le capteur de proximité pendant les appels</string>
-    <string name="enable_swipe_to_answer">Enable swipe to answer an incoming call</string>
+    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Téléphone – Gérez facilement vos appels</string>

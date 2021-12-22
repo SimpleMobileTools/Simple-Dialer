@@ -51,7 +51,7 @@
     <string name="group_subsequent_calls">In der Anrufliste aufeinanderfolgende Anrufe mit derselben Nummer gruppieren</string>
     <string name="open_dialpad_by_default">Öffnen Sie die Wähltastatur als Standard, wenn die App geöffnet wird</string>
     <string name="disable_proximity_sensor">Näherungssensor bei Anrufen deaktivieren</string>
-    <string name="enable_swipe_to_answer">Enable swipe to answer an incoming call</string>
+    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Schlichtes Telefon – Verwalten Sie Ihre Anrufe ganz einfach</string>

@@ -315,18 +315,18 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/settings_enable_swipe_to_answer_holder"
+                android:id="@+id/settings_disable_swipe_to_answer_holder"
                 style="@style/SettingsHolderCheckboxStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ripple_bottom_corners">
 
                 <com.simplemobiletools.commons.views.MyAppCompatCheckbox
-                    android:id="@+id/settings_enable_swipe_to_answer"
+                    android:id="@+id/settings_disable_swipe_to_answer"
                     style="@style/SettingsCheckboxStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/enable_swipe_to_answer" />
+                    android:text="@string/disable_swipe_to_answer" />
 
             </RelativeLayout>
         </LinearLayout>
