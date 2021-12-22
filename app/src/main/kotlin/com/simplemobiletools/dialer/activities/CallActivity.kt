@@ -98,9 +98,7 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun initButtons() {
-        if (!config.disableSwipeToAnswer) {
-            handleSwipe()
-        } else {
+        if (config.disableSwipeToAnswer) {
             call_draggable.beGone()
             call_draggable_background.beGone()
             call_left_arrow.beGone()
@@ -113,6 +111,8 @@ class CallActivity : SimpleActivity() {
             call_accept.setOnClickListener {
                 acceptCall()
             }
+        } else {
+            handleSwipe()
         }
 
         call_toggle_microphone.setOnClickListener {
