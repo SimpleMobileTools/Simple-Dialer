@@ -56,6 +56,7 @@
     <string name="group_subsequent_calls">Agrupar, no registo, as chamadas para o mesmo contacto</string>
     <string name="open_dialpad_by_default">Mostrar teclado de marcação ao abrir a aplicação</string>
     <string name="disable_proximity_sensor">Desativar sensor de proximidade durante as chamadas</string>
+    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

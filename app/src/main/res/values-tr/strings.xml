@@ -51,6 +51,7 @@
     <string name="group_subsequent_calls">Arama kaydında aynı numaraya sahip sonraki aramaları gruplandır</string>
     <string name="open_dialpad_by_default">Uygulama açıldığında varsayılan olarak tuş takımını aç</string>
     <string name="disable_proximity_sensor">Aramalar sırasında yakınlık sensörünü devre dışı bırak</string>
+    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Basit Çevirici - Aramaları kolayca yönetin</string>

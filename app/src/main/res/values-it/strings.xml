@@ -51,6 +51,8 @@
     <string name="group_subsequent_calls">Raggruppa chiamate successive con lo stesso numero nel registro delle chiamate</string>
     <string name="open_dialpad_by_default">Apri il tastierino per impostazione predefinita quando l\'app si apre</string>
     <string name="disable_proximity_sensor">Disattiva il sensore di prossimità durante le chiamate</string>
+    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
+
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - Gestisci le chiamate</string>

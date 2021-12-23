@@ -40,6 +40,7 @@ class SettingsActivity : SimpleActivity() {
         setupStartNameWithSurname()
         setupShowCallConfirmation()
         setupDisableProximitySensor()
+        setupDisableSwipeToAnswer()
         updateTextColors(settings_holder)
         invalidateOptionsMenu()
 
@@ -218,6 +219,14 @@ class SettingsActivity : SimpleActivity() {
         settings_disable_proximity_sensor_holder.setOnClickListener {
             settings_disable_proximity_sensor.toggle()
             config.disableProximitySensor = settings_disable_proximity_sensor.isChecked
+        }
+    }
+
+    private fun setupDisableSwipeToAnswer() {
+        settings_disable_swipe_to_answer.isChecked = config.disableSwipeToAnswer
+        settings_disable_swipe_to_answer_holder.setOnClickListener {
+            settings_disable_swipe_to_answer.toggle()
+            config.disableSwipeToAnswer = settings_disable_swipe_to_answer.isChecked
         }
     }
 }
