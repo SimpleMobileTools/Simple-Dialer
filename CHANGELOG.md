@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.11.3 *(2021-12-24)*
+----------------------------
+
+ * Added a setting for toggling handling incoming calls between clicks and swipes
+ * Added some stability and translation improvements
+
 Version 5.11.2 *(2021-12-16)*
 ----------------------------
 
