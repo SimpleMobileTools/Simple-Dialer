@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="could_not_access_contacts">Nije moguće pristupiti vašim kontaktima</string>
+    <string name="app_name">Jednostavan birač</string>
+    <string name="app_launcher_name">Birač</string>
+</resources>
