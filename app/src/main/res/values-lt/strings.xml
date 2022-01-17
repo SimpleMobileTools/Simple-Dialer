@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
+    <string name="app_name">Paprastas rinkiklis</string>
     <string name="app_launcher_name">Dialer</string>
     <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
-
     <!-- Contacts -->
     <string name="could_not_access_contacts">Could not access your contacts</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">No previous calls have been found</string>
     <string name="could_not_access_the_call_history">Could not access the call history</string>
@@ -17,13 +15,11 @@
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>
     <string name="show_call_details">Show call details</string>
-
     <!-- Dialpad -->
     <string name="dialpad">Numerio rinkiklis</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Call number</string>
-
     <!-- Dialer -->
     <string name="dialer">Dialer</string>
     <string name="accept">Accept</string>
@@ -47,18 +43,15 @@
     <string name="show_dialpad">Show dialpad</string>
     <string name="hide_dialpad">Hide dialpad</string>
     <string name="end_call">End call</string>
-
     <!-- Speed dial -->
     <string name="speed_dial">Speed dial</string>
     <string name="manage_speed_dial">Manage speed dial</string>
     <string name="speed_dial_label">Click on a number to assign a contact to it. You can then quickly call the given contact by long pressing the given number at the dialer.</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
     <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
     <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
     <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - Manage your phone calls easily</string>
@@ -88,7 +81,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
