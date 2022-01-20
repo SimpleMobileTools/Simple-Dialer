@@ -16,7 +16,7 @@
     <string name="clear_call_history">Oproepgeschiedenis wissen</string>
     <string name="show_call_details">Gespreksdetails tonen</string>
     <!-- Dialpad -->
-    <string name="dialpad">Cijferblok</string>
+    <string name="dialpad">Nummerkiezer</string>
     <string name="asterisk">Sterretje</string>
     <string name="hashtag">Hekje</string>
     <string name="call_number">Nummer</string>
