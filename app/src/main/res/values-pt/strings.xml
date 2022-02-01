@@ -9,8 +9,8 @@
     <string name="no_previous_calls">Não existem chamadas anteriores</string>
     <string name="could_not_access_the_call_history">Não foi possível aceder ao histórico de chamadas</string>
     <string name="request_access">Pedir acesso</string>
-    <string name="remove_confirmation">Tem a certeza de que deseja remover do histórico os itens selecionados\?</string>
-    <string name="clear_history_confirmation">Tem a certeza de que deseja remover todo o histórico de chamadas\?</string>
+    <string name="remove_confirmation">Tem a certeza de que pretende remover do registo os itens selecionados\?</string>
+    <string name="clear_history_confirmation">Tem a certeza de que pretende remover todo o registo de chamadas\?</string>
     <string name="send_sms">Enviar SMS</string>
     <string name="show_grouped_calls">Mostrar chamadas em grupo</string>
     <string name="clear_call_history">Limpar registo de chamadas</string>
@@ -33,10 +33,10 @@
     <string name="call_ending">A terminar chamada</string>
     <string name="ongoing_call">Chamada em curso</string>
     <string name="select_sim">Selecione um SIM para esta chamada</string>
-    <string name="always_use_this_sim">Utilizar sempre este SIM para ligar a este número</string>
+    <string name="always_use_this_sim">Utilizar sempre este SIM para ligar para este número</string>
     <string name="unset_default_sim">Deixar de utilizar como SIM padrão</string>
     <string name="calls">Chamadas</string>
-    <string name="turn_microphone_on">Liguar o microfone</string>
+    <string name="turn_microphone_on">Ligar o microfone</string>
     <string name="turn_microphone_off">Desligar o microfone</string>
     <string name="turn_speaker_on">Ligar alta-voz</string>
     <string name="turn_speaker_off">Desligar alta-voz</string>
@@ -44,20 +44,20 @@
     <string name="hide_dialpad">Ocultar marcador</string>
     <string name="end_call">Terminar a chamada</string>
     <!-- Speed dial -->
-    <string name="speed_dial">Ligação rápida</string>
-    <string name="manage_speed_dial">Gerir ligações rápidas</string>
-    <string name="speed_dial_label">Clique no número para atribuir um contacto à ligação rápida. Posteriormente, poderá ligar diretamente ao contacto através da tecla de ligação rápida.</string>
+    <string name="speed_dial">Marcação rápida</string>
+    <string name="manage_speed_dial">Gerir marcações rápidas</string>
+    <string name="speed_dial_label">Clique num número para atribuir um contacto à marcação rápida. Poderá assim, ligar diretamente ao contacto ao premir longamente a tecla de marcação rápida.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Agrupar, no registo, as chamadas para o mesmo contacto</string>
-    <string name="open_dialpad_by_default">Mostrar teclado de marcação ao abrir a aplicação</string>
+    <string name="open_dialpad_by_default">Mostrar Marcador por padrâo ao abrir a aplicação</string>
     <string name="disable_proximity_sensor">Desativar sensor de proximidade durante as chamadas</string>
-    <string name="disable_swipe_to_answer">Cliicar em vez de deslizar para atender</string>
+    <string name="disable_swipe_to_answer">Clicar em vez de deslizar para atender</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - Gestão de chamadas</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Aplicação para telefonar e bloquear números, com suporte a multi-SIM</string>
-    <string name="app_long_description"> Um telefone que lhe permite gerir as suas chamadas onde quer que esteja. Ligue rapidamente pelo registo de chamadas ou defina números para ligação rápida. Dispõe de um marcador inteligente que, para além aceitar a introdução de letras, ainda lhe apresenta sugestões de contactos. Bloqueie facilmente números de telefone para evitar chamadas indesejadas Pode destacar os seus contactos favoritos e criar atalhos directos no seu ecrã inicial. Em Material Design num tema escuro por definição. Não requer acesso à Internet o que lhe confere mais privacidade, segurança e estabilidade. Não contém anúncios nem permissões desnecessárias. É totalmente open source e permite personalização de cores a gosto. <b>Consulte o conjunto completo de aplicações Simple Tools aqui:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
+    <string name="app_short_description">Telefone com gestor de chamadas e lista telefónica que bloqueia números e suporta multi-SIM</string>
+    <string name="app_long_description"> Um telefone que lhe permite gerir as suas chamadas onde quer que esteja. Ligue rapidamente pelo registo de chamadas ou defina números de marcação rápida. Dispõe de um marcador inteligente que, para além aceitar a introdução de letras, ainda lhe apresenta sugestões de contactos. Bloqueie facilmente números de telefone para evitar chamadas indesejadas. Pode ainda destacar os seus contactos favoritos e criar-lhes atalhos directos no ecrã inicial. Com design material num tema escuro por definição. Não requer acesso à internet o que lhe confere mais privacidade, segurança e estabilidade. Não contém anúncios nem permissões desnecessárias. É totalmente open source e oferece cores personalizáveis a gosto. <b>Consulte a gama completa de aplicações Simple Tools aqui:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
