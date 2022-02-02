@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Marcador</string>
-    <string name="group_subsequent_calls">Agrupa les trucades posteriors amb el mateix número al registre de trucades</string>
-    <string name="disable_proximity_sensor">Desactiva el sensor de proximitat durant les trucades</string>
-    <string name="disable_swipe_to_answer">Substitueix el lliscament en respondre a les trucades entrants per fer clic</string>
-    <string name="request_access">Sol·licita accés</string>
+    <string name="default_phone_app_prompt">Fes que aquesta aplicació sigui l\'aplicació predeterminada de telèfon</string>
+    <!-- Contacts -->
     <string name="could_not_access_contacts">No s\'ha pogut accedir als contactes</string>
+    <!-- Recents -->
     <string name="no_previous_calls">No s\'ha trobat cap trucada anterior</string>
     <string name="could_not_access_the_call_history">No s\'ha pogut accedir a l\'historial de trucades</string>
-    <string name="app_name">Simple Dialer</string>
-    <string name="default_phone_app_prompt">Fes que aquesta aplicació sigui l\'aplicació predeterminada de telèfon</string>
+    <string name="request_access">Sol·licita accés</string>
+    <string name="remove_confirmation">Esteu segur que voleu eliminar els elements seleccionats de l\'historial de trucades\?</string>
     <string name="clear_history_confirmation">Esteu segur que voleu suprimir-ho tot de l\'historial de trucades\?</string>
     <string name="send_sms">Envia un SMS</string>
     <string name="show_grouped_calls">Mostra les trucades agrupades</string>
     <string name="clear_call_history">Neteja l\'historial de trucades</string>
     <string name="show_call_details">Mostra els detalls de la trucada</string>
+    <!-- Dialpad -->
     <string name="dialpad">Teclat de marcatge</string>
     <string name="asterisk">Asterisc</string>
     <string name="hashtag">Etiqueta</string>
     <string name="call_number">Número de trucada</string>
+    <!-- Dialer -->
     <string name="dialer">Marcador</string>
     <string name="accept">Accepta</string>
     <string name="accept_call">Accepta la trucada</string>
@@ -41,12 +43,23 @@
     <string name="show_dialpad">Mostra el teclat de marcatge</string>
     <string name="hide_dialpad">Oculta el teclat de marcatge</string>
     <string name="end_call">Finalitza la trucada</string>
+    <!-- Speed dial -->
     <string name="speed_dial">Marcatge ràpid</string>
     <string name="manage_speed_dial">Gestiona el marcatge ràpid</string>
     <string name="speed_dial_label">Feu clic en un número per assignar-li un contacte. A continuació, podeu trucar ràpidament al contacte indicat prement prolongadament el número assignat al marcador.</string>
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Agrupa les trucades posteriors amb el mateix número al registre de trucades</string>
+    <string name="open_dialpad_by_default">Obre el teclat de marcatge de manera predeterminada quan s\'obri l\'aplicació</string>
+    <string name="disable_proximity_sensor">Desactiva el sensor de proximitat durant les trucades</string>
+    <string name="disable_swipe_to_answer">Substitueix el lliscament en respondre a les trucades entrants per fer clic</string>
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer: gestioneu les vostres trucades telefòniques fàcilment</string>
-    <string name="remove_confirmation">Esteu segur que voleu eliminar els elements seleccionats de l\'historial de trucades\?</string>
+    <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Un pràctic gestor de trucades telefòniques amb agenda, bloqueig de números i suport de diverses SIM</string>
     <string name="app_long_description"> Una aplicació lleugera per gestionar les vostres trucades, sigueu a on sigueu. Ve amb un registre de trucades pràctic per iniciar la trucada fàcilment. També hi ha un teclat de marcatge ràpid al vostre servei, amb suggeriments de contacte intel·ligents. També admet lletres. Podeu bloquejar fàcilment els números de telèfon per evitar trucades entrants no desitjades. La marcació ràpida fa que trucar als vostres contactes preferits amb aquest telèfon sigui molt fàcil. Per ajudar-vos a gestionar ràpidament les trucades, l\'aplicació de telèfon també admet els contactes preferits i la creació de dreceres de qualsevol contacte a la pantalla d\'inici. Ve amb un «material design» i un tema fosc per defecte, proporciona una gran experiència d\'usuari per a un ús fàcil. La manca d\'accés a Internet us ofereix més privadesa, seguretat i estabilitat que altres aplicacions. No conté anuncis ni permisos innecessaris. És totalment de codi obert, proporciona colors personalitzables. <b>Consulteu el conjunt complet d\'eines Simples aquí:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
-    <string name="open_dialpad_by_default">Obre el teclat de marcatge de manera predeterminada quan s\'obri l\'aplicació</string>
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
 </resources>
