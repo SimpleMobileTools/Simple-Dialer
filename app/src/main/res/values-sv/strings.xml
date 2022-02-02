@@ -1,28 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Telefon</string>
     <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
-
     <!-- Contacts -->
     <string name="could_not_access_contacts">Det gick inte att komma åt dina kontakter</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">Inga tidigare samtal hittades</string>
     <string name="could_not_access_the_call_history">Det gick inte att komma åt samtalshistoriken</string>
     <string name="request_access">Begär åtkomst</string>
-    <string name="remove_confirmation">Är du säker på att du vill ta bort de valda objekten från samtalshistoriken?</string>
-    <string name="clear_history_confirmation">Är du säker på att du vill ta bort allt från samtalshistoriken?</string>
+    <string name="remove_confirmation">Är du säker på att du vill ta bort de markerade objekten från samtalshistoriken\?</string>
+    <string name="clear_history_confirmation">Är du säker på att du vill ta bort allt från samtalshistoriken\?</string>
     <string name="send_sms">Skicka sms</string>
     <string name="show_grouped_calls">Visa grupperade samtal</string>
     <string name="clear_call_history">Rensa samtalshistorik</string>
     <string name="show_call_details">Show call details</string>
-
     <!-- Dialpad -->
     <string name="dialpad">Knappsats</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Call number</string>
-
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Svara</string>
@@ -35,7 +32,7 @@
     <string name="call_ended">Samtalet har avslutats</string>
     <string name="call_ending">Samtalet avslutas</string>
     <string name="ongoing_call">Pågående samtal</string>
-    <string name="select_sim">Välj ett SIM-kort för samtalet</string>
+    <string name="select_sim">Välj ett SIM för detta samtalet</string>
     <string name="always_use_this_sim">Använd alltid det här SIM-kortet för detta nummer</string>
     <string name="unset_default_sim">Ta bort standard-SIM-kort</string>
     <string name="calls">Calls</string>
@@ -46,18 +43,15 @@
     <string name="show_dialpad">Show dialpad</string>
     <string name="hide_dialpad">Hide dialpad</string>
     <string name="end_call">End call</string>
-
     <!-- Speed dial -->
     <string name="speed_dial">Snabbuppringning</string>
     <string name="manage_speed_dial">Hantera snabbuppringning</string>
     <string name="speed_dial_label">Tryck på en siffra för att tilldela en kontakt till den. Du kan sedan snabbt ringa kontakten genom att trycka länge på siffran på knappsatsen.</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">Gruppera samtal till och från samma nummer i samtalshistoriken</string>
     <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
     <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
     <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simple Dialer - hantera dina telefonsamtal enkelt</string>
@@ -87,7 +81,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

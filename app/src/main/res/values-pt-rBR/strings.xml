@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Discador Simples</string>
+    <string name="app_launcher_name">Discador</string>
+    <string name="default_phone_app_prompt">Por favor, torne este aplicativo o aplicativo de telefone padrão</string>
+    <!-- Contacts -->
+    <string name="could_not_access_contacts">Não foi possível acessar seus contatos</string>
+    <!-- Recents -->
+    <string name="no_previous_calls">Nenhuma chamada anterior foi encontrada</string>
+    <string name="could_not_access_the_call_history">Não foi possível acessar o histórico de chamadas</string>
+    <string name="request_access">Solicitar acesso</string>
+    <string name="remove_confirmation">Tem certeza que quer remover os itens selecionados do Histórico de Chamadas\?</string>
+    <string name="clear_history_confirmation">Tem certeza que quer remover tudo do Histórico de Chamadas\?</string>
+    <string name="send_sms">Enviar SMS</string>
+    <string name="show_grouped_calls">Mostrar chamadas agrupadas</string>
+    <string name="clear_call_history">Limpar histórico de chamadas</string>
+    <string name="show_call_details">Mostrar detalhes da chamada</string>
+    <!-- Dialpad -->
+    <string name="dialpad">Discador</string>
+    <string name="asterisk">Asterisco</string>
+    <string name="hashtag">Hashtag</string>
+    <string name="call_number">Numero de telefone</string>
+    <!-- Dialer -->
+    <string name="dialer">Discador</string>
+    <string name="accept">Aceitar</string>
+    <string name="accept_call">Aceitar chamada</string>
+    <string name="decline">Rejeitar</string>
+    <string name="decline_call">Rejeitar chamada</string>
+    <string name="unknown_caller">Número desconocido</string>
+    <string name="is_calling">Está chamando…</string>
+    <string name="dialing">Discando…</string>
+    <string name="call_ended">Chamada encerrada</string>
+    <string name="call_ending">Encerrando chamada</string>
+    <string name="ongoing_call">Chamada em andamento</string>
+    <string name="select_sim">Selecione um SIM para esta chamada</string>
+    <string name="always_use_this_sim">Sempre usar este SIM para este número</string>
+    <string name="unset_default_sim">Desmarcar SIM como padrão</string>
+    <string name="calls">Chamadas</string>
+    <string name="turn_microphone_on">Ligar o microfone</string>
+    <string name="turn_microphone_off">Desligar o microfone</string>
+    <string name="turn_speaker_on">Ligar o alto-falante</string>
+    <string name="turn_speaker_off">Desligar o alto-falante</string>
+    <string name="show_dialpad">Mostrar discador</string>
+    <string name="hide_dialpad">Ocultar discador</string>
+    <string name="end_call">Encerrar chamada</string>
+    <!-- Speed dial -->
+    <string name="speed_dial">Ligação rápida</string>
+    <string name="manage_speed_dial">Gerenciar ligações rápidas</string>
+    <string name="speed_dial_label">Clique em um número para atribuir um contato a ele. Você pode então ligar rapidamente para o contato com um toque longo neste número no discador.</string>
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Agrupar as chamadas consecutivas com o mesmo número no histórico de chamadas</string>
+    <string name="open_dialpad_by_default">Mostrar o discador ao abrir o aplicativo</string>
+    <string name="disable_proximity_sensor">Desativar sensor de proximidade durante as chamadas</string>
+    <string name="disable_swipe_to_answer">Clicar em vez de deslizar para responder chamadas</string>
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Discador Simples - Gerencie chamadas facilmente</string>
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Um app de telefone prático com agenda, bloqueio de número e suporte a multi-SIM</string>
+    <string name="app_long_description"> Um aplicativo leve para gerenciar suas chamadas, não importa onde você esteja. Vem com um registro de chamadas prático para uma fácil iniciação de chamadas. Também existe um discador rápido ao seu serviço, com sugestões de contatos inteligentes. Também suporta letras. Você pode bloquear facilmente os números de telefone para evitar chamadas indesejadas. A discagem rápida torna muito mais fácil ligar para seus contatos favoritos com este verdadeiro telefone. Para ajudá-lo a gerenciar suas chamadas rapidamente, o aplicativo Telefone também oferece suporte a contatos favoritos e à criação de atalhos de qualquer contato na tela inicial. Ele vem com Material Design e tema escuro por padrão, oferece uma ótima experiência para o usuário para uma fácil utilização. A falta de acesso à Internet dá mais privacidade, segurança e estabilidade do que outros aplicativos. Não contém anúncios ou permissões desnecessárias. É totalmente de código aberto, fornece cores personalizáveis. <b>Cheque o conjunto completo de Ferramentas Simples aqui:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
