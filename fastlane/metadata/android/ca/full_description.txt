@@ -1,0 +1,22 @@
+Una aplicació lleugera per gestionar les vostres trucades, sigueu a on sigueu. Ve amb un registre de trucades pràctic per iniciar la trucada fàcilment. 
+
+També hi ha un teclat de marcatge ràpid al vostre servei, amb suggeriments de contacte intel·ligents. També admet lletres. 
+
+Podeu bloquejar fàcilment els números de telèfon per evitar trucades entrants no desitjades. La marcació ràpida fa que trucar als vostres contactes preferits amb aquest telèfon sigui molt fàcil. 
+
+Per ajudar-vos a gestionar ràpidament les trucades, l'aplicació de telèfon també admet els contactes preferits i la creació de dreceres de qualsevol contacte a la pantalla d'inici. 
+
+Ve amb un «material design» i un tema fosc per defecte, proporciona una gran experiència d'usuari per a un ús fàcil. 
+
+La manca d'accés a Internet us ofereix més privadesa, seguretat i estabilitat que altres aplicacions. No conté anuncis ni permisos innecessaris. 
+
+És totalment de codi obert, proporciona colors personalitzables. 
+
+<b>Consulteu el conjunt complet d'eines Simples aquí:</b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools

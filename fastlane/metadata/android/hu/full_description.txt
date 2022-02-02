@@ -1,0 +1,20 @@
+Könnyűsúlyú alkalmazás a hívásai kezeléséhez, bárhol is legyen. Hasznos hívásnaplóval érkezik a könnyű hívásindítás érdekében. Egy gyors tárcsázója is elérhető, okos névjegyjavaslatokkal. A betűket is támogatja. 
+
+Könnyedén blokkolhat telefonszámokat, hogy elkerülje a nem kívánt bejövő hívásokat. A gyors tárcsázás egyszerűvé teszi a kedvenc számainak hívását ezzel a valódi telefonnal. 
+
+Hogy segítsen a hívásai gyors kezelésében, a Telefon alkalmazás támogatja a kedvenc névjegyeket és a névjegyekhez tartozó indítóikonok létrehozását a kezdőképernyőn. 
+
+Material dizájnt és alapértelmezetten sötét témát használ, így nagyszerű felhasználói élményt és könnyű használatot biztosít. 
+
+Az internetelérés hiánya nagyobb adatvédelmet, biztonságot és stabilitást okoz, mint más alkalmazásoknál. 
+
+Nem tartalmaz reklámokat és felesleges engedélyeket. Teljes mértékben nyílt forráskódú, testreszabható színeket kínál. 
+
+<b>Nézze meg a teljes Simple Mobile Tools csomagot itt:</b>
+https://www.simplemobiletools.com
+
+<b>Facebook:</b>
+https://www.facebook.com/simplemobiletools
+
+<b>Reddit:</b>
+https://www.reddit.com/r/SimpleMobileTools

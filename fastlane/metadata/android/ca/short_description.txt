@@ -1,0 +1,1 @@
+Un pràctic gestor de trucades telefòniques amb agenda, bloqueig de números
