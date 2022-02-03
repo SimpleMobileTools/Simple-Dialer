@@ -57,7 +57,30 @@
     <string name="app_title">Eenvoudige Telefoon - Beheer gesprekken met gemak</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Een handige telefoon-app met contactlijst, nummerblokkering en multi-SIM</string>
-    <string name="app_long_description"> Een lichtgewicht app om waar dan ook gesprekken te voeren. Met een handig oproeplogboek om oproepen te starten. Er is ook een snelkeuzefunctie beschikbaar, met slimme contactvoorstellen. De app ondersteunt ook het invoeren van namen met letters. U kunt gemakkelijk telefoonnummers blokkeren om ongewenste oproepen te voorkomen. Met de ondersteuning voor snelkiezen is het bellen van uw favoriete contacten een fluitje van een cent. Om u te helpen uw gesprekken snel te beheren ondersteunt de applicatie ook favoriete contacten en het maken van snelkoppelingen van elk contact op het startscherm. De app is ontworpen volgens Material Design en kent een donker thema, wat een prima gebruikservaring biedt. Het ontbreken van internettoegang geeft je meer privacy, veiligheid en stabiliteit dan andere apps. Bevat geen advertenties of onnodige rechten. Het is volledig opensource, biedt aanpasbare kleuren. <b>Probeer ook eens de andere apps van Simple Tools:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
+    <string name="app_long_description">
+        Een lichtgewicht app om oproepen mee te beheren, met een handige gespreksgeschiedenis.
+
+        Bevat een toetsenblok dat slimme suggesties geeft na het invoeren van een deel van een nummer of contactnaam.
+
+        Ongewenste telefoonnummers zijn eenvoudig te blokkeren.
+
+        De snelkiezer maakt het eenvoudig om veelgebruikte contacten direct te bellen.
+
+        Om het kiezen te versnellen bevat de app een sectie met favoriete contacten en wordt het aanmaken van snelkoppelingen op het thuisscherm ondersteund.
+
+        De app is ontworpen volgens material design en heeft standaard een donker thema. De app heeft geen toegang tot het internet nodig en voorziet van meer privacy, veiligheid en stabiliteit dan andere apps.
+
+        Bevat geen advertenties of onnodige machtigingen. Volledig open-source. Kleuren van de app kunnen worden aangepast.
+
+        <b>Probeer ook eens de andere apps van Simple Tools:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
