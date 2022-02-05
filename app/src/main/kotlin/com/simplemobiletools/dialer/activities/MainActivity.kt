@@ -12,11 +12,13 @@ import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.os.Handler
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.snackbar.Snackbar
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -51,6 +53,16 @@ class MainActivity : SimpleActivity() {
 
         if (isDefaultDialer()) {
             checkContactPermissions()
+
+            if (!Settings.canDrawOverlays(this)) {
+                val snackbar = Snackbar.make(main_holder, R.string.allow_displaying_over_other_apps, Snackbar.LENGTH_INDEFINITE).setAction(R.string.ok) {
+                    startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION))
+                }
+                snackbar.setBackgroundTint(config.backgroundColor.darkenColor())
+                snackbar.setTextColor(config.textColor)
+                snackbar.setActionTextColor(config.textColor)
+                snackbar.show()
+            }
         } else {
             launchSetDefaultDialerIntent()
         }

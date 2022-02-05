@@ -3,6 +3,7 @@
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Marcador</string>
     <string name="default_phone_app_prompt">Fes que aquesta aplicació sigui l\'aplicació predeterminada de telèfon</string>
+    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">No s\'ha pogut accedir als contactes</string>
     <!-- Recents -->

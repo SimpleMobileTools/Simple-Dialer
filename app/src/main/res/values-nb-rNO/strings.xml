@@ -3,6 +3,7 @@
     <string name="app_name">Enkel oppringer</string>
     <string name="app_launcher_name">Oppringer</string>
     <string name="default_phone_app_prompt">Gjør denne appen til standard telefonapp</string>
+    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Kunne ikke få tilgang til kontaktene dine</string>
     <!-- Recents -->

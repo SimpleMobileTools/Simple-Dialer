@@ -3,6 +3,7 @@
     <string name="app_name">Discador Simples</string>
     <string name="app_launcher_name">Discador</string>
     <string name="default_phone_app_prompt">Por favor, torne este aplicativo o aplicativo de telefone padrão</string>
+    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Não foi possível acessar seus contatos</string>
     <!-- Recents -->

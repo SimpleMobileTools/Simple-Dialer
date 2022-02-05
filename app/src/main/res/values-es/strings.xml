@@ -2,6 +2,7 @@
     <string name="app_name">Marcador Simple</string>
     <string name="app_launcher_name">Marcador</string>
     <string name="default_phone_app_prompt">Hacer esta app la predeterminada para hacer llamadas en tu dispositivo</string>
+    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">No se pudo acceder a tus contactos</string>

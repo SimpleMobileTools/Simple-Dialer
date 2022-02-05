@@ -3,6 +3,7 @@
     <string name="app_name">Jednoduchý Telefon</string>
     <string name="app_launcher_name">Telefon</string>
     <string name="default_phone_app_prompt">Prosím nastavte tuto aplikace jako výchozí aplikaci k telefonování</string>
+    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Nelze získat přístup k vašim kontaktům</string>
     <!-- Recents -->
