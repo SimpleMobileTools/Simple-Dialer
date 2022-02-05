@@ -3,7 +3,7 @@
     <string name="app_name">Prosty telefon</string>
     <string name="app_launcher_name">Telefon</string>
     <string name="default_phone_app_prompt">Ustaw tę aplikację jako domyślną aplikację telefonu</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <string name="allow_displaying_over_other_apps">Zezwól aplikacji na wyświetlanie nad innymi, aby zapewnić niezawodne działanie</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Nie udało się uzyskać dostępu do Twoich kontaktów</string>
     <!-- Recents -->
