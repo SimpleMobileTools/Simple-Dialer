@@ -129,7 +129,7 @@ class MainActivity : SimpleActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.clear_call_history -> clearCallHistory()
-            R.id.settings -> startActivity(Intent(applicationContext, SettingsActivity::class.java))
+            R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
             else -> return super.onOptionsItemSelected(item)
         }
@@ -422,6 +422,11 @@ class MainActivity : SimpleActivity() {
                 }
             }
         }
+    }
+
+    private fun launchSettings() {
+        hideKeyboard()
+        startActivity(Intent(applicationContext, SettingsActivity::class.java))
     }
 
     private fun launchAbout() {

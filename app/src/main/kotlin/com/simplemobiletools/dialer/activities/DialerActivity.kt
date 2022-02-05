@@ -8,10 +8,7 @@ import android.provider.Settings
 import android.telecom.TelecomManager
 import android.view.Menu
 import android.widget.Toast
-import com.simplemobiletools.commons.extensions.isDefaultDialer
-import com.simplemobiletools.commons.extensions.showErrorToast
-import com.simplemobiletools.commons.extensions.telecomManager
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.REQUEST_CODE_SET_DEFAULT_DIALER
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.getHandleToUse
@@ -67,6 +64,7 @@ class DialerActivity : SimpleActivity() {
         if (requestCode == REQUEST_CODE_SET_DEFAULT_DIALER) {
             if (!isDefaultDialer()) {
                 try {
+                    hideKeyboard()
                     Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
                         data = Uri.parse("package:$packageName")
                         startActivity(this)
