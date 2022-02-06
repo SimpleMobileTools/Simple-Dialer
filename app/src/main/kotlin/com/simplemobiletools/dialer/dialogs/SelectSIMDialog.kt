@@ -36,7 +36,6 @@ class SelectSIMDialog(val activity: BaseSimpleActivity, val phoneNumber: String,
         }
 
         dialog = AlertDialog.Builder(activity)
-            .setOnCancelListener { callback.invoke(null) }
             .create().apply {
                 activity.setupDialogStuff(view, this)
             }
