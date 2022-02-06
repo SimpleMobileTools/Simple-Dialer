@@ -52,7 +52,11 @@ class CallNotificationManager(private val context: Context) {
             declineCallIntent.action = DECLINE_CALL
             val declinePendingIntent = PendingIntent.getBroadcast(context, DECLINE_CALL_CODE, declineCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
 
-            val callerName = if (callContact != null && callContact.name.isNotEmpty()) callContact.name else context.getString(R.string.unknown_caller)
+            var callerName = if (callContact != null && callContact.name.isNotEmpty()) callContact.name else context.getString(R.string.unknown_caller)
+            if (callContact?.numberLabel?.isNotEmpty() == true) {
+                callerName += " - ${callContact.numberLabel}"
+            }
+
             val contentTextId = when (callState) {
                 Call.STATE_RINGING -> R.string.is_calling
                 Call.STATE_DIALING -> R.string.dialing

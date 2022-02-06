@@ -307,9 +307,13 @@ class CallActivity : SimpleActivity() {
 
         caller_name_label.text = if (callContact!!.name.isNotEmpty()) callContact!!.name else getString(R.string.unknown_caller)
         if (callContact!!.number.isNotEmpty() && callContact!!.number != callContact!!.name) {
-            caller_number_label.text = callContact!!.number
+            caller_number.text = callContact!!.number
+
+            if (callContact!!.numberLabel.isNotEmpty()) {
+                caller_number.text = "${callContact!!.number} - ${callContact!!.numberLabel}"
+            }
         } else {
-            caller_number_label.beGone()
+            caller_number.beGone()
         }
 
         if (avatar != null) {

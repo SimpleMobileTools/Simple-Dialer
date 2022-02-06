@@ -2,12 +2,11 @@ package com.simplemobiletools.dialer.helpers
 
 import android.content.Context
 import android.net.Uri
-import android.os.Handler
-import android.os.Looper
 import android.telecom.Call
 import android.telecom.InCallService
 import android.telecom.VideoProfile
 import com.simplemobiletools.commons.extensions.getMyContactsCursor
+import com.simplemobiletools.commons.extensions.getPhoneNumberTypeText
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
@@ -53,8 +52,9 @@ class CallManager {
         }
 
         fun getCallContact(context: Context, callback: (CallContact?) -> Unit) {
+            val privateCursor = context.getMyContactsCursor(false, true)?.loadInBackground()
             ensureBackgroundThread {
-                val callContact = CallContact("", "", "")
+                val callContact = CallContact("", "", "", "")
                 val handle = try {
                     call?.details?.handle?.toString()
                 } catch (e: NullPointerException) {
@@ -69,24 +69,35 @@ class CallManager {
                 val uri = Uri.decode(handle)
                 if (uri.startsWith("tel:")) {
                     val number = uri.substringAfter("tel:")
-                    callContact.number = number
-                    callContact.name = SimpleContactsHelper(context).getNameFromPhoneNumber(number)
-                    callContact.photoUri = SimpleContactsHelper(context).getPhotoUriFromPhoneNumber(number)
+                    SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
+                        val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+                        if (privateContacts.isNotEmpty()) {
+                            contacts.addAll(privateContacts)
+                        }
 
-                    if (callContact.name != callContact.number) {
-                        callback(callContact)
-                    } else {
-                        Handler(Looper.getMainLooper()).post {
-                            val privateCursor = context.getMyContactsCursor(false, true)?.loadInBackground()
-                            ensureBackgroundThread {
-                                val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
-                                val privateContact = privateContacts.firstOrNull { it.doesContainPhoneNumber(callContact.number) }
-                                if (privateContact != null) {
-                                    callContact.name = privateContact.name
-                                }
-                                callback(callContact)
+                        val contactsWithMultipleNumbers = contacts.filter { it.phoneNumbers.size > 1 }
+                        val numbersToContactIDMap = HashMap<String, Int>()
+                        contactsWithMultipleNumbers.forEach { contact ->
+                            contact.phoneNumbers.forEach { phoneNumber ->
+                                numbersToContactIDMap[phoneNumber.value] = contact.contactId
+                                numbersToContactIDMap[phoneNumber.normalizedNumber] = contact.contactId
                             }
                         }
+
+                        callContact.number = number
+                        val contact = contacts.firstOrNull { it.doesHavePhoneNumber(number) }
+                        if (contact != null) {
+                            callContact.name = contact.name
+                            callContact.photoUri = contact.photoUri
+
+                            if (contact.phoneNumbers.size > 1) {
+                                val specificPhoneNumber = contact.phoneNumbers.firstOrNull { it.value == number }
+                                if (specificPhoneNumber != null) {
+                                    callContact.numberLabel = context.getPhoneNumberTypeText(specificPhoneNumber.type, specificPhoneNumber.label)
+                                }
+                            }
+                        }
+                        callback(callContact)
                     }
                 }
             }
