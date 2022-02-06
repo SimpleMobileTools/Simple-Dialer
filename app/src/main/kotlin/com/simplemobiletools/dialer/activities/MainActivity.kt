@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.activities
 
 import android.annotation.SuppressLint
 import android.app.SearchManager
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ShortcutInfo
@@ -12,6 +13,7 @@ import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.os.Handler
+import android.provider.CallLog
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
@@ -283,6 +285,10 @@ class MainActivity : SimpleActivity() {
                 // open the Recents tab if we got here by clicking a missed call notification
                 if (intent.action == Intent.ACTION_VIEW && config.showTabs and TAB_CALL_HISTORY > 0) {
                     wantedTab = main_tabs_holder.tabCount - 1
+
+                    ensureBackgroundThread {
+                        resetMissedCalls()
+                    }
                 }
 
                 main_tabs_holder.getTabAt(wantedTab)?.select()
@@ -421,6 +427,24 @@ class MainActivity : SimpleActivity() {
                     0
                 }
             }
+        }
+    }
+
+    // clear the missed calls count. Doesn't seem to always work, but having it can't hurt
+    // found at https://android.googlesource.com/platform/packages/apps/Dialer/+/nougat-release/src/com/android/dialer/calllog/MissedCallNotifier.java#181
+    private fun resetMissedCalls() {
+        val values = ContentValues().apply {
+            put(CallLog.Calls.NEW, 0)
+            put(CallLog.Calls.IS_READ, 1)
+        }
+
+        val selection = "${CallLog.Calls.TYPE} = ?"
+        val selectionArgs = arrayOf(CallLog.Calls.MISSED_TYPE.toString())
+
+        try {
+            val uri = CallLog.Calls.CONTENT_URI
+            contentResolver.update(uri, values, selection, selectionArgs)
+        } catch (e: Exception) {
         }
     }
 
