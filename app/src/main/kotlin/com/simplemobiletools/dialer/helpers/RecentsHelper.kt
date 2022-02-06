@@ -53,12 +53,12 @@ class RecentsHelper(private val context: Context) {
             Calls.DATE,
             Calls.DURATION,
             Calls.TYPE,
-            "phone_account_address"
+            Calls.PHONE_ACCOUNT_ID
         )
 
-        val numberToSimIDMap = HashMap<String, Int>()
+        val accountIdToSimIDMap = HashMap<String, Int>()
         context.getAvailableSIMCardLabels().forEach {
-            numberToSimIDMap[it.phoneNumber] = it.id
+            accountIdToSimIDMap[it.handle.id] = it.id
         }
 
         val cursor = if (isRPlus()) {
@@ -138,8 +138,8 @@ class RecentsHelper(private val context: Context) {
 
                 val duration = cursor.getIntValue(Calls.DURATION)
                 val type = cursor.getIntValue(Calls.TYPE)
-                val accountAddress = cursor.getStringValue("phone_account_address")
-                val simID = numberToSimIDMap[accountAddress] ?: 1
+                val accountId = cursor.getStringValue(Calls.PHONE_ACCOUNT_ID)
+                val simID = accountIdToSimIDMap[accountId] ?: -1
                 val neighbourIDs = ArrayList<Int>()
                 var specificNumber = ""
                 var specificType = ""

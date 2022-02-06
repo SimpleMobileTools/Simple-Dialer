@@ -282,9 +282,9 @@ class RecentCallsAdapter(
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
             }
 
-            item_recents_sim_image.beVisibleIf(areMultipleSIMsAvailable)
-            item_recents_sim_id.beVisibleIf(areMultipleSIMsAvailable)
-            if (areMultipleSIMsAvailable) {
+            item_recents_sim_image.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
+            item_recents_sim_id.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
+            if (areMultipleSIMsAvailable && call.simID != -1) {
                 item_recents_sim_image.applyColorFilter(textColor)
                 item_recents_sim_id.setTextColor(textColor.getContrastColor())
                 item_recents_sim_id.text = call.simID.toString()
