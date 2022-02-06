@@ -235,7 +235,7 @@ class DialpadActivity : SimpleActivity() {
         })
 
         ContactsAdapter(this, filtered, dialpad_list, null, text) {
-            startCallIntent((it as SimpleContact).phoneNumbers.first())
+            startCallIntent((it as SimpleContact).phoneNumbers.first().normalizedNumber)
         }.apply {
             dialpad_list.adapter = this
         }

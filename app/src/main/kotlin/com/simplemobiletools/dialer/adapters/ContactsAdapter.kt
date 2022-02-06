@@ -118,7 +118,7 @@ class ContactsAdapter(
     @SuppressLint("MissingPermission")
     private fun callContact(useSimOne: Boolean) {
         val number = getSelectedPhoneNumber() ?: return
-        activity.callContactWithSim(number, useSimOne)
+        activity.callContactWithSim(number.normalizedNumber, useSimOne)
     }
 
     private fun removeDefaultSIM() {
@@ -193,7 +193,7 @@ class ContactsAdapter(
                     activity.handlePermission(PERMISSION_CALL_PHONE) { hasPermission ->
                         val action = if (hasPermission) Intent.ACTION_CALL else Intent.ACTION_DIAL
                         val intent = Intent(action).apply {
-                            data = Uri.fromParts("tel", contact.phoneNumbers.first(), null)
+                            data = Uri.fromParts("tel", contact.phoneNumbers.first().normalizedNumber, null)
                         }
 
                         val shortcut = ShortcutInfo.Builder(activity, contact.hashCode().toString())

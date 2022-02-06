@@ -98,15 +98,15 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     private fun callContact(simpleContact: SimpleContact) {
         val phoneNumbers = simpleContact.phoneNumbers
         if (phoneNumbers.size <= 1) {
-            activity?.launchCallIntent(phoneNumbers.first())
+            activity?.launchCallIntent(phoneNumbers.first().normalizedNumber)
         } else {
             val items = ArrayList<RadioItem>()
             phoneNumbers.forEachIndexed { index, phoneNumber ->
-                items.add(RadioItem(index, phoneNumber))
+                items.add(RadioItem(index, phoneNumber.normalizedNumber))
             }
 
             RadioGroupDialog(activity!!, items) {
-                activity?.launchCallIntent(phoneNumbers[it as Int])
+                activity?.launchCallIntent(phoneNumbers[it as Int].normalizedNumber)
             }
         }
     }

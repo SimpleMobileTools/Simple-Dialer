@@ -45,7 +45,7 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
             SelectContactDialog(this, allContacts) { selectedContact ->
                 speedDialValues.first { it.id == clickedContact.id }.apply {
                     displayName = selectedContact.name
-                    number = selectedContact.phoneNumbers.first()
+                    number = selectedContact.phoneNumbers.first().normalizedNumber
                 }
                 updateAdapter()
             }
