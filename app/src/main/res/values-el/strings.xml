@@ -2,7 +2,7 @@
     <string name="app_name">Απλή Κλήση</string>
     <string name="app_launcher_name">Κλήση</string>
     <string name="default_phone_app_prompt">Παρακαλώ κάντε αυτή την εφαρμογή προεπιλεγμένη εφαρμογή Κλήσης</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <string name="allow_displaying_over_other_apps">Επιτρέψτε την προβολή πάνω από άλλες εφαρμογές για αξιόπιστη συμπεριφορά</string>
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Αδυναμία πρόσβασης στις επαφές σας</string>
@@ -57,7 +57,7 @@
     <string name="group_subsequent_calls">Ομαδοποίηση των επόμενων κλήσεων του ίδιου αριθμού στο αρχείο καταγραφής κλήσεων</string>
     <string name="open_dialpad_by_default">Ανοίξτε το πληκτρολόγιο από προεπιλογή όταν ανοίγει η εφαρμογή</string>
     <string name="disable_proximity_sensor">Απενεργοποίηση του αισθητήρα εγγύτητας κατά τη διάρκεια κλήσεων</string>
-    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
+    <string name="disable_swipe_to_answer">Αντικατάσταση Σάρωσης με Κλικ στην απάντηση εισερχόμενων κλήσεων</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
