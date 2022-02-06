@@ -20,10 +20,7 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import com.simplemobiletools.dialer.extensions.addCharacter
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.extensions.getKeyEvent
-import com.simplemobiletools.dialer.extensions.startCallIntent
+import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.models.SpeedDial
 import kotlinx.android.synthetic.main.activity_dialpad.*
 import kotlinx.android.synthetic.main.activity_dialpad.dialpad_holder
@@ -96,13 +93,27 @@ class DialpadActivity : SimpleActivity() {
         dialpad_hashtag_holder.setOnClickListener { dialpadPressed('#', it) }
         dialpad_clear_char.setOnClickListener { clearChar(it) }
         dialpad_clear_char.setOnLongClickListener { clearInput(); true }
-        dialpad_call_button.setOnClickListener { initCall() }
+        dialpad_call_button.setOnClickListener { initCall(dialpad_input.value, 0) }
         dialpad_input.onTextChangeListener { dialpadValueChanged(it) }
         SimpleContactsHelper(this).getAvailableContacts(false) { gotContacts(it) }
         disableKeyboardPopping()
 
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
-        val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_vector, adjustedPrimaryColor.getContrastColor())
+        val callIconId = if (areMultipleSIMsAvailable()) {
+            val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_two_vector, adjustedPrimaryColor.getContrastColor())
+            dialpad_call_two_button.setImageDrawable(callIcon)
+            dialpad_call_two_button.background.applyColorFilter(adjustedPrimaryColor)
+            dialpad_call_two_button.beVisible()
+            dialpad_call_two_button.setOnClickListener {
+                initCall(dialpad_input.value, 1)
+            }
+
+            R.drawable.ic_phone_one_vector
+        } else {
+            R.drawable.ic_phone_vector
+        }
+
+        val callIcon = resources.getColoredDrawableWithColor(callIconId, adjustedPrimaryColor.getContrastColor())
         dialpad_call_button.setImageDrawable(callIcon)
         dialpad_call_button.background.applyColorFilter(adjustedPrimaryColor)
 
@@ -251,9 +262,13 @@ class DialpadActivity : SimpleActivity() {
         }
     }
 
-    private fun initCall(number: String = dialpad_input.value) {
+    private fun initCall(number: String = dialpad_input.value, handleIndex: Int) {
         if (number.isNotEmpty()) {
-            startCallIntent(number)
+            if (handleIndex != -1 && areMultipleSIMsAvailable()) {
+                callContactWithSim(number, handleIndex == 0)
+            } else {
+                startCallIntent(number)
+            }
         }
     }
 
@@ -261,7 +276,7 @@ class DialpadActivity : SimpleActivity() {
         if (dialpad_input.value.isEmpty()) {
             val speedDial = speedDialValues.firstOrNull { it.id == id }
             if (speedDial?.isValid() == true) {
-                initCall(speedDial.number)
+                initCall(speedDial.number, -1)
             }
         }
     }
