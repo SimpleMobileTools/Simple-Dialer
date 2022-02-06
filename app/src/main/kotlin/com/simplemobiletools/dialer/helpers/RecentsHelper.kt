@@ -74,6 +74,15 @@ class RecentsHelper(private val context: Context) {
             context.contentResolver.query(uri, projection, null, null, sortOrder)
         }
 
+        val contactsWithMultipleNumbers = contacts.filter { it.phoneNumbers.size > 1 }
+        val numbersToContactIDMap = HashMap<String, Int>()
+        contactsWithMultipleNumbers.forEach { contact ->
+            contact.phoneNumbers.forEach { phoneNumber ->
+                numbersToContactIDMap[phoneNumber.value] = contact.contactId
+                numbersToContactIDMap[phoneNumber.normalizedNumber] = contact.contactId
+            }
+        }
+
         if (cursor?.moveToFirst() == true) {
             do {
                 val id = cursor.getIntValue(Calls._ID)
@@ -132,7 +141,20 @@ class RecentsHelper(private val context: Context) {
                 val accountAddress = cursor.getStringValue("phone_account_address")
                 val simID = numberToSimIDMap[accountAddress] ?: 1
                 val neighbourIDs = ArrayList<Int>()
-                val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs, simID)
+                var specificNumber = ""
+                var specificType = ""
+
+                val contactIdWithMultipleNumbers = numbersToContactIDMap[number]
+                if (contactIdWithMultipleNumbers != null) {
+                    val specificPhoneNumber =
+                        contacts.firstOrNull { it.contactId == contactIdWithMultipleNumbers }?.phoneNumbers?.firstOrNull { it.value == number }
+                    if (specificPhoneNumber != null) {
+                        specificNumber = specificPhoneNumber.value
+                        specificType = context.getPhoneNumberTypeText(specificPhoneNumber.type, specificPhoneNumber.label)
+                    }
+                }
+
+                val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs, simID, specificNumber, specificType)
 
                 // if we have multiple missed calls from the same number, show it just once
                 if (!groupSubsequentCalls || "$number$name" != previousRecentCallFrom) {
