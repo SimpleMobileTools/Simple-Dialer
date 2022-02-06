@@ -96,6 +96,8 @@ class CallManager {
                                     callContact.numberLabel = context.getPhoneNumberTypeText(specificPhoneNumber.type, specificPhoneNumber.label)
                                 }
                             }
+                        } else {
+                            callContact.name = number
                         }
                         callback(callContact)
                     }
