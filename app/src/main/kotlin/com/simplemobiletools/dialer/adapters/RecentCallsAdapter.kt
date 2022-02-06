@@ -246,6 +246,15 @@ class RecentCallsAdapter(
         view.apply {
             item_recents_frame.isSelected = selectedKeys.contains(call.id)
             var nameToShow = SpannableString(call.name)
+            if (call.specificType.isNotEmpty()) {
+                nameToShow = SpannableString("${call.name} - ${call.specificType}")
+
+                // show specific number at "Show call details" dialog too
+                if (refreshItemsListener == null) {
+                    nameToShow = SpannableString("${call.name} - ${call.specificType}, ${call.specificNumber}")
+                }
+            }
+
             if (call.neighbourIDs.isNotEmpty()) {
                 nameToShow = SpannableString("$nameToShow (${call.neighbourIDs.size + 1})")
             }
