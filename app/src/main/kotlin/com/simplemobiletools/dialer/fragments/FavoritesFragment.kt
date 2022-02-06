@@ -102,11 +102,12 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         } else {
             val items = ArrayList<RadioItem>()
             phoneNumbers.forEachIndexed { index, phoneNumber ->
-                items.add(RadioItem(index, phoneNumber.normalizedNumber))
+                val type = context.getPhoneNumberTypeText(phoneNumber.type, phoneNumber.label)
+                items.add(RadioItem(index, "${phoneNumber.normalizedNumber} ($type)", phoneNumber.normalizedNumber))
             }
 
             RadioGroupDialog(activity!!, items) {
-                activity?.launchCallIntent(phoneNumbers[it as Int].normalizedNumber)
+                activity?.launchCallIntent(it as String)
             }
         }
     }
