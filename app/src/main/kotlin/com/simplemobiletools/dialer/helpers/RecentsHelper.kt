@@ -157,13 +157,13 @@ class RecentsHelper(private val context: Context) {
                 val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs, simID, specificNumber, specificType)
 
                 // if we have multiple missed calls from the same number, show it just once
-                if (!groupSubsequentCalls || "$number$name" != previousRecentCallFrom) {
+                if (!groupSubsequentCalls || "$number$name$simID" != previousRecentCallFrom) {
                     recentCalls.add(recentCall)
                 } else {
                     recentCalls.lastOrNull()?.neighbourIDs?.add(id)
                 }
 
-                previousRecentCallFrom = "$number$name"
+                previousRecentCallFrom = "$number$name$simID"
             } while (cursor.moveToNext())
         }
 
