@@ -28,7 +28,7 @@ class SelectSIMDialog(val activity: BaseSimpleActivity, val phoneNumber: String,
 
         activity.getAvailableSIMCardLabels().forEachIndexed { index, SIMAccount ->
             val radioButton = (activity.layoutInflater.inflate(R.layout.radio_button, null) as RadioButton).apply {
-                text = SIMAccount.label
+                text = "${index + 1} - ${SIMAccount.label}"
                 id = index
                 setOnClickListener { selectedSIM(SIMAccount.handle, SIMAccount.label) }
             }
