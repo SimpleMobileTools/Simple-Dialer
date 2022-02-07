@@ -45,7 +45,7 @@ class DialpadActivity : SimpleActivity() {
         }
 
         speedDialValues = config.getSpeedDialValues()
-        privateCursor = getMyContactsCursor(false, true)?.loadInBackground()
+        privateCursor = getMyContactsCursor(false, true)
 
         if (hasRussianLocale) {
             initRussianChars()

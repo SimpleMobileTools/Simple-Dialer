@@ -73,7 +73,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     }
 
     override fun refreshItems() {
-        val privateCursor = context?.getMyContactsCursor(false, true)?.loadInBackground()
+        val privateCursor = context?.getMyContactsCursor(false, true)
         SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
             allContacts = contacts
 

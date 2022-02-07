@@ -52,7 +52,7 @@ class CallManager {
         }
 
         fun getCallContact(context: Context, callback: (CallContact?) -> Unit) {
-            val privateCursor = context.getMyContactsCursor(false, true)?.loadInBackground()
+            val privateCursor = context.getMyContactsCursor(false, true)
             ensureBackgroundThread {
                 val callContact = CallContact("", "", "", "")
                 val handle = try {
