@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 5.11.4 *(2022-02-08)*
+----------------------------
+
+ * Added many improvements related to having multiple SIM cards or contacts having multiple numbers
+ * Fixed a glitch with wrong SIM being shown at the call history
+ * Show a message if the app is the default Phone app but it has no permission to be shown over other apps
+ * Added other UX, stability and translation improvements
+
 Version 5.11.3 *(2021-12-24)*
 ----------------------------
 
