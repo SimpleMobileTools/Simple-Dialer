@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/ripple_foreground">
-    <item android:id="@+id/shortcut_dialpad_background">
-        <shape android:shape="oval">
-            <solid android:color="@color/md_green_700"/>
-        </shape>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/ripple_foreground">
+    <item android:id="@+id/accept_call_background_holder">
+        <layer-list>
+            <item android:id="@+id/accept_call_background">
+                <shape android:shape="oval">
+                    <solid android:color="@color/md_green_700" />
+                </shape>
+            </item>
+
+            <item
+                android:id="@+id/accept_call_icon"
+                android:bottom="@dimen/medium_margin"
+                android:drawable="@drawable/ic_phone_vector"
+                android:left="@dimen/medium_margin"
+                android:right="@dimen/medium_margin"
+                android:top="@dimen/medium_margin" />
+        </layer-list>
     </item>
-    <item android:bottom="@dimen/medium_margin" android:drawable="@drawable/ic_phone_vector" android:left="@dimen/medium_margin" android:right="@dimen/medium_margin" android:top="@dimen/medium_margin"/>
 </ripple>

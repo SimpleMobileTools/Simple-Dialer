@@ -5,6 +5,8 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.drawable.LayerDrawable
+import android.graphics.drawable.RippleDrawable
 import android.media.AudioManager
 import android.os.Bundle
 import android.os.Handler
@@ -331,6 +333,17 @@ class CallActivity : SimpleActivity() {
                         call_sim_id.text = "${index + 1}"
                         call_sim_id.beVisible()
                         call_sim_image.beVisible()
+
+                        val acceptDrawableId = when (index) {
+                            0 -> R.drawable.ic_phone_one_vector
+                            1 -> R.drawable.ic_phone_two_vector
+                            else -> R.drawable.ic_phone_vector
+                        }
+
+                        val rippleBg = resources.getDrawable(R.drawable.ic_call_accept, theme) as RippleDrawable
+                        val layerDrawable = rippleBg.findDrawableByLayerId(R.id.accept_call_background_holder) as LayerDrawable
+                        layerDrawable.setDrawableByLayerId(R.id.accept_call_icon, getDrawable(acceptDrawableId))
+                        call_accept.setImageDrawable(rippleBg)
                     }
                 }
             }
