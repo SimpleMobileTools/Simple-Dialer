@@ -2,86 +2,63 @@
 <resources>
     <string name="app_name">Eenvoudige Telefoon</string>
     <string name="app_launcher_name">Telefoon</string>
-    <string name="default_phone_app_prompt">Maak deze app de standaard Telefoon-app</string>
-    <string name="allow_displaying_over_other_apps">Voor een betrouwbare werking heeft deze app de machtiging nodig om over andere apps te worden weergegeven</string>
+    <string name="default_phone_app_prompt">Maak deze app de standaard telefoon app</string>
+    <string name="allow_displaying_over_other_apps">Geef toestemming tot weergave over andere apps voor betrouwbare werking</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Kon geen toegang krijgen tot de contacten</string>
+    <string name="could_not_access_contacts">Kon geen toegang krijgen tot uw contacten</string>
     <!-- Recents -->
     <string name="no_previous_calls">Er zijn geen eerdere gesprekken gevonden</string>
     <string name="could_not_access_the_call_history">Kon geen toegang krijgen tot de gespreksgeschiedenis</string>
-    <string name="request_access">Toegang vragen</string>
+    <string name="request_access">Toegang aanvragen</string>
     <string name="remove_confirmation">Geselecteerde items uit de gespreksgeschiedenis verwijderen?</string>
     <string name="clear_history_confirmation">De volledige gespreksgeschiedenis verwijderen?</string>
-    <string name="send_sms">SMS sturen</string>
+    <string name="send_sms">SMS versturen</string>
     <string name="show_grouped_calls">Gesprekken gegroepeerd weergeven</string>
     <string name="clear_call_history">Gespreksgeschiedenis wissen</string>
-    <string name="show_call_details">Gespreksdetails tonen</string>
+    <string name="show_call_details">Toon gespreksgegevens</string>
     <!-- Dialpad -->
-    <string name="dialpad">Toetsenblok</string>
+    <string name="dialpad">Nummerkiezer</string>
     <string name="asterisk">Sterretje</string>
     <string name="hashtag">Hekje</string>
-    <string name="call_number">Nummer</string>
+    <string name="call_number">Oproepnummer</string>
     <!-- Dialer -->
     <string name="dialer">Telefoon</string>
     <string name="accept">Aannemen</string>
     <string name="accept_call">Oproep aannemen</string>
-    <string name="decline">Weigeren</string>
+    <string name="decline">Afwijzen</string>
     <string name="decline_call">Oproep weigeren</string>
     <string name="unknown_caller">Nummer onbekend</string>
     <string name="is_calling">Belt…</string>
-    <string name="dialing">Bellen…</string>
-    <string name="call_ended">Gesprek beëindigd</string>
-    <string name="call_ending">Gesprek beëindigen</string>
+    <string name="dialing">Kiezen…</string>
+    <string name="call_ended">Oproep beëindigd</string>
+    <string name="call_ending">Einde oproep</string>
     <string name="ongoing_call">Huidig gesprek</string>
-    <string name="select_sim">Kies een SIM-kaart voor dit gesprek</string>
-    <string name="always_use_this_sim">Deze SIM-kaart altijd voor dit nummer gebruiken</string>
-    <string name="unset_default_sim">Standaard-SIM uitzetten</string>
-    <string name="calls">Gesprekken</string>
-    <string name="turn_microphone_on">Microfoon inschakelen</string>
-    <string name="turn_microphone_off">Microfoon uitschakelen</string>
-    <string name="turn_speaker_on">Luidspreker inschakelen</string>
-    <string name="turn_speaker_off">Luidspreker uitschakelen</string>
-    <string name="show_dialpad">Toetsenblok tonen</string>
-    <string name="hide_dialpad">Toetsenblok verbergen</string>
-    <string name="end_call">Gesprek beëindigen</string>
+    <string name="select_sim">Kies een SIM voor deze oproep</string>
+    <string name="always_use_this_sim">Gebruik altijd deze SIM voor dit nummer</string>
+    <string name="unset_default_sim">Standaard SIM uitzetten</string>
+    <string name="calls">Oproepen</string>
+    <string name="turn_microphone_on">Zet de microfoon aan</string>
+    <string name="turn_microphone_off">Zet de microfoon uit</string>
+    <string name="turn_speaker_on">Zet de luidspreker aan</string>
+    <string name="turn_speaker_off">Zet de luidspreker uit</string>
+    <string name="show_dialpad">Toon nummerkiezer</string>
+    <string name="hide_dialpad">Verberg nummerkiezer</string>
+    <string name="end_call">Einde gesprek</string>
     <!-- Speed dial -->
-    <string name="speed_dial">Snelkiezer</string>
-    <string name="manage_speed_dial">Snelkiezer bewerken</string>
-    <string name="speed_dial_label">Klik op een cijfer om er een contact aan toe te wijzen. Vervolgens kan dit contact direct gebeld worden door lang op het gekoppelde cijfer te drukken.</string>
+    <string name="speed_dial">Snelkiesnummer</string>
+    <string name="manage_speed_dial">Snelkiezen beheren</string>
+    <string name="speed_dial_label">Klik op een nummer om er een contact aan toe te wijzen. U kunt dan snel het contact bellen door lang op het gegeven nummer te drukken.</string>
     <!-- Settings -->
-    <string name="group_subsequent_calls">Gespreksgeschiedenis: opeenvolgende items van hetzelfde nummer groeperen</string>
-    <string name="open_dialpad_by_default">Standaard het toetsenblok openen bij starten</string>
+    <string name="group_subsequent_calls">Groepeer opeenvolgende oproepen met hetzelfde nummer in de gespreksgeschiedenis</string>
+    <string name="open_dialpad_by_default">De nummerkiezer standaard openen bij starten van de app</string>
     <string name="disable_proximity_sensor">Nabijheidssensor uitschakelen tijdens bellen</string>
     <string name="disable_swipe_to_answer">Vervang vegen door klikken bij het aannemen van gesprekken</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Eenvoudige Telefoon - Beheer gesprekken met gemak</string>
+    <string name="app_title">Eenvoudige Telefoon - Beheer uw telefoongesprekken eenvoudig</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Een handige telefoon-app met contactlijst, nummerblokkering en multi-SIM</string>
-    <string name="app_long_description">
-        Een lichtgewicht app om oproepen mee te beheren, met een handige gespreksgeschiedenis.
-
-        Bevat een toetsenblok dat slimme suggesties geeft na het invoeren van een deel van een nummer of contactnaam.
-
-        Ongewenste telefoonnummers zijn eenvoudig te blokkeren.
-
-        De snelkiezer maakt het eenvoudig om veelgebruikte contacten direct te bellen.
-
-        Om het kiezen te versnellen bevat de app een sectie met favoriete contacten en wordt het aanmaken van snelkoppelingen op het thuisscherm ondersteund.
-
-        De app is ontworpen volgens material design en heeft standaard een donker thema. De app heeft geen toegang tot het internet nodig en voorziet van meer privacy, veiligheid en stabiliteit dan andere apps.
-
-        Bevat geen advertenties of onnodige machtigingen. Volledig open-source. Kleuren van de app kunnen worden aangepast.
-
-        <b>Probeer ook eens de andere apps van Simple Tools:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
+    <string name="app_short_description">Een handige telefoon-manager met contactlijst, nummerblokkering en multi-SIM</string>
+    <string name="app_long_description"> Een lichtgewicht app om oproepen mee te beheren, met een handige gespreksgeschiedenis. Bevat een toetsenblok dat slimme suggesties geeft na het invoeren van een deel van een nummer of contactnaam. Ongewenste telefoonnummers zijn eenvoudig te blokkeren. De snelkiezer maakt het eenvoudig om veelgebruikte contacten direct te bellen. Om het kiezen te versnellen bevat de app een sectie met favoriete contacten en wordt het aanmaken van snelkoppelingen op het beginscherm ondersteund. De app is ontworpen conform Material Design en heeft standaard een donker thema. De app heeft geen toegang tot het internet nodig en zorgt voor meer privacy, veiligheid en stabiliteit dan andere apps. De app bevat geen advertenties of onnodige toegangsrechten en is volledig open-source. De kleuren van de app kunnen worden aangepast. <b>Probeer ook eens de andere apps van Simple Tools:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
