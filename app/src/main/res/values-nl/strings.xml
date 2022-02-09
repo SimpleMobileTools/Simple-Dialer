@@ -10,8 +10,8 @@
     <string name="no_previous_calls">Er zijn geen eerdere gesprekken gevonden</string>
     <string name="could_not_access_the_call_history">Kon geen toegang krijgen tot de gespreksgeschiedenis</string>
     <string name="request_access">Toegang aanvragen</string>
-    <string name="remove_confirmation">Geselecteerde items uit de gespreksgeschiedenis verwijderen?</string>
-    <string name="clear_history_confirmation">De volledige gespreksgeschiedenis verwijderen?</string>
+    <string name="remove_confirmation">Geselecteerde items uit de gespreksgeschiedenis verwijderen\?</string>
+    <string name="clear_history_confirmation">De volledige gespreksgeschiedenis verwijderen\?</string>
     <string name="show_grouped_calls">Gesprekken gegroepeerd weergeven</string>
     <string name="clear_call_history">Gespreksgeschiedenis wissen</string>
     <string name="show_call_details">Gespreksgegevens tonen</string>
