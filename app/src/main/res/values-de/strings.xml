@@ -12,8 +12,8 @@
     <string name="request_access">Zugriff anfordern</string>
     <string name="remove_confirmation">Ausgewählte Anrufe definitiv aus der Anrufliste löschen?</string>
     <string name="clear_history_confirmation">Bist du sicher, dass du alles aus der Anrufliste löschen möchtest?</string>
-    <string name="send_sms">Sende SMS</string>
-    <string name="show_grouped_calls">Zeige gruppierte Anrufe</string>
+    <string name="send_sms">SMS senden</string>
+    <string name="show_grouped_calls">Gruppierte Anrufe zeigen</string>
     <string name="clear_call_history">Anrufliste löschen</string>
     <string name="show_call_details">Anrufdetails anzeigen</string>
     <!-- Dialpad -->
