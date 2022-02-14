@@ -68,6 +68,8 @@ class MainActivity : SimpleActivity() {
         } else {
             launchSetDefaultDialerIntent()
         }
+
+        hideTabs()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -100,7 +102,8 @@ class MainActivity : SimpleActivity() {
 
         if (!isSearchOpen) {
             if (storedShowTabs != config.showTabs) {
-                hideTabs()
+                System.exit(0)
+                return
             }
             refreshItems(true)
         }
