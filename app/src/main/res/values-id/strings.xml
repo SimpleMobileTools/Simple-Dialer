@@ -1,94 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Dialer</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
-
+    <string name="default_phone_app_prompt">Mohon buat aplikasi ini sebagai aplikasi Telepon bawaan</string>
+    <string name="allow_displaying_over_other_apps">Mohon izinkan tampilkan di atas aplikasi lain untuk perilaku yang andal</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Tidak dapat mengakses kontak anda</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">Tidak ada panggilan sebelumnya yang ditemukan</string>
     <string name="could_not_access_the_call_history">Tidak dapat mengakses riwayat panggilan</string>
     <string name="request_access">Akses diminta</string>
-    <string name="remove_confirmation">Apakah Anda yakin ingin menghapus item yang dipilih dari Call History?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
+    <string name="remove_confirmation">Apakah Anda yakin ingin menghapus item yang dipilih dari Call History\?</string>
+    <string name="clear_history_confirmation">Yakin untuk menghapus semua dari Riwayat Panggilan\?</string>
     <string name="send_sms">Kirim SMS</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
-    <string name="show_call_details">Show call details</string>
-
+    <string name="show_grouped_calls">Tampilkan panggilan yang digrup</string>
+    <string name="clear_call_history">Hapus riwayat panggilan</string>
+    <string name="show_call_details">Tampilkan detail panggilan</string>
     <!-- Dialpad -->
     <string name="dialpad">Tombol nomor</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
-
+    <string name="asterisk">Bintang</string>
+    <string name="hashtag">Pagar</string>
+    <string name="call_number">Nomor telepon</string>
     <!-- Dialer -->
     <string name="dialer">Dialer</string>
     <string name="accept">Menerima</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Terima panggilan</string>
     <string name="decline">Menolak</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Tolak panggilan</string>
     <string name="unknown_caller">Penelpon tak dikenal</string>
     <string name="is_calling">Sedang memanggil…</string>
     <string name="dialing">Memanggil…</string>
     <string name="call_ended">Panggilan Berakhir</string>
     <string name="call_ending">Panggilan Diakhiri</string>
     <string name="ongoing_call">Panggilan Sedang Berlangsung</string>
-    <string name="select_sim">Pilih SIM untuk panggilan ini</string>
+    <string name="select_sim">Pilih sebuah SIM untuk panggilan ini</string>
     <string name="always_use_this_sim">Gunakan selalu SIM ini untuk nomor ini</string>
-    <string name="unset_default_sim">Unset default SIM</string>
-    <string name="calls">Calls</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
-
+    <string name="unset_default_sim">Hapus SIM bawaan</string>
+    <string name="calls">Panggilan</string>
+    <string name="turn_microphone_on">Nyalakan mikrofon</string>
+    <string name="turn_microphone_off">Matikan mikrofon</string>
+    <string name="turn_speaker_on">Nyalakan speaker</string>
+    <string name="turn_speaker_off">Matikan speaker</string>
+    <string name="show_dialpad">Tampilkan dialpad</string>
+    <string name="hide_dialpad">Sembunyikan dialpad</string>
+    <string name="end_call">Akhiri panggilan</string>
     <!-- Speed dial -->
     <string name="speed_dial">Panggilan cepat</string>
     <string name="manage_speed_dial">Kelola panggilan cepat</string>
     <string name="speed_dial_label">Klik pada nomor untuk menetapkan kontak ke sana. Anda kemudian dapat dengan cepat memanggil kontak yang diberikan dengan menekan lama nomor yang diberikan di dialer.</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">Kelompokkan panggilan berikutnya dengan nomor yang sama di log panggilan</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
-    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
-
+    <string name="open_dialpad_by_default">Buka dialpad secara default ketika aplikasi dibuka</string>
+    <string name="disable_proximity_sensor">Nonaktifkan sensor kedekatan saat ada di panggilan</string>
+    <string name="disable_swipe_to_answer">Ganti menggesek saat menanggapi panggilan masuk dengan mengklik</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Manage your phone calls easily</string>
+    <string name="app_title">Simple Dialer - Kelola panggilan dengan mudah</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A handy phone call manager with phonebook, number blocking and multi-SIM support</string>
-    <string name="app_long_description">
-        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
-
-        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
-
-        You can easily block phone numbers to avoid unwanted incoming calls.
-
-        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
-
-        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
-
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
-
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
-
-        <b>Check out the full suite of Simple Tools here:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
-
+    <string name="app_short_description">Pengelola telepon praktis dengan buku telepon, pemblokiran nomor, dan multi-SIM</string>
+    <string name="app_long_description"> Aplikasi ringan untuk menangani panggilan Anda, di mana pun Anda berada. Dilengkapi dengan log panggilan yang berguna untuk inisiasi panggilan yang mudah. Ada papan tombol cepat yang siap melayani Anda juga, dengan saran kontak pintar. Ini mendukung surat juga. Anda dapat dengan mudah memblokir nomor telepon untuk menghindari panggilan masuk yang tidak diinginkan. Panggilan cepat yang didukung membuat panggilan ke kontak favorit Anda dengan ponsel ini menjadi mudah. Untuk membantu Anda mengelola panggilan dengan cepat, aplikasi Telepon juga mendukung kontak favorit dan membuat pintasan kontak apa pun di layar beranda.
+\n
+\nMuncul dengan desain material dan tema gelap secara default, memberikan pengalaman pengguna yang luar biasa untuk penggunaan yang mudah. Kurangnya akses internet memberi Anda lebih banyak privasi, keamanan, dan stabilitas daripada aplikasi lain. Tidak mengandung iklan atau izin yang tidak perlu. Ini sepenuhnya sumber-terbuka, menyediakan warna yang dapat disesuaikan.
+\n
+\n<b>Lihat rangkaian lengkap Simple Tools di sini:</b> https://www.simplemobiletools.com
+\n<b>Facebook:</b> https://www.facebook.com/simplemobiletools
+\n<b>Reddit :</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
