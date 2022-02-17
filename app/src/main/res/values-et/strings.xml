@@ -12,7 +12,7 @@
     <string name="request_access">Taotle õigusi</string>
     <string name="remove_confirmation">Kas sa oled kindel, et soovid eemaldada valitud kirjed kõnede ajaloost\?</string>
     <string name="clear_history_confirmation">Kas sa oled kindel, et soovid eemaldada kõik kirjed kõnede ajaloost\?</string>
-    <string name="send_sms">Saada SMS</string>
+    <string name="send_sms">Saada SMS sõnum</string>
     <string name="show_grouped_calls">Näita rühmitatud kõnesid</string>
     <string name="clear_call_history">Kustuta kõnede ajalugu</string>
     <string name="show_call_details">Näita kõne teavet</string>
