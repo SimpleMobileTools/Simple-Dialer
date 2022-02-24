@@ -3,7 +3,7 @@
     <string name="app_name">Eenvoudige Telefoon</string>
     <string name="app_launcher_name">Telefoon</string>
     <string name="default_phone_app_prompt">Maak deze app de standaard telefoon-app</string>
-    <string name="allow_displaying_over_other_apps">Geef toestemming tot weergave over andere apps voor betrouwbare werking</string>
+    <string name="allow_displaying_over_other_apps">Geef toestemming tot weergave vóór andere apps voor betrouwbare werking</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Kon geen toegang krijgen tot de contactenlijst</string>
     <!-- Recents -->
@@ -20,36 +20,36 @@
     <string name="dialpad">Toetsenblok</string>
     <string name="asterisk">Sterretje</string>
     <string name="hashtag">Hekje</string>
-    <string name="call_number">Oproepnummer</string>
+    <string name="call_number">Nummer bellen</string>
     <!-- Dialer -->
     <string name="dialer">Telefoon</string>
     <string name="accept">Aannemen</string>
-    <string name="accept_call">Oproep aannemen</string>
+    <string name="accept_call">Gesprek aannemen</string>
     <string name="decline">Afwijzen</string>
-    <string name="decline_call">Oproep weigeren</string>
+    <string name="decline_call">Gesprek afwijzen</string>
     <string name="unknown_caller">Nummer onbekend</string>
     <string name="is_calling">Belt…</string>
     <string name="dialing">Kiezen…</string>
-    <string name="call_ended">Oproep beëindigd</string>
-    <string name="call_ending">Einde oproep</string>
+    <string name="call_ended">Gesprek beëindigd</string>
+    <string name="call_ending">Einde gesprek</string>
     <string name="ongoing_call">Huidig gesprek</string>
-    <string name="select_sim">Kies een SIM voor deze oproep</string>
+    <string name="select_sim">Kies een SIM-kaart voor dit gesprek</string>
     <string name="always_use_this_sim">Altijd deze SIM voor dit nummer gebruiken</string>
     <string name="unset_default_sim">Standaard-SIM uitzetten</string>
-    <string name="calls">Oproepen</string>
+    <string name="calls">Gesprekken</string>
     <string name="turn_microphone_on">Microfoon inschakelen</string>
     <string name="turn_microphone_off">Microfoon uitschakelen</string>
     <string name="turn_speaker_on">Luidspreker inschakelen</string>
     <string name="turn_speaker_off">Luidspreker uitschakelen</string>
     <string name="show_dialpad">Toetsenblok tonen</string>
     <string name="hide_dialpad">Toetsenblok verbergen</string>
-    <string name="end_call">Einde gesprek</string>
+    <string name="end_call">Gesprek beëindigen</string>
     <!-- Speed dial -->
     <string name="speed_dial">Snelkiesnummer</string>
     <string name="manage_speed_dial">Snelkiezen beheren</string>
     <string name="speed_dial_label">Klik op een cijfer om er een contact aan toe te wijzen. Vervolgens kan dit contact direct gebeld worden door lang op het gekoppelde cijfer te drukken.</string>
     <!-- Settings -->
-    <string name="group_subsequent_calls">In de gespreksgeschiedenis opeenvolgende oproepen met hetzelfde nummer groeperen</string>
+    <string name="group_subsequent_calls">In de gespreksgeschiedenis opeenvolgende gesprekken met hetzelfde nummer groeperen</string>
     <string name="open_dialpad_by_default">Standaard het toetsenblok openen bij starten</string>
     <string name="disable_proximity_sensor">Nabijheidssensor uitschakelen tijdens bellen</string>
     <string name="disable_swipe_to_answer">Vervang vegen door klikken bij het aannemen van gesprekken</string>
@@ -58,7 +58,7 @@
     <string name="app_title">Eenvoudige Telefoon - Beheer telefoongesprekken met gemak</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Een handige telefoon-manager met contactlijst, nummerblokkering en multi-SIM</string>
-    <string name="app_long_description"> Een lichtgewicht app voor het beheer van telefoonoproepen. De app heeft een handige gespreksgeschiedenis. Een toetsenblok geeft slimme suggesties na het invoeren van een deel van een nummer of contactnaam. Een snelkiezer maakt het eenvoudig om veelgebruikte contacten direct te bellen. Om het kiezen te versnellen bevat de app een sectie met favoriete contacten en wordt het aanmaken van snelkoppelingen op het beginscherm ondersteund. Ongewenste telefoonnummers zijn eenvoudig te blokkeren.
+    <string name="app_long_description"> Een lichtgewicht app voor het beheer van telefoongesprekken. De app heeft een handige gespreksgeschiedenis. Een toetsenblok geeft slimme suggesties na het invoeren van een deel van een nummer of contactnaam. Een snelkiezer maakt het eenvoudig om veelgebruikte contacten direct te bellen. Om het kiezen te versnellen bevat de app een sectie met favoriete contacten en wordt het aanmaken van snelkoppelingen op het beginscherm ondersteund. Ongewenste telefoonnummers zijn eenvoudig te blokkeren.
 \nHet ontwerp is conform Material Design en standaard in een donker thema uitgevoerd. De kleuren van de app kunnen worden aangepast. De app werkt zonder toegang tot internet en zorgt zo voor meer privacy, veiligheid en stabiliteit dan andere apps. De app bevat geen advertenties of onnodige toegangsrechten en is volledig open-source. <b>Probeer ook eens de andere apps van Simple Tools:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
