@@ -1,0 +1,2 @@
+ * Added a Privacy policy
+ * Added some stability and translation improvements

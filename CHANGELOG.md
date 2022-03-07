@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.11.5 *(2022-03-07)*
+----------------------------
+
+ * Added a Privacy policy
+ * Added some stability and translation improvements
+
 Version 5.11.4 *(2022-02-08)*
 ----------------------------
 
