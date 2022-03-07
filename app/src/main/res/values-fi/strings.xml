@@ -3,7 +3,7 @@
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Puhelin</string>
     <string name="default_phone_app_prompt">Aseta tämä sovellus oletukseksi puheluille</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <string name="allow_displaying_over_other_apps">Hyväksy näkyminen muiden sovellusten päällä, jotta sovellus toimii luotettavasti</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Ei käyttöoikeutta yhteystietoihin</string>
     <!-- Recents -->

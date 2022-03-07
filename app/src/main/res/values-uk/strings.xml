@@ -1,94 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Dialer</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
-
+    <string name="default_phone_app_prompt">Будь ласка, зробіть цю програму типовою для телефонних викликів</string>
+    <string name="allow_displaying_over_other_apps">Дозвольте відображення над іншими додатками для надійної роботи</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Could not access your contacts</string>
-
+    <string name="could_not_access_contacts">Не вдалося отримати доступ до контактів</string>
     <!-- Recents -->
-    <string name="no_previous_calls">No previous calls have been found</string>
-    <string name="could_not_access_the_call_history">Could not access the call history</string>
-    <string name="request_access">Request access</string>
-    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
+    <string name="no_previous_calls">Попередні виклики не знайдено</string>
+    <string name="could_not_access_the_call_history">Не вдалося отримати доступ до історії викликів</string>
+    <string name="request_access">Запит на доступ</string>
+    <string name="remove_confirmation">Справді видалити вибрані елементи з історії викликів\?</string>
+    <string name="clear_history_confirmation">Справді видалити все з історії викликів\?</string>
     <string name="send_sms">Надіслати SMS</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
-    <string name="show_call_details">Show call details</string>
-
+    <string name="show_grouped_calls">Згрупувати виклики</string>
+    <string name="clear_call_history">Очистити історію викликів</string>
+    <string name="show_call_details">Показати деталі виклику</string>
     <!-- Dialpad -->
-    <string name="dialpad">Dialpad</string>
+    <string name="dialpad">Панель набору</string>
     <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
-
+    <string name="hashtag">Хештег</string>
+    <string name="call_number">Номер виклику</string>
     <!-- Dialer -->
     <string name="dialer">Dialer</string>
     <string name="accept">Прийняти</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Прийняти дзвінок</string>
     <string name="decline">Відхилити</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Відхилити дзвінок</string>
     <string name="unknown_caller">Невідомий абонент</string>
-    <string name="is_calling">Is Calling…</string>
-    <string name="dialing">Dialing…</string>
+    <string name="is_calling">Дзвонить…</string>
+    <string name="dialing">Набір номера…</string>
     <string name="call_ended">Виклик завершено</string>
-    <string name="call_ending">Call Ending</string>
-    <string name="ongoing_call">Ongoing Call</string>
-    <string name="select_sim">Select a SIM for this call</string>
-    <string name="always_use_this_sim">Always use this SIM for this number</string>
-    <string name="unset_default_sim">Unset default SIM</string>
-    <string name="calls">Calls</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
-
+    <string name="call_ending">Завершення виклику</string>
+    <string name="ongoing_call">Поточний виклик</string>
+    <string name="select_sim">Оберіть SIM для цього дзвінка</string>
+    <string name="always_use_this_sim">Завжди використовувати цю SIM для даного номера</string>
+    <string name="unset_default_sim">Зняти вибір SIM за замовчуванням</string>
+    <string name="calls">Виклики</string>
+    <string name="turn_microphone_on">Увімкнути мікрофон</string>
+    <string name="turn_microphone_off">Вимкнути мікрофон</string>
+    <string name="turn_speaker_on">Увімкнути динамік</string>
+    <string name="turn_speaker_off">Вимкнути динамік</string>
+    <string name="show_dialpad">Показати цифрову панель</string>
+    <string name="hide_dialpad">Сховати цифрову панель</string>
+    <string name="end_call">Завершити виклик</string>
     <!-- Speed dial -->
     <string name="speed_dial">Швидкий виклик</string>
     <string name="manage_speed_dial">Управління швидким викликом</string>
-    <string name="speed_dial_label">Click on a number to assign a contact to it. You can then quickly call the given contact by long pressing the given number at the dialer.</string>
-
+    <string name="speed_dial_label">Натисніть на номер, щоб призначити йому контакт. Потім ви зможете швидко зателефонувати вказаному контакту, довго натискаючи вказаний номер на цифровій панелі.</string>
     <!-- Settings -->
-    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
-    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
-
+    <string name="group_subsequent_calls">Групувати наступні дзвінки з тим самим номером у журналі викликів</string>
+    <string name="open_dialpad_by_default">За замовчуванням відкривати цифрову панель при запуску додатку</string>
+    <string name="disable_proximity_sensor">Вимикати датчик наближення під час викликів</string>
+    <string name="disable_swipe_to_answer">Замінити перетягування на натискання під час відповіді на вхідні виклики</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Manage your phone calls easily</string>
+    <string name="app_title">Simple Dialer - Легко керуйте вашими викликами</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A handy phone call manager with phonebook, number blocking and multi-SIM support</string>
-    <string name="app_long_description">
-        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
-
-        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
-
-        You can easily block phone numbers to avoid unwanted incoming calls.
-
-        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
-
-        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
-
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
-
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
-
-        <b>Check out the full suite of Simple Tools here:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
-
+    <string name="app_short_description">Менеджер викликів: книга контактів, блокування номерів, підтримка кількох SIM</string>
+    <string name="app_long_description"> A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation. There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too. You can easily block phone numbers to avoid unwanted incoming calls. Supported Speed dialing makes calling your favorite contacts with this true phone a breeze. To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen. It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps. Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors. <b>Check out the full suite of Simple Tools here:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

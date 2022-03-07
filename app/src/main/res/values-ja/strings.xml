@@ -1,29 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simpleダイヤラー</string>
     <string name="app_launcher_name">ダイヤラー</string>
     <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
     <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
-
     <!-- Contacts -->
     <string name="could_not_access_contacts">コンタクトにアクセスできませんでした</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">通話履歴が見つかりませんでした</string>
     <string name="could_not_access_the_call_history">通話履歴にアクセスできませんでした</string>
     <string name="request_access">アクセスを要求する</string>
     <string name="remove_confirmation">本当に履歴から選択したアイテムを消去しますか？</string>
     <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
-    <string name="send_sms">ショートメール送信</string>
+    <string name="send_sms">SMSを送信</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Clear call history</string>
     <string name="show_call_details">Show call details</string>
-
     <!-- Dialpad -->
     <string name="dialpad">ダイヤルパッド</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Call number</string>
-
     <!-- Dialer -->
     <string name="dialer">ダイヤラー</string>
     <string name="accept">許可</string>
@@ -47,18 +44,15 @@
     <string name="show_dialpad">Show dialpad</string>
     <string name="hide_dialpad">Hide dialpad</string>
     <string name="end_call">End call</string>
-
     <!-- Speed dial -->
     <string name="speed_dial">スピードダイヤル</string>
     <string name="manage_speed_dial">スピードダイヤルの管理</string>
     <string name="speed_dial_label">番号をクリックすると連絡先を割り当てることが出来ます。ダイヤラーで指定された番号を長押しすると、指定された連絡先に素早く電話をかけることが出来ます。</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">後続の通話をコールログの同じ番号でグループ化する</string>
     <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
     <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
     <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">シンプルなダイヤラー-通話を簡単に管理</string>
@@ -85,7 +79,6 @@
         <b> Reddit:</b>
          https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
