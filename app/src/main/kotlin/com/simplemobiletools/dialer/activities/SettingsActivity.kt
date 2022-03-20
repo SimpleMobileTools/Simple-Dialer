@@ -38,6 +38,7 @@ class SettingsActivity : SimpleActivity() {
         setupDialPadOpen()
         setupGroupSubsequentCalls()
         setupStartNameWithSurname()
+        setupTabsPosition()
         setupShowCallConfirmation()
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
@@ -203,6 +204,14 @@ class SettingsActivity : SimpleActivity() {
         settings_start_name_with_surname_holder.setOnClickListener {
             settings_start_name_with_surname.toggle()
             config.startNameWithSurname = settings_start_name_with_surname.isChecked
+        }
+    }
+
+    private fun setupTabsPosition() {
+        settings_tabs_position_bottom.isChecked = config.tabsPositionBottom
+        settings_tabs_position_bottom_holder.setOnClickListener {
+            settings_tabs_position_bottom.toggle()
+            config.tabsPositionBottom = settings_tabs_position_bottom.isChecked
         }
     }
 

@@ -33,7 +33,7 @@ import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
 import com.simplemobiletools.dialer.helpers.OPEN_DIAL_PAD_AT_LAUNCH
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.helpers.tabsList
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main_tabs_at_top.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_recents.*
@@ -44,10 +44,17 @@ class MainActivity : SimpleActivity() {
     private var launchedDialer = false
     private var searchMenuItem: MenuItem? = null
     private var storedShowTabs = 0
+    private var use_tab_bottom_layout = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        use_tab_bottom_layout = config.tabsPositionBottom
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        if (use_tab_bottom_layout) {
+            setContentView(R.layout.activity_main_tabs_at_bottom)
+        }
+        else {
+            setContentView(R.layout.activity_main_tabs_at_top)
+        }
         appLaunched(BuildConfig.APPLICATION_ID)
         setupTabColors()
 
@@ -78,6 +85,9 @@ class MainActivity : SimpleActivity() {
     }
 
     override fun onResume() {
+        if (use_tab_bottom_layout != config.tabsPositionBottom) {
+            recreate()
+        }
         super.onResume()
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, adjustedPrimaryColor.getContrastColor())

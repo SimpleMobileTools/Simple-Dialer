@@ -59,4 +59,8 @@ class Config(context: Context) : BaseConfig(context) {
     var showTabs: Int
         get() = prefs.getInt(SHOW_TABS, ALL_TABS_MASK)
         set(showTabs) = prefs.edit().putInt(SHOW_TABS, showTabs).apply()
+
+    var tabsPositionBottom: Boolean
+        get() = prefs.getBoolean(TABS_POSITION_BOTTOM, false)
+        set(tabsPositionBottom) = prefs.edit().putBoolean(TABS_POSITION_BOTTOM, tabsPositionBottom).apply()
 }

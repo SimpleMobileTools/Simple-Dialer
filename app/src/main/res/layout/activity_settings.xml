@@ -177,6 +177,22 @@
                     android:text="@string/start_name_with_surname" />
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_tabs_position_bottom_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple_bottom_corners">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_tabs_position_bottom"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tabs_position_bottom" />
+
+            </RelativeLayout>
         </LinearLayout>
 
         <TextView
