@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
+    <string name="app_name">Simpel telefon</string>
     <string name="app_launcher_name">Telefon</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <string name="default_phone_app_prompt">Vänligen gör den här appen till standard telefonappen</string>
+    <string name="allow_displaying_over_other_apps">Snälla låt visa över andra appar för at få ett tillitligt beteende</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Det gick inte att komma åt dina kontakter</string>
     <!-- Recents -->
@@ -15,21 +15,21 @@
     <string name="send_sms">Skicka sms</string>
     <string name="show_grouped_calls">Visa grupperade samtal</string>
     <string name="clear_call_history">Rensa samtalshistorik</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Visa samtals detaljer</string>
     <!-- Dialpad -->
     <string name="dialpad">Knappsats</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="call_number">Ring number</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Svara</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Acceptera samtal</string>
     <string name="decline">Avvisa</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Avvisa samtal</string>
     <string name="unknown_caller">Okänd uppringare</string>
     <string name="is_calling">Ringer…</string>
-    <string name="dialing">Ringer…</string>
+    <string name="dialing">Ringer upp…</string>
     <string name="call_ended">Samtalet har avslutats</string>
     <string name="call_ending">Samtalet avslutas</string>
     <string name="ongoing_call">Pågående samtal</string>
@@ -37,51 +37,28 @@
     <string name="always_use_this_sim">Använd alltid det här SIM-kortet för detta nummer</string>
     <string name="unset_default_sim">Ta bort standard-SIM-kort</string>
     <string name="calls">Calls</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="turn_microphone_on">Sätt på mikrofonen</string>
+    <string name="turn_microphone_off">Stäng av mikrofonen</string>
+    <string name="turn_speaker_on">Sätt på högtalaren</string>
+    <string name="turn_speaker_off">Stäng av högtalaren</string>
+    <string name="show_dialpad">Visa knappsats</string>
+    <string name="hide_dialpad">Göm knappsats</string>
+    <string name="end_call">Avsluta samtalet</string>
     <!-- Speed dial -->
     <string name="speed_dial">Snabbuppringning</string>
     <string name="manage_speed_dial">Hantera snabbuppringning</string>
     <string name="speed_dial_label">Tryck på en siffra för att tilldela en kontakt till den. Du kan sedan snabbt ringa kontakten genom att trycka länge på siffran på knappsatsen.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Gruppera samtal till och från samma nummer i samtalshistoriken</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
-    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
+    <string name="open_dialpad_by_default">Öppna knappsatsen som standard när appen öppnas</string>
+    <string name="disable_proximity_sensor">Inaktivera närhetssensor under samtal</string>
+    <string name="disable_swipe_to_answer">Ersätt swiping som respons till inkommande samtal jmed klickande</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - hantera dina telefonsamtal enkelt</string>
+    <string name="app_title">Simpel telefon - hantera dina telefonsamtal enkelt</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">En telefonsamtalshanterare med nummerblockering och stöd för flera SIM-kort</string>
-    <string name="app_long_description">
-        En enkel app för att hantera dina telefonsamtal oavsett var du är. Levereras med en praktisk samtalshistorik för enkel uppringning.
-
-        Den har också en snabb knappsats med bokstäver och smarta kontaktförslag.
-
-        Du kan enkelt blockera telefonnummer för att undvika oönskade inkommande samtal.
-
-        Snabbuppringningsfunktionen gör det mycket enkelt att ringa dina favoritkontakter.
-
-        För att hjälpa dig att hantera dina samtal snabbt har telefonappen även stöd för favoritkontakter och genvägar till kontakter på startskärmen.
-
-        Den levereras med Material Design och mörkt tema som standard, och ger en bra användarupplevelse för enkel användning. Avsaknaden av internetåtkomst ger dig mer integritet, säkerhet och stabilitet än andra appar.
-
-        Innehåller ingen reklam eller onödiga behörigheter. Den har helt öppen källkod och anpassningsbara färger.
-
-        <b>Kolla in hela uppsättningen av Simple-verktyg här:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
+    <string name="app_long_description"> En enkel app för att hantera dina telefonsamtal oavsett var du är. Levereras med en praktisk samtalshistorik för enkel uppringning. Den har också en snabb knappsats med bokstäver och smarta kontaktförslag. Du kan enkelt blockera telefonnummer för att undvika oönskade inkommande samtal. Snabbuppringningsfunktionen gör det mycket enkelt att ringa dina favoritkontakter. För att hjälpa dig att hantera dina samtal snabbt har telefonappen även stöd för favoritkontakter och genvägar till kontakter på startskärmen. Den levereras med Material Design och mörkt tema som standard, och ger en bra användarupplevelse för enkel användning. Avsaknaden av internetåtkomst ger dig mer integritet, säkerhet och stabilitet än andra appar. Innehåller ingen reklam eller onödiga behörigheter. Den har helt öppen källkod och har anpassningsbara färger. <b>Kolla in hela uppsättningen av Simple Tools här:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
