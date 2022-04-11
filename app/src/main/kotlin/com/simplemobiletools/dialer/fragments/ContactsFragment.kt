@@ -54,21 +54,21 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         }
     }
 
-    override fun setupColors(textColor: Int, primaryColor: Int, adjustedPrimaryColor: Int) {
+    override fun setupColors(textColor: Int, primaryColor: Int, properPrimaryColor: Int) {
         (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
         fragment_placeholder.setTextColor(textColor)
-        fragment_placeholder_2.setTextColor(adjustedPrimaryColor)
+        fragment_placeholder_2.setTextColor(properPrimaryColor)
 
         letter_fastscroller.textColor = textColor.getColorStateList()
-        letter_fastscroller.pressedTextColor = adjustedPrimaryColor
+        letter_fastscroller.pressedTextColor = properPrimaryColor
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = adjustedPrimaryColor.getContrastColor()
-        letter_fastscroller_thumb.thumbColor = adjustedPrimaryColor.getColorStateList()
+        letter_fastscroller_thumb.textColor = properPrimaryColor.getContrastColor()
+        letter_fastscroller_thumb.thumbColor = properPrimaryColor.getColorStateList()
 
         fragment_fab.setColors(
             textColor,
-            adjustedPrimaryColor,
-            adjustedPrimaryColor.getContrastColor()
+            properPrimaryColor,
+            properPrimaryColor.getContrastColor()
         )
     }
 

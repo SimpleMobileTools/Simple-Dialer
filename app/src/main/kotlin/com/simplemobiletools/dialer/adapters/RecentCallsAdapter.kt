@@ -25,7 +25,6 @@ import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.item_recent_call.view.*
-import java.util.*
 
 class RecentCallsAdapter(
     activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener?,
@@ -116,8 +115,8 @@ class RecentCallsAdapter(
     }
 
     fun initDrawables() {
-        outgoingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, baseConfig.textColor)
-        incomingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, baseConfig.textColor)
+        outgoingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_outgoing_call_vector, activity.getProperTextColor())
+        incomingCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, activity.getProperTextColor())
         incomingMissedCallIcon = resources.getColoredDrawableWithColor(R.drawable.ic_incoming_call_vector, redColor)
     }
 
@@ -260,7 +259,7 @@ class RecentCallsAdapter(
             }
 
             if (textToHighlight.isNotEmpty() && nameToShow.contains(textToHighlight, true)) {
-                nameToShow = SpannableString(nameToShow.toString().highlightTextPart(textToHighlight, adjustedPrimaryColor))
+                nameToShow = SpannableString(nameToShow.toString().highlightTextPart(textToHighlight, properPrimaryColor))
             }
 
             item_recents_name.apply {

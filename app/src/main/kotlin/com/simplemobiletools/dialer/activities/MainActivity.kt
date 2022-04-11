@@ -37,7 +37,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_recents.*
-import java.util.*
 
 class MainActivity : SimpleActivity() {
     private var isSearchOpen = false
@@ -60,9 +59,9 @@ class MainActivity : SimpleActivity() {
                 val snackbar = Snackbar.make(main_holder, R.string.allow_displaying_over_other_apps, Snackbar.LENGTH_INDEFINITE).setAction(R.string.ok) {
                     startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION))
                 }
-                snackbar.setBackgroundTint(config.backgroundColor.darkenColor())
-                snackbar.setTextColor(config.textColor)
-                snackbar.setActionTextColor(config.textColor)
+                snackbar.setBackgroundTint(getProperBackgroundColor().darkenColor())
+                snackbar.setTextColor(getProperTextColor())
+                snackbar.setActionTextColor(getProperTextColor())
                 snackbar.show()
             }
         } else {
@@ -79,24 +78,24 @@ class MainActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        val adjustedPrimaryColor = getAdjustedPrimaryColor()
-        val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, adjustedPrimaryColor.getContrastColor())
+        val properPrimaryColor = getProperPrimaryColor()
+        val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, properPrimaryColor.getContrastColor())
         main_dialpad_button.apply {
             setImageDrawable(dialpadIcon)
-            background.applyColorFilter(adjustedPrimaryColor)
+            background.applyColorFilter(properPrimaryColor)
         }
 
-        main_tabs_holder.setBackgroundColor(config.backgroundColor)
-        main_tabs_holder.setSelectedTabIndicatorColor(adjustedPrimaryColor)
+        main_tabs_holder.setBackgroundColor(getProperBackgroundColor())
+        main_tabs_holder.setSelectedTabIndicatorColor(properPrimaryColor)
 
         if (viewpager.adapter != null) {
             getInactiveTabIndexes(viewpager.currentItem).forEach {
-                main_tabs_holder.getTabAt(it)?.icon?.applyColorFilter(config.textColor)
+                main_tabs_holder.getTabAt(it)?.icon?.applyColorFilter(getProperTextColor())
             }
 
-            main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(adjustedPrimaryColor)
+            main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(properPrimaryColor)
             getAllFragments().forEach {
-                it?.setupColors(config.textColor, config.primaryColor, getAdjustedPrimaryColor())
+                it?.setupColors(getProperTextColor(), getProperPrimaryColor(), getProperPrimaryColor())
             }
         }
 
@@ -239,23 +238,23 @@ class MainActivity : SimpleActivity() {
     private fun setupTabColors() {
         val lastUsedPage = getDefaultTab()
         main_tabs_holder.apply {
-            background = ColorDrawable(config.backgroundColor)
-            setSelectedTabIndicatorColor(getAdjustedPrimaryColor())
+            background = ColorDrawable(getProperBackgroundColor())
+            setSelectedTabIndicatorColor(getProperPrimaryColor())
             getTabAt(lastUsedPage)?.select()
-            getTabAt(lastUsedPage)?.icon?.applyColorFilter(getAdjustedPrimaryColor())
+            getTabAt(lastUsedPage)?.icon?.applyColorFilter(getProperPrimaryColor())
 
             getInactiveTabIndexes(lastUsedPage).forEach {
-                getTabAt(it)?.icon?.applyColorFilter(config.textColor)
+                getTabAt(it)?.icon?.applyColorFilter(getProperTextColor())
             }
         }
 
         main_tabs_holder.onTabSelectionChanged(
             tabUnselectedAction = {
-                it.icon?.applyColorFilter(config.textColor)
+                it.icon?.applyColorFilter(getProperTextColor())
             },
             tabSelectedAction = {
                 viewpager.currentItem = it.position
-                it.icon?.applyColorFilter(getAdjustedPrimaryColor())
+                it.icon?.applyColorFilter(getProperPrimaryColor())
             }
         )
     }
@@ -343,7 +342,7 @@ class MainActivity : SimpleActivity() {
             else -> R.drawable.ic_clock_vector
         }
 
-        return resources.getColoredDrawableWithColor(drawableId, config.textColor)
+        return resources.getColoredDrawableWithColor(drawableId, getProperTextColor())
     }
 
     private fun getTabContentDescription(position: Int): String {

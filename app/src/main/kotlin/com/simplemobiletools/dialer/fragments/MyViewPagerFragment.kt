@@ -4,7 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
-import com.simplemobiletools.commons.extensions.getAdjustedPrimaryColor
+import com.simplemobiletools.commons.extensions.getProperPrimaryColor
+import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.Config
@@ -22,7 +23,7 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
             this.activity = activity
 
             setupFragment()
-            setupColors(config.textColor, config.primaryColor, activity.getAdjustedPrimaryColor())
+            setupColors(activity.getProperTextColor(), activity.getProperPrimaryColor(), activity.getProperPrimaryColor())
         }
     }
 
@@ -33,7 +34,7 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
 
     abstract fun setupFragment()
 
-    abstract fun setupColors(textColor: Int, primaryColor: Int, adjustedPrimaryColor: Int)
+    abstract fun setupColors(textColor: Int, primaryColor: Int, properPrimaryColor: Int)
 
     abstract fun onSearchClosed()
 

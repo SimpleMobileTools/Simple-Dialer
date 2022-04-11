@@ -152,12 +152,12 @@ class CallActivity : SimpleActivity() {
         dialpad_asterisk_holder.setOnClickListener { dialpadPressed('*') }
         dialpad_hashtag_holder.setOnClickListener { dialpadPressed('#') }
 
-        dialpad_wrapper.setBackgroundColor(config.backgroundColor)
+        dialpad_wrapper.setBackgroundColor(getProperBackgroundColor())
         arrayOf(call_toggle_microphone, call_toggle_speaker, call_dialpad, dialpad_close, call_sim_image).forEach {
-            it.applyColorFilter(config.textColor)
+            it.applyColorFilter(getProperTextColor())
         }
 
-        call_sim_id.setTextColor(config.textColor.getContrastColor())
+        call_sim_id.setTextColor(getProperTextColor().getContrastColor())
     }
 
     @SuppressLint("ClickableViewAccessibility")

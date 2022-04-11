@@ -35,15 +35,15 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         fragment_placeholder_2.beGone()
     }
 
-    override fun setupColors(textColor: Int, primaryColor: Int, adjustedPrimaryColor: Int) {
+    override fun setupColors(textColor: Int, primaryColor: Int, properPrimaryColor: Int) {
         fragment_placeholder.setTextColor(textColor)
         (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
 
         letter_fastscroller.textColor = textColor.getColorStateList()
-        letter_fastscroller.pressedTextColor = adjustedPrimaryColor
+        letter_fastscroller.pressedTextColor = properPrimaryColor
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = adjustedPrimaryColor.getContrastColor()
-        letter_fastscroller_thumb.thumbColor = adjustedPrimaryColor.getColorStateList()
+        letter_fastscroller_thumb.textColor = properPrimaryColor.getContrastColor()
+        letter_fastscroller_thumb.thumbColor = properPrimaryColor.getColorStateList()
     }
 
     override fun refreshItems() {

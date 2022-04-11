@@ -26,7 +26,6 @@ import kotlinx.android.synthetic.main.activity_dialpad.*
 import kotlinx.android.synthetic.main.activity_dialpad.dialpad_holder
 import kotlinx.android.synthetic.main.dialpad.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 class DialpadActivity : SimpleActivity() {
     private var allContacts = ArrayList<SimpleContact>()
@@ -98,11 +97,11 @@ class DialpadActivity : SimpleActivity() {
         SimpleContactsHelper(this).getAvailableContacts(false) { gotContacts(it) }
         disableKeyboardPopping()
 
-        val adjustedPrimaryColor = getAdjustedPrimaryColor()
+        val properPrimaryColor = getProperPrimaryColor()
         val callIconId = if (areMultipleSIMsAvailable()) {
-            val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_two_vector, adjustedPrimaryColor.getContrastColor())
+            val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_two_vector, properPrimaryColor.getContrastColor())
             dialpad_call_two_button.setImageDrawable(callIcon)
-            dialpad_call_two_button.background.applyColorFilter(adjustedPrimaryColor)
+            dialpad_call_two_button.background.applyColorFilter(properPrimaryColor)
             dialpad_call_two_button.beVisible()
             dialpad_call_two_button.setOnClickListener {
                 initCall(dialpad_input.value, 1)
@@ -113,21 +112,21 @@ class DialpadActivity : SimpleActivity() {
             R.drawable.ic_phone_vector
         }
 
-        val callIcon = resources.getColoredDrawableWithColor(callIconId, adjustedPrimaryColor.getContrastColor())
+        val callIcon = resources.getColoredDrawableWithColor(callIconId, properPrimaryColor.getContrastColor())
         dialpad_call_button.setImageDrawable(callIcon)
-        dialpad_call_button.background.applyColorFilter(adjustedPrimaryColor)
+        dialpad_call_button.background.applyColorFilter(properPrimaryColor)
 
-        letter_fastscroller.textColor = config.textColor.getColorStateList()
-        letter_fastscroller.pressedTextColor = adjustedPrimaryColor
+        letter_fastscroller.textColor = getProperTextColor().getColorStateList()
+        letter_fastscroller.pressedTextColor = properPrimaryColor
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = adjustedPrimaryColor.getContrastColor()
-        letter_fastscroller_thumb.thumbColor = adjustedPrimaryColor.getColorStateList()
+        letter_fastscroller_thumb.textColor = properPrimaryColor.getContrastColor()
+        letter_fastscroller_thumb.thumbColor = properPrimaryColor.getColorStateList()
     }
 
     override fun onResume() {
         super.onResume()
         updateTextColors(dialpad_holder)
-        dialpad_clear_char.applyColorFilter(config.textColor)
+        dialpad_clear_char.applyColorFilter(getProperTextColor())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

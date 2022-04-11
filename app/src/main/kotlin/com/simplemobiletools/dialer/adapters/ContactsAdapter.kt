@@ -225,9 +225,9 @@ class ContactsAdapter(
 
                 text = if (textToHighlight.isEmpty()) contact.name else {
                     if (contact.name.contains(textToHighlight, true)) {
-                        contact.name.highlightTextPart(textToHighlight, adjustedPrimaryColor)
+                        contact.name.highlightTextPart(textToHighlight, properPrimaryColor)
                     } else {
-                        contact.name.highlightTextFromNumbers(textToHighlight, adjustedPrimaryColor)
+                        contact.name.highlightTextFromNumbers(textToHighlight, properPrimaryColor)
                     }
                 }
 

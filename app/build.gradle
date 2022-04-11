@@ -9,12 +9,12 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.simplemobiletools.dialer"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 34
         versionName "5.11.5"
         setProperty("archivesBaseName", "dialer")
@@ -61,6 +61,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:b3416c828f'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:e3376e4f56'
     implementation 'com.github.tibbi:IndicatorFastScroll:4524cd0b61'
 }
