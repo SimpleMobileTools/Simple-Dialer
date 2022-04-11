@@ -86,7 +86,7 @@ class RecentsHelper(private val context: Context) {
         if (cursor?.moveToFirst() == true) {
             do {
                 val id = cursor.getIntValue(Calls._ID)
-                val number = cursor.getStringValue(Calls.NUMBER)
+                val number = cursor.getStringValue(Calls.NUMBER) ?: continue
                 var name = cursor.getStringValue(Calls.CACHED_NAME)
                 if (name == null || name.isEmpty()) {
                     name = number
