@@ -42,15 +42,17 @@ class CallNotificationManager(private val context: Context) {
             }
 
             val openAppIntent = CallActivity.getStartIntent(context)
-            val openAppPendingIntent = PendingIntent.getActivity(context, 0, openAppIntent, 0)
+            val openAppPendingIntent = PendingIntent.getActivity(context, 0, openAppIntent, PendingIntent.FLAG_IMMUTABLE)
 
             val acceptCallIntent = Intent(context, CallActionReceiver::class.java)
             acceptCallIntent.action = ACCEPT_CALL
-            val acceptPendingIntent = PendingIntent.getBroadcast(context, ACCEPT_CALL_CODE, acceptCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+            val acceptPendingIntent =
+                PendingIntent.getBroadcast(context, ACCEPT_CALL_CODE, acceptCallIntent, PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
             val declineCallIntent = Intent(context, CallActionReceiver::class.java)
             declineCallIntent.action = DECLINE_CALL
-            val declinePendingIntent = PendingIntent.getBroadcast(context, DECLINE_CALL_CODE, declineCallIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+            val declinePendingIntent =
+                PendingIntent.getBroadcast(context, DECLINE_CALL_CODE, declineCallIntent, PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
             var callerName = if (callContact != null && callContact.name.isNotEmpty()) callContact.name else context.getString(R.string.unknown_caller)
             if (callContact?.numberLabel?.isNotEmpty() == true) {
