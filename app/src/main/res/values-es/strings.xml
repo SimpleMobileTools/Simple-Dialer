@@ -1,29 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Marcador Simple</string>
     <string name="app_launcher_name">Marcador</string>
     <string name="default_phone_app_prompt">Hacer esta app la predeterminada para hacer llamadas en tu dispositivo</string>
     <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
-
     <!-- Contacts -->
     <string name="could_not_access_contacts">No se pudo acceder a tus contactos</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">No se han encontrado llamadas previas</string>
     <string name="could_not_access_the_call_history">No se pudo acceder al historial de llamadas</string>
     <string name="request_access">Solicitar acceso</string>
-    <string name="remove_confirmation">¿Estás seguro que quieres eliminar los elementos seleccionados del historial de llamadas?</string>
+    <string name="remove_confirmation">¿Estás seguro que quieres eliminar los elementos seleccionados del historial de llamadas\?</string>
     <string name="clear_history_confirmation">¿Está seguro de que desea eliminar todo del historial de llamadas?</string>
     <string name="send_sms">Enviar SMS</string>
     <string name="show_grouped_calls">Mostrar llamadas agrupadas</string>
     <string name="clear_call_history">Borrar historial de llamadas</string>
     <string name="show_call_details">Show call details</string>
-
     <!-- Dialpad -->
     <string name="dialpad">Teclado de marcado</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Call number</string>
-
     <!-- Dialer -->
     <string name="dialer">Marcador</string>
     <string name="accept">Aceptar</string>
@@ -47,18 +44,15 @@
     <string name="show_dialpad">Show dialpad</string>
     <string name="hide_dialpad">Hide dialpad</string>
     <string name="end_call">End call</string>
-
     <!-- Speed dial -->
     <string name="speed_dial">Marcado rápido</string>
     <string name="manage_speed_dial">Administrar marcado rápido</string>
     <string name="speed_dial_label">Toca un número para asignarle un contacto. Entonces podrás llamarlo rápidamente manteniendo presionado el número asignado en el teclado de marcado.</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">Agrupar llamadas subsecuentes con el mísmo número en el registro de llamadas</string>
     <string name="open_dialpad_by_default">Abrir el teclado de marcado de forma predeterminada al abrir la aplicación</string>
     <string name="disable_proximity_sensor">Deshabilitar el sensor de proximidad durante las llamadas</string>
     <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Marcador Simple - Administra tus llamadas fácil</string>
@@ -88,7 +82,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
