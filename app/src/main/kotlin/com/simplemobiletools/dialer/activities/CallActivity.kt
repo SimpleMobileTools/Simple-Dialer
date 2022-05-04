@@ -22,7 +22,10 @@ import com.simplemobiletools.commons.helpers.isOreoMr1Plus
 import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.dialer.App
 import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.extensions.*
+import com.simplemobiletools.dialer.extensions.addCharacter
+import com.simplemobiletools.dialer.extensions.audioManager
+import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.extensions.getHandleToUse
 import com.simplemobiletools.dialer.helpers.CallContactAvatarHelper
 import com.simplemobiletools.dialer.helpers.CallManager
 import com.simplemobiletools.dialer.models.CallContact
