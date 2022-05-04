@@ -22,10 +22,7 @@ import com.simplemobiletools.commons.helpers.isOreoMr1Plus
 import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.dialer.App
 import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.extensions.addCharacter
-import com.simplemobiletools.dialer.extensions.audioManager
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.extensions.getHandleToUse
+import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.CallContactAvatarHelper
 import com.simplemobiletools.dialer.helpers.CallManager
 import com.simplemobiletools.dialer.models.CallContact
@@ -466,7 +463,8 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun initProximitySensor() {
-        if (!config.disableProximitySensor && (proximityWakeLock == null || proximityWakeLock?.isHeld == false)) {
+        if (!audioManager.hasExternalSpeaker() && !config.disableProximitySensor &&
+            (proximityWakeLock == null || proximityWakeLock?.isHeld == false)) {
             val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
             proximityWakeLock = powerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, "com.simplemobiletools.dialer.pro:wake_lock")
             proximityWakeLock!!.acquire(60 * MINUTE_SECONDS * 1000L)
