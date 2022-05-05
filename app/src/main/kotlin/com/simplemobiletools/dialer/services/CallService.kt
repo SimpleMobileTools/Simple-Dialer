@@ -4,6 +4,7 @@ import android.telecom.Call
 import android.telecom.InCallService
 import com.simplemobiletools.dialer.App
 import com.simplemobiletools.dialer.activities.CallActivity
+import com.simplemobiletools.dialer.extensions.powerManager
 import com.simplemobiletools.dialer.helpers.CallManager
 import com.simplemobiletools.dialer.helpers.CallNotificationManager
 
@@ -28,7 +29,10 @@ class CallService : InCallService() {
 
     override fun onCallAdded(call: Call) {
         super.onCallAdded(call)
-        startActivity(CallActivity.getStartIntent(this))
+        val isInteractive = powerManager.isInteractive
+        if (!isInteractive) {
+            startActivity(CallActivity.getStartIntent(this))
+        }
         CallManager.call = call
         CallManager.inCallService = this
         CallManager.registerCallback(callListener)
