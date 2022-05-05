@@ -29,8 +29,7 @@ class CallService : InCallService() {
 
     override fun onCallAdded(call: Call) {
         super.onCallAdded(call)
-        val isInteractive = powerManager.isInteractive
-        if (!isInteractive) {
+        if (!powerManager.isInteractive) {
             startActivity(CallActivity.getStartIntent(this))
         }
         CallManager.call = call
