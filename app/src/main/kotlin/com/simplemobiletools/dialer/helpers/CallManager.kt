@@ -104,5 +104,13 @@ class CallManager {
                 }
             }
         }
+
+        fun getCallDuration(): Int {
+            return if (call != null) {
+                ((System.currentTimeMillis() - call!!.details.connectTimeMillis) / 1000).toInt()
+            } else {
+                0
+            }
+        }
     }
 }
