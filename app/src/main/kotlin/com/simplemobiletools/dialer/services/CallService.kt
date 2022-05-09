@@ -29,7 +29,7 @@ class CallService : InCallService() {
 
     override fun onCallAdded(call: Call) {
         super.onCallAdded(call)
-        if (!powerManager.isInteractive) {
+        if (!powerManager.isInteractive || call.state == Call.STATE_CONNECTING) {
             startActivity(CallActivity.getStartIntent(this))
         }
         CallManager.call = call
