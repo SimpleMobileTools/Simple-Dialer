@@ -106,7 +106,7 @@
             app:layout_constraintHorizontal_bias="0.15"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.75" />
+            app:layout_constraintVertical_bias="0.6" />
 
         <ImageView
             android:id="@+id/call_toggle_speaker"
@@ -119,7 +119,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.75" />
+            app:layout_constraintVertical_bias="0.6" />
 
         <ImageView
             android:id="@+id/call_dialpad"
@@ -134,7 +134,33 @@
             app:layout_constraintHorizontal_bias="0.85"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.75" />
+            app:layout_constraintVertical_bias="0.6" />
+
+        <ImageView
+            android:id="@+id/call_toggle_hold"
+            android:layout_width="@dimen/dialpad_button_size"
+            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_marginTop="@dimen/bigger_margin"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/medium_margin"
+            android:src="@drawable/ic_pause_vector"
+            app:layout_constraintEnd_toStartOf="@+id/call_conference"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
+
+        <ImageView
+            android:id="@+id/call_conference"
+            android:layout_width="@dimen/dialpad_button_size"
+            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_marginTop="@dimen/bigger_margin"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/medium_margin"
+            android:src="@drawable/ic_plus_vector"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/call_toggle_hold"
+            app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
 
         <ImageView
             android:id="@+id/call_end"

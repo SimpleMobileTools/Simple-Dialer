@@ -131,6 +131,18 @@ class CallActivity : SimpleActivity() {
             dialpad_wrapper.beGone()
         }
 
+        call_toggle_hold.setOnClickListener {
+            toggleHold()
+        }
+
+        call_conference.setOnClickListener {
+            /*if (is conference) {
+                // show manage conference screen
+            } else {
+                // show dialpad and contacts
+            }*/
+        }
+
         call_end.setOnClickListener {
             endCall()
         }
@@ -304,6 +316,12 @@ class CallActivity : SimpleActivity() {
         } else {
             dialpad_wrapper.beVisible()
         }
+    }
+
+    private fun toggleHold() {
+        val isOnHold = CallManager.toggleHold()
+        val drawable = if (!isOnHold) R.drawable.ic_play_vector else R.drawable.ic_pause_vector
+        call_toggle_hold.setImageDrawable(getDrawable(drawable))
     }
 
     private fun updateOtherPersonsInfo(avatar: Bitmap?) {

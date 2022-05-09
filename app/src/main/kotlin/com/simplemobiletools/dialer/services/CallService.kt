@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.services
 
 import android.telecom.Call
 import android.telecom.InCallService
+import android.util.Log
 import com.simplemobiletools.dialer.activities.CallActivity
 import com.simplemobiletools.dialer.extensions.powerManager
 import com.simplemobiletools.dialer.helpers.CallManager
@@ -13,6 +14,7 @@ class CallService : InCallService() {
     private val callListener = object : Call.Callback() {
         override fun onStateChanged(call: Call, state: Int) {
             super.onStateChanged(call, state)
+            Log.d("CallService", "onStateChanged: $call")
             if (state != Call.STATE_DISCONNECTED) {
                 callNotificationManager.setupNotification()
             }

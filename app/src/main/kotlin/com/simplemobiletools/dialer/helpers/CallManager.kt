@@ -32,6 +32,16 @@ class CallManager {
             }
         }
 
+        fun toggleHold(): Boolean {
+            val isOnHold = getState() == Call.STATE_HOLDING
+            if (isOnHold) {
+                call?.unhold()
+            } else {
+                call?.hold()
+            }
+            return !isOnHold
+        }
+
         fun registerCallback(callback: Call.Callback) {
             call?.registerCallback(callback)
         }
