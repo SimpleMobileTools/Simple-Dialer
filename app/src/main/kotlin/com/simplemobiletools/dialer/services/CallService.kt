@@ -3,6 +3,7 @@ package com.simplemobiletools.dialer.services
 import android.telecom.Call
 import android.telecom.InCallService
 import com.simplemobiletools.dialer.activities.CallActivity
+import com.simplemobiletools.dialer.extensions.isOutgoing
 import com.simplemobiletools.dialer.extensions.powerManager
 import com.simplemobiletools.dialer.helpers.CallManager
 import com.simplemobiletools.dialer.helpers.CallNotificationManager
@@ -21,7 +22,7 @@ class CallService : InCallService() {
 
     override fun onCallAdded(call: Call) {
         super.onCallAdded(call)
-        if (!powerManager.isInteractive || call.state == Call.STATE_CONNECTING) {
+        if (!powerManager.isInteractive || call.isOutgoing()) {
             startActivity(CallActivity.getStartIntent(this))
         }
         CallManager.call = call
