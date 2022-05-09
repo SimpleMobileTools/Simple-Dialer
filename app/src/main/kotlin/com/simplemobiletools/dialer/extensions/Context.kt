@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.media.AudioManager
 import android.net.Uri
+import android.os.PowerManager
 import com.simplemobiletools.commons.extensions.telecomManager
 import com.simplemobiletools.dialer.helpers.Config
 import com.simplemobiletools.dialer.models.SIMAccount
@@ -11,6 +12,8 @@ import com.simplemobiletools.dialer.models.SIMAccount
 val Context.config: Config get() = Config.newInstance(applicationContext)
 
 val Context.audioManager: AudioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+
+val Context.powerManager: PowerManager get() = getSystemService(Context.POWER_SERVICE) as PowerManager
 
 @SuppressLint("MissingPermission")
 fun Context.getAvailableSIMCardLabels(): ArrayList<SIMAccount> {
