@@ -10,6 +10,7 @@ import android.graphics.drawable.RippleDrawable
 import android.media.AudioManager
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.PowerManager
 import android.telecom.Call
 import android.telecom.CallAudioState
@@ -20,7 +21,6 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
 import com.simplemobiletools.commons.helpers.isOreoMr1Plus
 import com.simplemobiletools.commons.helpers.isOreoPlus
-import com.simplemobiletools.dialer.App
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.addCharacter
 import com.simplemobiletools.dialer.extensions.audioManager
@@ -48,7 +48,7 @@ class CallActivity : SimpleActivity() {
     private var proximityWakeLock: PowerManager.WakeLock? = null
     private var callDuration = 0
     private val callContactAvatarHelper by lazy { CallContactAvatarHelper(this) }
-    private val callDurationHelper by lazy { (application as App).callDurationHelper }
+    private val callDurationHandler = Handler(Looper.getMainLooper())
     private var dragDownX = 0f
     private var stopAnimation = false
 
@@ -393,14 +393,7 @@ class CallActivity : SimpleActivity() {
         enableProximitySensor()
         incoming_call_holder.beGone()
         ongoing_call_holder.beVisible()
-        callDurationHelper.onDurationChange {
-            callDuration = it
-            runOnUiThread {
-                if (!isCallEnded) {
-                    call_status_label.text = callDuration.getFormattedDuration()
-                }
-            }
-        }
+        callDurationHandler.post(updateCallDurationTask)
     }
 
     private fun showPhoneAccountPicker() {
@@ -443,6 +436,16 @@ class CallActivity : SimpleActivity() {
         override fun onStateChanged(call: Call, state: Int) {
             super.onStateChanged(call, state)
             updateCallState(state)
+        }
+    }
+
+    private val updateCallDurationTask = object : Runnable {
+        override fun run() {
+            callDuration = CallManager.getCallDuration()
+            if (!isCallEnded) {
+                call_status_label.text = callDuration.getFormattedDuration()
+                callDurationHandler.postDelayed(this, 1000)
+            }
         }
     }
 
