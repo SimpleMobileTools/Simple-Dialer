@@ -8,11 +8,11 @@ import com.simplemobiletools.commons.helpers.isSPlus
 
 private val OUTGOING_CALL_STATES = arrayOf(STATE_CONNECTING, STATE_DIALING, STATE_SELECT_PHONE_ACCOUNT)
 
+@Suppress("DEPRECATION")
 fun Call.getStateCompat(): Int {
     return if (isSPlus()) {
         details.state
     } else {
-        @Suppress("DEPRECATION")
         state
     }
 }
