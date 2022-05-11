@@ -10,6 +10,7 @@ import com.simplemobiletools.commons.extensions.getPhoneNumberTypeText
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
+import com.simplemobiletools.dialer.extensions.getStateCompat
 import com.simplemobiletools.dialer.models.CallContact
 
 // inspired by https://github.com/Chooloo/call_manage
@@ -24,7 +25,7 @@ class CallManager {
 
         fun reject() {
             if (call != null) {
-                if (call!!.state == Call.STATE_RINGING) {
+                if (call!!.getStateCompat() == Call.STATE_RINGING) {
                     call!!.reject(false, null)
                 } else {
                     call!!.disconnect()
@@ -53,7 +54,7 @@ class CallManager {
         fun getState() = if (call == null) {
             Call.STATE_DISCONNECTED
         } else {
-            call!!.state
+            call!!.getStateCompat()
         }
 
         fun keypad(c: Char) {
