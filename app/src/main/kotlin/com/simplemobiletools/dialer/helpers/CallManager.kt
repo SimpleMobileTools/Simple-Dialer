@@ -25,7 +25,7 @@ class CallManager {
 
         fun reject() {
             if (call != null) {
-                if (call!!.getStateCompat() == Call.STATE_RINGING) {
+                if (getState() == Call.STATE_RINGING) {
                     call!!.reject(false, null)
                 } else {
                     call!!.disconnect()
