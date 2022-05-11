@@ -55,6 +55,21 @@
         app:layout_constraintTop_toBottomOf="@+id/caller_number"
         tools:text="Is Calling" />
 
+    <TextView
+        android:id="@+id/hold_status_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:alpha="0.8"
+        android:text="@string/call_on_hold"
+        android:textColor="@color/md_red"
+        android:textSize="@dimen/call_status_text_size"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/call_status_label"
+        tools:visibility="visible" />
+
     <ImageView
         android:id="@+id/call_sim_image"
         android:layout_width="@dimen/normal_icon_size"

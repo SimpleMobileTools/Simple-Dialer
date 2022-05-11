@@ -44,6 +44,9 @@
     <string name="show_dialpad">Показати цифрову панель</string>
     <string name="hide_dialpad">Сховати цифрову панель</string>
     <string name="end_call">Завершити виклик</string>
+    <string name="hold_call">Перевести в утримання</string>
+    <string name="unhold_call">Зняти з утримання</string>
+    <string name="call_on_hold">Дзвінок утримується</string>
     <!-- Speed dial -->
     <string name="speed_dial">Швидкий виклик</string>
     <string name="manage_speed_dial">Управління швидким викликом</string>

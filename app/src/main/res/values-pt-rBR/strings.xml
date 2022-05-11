@@ -44,6 +44,9 @@
     <string name="show_dialpad">Mostrar discador</string>
     <string name="hide_dialpad">Ocultar discador</string>
     <string name="end_call">Encerrar chamada</string>
+    <string name="hold_call">Hold call</string>
+    <string name="unhold_call">Unhold call</string>
+    <string name="call_on_hold">Call On Hold</string>
     <!-- Speed dial -->
     <string name="speed_dial">Ligação rápida</string>
     <string name="manage_speed_dial">Gerenciar ligações rápidas</string>

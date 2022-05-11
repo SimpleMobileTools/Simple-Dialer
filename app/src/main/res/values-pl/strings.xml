@@ -44,6 +44,9 @@
     <string name="show_dialpad">Pokaż panel wybierania numeru</string>
     <string name="hide_dialpad">Ukryj panel wybierania numeru</string>
     <string name="end_call">Zakończ połączenie</string>
+    <string name="hold_call">Hold call</string>
+    <string name="unhold_call">Unhold call</string>
+    <string name="call_on_hold">Call On Hold</string>
     <!-- Speed dial -->
     <string name="speed_dial">Szybkie wybieranie</string>
     <string name="manage_speed_dial">Zarządzaj szybkim wybieraniem</string>

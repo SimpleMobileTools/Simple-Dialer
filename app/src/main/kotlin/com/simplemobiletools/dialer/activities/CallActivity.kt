@@ -320,8 +320,10 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleHold() {
         val isOnHold = CallManager.toggleHold()
-        val drawable = if (!isOnHold) R.drawable.ic_play_vector else R.drawable.ic_pause_vector
+        val drawable = if (isOnHold) R.drawable.ic_play_vector else R.drawable.ic_pause_vector
         call_toggle_hold.setImageDrawable(getDrawable(drawable))
+        call_toggle_hold.contentDescription = getString(if (isOnHold) R.string.unhold_call else R.string.hold_call)
+        hold_status_label.beVisibleIf(isOnHold)
     }
 
     private fun updateOtherPersonsInfo(avatar: Bitmap?) {

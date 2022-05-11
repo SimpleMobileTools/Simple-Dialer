@@ -44,6 +44,9 @@
     <string name="show_dialpad">Wähltasten anzeigen</string>
     <string name="hide_dialpad">Wähltasten ausblenden</string>
     <string name="end_call">Anruf beenden</string>
+    <string name="hold_call">Hold call</string>
+    <string name="unhold_call">Unhold call</string>
+    <string name="call_on_hold">Call On Hold</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kurzwahl</string>
     <string name="manage_speed_dial">Kurzwahlnummern verwalten</string>

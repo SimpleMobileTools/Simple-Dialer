@@ -44,6 +44,9 @@
     <string name="show_dialpad">Toetsenblok tonen</string>
     <string name="hide_dialpad">Toetsenblok verbergen</string>
     <string name="end_call">Gesprek beëindigen</string>
+    <string name="hold_call">Hold call</string>
+    <string name="unhold_call">Unhold call</string>
+    <string name="call_on_hold">Call On Hold</string>
     <!-- Speed dial -->
     <string name="speed_dial">Snelkiesnummer</string>
     <string name="manage_speed_dial">Snelkiezen beheren</string>

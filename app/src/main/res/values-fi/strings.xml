@@ -44,6 +44,9 @@
     <string name="show_dialpad">Näytä valintanäppäimistö</string>
     <string name="hide_dialpad">Piilota valintanäppäimistö</string>
     <string name="end_call">Lopeta puhelu</string>
+    <string name="hold_call">Hold call</string>
+    <string name="unhold_call">Unhold call</string>
+    <string name="call_on_hold">Call On Hold</string>
     <!-- Speed dial -->
     <string name="speed_dial">Pikavalinta</string>
     <string name="manage_speed_dial">Pikavalinnan asetukset</string>
