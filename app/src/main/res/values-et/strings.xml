@@ -45,8 +45,8 @@
     <string name="hide_dialpad">Peida numbriklahvistik</string>
     <string name="end_call">Lõpeta kõne</string>
     <string name="hold_call">Hold call</string>
-    <string name="unhold_call">Unhold call</string>
-    <string name="call_on_hold">Call On Hold</string>
+    <string name="resume_call">Resume call</string>
+    <string name="call_on_hold">On Hold</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kiirvalimine</string>
     <string name="speed_dial_label">Klõpsa numbrit ja seosta ta konkreetse telefoniraamatu kirjega. Hiljem saad samale numbrile pikalt vajutades alustada kõnet määratud telefoninumbrile.</string>
