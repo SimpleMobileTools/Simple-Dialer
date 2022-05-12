@@ -43,6 +43,14 @@ class CallManager {
             return !isOnHold
         }
 
+        fun swap() {
+
+        }
+
+        fun merge() {
+
+        }
+
         fun registerCallback(callback: Call.Callback) {
             call?.registerCallback(callback)
         }

@@ -135,6 +135,14 @@ class CallActivity : SimpleActivity() {
             toggleHold()
         }
 
+        call_conference.setOnClickListener {
+            /*if (is conference) {
+                // show manage conference screen
+            } else {
+                // show dialpad and contacts
+            }*/
+        }
+
         call_end.setOnClickListener {
             endCall()
         }
