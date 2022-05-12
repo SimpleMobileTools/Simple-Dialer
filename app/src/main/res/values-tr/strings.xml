@@ -45,8 +45,8 @@
     <string name="hide_dialpad">Tuş takımını gizle</string>
     <string name="end_call">Aramayı sonlandır</string>
     <string name="hold_call">Hold call</string>
-    <string name="unhold_call">Unhold call</string>
-    <string name="call_on_hold">Call On Hold</string>
+    <string name="resume_call">Resume call</string>
+    <string name="call_on_hold">On Hold</string>
     <!-- Speed dial -->
     <string name="speed_dial">Hızlı arama</string>
     <string name="manage_speed_dial">Hızlı aramayı yönet</string>
