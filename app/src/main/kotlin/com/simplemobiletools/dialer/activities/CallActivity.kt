@@ -312,7 +312,7 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleHold() {
         val isOnHold = CallManager.toggleHold()
-        val drawable = if (isOnHold) R.drawable.ic_phone_vector else R.drawable.ic_call_hold
+        val drawable = if (isOnHold) R.drawable.ic_phone_vector else R.drawable.ic_pause_inset
         call_toggle_hold.setImageDrawable(getDrawable(drawable))
         call_toggle_hold.contentDescription = getString(if (isOnHold) R.string.resume_call else R.string.hold_call)
         hold_status_label.beVisibleIf(isOnHold)
