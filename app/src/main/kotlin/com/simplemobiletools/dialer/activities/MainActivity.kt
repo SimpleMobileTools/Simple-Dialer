@@ -25,9 +25,11 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
+import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
+import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
 import com.simplemobiletools.dialer.helpers.OPEN_DIAL_PAD_AT_LAUNCH
@@ -69,6 +71,8 @@ class MainActivity : SimpleActivity() {
         }
 
         hideTabs()
+
+        SimpleContact.sorting = config.sorting
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -135,6 +139,7 @@ class MainActivity : SimpleActivity() {
             R.id.clear_call_history -> clearCallHistory()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
+            R.id.sort -> showSortingDialog()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -466,5 +471,11 @@ class MainActivity : SimpleActivity() {
         )
 
         startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
+    }
+
+    private fun showSortingDialog() {
+        ChangeSortingDialog(this) {
+            refreshFragments()
+        }
     }
 }
