@@ -61,6 +61,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.pavelpoley:Simple-Commons:0580b1a8f4'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:6c96be277f'
     implementation 'com.github.tibbi:IndicatorFastScroll:4524cd0b61'
 }
