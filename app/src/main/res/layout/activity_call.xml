@@ -117,8 +117,7 @@
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_microphone_vector"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintEnd_toStartOf="@+id/call_toggle_speaker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6" />
@@ -131,8 +130,8 @@
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_speaker_off_vector"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/call_dialpad"
+            app:layout_constraintStart_toEndOf="@+id/call_toggle_microphone"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6" />
 
@@ -146,8 +145,7 @@
             android:src="@drawable/ic_dialpad_vector"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/call_toggle_speaker"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6" />
 
@@ -158,8 +156,8 @@
             android:layout_marginTop="@dimen/bigger_margin"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:padding="@dimen/medium_margin"
-            android:src="@drawable/ic_pause_vector"
-            app:layout_constraintEnd_toStartOf="@+id/call_conference"
+            android:src="@drawable/ic_pause_inset"
+            app:layout_constraintEnd_toStartOf="@id/call_conference"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
 
