@@ -1,3 +1,4 @@
 <resources>
     <integer name="default_font_size">2</integer>
+    <integer name="default_sorting">65536</integer>
 </resources>

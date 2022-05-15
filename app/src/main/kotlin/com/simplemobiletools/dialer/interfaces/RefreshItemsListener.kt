@@ -1,5 +1,5 @@
 package com.simplemobiletools.dialer.interfaces
 
 interface RefreshItemsListener {
-    fun refreshItems()
+    fun refreshItems(callback: (() -> Unit)? = null)
 }
