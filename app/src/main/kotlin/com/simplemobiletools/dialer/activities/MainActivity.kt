@@ -45,6 +45,7 @@ class MainActivity : SimpleActivity() {
     private var launchedDialer = false
     private var searchMenuItem: MenuItem? = null
     private var storedShowTabs = 0
+    private var searchQuery = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -176,6 +177,7 @@ class MainActivity : SimpleActivity() {
 
                 override fun onQueryTextChange(newText: String): Boolean {
                     if (isSearchOpen) {
+                        searchQuery = newText
                         getCurrentFragment()?.onSearchQueryChanged(newText)
                     }
                     return true
@@ -475,7 +477,16 @@ class MainActivity : SimpleActivity() {
 
     private fun showSortingDialog() {
         ChangeSortingDialog(this) {
-            refreshFragments()
+            favorites_fragment?.refreshItems {
+                if (isSearchOpen){
+                    getCurrentFragment()?.onSearchQueryChanged(searchQuery)
+                }
+            }
+            contacts_fragment?.refreshItems {
+                if (isSearchOpen){
+                    getCurrentFragment()?.onSearchQueryChanged(searchQuery)
+                }
+            }
         }
     }
 }
