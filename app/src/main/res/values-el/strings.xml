@@ -47,9 +47,9 @@
     <string name="show_dialpad">Εμφάνιση πληκτρολογίου</string>
     <string name="hide_dialpad">Απόκρυψη πληκτρολογίου</string>
     <string name="end_call">Τέλος Κλήσης</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
+    <string name="hold_call">Αναμονή Κλήσης</string>
+    <string name="resume_call">Συνέχιση Κλήσης</string>
+    <string name="call_on_hold">Σε Αναμονή</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Ταχεία κλήση</string>
