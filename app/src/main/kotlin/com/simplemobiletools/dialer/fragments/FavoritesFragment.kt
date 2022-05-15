@@ -46,7 +46,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         letter_fastscroller_thumb.thumbColor = properPrimaryColor.getColorStateList()
     }
 
-    override fun refreshItems() {
+    override fun refreshItems(callback: (() -> Unit)?) {
         val privateCursor = context?.getMyContactsCursor(true, true)
         SimpleContactsHelper(context).getAvailableContacts(true) { contacts ->
             allContacts = contacts
@@ -59,6 +59,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
 
             activity?.runOnUiThread {
                 gotContacts(contacts)
+                callback?.invoke()
             }
         }
     }
