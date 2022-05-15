@@ -128,6 +128,7 @@ class MainActivity : SimpleActivity() {
         menuInflater.inflate(R.menu.menu, menu)
         menu.apply {
             findItem(R.id.clear_call_history).isVisible = getCurrentFragment() == recents_fragment
+            findItem(R.id.sort).isVisible = getCurrentFragment() != recents_fragment
 
             setupSearch(this)
             updateMenuItemColors(this)
