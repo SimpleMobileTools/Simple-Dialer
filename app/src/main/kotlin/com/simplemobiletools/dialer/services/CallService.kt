@@ -17,7 +17,6 @@ class CallService : InCallService() {
     private val callListener = object : Call.Callback() {
         override fun onStateChanged(call: Call, state: Int) {
             super.onStateChanged(call, state)
-            Log.d(TAG, "onStateChanged: $call")
             if (state != Call.STATE_DISCONNECTED) {
                 callNotificationManager.setupNotification()
             }
@@ -27,26 +26,36 @@ class CallService : InCallService() {
     override fun onCallAdded(call: Call) {
         super.onCallAdded(call)
         Log.d(TAG, "onCallAdded: $call")
-        if (!powerManager.isInteractive || call.isOutgoing()) {
+        CallManager.onCallAdded(call)
+        if ((!powerManager.isInteractive || call.isOutgoing())) {
             startActivity(CallActivity.getStartIntent(this))
         }
-        CallManager.call = call
+        call.registerCallback(callListener)
         CallManager.inCallService = this
-        CallManager.registerCallback(callListener)
         callNotificationManager.setupNotification()
+        Log.d(TAG, "onCallAdded: calls=${CallManager.calls.size}")
     }
 
     override fun onCallRemoved(call: Call) {
         super.onCallRemoved(call)
         Log.d(TAG, "onCallRemoved: $call")
-        CallManager.call = null
-        CallManager.inCallService = null
-        callNotificationManager.cancelNotification()
+        call.unregisterCallback(callListener)
+        CallManager.onCallRemoved(call)
+        if (CallManager.calls.isEmpty()) {
+            CallManager.call = null
+            CallManager.inCallService = null
+            callNotificationManager.cancelNotification()
+        } else {
+            // TODO if left more than 1
+            CallManager.call = CallManager.calls.first()
+            callNotificationManager.setupNotification()
+            startActivity(CallActivity.getStartIntent(this))
+        }
+        Log.d(TAG, "onCallRemoved: calls=${CallManager.calls.size}")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        CallManager.unregisterCallback(callListener)
         callNotificationManager.cancelNotification()
     }
 }

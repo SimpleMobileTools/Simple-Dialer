@@ -22,21 +22,21 @@ import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
 import com.simplemobiletools.commons.helpers.isOreoMr1Plus
 import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.extensions.addCharacter
-import com.simplemobiletools.dialer.extensions.audioManager
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.extensions.getHandleToUse
+import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.CallContactAvatarHelper
 import com.simplemobiletools.dialer.helpers.CallManager
+import com.simplemobiletools.dialer.helpers.CallManagerListener
 import com.simplemobiletools.dialer.models.CallContact
 import kotlinx.android.synthetic.main.activity_call.*
 import kotlinx.android.synthetic.main.dialpad.*
+
+const val TAG = "SimpleDialer:CallManager"
 
 class CallActivity : SimpleActivity() {
     companion object {
         fun getStartIntent(context: Context): Intent {
             val openAppIntent = Intent(context, CallActivity::class.java)
-            openAppIntent.flags = Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK
+            openAppIntent.flags = Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             return openAppIntent
         }
     }
@@ -62,24 +62,21 @@ class CallActivity : SimpleActivity() {
 
         audioManager.mode = AudioManager.MODE_IN_CALL
 
-        CallManager.getCallContact(applicationContext) { contact ->
-            callContact = contact
-            val avatar = callContactAvatarHelper.getCallContactAvatar(contact)
-            runOnUiThread {
-                updateOtherPersonsInfo(avatar)
-                checkCalledSIMCard()
-            }
-        }
-
         addLockScreenFlags()
 
-        CallManager.registerCallback(callCallback)
-        updateCallState(CallManager.getState())
+        CallManager.addListener(callCallback)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateCallState(CallManager.getPrimaryCall())
+        updateCallOnHoldState(CallManager.getSecondaryCall())
+        updateCallContactInfo(CallManager.getPrimaryCall())
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        CallManager.unregisterCallback(callCallback)
+        CallManager.removeListener(callCallback)
         disableProximitySensor()
     }
 
@@ -135,12 +132,23 @@ class CallActivity : SimpleActivity() {
             toggleHold()
         }
 
-        call_conference.setOnClickListener {
-            /*if (is conference) {
-                // show manage conference screen
-            } else {
-                // show dialpad and contacts
-            }*/
+        call_add.setOnClickListener {
+            Intent(applicationContext, DialpadActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+                startActivity(this)
+            }
+        }
+
+        call_swap.setOnClickListener {
+            CallManager.swap()
+        }
+
+        call_merge.setOnClickListener {
+            CallManager.merge()
+        }
+
+        call_manage.setOnClickListener {
+            // TODO open conference participants list
         }
 
         call_end.setOnClickListener {
@@ -347,6 +355,14 @@ class CallActivity : SimpleActivity() {
         }
     }
 
+    private fun getContactNameOrNumber(contact: CallContact): String {
+        return contact.name.ifEmpty {
+            contact.number.ifEmpty {
+                getString(R.string.unknown_caller)
+            }
+        }
+    }
+
     @SuppressLint("MissingPermission")
     private fun checkCalledSIMCard() {
         try {
@@ -375,7 +391,8 @@ class CallActivity : SimpleActivity() {
         }
     }
 
-    private fun updateCallState(state: Int) {
+    private fun updateCallState(call: Call?) {
+        val state = call?.getStateCompat()
         when (state) {
             Call.STATE_RINGING -> callRinging()
             Call.STATE_ACTIVE -> callStarted()
@@ -394,9 +411,35 @@ class CallActivity : SimpleActivity() {
             call_status_label.text = getString(statusTextId)
         }
 
-        val isActiveCall = state == Call.STATE_ACTIVE || state == Call.STATE_HOLDING
-        call_toggle_hold.isEnabled = isActiveCall
-        call_toggle_hold.alpha = if (isActiveCall) 1.0f else 0.5f
+        val isSingleCallActionsEnabled = (state == Call.STATE_ACTIVE || state == Call.STATE_DISCONNECTED
+            || state == Call.STATE_DISCONNECTING || state == Call.STATE_HOLDING)
+        setActionButtonEnabled(call_toggle_hold, isSingleCallActionsEnabled)
+        setActionButtonEnabled(call_add, isSingleCallActionsEnabled)
+    }
+
+    private fun updateCallOnHoldState(call: Call?) {
+        val hasCallOnHold = call != null
+        if (hasCallOnHold) {
+            CallManager.getCallContact(applicationContext, call) { contact ->
+                runOnUiThread {
+                    on_hold_caller_name.text = getContactNameOrNumber(contact)
+                }
+            }
+        }
+        on_hold_status_holder.beVisibleIf(hasCallOnHold)
+        controls_single_call.beVisibleIf(!hasCallOnHold) // TODO and not conference
+        controls_two_calls.beVisibleIf(hasCallOnHold)
+    }
+
+    private fun updateCallContactInfo(call: Call?) {
+        CallManager.getCallContact(applicationContext, call) { contact ->
+            callContact = contact
+            val avatar = callContactAvatarHelper.getCallContactAvatar(contact)
+            runOnUiThread {
+                updateOtherPersonsInfo(avatar)
+                checkCalledSIMCard()
+            }
+        }
     }
 
     private fun acceptCall() {
@@ -417,6 +460,7 @@ class CallActivity : SimpleActivity() {
         enableProximitySensor()
         incoming_call_holder.beGone()
         ongoing_call_holder.beVisible()
+        callDurationHandler.removeCallbacks(updateCallDurationTask)
         callDurationHandler.post(updateCallDurationTask)
     }
 
@@ -456,10 +500,19 @@ class CallActivity : SimpleActivity() {
         }
     }
 
-    private val callCallback = object : Call.Callback() {
+    private val callCallback = object : CallManagerListener {
         override fun onStateChanged(call: Call, state: Int) {
-            super.onStateChanged(call, state)
-            updateCallState(state)
+            updateCallState(call)
+        }
+
+        override fun onCallPutOnHold(call: Call?) {
+            updateCallOnHoldState(call)
+        }
+
+        override fun onCallsChanged(active: Call, onHold: Call?) {
+            updateCallState(active)
+            updateCallOnHoldState(onHold)
+            updateCallContactInfo(active)
         }
     }
 
@@ -506,5 +559,10 @@ class CallActivity : SimpleActivity() {
         if (proximityWakeLock?.isHeld == true) {
             proximityWakeLock!!.release()
         }
+    }
+
+    private fun setActionButtonEnabled(button: ImageView, isEnabled: Boolean) {
+        button.isEnabled = isEnabled
+        button.alpha = if (isEnabled) 1.0f else 0.4f
     }
 }

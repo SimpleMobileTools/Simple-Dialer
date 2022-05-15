@@ -99,6 +99,7 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:label="@string/ongoing_call"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:showOnLockScreen="true" />
 
