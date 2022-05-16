@@ -25,9 +25,11 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
+import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
+import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
 import com.simplemobiletools.dialer.helpers.OPEN_DIAL_PAD_AT_LAUNCH
@@ -43,6 +45,7 @@ class MainActivity : SimpleActivity() {
     private var launchedDialer = false
     private var searchMenuItem: MenuItem? = null
     private var storedShowTabs = 0
+    private var searchQuery = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +72,8 @@ class MainActivity : SimpleActivity() {
         }
 
         hideTabs()
+
+        SimpleContact.sorting = config.sorting
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -123,6 +128,7 @@ class MainActivity : SimpleActivity() {
         menuInflater.inflate(R.menu.menu, menu)
         menu.apply {
             findItem(R.id.clear_call_history).isVisible = getCurrentFragment() == recents_fragment
+            findItem(R.id.sort).isVisible = getCurrentFragment() != recents_fragment
 
             setupSearch(this)
             updateMenuItemColors(this)
@@ -135,6 +141,7 @@ class MainActivity : SimpleActivity() {
             R.id.clear_call_history -> clearCallHistory()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
+            R.id.sort -> showSortingDialog()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -171,6 +178,7 @@ class MainActivity : SimpleActivity() {
 
                 override fun onQueryTextChange(newText: String): Boolean {
                     if (isSearchOpen) {
+                        searchQuery = newText
                         getCurrentFragment()?.onSearchQueryChanged(newText)
                     }
                     return true
@@ -466,5 +474,20 @@ class MainActivity : SimpleActivity() {
         )
 
         startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
+    }
+
+    private fun showSortingDialog() {
+        ChangeSortingDialog(this) {
+            favorites_fragment?.refreshItems {
+                if (isSearchOpen){
+                    getCurrentFragment()?.onSearchQueryChanged(searchQuery)
+                }
+            }
+            contacts_fragment?.refreshItems {
+                if (isSearchOpen){
+                    getCurrentFragment()?.onSearchQueryChanged(searchQuery)
+                }
+            }
+        }
     }
 }

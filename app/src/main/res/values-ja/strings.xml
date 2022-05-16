@@ -1,87 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simpleダイヤラー</string>
-    <string name="app_launcher_name">ダイヤラー</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <string name="app_name">Simple 電話</string>
+    <string name="app_launcher_name">電話</string>
+    <string name="default_phone_app_prompt">このアプリをデフォルトの電話アプリにしてください</string>
+    <string name="allow_displaying_over_other_apps">安定した動作のために、他のアプリの上に重ねて表示することを許可して下さい</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">コンタクトにアクセスできませんでした</string>
+    <string name="could_not_access_contacts">連絡先にアクセスできませんでした</string>
     <!-- Recents -->
     <string name="no_previous_calls">通話履歴が見つかりませんでした</string>
     <string name="could_not_access_the_call_history">通話履歴にアクセスできませんでした</string>
     <string name="request_access">アクセスを要求する</string>
-    <string name="remove_confirmation">本当に履歴から選択したアイテムを消去しますか？</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
-    <string name="send_sms">SMSを送信</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="remove_confirmation">選択したアイテムを通話履歴から削除してもよろしいですか？</string>
+    <string name="clear_history_confirmation">すべての通話履歴を削除してもよろしいですか？</string>
+    <string name="send_sms">SMS を送信</string>
+    <string name="show_grouped_calls">グループ化された通話履歴を表示する</string>
+    <string name="clear_call_history">通話履歴をクリア</string>
+    <string name="show_call_details">通話の詳細を表示する</string>
     <!-- Dialpad -->
     <string name="dialpad">ダイヤルパッド</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="asterisk">アスタリスク</string>
+    <string name="hashtag">ハッシュタグ</string>
+    <string name="call_number">電話番号</string>
     <!-- Dialer -->
-    <string name="dialer">ダイヤラー</string>
+    <string name="dialer">電話</string>
     <string name="accept">許可</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">電話を受ける</string>
     <string name="decline">拒否</string>
-    <string name="decline_call">Decline call</string>
-    <string name="unknown_caller">不明</string>
+    <string name="decline_call">通話を断る</string>
+    <string name="unknown_caller">不明な発信者</string>
     <string name="is_calling">から着信中…</string>
     <string name="dialing">発信中…</string>
     <string name="call_ended">通話終了</string>
     <string name="call_ending">通話終了</string>
     <string name="ongoing_call">通話中</string>
-    <string name="select_sim">SIMを選択</string>
-    <string name="always_use_this_sim">この番号ではこのSIMを常に使用</string>
-    <string name="unset_default_sim">Unset default SIM</string>
-    <string name="calls">Calls</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="select_sim">この通話に使う SIM を選択してください</string>
+    <string name="always_use_this_sim">この番号ではこの SIM を常に使用</string>
+    <string name="unset_default_sim">デフォルトの SIM の設定を解除</string>
+    <string name="calls">通話</string>
+    <string name="turn_microphone_on">マイクをオンにする</string>
+    <string name="turn_microphone_off">マイクをオフにする</string>
+    <string name="turn_speaker_on">スピーカーをオンにする</string>
+    <string name="turn_speaker_off">スピーカーをオフにする</string>
+    <string name="show_dialpad">ダイヤルパッドを表示</string>
+    <string name="hide_dialpad">ダイヤルパッドを隠す</string>
+    <string name="end_call">通話を終了する</string>
     <string name="hold_call">Hold call</string>
     <string name="resume_call">Resume call</string>
     <string name="call_on_hold">On Hold</string>
     <!-- Speed dial -->
     <string name="speed_dial">スピードダイヤル</string>
     <string name="manage_speed_dial">スピードダイヤルの管理</string>
-    <string name="speed_dial_label">番号をクリックすると連絡先を割り当てることが出来ます。ダイヤラーで指定された番号を長押しすると、指定された連絡先に素早く電話をかけることが出来ます。</string>
+    <string name="speed_dial_label">番号をクリックすると連絡先を割り当てることが出来ます。電話で指定された番号を長押しすると、指定された連絡先に素早く電話をかけることが出来ます。</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">後続の通話をコールログの同じ番号でグループ化する</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
-    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
+    <string name="open_dialpad_by_default">アプリが開いたら、デフォルトでダイヤルパッドを開きます</string>
+    <string name="disable_proximity_sensor">通話中に近接センサーを無効にする</string>
+    <string name="disable_swipe_to_answer">着信に応答する際のスワイプをクリックに置き換えます</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">シンプルなダイヤラー-通話を簡単に管理</string>
+    <string name="app_title">シンプルなダイヤラー - 通話を簡単に管理</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">アドレス管理、電話番号ブロック、マルチSIMサポートを備えた便利なアドレス帳</string>
-    <string name="app_long_description">
-        容量の軽いこのアプリは、どこにいても電話をかけることが出来ます。便利な着信履歴は電話をかけやすくします。
-
-        ダイヤルパッドもサービスに含まれており、スマートな連絡を提案致します。メールも対応内です。
-
-        不必要な電話を避けるため、電話番号は簡単にブロックすることが出来ます。
-
-        スピードダイヤリングはお気に入りの連絡先に気軽に電話をかけることを可能にします。
-        携帯アプリから素早く電話がかけられるよう、お気に入りの連絡先やその他の連絡先のショートカットを作成し、ホーム画面に追加することが出来ます。
-
-        広告や不要な権限はありません。 完全にオープンソースで、カラーもカスタマイズ可能。
-
-        <b>シンプルツールの完全なリストはこちらからご確認ください：</b>
-         https://www.simplemobiletools.com
-
-        <b> Facebook:</b>
-         https://www.facebook.com/simplemobiletools
-
-        <b> Reddit:</b>
-         https://www.reddit.com/r/SimpleMobileTools
-    </string>
+    <string name="app_short_description">アドレス管理、電話番号ブロック、マルチ SIM サポートを備えた便利なアドレス帳</string>
+    <string name="app_long_description"> どこでも電話できる軽量な電話アプリ。便利な着信履歴機能で、素早く電話をかけられます。 アルファベットもサポートしたクイックダイヤルパッド。賢く連絡先を提案します。電話番号で、迷惑電話をブロック。余計な電話におさらばです。素早く電話をかけられる、スピードダイヤリング。お気に入りの連絡先にサクッと電話をかけられます。 ホーム画面に、お気に入りやその他の連絡先のショートカットを作成し、パッと電話をかけられます。マテリアルデザインとダークテーマにデフォルトで対応。 使いやすい優れたユーザーエクスペリエンスを提供します。インターネットアクセスがないため、他のアプリよりもプライバシー、セキュリティ、安定性があります。広告や不要な権限は含まれていません。完全にオープンソースで、カラーもカスタマイズ可能。 <b>シンプルツールの一覧はこちらをご覧ください: </b> https://www.simplemobiletools.com <b> Facebook: </b> https://www.facebook.com/simplemobiletools <b> Reddit: </b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
