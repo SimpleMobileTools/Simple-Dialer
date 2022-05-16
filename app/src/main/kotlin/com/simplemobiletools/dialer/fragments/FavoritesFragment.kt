@@ -59,14 +59,12 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                 allContacts.sort()
             }
 
-            val sorted = if (activity!!.config.isCustomOrderSelected) {
-                sortByCustomOrder(contacts)
-            } else {
-                contacts
+            if (activity!!.config.isCustomOrderSelected) {
+                allContacts = sortByCustomOrder(allContacts)
             }
 
             activity?.runOnUiThread {
-                gotContacts(sorted)
+                gotContacts(allContacts)
                 callback?.invoke()
             }
         }
