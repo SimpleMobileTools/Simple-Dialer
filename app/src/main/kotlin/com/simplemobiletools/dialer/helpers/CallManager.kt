@@ -12,6 +12,8 @@ import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.dialer.extensions.getStateCompat
+import com.simplemobiletools.dialer.extensions.hasCapability
+import com.simplemobiletools.dialer.extensions.isConference
 import com.simplemobiletools.dialer.models.CallContact
 import java.util.concurrent.CopyOnWriteArraySet
 
@@ -28,37 +30,73 @@ class CallManager {
         fun onCallAdded(call: Call) {
             this.call = call
             calls.add(call)
+            for (listener in listeners) {
+                listener.onPrimaryCallChanged(call)
+            }
             call.registerCallback(object : Call.Callback() {
                 override fun onStateChanged(call: Call, state: Int) {
                     Log.d(TAG, "onStateChanged: $call")
+                    updateState()
                     for (listener in listeners) {
                         listener.onStateChanged(call, state)
                     }
-                    if (state == Call.STATE_HOLDING && calls.size > 1) {
-                        for (listener in listeners) {
-                            listener.onCallPutOnHold(call)
-                        }
-                    }
-                    if (state == Call.STATE_ACTIVE && calls.size == 1) {
-                        for (listener in listeners) {
-                            listener.onCallPutOnHold(null)
-                        }
-                    }
-                    if ((state == Call.STATE_CONNECTING || state == Call.STATE_DIALING || state == Call.STATE_ACTIVE) && calls.size > 1) {
-                        if (CallManager.call != call) {
-                            CallManager.call = call
-                            Log.d(TAG, "onCallsChanged")
-                            for (listener in listeners) {
-                                listener.onCallsChanged(call, getSecondaryCall())
-                            }
-                        }
-                    }
+                }
+
+                override fun onConferenceableCallsChanged(call: Call, conferenceableCalls: MutableList<Call>) {
+                    Log.d(TAG, "onConferenceableCallsChanged: $call, conferenceableCalls size=${conferenceableCalls.size}")
+                    updateState()
                 }
             })
         }
 
         fun onCallRemoved(call: Call) {
             calls.remove(call)
+            updateState()
+        }
+
+        fun getPhoneState(): PhoneState {
+            return when (calls.size) {
+                0 -> {
+                    NoCall
+                }
+                1 -> {
+                    SingleCall(calls.first())
+                }
+                2 -> {
+                    val active = calls.find { it.getStateCompat() == Call.STATE_ACTIVE }
+                    val newCall = calls.find { it.getStateCompat() == Call.STATE_CONNECTING || it.getStateCompat() == Call.STATE_DIALING }
+                    val onHold = calls.find { it.getStateCompat() == Call.STATE_HOLDING }
+                    if (active != null && newCall != null) {
+                        TwoCalls(newCall, active)
+                    } else if(newCall != null && onHold != null) {
+                        TwoCalls(newCall, onHold)
+                    } else if(active != null && onHold != null) {
+                        TwoCalls(active, onHold)
+                    } else {
+                        TwoCalls(calls[0], calls[1])
+                    }
+                }
+                else -> {
+                    SingleCall(calls.find { it.isConference() }!!)
+                    // TODO handle the call on hold (outside the conference)
+                }
+            }
+        }
+
+        private fun updateState() {
+            val primaryCall = when (val phoneState = getPhoneState()) {
+                is NoCall -> null
+                is SingleCall -> phoneState.call
+                is TwoCalls -> phoneState.active
+            }
+            if (primaryCall == null) {
+                call = null
+            } else if (primaryCall != call) {
+                call = primaryCall
+                for (listener in listeners) {
+                    listener.onPrimaryCallChanged(primaryCall)
+                }
+            }
         }
 
         fun getPrimaryCall(): Call? {
@@ -104,14 +142,14 @@ class CallManager {
         }
 
         fun merge() {
-//            val conferenceableCalls = call!!.conferenceableCalls
-//            if (conferenceableCalls.isNotEmpty()) {
-//                call!!.conference(conferenceableCalls.first())
-//            } else {
-//                if (call!!.hasCapability(Call.Details.CAPABILITY_MERGE_CONFERENCE)) {
-//                    call!!.mergeConference()
-//                }
-//            }
+            val conferenceableCalls = call!!.conferenceableCalls
+            if (conferenceableCalls.isNotEmpty()) {
+                call!!.conference(conferenceableCalls.first())
+            } else {
+                if (call!!.hasCapability(Call.Details.CAPABILITY_MERGE_CONFERENCE)) {
+                    call!!.mergeConference()
+                }
+            }
         }
 
         fun addListener(listener: CallManagerListener) {
@@ -203,6 +241,10 @@ class CallManager {
 
 interface CallManagerListener {
     fun onStateChanged(call: Call, state: Int)
-    fun onCallPutOnHold(call: Call?)
-    fun onCallsChanged(active: Call, onHold: Call?)
+    fun onPrimaryCallChanged(call: Call)
 }
+
+sealed class PhoneState
+object NoCall : PhoneState()
+class SingleCall(val call: Call?) : PhoneState()
+class TwoCalls(val active: Call, val onHold: Call) : PhoneState()

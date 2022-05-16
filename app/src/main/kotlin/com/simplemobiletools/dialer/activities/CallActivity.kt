@@ -23,9 +23,7 @@ import com.simplemobiletools.commons.helpers.isOreoMr1Plus
 import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.*
-import com.simplemobiletools.dialer.helpers.CallContactAvatarHelper
-import com.simplemobiletools.dialer.helpers.CallManager
-import com.simplemobiletools.dialer.helpers.CallManagerListener
+import com.simplemobiletools.dialer.helpers.*
 import com.simplemobiletools.dialer.models.CallContact
 import kotlinx.android.synthetic.main.activity_call.*
 import kotlinx.android.synthetic.main.dialpad.*
@@ -57,6 +55,11 @@ class CallActivity : SimpleActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_call)
 
+        if (CallManager.call == null) {
+            finish()
+            return
+        }
+
         updateTextColors(call_holder)
         initButtons()
 
@@ -65,13 +68,13 @@ class CallActivity : SimpleActivity() {
         addLockScreenFlags()
 
         CallManager.addListener(callCallback)
+
+        updateCallContactInfo(CallManager.getPrimaryCall())
     }
 
     override fun onResume() {
         super.onResume()
-        updateCallState(CallManager.getPrimaryCall())
-        updateCallOnHoldState(CallManager.getSecondaryCall())
-        updateCallContactInfo(CallManager.getPrimaryCall())
+        updateState()
     }
 
     override fun onDestroy() {
@@ -171,7 +174,10 @@ class CallActivity : SimpleActivity() {
         dialpad_hashtag_holder.setOnClickListener { dialpadPressed('#') }
 
         dialpad_wrapper.setBackgroundColor(getProperBackgroundColor())
-        arrayOf(call_toggle_microphone, call_toggle_speaker, call_dialpad, dialpad_close, call_sim_image).forEach {
+        arrayOf(
+            call_toggle_microphone, call_toggle_speaker, call_dialpad, dialpad_close,
+            call_sim_image, call_toggle_hold, call_add, call_swap, call_merge, call_manage
+        ).forEach {
             it.applyColorFilter(getProperTextColor())
         }
 
@@ -410,11 +416,23 @@ class CallActivity : SimpleActivity() {
         if (statusTextId != 0) {
             call_status_label.text = getString(statusTextId)
         }
+    }
 
-        val isSingleCallActionsEnabled = (state == Call.STATE_ACTIVE || state == Call.STATE_DISCONNECTED
-            || state == Call.STATE_DISCONNECTING || state == Call.STATE_HOLDING)
-        setActionButtonEnabled(call_toggle_hold, isSingleCallActionsEnabled)
-        setActionButtonEnabled(call_add, isSingleCallActionsEnabled)
+    private fun updateState() {
+        val phoneState = CallManager.getPhoneState()
+        if (phoneState is SingleCall) {
+            updateCallState(phoneState.call)
+            updateCallOnHoldState(null)
+            val state = phoneState.call.getStateCompat()
+            val isSingleCallActionsEnabled = (state == Call.STATE_ACTIVE || state == Call.STATE_DISCONNECTED
+                || state == Call.STATE_DISCONNECTING || state == Call.STATE_HOLDING)
+            setActionButtonEnabled(call_toggle_hold, isSingleCallActionsEnabled)
+            setActionButtonEnabled(call_add, isSingleCallActionsEnabled)
+            call_manage.beVisibleIf(phoneState.call.isConference())
+        } else if (phoneState is TwoCalls) {
+            updateCallState(phoneState.active)
+            updateCallOnHoldState(phoneState.onHold)
+        }
     }
 
     private fun updateCallOnHoldState(call: Call?) {
@@ -427,17 +445,23 @@ class CallActivity : SimpleActivity() {
             }
         }
         on_hold_status_holder.beVisibleIf(hasCallOnHold)
-        controls_single_call.beVisibleIf(!hasCallOnHold) // TODO and not conference
+        controls_single_call.beVisibleIf(!hasCallOnHold)
         controls_two_calls.beVisibleIf(hasCallOnHold)
     }
 
     private fun updateCallContactInfo(call: Call?) {
-        CallManager.getCallContact(applicationContext, call) { contact ->
-            callContact = contact
-            val avatar = callContactAvatarHelper.getCallContactAvatar(contact)
-            runOnUiThread {
-                updateOtherPersonsInfo(avatar)
-                checkCalledSIMCard()
+        if (call.isConference()) {
+            caller_avatar.setImageDrawable(null)
+            caller_number.text = null
+            caller_name_label.text = getString(R.string.conference)
+        } else {
+            CallManager.getCallContact(applicationContext, call) { contact ->
+                callContact = contact
+                val avatar = callContactAvatarHelper.getCallContactAvatar(contact)
+                runOnUiThread {
+                    updateOtherPersonsInfo(avatar)
+                    checkCalledSIMCard()
+                }
             }
         }
     }
@@ -502,17 +526,12 @@ class CallActivity : SimpleActivity() {
 
     private val callCallback = object : CallManagerListener {
         override fun onStateChanged(call: Call, state: Int) {
-            updateCallState(call)
+            updateState()
         }
 
-        override fun onCallPutOnHold(call: Call?) {
-            updateCallOnHoldState(call)
-        }
-
-        override fun onCallsChanged(active: Call, onHold: Call?) {
-            updateCallState(active)
-            updateCallOnHoldState(onHold)
-            updateCallContactInfo(active)
+        override fun onPrimaryCallChanged(call: Call) {
+            updateCallContactInfo(call)
+            updateState()
         }
     }
 

@@ -46,8 +46,6 @@ class CallService : InCallService() {
             CallManager.inCallService = null
             callNotificationManager.cancelNotification()
         } else {
-            // TODO if left more than 1
-            CallManager.call = CallManager.calls.first()
             callNotificationManager.setupNotification()
             startActivity(CallActivity.getStartIntent(this))
         }
