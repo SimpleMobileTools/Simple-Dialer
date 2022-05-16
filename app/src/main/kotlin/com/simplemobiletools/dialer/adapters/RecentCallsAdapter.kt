@@ -6,9 +6,8 @@ import android.provider.CallLog.Calls
 import android.text.SpannableString
 import android.text.TextUtils
 import android.util.TypedValue
-import android.view.Menu
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.PopupMenu
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -21,6 +20,7 @@ import com.simplemobiletools.dialer.dialogs.ShowGroupedCallsDialog
 import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
 import com.simplemobiletools.dialer.extensions.callContactWithSim
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.extensions.startCallIntent
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
@@ -123,6 +123,11 @@ class RecentCallsAdapter(
     private fun callContact(useSimOne: Boolean) {
         val phoneNumber = getSelectedPhoneNumber() ?: return
         activity.callContactWithSim(phoneNumber, useSimOne)
+    }
+
+    private fun callContact() {
+        val phoneNumber = getSelectedPhoneNumber() ?: return
+        (activity as SimpleActivity).startCallIntent(phoneNumber)
     }
 
     private fun removeDefaultSIM() {
@@ -298,6 +303,64 @@ class RecentCallsAdapter(
             }
 
             item_recents_type.setImageDrawable(drawable)
+
+            overflow_menu_icon.drawable.apply {
+                mutate()
+                setTint(activity.getProperTextColor())
+            }
+
+            overflow_menu_icon.setOnClickListener {
+                showPopupMenu(overflow_menu_anchor, call)
+            }
         }
+    }
+
+    private fun showPopupMenu(view: View, call: RecentCall) {
+        finishActMode()
+        val theme = activity.getPopupMenuTheme()
+        val contextTheme = ContextThemeWrapper(activity, theme)
+
+        PopupMenu(contextTheme, view, Gravity.END).apply {
+            inflate(R.menu.menu_recent_item_options)
+            menu.apply {
+                val areMultipleSIMsAvailable = activity.areMultipleSIMsAvailable()
+                findItem(R.id.cab_call).isVisible = !areMultipleSIMsAvailable
+                findItem(R.id.cab_call_sim_1).isVisible = areMultipleSIMsAvailable
+                findItem(R.id.cab_call_sim_2).isVisible = areMultipleSIMsAvailable
+            }
+            setOnMenuItemClickListener { item ->
+                val callId = call.id
+                when (item.itemId) {
+                    R.id.cab_call -> {
+                        executeItemMenuOperation(callId) {
+                            callContact()
+                        }
+                    }
+                    R.id.cab_call_sim_1 -> {
+                        executeItemMenuOperation(callId) {
+                            callContact(true)
+                        }
+                    }
+                    R.id.cab_call_sim_2 -> {
+                        executeItemMenuOperation(callId) {
+                            callContact(false)
+                        }
+                    }
+                    R.id.cab_send_sms -> {
+                        executeItemMenuOperation(callId) {
+                            sendSMS()
+                        }
+                    }
+                }
+                true
+            }
+            show()
+        }
+    }
+
+    private fun executeItemMenuOperation(callId: Int, callback: () -> Unit) {
+        selectedKeys.add(callId)
+        callback()
+        selectedKeys.remove(callId)
     }
 }
