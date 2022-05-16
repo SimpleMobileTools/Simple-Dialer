@@ -44,9 +44,9 @@
     <string name="show_dialpad">显示拨号盘</string>
     <string name="hide_dialpad">隐藏拨号盘</string>
     <string name="end_call">结束通话</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
+    <string name="hold_call">保持通话</string>
+    <string name="resume_call">继续通话</string>
+    <string name="call_on_hold">暂停</string>
     <!-- Speed dial -->
     <string name="speed_dial">快速拨号</string>
     <string name="manage_speed_dial">管理快速拨号</string>
