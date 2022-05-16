@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
 import android.util.AttributeSet
+import com.google.gson.Gson
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
@@ -16,6 +17,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.helpers.Converters
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.*
@@ -57,8 +59,14 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                 allContacts.sort()
             }
 
+            val sorted = if (activity!!.config.isCustomOrderSelected) {
+                sortByCustomOrder(contacts)
+            } else {
+                contacts
+            }
+
             activity?.runOnUiThread {
-                gotContacts(contacts)
+                gotContacts(sorted)
                 callback?.invoke()
             }
         }
@@ -75,7 +83,14 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
 
             val currAdapter = fragment_list.adapter
             if (currAdapter == null) {
-                ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this, showDeleteButton = false) {
+                ContactsAdapter(
+                    activity = activity as SimpleActivity,
+                    contacts = contacts,
+                    recyclerView = fragment_list,
+                    refreshItemsListener = this,
+                    showDeleteButton = false,
+                    enableDrag = true,
+                ) {
                     if (context.config.showCallConfirmation) {
                         CallConfirmationDialog(activity as SimpleActivity, (it as SimpleContact).name) {
                             callContact(it)
@@ -85,6 +100,15 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                     }
                 }.apply {
                     fragment_list.adapter = this
+
+                    onDragEndListener = {
+                        val adapter = fragment_list?.adapter
+                        if (adapter is ContactsAdapter) {
+                            val items = adapter.contacts
+                            saveCustomOrderToPrefs(items)
+                            setupLetterFastscroller(items)
+                        }
+                    }
                 }
 
                 if (context.areSystemAnimationsEnabled) {
@@ -93,6 +117,28 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             } else {
                 (currAdapter as ContactsAdapter).updateItems(contacts)
             }
+        }
+    }
+
+    private fun sortByCustomOrder(favorites: List<SimpleContact>): ArrayList<SimpleContact> {
+        val favoritesOrder = activity!!.config.favoritesContactsOrder
+
+        if (favoritesOrder.isEmpty()) {
+            return ArrayList(favorites)
+        }
+
+        val orderList = Converters().jsonToStringList(favoritesOrder)
+        val map = orderList.withIndex().associate { it.value to it.index }
+        val sorted = favorites.sortedBy { map[it.contactId.toString()] }
+
+        return ArrayList(sorted)
+    }
+
+    private fun saveCustomOrderToPrefs(items: ArrayList<SimpleContact>) {
+        activity?.apply {
+            val orderIds = items.map { it.contactId }
+            val orderGsonString = Gson().toJson(orderIds)
+            config.favoritesContactsOrder = orderGsonString
         }
     }
 
