@@ -15,18 +15,18 @@
     <string name="send_sms">Poslat SMS</string>
     <string name="show_grouped_calls">Zobrazit seskupené hovory</string>
     <string name="clear_call_history">Vymazat historii hovorů</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Ukázat detaily hovoru</string>
     <!-- Dialpad -->
     <string name="dialpad">Číselník</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="call_number">Číslo volání</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Přijmout</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Přijmout vše</string>
     <string name="decline">Odmítnout</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Odmítnout vše</string>
     <string name="unknown_caller">Neznámý volající</string>
     <string name="is_calling">Volání…</string>
     <string name="dialing">Vytáčení…</string>
@@ -36,14 +36,14 @@
     <string name="select_sim">Vyberte SIM pro tento hovor</string>
     <string name="always_use_this_sim">Pro toto číslo vždy použijte tuto SIM kartu</string>
     <string name="unset_default_sim">Zrušit nastavení výchozí SIM karty</string>
-    <string name="calls">Calls</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
+    <string name="calls">Hovory</string>
+    <string name="turn_microphone_on">Zapnout mikrofon</string>
+    <string name="turn_microphone_off">Vypnout mikrofon</string>
+    <string name="turn_speaker_on">Zapnout reproduktor</string>
+    <string name="turn_speaker_off">Vypnout reproduktor</string>
+    <string name="show_dialpad">Ukázat číselník</string>
+    <string name="hide_dialpad">Schovat číselník</string>
+    <string name="end_call">Ukončit hovor</string>
     <string name="hold_call">Hold call</string>
     <string name="resume_call">Resume call</string>
     <string name="call_on_hold">On Hold</string>
