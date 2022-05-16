@@ -48,9 +48,9 @@
     <string name="show_dialpad">Zobraziť číselník</string>
     <string name="hide_dialpad">Skryť číselník</string>
     <string name="end_call">Ukončiť hovor</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
+    <string name="hold_call">Podržať hovor</string>
+    <string name="resume_call">Obnoviť hovor</string>
+    <string name="call_on_hold">Podržaný hovor</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Rýchle vytáčanie</string>
