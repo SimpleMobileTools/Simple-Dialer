@@ -44,9 +44,9 @@
     <string name="show_dialpad">Afficher le clavier</string>
     <string name="hide_dialpad">Masquer le clavier</string>
     <string name="end_call">Finir l\'appel</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
+    <string name="hold_call">Mettre l\'appel en attente</string>
+    <string name="resume_call">Reprendre l\'appel</string>
+    <string name="call_on_hold">En attente</string>
     <!-- Speed dial -->
     <string name="speed_dial">Numérotation rapide</string>
     <string name="manage_speed_dial">Gérer la numérotation rapide</string>
