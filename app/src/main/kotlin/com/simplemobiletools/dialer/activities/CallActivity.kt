@@ -386,7 +386,7 @@ class CallActivity : SimpleActivity() {
 
         val isActiveCall = state == Call.STATE_ACTIVE || state == Call.STATE_HOLDING
         call_toggle_hold.isEnabled = isActiveCall
-        call_toggle_hold.alpha = if (isActiveCall) 1.0f else MEDIUM_ALPHA
+        call_toggle_hold.alpha = if (isActiveCall) 1.0f else LOWER_ALPHA
     }
 
     private fun acceptCall() {
