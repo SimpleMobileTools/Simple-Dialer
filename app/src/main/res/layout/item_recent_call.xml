@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/medium_margin"
-        android:paddingEnd="@dimen/activity_margin"
         android:paddingBottom="@dimen/medium_margin">
 
         <ImageView
@@ -31,6 +30,8 @@
             android:id="@+id/item_recents_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_toStartOf="@+id/overflow_menu_icon"
             android:layout_toEndOf="@+id/item_recents_image"
             android:ellipsize="end"
             android:maxLines="1"
@@ -93,12 +94,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/item_recents_name"
-            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            android:layout_toStartOf="@+id/overflow_menu_icon"
             android:layout_toEndOf="@+id/item_recents_date_time"
             android:alpha="0.6"
             android:gravity="end"
             android:textSize="@dimen/normal_text_size"
             tools:text="00:10" />
 
+        <ImageView
+            android:id="@+id/overflow_menu_icon"
+            style="@style/OverflowMenuIconStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
+
+        <View
+            android:id="@+id/overflow_menu_anchor"
+            style="@style/OverflowMenuAnchorStyle"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true" />
     </RelativeLayout>
 </FrameLayout>

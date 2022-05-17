@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cab_call"
+        android:icon="@drawable/ic_phone_vector"
+        android:title="@string/call" />
+    <item
+        android:id="@+id/cab_call_sim_1"
+        android:icon="@drawable/ic_phone_one_vector"
+        android:title="@string/call_from_sim_1" />
+    <item
+        android:id="@+id/cab_call_sim_2"
+        android:icon="@drawable/ic_phone_two_vector"
+        android:title="@string/call_from_sim_2" />
+    <item
+        android:id="@+id/cab_send_sms"
+        android:icon="@drawable/ic_sms_vector"
+        android:title="@string/send_sms" />
+</menu>
