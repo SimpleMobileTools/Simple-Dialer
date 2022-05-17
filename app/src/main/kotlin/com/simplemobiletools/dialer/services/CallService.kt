@@ -1,9 +1,12 @@
 package com.simplemobiletools.dialer.services
 
+import android.app.KeyguardManager
+import android.content.Context
 import android.telecom.Call
 import android.telecom.InCallService
 import android.util.Log
 import com.simplemobiletools.dialer.activities.CallActivity
+import com.simplemobiletools.dialer.extensions.getStateCompat
 import com.simplemobiletools.dialer.extensions.isOutgoing
 import com.simplemobiletools.dialer.extensions.powerManager
 import com.simplemobiletools.dialer.helpers.CallManager
@@ -25,15 +28,19 @@ class CallService : InCallService() {
 
     override fun onCallAdded(call: Call) {
         super.onCallAdded(call)
-        Log.d(TAG, "onCallAdded: $call")
         CallManager.onCallAdded(call)
-        if ((!powerManager.isInteractive || call.isOutgoing())) {
-            startActivity(CallActivity.getStartIntent(this))
-        }
-        call.registerCallback(callListener)
         CallManager.inCallService = this
-        callNotificationManager.setupNotification()
-        Log.d(TAG, "onCallAdded: calls=${CallManager.calls.size}")
+        call.registerCallback(callListener)
+
+        val isScreenLocked = (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager).isDeviceLocked
+        if (!powerManager.isInteractive || call.isOutgoing() || isScreenLocked) {
+            startActivity(CallActivity.getStartIntent(this))
+            if (call.getStateCompat() != Call.STATE_RINGING) {
+                callNotificationManager.setupNotification()
+            }
+        } else {
+            callNotificationManager.setupNotification()
+        }
     }
 
     override fun onCallRemoved(call: Call) {
