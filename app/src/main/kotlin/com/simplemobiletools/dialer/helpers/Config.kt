@@ -59,4 +59,12 @@ class Config(context: Context) : BaseConfig(context) {
     var showTabs: Int
         get() = prefs.getInt(SHOW_TABS, ALL_TABS_MASK)
         set(showTabs) = prefs.edit().putInt(SHOW_TABS, showTabs).apply()
+
+    var favoritesContactsOrder: String
+        get() = prefs.getString(FAVORITES_CONTACTS_ORDER, "")!!
+        set(order) = prefs.edit().putString(FAVORITES_CONTACTS_ORDER, order).apply()
+
+    var isCustomOrderSelected: Boolean
+        get() = prefs.getBoolean(FAVORITES_CUSTOM_ORDER_SELECTED, false)
+        set(selected) = prefs.edit().putBoolean(FAVORITES_CUSTOM_ORDER_SELECTED, selected).apply()
 }

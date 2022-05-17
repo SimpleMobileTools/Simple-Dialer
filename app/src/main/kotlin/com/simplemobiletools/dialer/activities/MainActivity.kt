@@ -31,6 +31,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.fragments.FavoritesFragment
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
 import com.simplemobiletools.dialer.helpers.OPEN_DIAL_PAD_AT_LAUNCH
 import com.simplemobiletools.dialer.helpers.RecentsHelper
@@ -141,7 +142,7 @@ class MainActivity : SimpleActivity() {
             R.id.clear_call_history -> clearCallHistory()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
-            R.id.sort -> showSortingDialog()
+            R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -476,15 +477,15 @@ class MainActivity : SimpleActivity() {
         startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
     }
 
-    private fun showSortingDialog() {
-        ChangeSortingDialog(this) {
+    private fun showSortingDialog(showCustomSorting: Boolean) {
+        ChangeSortingDialog(this, showCustomSorting) {
             favorites_fragment?.refreshItems {
-                if (isSearchOpen){
+                if (isSearchOpen) {
                     getCurrentFragment()?.onSearchQueryChanged(searchQuery)
                 }
             }
             contacts_fragment?.refreshItems {
-                if (isSearchOpen){
+                if (isSearchOpen) {
                     getCurrentFragment()?.onSearchQueryChanged(searchQuery)
                 }
             }
