@@ -22,7 +22,7 @@ class CallService : InCallService() {
 
     override fun onCallAdded(call: Call) {
         super.onCallAdded(call)
-        if (!powerManager.isInteractive || call.isOutgoing()) {
+        if (!powerManager.isScreenOn || call.isOutgoing()) {
             startActivity(CallActivity.getStartIntent(this))
         }
         CallManager.call = call
