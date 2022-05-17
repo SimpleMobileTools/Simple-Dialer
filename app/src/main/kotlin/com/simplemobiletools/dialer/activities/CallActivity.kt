@@ -18,9 +18,7 @@ import android.view.MotionEvent
 import android.view.WindowManager
 import android.widget.ImageView
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
-import com.simplemobiletools.commons.helpers.isOreoMr1Plus
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.addCharacter
 import com.simplemobiletools.dialer.extensions.audioManager
@@ -388,7 +386,7 @@ class CallActivity : SimpleActivity() {
 
         val isActiveCall = state == Call.STATE_ACTIVE || state == Call.STATE_HOLDING
         call_toggle_hold.isEnabled = isActiveCall
-        call_toggle_hold.alpha = if (isActiveCall) 1.0f else 0.5f
+        call_toggle_hold.alpha = if (isActiveCall) 1.0f else MEDIUM_ALPHA
     }
 
     private fun acceptCall() {
