@@ -12,6 +12,8 @@ const val OPEN_DIAL_PAD_AT_LAUNCH = "open_dial_pad_at_launch"
 const val DISABLE_PROXIMITY_SENSOR = "disable_proximity_sensor"
 const val DISABLE_SWIPE_TO_ANSWER = "disable_swipe_to_answer"
 const val SHOW_TABS = "show_tabs"
+const val FAVORITES_CONTACTS_ORDER = "favorites_contacts_order"
+const val FAVORITES_CUSTOM_ORDER_SELECTED = "favorites_custom_order_selected"
 
 const val ALL_TABS_MASK = TAB_CONTACTS or TAB_FAVORITES or TAB_CALL_HISTORY
 

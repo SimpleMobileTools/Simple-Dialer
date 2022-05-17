@@ -18,9 +18,7 @@ import android.view.MotionEvent
 import android.view.WindowManager
 import android.widget.ImageView
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
-import com.simplemobiletools.commons.helpers.isOreoMr1Plus
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.*
@@ -582,6 +580,6 @@ class CallActivity : SimpleActivity() {
 
     private fun setActionButtonEnabled(button: ImageView, isEnabled: Boolean) {
         button.isEnabled = isEnabled
-        button.alpha = if (isEnabled) 1.0f else 0.4f
+        button.alpha = if (isEnabled) 1.0f else LOWER_ALPHA
     }
 }

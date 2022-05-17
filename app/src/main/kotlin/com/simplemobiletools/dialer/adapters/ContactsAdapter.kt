@@ -8,11 +8,14 @@ import android.net.Uri
 import android.text.TextUtils
 import android.util.TypedValue
 import android.view.Menu
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -21,6 +24,9 @@ import com.simplemobiletools.commons.helpers.PERMISSION_CALL_PHONE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CONTACTS
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.interfaces.ItemMoveCallback
+import com.simplemobiletools.commons.interfaces.ItemTouchHelperContract
+import com.simplemobiletools.commons.interfaces.StartReorderDragListener
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
@@ -30,18 +36,38 @@ import com.simplemobiletools.dialer.extensions.callContactWithSim
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
+import java.util.*
 
 class ContactsAdapter(
-    activity: SimpleActivity, var contacts: ArrayList<SimpleContact>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener? = null,
-    highlightText: String = "", val showDeleteButton: Boolean = true, itemClick: (Any) -> Unit
-) :
-    MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
+    activity: SimpleActivity,
+    var contacts: ArrayList<SimpleContact>,
+    recyclerView: MyRecyclerView,
+    val refreshItemsListener: RefreshItemsListener? = null,
+    highlightText: String = "",
+    val showDeleteButton: Boolean = true,
+    private val enableDrag: Boolean = false,
+    itemClick: (Any) -> Unit
+) : MyRecyclerViewAdapter(activity, recyclerView, itemClick), ItemTouchHelperContract {
 
     private var textToHighlight = highlightText
     private var fontSize = activity.getTextSize()
+    private var touchHelper: ItemTouchHelper? = null
+    private var startReorderDragListener: StartReorderDragListener? = null
+    var onDragEndListener: (() -> Unit)? = null
 
     init {
         setupDragListener(true)
+
+        if (enableDrag) {
+            touchHelper = ItemTouchHelper(ItemMoveCallback(this))
+            touchHelper!!.attachToRecyclerView(recyclerView)
+
+            startReorderDragListener = object : StartReorderDragListener {
+                override fun requestDrag(viewHolder: RecyclerView.ViewHolder) {
+                    touchHelper?.startDrag(viewHolder)
+                }
+            }
+        }
     }
 
     override fun getActionMenuId() = R.menu.cab_contacts
@@ -87,16 +113,20 @@ class ContactsAdapter(
 
     override fun getItemKeyPosition(key: Int) = contacts.indexOfFirst { it.rawId == key }
 
-    override fun onActionModeCreated() {}
+    override fun onActionModeCreated() {
+        notifyDataSetChanged()
+    }
 
-    override fun onActionModeDestroyed() {}
+    override fun onActionModeDestroyed() {
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_contact_without_number, parent)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contact = contacts[position]
         holder.bindView(contact, true, true) { itemView, layoutPosition ->
-            setupView(itemView, contact)
+            setupView(itemView, contact, holder)
         }
         bindViewHolder(holder)
     }
@@ -216,7 +246,7 @@ class ContactsAdapter(
         }
     }
 
-    private fun setupView(view: View, contact: SimpleContact) {
+    private fun setupView(view: View, contact: SimpleContact, holder: ViewHolder) {
         view.apply {
             findViewById<FrameLayout>(R.id.item_contact_frame).isSelected = selectedKeys.contains(contact.rawId)
             findViewById<TextView>(R.id.item_contact_name).apply {
@@ -230,12 +260,52 @@ class ContactsAdapter(
                         contact.name.highlightTextFromNumbers(textToHighlight, properPrimaryColor)
                     }
                 }
+            }
 
+            val dragIcon = findViewById<ImageView>(R.id.drag_handle_icon)
+            if (enableDrag && textToHighlight.isEmpty()) {
+                dragIcon.apply {
+                    beVisibleIf(selectedKeys.isNotEmpty())
+                    applyColorFilter(textColor)
+                    setOnTouchListener { _, event ->
+                        if (event.action == MotionEvent.ACTION_DOWN) {
+                            startReorderDragListener?.requestDrag(holder)
+                        }
+                        false
+                    }
+                }
+            } else {
+                dragIcon.apply {
+                    beGone()
+                    setOnTouchListener(null)
+                }
             }
 
             if (!activity.isDestroyed) {
                 SimpleContactsHelper(context).loadContactImage(contact.photoUri, findViewById(R.id.item_contact_image), contact.name)
             }
         }
+    }
+
+    override fun onRowMoved(fromPosition: Int, toPosition: Int) {
+        activity.config.isCustomOrderSelected = true
+
+        if (fromPosition < toPosition) {
+            for (i in fromPosition until toPosition) {
+                Collections.swap(contacts, i, i + 1)
+            }
+        } else {
+            for (i in fromPosition downTo toPosition + 1) {
+                Collections.swap(contacts, i, i - 1)
+            }
+        }
+
+        notifyItemMoved(fromPosition, toPosition)
+    }
+
+    override fun onRowSelected(myViewHolder: ViewHolder?) {}
+
+    override fun onRowClear(myViewHolder: ViewHolder?) {
+        onDragEndListener?.invoke()
     }
 }
