@@ -33,14 +33,11 @@ class ConferenceCallsAdapter(
 
     override fun getSelectableItemCount(): Int = data.size
 
-    override fun onActionModeCreated() {
-    }
+    override fun onActionModeCreated() {}
 
-    override fun onActionModeDestroyed() {
-    }
+    override fun onActionModeDestroyed() {}
 
-    override fun prepareActionMode(menu: Menu) {
-    }
+    override fun prepareActionMode(menu: Menu) {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_conference_call, parent)
 

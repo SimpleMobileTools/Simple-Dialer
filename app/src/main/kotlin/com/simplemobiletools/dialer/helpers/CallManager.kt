@@ -46,12 +46,8 @@ class CallManager {
 
         fun getPhoneState(): PhoneState {
             return when (calls.size) {
-                0 -> {
-                    NoCall
-                }
-                1 -> {
-                    SingleCall(calls.first())
-                }
+                0 -> NoCall
+                1 -> SingleCall(calls.first())
                 2 -> {
                     val active = calls.find { it.getStateCompat() == Call.STATE_ACTIVE }
                     val newCall = calls.find { it.getStateCompat() == Call.STATE_CONNECTING || it.getStateCompat() == Call.STATE_DIALING }

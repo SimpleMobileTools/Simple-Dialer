@@ -17,6 +17,7 @@ fun getCallContact(context: Context, call: Call?, callback: (CallContact) -> Uni
         callback(CallContact(context.getString(R.string.conference), "", "", ""))
         return
     }
+
     val privateCursor = context.getMyContactsCursor(false, true)
     ensureBackgroundThread {
         val callContact = CallContact("", "", "", "")

@@ -587,8 +587,10 @@ class CallActivity : SimpleActivity() {
         }
     }
 
-    private fun setActionButtonEnabled(button: ImageView, isEnabled: Boolean) {
-        button.isEnabled = isEnabled
-        button.alpha = if (isEnabled) 1.0f else LOWER_ALPHA
+    private fun setActionButtonEnabled(button: ImageView, enabled: Boolean) {
+        button.apply {
+            isEnabled = enabled
+            alpha = if (enabled) 1.0f else LOWER_ALPHA
+        }
     }
 }
