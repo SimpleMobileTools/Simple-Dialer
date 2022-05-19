@@ -46,7 +46,13 @@
     <string name="end_call">Завершити виклик</string>
     <string name="hold_call">Перевести в утримання</string>
     <string name="resume_call">Зняти з утримання</string>
-    <string name="call_on_hold">Дзвінок утримується</string>
+    <string name="call_on_hold">Утримується</string>
+    <string name="call_swap">Поміняти</string>
+    <string name="call_merge">З\'єднати</string>
+    <string name="call_split">Роз\'єднати</string>
+    <string name="call_add">Додати дзвінок</string>
+    <string name="conference_manage">Керувати конференц-викликом</string>
+    <string name="conference">Конференц-виклик</string>
     <!-- Speed dial -->
     <string name="speed_dial">Швидкий виклик</string>
     <string name="manage_speed_dial">Управління швидким викликом</string>
