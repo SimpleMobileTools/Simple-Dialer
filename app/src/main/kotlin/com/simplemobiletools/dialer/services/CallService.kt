@@ -4,15 +4,13 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.telecom.Call
 import android.telecom.InCallService
-import android.util.Log
 import com.simplemobiletools.dialer.activities.CallActivity
 import com.simplemobiletools.dialer.extensions.getStateCompat
 import com.simplemobiletools.dialer.extensions.isOutgoing
 import com.simplemobiletools.dialer.extensions.powerManager
 import com.simplemobiletools.dialer.helpers.CallManager
 import com.simplemobiletools.dialer.helpers.CallNotificationManager
-
-const val TAG = "SimpleDialer:CallService"
+import com.simplemobiletools.dialer.helpers.NoCall
 
 class CallService : InCallService() {
     private val callNotificationManager by lazy { CallNotificationManager(this) }
@@ -45,18 +43,18 @@ class CallService : InCallService() {
 
     override fun onCallRemoved(call: Call) {
         super.onCallRemoved(call)
-        Log.d(TAG, "onCallRemoved: $call")
         call.unregisterCallback(callListener)
+        val wasPrimaryCall = call == CallManager.getPrimaryCall()
         CallManager.onCallRemoved(call)
-        if (CallManager.calls.isEmpty()) {
-            CallManager.call = null
+        if (CallManager.getPhoneState() == NoCall) {
             CallManager.inCallService = null
             callNotificationManager.cancelNotification()
         } else {
             callNotificationManager.setupNotification()
-            startActivity(CallActivity.getStartIntent(this))
+            if (wasPrimaryCall) {
+                startActivity(CallActivity.getStartIntent(this))
+            }
         }
-        Log.d(TAG, "onCallRemoved: calls=${CallManager.calls.size}")
     }
 
     override fun onDestroy() {

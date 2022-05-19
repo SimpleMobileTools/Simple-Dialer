@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/item_conference_call_image"
+        android:layout_width="@dimen/normal_icon_size"
+        android:layout_height="@dimen/normal_icon_size"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/medium_margin"
+        android:contentDescription="@null"
+        android:padding="@dimen/small_margin"
+        android:src="@drawable/ic_person_vector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/item_conference_call_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_margin"
+        android:layout_toEndOf="@+id/item_conference_call_image"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="@dimen/bigger_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/item_conference_call_image"
+        app:layout_constraintEnd_toStartOf="@+id/item_conference_call_split"
+        app:layout_constraintStart_toEndOf="@+id/item_conference_call_image"
+        app:layout_constraintTop_toTopOf="@+id/item_conference_call_image"
+        tools:text="John Doe" />
+
+    <ImageButton
+        android:id="@+id/item_conference_call_end"
+        android:layout_width="@dimen/normal_icon_size"
+        android:layout_height="@dimen/normal_icon_size"
+        android:layout_margin="@dimen/medium_margin"
+        android:background="?actionBarItemBackground"
+        android:contentDescription="@string/end_call"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_phone_down_vector" />
+
+    <ImageButton
+        android:id="@+id/item_conference_call_split"
+        android:layout_width="@dimen/normal_icon_size"
+        android:layout_height="@dimen/normal_icon_size"
+        android:layout_margin="@dimen/medium_margin"
+        android:background="?actionBarItemBackground"
+        android:contentDescription="@string/call_split"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/item_conference_call_end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_call_split_vector" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

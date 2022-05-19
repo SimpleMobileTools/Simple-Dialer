@@ -83,6 +83,12 @@
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
+            android:name=".activities.ConferenceActivity"
+            android:exported="false"
+            android:label="@string/conference"
+            android:parentActivityName=".activities.CallActivity" />
+
+        <activity
             android:name=".activities.SettingsActivity"
             android:exported="true"
             android:label="@string/settings"

@@ -28,7 +28,7 @@ class CallNotificationManager(private val context: Context) {
 
     @SuppressLint("NewApi")
     fun setupNotification() {
-        CallManager.getCallContact(context.applicationContext) { callContact ->
+        getCallContact(context.applicationContext, CallManager.getPrimaryCall()) { callContact ->
             val callContactAvatar = callContactAvatarHelper.getCallContactAvatar(callContact)
             val callState = CallManager.getState()
             val isHighPriority = context.powerManager.isInteractive && callState == Call.STATE_RINGING

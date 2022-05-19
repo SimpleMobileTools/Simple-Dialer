@@ -19,12 +19,22 @@ fun Call?.getStateCompat(): Int {
     }
 }
 
+fun Call?.getCallDuration(): Int {
+    return if (this != null) {
+        val connectTimeMillis = details.connectTimeMillis
+        if (connectTimeMillis == 0L) {
+            return 0
+        }
+        ((System.currentTimeMillis() - connectTimeMillis) / 1000).toInt()
+    } else {
+        0
+    }
+}
+
 fun Call.isOutgoing(): Boolean {
     return OUTGOING_CALL_STATES.contains(getStateCompat())
 }
 
-fun Call.hasCapability(capability: Int): Boolean = details.callCapabilities and capability != 0
-
-fun Call.hasProperty(property: Int): Boolean = details.hasProperty(property)
+fun Call.hasCapability(capability: Int): Boolean = (details.callCapabilities and capability) != 0
 
 fun Call?.isConference(): Boolean = this?.details?.hasProperty(Call.Details.PROPERTY_CONFERENCE) == true

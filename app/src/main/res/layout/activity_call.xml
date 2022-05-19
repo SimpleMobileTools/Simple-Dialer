@@ -207,9 +207,9 @@
             android:contentDescription="@string/hold_call"
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_pause_vector"
-            app:layout_constraintEnd_toStartOf="@id/call_add"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
+            app:layout_constraintEnd_toEndOf="@+id/call_toggle_microphone"
+            app:layout_constraintStart_toStartOf="@+id/call_toggle_microphone"
+            app:layout_constraintTop_toBottomOf="@+id/call_toggle_microphone" />
 
         <ImageView
             android:id="@+id/call_add"
@@ -220,8 +220,8 @@
             android:contentDescription="@string/call_add"
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_add_call_vector"
-            app:layout_constraintEnd_toEndOf="@id/call_manage"
-            app:layout_constraintStart_toEndOf="@+id/call_toggle_hold"
+            app:layout_constraintEnd_toEndOf="@+id/call_toggle_speaker"
+            app:layout_constraintStart_toStartOf="@+id/call_toggle_speaker"
             app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
 
         <ImageView
@@ -234,9 +234,10 @@
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_people_vector"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/call_add"
-            app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
+            app:layout_constraintEnd_toEndOf="@+id/call_dialpad"
+            app:layout_constraintStart_toStartOf="@+id/call_dialpad"
+            app:layout_constraintTop_toBottomOf="@+id/call_dialpad"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/call_swap"
@@ -247,11 +248,10 @@
             android:contentDescription="@string/call_swap"
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_call_swap_vector"
-            app:layout_constraintEnd_toStartOf="@+id/call_merge"
+            app:layout_constraintEnd_toEndOf="@+id/call_toggle_microphone"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/call_add"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
+            app:layout_constraintStart_toStartOf="@+id/call_toggle_microphone"
+            app:layout_constraintTop_toBottomOf="@+id/call_toggle_microphone" />
 
         <ImageView
             android:id="@+id/call_merge"
@@ -262,9 +262,9 @@
             android:contentDescription="@string/call_merge"
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_call_merge_vector"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/call_toggle_speaker"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/call_swap"
+            app:layout_constraintStart_toStartOf="@+id/call_toggle_speaker"
             app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
 
         <ImageView
