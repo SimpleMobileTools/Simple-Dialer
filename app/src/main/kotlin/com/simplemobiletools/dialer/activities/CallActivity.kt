@@ -14,7 +14,6 @@ import android.os.Looper
 import android.os.PowerManager
 import android.telecom.Call
 import android.telecom.CallAudioState
-import android.util.Log
 import android.view.MotionEvent
 import android.view.WindowManager
 import android.widget.ImageView
@@ -29,8 +28,6 @@ import com.simplemobiletools.dialer.helpers.*
 import com.simplemobiletools.dialer.models.CallContact
 import kotlinx.android.synthetic.main.activity_call.*
 import kotlinx.android.synthetic.main.dialpad.*
-
-const val TAG = "SimpleDialer:CallActivityTag"
 
 class CallActivity : SimpleActivity() {
     companion object {
@@ -408,7 +405,6 @@ class CallActivity : SimpleActivity() {
 
     private fun updateCallState(call: Call) {
         val state = call.getStateCompat()
-        Log.d(TAG, "updateCallState: $state")
         when (state) {
             Call.STATE_RINGING -> callRinging()
             Call.STATE_ACTIVE -> callStarted()
@@ -434,7 +430,6 @@ class CallActivity : SimpleActivity() {
 
     private fun updateState() {
         val phoneState = CallManager.getPhoneState()
-        Log.d(TAG, "updateState: $phoneState")
         if (phoneState is SingleCall) {
             updateCallState(phoneState.call)
             updateCallOnHoldState(null)
@@ -541,7 +536,6 @@ class CallActivity : SimpleActivity() {
         }
 
         override fun onPrimaryCallChanged(call: Call) {
-            Log.d(TAG, "onPrimaryCallChanged: $call")
             callDurationHandler.removeCallbacks(updateCallDurationTask)
             updateCallContactInfo(call)
             updateState()

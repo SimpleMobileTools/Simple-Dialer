@@ -4,14 +4,10 @@ import android.annotation.SuppressLint
 import android.telecom.Call
 import android.telecom.InCallService
 import android.telecom.VideoProfile
-import android.util.Log
 import com.simplemobiletools.dialer.extensions.getStateCompat
 import com.simplemobiletools.dialer.extensions.hasCapability
 import com.simplemobiletools.dialer.extensions.isConference
 import java.util.concurrent.CopyOnWriteArraySet
-
-const val TAG = "SimpleDialer:CallManager"
-const val TAG2 = TAG /*"SimpleDialer:CallState"*/
 
 // inspired by https://github.com/Chooloo/call_manage
 class CallManager {
@@ -25,23 +21,19 @@ class CallManager {
         fun onCallAdded(call: Call) {
             this.call = call
             calls.add(call)
-            Log.d(TAG, "onCallAdded (${calls.size}): $call")
             for (listener in listeners) {
                 listener.onPrimaryCallChanged(call)
             }
             call.registerCallback(object : Call.Callback() {
                 override fun onStateChanged(call: Call, state: Int) {
-                    Log.d(TAG, "onStateChanged: $call")
                     updateState()
                 }
 
                 override fun onDetailsChanged(call: Call, details: Call.Details) {
-                    Log.d(TAG, "onDetailsChanged")
                     updateState()
                 }
 
                 override fun onConferenceableCallsChanged(call: Call, conferenceableCalls: MutableList<Call>) {
-                    Log.d(TAG, "onConferenceableCallsChanged (${conferenceableCalls.size}): $call")
                     updateState()
                 }
             })
@@ -49,22 +41,18 @@ class CallManager {
 
         fun onCallRemoved(call: Call) {
             calls.remove(call)
-            Log.d(TAG, "onCallRemoved (${calls.size}): $call")
             updateState()
         }
 
         fun getPhoneState(): PhoneState {
             return when (calls.size) {
                 0 -> {
-                    Log.d(TAG2, "No call")
                     NoCall
                 }
                 1 -> {
-                    Log.d(TAG2, "Single call")
                     SingleCall(calls.first())
                 }
                 2 -> {
-                    Log.d(TAG2, "Two calls")
                     val active = calls.find { it.getStateCompat() == Call.STATE_ACTIVE }
                     val newCall = calls.find { it.getStateCompat() == Call.STATE_CONNECTING || it.getStateCompat() == Call.STATE_DIALING }
                     val onHold = calls.find { it.getStateCompat() == Call.STATE_HOLDING }
@@ -87,18 +75,13 @@ class CallManager {
                     } else {
                         null
                     }
-                    Log.d(TAG2, "Conference call (${conference.children.size} children)")
-                    Log.d(TAG2, "secondCall: $secondCall")
                     if (secondCall == null) {
-                        Log.d(TAG2, "Conference call (single)")
                         SingleCall(conference)
                     } else {
                         val newCallState = secondCall.getStateCompat()
                         if (newCallState == Call.STATE_ACTIVE || newCallState == Call.STATE_CONNECTING || newCallState == Call.STATE_DIALING) {
-                            Log.d(TAG2, "Conference call and regular call (conference on hold)")
                             TwoCalls(secondCall, conference)
                         } else {
-                            Log.d(TAG2, "Conference call and regular call (regular call on hold)")
                             TwoCalls(conference, secondCall)
                         }
                     }
