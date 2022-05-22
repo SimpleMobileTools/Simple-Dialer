@@ -3,7 +3,7 @@
     <string name="app_name">Simpel telefon</string>
     <string name="app_launcher_name">Telefon</string>
     <string name="default_phone_app_prompt">Vänligen gör den här appen till standard telefonappen</string>
-    <string name="allow_displaying_over_other_apps">Snälla låt visa över andra appar för at få ett tillitligt beteende</string>
+    <string name="allow_displaying_over_other_apps">Tillåt visning över andra appar för att få ett tillförlitligt beteende</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Det gick inte att komma åt dina kontakter</string>
     <!-- Recents -->
@@ -18,9 +18,9 @@
     <string name="show_call_details">Visa samtals detaljer</string>
     <!-- Dialpad -->
     <string name="dialpad">Knappsats</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Ring number</string>
+    <string name="asterisk">Stjärna</string>
+    <string name="hashtag">Fyrkant</string>
+    <string name="call_number">Ring nummer</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Svara</string>
@@ -33,10 +33,10 @@
     <string name="call_ended">Samtalet har avslutats</string>
     <string name="call_ending">Samtalet avslutas</string>
     <string name="ongoing_call">Pågående samtal</string>
-    <string name="select_sim">Välj ett SIM för detta samtalet</string>
+    <string name="select_sim">Välj ett SIM för detta samtal</string>
     <string name="always_use_this_sim">Använd alltid det här SIM-kortet för detta nummer</string>
     <string name="unset_default_sim">Ta bort standard-SIM-kort</string>
-    <string name="calls">Calls</string>
+    <string name="calls">Samtal</string>
     <string name="turn_microphone_on">Sätt på mikrofonen</string>
     <string name="turn_microphone_off">Stäng av mikrofonen</string>
     <string name="turn_speaker_on">Sätt på högtalaren</string>
@@ -44,9 +44,9 @@
     <string name="show_dialpad">Visa knappsats</string>
     <string name="hide_dialpad">Göm knappsats</string>
     <string name="end_call">Avsluta samtalet</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
+    <string name="hold_call">Parkera samtal</string>
+    <string name="resume_call">Återuppta samtal</string>
+    <string name="call_on_hold">Parkerat</string>
     <!-- Speed dial -->
     <string name="speed_dial">Snabbuppringning</string>
     <string name="manage_speed_dial">Hantera snabbuppringning</string>
