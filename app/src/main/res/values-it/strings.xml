@@ -44,9 +44,9 @@
     <string name="show_dialpad">Mostra il tastierino</string>
     <string name="hide_dialpad">Nascondi il tastierino</string>
     <string name="end_call">Termina la chiamata</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
+    <string name="hold_call">Metti in attesa la chiamata</string>
+    <string name="resume_call">Riprendi la chiamata</string>
+    <string name="call_on_hold">In attesa</string>
     <string name="call_swap">Swap calls</string>
     <string name="call_merge">Merge calls</string>
     <string name="call_split">Split call</string>
