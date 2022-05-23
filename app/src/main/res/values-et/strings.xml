@@ -44,15 +44,15 @@
     <string name="show_dialpad">Näita numbriklahvistikku</string>
     <string name="hide_dialpad">Peida numbriklahvistik</string>
     <string name="end_call">Lõpeta kõne</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="hold_call">Pane kõne ootele</string>
+    <string name="resume_call">Jätka kõnet</string>
+    <string name="call_on_hold">Kõne on ootel</string>
+    <string name="call_swap">Vaheta kõned</string>
+    <string name="call_merge">Liida kõned</string>
+    <string name="call_split">Jaga kõne</string>
+    <string name="call_add">Lisa kõne</string>
+    <string name="conference_manage">Halda rühmakõnet</string>
+    <string name="conference">Rühmakõne</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kiirvalimine</string>
     <string name="speed_dial_label">Klõpsa numbrit ja seosta ta konkreetse telefoniraamatu kirjega. Hiljem saad samale numbrile pikalt vajutades alustada kõnet määratud telefoninumbrile.</string>
@@ -67,30 +67,7 @@
     <string name="app_title">Lihtne telefon - halda mugavalt oma telefonikõnesid</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Käepärane telefonikõnede haldur telefoniraamatuga, numbrite blokeerimise võimalusega ja mitme SIM-kaardi toega</string>
-    <string name="app_long_description">
-        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
-
-        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
-
-        You can easily block phone numbers to avoid unwanted incoming calls.
-
-        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
-
-        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
-
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
-
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
-
-        <b>Check out the full suite of Simple Tools here:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
+    <string name="app_long_description"> Lihtne rakendus kõnede haldamiseks. Varasemaid kõnesid saad mugavalt korrata logivaatest. Loomulikult on olemas ka nutikas tähemärke tundev numbriklahvistik. Miiiesoovitud helistajaid on lihtne blokeerida. Kiirvalimine teeb oma lemmikutele helistamise lihtsaks ja mugavaks ning nende lemmikutele helistamiseks võid lisada viited ka avaekraanile. Võrreldes muude sarnaste rakendustega on meie oma mahult väike ning seega ka kiire ja tõhus. Suurepärase kasutajakogemuse jaoks kasutab rakendus vaikimisi Material Design disainikeelt ning tumedat teemat. Võrreldes mõnede teiste sarnaste rakendustega ei vaja meie oma internetiühendust ning seega on ka turvalisem, privaatsem ja stabiilsem. Meie rakenduses pole reklaame ega asjatute õiguste eeldamist. Rakenduse lähtekood on avalikult saadaval ning välimust saad alati kohendada. <b>Teavet Lihtsate tarvikute rakendustest leiad siit:</b>https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
