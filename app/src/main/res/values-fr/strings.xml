@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
+    <string name="app_name">Simple Téléphone</string>
     <string name="app_launcher_name">Téléphone</string>
     <string name="default_phone_app_prompt">Veuillez faire de cette application votre application de téléphone par défaut</string>
     <string name="allow_displaying_over_other_apps">Veuillez permettre l\'affichage sur d\'autres applications pour un comportement fiable</string>
@@ -47,6 +47,12 @@
     <string name="hold_call">Mettre l\'appel en attente</string>
     <string name="resume_call">Reprendre l\'appel</string>
     <string name="call_on_hold">En attente</string>
+    <string name="call_swap">Swap calls</string>
+    <string name="call_merge">Merge calls</string>
+    <string name="call_split">Split call</string>
+    <string name="call_add">Add call</string>
+    <string name="conference_manage">Manage conference call</string>
+    <string name="conference">Conference</string>
     <!-- Speed dial -->
     <string name="speed_dial">Numérotation rapide</string>
     <string name="manage_speed_dial">Gérer la numérotation rapide</string>
