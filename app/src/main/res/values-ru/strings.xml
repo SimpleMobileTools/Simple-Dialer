@@ -44,9 +44,9 @@
     <string name="show_dialpad">Показать номеронабиратель</string>
     <string name="hide_dialpad">Скрыть номеронабиратель</string>
     <string name="end_call">Завершить вызов</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
+    <string name="hold_call">Удержание вызова</string>
+    <string name="resume_call">Продолжить вызов</string>
+    <string name="call_on_hold">Удержание</string>
     <string name="call_swap">Swap calls</string>
     <string name="call_merge">Merge calls</string>
     <string name="call_split">Split call</string>
