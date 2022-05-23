@@ -47,12 +47,12 @@
     <string name="hold_call">Wstrzymaj połączenie</string>
     <string name="resume_call">Wznów połączenie</string>
     <string name="call_on_hold">Wstrzymane</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="call_swap">Zamień połączenia</string>
+    <string name="call_merge">Scal połączenia</string>
+    <string name="call_split">Podziel połączenie</string>
+    <string name="call_add">Dodaj połączenie</string>
+    <string name="conference_manage">Zarządzaj połączeniem konferencyjnym</string>
+    <string name="conference">Konferencja</string>
     <!-- Speed dial -->
     <string name="speed_dial">Szybkie wybieranie</string>
     <string name="manage_speed_dial">Zarządzaj szybkim wybieraniem</string>
