@@ -103,6 +103,55 @@
         tools:text="1" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/on_hold_status_holder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_shadow_start_color"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_phone_vector" />
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/on_hold_caller_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/call_status_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/on_hold_label"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="0912 345 678" />
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/on_hold_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_margin"
+            android:text="@string/call_on_hold"
+            android:textSize="@dimen/call_status_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ongoing_call_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -117,8 +166,7 @@
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_microphone_vector"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.15"
+            app:layout_constraintEnd_toStartOf="@+id/call_toggle_speaker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6" />
@@ -131,8 +179,8 @@
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_speaker_off_vector"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/call_dialpad"
+            app:layout_constraintStart_toEndOf="@+id/call_toggle_microphone"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6" />
 
@@ -146,8 +194,7 @@
             android:src="@drawable/ic_dialpad_vector"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.85"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/call_toggle_speaker"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.6" />
 
@@ -157,11 +204,67 @@
             android:layout_height="@dimen/dialpad_button_size"
             android:layout_marginTop="@dimen/bigger_margin"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/hold_call"
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_pause_vector"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/call_toggle_microphone"
+            app:layout_constraintStart_toStartOf="@+id/call_toggle_microphone"
+            app:layout_constraintTop_toBottomOf="@+id/call_toggle_microphone" />
+
+        <ImageView
+            android:id="@+id/call_add"
+            android:layout_width="@dimen/dialpad_button_size"
+            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_marginTop="@dimen/bigger_margin"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/call_add"
+            android:padding="@dimen/medium_margin"
+            android:src="@drawable/ic_add_call_vector"
+            app:layout_constraintEnd_toEndOf="@+id/call_toggle_speaker"
+            app:layout_constraintStart_toStartOf="@+id/call_toggle_speaker"
+            app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
+
+        <ImageView
+            android:id="@+id/call_manage"
+            android:layout_width="@dimen/dialpad_button_size"
+            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_marginTop="@dimen/bigger_margin"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/conference_manage"
+            android:padding="@dimen/medium_margin"
+            android:src="@drawable/ic_people_vector"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/call_dialpad"
+            app:layout_constraintStart_toStartOf="@+id/call_dialpad"
+            app:layout_constraintTop_toBottomOf="@+id/call_dialpad"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/call_swap"
+            android:layout_width="@dimen/dialpad_button_size"
+            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_marginTop="@dimen/bigger_margin"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/call_swap"
+            android:padding="@dimen/medium_margin"
+            android:src="@drawable/ic_call_swap_vector"
+            app:layout_constraintEnd_toEndOf="@+id/call_toggle_microphone"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/call_toggle_microphone"
+            app:layout_constraintTop_toBottomOf="@+id/call_toggle_microphone" />
+
+        <ImageView
+            android:id="@+id/call_merge"
+            android:layout_width="@dimen/dialpad_button_size"
+            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_marginTop="@dimen/bigger_margin"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/call_merge"
+            android:padding="@dimen/medium_margin"
+            android:src="@drawable/ic_call_merge_vector"
+            app:layout_constraintEnd_toEndOf="@+id/call_toggle_speaker"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/call_toggle_speaker"
             app:layout_constraintTop_toBottomOf="@+id/call_toggle_speaker" />
 
         <ImageView
@@ -175,6 +278,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.9" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/controls_single_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="call_toggle_hold,call_add"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/controls_two_calls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="call_swap,call_merge" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

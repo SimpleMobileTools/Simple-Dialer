@@ -51,6 +51,12 @@
     <string name="hold_call">Podržať hovor</string>
     <string name="resume_call">Obnoviť hovor</string>
     <string name="call_on_hold">Podržaný hovor</string>
+    <string name="call_swap">Swap calls</string>
+    <string name="call_merge">Merge calls</string>
+    <string name="call_split">Split call</string>
+    <string name="call_add">Add call</string>
+    <string name="conference_manage">Manage conference call</string>
+    <string name="conference">Conference</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Rýchle vytáčanie</string>
