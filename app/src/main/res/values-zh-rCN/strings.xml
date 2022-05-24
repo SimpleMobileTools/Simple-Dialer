@@ -47,12 +47,12 @@
     <string name="hold_call">保持通话</string>
     <string name="resume_call">继续通话</string>
     <string name="call_on_hold">暂停</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="call_swap">交换通话</string>
+    <string name="call_merge">合并通话</string>
+    <string name="call_split">分离通话</string>
+    <string name="call_add">添加通话</string>
+    <string name="conference_manage">管理电话会议</string>
+    <string name="conference">会议</string>
     <!-- Speed dial -->
     <string name="speed_dial">快速拨号</string>
     <string name="manage_speed_dial">管理快速拨号</string>
