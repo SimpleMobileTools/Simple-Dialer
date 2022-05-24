@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.LOWER_ALPHA
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -66,6 +67,12 @@ class ConferenceCallsAdapter(
                     activity.finish()
                 }
             }
+            itemView.item_conference_call_split.setOnLongClickListener {
+                if (!it.contentDescription.isNullOrEmpty()) {
+                    itemView.context.toast(it.contentDescription.toString())
+                }
+                true
+            }
             itemView.item_conference_call_end.isEnabled = canDisconnect
             itemView.item_conference_call_end.alpha = if (canDisconnect) 1.0f else LOWER_ALPHA
             itemView.item_conference_call_end.setOnClickListener {
@@ -75,6 +82,12 @@ class ConferenceCallsAdapter(
                 if (data.size == 1) {
                     activity.finish()
                 }
+            }
+            itemView.item_conference_call_end.setOnLongClickListener {
+                if (!it.contentDescription.isNullOrEmpty()) {
+                    itemView.context.toast(it.contentDescription.toString())
+                }
+                true
             }
         }
         bindViewHolder(holder)
