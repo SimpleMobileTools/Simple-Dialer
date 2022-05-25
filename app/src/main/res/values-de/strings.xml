@@ -47,12 +47,12 @@
     <string name="hold_call">Anruf halten</string>
     <string name="resume_call">Anruf fortsetzen</string>
     <string name="call_on_hold">In der Warteschleife</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="call_swap">Anrufe austauschen</string>
+    <string name="call_merge">Anrufe zusammenführen</string>
+    <string name="call_split">Anruf teilen</string>
+    <string name="call_add">Anruf hinzufügen</string>
+    <string name="conference_manage">Telefonkonferenz verwalten</string>
+    <string name="conference">Konferenz</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kurzwahl</string>
     <string name="manage_speed_dial">Kurzwahlnummern verwalten</string>
