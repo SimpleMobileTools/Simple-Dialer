@@ -185,6 +185,18 @@ class CallActivity : SimpleActivity() {
             it.applyColorFilter(getProperTextColor())
         }
 
+        arrayOf(
+            call_toggle_microphone, call_toggle_speaker, call_dialpad,
+            call_toggle_hold, call_add, call_swap, call_merge, call_manage
+        ).forEach { imageView ->
+            imageView.setOnLongClickListener {
+                if (!imageView.contentDescription.isNullOrEmpty()) {
+                    toast(imageView.contentDescription.toString())
+                }
+                true
+            }
+        }
+
         call_sim_id.setTextColor(getProperTextColor().getContrastColor())
     }
 
