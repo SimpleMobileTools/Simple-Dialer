@@ -168,6 +168,15 @@
             </intent-filter>
         </service>
 
+        <service
+            android:name=".services.SimpleCallScreeningService"
+            android:exported="true"
+            android:permission="android.permission.BIND_SCREENING_SERVICE">
+            <intent-filter>
+                <action android:name="android.telecom.CallScreeningService" />
+            </intent-filter>
+        </service>
+
         <receiver
             android:name=".receivers.CallActionReceiver"
             android:enabled="true"
