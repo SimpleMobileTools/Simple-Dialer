@@ -10,8 +10,8 @@
     <string name="no_previous_calls">Nenašli sa žiadne predošlé hovory</string>
     <string name="could_not_access_the_call_history">Nepodarilo sa dostať ku histórií hovorov</string>
     <string name="request_access">Vyžiadať prístup</string>
-    <string name="remove_confirmation">Ste si istý, že chcete z histórií volaní odstrániť zvolené položky?</string>
-    <string name="clear_history_confirmation">Ste si istý, že chcete vymazať celú históriu hovorov?</string>
+    <string name="remove_confirmation">Ste si istý, že chcete z histórií volaní odstrániť zvolené položky\?</string>
+    <string name="clear_history_confirmation">Ste si istý, že chcete vymazať celú históriu hovorov\?</string>
     <string name="show_grouped_calls">Zobraziť zoskupené volania</string>
     <string name="clear_call_history">Vymazať históriu hovorov</string>
     <string name="show_call_details">Zobraziť detaily hovoru</string>
