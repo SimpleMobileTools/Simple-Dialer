@@ -30,6 +30,7 @@ class SimpleCallScreeningService : CallScreeningService() {
             .setSkipCallLog(isBlocked)
             .setSkipNotification(isBlocked)
             .build()
+
         respondToCall(callDetails, response)
     }
 }
