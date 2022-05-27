@@ -56,8 +56,8 @@ class CallNotificationManager(private val context: Context) {
             val declinePendingIntent =
                 PendingIntent.getBroadcast(context, DECLINE_CALL_CODE, declineCallIntent, PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_MUTABLE)
 
-            var callerName = if (callContact != null && callContact.name.isNotEmpty()) callContact.name else context.getString(R.string.unknown_caller)
-            if (callContact?.numberLabel?.isNotEmpty() == true) {
+            var callerName = if (callContact.name.isNotEmpty()) callContact.name else context.getString(R.string.unknown_caller)
+            if (callContact.numberLabel.isNotEmpty()) {
                 callerName += " - ${callContact.numberLabel}"
             }
 
@@ -85,7 +85,7 @@ class CallNotificationManager(private val context: Context) {
             val builder = NotificationCompat.Builder(context, channelId)
                 .setSmallIcon(R.drawable.ic_phone_vector)
                 .setContentIntent(openAppPendingIntent)
-                .setPriority(if(isHighPriority) NotificationCompat.PRIORITY_MAX else NotificationCompat.PRIORITY_DEFAULT)
+                .setPriority(if (isHighPriority) NotificationCompat.PRIORITY_MAX else NotificationCompat.PRIORITY_DEFAULT)
                 .setCategory(Notification.CATEGORY_CALL)
                 .setCustomContentView(collapsedView)
                 .setOngoing(true)
