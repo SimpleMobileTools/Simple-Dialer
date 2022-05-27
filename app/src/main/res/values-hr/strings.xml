@@ -12,7 +12,6 @@
     <string name="request_access">Zatražite pristup</string>
     <string name="remove_confirmation">Jeste li sigurni da želite ukloniti odabrane stavke iz Povijesti Poziva\?</string>
     <string name="clear_history_confirmation">Jeste li sigurni da želite sve ukloniti iz Povijesti Poziva\?</string>
-    <string name="send_sms">Send SMS</string>
     <string name="show_grouped_calls">Prikaži grupirane pozive</string>
     <string name="clear_call_history">Obriši povijest poziva</string>
     <string name="show_call_details">Prikaži detalje poziva</string>

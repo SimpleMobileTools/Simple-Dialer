@@ -12,7 +12,6 @@
     <string name="request_access">Pedir acesso</string>
     <string name="remove_confirmation">Tem a certeza de que pretende remover do registo os itens selecionados\?</string>
     <string name="clear_history_confirmation">Tem a certeza de que pretende remover todo o registo de chamadas\?</string>
-    <string name="send_sms">Enviar SMS</string>
     <string name="show_grouped_calls">Mostrar chamadas em grupo</string>
     <string name="clear_call_history">Limpar registo de chamadas</string>
     <string name="show_call_details">Mostrar detalhes da chamada</string>

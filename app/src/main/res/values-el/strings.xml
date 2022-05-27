@@ -13,7 +13,6 @@
     <string name="request_access">Αίτηση πρόσβασης</string>
     <string name="remove_confirmation">Είστε βέβαιοι ότι θέλετε να καταργήσετε τα επιλεγμένα στοιχεία από το ιστορικό κλήσεων;</string>
     <string name="clear_history_confirmation">Είστε σίγουροι ότι θέλετε να αφαιρέσετε τα πάντα από το ιστορικό κλήσεων;</string>
-    <string name="send_sms">Αποστολή SMS</string>
     <string name="show_grouped_calls">Προβολή ομαδοποιημένων κλήσεων</string>
     <string name="clear_call_history">Διαγραφή ιστορικού κλήσεων</string>
     <string name="show_call_details">Προβολή λεπτομερειών κλήσης</string>

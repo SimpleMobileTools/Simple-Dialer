@@ -12,7 +12,6 @@
     <string name="request_access">Solicitați acces</string>
     <string name="remove_confirmation">Sunteți sigur că doriți să eliminați elementele selectate din istoricul apelurilor?</string>
     <string name="clear_history_confirmation">Sunteți sigur că doriți să eliminați totul din istoricul apelurilor?</string>
-    <string name="send_sms">Trimiteți SMS</string>
     <string name="show_grouped_calls">Afișați apelurile grupate</string>
     <string name="clear_call_history">Ștergeți istoricul apelurilor</string>
     <string name="show_call_details">Afișați detaliile apelului</string>

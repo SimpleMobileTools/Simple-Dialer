@@ -12,7 +12,6 @@
     <string name="request_access">Požádat o přístup</string>
     <string name="remove_confirmation">Opravdu chcete odebrat vybrané položky z historie hovorů?</string>
     <string name="clear_history_confirmation">Opravdu chcete z historie hovorů odebrat vše?</string>
-    <string name="send_sms">Poslat SMS</string>
     <string name="show_grouped_calls">Zobrazit seskupené hovory</string>
     <string name="clear_call_history">Vymazat historii hovorů</string>
     <string name="show_call_details">Ukázat detaily hovoru</string>

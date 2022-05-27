@@ -12,7 +12,6 @@
     <string name="request_access">Request access</string>
     <string name="remove_confirmation">您確定要從通話記錄中移除所選的項目嗎？</string>
     <string name="clear_history_confirmation">您確定要通話記錄中所有的項目嗎？</string>
-    <string name="send_sms">傳送簡訊</string>
     <string name="show_grouped_calls">顯示群組通話</string>
     <string name="clear_call_history">清除通話記錄</string>
     <string name="show_call_details">顯示通話詳情</string>

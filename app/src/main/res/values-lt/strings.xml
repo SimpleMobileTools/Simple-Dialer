@@ -12,7 +12,6 @@
     <string name="request_access"></string>
     <string name="remove_confirmation"></string>
     <string name="clear_history_confirmation">Ar tikrai norite viską ištrinti iš skambučių istorijos\?</string>
-    <string name="send_sms">Siųsti SMS žinutę</string>
     <string name="show_grouped_calls"></string>
     <string name="clear_call_history">Išvalyti skambučių istoriją</string>
     <string name="show_call_details"></string>

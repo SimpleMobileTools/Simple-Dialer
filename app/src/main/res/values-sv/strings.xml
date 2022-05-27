@@ -12,7 +12,6 @@
     <string name="request_access">Begär åtkomst</string>
     <string name="remove_confirmation">Är du säker på att du vill ta bort de markerade objekten från samtalshistoriken\?</string>
     <string name="clear_history_confirmation">Är du säker på att du vill ta bort allt från samtalshistoriken\?</string>
-    <string name="send_sms">Skicka sms</string>
     <string name="show_grouped_calls">Visa grupperade samtal</string>
     <string name="clear_call_history">Rensa samtalshistorik</string>
     <string name="show_call_details">Visa samtals detaljer</string>

@@ -12,7 +12,6 @@
     <string name="request_access">Поискайте достъп</string>
     <string name="remove_confirmation">Сигурни ли сте, че искате да премахнете избраните елементи от историята на обажданията\?</string>
     <string name="clear_history_confirmation">Сигурни ли сте, че искате да премахнете всичко от историята на обажданията\?</string>
-    <string name="send_sms">Изпратете SMS</string>
     <string name="show_grouped_calls">Покажете обажданията групирани</string>
     <string name="clear_call_history">Изчистете историята на обажданията</string>
     <string name="show_call_details">Покажете подробности за обаждането</string>

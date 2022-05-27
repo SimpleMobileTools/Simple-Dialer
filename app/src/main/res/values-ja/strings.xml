@@ -12,7 +12,6 @@
     <string name="request_access">アクセスを要求する</string>
     <string name="remove_confirmation">選択したアイテムを通話履歴から削除してもよろしいですか？</string>
     <string name="clear_history_confirmation">すべての通話履歴を削除してもよろしいですか？</string>
-    <string name="send_sms">SMS を送信</string>
     <string name="show_grouped_calls">グループ化された通話履歴を表示する</string>
     <string name="clear_call_history">通話履歴をクリア</string>
     <string name="show_call_details">通話の詳細を表示する</string>

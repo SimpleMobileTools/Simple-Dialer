@@ -12,7 +12,6 @@
     <string name="request_access">Be om tilgang</string>
     <string name="remove_confirmation">Er du sikker på at du vil fjerne de valgte elementene fra anropsloggen\?</string>
     <string name="clear_history_confirmation">Er du sikker på at du vil fjerne alt fra anropsloggen\?</string>
-    <string name="send_sms">Send tekstmelding</string>
     <string name="show_grouped_calls">Vis grupperte anrop</string>
     <string name="clear_call_history">Tøm anropsloggen</string>
     <string name="show_call_details">Vis samtaledetaljer</string>

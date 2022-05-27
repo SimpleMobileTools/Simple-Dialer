@@ -12,7 +12,6 @@
     <string name="request_access">Richiedo accesso</string>
     <string name="remove_confirmation">Rimuovere davvero l\'elemento selezionato dalla cronologia delle chiamate?</string>
     <string name="clear_history_confirmation">Sicuro/a di voler svuotare la cronologia delle chiamate\?</string>
-    <string name="send_sms">Invia un SMS</string>
     <string name="show_grouped_calls">Mostra chiamate raggruppate</string>
     <string name="clear_call_history">Svuota la cronologia delle chiamate</string>
     <string name="show_call_details">Mostra i dettagli della chiamata</string>

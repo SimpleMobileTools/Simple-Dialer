@@ -12,7 +12,6 @@
     <string name="request_access">Akses diminta</string>
     <string name="remove_confirmation">Apakah Anda yakin ingin menghapus item yang dipilih dari Call History\?</string>
     <string name="clear_history_confirmation">Yakin untuk menghapus semua dari Riwayat Panggilan\?</string>
-    <string name="send_sms">Kirim SMS</string>
     <string name="show_grouped_calls">Tampilkan panggilan yang digrup</string>
     <string name="clear_call_history">Hapus riwayat panggilan</string>
     <string name="show_call_details">Tampilkan detail panggilan</string>

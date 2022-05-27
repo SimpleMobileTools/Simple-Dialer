@@ -12,7 +12,6 @@
     <string name="request_access">Hozzáférés kérése</string>
     <string name="remove_confirmation">Biztos, hogy eltávolítja a kiválasztott elemeket a híváselőzményekből\?</string>
     <string name="clear_history_confirmation">Biztos, hogy mindent eltávolít a híváselőzményekből\?</string>
-    <string name="send_sms">SMS küldése</string>
     <string name="show_grouped_calls">Csoportosított hívások megjelenítése</string>
     <string name="clear_call_history">Híváselőzmények törlése</string>
     <string name="show_call_details">Hívás részleteinek megjelenítése</string>

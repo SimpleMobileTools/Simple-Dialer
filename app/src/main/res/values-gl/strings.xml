@@ -12,7 +12,6 @@
     <string name="request_access">Solicitar acceso</string>
     <string name="remove_confirmation">Desexas eliminar do Historial de Chamadas os elementos seleccionados\?</string>
     <string name="clear_history_confirmation">Tes a certeza de querer eliminar todo o Historial de Chamadas\?</string>
-    <string name="send_sms">Enviar SMS</string>
     <string name="show_grouped_calls">Mostrar chamadas agrupadas</string>
     <string name="clear_call_history">Limpar historia de chamadas</string>
     <string name="show_call_details">Mostrar detalles da chamada</string>

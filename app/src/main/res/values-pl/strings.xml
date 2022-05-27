@@ -12,7 +12,6 @@
     <string name="request_access">Poproś o dostęp</string>
     <string name="remove_confirmation">Czy usunąć wybrane elementy z historii połączeń\?</string>
     <string name="clear_history_confirmation">Czy usunąć całą historię połączeń\?</string>
-    <string name="send_sms">Wyślij SMS-a</string>
     <string name="show_grouped_calls">Pokaż zgrupowane połączenia</string>
     <string name="clear_call_history">Wyczyść historię połączeń</string>
     <string name="show_call_details">Pokaż szczegóły połączenia</string>

@@ -12,7 +12,6 @@
     <string name="request_access">Erişim isteği</string>
     <string name="remove_confirmation">Seçilen ögeleri Arama Geçmişinden kaldırmak istediğinizden emin misiniz?</string>
     <string name="clear_history_confirmation">Arama Geçmişindeki her şeyi kaldırmak istediğinizden emin misiniz?</string>
-    <string name="send_sms">SMS gönder</string>
     <string name="show_grouped_calls">Gruplandırılmış aramaları göster</string>
     <string name="clear_call_history">Arama geçmişini temizle</string>
     <string name="show_call_details">Arama ayrıntılarını göster</string>

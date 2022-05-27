@@ -12,7 +12,6 @@
     <string name="request_access">Toegang aanvragen</string>
     <string name="remove_confirmation">Geselecteerde items uit de gespreksgeschiedenis verwijderen?</string>
     <string name="clear_history_confirmation">De volledige gespreksgeschiedenis verwijderen?</string>
-    <string name="send_sms">SMS versturen</string>
     <string name="show_grouped_calls">Gesprekken gegroepeerd weergeven</string>
     <string name="clear_call_history">Gespreksgeschiedenis wissen</string>
     <string name="show_call_details">Gespreksgegevens tonen</string>

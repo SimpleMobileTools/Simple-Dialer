@@ -12,7 +12,6 @@
     <string name="request_access">Запрос доступа</string>
     <string name="remove_confirmation">Удалить выбранные записи из истории вызовов\?</string>
     <string name="clear_history_confirmation">Удалить всю историю вызовов\?</string>
-    <string name="send_sms">Отправить SMS</string>
     <string name="show_grouped_calls">Сгруппировать вызовы</string>
     <string name="clear_call_history">Очистить историю вызовов</string>
     <string name="show_call_details">Показать сведения о вызове</string>
