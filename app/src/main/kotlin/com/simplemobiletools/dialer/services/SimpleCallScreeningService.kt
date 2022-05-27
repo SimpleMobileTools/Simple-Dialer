@@ -6,6 +6,7 @@ import android.telecom.Call
 import android.telecom.CallScreeningService
 import androidx.annotation.RequiresApi
 import com.simplemobiletools.commons.extensions.baseConfig
+import com.simplemobiletools.commons.extensions.getMyContactsCursor
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 
 @RequiresApi(Build.VERSION_CODES.N)
@@ -15,7 +16,8 @@ class SimpleCallScreeningService : CallScreeningService() {
         val simpleContactsHelper = SimpleContactsHelper(this)
         val number = Uri.decode(callDetails.handle.toString()).substringAfter("tel:")
         if (baseConfig.blockUnknownNumbers) {
-            simpleContactsHelper.exists(number) { exists ->
+            val privateCursor = getMyContactsCursor(false, true)
+            simpleContactsHelper.exists(number, privateCursor) { exists ->
                 respondToCall(callDetails, !exists)
             }
         } else {
