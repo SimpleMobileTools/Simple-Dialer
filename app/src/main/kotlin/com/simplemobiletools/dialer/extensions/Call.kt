@@ -4,6 +4,7 @@ import android.telecom.Call
 import android.telecom.Call.STATE_CONNECTING
 import android.telecom.Call.STATE_DIALING
 import android.telecom.Call.STATE_SELECT_PHONE_ACCOUNT
+import com.simplemobiletools.commons.helpers.isQPlus
 import com.simplemobiletools.commons.helpers.isSPlus
 
 private val OUTGOING_CALL_STATES = arrayOf(STATE_CONNECTING, STATE_DIALING, STATE_SELECT_PHONE_ACCOUNT)
@@ -32,7 +33,11 @@ fun Call?.getCallDuration(): Int {
 }
 
 fun Call.isOutgoing(): Boolean {
-    return OUTGOING_CALL_STATES.contains(getStateCompat())
+    return if (isQPlus()) {
+        details.callDirection == Call.Details.DIRECTION_OUTGOING
+    } else {
+        OUTGOING_CALL_STATES.contains(getStateCompat())
+    }
 }
 
 fun Call.hasCapability(capability: Int): Boolean = (details.callCapabilities and capability) != 0
