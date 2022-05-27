@@ -4,26 +4,22 @@
     <string name="app_launcher_name">Telefón</string>
     <string name="default_phone_app_prompt">Prosím nastavte apku ako predvolenú na správu hovorov</string>
     <string name="allow_displaying_over_other_apps">Pre spoľahlivé fungovanie prosím povoľte zobrazovanie nad ostatnými apkami</string>
-
     <!-- Contacts -->
     <string name="could_not_access_contacts">Nepodarilo sa dostať ku kontaktom</string>
-
     <!-- Recents -->
     <string name="no_previous_calls">Nenašli sa žiadne predošlé hovory</string>
     <string name="could_not_access_the_call_history">Nepodarilo sa dostať ku histórií hovorov</string>
     <string name="request_access">Vyžiadať prístup</string>
-    <string name="remove_confirmation">Ste si istý, že chcete z histórií volaní odstrániť zvolené položky?</string>
-    <string name="clear_history_confirmation">Ste si istý, že chcete vymazať celú históriu hovorov?</string>
+    <string name="remove_confirmation">Ste si istý, že chcete z histórií volaní odstrániť zvolené položky\?</string>
+    <string name="clear_history_confirmation">Ste si istý, že chcete vymazať celú históriu hovorov\?</string>
     <string name="show_grouped_calls">Zobraziť zoskupené volania</string>
     <string name="clear_call_history">Vymazať históriu hovorov</string>
     <string name="show_call_details">Zobraziť detaily hovoru</string>
-
     <!-- Dialpad -->
     <string name="dialpad">Číselník</string>
     <string name="asterisk">Hviezdička</string>
     <string name="hashtag">Mriežka</string>
     <string name="call_number">Zavolať číslo</string>
-
     <!-- Dialer -->
     <string name="dialer">Telefón</string>
     <string name="accept">Prijať</string>
@@ -56,18 +52,15 @@
     <string name="call_add">Pridať hovor</string>
     <string name="conference_manage">Spravovať konferenčný hovor</string>
     <string name="conference">Konferencia</string>
-
     <!-- Speed dial -->
     <string name="speed_dial">Rýchle vytáčanie</string>
     <string name="manage_speed_dial">Spravovať rýchle vytáčanie</string>
     <string name="speed_dial_label">Pre priradenie kontaktu kliknite na číslo. Následne viete daný kontakt rýchlo vytočiť dlhým podržaním čísla na číselníku.</string>
-
     <!-- Settings -->
     <string name="group_subsequent_calls">Zoskupiť susedné volania s rovnakým číslom v histórií volaní</string>
     <string name="open_dialpad_by_default">Otvoriť číselník po spustení apky</string>
     <string name="disable_proximity_sensor">Vypnúť počas hovorov senzor priblíženia</string>
     <string name="disable_swipe_to_answer">Nahradiť potiahnutie prstom pri odpovedaní na prichádzajúce hovory kliknutím</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Jednoduchý telefón - Spravujte hovory jednoducho</string>
@@ -97,7 +90,6 @@
         <b>Reddit:</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
