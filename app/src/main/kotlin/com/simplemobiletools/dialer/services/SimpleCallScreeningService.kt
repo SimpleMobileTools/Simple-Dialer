@@ -13,7 +13,7 @@ class SimpleCallScreeningService : CallScreeningService() {
 
     override fun onScreenCall(callDetails: Call.Details) {
         val simpleContactsHelper = SimpleContactsHelper(this)
-        val number = Uri.decode(callDetails.handle.toString()).substringAfter("tel:").replace("+", "")
+        val number = Uri.decode(callDetails.handle.toString()).substringAfter("tel:")
         val isBlocked = baseConfig.blockUnknownNumbers && !simpleContactsHelper.exists(number)
         val response = CallResponse.Builder()
             .setDisallowCall(isBlocked)
