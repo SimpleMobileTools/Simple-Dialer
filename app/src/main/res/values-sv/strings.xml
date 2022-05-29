@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Simpel telefon</string>
     <string name="app_launcher_name">Telefon</string>
-    <string name="default_phone_app_prompt">Vänligen gör den här appen till standard telefonappen</string>
+    <string name="default_phone_app_prompt">Vänligen gör den här appen till standardtelefonapp</string>
     <string name="allow_displaying_over_other_apps">Tillåt visning över andra appar för att få ett tillförlitligt beteende</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Det gick inte att komma åt dina kontakter</string>
@@ -14,7 +14,7 @@
     <string name="clear_history_confirmation">Är du säker på att du vill ta bort allt från samtalshistoriken\?</string>
     <string name="show_grouped_calls">Visa grupperade samtal</string>
     <string name="clear_call_history">Rensa samtalshistorik</string>
-    <string name="show_call_details">Visa samtals detaljer</string>
+    <string name="show_call_details">Visa samtalsinformation</string>
     <!-- Dialpad -->
     <string name="dialpad">Knappsats</string>
     <string name="asterisk">Stjärna</string>
@@ -46,12 +46,12 @@
     <string name="hold_call">Parkera samtal</string>
     <string name="resume_call">Återuppta samtal</string>
     <string name="call_on_hold">Parkerat</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="call_swap">Växla mellan samtal</string>
+    <string name="call_merge">Koppla ihop samtal</string>
+    <string name="call_split">Koppla isär samtal</string>
+    <string name="call_add">Lägg till samtal</string>
+    <string name="conference_manage">Hantera konferenssamtal</string>
+    <string name="conference">Konferens</string>
     <!-- Speed dial -->
     <string name="speed_dial">Snabbuppringning</string>
     <string name="manage_speed_dial">Hantera snabbuppringning</string>
@@ -60,7 +60,7 @@
     <string name="group_subsequent_calls">Gruppera samtal till och från samma nummer i samtalshistoriken</string>
     <string name="open_dialpad_by_default">Öppna knappsatsen som standard när appen öppnas</string>
     <string name="disable_proximity_sensor">Inaktivera närhetssensor under samtal</string>
-    <string name="disable_swipe_to_answer">Ersätt swiping som respons till inkommande samtal jmed klickande</string>
+    <string name="disable_swipe_to_answer">Ersätt svepning vid besvarande av inkommande samtal med tryckning</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Simpel telefon - hantera dina telefonsamtal enkelt</string>
