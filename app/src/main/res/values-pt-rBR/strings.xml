@@ -3,7 +3,7 @@
     <string name="app_name">Discador Simples</string>
     <string name="app_launcher_name">Discador</string>
     <string name="default_phone_app_prompt">Por favor, torne este aplicativo o aplicativo de telefone padrão</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <string name="allow_displaying_over_other_apps">Por favor, permita a sobreposição sobre outros aplicativos para um comportamento mais estável</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Não foi possível acessar seus contatos</string>
     <!-- Recents -->
@@ -43,15 +43,15 @@
     <string name="show_dialpad">Mostrar discador</string>
     <string name="hide_dialpad">Ocultar discador</string>
     <string name="end_call">Encerrar chamada</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="hold_call">Chamada em espera</string>
+    <string name="resume_call">Resumir chamada</string>
+    <string name="call_on_hold">Em Espera</string>
+    <string name="call_swap">Trocar chamadas</string>
+    <string name="call_merge">Juntar chamadas</string>
+    <string name="call_split">Separar chamadas</string>
+    <string name="call_add">Adicionar chamada</string>
+    <string name="conference_manage">Gerenciar chamada em conferência</string>
+    <string name="conference">Conferência</string>
     <!-- Speed dial -->
     <string name="speed_dial">Ligação rápida</string>
     <string name="manage_speed_dial">Gerenciar ligações rápidas</string>
