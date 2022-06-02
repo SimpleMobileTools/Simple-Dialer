@@ -59,7 +59,7 @@
     <!-- Settings -->
     <string name="group_subsequent_calls">Групувати наступні дзвінки з тим самим номером у журналі викликів</string>
     <string name="open_dialpad_by_default">За замовчуванням відкривати цифрову панель при запуску додатку</string>
-    <string name="disable_proximity_sensor">Вимикати датчик наближення під час викликів</string>
+    <string name="disable_proximity_sensor">Вимикати датник наближення під час викликів</string>
     <string name="disable_swipe_to_answer">Замінити перетягування на натискання під час відповіді на вхідні виклики</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
