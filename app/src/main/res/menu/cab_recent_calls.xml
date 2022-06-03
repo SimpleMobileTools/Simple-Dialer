@@ -19,6 +19,11 @@
         android:title="@string/delete"
         app:showAsAction="always" />
     <item
+        android:id="@+id/cab_view_details"
+        android:icon="@drawable/ic_view_contact_details_vector"
+        android:title="@string/view_contact_details"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/cab_add_number"
         android:icon="@drawable/ic_add_person_vector"
         android:title="@string/add_number_to_contact"

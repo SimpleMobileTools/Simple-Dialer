@@ -12,6 +12,7 @@ import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.activities.MainActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
@@ -82,6 +83,8 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                 allContacts.addAll(privateContacts)
                 allContacts.sort()
             }
+
+            (activity as MainActivity).cacheContacts(allContacts)
 
             activity?.runOnUiThread {
                 gotContacts(contacts)
