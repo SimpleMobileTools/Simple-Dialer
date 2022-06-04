@@ -13,14 +13,13 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.activities.MainActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.dialogs.ShowGroupedCallsDialog
-import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
-import com.simplemobiletools.dialer.extensions.callContactWithSim
-import com.simplemobiletools.dialer.extensions.config
-import com.simplemobiletools.dialer.extensions.startCallIntent
+import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
@@ -61,6 +60,7 @@ class RecentCallsAdapter(
             findItem(R.id.cab_add_number).isVisible = isOneItemSelected
             findItem(R.id.cab_copy_number).isVisible = isOneItemSelected
             findItem(R.id.cab_show_call_details).isVisible = isOneItemSelected
+            findItem(R.id.cab_view_details).isVisible = isOneItemSelected && findContactByCall(selectedItems.first()) != null
         }
     }
 
@@ -80,6 +80,7 @@ class RecentCallsAdapter(
             R.id.cab_copy_number -> copyNumber()
             R.id.cab_remove -> askConfirmRemove()
             R.id.cab_select_all -> selectAll()
+            R.id.cab_view_details -> launchContactDetailsIntent(findContactByCall(getSelectedItems().first()))
         }
     }
 
@@ -230,6 +231,16 @@ class RecentCallsAdapter(
         }
     }
 
+    private fun findContactByCall(recentCall: RecentCall): SimpleContact? {
+        return (activity as MainActivity).cachedContacts.find { it.name == recentCall.name && it.doesHavePhoneNumber(recentCall.phoneNumber) }
+    }
+
+    private fun launchContactDetailsIntent(contact: SimpleContact?) {
+        if (contact != null) {
+            activity.startContactDetailsIntent(contact)
+        }
+    }
+
     fun updateItems(newItems: ArrayList<RecentCall>, highlightText: String = "") {
         if (newItems.hashCode() != recentCalls.hashCode()) {
             recentCalls = newItems.clone() as ArrayList<RecentCall>
@@ -319,6 +330,7 @@ class RecentCallsAdapter(
         finishActMode()
         val theme = activity.getPopupMenuTheme()
         val contextTheme = ContextThemeWrapper(activity, theme)
+        val contact = findContactByCall(call)
 
         PopupMenu(contextTheme, view, Gravity.END).apply {
             inflate(R.menu.menu_recent_item_options)
@@ -327,6 +339,7 @@ class RecentCallsAdapter(
                 findItem(R.id.cab_call).isVisible = !areMultipleSIMsAvailable
                 findItem(R.id.cab_call_sim_1).isVisible = areMultipleSIMsAvailable
                 findItem(R.id.cab_call_sim_2).isVisible = areMultipleSIMsAvailable
+                findItem(R.id.cab_view_details).isVisible = contact != null
             }
             setOnMenuItemClickListener { item ->
                 val callId = call.id
@@ -349,6 +362,11 @@ class RecentCallsAdapter(
                     R.id.cab_send_sms -> {
                         executeItemMenuOperation(callId) {
                             sendSMS()
+                        }
+                    }
+                    R.id.cab_view_details -> {
+                        executeItemMenuOperation(callId) {
+                            launchContactDetailsIntent(contact)
                         }
                     }
                 }

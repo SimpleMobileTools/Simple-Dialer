@@ -47,6 +47,7 @@ class MainActivity : SimpleActivity() {
     private var searchMenuItem: MenuItem? = null
     private var storedShowTabs = 0
     private var searchQuery = ""
+    var cachedContacts = ArrayList<SimpleContact>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -490,5 +491,10 @@ class MainActivity : SimpleActivity() {
                 }
             }
         }
+    }
+
+    fun cacheContacts(contacts: List<SimpleContact>) {
+        cachedContacts.clear()
+        cachedContacts.addAll(contacts)
     }
 }
