@@ -93,7 +93,7 @@ class CallActivity : SimpleActivity() {
 
     override fun onBackPressed() {
         if (dialpad_wrapper.isVisible()) {
-            dialpad_wrapper.beGone()
+            hideDialpad()
             return
         } else {
             super.onBackPressed()
