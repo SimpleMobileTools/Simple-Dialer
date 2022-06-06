@@ -15,8 +15,10 @@ import android.os.PowerManager
 import android.telecom.Call
 import android.telecom.CallAudioState
 import android.view.MotionEvent
+import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
+import androidx.core.view.children
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.LOWER_ALPHA
 import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
@@ -31,6 +33,7 @@ import kotlinx.android.synthetic.main.dialpad.*
 
 class CallActivity : SimpleActivity() {
     companion object {
+        private const val ANIMATION_DURATION = 250L
         fun getStartIntent(context: Context): Intent {
             val openAppIntent = Intent(context, CallActivity::class.java)
             openAppIntent.flags = Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
@@ -48,6 +51,7 @@ class CallActivity : SimpleActivity() {
     private val callDurationHandler = Handler(Looper.getMainLooper())
     private var dragDownX = 0f
     private var stopAnimation = false
+    private var viewsUnderDialpad = arrayListOf<Pair<View, Float>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
@@ -89,7 +93,7 @@ class CallActivity : SimpleActivity() {
 
     override fun onBackPressed() {
         if (dialpad_wrapper.isVisible()) {
-            dialpad_wrapper.beGone()
+            hideDialpad()
             return
         } else {
             super.onBackPressed()
@@ -132,7 +136,7 @@ class CallActivity : SimpleActivity() {
         }
 
         dialpad_close.setOnClickListener {
-            dialpad_wrapper.beGone()
+            hideDialpad()
         }
 
         call_toggle_hold.setOnClickListener {
@@ -341,10 +345,32 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun toggleDialpadVisibility() {
-        if (dialpad_wrapper.isVisible()) {
-            dialpad_wrapper.beGone()
-        } else {
-            dialpad_wrapper.beVisible()
+        if (dialpad_wrapper.isVisible()) hideDialpad() else showDialpad()
+    }
+
+    private fun findVisibleViewsUnderDialpad(): Sequence<Pair<View, Float>> {
+        return ongoing_call_holder.children.filter { it.isVisible() }.map { view -> Pair(view, view.alpha) }
+    }
+
+    private fun showDialpad() {
+        dialpad_wrapper.animate().withStartAction { dialpad_wrapper.beVisible() }.alpha(1f)
+        viewsUnderDialpad.clear()
+        viewsUnderDialpad.addAll(findVisibleViewsUnderDialpad())
+        viewsUnderDialpad.forEach { (view, _) ->
+            view.run {
+                animate().scaleX(0f).alpha(0f).withEndAction { beGone() }.duration = ANIMATION_DURATION
+                animate().scaleY(0f).alpha(0f).withEndAction { beGone() }.duration = ANIMATION_DURATION
+            }
+        }
+    }
+
+    private fun hideDialpad() {
+        dialpad_wrapper.animate().alpha(0f).withEndAction { dialpad_wrapper.beGone() }
+        viewsUnderDialpad.forEach { (view, alpha) ->
+            view.run {
+                animate().withStartAction { beVisible() }.scaleX(1f).alpha(alpha).duration = ANIMATION_DURATION
+                animate().withStartAction { beVisible() }.scaleY(1f).alpha(alpha).duration = ANIMATION_DURATION
+            }
         }
     }
 
