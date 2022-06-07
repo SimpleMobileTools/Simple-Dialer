@@ -369,6 +369,24 @@ class RecentCallsAdapter(
                             launchContactDetailsIntent(contact)
                         }
                     }
+                    R.id.cab_add_number -> {
+                        executeItemMenuOperation(callId) {
+                            addNumberToContact()
+                        }
+                    }
+                    R.id.cab_show_call_details -> {
+                        executeItemMenuOperation(callId) {
+                            showCallDetails()
+                        }
+                    }
+                    R.id.cab_block_number -> {
+                        selectedKeys.add(callId)
+                        askConfirmBlock()
+                    }
+                    R.id.cab_remove -> {
+                        selectedKeys.add(callId)
+                        askConfirmRemove()
+                    }
                 }
                 true
             }
