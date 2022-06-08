@@ -90,7 +90,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
             val currAdapter = recents_list.adapter
             if (currAdapter == null) {
-                RecentCallsAdapter(activity as SimpleActivity, recents, recents_list, this) {
+                RecentCallsAdapter(activity as SimpleActivity, recents, recents_list, this, true) {
                     val recentCall = it as RecentCall
                     if (context.config.showCallConfirmation) {
                         CallConfirmationDialog(activity as SimpleActivity, recentCall.name) {

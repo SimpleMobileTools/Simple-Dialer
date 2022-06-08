@@ -20,4 +20,20 @@
         android:id="@+id/cab_view_details"
         android:icon="@drawable/ic_view_contact_details_vector"
         android:title="@string/view_contact_details" />
+    <item
+        android:id="@+id/cab_add_number"
+        android:icon="@drawable/ic_add_person_vector"
+        android:title="@string/add_number_to_contact" />
+    <item
+        android:id="@+id/cab_show_call_details"
+        android:icon="@drawable/ic_info_vector"
+        android:title="@string/show_call_details" />
+    <item
+        android:id="@+id/cab_block_number"
+        android:icon="@drawable/ic_minus_circle_vector"
+        android:title="@string/block_number" />
+    <item
+        android:id="@+id/cab_remove"
+        android:icon="@drawable/ic_delete_vector"
+        android:title="@string/delete" />
 </menu>
