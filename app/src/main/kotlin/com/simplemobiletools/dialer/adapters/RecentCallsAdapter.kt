@@ -320,7 +320,7 @@ class RecentCallsAdapter(
 
             item_recents_type.setImageDrawable(drawable)
 
-            overflow_menu_icon.isVisible = showOverflowMenu
+            overflow_menu_icon.beVisibleIf(showOverflowMenu)
             if (showOverflowMenu) {
                 overflow_menu_icon.drawable.apply {
                     mutate()
