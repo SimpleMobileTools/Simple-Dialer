@@ -63,7 +63,7 @@ class CallManager {
                     }
                 }
                 else -> {
-                    val conference = calls.find { it.isConference() }!!
+                    val conference = calls.find { it.isConference() } ?: return NoCall
                     val secondCall = if (conference.children.size + 1 != calls.size) {
                         calls.filter { !it.isConference() }
                             .subtract(conference.children.toSet())

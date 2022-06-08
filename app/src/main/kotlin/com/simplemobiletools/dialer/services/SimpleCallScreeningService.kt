@@ -13,9 +13,9 @@ import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 class SimpleCallScreeningService : CallScreeningService() {
 
     override fun onScreenCall(callDetails: Call.Details) {
-        val simpleContactsHelper = SimpleContactsHelper(this)
-        val number = Uri.decode(callDetails.handle.toString()).substringAfter("tel:")
         if (baseConfig.blockUnknownNumbers) {
+            val simpleContactsHelper = SimpleContactsHelper(this)
+            val number = Uri.decode(callDetails.handle?.toString()).substringAfter("tel:")
             val privateCursor = getMyContactsCursor(false, true)
             simpleContactsHelper.exists(number, privateCursor) { exists ->
                 respondToCall(callDetails, !exists)
