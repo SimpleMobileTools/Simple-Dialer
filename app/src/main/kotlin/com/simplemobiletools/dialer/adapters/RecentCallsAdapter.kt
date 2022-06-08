@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.util.TypedValue
 import android.view.*
 import android.widget.PopupMenu
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -26,7 +27,11 @@ import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.item_recent_call.view.*
 
 class RecentCallsAdapter(
-    activity: SimpleActivity, var recentCalls: ArrayList<RecentCall>, recyclerView: MyRecyclerView, val refreshItemsListener: RefreshItemsListener?,
+    activity: SimpleActivity,
+    var recentCalls: ArrayList<RecentCall>,
+    recyclerView: MyRecyclerView,
+    private val refreshItemsListener: RefreshItemsListener?,
+    private val showOverflowMenu: Boolean,
     itemClick: (Any) -> Unit
 ) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
 
@@ -315,13 +320,15 @@ class RecentCallsAdapter(
 
             item_recents_type.setImageDrawable(drawable)
 
-            overflow_menu_icon.drawable.apply {
-                mutate()
-                setTint(activity.getProperTextColor())
-            }
-
-            overflow_menu_icon.setOnClickListener {
-                showPopupMenu(overflow_menu_anchor, call)
+            overflow_menu_icon.isVisible = showOverflowMenu
+            if (showOverflowMenu) {
+                overflow_menu_icon.drawable.apply {
+                    mutate()
+                    setTint(activity.getProperTextColor())
+                }
+                overflow_menu_icon.setOnClickListener {
+                    showPopupMenu(overflow_menu_anchor, call)
+                }
             }
         }
     }
