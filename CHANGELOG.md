@@ -1,6 +1,18 @@
 Changelog
 ==========
 
+Version 5.13.0 *(2022-06-08)*
+----------------------------
+
+ * Added conference call support
+ * Allow blocking incoming calls from not stored contacts
+ * Show incoming call as a top notification in some cases
+ * Made incoming call screen more reliable
+ * Add more options at call history items
+ * Allow custom ordering of Favorite items
+ * Fixed the Indonesian translation
+ * Added many stability, translation and UX improvements
+
 Version 5.12.0 *(2022-04-13)*
 ----------------------------
 
