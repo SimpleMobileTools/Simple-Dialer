@@ -1,102 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Dialer</string>
+    <string name="app_name">חייגן פשוט</string>
+    <string name="app_launcher_name">חייגן</string>
     <string name="default_phone_app_prompt">אנא הפוך את האפליקציה הזו לחייגן ברירת המחדל</string>
     <string name="allow_displaying_over_other_apps">אנא אפשר הצגה מעל אפליקציות אחרות לצורך התנהגות אמינה</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Could not access your contacts</string>
-
+    <string name="could_not_access_contacts">לא ניתן היה לגשת לאנשי הקשר שלך נא אפשר ידנית דרך הגדרות האפליקציה</string>
     <!-- Recents -->
-    <string name="no_previous_calls">No previous calls have been found</string>
-    <string name="could_not_access_the_call_history">Could not access the call history</string>
-    <string name="request_access">Request access</string>
-    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History?</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
-    <string name="show_call_details">Show call details</string>
-
+    <string name="no_previous_calls">לא נמצאו שיחות קודמות</string>
+    <string name="could_not_access_the_call_history">לא ניתן היה לגשת להיסטוריית השיחות נא התקן מחדש או אפשר הרשאות</string>
+    <string name="request_access">לבקש גישה</string>
+    <string name="remove_confirmation">האם אתה בטוח שברצונך להסיר את הפריטים שנבחרו מהיסטוריית השיחות\?</string>
+    <string name="clear_history_confirmation">האם אתה בטוח שברצונך לאפס את כל היסטוריית השיחות\?</string>
+    <string name="show_grouped_calls">הצג שיחות מקובצות</string>
+    <string name="clear_call_history">נקה היסטוריית שיחות</string>
+    <string name="show_call_details">הצג פרטי שיחה</string>
     <!-- Dialpad -->
-    <string name="dialpad">Dialpad</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
-
+    <string name="dialpad">חייגן</string>
+    <string name="asterisk">כוכבית</string>
+    <string name="hashtag">סולמית</string>
+    <string name="call_number">מספר שיחה</string>
     <!-- Dialer -->
-    <string name="dialer">Dialer</string>
-    <string name="accept">Accept</string>
-    <string name="accept_call">Accept call</string>
-    <string name="decline">Decline</string>
-    <string name="decline_call">Decline call</string>
-    <string name="unknown_caller">Unknown Caller</string>
-    <string name="is_calling">Is Calling…</string>
-    <string name="dialing">Dialing…</string>
-    <string name="call_ended">Call Ended</string>
-    <string name="call_ending">Call Ending</string>
-    <string name="ongoing_call">Ongoing Call</string>
-    <string name="select_sim">Select a SIM for this call</string>
-    <string name="always_use_this_sim">Always use this SIM for this number</string>
-    <string name="unset_default_sim">Unset default SIM</string>
-    <string name="calls">Calls</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
-
+    <string name="dialer">חייגן</string>
+    <string name="accept">לקבל</string>
+    <string name="accept_call">לקבל שיחה</string>
+    <string name="decline">לדחות</string>
+    <string name="decline_call">לדחות שיחה</string>
+    <string name="unknown_caller">מספר חסוי</string>
+    <string name="is_calling">מתקשר…</string>
+    <string name="dialing">חיוג…</string>
+    <string name="call_ended">השיחה הסתיימה</string>
+    <string name="call_ending">סיום שיחה</string>
+    <string name="ongoing_call">שיחה פעילה</string>
+    <string name="select_sim">בחר סים לשיחה זו</string>
+    <string name="always_use_this_sim">השתמש תמיד ב-סים הזה עבור המספר הזה</string>
+    <string name="unset_default_sim">בטל את הגדרת ברירת המחדל של סים</string>
+    <string name="calls">שיחות</string>
+    <string name="turn_microphone_on">הפעל את המיקרופון</string>
+    <string name="turn_microphone_off">כבה את המיקרופון</string>
+    <string name="turn_speaker_on">הפעל את הרמקול</string>
+    <string name="turn_speaker_off">כבה את הרמקול</string>
+    <string name="show_dialpad">הצג חייגן</string>
+    <string name="hide_dialpad">הסתר חייגן</string>
+    <string name="end_call">נתק שיחה</string>
+    <string name="hold_call">השהה שיחה</string>
+    <string name="resume_call">המשך שיחה</string>
+    <string name="call_on_hold">בהמתנה</string>
+    <string name="call_swap">החלפת שיחות</string>
+    <string name="call_merge">מזג שיחות</string>
+    <string name="call_split">פיצול שיחות</string>
+    <string name="call_add">הוסף שיחה</string>
+    <string name="conference_manage">ניהול שיחת ועידה</string>
+    <string name="conference">ועידה</string>
     <!-- Speed dial -->
-    <string name="speed_dial">Speed dial</string>
-    <string name="manage_speed_dial">Manage speed dial</string>
-    <string name="speed_dial_label">Click on a number to assign a contact to it. You can then quickly call the given contact by long pressing the given number at the dialer.</string>
-
+    <string name="speed_dial">חיוג מהיר</string>
+    <string name="manage_speed_dial">נהל חיוג מהיר</string>
+    <string name="speed_dial_label">לחץ על מספר כדי להקצות לו איש קשר. לאחר מכן תוכל להתקשר במהירות לאיש הקשר שבחרת על ידי לחיצה ארוכה על המספר הנבחר בחייגן.</string>
     <!-- Settings -->
-    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
-    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
-
+    <string name="group_subsequent_calls">מזג שיחות עוקבות עם אותו מספר ביומן השיחות</string>
+    <string name="open_dialpad_by_default">פתח את לוח החיוג כברירת מחדל כאשר האפליקציה נפתחת</string>
+    <string name="disable_proximity_sensor">השבת את חיישן הקרבה במהלך שיחות</string>
+    <string name="disable_swipe_to_answer">החלף החלקה בתגובה לשיחות נכנסות בלחיצה</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Manage your phone calls easily</string>
+    <string name="app_title">חייגן פשוט - נהל את שיחות הטלפון שלך בקלות</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A handy phone call manager with phonebook, number blocking and multi-SIM support</string>
-    <string name="app_long_description">
-        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
-
-        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
-
-        You can easily block phone numbers to avoid unwanted incoming calls.
-
-        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
-
-        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
-
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
-
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
-
-        <b>Check out the full suite of Simple Tools here:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
-
+    <string name="app_short_description">מנהל שיחות טלפון שימושי עם ספר טלפונים, חסימת מספרים ותמיכה בריבוי סים</string>
+    <string name="app_long_description"> אפליקציה קלת משקל לטיפול בשיחות שלך, לא משנה היכן אתה. מגיע עם יומן שיחות שימושי להפעלת שיחות קלה. יש גם לוח חיוג מהיר לשירותך, עם הצעות חכמות ליצירת קשר. זה תומך גם באותיות. אתה יכול בקלות לחסום מספרי טלפון כדי למנוע שיחות נכנסות לא רצויות. חיוג מהיר נתמך הופך את ההתקשרות לאנשי הקשר המועדפים עליך באמצעות הטלפון האמיתי הזה לפשוטה. כדי לעזור לך לנהל את השיחות שלך במהירות, אפליקציית הטלפון תומכת גם באנשי קשר מועדפים וביצירת קיצורי דרך של כל איש קשר במסך הבית. זה מגיע עם עיצוב חומר וערכת נושא כהה כברירת מחדל, מספק חווית משתמש נהדרת לשימוש קל. היעדר גישה לאינטרנט נותן לך יותר פרטיות, אבטחה ויציבות מאשר אפליקציות אחרות. אינו מכיל פרסומות או הרשאות מיותרות. זה קוד פתוח לחלוטין, מספק צבעים הניתנים להתאמה אישית. <b>בדוק את החבילה המלאה של כלים פשוטים כאן:</b> https://www.simplemobiletools.com <b>פייסבוק:</b> https://www.facebook.com/simplemobiletools <b>Reddi :</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
