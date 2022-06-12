@@ -2,39 +2,39 @@
 <resources>
     <string name="app_name">Paprastas rinkiklis</string>
     <string name="app_launcher_name">Telefonas</string>
-    <string name="default_phone_app_prompt"></string>
+    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
     <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Nepavyko gauti prieigos prie adresatų</string>
     <!-- Recents -->
     <string name="no_previous_calls">Nerasta jokių ankstesnių skambučių</string>
     <string name="could_not_access_the_call_history">Nepavyko pasiekti skambučių istorijos</string>
-    <string name="request_access"></string>
-    <string name="remove_confirmation"></string>
+    <string name="request_access">Request access</string>
+    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History\?</string>
     <string name="clear_history_confirmation">Ar tikrai norite viską ištrinti iš skambučių istorijos\?</string>
-    <string name="show_grouped_calls"></string>
+    <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">Išvalyti skambučių istoriją</string>
-    <string name="show_call_details"></string>
+    <string name="show_call_details">Show call details</string>
     <!-- Dialpad -->
     <string name="dialpad">Numerio rinkiklis</string>
-    <string name="asterisk"></string>
-    <string name="hashtag"></string>
-    <string name="call_number"></string>
+    <string name="asterisk">Asterisk</string>
+    <string name="hashtag">Hashtag</string>
+    <string name="call_number">Call number</string>
     <!-- Dialer -->
     <string name="dialer">Numerio rinkiklis</string>
-    <string name="accept"></string>
+    <string name="accept">Accept</string>
     <string name="accept_call">Atsiliepti</string>
     <string name="decline">Atmesti</string>
     <string name="decline_call">Atmesti skambutį</string>
-    <string name="unknown_caller"></string>
+    <string name="unknown_caller">Unknown Caller</string>
     <string name="is_calling">Skambina…</string>
     <string name="dialing">Numerio rinkimas…</string>
-    <string name="call_ended"></string>
-    <string name="call_ending"></string>
-    <string name="ongoing_call"></string>
-    <string name="select_sim"></string>
+    <string name="call_ended">Call Ended</string>
+    <string name="call_ending">Call Ending</string>
+    <string name="ongoing_call">Ongoing Call</string>
+    <string name="select_sim">Select a SIM for this call</string>
     <string name="always_use_this_sim">Šiam numeriui visada naudoti šią SIM kortelę</string>
-    <string name="unset_default_sim"></string>
+    <string name="unset_default_sim">Unset default SIM</string>
     <string name="calls">Skambučiai</string>
     <string name="turn_microphone_on">Įjungti mikrofoną</string>
     <string name="turn_microphone_off">Išjungti mikrofoną</string>
@@ -57,10 +57,10 @@
     <string name="manage_speed_dial">Tvarkyti spartųjį rinkimą</string>
     <string name="speed_dial_label">Spustelėkite ant skaitmens, kad priskirtumėte jam adresatą. Tuomet, numerio rinkiklyje ilgai laikydami nurodytą skaitmenį, galėsite greitai pradėti skambinti nurodytam adresatui.</string>
     <!-- Settings -->
-    <string name="group_subsequent_calls"></string>
+    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
     <string name="open_dialpad_by_default">Atveriant programėlę, automatiškai pagal numatymą atverti numerio rinkiklį</string>
     <string name="disable_proximity_sensor">Skambučių metu išjungti artumo jutiklį</string>
-    <string name="disable_swipe_to_answer"></string>
+    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Paprastas rinkiklis – Lengvai valdykite skambučius</string>
