@@ -3,7 +3,7 @@
     <string name="app_name">Marcador Simple</string>
     <string name="app_launcher_name">Marcador</string>
     <string name="default_phone_app_prompt">Hacer esta app la predeterminada para hacer llamadas en tu dispositivo</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <string name="allow_displaying_over_other_apps">Por favor permita la función \"mostrar sobre otras aplicaciones\" para un compartimiento seguro</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">No se pudo acceder a tus contactos</string>
     <!-- Recents -->
@@ -11,21 +11,21 @@
     <string name="could_not_access_the_call_history">No se pudo acceder al historial de llamadas</string>
     <string name="request_access">Solicitar acceso</string>
     <string name="remove_confirmation">¿Estás seguro que quieres eliminar los elementos seleccionados del historial de llamadas\?</string>
-    <string name="clear_history_confirmation">¿Está seguro de que desea eliminar todo del historial de llamadas?</string>
+    <string name="clear_history_confirmation">¿Está seguro de que desea eliminar todo del historial de llamadas\?</string>
     <string name="show_grouped_calls">Mostrar llamadas agrupadas</string>
     <string name="clear_call_history">Borrar historial de llamadas</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Mostrar los detalles de la llamada</string>
     <!-- Dialpad -->
     <string name="dialpad">Teclado de marcado</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="asterisk">Asterisco</string>
+    <string name="hashtag">Almohadilla</string>
+    <string name="call_number">Número de llamada</string>
     <!-- Dialer -->
     <string name="dialer">Marcador</string>
     <string name="accept">Aceptar</string>
-    <string name="accept_call">Accept call</string>
+    <string name="accept_call">Aceptar llamada</string>
     <string name="decline">Rechazar</string>
-    <string name="decline_call">Decline call</string>
+    <string name="decline_call">Rechazar llamada</string>
     <string name="unknown_caller">Número desconocido</string>
     <string name="is_calling">Está llamando…</string>
     <string name="dialing">Llamando…</string>
@@ -35,23 +35,23 @@
     <string name="select_sim">Selecciona una tarjeta SIM para esta llamada</string>
     <string name="always_use_this_sim">Siempre usar esta tarjeta SIM para este número</string>
     <string name="unset_default_sim">Desarmado predeterminado SIM</string>
-    <string name="calls">Calls</string>
-    <string name="turn_microphone_on">Turn microphone on</string>
-    <string name="turn_microphone_off">Turn microphone off</string>
-    <string name="turn_speaker_on">Turn speaker on</string>
-    <string name="turn_speaker_off">Turn speaker off</string>
-    <string name="show_dialpad">Show dialpad</string>
-    <string name="hide_dialpad">Hide dialpad</string>
-    <string name="end_call">End call</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="calls">Llamadas</string>
+    <string name="turn_microphone_on">Encender el micrófono</string>
+    <string name="turn_microphone_off">Apagar el micrófono</string>
+    <string name="turn_speaker_on">Encender el altavoz</string>
+    <string name="turn_speaker_off">Apagar el altavoz</string>
+    <string name="show_dialpad">Mostrar el dial</string>
+    <string name="hide_dialpad">Esconder el dial</string>
+    <string name="end_call">Terminar llamada</string>
+    <string name="hold_call">Poner la llamada en espera</string>
+    <string name="resume_call">Continuar llamada</string>
+    <string name="call_on_hold">En espera</string>
+    <string name="call_swap">Intercambiar llamadas</string>
+    <string name="call_merge">Combinar llamadas</string>
+    <string name="call_split">Dividir llamadas</string>
+    <string name="call_add">Añadir llamada</string>
+    <string name="conference_manage">Administrar conferencia</string>
+    <string name="conference">Conferencia</string>
     <!-- Speed dial -->
     <string name="speed_dial">Marcado rápido</string>
     <string name="manage_speed_dial">Administrar marcado rápido</string>
@@ -60,7 +60,7 @@
     <string name="group_subsequent_calls">Agrupar llamadas subsecuentes con el mísmo número en el registro de llamadas</string>
     <string name="open_dialpad_by_default">Abrir el teclado de marcado de forma predeterminada al abrir la aplicación</string>
     <string name="disable_proximity_sensor">Deshabilitar el sensor de proximidad durante las llamadas</string>
-    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
+    <string name="disable_swipe_to_answer">Reemplazar deslizar para responder llamadas entrantes a pulsar</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Marcador Simple - Administra tus llamadas fácil</string>
