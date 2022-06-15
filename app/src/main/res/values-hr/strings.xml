@@ -11,9 +11,9 @@
     <string name="could_not_access_the_call_history">Nije moguće pristupiti povijesti poziva</string>
     <string name="request_access">Zatražite pristup</string>
     <string name="remove_confirmation">Jeste li sigurni da želite ukloniti odabrane stavke iz Povijesti Poziva\?</string>
-    <string name="clear_history_confirmation">Jeste li sigurni da želite sve ukloniti iz Povijesti Poziva\?</string>
+    <string name="clear_history_confirmation">Stvarno želiš ukloniti sve iz povijesti poziva\?</string>
     <string name="show_grouped_calls">Prikaži grupirane pozive</string>
-    <string name="clear_call_history">Obriši povijest poziva</string>
+    <string name="clear_call_history">Izbriši povijest poziva</string>
     <string name="show_call_details">Prikaži detalje poziva</string>
     <!-- Dialpad -->
     <string name="dialpad">Brojčanik</string>
