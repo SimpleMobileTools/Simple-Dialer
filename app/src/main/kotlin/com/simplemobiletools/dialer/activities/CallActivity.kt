@@ -238,6 +238,9 @@ class CallActivity : SimpleActivity() {
             startArrowAnimation(call_right_arrow, initialRightArrowX, initialRightArrowScaleX, initialRightArrowScaleY, rightArrowTranslation)
         }
 
+        call_draggable.applyColorFilter(getProperTextColor())
+        call_draggable_background.drawable.applyColorFilter(getProperTextColor())
+
         var lock = false
         call_draggable.setOnTouchListener { v, event ->
             when (event.action) {
@@ -255,6 +258,7 @@ class CallActivity : SimpleActivity() {
                         call_draggable_background.animate().alpha(0.2f)
                     }
                     call_draggable.setImageDrawable(getDrawable(R.drawable.ic_phone_down_vector))
+                    call_draggable.drawable.applyColorFilter(getProperTextColor())
                     call_left_arrow.animate().alpha(1f)
                     call_right_arrow.animate().alpha(1f)
                     stopAnimation = false
