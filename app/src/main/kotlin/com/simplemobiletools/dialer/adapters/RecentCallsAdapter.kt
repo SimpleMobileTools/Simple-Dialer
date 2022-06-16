@@ -8,7 +8,6 @@ import android.text.TextUtils
 import android.util.TypedValue
 import android.view.*
 import android.widget.PopupMenu
-import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -347,6 +346,7 @@ class RecentCallsAdapter(
                 findItem(R.id.cab_call_sim_1).isVisible = areMultipleSIMsAvailable
                 findItem(R.id.cab_call_sim_2).isVisible = areMultipleSIMsAvailable
                 findItem(R.id.cab_view_details).isVisible = contact != null
+                findItem(R.id.cab_block_number).isVisible = isNougatPlus()
             }
             setOnMenuItemClickListener { item ->
                 val callId = call.id
@@ -393,6 +393,11 @@ class RecentCallsAdapter(
                     R.id.cab_remove -> {
                         selectedKeys.add(callId)
                         askConfirmRemove()
+                    }
+                    R.id.cab_copy_number -> {
+                        executeItemMenuOperation(callId) {
+                            copyNumber()
+                        }
                     }
                 }
                 true

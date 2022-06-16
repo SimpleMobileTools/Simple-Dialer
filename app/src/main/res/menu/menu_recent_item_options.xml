@@ -25,6 +25,9 @@
         android:icon="@drawable/ic_add_person_vector"
         android:title="@string/add_number_to_contact" />
     <item
+        android:id="@+id/cab_copy_number"
+        android:title="@string/copy_number_to_clipboard" />
+    <item
         android:id="@+id/cab_show_call_details"
         android:icon="@drawable/ic_info_vector"
         android:title="@string/show_call_details" />
