@@ -337,6 +337,7 @@ class RecentCallsAdapter(
         val theme = activity.getPopupMenuTheme()
         val contextTheme = ContextThemeWrapper(activity, theme)
         val contact = findContactByCall(call)
+        val selectedNumber = "tel:${call.phoneNumber}"
 
         PopupMenu(contextTheme, view, Gravity.END).apply {
             inflate(R.menu.menu_recent_item_options)
@@ -347,6 +348,7 @@ class RecentCallsAdapter(
                 findItem(R.id.cab_call_sim_2).isVisible = areMultipleSIMsAvailable
                 findItem(R.id.cab_view_details).isVisible = contact != null
                 findItem(R.id.cab_block_number).isVisible = isNougatPlus()
+                findItem(R.id.cab_remove_default_sim).isVisible = activity.config.getCustomSIM(selectedNumber) != ""
             }
             setOnMenuItemClickListener { item ->
                 val callId = call.id
@@ -397,6 +399,11 @@ class RecentCallsAdapter(
                     R.id.cab_copy_number -> {
                         executeItemMenuOperation(callId) {
                             copyNumber()
+                        }
+                    }
+                    R.id.cab_remove_default_sim -> {
+                        executeItemMenuOperation(callId) {
+                            removeDefaultSIM()
                         }
                     }
                 }
