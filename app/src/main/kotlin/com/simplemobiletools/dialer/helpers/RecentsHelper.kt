@@ -163,6 +163,7 @@ class RecentsHelper(private val context: Context) {
                 previousRecentCallFrom = "$number$name$simID"
             } while (cursor.moveToNext())
         }
+        cursor?.close()
 
         val blockedNumbers = context.getBlockedNumbers()
         recentCalls = recentCalls.filter { !context.isNumberBlocked(it.phoneNumber, blockedNumbers) }.toMutableList() as ArrayList<RecentCall>
