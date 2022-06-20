@@ -15,6 +15,7 @@ import com.simplemobiletools.dialer.models.RecentCall
 
 class RecentsHelper(private val context: Context) {
     private val COMPARABLE_PHONE_NUMBER_LENGTH = 9
+    private val QUERY_LIMIT = "100"
 
     @SuppressLint("MissingPermission")
     fun getRecentCalls(groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
@@ -44,7 +45,10 @@ class RecentsHelper(private val context: Context) {
         val contactsNumbersMap = HashMap<String, String>()
         val contactPhotosMap = HashMap<String, String>()
 
-        val uri = Calls.CONTENT_URI
+        val uri = Calls.CONTENT_URI.buildUpon()
+            .appendQueryParameter(Calls.LIMIT_PARAM_KEY, QUERY_LIMIT)
+            .build()
+
         val projection = arrayOf(
             Calls._ID,
             Calls.NUMBER,
@@ -61,18 +65,11 @@ class RecentsHelper(private val context: Context) {
             accountIdToSimIDMap[it.handle.id] = it.id
         }
 
-        val cursor = if (isRPlus()) {
-            val bundle = Bundle().apply {
-                putStringArray(ContentResolver.QUERY_ARG_SORT_COLUMNS, arrayOf(Calls._ID))
-                putInt(ContentResolver.QUERY_ARG_SORT_DIRECTION, ContentResolver.QUERY_SORT_DIRECTION_DESCENDING)
-                putInt(ContentResolver.QUERY_ARG_LIMIT, 100)
-            }
-
-            context.contentResolver.query(uri, projection, bundle, null)
-        } else {
-            val sortOrder = "${Calls._ID} DESC LIMIT 100"
-            context.contentResolver.query(uri, projection, null, null, sortOrder)
+        val bundle = Bundle().apply {
+            putStringArray(ContentResolver.QUERY_ARG_SORT_COLUMNS, arrayOf(Calls._ID))
+            putInt(ContentResolver.QUERY_ARG_SORT_DIRECTION, ContentResolver.QUERY_SORT_DIRECTION_DESCENDING)
         }
+        val cursor = context.contentResolver.query(uri, projection, bundle, null)
 
         val contactsWithMultipleNumbers = contacts.filter { it.phoneNumbers.size > 1 }
         val numbersToContactIDMap = HashMap<String, Int>()
