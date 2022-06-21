@@ -13,7 +13,7 @@ import com.simplemobiletools.dialer.models.RecentCall
 
 class RecentsHelper(private val context: Context) {
     private val COMPARABLE_PHONE_NUMBER_LENGTH = 9
-    private val QUERY_LIMIT = "100"
+    private val QUERY_LIMIT = "200"
 
     @SuppressLint("MissingPermission")
     fun getRecentCalls(groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
