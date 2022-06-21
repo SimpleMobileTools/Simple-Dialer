@@ -1,2 +1,0 @@
- * Changed the accept and decline actions from click to swipe
- * Added some stability, translation and UX improvements

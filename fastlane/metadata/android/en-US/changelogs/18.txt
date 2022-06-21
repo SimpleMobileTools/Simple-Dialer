@@ -1,2 +1,0 @@
- * Properly show private contacts on Android 11+
- * Some translation and stability improvements

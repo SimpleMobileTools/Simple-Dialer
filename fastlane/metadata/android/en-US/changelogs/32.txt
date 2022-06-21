@@ -1,2 +1,0 @@
- * Added a setting for toggling handling incoming calls between clicks and swipes
- * Added some stability and translation improvements

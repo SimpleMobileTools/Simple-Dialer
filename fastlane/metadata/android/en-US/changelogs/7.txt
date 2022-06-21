@@ -1,2 +1,0 @@
- * Adding support for accessing private contacts stored in Simple Contacts Pro (to be added soon)
- * Allow customizing the default tab opened at app start

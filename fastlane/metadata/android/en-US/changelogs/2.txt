@@ -1,3 +1,0 @@
- * Added a Favorites tab
- * Allow creating Dialpad, or contact shortcuts on the home screen
- * Couple other smaller improvements

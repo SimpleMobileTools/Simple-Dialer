@@ -1,5 +1,0 @@
- * Try harder at fetching names at the Call Log
- * Make subsequent calls from the same number at the call log optional
- * Allow toggling name start with surname
- * Show the other ends number at the call screen
- * Some other UI and translation improvements

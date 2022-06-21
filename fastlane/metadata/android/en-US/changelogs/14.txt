@@ -1,2 +1,0 @@
- * Allow sending SMS to contacts directly from the call log
- * End the call if the call screen gets shut down

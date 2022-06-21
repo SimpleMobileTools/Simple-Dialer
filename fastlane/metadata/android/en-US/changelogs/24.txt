@@ -1,5 +1,0 @@
- * Add handling for intents invoked by clicking missed call notifications
- * Improve search result sorting
- * Improved the keyboard behaviour during calls
- * Added russian letters at the dialpad keyboard
- * Some other UX, translation and stability improvements
