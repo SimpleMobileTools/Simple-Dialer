@@ -65,11 +65,17 @@ class RecentsHelper(private val context: Context) {
             accountIdToSimIDMap[it.handle.id] = it.id
         }
 
-        val bundle = Bundle().apply {
-            putStringArray(ContentResolver.QUERY_ARG_SORT_COLUMNS, arrayOf(Calls._ID))
-            putInt(ContentResolver.QUERY_ARG_SORT_DIRECTION, ContentResolver.QUERY_SORT_DIRECTION_DESCENDING)
+        val cursor = if (isRPlus()) {
+            val bundle = Bundle().apply {
+                putStringArray(ContentResolver.QUERY_ARG_SORT_COLUMNS, arrayOf(Calls._ID))
+                putInt(ContentResolver.QUERY_ARG_SORT_DIRECTION, ContentResolver.QUERY_SORT_DIRECTION_DESCENDING)
+            }
+
+            context.contentResolver.query(uri, projection, bundle, null)
+        } else {
+            val sortOrder = "${Calls._ID} DESC"
+            context.contentResolver.query(uri, projection, null, null, sortOrder)
         }
-        val cursor = context.contentResolver.query(uri, projection, bundle, null)
 
         val contactsWithMultipleNumbers = contacts.filter { it.phoneNumbers.size > 1 }
         val numbersToContactIDMap = HashMap<String, Int>()
