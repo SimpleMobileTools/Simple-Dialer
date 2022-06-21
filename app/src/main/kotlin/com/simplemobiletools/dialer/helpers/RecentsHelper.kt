@@ -1,9 +1,7 @@
 package com.simplemobiletools.dialer.helpers
 
 import android.annotation.SuppressLint
-import android.content.ContentResolver
 import android.content.Context
-import android.os.Bundle
 import android.provider.CallLog.Calls
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -15,6 +13,7 @@ import com.simplemobiletools.dialer.models.RecentCall
 
 class RecentsHelper(private val context: Context) {
     private val COMPARABLE_PHONE_NUMBER_LENGTH = 9
+    private val QUERY_LIMIT = "200"
 
     @SuppressLint("MissingPermission")
     fun getRecentCalls(groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
@@ -61,16 +60,15 @@ class RecentsHelper(private val context: Context) {
             accountIdToSimIDMap[it.handle.id] = it.id
         }
 
-        val cursor = if (isRPlus()) {
-            val bundle = Bundle().apply {
-                putStringArray(ContentResolver.QUERY_ARG_SORT_COLUMNS, arrayOf(Calls._ID))
-                putInt(ContentResolver.QUERY_ARG_SORT_DIRECTION, ContentResolver.QUERY_SORT_DIRECTION_DESCENDING)
-                putInt(ContentResolver.QUERY_ARG_LIMIT, 100)
-            }
-
-            context.contentResolver.query(uri, projection, bundle, null)
+        val cursor = if (isNougatPlus()) {
+            // https://issuetracker.google.com/issues/175198972?pli=1#comment6
+            val limitedUri = uri.buildUpon()
+                .appendQueryParameter(Calls.LIMIT_PARAM_KEY, QUERY_LIMIT)
+                .build()
+            val sortOrder = "${Calls._ID} DESC"
+            context.contentResolver.query(limitedUri, projection, null, null, sortOrder)
         } else {
-            val sortOrder = "${Calls._ID} DESC LIMIT 100"
+            val sortOrder = "${Calls._ID} DESC LIMIT $QUERY_LIMIT"
             context.contentResolver.query(uri, projection, null, null, sortOrder)
         }
 
@@ -166,6 +164,7 @@ class RecentsHelper(private val context: Context) {
                 previousRecentCallFrom = "$number$name$simID"
             } while (cursor.moveToNext())
         }
+        cursor?.close()
 
         val blockedNumbers = context.getBlockedNumbers()
         recentCalls = recentCalls.filter { !context.isNumberBlocked(it.phoneNumber, blockedNumbers) }.toMutableList() as ArrayList<RecentCall>
