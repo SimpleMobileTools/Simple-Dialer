@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Телефон</string>
+    <string name="app_name">Обикновени повиквания</string>
+    <string name="app_launcher_name">Повиквания</string>
     <string name="default_phone_app_prompt">Направете това приложение основно за телефонни обаждания</string>
     <string name="allow_displaying_over_other_apps">Разрешете показване над други приложения за надеждната работа на програмата</string>
     <!-- Contacts -->
@@ -43,15 +43,15 @@
     <string name="show_dialpad">Показване на бутоните за набиране</string>
     <string name="hide_dialpad">Скриване на бутоните за набиране</string>
     <string name="end_call">Край на обаждането</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="hold_call">Задържане на обаждане</string>
+    <string name="resume_call">Възобновяване на обаждане</string>
+    <string name="call_on_hold">На изчакване</string>
+    <string name="call_swap">Разменяне на обаждания</string>
+    <string name="call_merge">Обединяване на обаждания</string>
+    <string name="call_split">Разделяне на обаждане</string>
+    <string name="call_add">Добавяне на обаждане</string>
+    <string name="conference_manage">Управление на конферентен разговор</string>
+    <string name="conference">Конференция</string>
     <!-- Speed dial -->
     <string name="speed_dial">Бързо набиране</string>
     <string name="manage_speed_dial">Управление на бързото набиране</string>
@@ -63,7 +63,7 @@
     <string name="disable_swipe_to_answer">Смяна на плъзгането с кликване за отговор на входящи обаждания</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Лесно управление на обаждания</string>
+    <string name="app_title">Обикновени повиквания - Лесни телефонни разговори</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Телефон с адреси, блокиране на номера, поддръжка на няколко SIM карти</string>
     <string name="app_long_description">
