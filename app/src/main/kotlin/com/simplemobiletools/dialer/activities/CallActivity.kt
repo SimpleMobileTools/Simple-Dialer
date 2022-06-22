@@ -20,7 +20,10 @@ import android.view.WindowManager
 import android.widget.ImageView
 import androidx.core.view.children
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.helpers.LOWER_ALPHA
+import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
+import com.simplemobiletools.commons.helpers.isOreoMr1Plus
+import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.*
