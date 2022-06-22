@@ -1,22 +1,24 @@
-Lekka aplikacja do obsługi połączeń, bez względu na to, gdzie jesteś. Zawiera poręczny rejestr połączeń ułatwiający inicjowanie połączeń telefonicznych.
+Lekka aplikacja do obsługi połączeń, bez względu na to, gdzie jesteś. Zawiera poręczny rejestr połączeń ułatwiający inicjowanie połączeń telefonicznych. Możesz teraz łatwo wybierać numery za pomocą tego niesamowitego panelu wybierania bez żadnych problemów, ponieważ oferuje różne rzeczy, które ulepszają ogólne wrażenia podczas wykonywania połączenia. Pozostań w kontakcie ze znajomymi i rodziną, jednocześnie ciesząc się płynnym działaniem tej aplikacji. Dzięki większym cyfrom i literom łatwiej jest teraz widzieć i wybierać numery. Korzystając z tego panelu wybierania, możesz z łatwością uzyskać dostęp do swoich kontaktów i prowadzić rejestr połączeń.
 
 Do Twojej dyspozycji jest również szybki panel wybierania z inteligentnymi sugestiami kontaktów. Obsługuje także litery.
 
-Możesz łatwo blokować numery telefonów, aby uniknąć niechcianych połączeń przychodzących.
+Możesz łatwo blokować numery telefonów, aby uniknąć niechcianych połączeń przychodzących. Tej funkcji brakuje w większości aplikacji dostępnych w sklepie. Korzystając z niej, możesz wybrać, kto może do Ciebie zadzwonić. Tym samym aplikacja łatwo utrzymuje bezpieczeństwo użytkownika, blokując numery, które są bezużyteczne lub niebezpieczne.
 
-Obsługuje szybkie wybieranie, dzięki czemu można bezproblemowo dzwonić do ulubionych kontaktów.
+Dzięki zaawansowanym zabezpieczeniom tej aplikacji wpisywane cyfr jest bardzo bezpieczne, stąd możesz bezproblemowo korzystać z niej bez obaw, że Twoje dane trafią w niepowołane ręce. Każdy Twój numer telefonu jest u Ciebie bezpieczny.
+
+Obsługuje szybkie wybieranie, dzięki czemu dzwonienie do ulubionych kontaktów jest dziecinnie proste. Możesz ustawić dowolny numer telefonu jako swój ulubiony, aby móc go szybko wybrać. W ten sposób możesz łatwo nawiązywać kontakty z ludźmi, nie szukając numeru pośród innych.
 
 Aby ułatwić szybkie zarządzanie połączeniami, aplikacja Telefon obsługuje również ulubione kontakty i tworzenie skrótów dowolnego kontaktu na ekranie głównym.
 
-Domyślnie jest wyposażony w Material Design i ciemny motyw, zapewniając doskonałe doświadczenie użytkownika dla łatwego użytkowania. Brak dostępu do Internetu zapewnia większą prywatność, bezpieczeństwo i stabilność niż inne aplikacje.
+Domyślnie jest wyposażona w Material Design i ciemny motyw, zapewniając doskonałe doświadczenie użytkownika dla łatwego użytkowania. Brak dostępu do Internetu zapewnia większą prywatność, bezpieczeństwo i stabilność niż inne aplikacje.
 
-Nie zawiera reklam ani niepotrzebnych uprawnień. Jest w pełni otwartoźródłowy, zapewnia konfigurowalną kolorystykę.
+Nie zawiera reklam ani niepotrzebnych uprawnień. Jest w pełni otwartoźródłowa, zapewnia konfigurowalną kolorystykę. Śledzenie rejestrów połączeń dla różnych numerów telefonu jest również zaletą tej aplikacji.
 
 <b>Sprawdź pełen zestaw od Simple Tools tutaj:</b>
 https://www.simplemobiletools.com
 
-<b>Facebook:</b>
+Facebook:
 https://www.facebook.com/simplemobiletools
 
-<b>Reddit:</b>
+Reddit:
 https://www.reddit.com/r/SimpleMobileTools
