@@ -494,7 +494,10 @@ class MainActivity : SimpleActivity() {
     }
 
     fun cacheContacts(contacts: List<SimpleContact>) {
-        cachedContacts.clear()
-        cachedContacts.addAll(contacts)
+        try {
+            cachedContacts.clear()
+            cachedContacts.addAll(contacts)
+        } catch (e: Exception) {
+        }
     }
 }

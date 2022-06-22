@@ -20,10 +20,7 @@ import android.view.WindowManager
 import android.widget.ImageView
 import androidx.core.view.children
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.LOWER_ALPHA
-import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
-import com.simplemobiletools.commons.helpers.isOreoMr1Plus
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.*
@@ -65,13 +62,9 @@ class CallActivity : SimpleActivity() {
 
         updateTextColors(call_holder)
         initButtons()
-
         audioManager.mode = AudioManager.MODE_IN_CALL
-
         addLockScreenFlags()
-
         CallManager.addListener(callCallback)
-
         updateCallContactInfo(CallManager.getPrimaryCall())
     }
 

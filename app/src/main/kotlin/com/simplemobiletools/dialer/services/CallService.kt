@@ -1,6 +1,7 @@
 package com.simplemobiletools.dialer.services
 
 import android.app.KeyguardManager
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.telecom.Call
 import android.telecom.InCallService
@@ -32,8 +33,13 @@ class CallService : InCallService() {
 
         val isScreenLocked = (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager).isDeviceLocked
         if (!powerManager.isInteractive || call.isOutgoing() || isScreenLocked) {
-            startActivity(CallActivity.getStartIntent(this))
-            if (call.getStateCompat() != Call.STATE_RINGING) {
+            try {
+                startActivity(CallActivity.getStartIntent(this))
+                if (call.getStateCompat() != Call.STATE_RINGING) {
+                    callNotificationManager.setupNotification()
+                }
+            } catch (e: ActivityNotFoundException) {
+                // seems like startActivity can thrown AndroidRuntimeException and ActivityNotFoundException, not yet sure when and why, lets show a notification
                 callNotificationManager.setupNotification()
             }
         } else {
