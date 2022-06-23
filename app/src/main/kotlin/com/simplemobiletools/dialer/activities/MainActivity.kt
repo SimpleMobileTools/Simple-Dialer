@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.content.res.Configuration
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
@@ -17,6 +16,8 @@ import android.provider.CallLog
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.viewpager.widget.ViewPager
@@ -53,7 +54,6 @@ class MainActivity : SimpleActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
-        setupTabColors()
 
         launchedDialer = savedInstanceState?.getBoolean(OPEN_DIAL_PAD_AT_LAUNCH) ?: false
 
@@ -73,8 +73,7 @@ class MainActivity : SimpleActivity() {
             launchSetDefaultDialerIntent()
         }
 
-        hideTabs()
-
+        setupTabs()
         SimpleContact.sorting = config.sorting
     }
 
@@ -92,19 +91,7 @@ class MainActivity : SimpleActivity() {
             background.applyColorFilter(properPrimaryColor)
         }
 
-        main_tabs_holder.setBackgroundColor(getProperBackgroundColor())
-        main_tabs_holder.setSelectedTabIndicatorColor(properPrimaryColor)
-
-        if (viewpager.adapter != null) {
-            getInactiveTabIndexes(viewpager.currentItem).forEach {
-                main_tabs_holder.getTabAt(it)?.icon?.applyColorFilter(getProperTextColor())
-            }
-
-            main_tabs_holder.getTabAt(viewpager.currentItem)?.icon?.applyColorFilter(properPrimaryColor)
-            getAllFragments().forEach {
-                it?.setupColors(getProperTextColor(), getProperPrimaryColor(), getProperPrimaryColor())
-            }
-        }
+        setupTabColors()
 
         if (!isSearchOpen) {
             if (storedShowTabs != config.showTabs) {
@@ -123,7 +110,7 @@ class MainActivity : SimpleActivity() {
     override fun onPause() {
         super.onPause()
         storedShowTabs = config.showTabs
-        config.lastUsedViewPagerPage = viewpager.currentItem
+        config.lastUsedViewPagerPage = view_pager.currentItem
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -246,34 +233,20 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun setupTabColors() {
-        val lastUsedPage = getDefaultTab()
-        main_tabs_holder.apply {
-            background = ColorDrawable(getProperBackgroundColor())
-            setSelectedTabIndicatorColor(getProperPrimaryColor())
-            getTabAt(lastUsedPage)?.select()
-            getTabAt(lastUsedPage)?.icon?.applyColorFilter(getProperPrimaryColor())
+        val activeView = main_tabs_holder.getTabAt(view_pager.currentItem)?.customView
+        updateBottomTabItemColors(activeView, true)
 
-            getInactiveTabIndexes(lastUsedPage).forEach {
-                getTabAt(it)?.icon?.applyColorFilter(getProperTextColor())
-            }
+        getInactiveTabIndexes(view_pager.currentItem).forEach { index ->
+            val inactiveView = main_tabs_holder.getTabAt(index)?.customView
+            updateBottomTabItemColors(inactiveView, false)
         }
-
-        main_tabs_holder.onTabSelectionChanged(
-            tabUnselectedAction = {
-                it.icon?.applyColorFilter(getProperTextColor())
-            },
-            tabSelectedAction = {
-                viewpager.currentItem = it.position
-                it.icon?.applyColorFilter(getProperPrimaryColor())
-            }
-        )
     }
 
     private fun getInactiveTabIndexes(activeIndex: Int) = (0 until tabsList.size).filter { it != activeIndex }
 
     private fun initFragments() {
-        viewpager.offscreenPageLimit = 2
-        viewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        view_pager.offscreenPageLimit = 2
+        view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
                 searchMenuItem?.collapseActionView()
             }
@@ -318,29 +291,31 @@ class MainActivity : SimpleActivity() {
         }
     }
 
-    private fun hideTabs() {
-        val selectedTabIndex = main_tabs_holder.selectedTabPosition
-        viewpager.adapter = null
+    private fun setupTabs() {
+        view_pager.adapter = null
         main_tabs_holder.removeAllTabs()
-        var skippedTabs = 0
-        var isAnySelected = false
+
+        main_tabs_holder.removeAllTabs()
         tabsList.forEachIndexed { index, value ->
-            if (config.showTabs and value == 0) {
-                skippedTabs++
-            } else {
-                val tab = main_tabs_holder.newTab().setIcon(getTabIcon(index))
-                tab.contentDescription = getTabContentDescription(index)
-                val wasAlreadySelected = selectedTabIndex > -1 && selectedTabIndex == index - skippedTabs
-                val shouldSelect = !isAnySelected && wasAlreadySelected
-                if (shouldSelect) {
-                    isAnySelected = true
+            if (config.showTabs and value != 0) {
+                main_tabs_holder.newTab().setCustomView(R.layout.bottom_tablayout_item).apply {
+                    customView?.findViewById<ImageView>(R.id.tab_item_icon)?.setImageDrawable(getTabIcon(index))
+                    customView?.findViewById<TextView>(R.id.tab_item_label)?.text = getTabLabel(index)
+                    main_tabs_holder.addTab(this)
                 }
-                main_tabs_holder.addTab(tab, index - skippedTabs, shouldSelect)
             }
         }
-        if (!isAnySelected) {
-            main_tabs_holder.selectTab(main_tabs_holder.getTabAt(getDefaultTab()))
-        }
+
+        main_tabs_holder.onTabSelectionChanged(
+            tabUnselectedAction = {
+                updateBottomTabItemColors(it.customView, false)
+            },
+            tabSelectedAction = {
+                view_pager.currentItem = it.position
+                updateBottomTabItemColors(it.customView, true)
+            }
+        )
+
         main_tabs_holder.beGoneIf(main_tabs_holder.tabCount == 1)
         storedShowTabs = config.showTabs
     }
@@ -355,7 +330,7 @@ class MainActivity : SimpleActivity() {
         return resources.getColoredDrawableWithColor(drawableId, getProperTextColor())
     }
 
-    private fun getTabContentDescription(position: Int): String {
+    private fun getTabLabel(position: Int): String {
         val stringId = when (position) {
             0 -> R.string.contacts_tab
             1 -> R.string.favorites_tab
@@ -370,10 +345,10 @@ class MainActivity : SimpleActivity() {
             return
         }
 
-        if (viewpager.adapter == null) {
-            viewpager.adapter = ViewPagerAdapter(this)
-            viewpager.currentItem = if (openLastTab) main_tabs_holder.selectedTabPosition else getDefaultTab()
-            viewpager.onGlobalLayout {
+        if (view_pager.adapter == null) {
+            view_pager.adapter = ViewPagerAdapter(this)
+            view_pager.currentItem = if (openLastTab) main_tabs_holder.selectedTabPosition else getDefaultTab()
+            view_pager.onGlobalLayout {
                 refreshFragments()
             }
         } else {
@@ -412,7 +387,7 @@ class MainActivity : SimpleActivity() {
         return fragments
     }
 
-    private fun getCurrentFragment(): MyViewPagerFragment? = getAllFragments().getOrNull(viewpager.currentItem)
+    private fun getCurrentFragment(): MyViewPagerFragment? = getAllFragments().getOrNull(view_pager.currentItem)
 
     private fun getDefaultTab(): Int {
         val showTabsMask = config.showTabs
