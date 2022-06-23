@@ -93,6 +93,10 @@ class MainActivity : SimpleActivity() {
 
         setupTabColors()
 
+        getAllFragments().forEach {
+            it?.setupColors(getProperTextColor(), getProperPrimaryColor(), getProperPrimaryColor())
+        }
+
         if (!isSearchOpen) {
             if (storedShowTabs != config.showTabs) {
                 System.exit(0)
