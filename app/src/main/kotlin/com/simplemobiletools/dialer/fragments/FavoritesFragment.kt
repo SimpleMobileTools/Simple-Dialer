@@ -144,14 +144,19 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         if (phoneNumbers.size <= 1) {
             activity?.launchCallIntent(phoneNumbers.first().normalizedNumber)
         } else {
-            val items = ArrayList<RadioItem>()
-            phoneNumbers.forEachIndexed { index, phoneNumber ->
-                val type = context.getPhoneNumberTypeText(phoneNumber.type, phoneNumber.label)
-                items.add(RadioItem(index, "${phoneNumber.normalizedNumber} ($type)", phoneNumber.normalizedNumber))
-            }
+            val primaryNumber = simpleContact.phoneNumbers.find { it.isPrimary }
+            if (primaryNumber != null) {
+                activity?.launchCallIntent(primaryNumber.value)
+            } else {
+                val items = ArrayList<RadioItem>()
+                phoneNumbers.forEachIndexed { index, phoneNumber ->
+                    val type = context.getPhoneNumberTypeText(phoneNumber.type, phoneNumber.label)
+                    items.add(RadioItem(index, "${phoneNumber.normalizedNumber} ($type)", phoneNumber.normalizedNumber))
+                }
 
-            RadioGroupDialog(activity!!, items) {
-                activity?.launchCallIntent(it as String)
+                RadioGroupDialog(activity!!, items) {
+                    activity?.launchCallIntent(it as String)
+                }
             }
         }
     }
