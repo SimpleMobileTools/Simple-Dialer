@@ -127,6 +127,7 @@ class DialpadActivity : SimpleActivity() {
         super.onResume()
         updateTextColors(dialpad_holder)
         dialpad_clear_char.applyColorFilter(getProperTextColor())
+        updateNavigationBarColor(getBottomTabsBackgroundColor())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -79,6 +79,7 @@ class CallActivity : SimpleActivity() {
     override fun onResume() {
         super.onResume()
         updateState()
+        updateNavigationBarColor(getBottomTabsBackgroundColor())
     }
 
     override fun onDestroy() {
