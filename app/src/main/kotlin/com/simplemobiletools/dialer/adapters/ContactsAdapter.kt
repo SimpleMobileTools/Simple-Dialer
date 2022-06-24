@@ -148,7 +148,7 @@ class ContactsAdapter(
     @SuppressLint("MissingPermission")
     private fun callContact(useSimOne: Boolean) {
         val number = getSelectedPhoneNumber() ?: return
-        activity.callContactWithSim(number.normalizedNumber, useSimOne)
+        activity.callContactWithSim(number, useSimOne)
     }
 
     private fun removeDefaultSIM() {
@@ -158,7 +158,17 @@ class ContactsAdapter(
     }
 
     private fun sendSMS() {
-        val numbers = getSelectedItems().map { it.phoneNumbers.first() }
+        val numbers = ArrayList<String>()
+        getSelectedItems().map { simpleContact ->
+            val contactNumbers = simpleContact.phoneNumbers
+            val primaryNumber = contactNumbers.firstOrNull { it.isPrimary }
+            val normalizedNumber = primaryNumber?.normalizedNumber ?: contactNumbers.firstOrNull()?.normalizedNumber
+
+            if (normalizedNumber != null) {
+                numbers.add(normalizedNumber)
+            }
+        }
+
         val recipient = TextUtils.join(";", numbers)
         activity.launchSendSMSIntent(recipient)
     }
@@ -211,7 +221,11 @@ class ContactsAdapter(
 
     private fun getSelectedItems() = contacts.filter { selectedKeys.contains(it.rawId) } as ArrayList<SimpleContact>
 
-    private fun getSelectedPhoneNumber() = getSelectedItems().firstOrNull()?.phoneNumbers?.firstOrNull()
+    private fun getSelectedPhoneNumber(): String? {
+        val numbers = getSelectedItems().firstOrNull()?.phoneNumbers
+        val primaryNumber = numbers?.firstOrNull { it.isPrimary }
+        return primaryNumber?.normalizedNumber ?: numbers?.firstOrNull()?.normalizedNumber
+    }
 
     @SuppressLint("NewApi")
     private fun createShortcut() {
