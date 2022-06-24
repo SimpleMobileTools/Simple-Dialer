@@ -190,7 +190,10 @@ class MainActivity : SimpleActivity() {
             }
 
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                getCurrentFragment()?.onSearchClosed()
+                if (isSearchOpen) {
+                    getCurrentFragment()?.onSearchClosed()
+                }
+
                 isSearchOpen = false
                 main_dialpad_button.beVisible()
                 return true
@@ -259,7 +262,9 @@ class MainActivity : SimpleActivity() {
         view_pager.offscreenPageLimit = 2
         view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
-                searchMenuItem?.collapseActionView()
+                if (state == ViewPager.SCROLL_STATE_SETTLING) {
+                    closeSearch()
+                }
             }
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
@@ -447,11 +452,13 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun launchSettings() {
+        closeSearch()
         hideKeyboard()
         startActivity(Intent(applicationContext, SettingsActivity::class.java))
     }
 
     private fun launchAbout() {
+        closeSearch()
         val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL
 
         val faqItems = arrayListOf(
@@ -474,11 +481,21 @@ class MainActivity : SimpleActivity() {
                     getCurrentFragment()?.onSearchQueryChanged(searchQuery)
                 }
             }
+
             contacts_fragment?.refreshItems {
                 if (isSearchOpen) {
                     getCurrentFragment()?.onSearchQueryChanged(searchQuery)
                 }
             }
+        }
+    }
+
+    private fun closeSearch() {
+        if (isSearchOpen) {
+            getAllFragments().forEach {
+                it?.onSearchQueryChanged("")
+            }
+            searchMenuItem?.collapseActionView()
         }
     }
 
