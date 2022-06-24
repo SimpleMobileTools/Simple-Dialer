@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Обикновени повиквания</string>
-    <string name="app_launcher_name">Повиквания</string>
+    <string name="app_name">Обикновен телефон</string>
+    <string name="app_launcher_name">Телефон</string>
     <string name="default_phone_app_prompt">Направете това приложение основно за телефонни обаждания</string>
     <string name="allow_displaying_over_other_apps">Разрешете показване над други приложения за надеждната работа на програмата</string>
     <!-- Contacts -->
@@ -55,7 +55,7 @@
     <!-- Speed dial -->
     <string name="speed_dial">Бързо набиране</string>
     <string name="manage_speed_dial">Управление на бързото набиране</string>
-    <string name="speed_dial_label">Кликнете върху номер, за да приложите контакт към него. След това можете бързо да се обадите на този контакт чрез дълго натискане на номера на бутона от бутоните за набиране.</string>
+    <string name="speed_dial_label">Доноснете цифра, за да добавите контакт към нея. След това можете бързо да наберете избрания контакт, чрез задържане върху цифрата в екрана за набиране.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Групиране на последващи обаждания от същия номер в историята на обажданията</string>
     <string name="open_dialpad_by_default">Отваряне на бутоните за набиране при стартиране на приложението</string>
@@ -63,7 +63,7 @@
     <string name="disable_swipe_to_answer">Смяна на плъзгането с кликване за отговор на входящи обаждания</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Обикновени повиквания - Лесни телефонни разговори</string>
+    <string name="app_title">Обикновен телефон - Лесни телефонни разговори</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Телефон с адреси, блокиране на номера, поддръжка на няколко SIM карти</string>
     <string name="app_long_description">
