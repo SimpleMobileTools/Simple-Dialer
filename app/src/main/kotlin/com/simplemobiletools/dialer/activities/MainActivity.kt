@@ -248,15 +248,9 @@ class MainActivity : SimpleActivity() {
             updateBottomTabItemColors(inactiveView, false)
         }
 
-        if (baseConfig.isUsingSystemTheme) {
-            val bottomBarColor = resources.getColor(R.color.you_status_bar_color, theme)
-            main_tabs_holder.setBackgroundColor(bottomBarColor)
-            updateNavigationBarColor(bottomBarColor)
-        } else {
-            val bottomBarColor = config.backgroundColor.lightenColor(4)
-            main_tabs_holder.setBackgroundColor(bottomBarColor)
-            updateNavigationBarColor(bottomBarColor)
-        }
+        val bottomBarColor = getBottomTabsBackgroundColor()
+        main_tabs_holder.setBackgroundColor(bottomBarColor)
+        updateNavigationBarColor(bottomBarColor)
     }
 
     private fun getInactiveTabIndexes(activeIndex: Int) = (0 until tabsList.size).filter { it != activeIndex }
