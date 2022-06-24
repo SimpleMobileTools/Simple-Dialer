@@ -61,10 +61,12 @@ class MainActivity : SimpleActivity() {
         if (isDefaultDialer()) {
             checkContactPermissions()
 
-            if (!Settings.canDrawOverlays(this)) {
+            if (!config.wasOverlaySnackbarConfirmed && !Settings.canDrawOverlays(this)) {
                 val snackbar = Snackbar.make(main_holder, R.string.allow_displaying_over_other_apps, Snackbar.LENGTH_INDEFINITE).setAction(R.string.ok) {
+                    config.wasOverlaySnackbarConfirmed = true
                     startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION))
                 }
+
                 snackbar.setBackgroundTint(getProperBackgroundColor().darkenColor())
                 snackbar.setTextColor(getProperTextColor())
                 snackbar.setActionTextColor(getProperTextColor())
