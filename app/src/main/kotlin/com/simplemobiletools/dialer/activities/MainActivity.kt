@@ -310,8 +310,6 @@ class MainActivity : SimpleActivity() {
     private fun setupTabs() {
         view_pager.adapter = null
         main_tabs_holder.removeAllTabs()
-
-        main_tabs_holder.removeAllTabs()
         tabsList.forEachIndexed { index, value ->
             if (config.showTabs and value != 0) {
                 main_tabs_holder.newTab().setCustomView(R.layout.bottom_tablayout_item).apply {
