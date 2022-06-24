@@ -363,7 +363,7 @@ class MainActivity : SimpleActivity() {
 
         if (view_pager.adapter == null) {
             view_pager.adapter = ViewPagerAdapter(this)
-            view_pager.currentItem = if (openLastTab) main_tabs_holder.selectedTabPosition else getDefaultTab()
+            view_pager.currentItem = if (openLastTab) config.lastUsedViewPagerPage else getDefaultTab()
             view_pager.onGlobalLayout {
                 refreshFragments()
             }
