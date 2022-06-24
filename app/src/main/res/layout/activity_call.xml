@@ -399,6 +399,7 @@
             android:layout_height="@dimen/incoming_call_button_size"
             android:clickable="false"
             android:contentDescription="@string/accept_call"
+            android:elevation="@dimen/medium_margin"
             android:padding="@dimen/medium_margin"
             android:src="@drawable/ic_call_accept"
             app:layout_constraintBottom_toBottomOf="@+id/call_draggable"
@@ -413,6 +414,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/normal_margin"
+            android:elevation="@dimen/medium_margin"
             android:text="@string/accept"
             android:textSize="@dimen/bigger_text_size"
             app:layout_constraintEnd_toEndOf="@+id/call_accept"
@@ -458,8 +460,10 @@
                 android:layout_marginEnd="@dimen/activity_margin"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/hide_dialpad"
+                android:elevation="@dimen/medium_margin"
                 android:padding="@dimen/medium_margin"
                 android:src="@drawable/ic_cross_vector" />
+
         </RelativeLayout>
 
         <include
