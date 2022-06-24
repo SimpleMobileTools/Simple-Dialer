@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 5.13.2 *(2022-06-24)*
+----------------------------
+
+ * Moved tabs at the bottom
+ * Limit fetched item count at the Recents tab
+ * Added many translation, stability and UI improvements
+
 Version 5.13.1 *(2022-06-08)*
 ----------------------------
 
