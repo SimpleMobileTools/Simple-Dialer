@@ -33,7 +33,6 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         }
 
         fragment_placeholder.text = context.getString(placeholderResId)
-        fragment_fab.beGone()
         fragment_placeholder_2.beGone()
     }
 

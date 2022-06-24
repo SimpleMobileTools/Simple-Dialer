@@ -1,8 +1,6 @@
 package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
-import android.content.Intent
-import android.provider.ContactsContract
 import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
@@ -15,6 +13,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.MainActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
+import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
@@ -33,7 +32,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         fragment_placeholder.text = context.getString(placeholderResId)
 
         val placeholderActionResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
-            R.string.create_new
+            R.string.create_new_contact
         } else {
             R.string.request_access
         }
@@ -43,15 +42,11 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             underlineText()
             setOnClickListener {
                 if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
-                    launchCreateNewIntent()
+                    activity?.launchCreateNewContactIntent()
                 } else {
                     requestReadContactsPermission()
                 }
             }
-        }
-
-        fragment_fab.setOnClickListener {
-            launchCreateNewIntent()
         }
     }
 
@@ -65,12 +60,6 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
         letter_fastscroller_thumb.textColor = properPrimaryColor.getContrastColor()
         letter_fastscroller_thumb.thumbColor = properPrimaryColor.getColorStateList()
-
-        fragment_fab.setColors(
-            textColor,
-            properPrimaryColor,
-            properPrimaryColor.getContrastColor()
-        )
     }
 
     override fun refreshItems(callback: (() -> Unit)?) {
@@ -159,25 +148,13 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         activity?.handlePermission(PERMISSION_READ_CONTACTS) {
             if (it) {
                 fragment_placeholder.text = context.getString(R.string.no_contacts_found)
-                fragment_placeholder_2.text = context.getString(R.string.create_new)
-                fragment_placeholder_2.setOnClickListener {
-                    launchCreateNewIntent()
-                }
-
+                fragment_placeholder_2.text = context.getString(R.string.create_new_contact)
                 SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
                     activity?.runOnUiThread {
                         gotContacts(contacts)
                     }
                 }
             }
-        }
-    }
-
-    private fun launchCreateNewIntent() {
-        Intent().apply {
-            action = Intent.ACTION_INSERT
-            data = ContactsContract.Contacts.CONTENT_URI
-            context.launchActivityIntent(this)
         }
     }
 }

@@ -25,6 +25,14 @@ fun SimpleActivity.startCallIntent(recipient: String) {
     }
 }
 
+fun SimpleActivity.launchCreateNewContactIntent() {
+    Intent().apply {
+        action = Intent.ACTION_INSERT
+        data = ContactsContract.Contacts.CONTENT_URI
+        launchActivityIntent(this)
+    }
+}
+
 fun BaseSimpleActivity.callContactWithSim(recipient: String, useMainSIM: Boolean) {
     handlePermission(PERMISSION_READ_PHONE_STATE) {
         val wantedSimIndex = if (useMainSIM) 0 else 1

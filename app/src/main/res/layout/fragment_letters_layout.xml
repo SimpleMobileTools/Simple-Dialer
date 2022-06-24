@@ -28,10 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/fragment_placeholder"
             android:layout_centerHorizontal="true"
-            android:background="?attr/selectableItemBackground"
+            android:background="@drawable/ripple_all_corners"
             android:gravity="center"
             android:padding="@dimen/activity_margin"
-            android:text="@string/create_new"
+            android:text="@string/create_new_contact"
             android:textSize="@dimen/bigger_text_size"
             android:visibility="gone" />
 
@@ -62,16 +62,4 @@
             android:layout_toStartOf="@+id/letter_fastscroller" />
 
     </RelativeLayout>
-
-    <com.simplemobiletools.commons.views.MyFloatingActionButton
-        android:id="@+id/fragment_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/activity_margin"
-        android:src="@drawable/ic_plus_vector"
-        app:elevation="0dp" />
-
 </merge>

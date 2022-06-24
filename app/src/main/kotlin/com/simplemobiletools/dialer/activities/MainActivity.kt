@@ -32,6 +32,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
 import com.simplemobiletools.dialer.fragments.FavoritesFragment
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
 import com.simplemobiletools.dialer.helpers.OPEN_DIAL_PAD_AT_LAUNCH
@@ -122,6 +123,7 @@ class MainActivity : SimpleActivity() {
         menu.apply {
             findItem(R.id.clear_call_history).isVisible = getCurrentFragment() == recents_fragment
             findItem(R.id.sort).isVisible = getCurrentFragment() != recents_fragment
+            findItem(R.id.create_new_contact).isVisible = getCurrentFragment() == contacts_fragment
 
             setupSearch(this)
             updateMenuItemColors(this)
@@ -132,9 +134,10 @@ class MainActivity : SimpleActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.clear_call_history -> clearCallHistory()
+            R.id.create_new_contact -> launchCreateNewContactIntent()
+            R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
-            R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -250,8 +253,9 @@ class MainActivity : SimpleActivity() {
             main_tabs_holder.setBackgroundColor(bottomBarColor)
             updateNavigationBarColor(bottomBarColor)
         } else {
-            main_tabs_holder.setBackgroundColor(getProperBackgroundColor())
-            updateNavigationBarColor(config.navigationBarColor)
+            val bottomBarColor = config.backgroundColor.lightenColor(4)
+            main_tabs_holder.setBackgroundColor(bottomBarColor)
+            updateNavigationBarColor(bottomBarColor)
         }
     }
 
