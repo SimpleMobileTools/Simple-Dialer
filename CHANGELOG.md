@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 5.13.3 *(2022-06-26)*
+----------------------------
+
+ * Moved tabs at the bottom
+ * Properly handle default contact numbers
+ * Added some translation, stability and UX improvements
+
 Version 5.13.2 *(2022-06-24)*
 ----------------------------
 
