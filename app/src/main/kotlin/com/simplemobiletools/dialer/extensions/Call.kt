@@ -11,12 +11,10 @@ private val OUTGOING_CALL_STATES = arrayOf(STATE_CONNECTING, STATE_DIALING, STAT
 
 @Suppress("DEPRECATION")
 fun Call?.getStateCompat(): Int {
-    return if (this == null) {
-        Call.STATE_DISCONNECTED
-    } else if (isSPlus()) {
-        details.state
-    } else {
-        state
+    return when {
+        this == null -> Call.STATE_DISCONNECTED
+        isSPlus() -> details.state
+        else -> state
     }
 }
 
