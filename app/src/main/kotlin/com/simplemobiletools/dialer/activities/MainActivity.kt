@@ -327,6 +327,7 @@ class MainActivity : SimpleActivity() {
                 updateBottomTabItemColors(it.customView, false)
             },
             tabSelectedAction = {
+                closeSearch()
                 view_pager.currentItem = it.position
                 updateBottomTabItemColors(it.customView, true)
             }
