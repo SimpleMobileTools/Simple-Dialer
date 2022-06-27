@@ -1,22 +1,24 @@
-Una aplicació lleugera per gestionar les vostres trucades, sigueu a on sigueu. Ve amb un registre de trucades pràctic per iniciar la trucada fàcilment. 
+Una aplicació lleugera per gestionar les vostres trucades, sigueu a on sigueu. Ve amb un registre de trucades pràctic per iniciar la trucada fàcilment. Ara podeu marcar fàcilment els números utilitzant aquest sorprenent teclat marcador sense cap problema ja que ofereix diferents coses per facilitar la vostra experiència general mentre feu una trucada. Mantingueu-vos connectats amb els amics i familiars mentre teniu una experiència agradable amb aquesta aplicació. Amb números i lletres més grans, ara és més fàcil veure i marcar números. Usant aquest marcador, podeu accedir als contactes i mantenir un registre de trucades amb facilitat.
 
-També hi ha un teclat de marcatge ràpid al vostre servei, amb suggeriments de contacte intel·ligents. També admet lletres. 
+També hi ha un teclat de marcatge ràpid al vostre servei, amb suggeriments intel·ligents de contactes. També admet lletres.
 
-Podeu bloquejar fàcilment els números de telèfon per evitar trucades entrants no desitjades. La marcació ràpida fa que trucar als vostres contactes preferits amb aquest telèfon sigui molt fàcil. 
+Podeu blocar fàcilment els números de telèfon per evitar trucades entrants no desitjades. Falta aquesta característica a la majoria de les aplicacions presents a la botiga. Utilitzant aquesta característica, podeu triar qui us pot trucar. Per aquesta característica, es pot mantenir fàcilment la seguretat de l'usuari bloquejant nombres que són inútils o amenaçadors.
 
-Per ajudar-vos a gestionar ràpidament les trucades, l'aplicació de telèfon també admet els contactes preferits i la creació de dreceres de qualsevol contacte a la pantalla d'inici. 
+Amb les característiques de seguretat avançades d'aquesta aplicació, els números que escriviu estan molt ben assegurats de manera que es pot tenir una experiència sense preocupar-se que les vostres dades vagin a mans equivocades. Cada número de telèfon està segur amb vós.
 
-Ve amb un «material design» i un tema fosc per defecte, proporciona una gran experiència d'usuari per a un ús fàcil. 
+El marcatge ràpid fa que trucar als vostres contactes preferits amb aquest telèfon realment sigui un moment. Podeu fer que qualsevol número de telèfon sigui el vostre preferit perquè pugueu marcar-lo ràpidament. D'aquesta manera, es poden fer contactes fàcilment amb persones sense aprofundir en altres números.
 
-La manca d'accés a Internet us ofereix més privadesa, seguretat i estabilitat que altres aplicacions. No conté anuncis ni permisos innecessaris. 
+Per ajudar-vos a gestionar ràpidament les trucades, l'aplicació de telèfon també admet contactes preferits i la creació de dreceres de qualsevol contacte a la pantalla d'inici.
 
-És totalment de codi obert, proporciona colors personalitzables. 
+Ve amb un «material design» i un tema fosc per defecte, proporciona una gran experiència d'usuari per a un ús fàcil. La manca d'accés a Internet us ofereix més privadesa, seguretat i estabilitat que altres aplicacions. No conté anuncis ni permisos innecessaris.
+
+No conté anuncis ni permisos innecessaris. És totalment de codi obert, proporciona colors personalitzables. El seguiment del registres de trucades per a un número de telèfon diferent també és un avantatge més d'aquesta aplicació.
 
 <b>Consulteu el conjunt complet d'eines Simples aquí:</b>
 https://www.simplemobiletools.com
 
-<b>Facebook:</b>
+Facebook:
 https://www.facebook.com/simplemobiletools
 
-<b>Reddit:</b>
+Reddit:
 https://www.reddit.com/r/SimpleMobileTools
