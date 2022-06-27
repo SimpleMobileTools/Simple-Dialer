@@ -42,6 +42,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_recents.*
+import me.grantland.widget.AutofitHelper
 
 class MainActivity : SimpleActivity() {
     private var isSearchOpen = false
@@ -317,6 +318,7 @@ class MainActivity : SimpleActivity() {
                 main_tabs_holder.newTab().setCustomView(R.layout.bottom_tablayout_item).apply {
                     customView?.findViewById<ImageView>(R.id.tab_item_icon)?.setImageDrawable(getTabIcon(index))
                     customView?.findViewById<TextView>(R.id.tab_item_label)?.text = getTabLabel(index)
+                    AutofitHelper.create(customView?.findViewById(R.id.tab_item_label))
                     main_tabs_holder.addTab(this)
                 }
             }
@@ -460,7 +462,7 @@ class MainActivity : SimpleActivity() {
 
     private fun launchAbout() {
         closeSearch()
-        val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL
+        val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL or LICENSE_AUTOFITTEXTVIEW
 
         val faqItems = arrayListOf(
             FAQItem(R.string.faq_7_title_commons, R.string.faq_7_text_commons),
