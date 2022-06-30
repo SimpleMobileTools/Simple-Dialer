@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Обикновен Телефон</string>
+    <string name="app_name">Обикновен телефон</string>
     <string name="app_launcher_name">Телефон</string>
     <string name="default_phone_app_prompt">Направете това приложение подразбирано приложение за телефонни обаждания</string>
     <string name="allow_displaying_over_other_apps">Разрешете на приложението да се показва над други приложения за надеждната работа</string>
@@ -55,7 +55,7 @@
     <!-- Speed dial -->
     <string name="speed_dial">Бързо набиране</string>
     <string name="manage_speed_dial">Управление на бързото набиране</string>
-    <string name="speed_dial_label">Докоснете цифра, за да добавите контакт към нея. След това можете бързо да наберете избрания контакт, чрез задържане върху цифрата в панела за набиране.</string>
+    <string name="speed_dial_label">Докоснете цифра, за да изберете контакт към нея. След това можете бързо да наберете така избрания контакт, чрез задържане върху цифрата в панела за набиране.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Групиране на последователните обаждания от един номер в дневника на обажданията</string>
     <string name="open_dialpad_by_default">При стартиране се отваря панела за набиране</string>
