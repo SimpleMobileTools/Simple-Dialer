@@ -2,73 +2,71 @@
 <resources>
     <string name="app_name">Обикновен телефон</string>
     <string name="app_launcher_name">Телефон</string>
-    <string name="default_phone_app_prompt">Направете това приложение основно за телефонни обаждания</string>
-    <string name="allow_displaying_over_other_apps">Разрешете показване над други приложения за надеждната работа на програмата</string>
+    <string name="default_phone_app_prompt">Направете това приложение подразбирано приложение за телефонни обаждания</string>
+    <string name="allow_displaying_over_other_apps">Разрешете на приложението да се показва над други приложения за надеждната работа</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Невъзможно бе да се получи достъп до контактите ви</string>
+    <string name="could_not_access_contacts">Няма достъп до контактите</string>
     <!-- Recents -->
     <string name="no_previous_calls">Няма предишни обаждания</string>
-    <string name="could_not_access_the_call_history">Невъзможно е да се получи достъп до историята на обажданията</string>
-    <string name="request_access">Поискайте достъп</string>
-    <string name="remove_confirmation">Сигурни ли сте, че искате да премахнете избраните елементи от историята на обажданията\?</string>
-    <string name="clear_history_confirmation">Сигурни ли сте, че искате да премахнете всичко от историята на обажданията\?</string>
-    <string name="show_grouped_calls">Покажете обажданията групирани</string>
-    <string name="clear_call_history">Изчистете историята на обажданията</string>
-    <string name="show_call_details">Покажете подробности за обаждането</string>
+    <string name="could_not_access_the_call_history">Няма достъп до дневника с обажданията</string>
+    <string name="request_access">Заявка за разрешение</string>
+    <string name="remove_confirmation">Сигурни ли сте, че желаете да премахнете избраните елементи от дневника с обажданията\?</string>
+    <string name="clear_history_confirmation">Сигурни ли сте, че желаете да премахнете всичко от дневника с обажданията\?</string>
+    <string name="show_grouped_calls">Групиране на обажданията</string>
+    <string name="clear_call_history">Изчистване на дневника с обажданията</string>
+    <string name="show_call_details">Подробности за обаждането</string>
     <!-- Dialpad -->
-    <string name="dialpad">Бутони за набиране</string>
+    <string name="dialpad">Панел за набиране</string>
     <string name="asterisk">Звездичка</string>
-    <string name="hashtag">Хаштаг</string>
+    <string name="hashtag">Диез</string>
     <string name="call_number">Номер</string>
     <!-- Dialer -->
     <string name="dialer">Телефон</string>
-    <string name="accept">Приемете</string>
-    <string name="accept_call">Приемете обаждането</string>
-    <string name="decline">Откажете</string>
-    <string name="decline_call">Откажете обаждането</string>
+    <string name="accept">Приемане</string>
+    <string name="accept_call">Приемане на обаждането</string>
+    <string name="decline">Отказване</string>
+    <string name="decline_call">Отказване на обаждането</string>
     <string name="unknown_caller">Неизвестен номер</string>
     <string name="is_calling">Звъни…</string>
     <string name="dialing">Набиране на номера…</string>
-    <string name="call_ended">Край на обаждането</string>
-    <string name="call_ending">Завършване на обаждането</string>
-    <string name="ongoing_call">Изходящо обаждане</string>
+    <string name="call_ended">Край на разговора</string>
+    <string name="call_ending">Завършване на разговора</string>
+    <string name="ongoing_call">Текущ разговор</string>
     <string name="select_sim">Изберете SIM карта за това обаждане</string>
-    <string name="always_use_this_sim">Винаги използвайте тази SIM карта за този номер</string>
+    <string name="always_use_this_sim">Винаги да се използва тази карта за този номер</string>
     <string name="unset_default_sim">Нулиране на избора на SIM карта по подразбиране</string>
     <string name="calls">Обаждания</string>
-    <string name="turn_microphone_on">Включете микрофона</string>
-    <string name="turn_microphone_off">Изключете микрофона</string>
-    <string name="turn_speaker_on">Включете високоговорителя</string>
-    <string name="turn_speaker_off">Изключете високоговорителя</string>
-    <string name="show_dialpad">Показване на бутоните за набиране</string>
-    <string name="hide_dialpad">Скриване на бутоните за набиране</string>
-    <string name="end_call">Край на обаждането</string>
-    <string name="hold_call">Задържане на обаждане</string>
-    <string name="resume_call">Възобновяване на обаждане</string>
+    <string name="turn_microphone_on">Включва микрофона</string>
+    <string name="turn_microphone_off">Изключва микрофона</string>
+    <string name="turn_speaker_on">Включва високоговорителя</string>
+    <string name="turn_speaker_off">Изключва високоговорителя</string>
+    <string name="show_dialpad">Показва панела за набиране</string>
+    <string name="hide_dialpad">Скрива панела за набиране</string>
+    <string name="end_call">Завършва обаждането</string>
+    <string name="hold_call">Задържа обаждането</string>
+    <string name="resume_call">Възобновя обаждането</string>
     <string name="call_on_hold">На изчакване</string>
     <string name="call_swap">Разменяне на обаждания</string>
     <string name="call_merge">Обединяване на обаждания</string>
-    <string name="call_split">Разделяне на обаждане</string>
+    <string name="call_split">Разделяне на обаждането</string>
     <string name="call_add">Добавяне на обаждане</string>
     <string name="conference_manage">Управление на конферентен разговор</string>
     <string name="conference">Конференция</string>
     <!-- Speed dial -->
     <string name="speed_dial">Бързо набиране</string>
     <string name="manage_speed_dial">Управление на бързото набиране</string>
-    <string name="speed_dial_label">Доноснете цифра, за да добавите контакт към нея. След това можете бързо да наберете избрания контакт, чрез задържане върху цифрата в екрана за набиране.</string>
+    <string name="speed_dial_label">Докоснете цифра, за да изберете контакт към нея. След това можете бързо да наберете така избрания контакт, чрез задържане върху цифрата в панела за набиране.</string>
     <!-- Settings -->
-    <string name="group_subsequent_calls">Групиране на последващи обаждания от същия номер в историята на обажданията</string>
-    <string name="open_dialpad_by_default">Отваряне на бутоните за набиране при стартиране на приложението</string>
+    <string name="group_subsequent_calls">Групиране на последователните обаждания от един номер в дневника на обажданията</string>
+    <string name="open_dialpad_by_default">При стартиране се отваря панела за набиране</string>
     <string name="disable_proximity_sensor">Изключване на сензора за близост по време на обаждания</string>
-    <string name="disable_swipe_to_answer">Смяна на плъзгането с кликване за отговор на входящи обаждания</string>
+    <string name="disable_swipe_to_answer">Смяна на плъзгането с докосване при отговаряне на обаждания</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
     <string name="app_title">Обикновен телефон - Лесни телефонни разговори</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Телефон с адреси, блокиране на номера, поддръжка на няколко SIM карти</string>
-    <string name="app_long_description">
-        Лека програма за управление на обажданията, без значение къде сте. Има история на обажданията за лесно стартиране на разговор. На ваше разположение има и бутони за бързо набиране, с умни предложения на контакти. Също поддържа и букви. Можете лесно да блокирате телефонни номера, за да избегнете нежелани входящи повиквания. Поддържаното бързо набиране прави много лесно обаждането на любими контакти. За да ви помогне да управлявате лесно обажданията си, приложението също поддържа любими контакти и създаване на преки пътища за всеки от контактите на началния екран на телефона. Използва material дизайн и тъмна тема по подразбиране, осигуряващи страхотно потребителско изживяване на лесна употреба. Липсата на интернет достъпване ви осигурява повече поверителност, сигурност и стабилност от други приложения. Не съдържа реклами и ненужни резрешения. Напълно с отворен код е и има сменяеми цветове. \u0020<b>Вижте пълната колекция на Simple Tools тук:</b> https://www.simplemobiletools.com <b>Фейсбук:</b> https://www.facebook.com/simplemobiletools <b>Redit:</b> https://www.reddit.com/r/SimpleMobileTools
-    </string>
+    <string name="app_long_description"> Леко приложение за управление на обажданията, без значение къде сте. Има дневник на обажданията за лесно започване на разговор. На ваше разположение е и панел за бързо набиране с интелигентни предложения за контакти. Поддържа и букви. Можете лесно да блокирате телефонни номера, за да избегнете нежелани разговори. Поддържаното бързо набиране прави много лесно обаждането на избрани контакти. За да ви помогне да управлявате лесно обажданията си, приложението също поддържа избрани контакти и създаване на бързи бутони за всеки от контактите на началния екран на телефона. По подразбиране се използва материален дизайн и тъмна тема, осигуряващи страхотно потребителско изживяване и лесна употреба. Липсата на достъп до интернет дава повече поверителност, сигурност и стабилност от други приложения. Не съдържа нито реклами, нито ненужни разрешения. Напълно отворен код, има променяеми цветове. <b>Вижте пълната колекция на Simple Tools тук:</b> https://www.simplemobiletools.com <b>Фейсбук:</b> https://www.facebook.com/simplemobiletools <b>Редит:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
