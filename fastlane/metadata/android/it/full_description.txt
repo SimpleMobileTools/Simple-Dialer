@@ -14,7 +14,7 @@ Viene fornito con il material design e il tema scuro per impostazione predefinit
 
 Non contiene annunci o autorizzazioni non necessarie. È completamente opensource, fornisce colori personalizzabili. Tenere traccia dei registri delle chiamate per diversi numeri di telefono è anche un punto in più per questa applicazione.
 
-<b>Scopri la suite completa di Simple Tools qui:</b>
+Scopri la suite completa di Simple Tools qui:
 https://www.simplemobiletools.com
 
 Facebook:
