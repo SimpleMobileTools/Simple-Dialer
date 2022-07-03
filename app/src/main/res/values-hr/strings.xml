@@ -2,15 +2,15 @@
 <resources>
     <string name="app_name">Jednostavan birač</string>
     <string name="app_launcher_name">Birač</string>
-    <string name="default_phone_app_prompt">Molimo vas da ovu aplikaciju učinite zadanom aplikacijom za telefon</string>
-    <string name="allow_displaying_over_other_apps">Dopustite prikaz preko drugih aplikacija radi pouzdanog ponašanja</string>
+    <string name="default_phone_app_prompt">Postavi ovu aplikaciju kao standardnu aplikaciju za telefon</string>
+    <string name="allow_displaying_over_other_apps">Za pouzdano ponašanje birača dopusti prikaz ispred drugih aplikacija</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Nije moguće pristupiti vašim kontaktima</string>
+    <string name="could_not_access_contacts">Nije moguće pristupiti tvojim kontaktima</string>
     <!-- Recents -->
     <string name="no_previous_calls">Nije pronađen nijedan prethodni poziv</string>
     <string name="could_not_access_the_call_history">Nije moguće pristupiti povijesti poziva</string>
-    <string name="request_access">Zatražite pristup</string>
-    <string name="remove_confirmation">Jeste li sigurni da želite ukloniti odabrane stavke iz Povijesti Poziva\?</string>
+    <string name="request_access">Zatraži pristup</string>
+    <string name="remove_confirmation">Stvarno želiš ukloniti odabrane stavke iz povijesti poziva\?</string>
     <string name="clear_history_confirmation">Stvarno želiš ukloniti sve iz povijesti poziva\?</string>
     <string name="show_grouped_calls">Prikaži grupirane pozive</string>
     <string name="clear_call_history">Izbriši povijest poziva</string>
@@ -18,55 +18,55 @@
     <!-- Dialpad -->
     <string name="dialpad">Brojčanik</string>
     <string name="asterisk">Zvjezdica</string>
-    <string name="hashtag">Zetica</string>
+    <string name="hashtag">Hashtag</string>
     <string name="call_number">Nazovi broj</string>
     <!-- Dialer -->
-    <string name="dialer">Dialer</string>
+    <string name="dialer">Birač</string>
     <string name="accept">Prihvati</string>
     <string name="accept_call">Prihvati poziv</string>
     <string name="decline">Odbij</string>
-    <string name="decline_call">Odbijte poziv</string>
-    <string name="unknown_caller">Nepoznati Pozivatelj</string>
+    <string name="decline_call">Odbij poziv</string>
+    <string name="unknown_caller">Nepoznati pozivatelj</string>
     <string name="is_calling">Zove…</string>
     <string name="dialing">Biranje…</string>
     <string name="call_ended">Poziv je završio</string>
     <string name="call_ending">Poziv se završava</string>
     <string name="ongoing_call">Poziv u tijeku</string>
-    <string name="select_sim">Odaberite SIM za ovaj poziv</string>
-    <string name="always_use_this_sim">Uvijek koristite ovu SIM karticu za ovaj broj</string>
-    <string name="unset_default_sim">Poništite postav zadane SIM kartice</string>
+    <string name="select_sim">Odaberi SIM karticu za ovaj poziv</string>
+    <string name="always_use_this_sim">Uvijek koristi ovu SIM karticu za ovaj broj</string>
+    <string name="unset_default_sim">Poništi postavu zadane SIM kartice</string>
     <string name="calls">Pozivi</string>
-    <string name="turn_microphone_on">Uključite mikrofon</string>
-    <string name="turn_microphone_off">Isključite mikrofon</string>
-    <string name="turn_speaker_on">Uključite zvučnik</string>
-    <string name="turn_speaker_off">Isključite zvučnik</string>
+    <string name="turn_microphone_on">Uključi mikrofon</string>
+    <string name="turn_microphone_off">Isključi mikrofon</string>
+    <string name="turn_speaker_on">Uključi zvučnik</string>
+    <string name="turn_speaker_off">Isključi zvučnik</string>
     <string name="show_dialpad">Pokaži brojčanik</string>
-    <string name="hide_dialpad">Sakrijte brojčanik</string>
-    <string name="end_call">Završite poziv</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="hide_dialpad">Sakrij brojčanik</string>
+    <string name="end_call">Završi poziv</string>
+    <string name="hold_call">Zadrži poziv</string>
+    <string name="resume_call">Nastavi poziv</string>
+    <string name="call_on_hold">Na čekanju</string>
+    <string name="call_swap">Zamijeni pozive</string>
+    <string name="call_merge">Spoji pozive</string>
+    <string name="call_split">Odvoji pozive</string>
+    <string name="call_add">Dodaj poziv</string>
+    <string name="conference_manage">Upravljaj konferencijskim pozivima</string>
+    <string name="conference">Konferencija</string>
     <!-- Speed dial -->
     <string name="speed_dial">Brzo biranje</string>
-    <string name="manage_speed_dial">Upravljajte brzim biranjem</string>
-    <string name="speed_dial_label">Kliknite na broj da biste mu dodijelili kontakt. Zatim možete brzo nazvati zadani kontakt dugim pritiskom na zadani broj na biraču.</string>
+    <string name="manage_speed_dial">Upravljaj brzim biranjem</string>
+    <string name="speed_dial_label">Pritisni jedan broj za dodjeljivanje kontakta. Zatim možeš brzo nazvati zadani kontakt dugim pritiskom na zadani broj na biraču.</string>
     <!-- Settings -->
-    <string name="group_subsequent_calls">Grupirajte naknadne pozive s istim brojem u zapisniku poziva</string>
-    <string name="open_dialpad_by_default">Otvorite brojčanik prema zadanim postavkama kada se aplikacija otvori</string>
-    <string name="disable_proximity_sensor">Onemogućite senzor blizine tijekom poziva</string>
-    <string name="disable_swipe_to_answer">Zamijenite prevlačenje pri odgovaranju na dolazne pozive klikom</string>
+    <string name="group_subsequent_calls">Grupiraj naknadne pozive s istim brojem u zapisniku poziva</string>
+    <string name="open_dialpad_by_default">Otvori brojčanik prema zadanim postavkama kada se aplikacija otvori</string>
+    <string name="disable_proximity_sensor">Isključi senzor blizine tijekom poziva</string>
+    <string name="disable_swipe_to_answer">Zamijeni povlačenje prstom za odgovaranje na dolazne pozive pritiskom</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Jednostavni Pozivnik – Jednostavno upravljante vašim telefonskim pozivima</string>
+    <string name="app_title">Jednostavan birač – Upravljaj telefonskim pozivima</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Zgodan upravitelj telefonskih poziva s imenikom, blokiranjem brojeva i podrškom za više SIM kartica</string>
-    <string name="app_long_description"> Lagana aplikacija za upravljanje vašim pozivima, bez obzira gdje se nalazite. Dolazi s praktičnim zapisnikom poziva za jednostavno pokretanje poziva. Na raspolaganju vam je i tipkovnica za brzo biranje s prijedlozima pametnih kontakata. Podržava i slova. Možete jednostavno blokirati telefonske brojeve kako biste izbjegli neželjene dolazne pozive. Podržano brzo biranje olakšava pozivanje vaših omiljenih kontakata s ovim pravim telefonom. Kako biste lakše upravljali svojim pozivima, aplikacija Telefon također podržava omiljene kontakte i stvaranje prečaca za bilo koji kontakt na početnom zaslonu. Dolazi s materijalnim dizajnom i tamnom temom prema zadanim postavkama, pruža izvrsno korisničko iskustvo za jednostavnu upotrebu. Nedostatak pristupa internetu daje vam više privatnosti, sigurnosti i stabilnosti od drugih aplikacija. Ne sadrži oglase niti nepotrebna dopuštenja. Potpuno je otvorenog koda, pruža prilagodljive boje. <b>Pogledajte cijeli paket Jednostavni Alati ovdje:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
+    <string name="app_short_description">Praktični upravljač telefonskih poziva s imenikom, blokiranjem brojeva i podrškom za više SIM kartica</string>
+    <string name="app_long_description"> Mala aplikacija za upravljanje pozivima, bez obzira gdje se nalaziš. Dolazi s praktičnim zapisnikom poziva za jednostavno pokretanje poziva. Na raspolaganju je i tipkovnica za brzo biranje s prijedlozima pametnih kontakata. Podržava i slova. Možeš jednostavno blokirati telefonske brojeve za izbjegavanje neželjenih dolaznih poziva. Podržano brzo biranje olakšava pozivanje omiljenih kontakata s ovim pravim telefonom. Za lakše upravljanje pozivima, aplikacija Telefon također podržava omiljene kontakte i stvaranje prečaca za bilo koji kontakt na početnom ekranu. Aplikacija je izrađena u material-dizajnu i standardno koristi tamnu temu, pruža izvrsno korisničko iskustvo za jednostavnu upotrebu. Nedostatak pristupa internetu pruža bolju privatnost, sigurnost i stabilnost od drugih aplikacija. Ne sadrži oglase niti nepotrebne dozvole. Potpuno je otvorenog koda, pruža prilagodljive boje. <b>Pogledaj cijeli paket „Jednostavni alati” ovdje:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
