@@ -61,35 +61,6 @@
     <string name="open_dialpad_by_default">По умолчанию открывать номеронабиратель при запуске приложения</string>
     <string name="disable_proximity_sensor">Отключать датчик приближения во время вызовов</string>
     <string name="disable_swipe_to_answer">Использовать нажатие вместо перетаскивания при ответе на входящие вызовы</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - управление телефонными звонками</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Управление звонками + книга контактов, чёрный список, поддержка мульти-SIM</string>
-    <string name="app_long_description">
-        Простое приложение для управления звонками независимо от того, где вы находитесь. Имеет удобный журнал вызовов для лёгкого инициирования звонков.
-
-        К вашим услугам также есть панель быстрого набора номера с умными предложениями контактов. Буквы она тоже поддерживает.
-
-        Вы можете легко заблокировать телефонные номера, чтобы избежать нежелательных входящих звонков.
-
-        Функция быстрого набора делает вызов ваших любимых контактов с помощью этого приложения лёгким, как ветер.
-
-        Чтобы помочь вам быстро управлять звонками, приложение поддерживает функцию избранных контактов и создание ярлыков любого контакта на главном экране.
-
-        Приложение выпускается с материальным дизайном и тёмной темой по умолчанию, что обеспечивает удобное использование. Отсутствие доступа в интернет обеспечивает вам больше приватности, безопасности и стабильности, чем в других приложениях.
-
-        Не содержит рекламы или ненужных разрешений. Полностью открытый исходный код, есть возможность настроить цвета интерфейса.
-
-        <b>Ознакомьтесь с полным набором инструментов серии Simple здесь:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

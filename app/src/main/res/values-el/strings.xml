@@ -66,37 +66,6 @@
     <string name="open_dialpad_by_default">Ανοίξτε το πληκτρολόγιο από προεπιλογή όταν ανοίγει η εφαρμογή</string>
     <string name="disable_proximity_sensor">Απενεργοποίηση του αισθητήρα εγγύτητας κατά τη διάρκεια κλήσεων</string>
     <string name="disable_swipe_to_answer">Αντικατάσταση Σάρωσης με Κλικ στην απάντηση εισερχόμενων κλήσεων</string>
-
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Απλή κλήση - Διαχειριστείτε εύκολα τις κλήσεις σας</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Ένας εύχρηστος διαχειριστής κλήσεων με κατάλογο, φραγή αριθμών για πολλαπλές SIM</string>
-    <string name="app_long_description">
-        Μια ελαφριά εφαρμογή για το χειρισμό των κλήσεών σας, όπου κι αν βρίσκεστε. Συνοδεύεται από ένα εύχρηστο αρχείο καταγραφής κλήσεων για εύκολη ενεργοποίηση κλήσης.
-
-        Υπάρχει επίσης ένα πληκτρολόγιο γρήγορης κλήσης στην υπηρεσία σας, με προτάσεις έξυπνων επαφών. Υποστηρίζει και γράμματα.
-
-        Μπορείτε εύκολα να αποκλείσετε αριθμούς τηλεφώνου για να αποφύγετε ανεπιθύμητες εισερχόμενες κλήσεις.
-
-        Η Ταχεία κλήση κάνει παιχνιδάκι να καλείτε τις αγαπημένες σας επαφές από την εφαρμογή.
-
-        Για να σας βοηθήσει να διαχειριστείτε γρήγορα τις κλήσεις σας, η εφαρμογή Απλή κλήση υποστηρίζει επίσης αγαπημένες επαφές και δημιουργεί συντομεύσεις για οποιαδήποτε επαφή στην αρχική οθόνη.
-
-        Διατίθεται με σχεδίαση υλικού και σκούρο θέμα από προεπιλογή, παρέχει εξαιρετική εμπειρία χρήστη για εύκολη χρήση. Η έλλειψη πρόσβασης στο διαδίκτυο σάς παρέχει περισσότερο απόρρητο, ασφάλεια και σταθερότητα από ό,τι άλλες εφαρμογές.
-
-        Δεν περιέχει διαφημίσεις ή περιττά δικαιώματα. Είναι πλήρως ανοιχτού κώδικα, παρέχει προσαρμόσιμα χρώματα.
-
-        <b>Δείτε την πλήρη σειρά των Απλών Εργαλείων εδώ:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

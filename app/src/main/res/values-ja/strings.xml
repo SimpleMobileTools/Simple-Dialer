@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">アプリが開いたら、デフォルトでダイヤルパッドを開きます</string>
     <string name="disable_proximity_sensor">通話中に近接センサーを無効にする</string>
     <string name="disable_swipe_to_answer">着信に応答する際のスワイプをクリックに置き換えます</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">シンプルなダイヤラー - 通話を簡単に管理</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">アドレス管理、電話番号ブロック、マルチ SIM サポートを備えた便利なアドレス帳</string>
-    <string name="app_long_description"> どこでも電話できる軽量な電話アプリ。便利な着信履歴機能で、素早く電話をかけられます。 アルファベットもサポートしたクイックダイヤルパッド。賢く連絡先を提案します。電話番号で、迷惑電話をブロック。余計な電話におさらばです。素早く電話をかけられる、スピードダイヤリング。お気に入りの連絡先にサクッと電話をかけられます。 ホーム画面に、お気に入りやその他の連絡先のショートカットを作成し、パッと電話をかけられます。マテリアルデザインとダークテーマにデフォルトで対応。 使いやすい優れたユーザーエクスペリエンスを提供します。インターネットアクセスがないため、他のアプリよりもプライバシー、セキュリティ、安定性があります。広告や不要な権限は含まれていません。完全にオープンソースで、カラーもカスタマイズ可能。 <b>シンプルツールの一覧はこちらをご覧ください: </b> https://www.simplemobiletools.com <b> Facebook: </b> https://www.facebook.com/simplemobiletools <b> Reddit: </b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

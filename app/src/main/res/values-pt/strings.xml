@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">Mostrar Marcador por padrâo ao abrir a aplicação</string>
     <string name="disable_proximity_sensor">Desativar sensor de proximidade durante as chamadas</string>
     <string name="disable_swipe_to_answer">Clicar em vez de deslizar para atender</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Gestão de chamadas</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Telefone com gestor de chamadas e lista telefónica que bloqueia números e suporta multi-SIM</string>
-    <string name="app_long_description"> Um telefone que lhe permite gerir as suas chamadas onde quer que esteja. Ligue rapidamente pelo registo de chamadas ou defina números de marcação rápida. Dispõe de um marcador inteligente que, para além aceitar a introdução de letras, ainda lhe apresenta sugestões de contactos. Bloqueie facilmente números de telefone para evitar chamadas indesejadas. Pode ainda destacar os seus contactos favoritos e criar-lhes atalhos directos no ecrã inicial. Com design material num tema escuro por definição. Não requer acesso à internet o que lhe confere mais privacidade, segurança e estabilidade. Não contém anúncios nem permissões desnecessárias. É totalmente open source e oferece cores personalizáveis a gosto. <b>Consulte a gama completa de aplicações Simple Tools aqui:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

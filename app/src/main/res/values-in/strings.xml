@@ -61,18 +61,6 @@
     <string name="open_dialpad_by_default">Buka dialpad secara default ketika aplikasi dibuka</string>
     <string name="disable_proximity_sensor">Nonaktifkan sensor kedekatan saat ada di panggilan</string>
     <string name="disable_swipe_to_answer">Ganti menggesek saat menanggapi panggilan masuk dengan mengklik</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Kelola panggilan dengan mudah</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Pengelola telepon praktis dengan buku telepon, pemblokiran nomor, dan multi-SIM</string>
-    <string name="app_long_description"> Aplikasi ringan untuk menangani panggilan Anda, di mana pun Anda berada. Dilengkapi dengan log panggilan yang berguna untuk inisiasi panggilan yang mudah. Ada papan tombol cepat yang siap melayani Anda juga, dengan saran kontak pintar. Ini mendukung surat juga. Anda dapat dengan mudah memblokir nomor telepon untuk menghindari panggilan masuk yang tidak diinginkan. Panggilan cepat yang didukung membuat panggilan ke kontak favorit Anda dengan ponsel ini menjadi mudah. Untuk membantu Anda mengelola panggilan dengan cepat, aplikasi Telepon juga mendukung kontak favorit dan membuat pintasan kontak apa pun di layar beranda.
-\n
-\nMuncul dengan desain material dan tema gelap secara default, memberikan pengalaman pengguna yang luar biasa untuk penggunaan yang mudah. Kurangnya akses internet memberi Anda lebih banyak privasi, keamanan, dan stabilitas daripada aplikasi lain. Tidak mengandung iklan atau izin yang tidak perlu. Ini sepenuhnya sumber-terbuka, menyediakan warna yang dapat disesuaikan.
-\n
-\n<b>Lihat rangkaian lengkap Simple Tools di sini:</b> https://www.simplemobiletools.com
-\n<b>Facebook:</b> https://www.facebook.com/simplemobiletools
-\n<b>Reddit :</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

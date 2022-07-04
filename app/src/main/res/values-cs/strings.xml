@@ -61,35 +61,6 @@
     <string name="open_dialpad_by_default">Otevřít číselník vždy po spuštění aplikace</string>
     <string name="disable_proximity_sensor">Vypnout senzor přiblížení během hovoru</string>
     <string name="disable_swipe_to_answer">Nahrazení přejetí prstem při odpovídání na příchozí hovory klepnutím</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Spravujte své telefonní hovory snadno</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Šikovný správce telefonních hovorů s telefonním seznamem, blokováním čísel a podporou více SIM karet</string>
-    <string name="app_long_description">
-        Lehká aplikace pro vyřizování vašich hovorů, ať jste kdekoli. Dodává se s praktickým protokolem hovorů pro snadné zahájení hovoru.
-
-        K dispozici je také rychlá číselná klávesnice s inteligentními návrhy kontaktů. Podporuje také písmena.
-
-        Telefonní čísla můžete snadno zablokovat, abyste předešli nechtěným příchozím hovorům.
-
-        Díky podporované rychlé volbě je volání vašich oblíbených kontaktů pomocí tohoto skutečného telefonu hračkou.
-
-        Abychom vám mohli rychle spravovat hovory, podporuje aplikace Telefon také oblíbené kontakty a vytváření zkratek všech kontaktů na domovské obrazovce.
-
-        Ve výchozím nastavení je dodáván s materiálovým designem a tmavým motivem a poskytuje skvělé uživatelské prostředí pro snadné použití. Nedostatek přístupu k internetu vám poskytuje více soukromí, zabezpečení a stability než jiné aplikace.
-
-        Neobsahuje žádné reklamy ani zbytečná oprávnění. Je plně opensource a poskytuje přizpůsobitelné barvy.
-
-        <b>Check out the full suite of Simple Tools here:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

@@ -61,35 +61,6 @@
     <string name="open_dialpad_by_default">Otvoriť číselník po spustení apky</string>
     <string name="disable_proximity_sensor">Vypnúť počas hovorov senzor priblíženia</string>
     <string name="disable_swipe_to_answer">Nahradiť potiahnutie prstom pri odpovedaní na prichádzajúce hovory kliknutím</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Jednoduchý telefón - Spravujte hovory jednoducho</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Praktický telefón s telefónnym zoznamom, blokovaním a podporou viacerých SIM</string>
-    <string name="app_long_description">
-        Jednoduchá apka na správu hovorov, nezáležiac na tom, kde sa nachádzate. Pre jednoduché spustenie hovorov obsahuje praktickú históriu hovorov.
-
-        K dispozícií máte aj rýchly číselník so šikovným odporúčaním kontaktov. Podporuje aj písmená.
-
-        Viete jednoducho zablokovať telefónne čísla, aby vás nikto neotravoval.
-
-        Podpora rýchleho vytáčania umožňuje skutočne bezproblémové rýchle vytáčanie vašich obľúbených kontaktov.
-
-        Pre rýchle spravovanie hovorov tento telefón podporuje aj zobrazovanie obľúbených kontaktov a umožňuje vytvárať skratky akýchkoľvek kontaktov na domácu plochu.
-
-        Tento telefón je založený na Material dizajne a má prednastavenú tmavú tému, poskytuje výbornú používateľskú skúsenosť pre ľahké používanie. Chýbajúci prístup k internetu garantuje lepšie súkromie, bezpečnosť a stabilitu ako ostatné apky.
-
-        Neobsahuje žiadne reklamy a nepotrebné oprávnenia. Je opensource, poskytuje možnosť zmeny farieb.
-
-        <b>Pozrite si celú sadu aplikácií na:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

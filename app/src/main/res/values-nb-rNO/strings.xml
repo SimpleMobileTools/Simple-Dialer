@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">Åpne talltastaturet som standard når appen åpnes</string>
     <string name="disable_proximity_sensor">Deaktiver nærhetssensor under samtaler</string>
     <string name="disable_swipe_to_answer">Erstatt sveiping ved å svare på innkommende anrop med å klikke</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Enkel oppringer - Administrer telefonsamtalene dine enkelt</string>
-    <string name="app_short_description">En hendig telefonsamtaler med telefonbok, nummerblokkering og multi-SIM-støtte</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_long_description"> En lett app for å håndtere samtalene dine, uansett hvor du er. Leveres med en praktisk anropslogg for enkel oppstart. Det er også en rask talltastatur til tjeneste, med smarte kontaktforslag. Den støtter også bokstaver. Du kan enkelt blokkere telefonnumre for å unngå uønskede innkommende anrop. Støttet hurtigoppringing gjør det enkelt å ringe favorittkontaktene dine med denne ekte telefonen. For å hjelpe deg med å administrere anropene dine raskt, støtter Telefon-appen også favorittkontakter og oppretter snarveier for enhver kontakt på startskjermen. Den kommer med materialdesign og mørkt tema som standard, og gir god brukeropplevelse for enkel bruk. Mangelen på internettilgang gir deg mer personvern, sikkerhet og stabilitet enn andre apper. Inneholder ingen annonser eller unødvendige tillatelser. Den er fullstendig åpen kildekode, gir tilpassbare farger. <b>Sjekk ut hele pakken med enkle verktøy her:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit :</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

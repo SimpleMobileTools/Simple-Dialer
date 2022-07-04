@@ -61,35 +61,6 @@
     <string name="open_dialpad_by_default">Atveriant programėlę, automatiškai pagal numatymą atverti numerio rinkiklį</string>
     <string name="disable_proximity_sensor">Skambučių metu išjungti artumo jutiklį</string>
     <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Paprastas rinkiklis – Lengvai valdykite skambučius</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Patogi skambučių tvarkytuvė su telefonų knyga, numerių blokavimu ir multi-SIM</string>
-    <string name="app_long_description">
-        A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation.
-
-        There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too.
-
-        You can easily block phone numbers to avoid unwanted incoming calls.
-
-        Supported Speed dialing makes calling your favorite contacts with this true phone a breeze.
-
-        To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen.
-
-        It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
-
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
-
-        <b>Check out the full suite of Simple Tools here:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

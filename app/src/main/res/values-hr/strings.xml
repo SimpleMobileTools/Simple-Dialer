@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">Otvori brojčanik prema zadanim postavkama kada se aplikacija otvori</string>
     <string name="disable_proximity_sensor">Isključi senzor blizine tijekom poziva</string>
     <string name="disable_swipe_to_answer">Zamijeni povlačenje prstom za odgovaranje na dolazne pozive pritiskom</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Jednostavan birač – Upravljaj telefonskim pozivima</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Praktični upravljač telefonskih poziva s imenikom, blokiranjem brojeva i podrškom za više SIM kartica</string>
-    <string name="app_long_description"> Mala aplikacija za upravljanje pozivima, bez obzira gdje se nalaziš. Dolazi s praktičnim zapisnikom poziva za jednostavno pokretanje poziva. Na raspolaganju je i tipkovnica za brzo biranje s prijedlozima pametnih kontakata. Podržava i slova. Možeš jednostavno blokirati telefonske brojeve za izbjegavanje neželjenih dolaznih poziva. Podržano brzo biranje olakšava pozivanje omiljenih kontakata s ovim pravim telefonom. Za lakše upravljanje pozivima, aplikacija Telefon također podržava omiljene kontakte i stvaranje prečaca za bilo koji kontakt na početnom ekranu. Aplikacija je izrađena u material-dizajnu i standardno koristi tamnu temu, pruža izvrsno korisničko iskustvo za jednostavnu upotrebu. Nedostatak pristupa internetu pruža bolju privatnost, sigurnost i stabilnost od drugih aplikacija. Ne sadrži oglase niti nepotrebne dozvole. Potpuno je otvorenog koda, pruža prilagodljive boje. <b>Pogledaj cijeli paket „Jednostavni alati” ovdje:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

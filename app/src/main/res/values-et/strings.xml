@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">Rakenduse avamisel näita vaikimisi numbriklahvistikku</string>
     <string name="disable_proximity_sensor">Kõnede ajaks lülita lähedusandur välja</string>
     <string name="disable_swipe_to_answer">Kõnele vastamisel kasuta viipamise asemel klõpsimist</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Lihtne telefon - halda mugavalt oma telefonikõnesid</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Käepärane telefonikõnede haldur telefoniraamatuga, numbrite blokeerimise võimalusega ja mitme SIM-kaardi toega</string>
-    <string name="app_long_description"> Lihtne rakendus kõnede haldamiseks. Varasemaid kõnesid saad mugavalt korrata logivaatest. Loomulikult on olemas ka nutikas tähemärke tundev numbriklahvistik. Miiiesoovitud helistajaid on lihtne blokeerida. Kiirvalimine teeb oma lemmikutele helistamise lihtsaks ja mugavaks ning nende lemmikutele helistamiseks võid lisada viited ka avaekraanile. Võrreldes muude sarnaste rakendustega on meie oma mahult väike ning seega ka kiire ja tõhus. Suurepärase kasutajakogemuse jaoks kasutab rakendus vaikimisi Material Design disainikeelt ning tumedat teemat. Võrreldes mõnede teiste sarnaste rakendustega ei vaja meie oma internetiühendust ning seega on ka turvalisem, privaatsem ja stabiilsem. Meie rakenduses pole reklaame ega asjatute õiguste eeldamist. Rakenduse lähtekood on avalikult saadaval ning välimust saad alati kohendada. <b>Teavet Lihtsate tarvikute rakendustest leiad siit:</b>https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

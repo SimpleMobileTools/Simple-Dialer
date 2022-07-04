@@ -61,35 +61,6 @@
     <string name="open_dialpad_by_default">Ouvrir le pavé numérique par défaut à l\'ouverture de l\'application</string>
     <string name="disable_proximity_sensor">Désactiver le capteur de proximité pendant les appels</string>
     <string name="disable_swipe_to_answer">Remplacer le balayage pour répondre aux appels entrants par un clic</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Téléphone – Gérez facilement vos appels</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Un gestionnaire d\'appels pratique, avec blocage de numéro et gestion multi-SIM</string>
-    <string name="app_long_description">
-        Une application légère pour gérer vos appels, où que vous soyez. Fourni avec un journal d\'appels pratique pour initier facilement des appels.
-
-        Il y a aussi un clavier de numérotation rapide à votre service, avec une suggestion intelligente des contacts, qui prend également en charge les lettres.
-
-        Vous pouvez facilement bloquer des numéros pour éviter les appels entrants indésirables.
-
-        La numérotation rapide vous permet d\'appeler vos contacts préférés en un clin d\'oeil.
-
-        Pour vous aider à gérer rapidement vos appels, l\'application prend également en charge les contacts favoris et la création de raccourcis vers n\'importe quel contact sur l\'écran d\'accueil.
-
-        Avec un Material Design et un thème sombre par défaut, elle offre une excellente expérience utilisateur pour une utilisation facile. L\'absence d\'accès à internet vous donne plus de confidentialité, de sécurité et de stabilité que les autres applications.
-
-        Ne contient aucune publicité ou autorisation inutile. Elle est entièrement open source, avec des couleurs personnalisables.
-
-        <b>Découvrez la suite complète des applications Simple Mobile Tools ici :</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook :</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit :</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

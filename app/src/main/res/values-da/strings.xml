@@ -61,35 +61,6 @@
     <string name="open_dialpad_by_default">Åben det numeriske tastatur som standard når appen åbner</string>
     <string name="disable_proximity_sensor">Deaktivér nærhedssensor under opkald</string>
     <string name="disable_swipe_to_answer">Erstat swipe ved besvarelse af indgående opkald med at klikke på</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Håndtér dine telefonopkald nemt</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">En praktisk opkaldsapp med telefonbog, nummerblokering og multi-SIM support</string>
-    <string name="app_long_description">
-        En letvægtsapp til at håndtére dine opkald uanset hvor du er. Udstyret med en praktisk opkaldslog, så du nemt kan foretage dine opkald.
-
-        Der er et hurtigt numerisk tastatur til din tjeneste, med smarte kontaktforslag. Den indeholder også bogstavssupport.
-
-        Du kan nemt blokére telefonnumre og undgå uønskede opkald.
-
-        Hurtigopkald support gør det let som en brise at ringe dine favoritkontakter op.
-
-        For at hjælpe med at håndtére dine opkald hurtigt kan du udvælge favoritkontakter og oprette genveje til enhver kontakt på startskærmen.
-
-        Appen kommer med materielt design og mørkt tema som standard, der giver en god brugeroplevelse og let brugbarhed. Manglen på internetadgang giver dig mere privatliv, sikkerhed og stabilitet end andre apps.
-
-        Indeholder ingen reklamer eller unødvendige tilladelser. Den er fuldt open source og giver mulighed for brugerdefinerede farver.
-
-        <b>Tjek den fulde pakke af vores Simple Tools her:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Kan du ikke finde nogle strenge? Der er mere på
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

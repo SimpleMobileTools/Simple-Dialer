@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">Öppna knappsatsen som standard när appen öppnas</string>
     <string name="disable_proximity_sensor">Inaktivera närhetssensor under samtal</string>
     <string name="disable_swipe_to_answer">Ersätt svepning vid besvarande av inkommande samtal med tryckning</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simpel telefon - hantera dina telefonsamtal enkelt</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">En telefonsamtalshanterare med nummerblockering och stöd för flera SIM-kort</string>
-    <string name="app_long_description"> En enkel app för att hantera dina telefonsamtal oavsett var du är. Levereras med en praktisk samtalshistorik för enkel uppringning. Den har också en snabb knappsats med bokstäver och smarta kontaktförslag. Du kan enkelt blockera telefonnummer för att undvika oönskade inkommande samtal. Snabbuppringningsfunktionen gör det mycket enkelt att ringa dina favoritkontakter. För att hjälpa dig att hantera dina samtal snabbt har telefonappen även stöd för favoritkontakter och genvägar till kontakter på startskärmen. Den levereras med Material Design och mörkt tema som standard, och ger en bra användarupplevelse för enkel användning. Avsaknaden av internetåtkomst ger dig mer integritet, säkerhet och stabilitet än andra appar. Innehåller ingen reklam eller onödiga behörigheter. Den har helt öppen källkod och har anpassningsbara färger. <b>Kolla in hela uppsättningen av Simple Tools här:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

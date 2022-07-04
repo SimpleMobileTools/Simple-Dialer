@@ -61,35 +61,6 @@
     <string name="open_dialpad_by_default">Otwieraj panel wybierania numeru domyślnie przy uruchomieniu aplikacji</string>
     <string name="disable_proximity_sensor">Wyłączaj czujnik zbliżeniowy podczas połączeń</string>
     <string name="disable_swipe_to_answer">Zastąp naciśnięciem gest przesunięcia do odpowiadania na połączenia przychodzące</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Prosty telefon - Łatwe połączenia telefoniczne</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Poręczny menedżer połączeń z kontaktami, blokowaniem i z obsługą wielu kart SIM</string>
-    <string name="app_long_description">
-        Lekka aplikacja do obsługi połączeń, bez względu na to, gdzie jesteś. Zawiera poręczny rejestr połączeń ułatwiający inicjowanie połączeń telefonicznych.
-
-        Do Twojej dyspozycji jest również szybki panel wybierania z inteligentnymi sugestiami kontaktów. Obsługuje także litery.
-
-        Możesz łatwo blokować numery telefonów, aby uniknąć niechcianych połączeń przychodzących.
-
-        Obsługuje szybkie wybieranie, dzięki czemu można bezproblemowo dzwonić do ulubionych kontaktów.
-
-        Aby ułatwić szybkie zarządzanie połączeniami, aplikacja Telefon obsługuje również ulubione kontakty i tworzenie skrótów dowolnego kontaktu na ekranie głównym.
-
-        Domyślnie jest wyposażony w Material Design i ciemny motyw, zapewniając doskonałe doświadczenie użytkownika dla łatwego użytkowania. Brak dostępu do Internetu zapewnia większą prywatność, bezpieczeństwo i stabilność niż inne aplikacje.
-
-        Nie zawiera reklam ani niepotrzebnych uprawnień. Jest w pełni otwartoźródłowy, zapewnia konfigurowalną kolorystykę.
-
-        <b>Sprawdź pełen zestaw od Simple Tools tutaj:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

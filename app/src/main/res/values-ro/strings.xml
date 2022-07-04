@@ -61,35 +61,6 @@
     <string name="open_dialpad_by_default">Deschideți în mod implicit tastatura telefonică la deschiderea aplicației</string>
     <string name="disable_proximity_sensor">Dezactivați senzorul de proximitate în timpul apelurilor</string>
     <string name="disable_swipe_to_answer">Înlocuiți glisarea pentru a răspunde la apelurile primite cu o singură apăsare</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Gestionați apelurile telefonice</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Manager de apeluri cu agendă telefonică, blocarea numerelor și suport multi-SIM</string>
-    <string name="app_long_description">
-        O aplicație ușoară pentru a vă gestiona apelurile, indiferent unde vă aflați. Este însoțită de un jurnal de apeluri la îndemână pentru inițierea ușoară a apelurilor.
-
-        De asemenea, aveți la dispoziție o tastatură de apelare rapidă, cu sugestii inteligente de contacte. Suportă și literele.
-
-        Puteți bloca cu ușurință numere de telefon pentru a evita apelurile primite nedorite.
-
-        Apelarea rapidă face ca apelarea contactelor dumneavoastră preferate cu acest telefon să fie cu adevărat foarte ușoară.
-
-        Pentru a vă ajuta să vă gestionați rapid apelurile, aplicația Telefon acceptă, de asemenea, contactele favorite și crearea de comenzi rapide pentru orice contact pe ecranul principal.
-
-        Aplicaţia vine cu design material şi temă întunecată în mod implicit. Limitarea necesităţii accesului la internet vă oferă mai multă intimitate, securitate şi stabilitate decât alte aplicaţii.
-
-        Nu conţine reclame sau permisiuni inutile. Codul sursă este complet open source şi oferă culori personalizabile.
-
-        <b>Consultaţi întreaga suită de aplicaţii Simple Tools aici:</b>
-        https://www.simplemobiletools.com
-
-        <b>Facebook:</b>
-        https://www.facebook.com/simplemobiletools
-
-        <b>Reddit:</b>
-        https://www.reddit.com/r/SimpleMobileTools
-    </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

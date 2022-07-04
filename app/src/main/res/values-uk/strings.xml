@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">За замовчуванням відкривати цифрову панель при запуску додатку</string>
     <string name="disable_proximity_sensor">Вимикати датник наближення під час викликів</string>
     <string name="disable_swipe_to_answer">Замінити перетягування на натискання під час відповіді на вхідні виклики</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Простий Телефон - Легко керуйте вашими викликами</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Менеджер викликів: книга контактів, блокування номерів, підтримка кількох SIM</string>
-    <string name="app_long_description"> A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation. There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too. You can easily block phone numbers to avoid unwanted incoming calls. Supported Speed dialing makes calling your favorite contacts with this true phone a breeze. To help you manage your calls quickly the Phone app also supports favorite contacts and creating shortcuts of any contact on the home screen. За промовчанням додаток поставляється з матеріальним дизайном і темною темою, забезпечує чудовий користувацький досвід для простого використання. Відсутність доступу до Інтернету надає більше приватності, безпеки та стабільності, порівняно з іншими додатками. Не буде показувати рекламу; потрібні лише найнеобхідніші дозволи. Програмний код повністю відкритий, забезпечує настроювальні кольори оформлення. <b>Ознайомтеся з повним набором додатків Simple Tools тут:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

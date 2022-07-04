@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">Mostrar o discador ao abrir o aplicativo</string>
     <string name="disable_proximity_sensor">Desativar sensor de proximidade durante as chamadas</string>
     <string name="disable_swipe_to_answer">Clicar em vez de deslizar para responder chamadas</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Discador Simples - Gerencie chamadas facilmente</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Um app de telefone prático com agenda, bloqueio de número e suporte a multi-SIM</string>
-    <string name="app_long_description"> Um aplicativo leve para gerenciar suas chamadas, não importa onde você esteja. Vem com um registro de chamadas prático para uma fácil iniciação de chamadas. Também existe um discador rápido ao seu serviço, com sugestões de contatos inteligentes. Também suporta letras. Você pode bloquear facilmente os números de telefone para evitar chamadas indesejadas. A discagem rápida torna muito mais fácil ligar para seus contatos favoritos com este verdadeiro telefone. Para ajudá-lo a gerenciar suas chamadas rapidamente, o aplicativo Telefone também oferece suporte a contatos favoritos e à criação de atalhos de qualquer contato na tela inicial. Ele vem com Material Design e tema escuro por padrão, oferece uma ótima experiência para o usuário para uma fácil utilização. A falta de acesso à Internet dá mais privacidade, segurança e estabilidade do que outros aplicativos. Não contém anúncios ou permissões desnecessárias. É totalmente de código aberto, fornece cores personalizáveis. <b>Cheque o conjunto completo de Ferramentas Simples aqui:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

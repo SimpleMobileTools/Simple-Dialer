@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">Beim Öffnen der App immer das Wählfeld öffnen</string>
     <string name="disable_proximity_sensor">Näherungssensor bei Anrufen deaktivieren</string>
     <string name="disable_swipe_to_answer">Anrufe durch Klicken statt durch Streichen annehmen</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Schlichtes Telefon – Verwalten Sie Ihre Anrufe ganz einfach</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Eine praktische Telefon-App mit Adressbuch, Anrufblockierung und Mehrfach-SIM-Unterstützung</string>
-    <string name="app_long_description"> Eine einfache Anwendung, um Anrufe zu verwalten. Aus der praktischen Anrufliste können direkt Anrufe getätigt werden. Das Wählfeld bietet intelligente Kontaktvorschläge. Es unterstützt auch Buchstaben. Sie können Telefonnummern einfach blockieren, um unerwünschte eingehende Anrufe zu vermeiden. Die unterstützte Kurzwahl macht das Anrufen Ihrer Lieblingskontakte mit dieser Anwendung zum Kinderspiel. Um Ihnen zu helfen, Ihre Anrufe schnell zu verwalten, unterstützt die Telefonanwendung auch Favoriten und erstellt Verknüpfungen für jeden Kontakt auf dem Startbildschirm. Weiterhin unterstützt die Anwendung standardmäßig das Materialdesign und den Dunkelmodus, wodurch sie eine hervorragende Benutzererfahrung für eine einfache Verwendung bietet. Keine Internetverbindung nötig, dadurch mehr Privatsphäre, Sicherheit und Stabilität als andere Apps. Enthält keine Werbung und benötigt keine unnötigen Berechtigungen. Vollständig quelloffen und mit anpassbaren Farben. <b>Schaue dir die vollständige Serie der Schlichten Anwendungen hier an:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

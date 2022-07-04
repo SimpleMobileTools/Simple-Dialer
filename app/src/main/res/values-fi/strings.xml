@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">Avaa numeronäppäimistö, kun sovellus avataan</string>
     <string name="disable_proximity_sensor">Poista läheisyysanturi käytöstä puheluiden aikana</string>
     <string name="disable_swipe_to_answer">Vastaa puheluihin painalluksella pyyhkäisyn sijaan</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Dialer - Hallitse puheluitasi helposti</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Näppärä puhelinsovellus osoitteistolla, numeroestolla ja usean SIM-kortin tuella</string>
-    <string name="app_long_description"> Kevyt sovellus puheluiden hallintaan, kaikkialla missä oletkin. Sovelluksesta näet puheluhistorian, jonka kautta voit tehdä puheluita. Sinua varten sovelluksessa on myös pikatoiminen numeronäppäimistö älykkäällä yhteystietojen ehdotuksella. Se tukee myös kirjaimia. Voit helposti estää numeroita välttääksesi puheluita valitsemistasi numeroista. Puheluiden hallintaa helpottaa mahdollisuus valita suosikkiyhteystietoja, joille voit luoda myös pikakuvakkeita puhelimen aloitusnäytölle. Pikavalinta tekee suosikkiyhteystiedoille soittamisesta salamannopeaa. Sovelluksen ulkoasu noudattelee material designia, tumma teema on oletuksena käytettävissä. Ulkoasu tarjoaa loistavan ja mutkattoman käyttökokemuksen. Voit mukauttaa sovelluksen värejä. Sovellus takaa turvallisuutesi ja yksityisyytesi, sillä se ei käytä Internet-yhteyttä. Ei sisällä mainoksia eikä vaadi tarpeettomia käyttöoikeuksia. Sovellus on täysin avointa lähdekoodia. <b>Katso koko Simple Tools-sovellusvalikoima täältä:</b> https://www.simplemobiletools.com <b>Facebook:</b> https://www.facebook.com/simplemobiletools <b>Reddit:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

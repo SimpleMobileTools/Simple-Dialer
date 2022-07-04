@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">פתח את לוח החיוג כברירת מחדל כאשר האפליקציה נפתחת</string>
     <string name="disable_proximity_sensor">השבת את חיישן הקרבה במהלך שיחות</string>
     <string name="disable_swipe_to_answer">החלף החלקה בתגובה לשיחות נכנסות בלחיצה</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">חייגן פשוט - נהל את שיחות הטלפון שלך בקלות</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">מנהל שיחות טלפון שימושי עם ספר טלפונים, חסימת מספרים ותמיכה בריבוי סים</string>
-    <string name="app_long_description"> אפליקציה קלת משקל לטיפול בשיחות שלך, לא משנה היכן אתה. מגיע עם יומן שיחות שימושי להפעלת שיחות קלה. יש גם לוח חיוג מהיר לשירותך, עם הצעות חכמות ליצירת קשר. זה תומך גם באותיות. אתה יכול בקלות לחסום מספרי טלפון כדי למנוע שיחות נכנסות לא רצויות. חיוג מהיר נתמך הופך את ההתקשרות לאנשי הקשר המועדפים עליך באמצעות הטלפון האמיתי הזה לפשוטה. כדי לעזור לך לנהל את השיחות שלך במהירות, אפליקציית הטלפון תומכת גם באנשי קשר מועדפים וביצירת קיצורי דרך של כל איש קשר במסך הבית. זה מגיע עם עיצוב חומר וערכת נושא כהה כברירת מחדל, מספק חווית משתמש נהדרת לשימוש קל. היעדר גישה לאינטרנט נותן לך יותר פרטיות, אבטחה ויציבות מאשר אפליקציות אחרות. אינו מכיל פרסומות או הרשאות מיותרות. זה קוד פתוח לחלוטין, מספק צבעים הניתנים להתאמה אישית. <b>בדוק את החבילה המלאה של כלים פשוטים כאן:</b> https://www.simplemobiletools.com <b>פייסבוק:</b> https://www.facebook.com/simplemobiletools <b>Reddit :</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

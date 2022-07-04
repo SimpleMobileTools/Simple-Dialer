@@ -61,12 +61,6 @@
     <string name="open_dialpad_by_default">При стартиране се отваря панела за набиране</string>
     <string name="disable_proximity_sensor">Изключване на сензора за близост по време на обаждания</string>
     <string name="disable_swipe_to_answer">Смяна на плъзгането с докосване при отговаряне на обаждания</string>
-    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Обикновен телефон - Лесни телефонни разговори</string>
-    <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Телефон с адреси, блокиране на номера, поддръжка на няколко SIM карти</string>
-    <string name="app_long_description"> Леко приложение за управление на обажданията, без значение къде сте. Има дневник на обажданията за лесно започване на разговор. На ваше разположение е и панел за бързо набиране с интелигентни предложения за контакти. Поддържа и букви. Можете лесно да блокирате телефонни номера, за да избегнете нежелани разговори. Поддържаното бързо набиране прави много лесно обаждането на избрани контакти. За да ви помогне да управлявате лесно обажданията си, приложението също поддържа избрани контакти и създаване на бързи бутони за всеки от контактите на началния екран на телефона. По подразбиране се използва материален дизайн и тъмна тема, осигуряващи страхотно потребителско изживяване и лесна употреба. Липсата на достъп до интернет дава повече поверителност, сигурност и стабилност от други приложения. Не съдържа нито реклами, нито ненужни разрешения. Напълно отворен код, има променяеми цветове. <b>Вижте пълната колекция на Simple Tools тук:</b> https://www.simplemobiletools.com <b>Фейсбук:</b> https://www.facebook.com/simplemobiletools <b>Редит:</b> https://www.reddit.com/r/SimpleMobileTools </string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
