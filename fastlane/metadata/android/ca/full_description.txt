@@ -14,7 +14,7 @@ Ve amb un «material design» i un tema fosc per defecte, proporciona una gran e
 
 No conté anuncis ni permisos innecessaris. És totalment de codi obert, proporciona colors personalitzables. El seguiment del registres de trucades per a un número de telèfon diferent també és un avantatge més d'aquesta aplicació.
 
-<b>Consulteu el conjunt complet d'eines Simples aquí:</b>
+Consulteu el conjunt complet d'eines Simples aquí:
 https://www.simplemobiletools.com
 
 Facebook:
@@ -22,3 +22,6 @@ https://www.facebook.com/simplemobiletools
 
 Reddit:
 https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools
