@@ -41,6 +41,7 @@ class RecentCallsAdapter(
     private val areMultipleSIMsAvailable = activity.areMultipleSIMsAvailable()
     private val redColor = resources.getColor(R.color.md_red_700)
     private var textToHighlight = ""
+    private var durationPadding = resources.getDimension(R.dimen.normal_margin).toInt()
 
     init {
         initDrawables()
@@ -299,6 +300,9 @@ class RecentCallsAdapter(
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
+                if (!showOverflowMenu) {
+                    item_recents_duration.setPadding(0, 0, durationPadding, 0)
+                }
             }
 
             item_recents_sim_image.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
