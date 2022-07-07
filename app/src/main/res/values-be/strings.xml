@@ -2,39 +2,39 @@
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Тэлефон</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <string name="default_phone_app_prompt">Зрабіце гэта прыкладанне стандартным для тэлефонных выклікаў</string>
+    <string name="allow_displaying_over_other_apps">Дазвольце паказ над іншымі прыкладаннямі для надзейнай працы</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Could not access your contacts</string>
+    <string name="could_not_access_contacts">Не атрымалася атрымаць доступ да кантактаў</string>
     <!-- Recents -->
-    <string name="no_previous_calls">No previous calls have been found</string>
-    <string name="could_not_access_the_call_history">Could not access the call history</string>
-    <string name="request_access">Request access</string>
-    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History\?</string>
-    <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History\?</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="no_previous_calls">Папярэднія выклікі не знойдзены</string>
+    <string name="could_not_access_the_call_history">Не атрымалася атрымаць доступ да журнала выклікаў</string>
+    <string name="request_access">Запыт доступу</string>
+    <string name="remove_confirmation">Выдаліць выбраныя запісы з журнала выклікаў\?</string>
+    <string name="clear_history_confirmation">Выдаліць усе запісы з журнала выклікаў\?</string>
+    <string name="show_grouped_calls">Згрупаваць выклікі</string>
+    <string name="clear_call_history">Ачысціць журнал выклікаў</string>
+    <string name="show_call_details">Паказаць звесткі аб выкліке</string>
     <!-- Dialpad -->
     <string name="dialpad">Панэль набору нумароў</string>
-    <string name="asterisk">Зорка</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="asterisk">Зорачка</string>
+    <string name="hashtag">Рашотка</string>
+    <string name="call_number">Нумар выкліку</string>
     <!-- Dialer -->
     <string name="dialer">Тэлефон</string>
     <string name="accept">Прыняць</string>
     <string name="accept_call">Прыняць выклік</string>
     <string name="decline">Адхіліць</string>
     <string name="decline_call">Адхіліць выклік</string>
-    <string name="unknown_caller">Unknown Caller</string>
-    <string name="is_calling">Is Calling…</string>
-    <string name="dialing">Dialing…</string>
-    <string name="call_ended">Call Ended</string>
-    <string name="call_ending">Call Ending</string>
-    <string name="ongoing_call">Ongoing Call</string>
-    <string name="select_sim">Select a SIM for this call</string>
-    <string name="always_use_this_sim">Always use this SIM for this number</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="unknown_caller">Невядомы абанент</string>
+    <string name="is_calling">Тэлефануе…</string>
+    <string name="dialing">Набор нумара…</string>
+    <string name="call_ended">Выклік завершаны</string>
+    <string name="call_ending">Завяршэнне выкліку</string>
+    <string name="ongoing_call">Бягучы выклік</string>
+    <string name="select_sim">Выбраць SIM для гэтага выкліка</string>
+    <string name="always_use_this_sim">Заўсёды выкарыстоўваць гэту SIM для дадзенага нумара</string>
+    <string name="unset_default_sim">Скінуць выбар прадвызначанай SIM</string>
     <string name="calls">Выклікі</string>
     <string name="turn_microphone_on">Уключыць мікрафон</string>
     <string name="turn_microphone_off">Адключыць мікрафон</string>
@@ -42,25 +42,25 @@
     <string name="turn_speaker_off">Адключыць дынамік</string>
     <string name="show_dialpad">Паказаць панэль набору нумароў</string>
     <string name="hide_dialpad">Схаваць панэль набору нумароў</string>
-    <string name="end_call">End call</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="end_call">Завяршыць выклiк</string>
+    <string name="hold_call">Паставіць выклiк на ўтрыманне</string>
+    <string name="resume_call">Зняць выклiк з утрымання</string>
+    <string name="call_on_hold">Утрымліваецца</string>
+    <string name="call_swap">Пераключыць выклікі</string>
+    <string name="call_merge">Аб\'яднаць выклікі</string>
+    <string name="call_split">Раз\'яднаць выклік</string>
+    <string name="call_add">Дадаць выклік</string>
+    <string name="conference_manage">Кіраванне канферэнц-сувяззю</string>
+    <string name="conference">Канферэнц-сувязь</string>
     <!-- Speed dial -->
     <string name="speed_dial">Хуткі набор</string>
     <string name="manage_speed_dial">Кіраванне хуткім наборам</string>
-    <string name="speed_dial_label">Click on a number to assign a contact to it. You can then quickly call the given contact by long pressing the given number at the dialer.</string>
-    <!-- Settings -->    
-    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
-    <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
-    <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
-    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
+    <string name="speed_dial_label">Націсніце на лічбу, каб прызначыць ёй кантакт. Затым вы можаце хутка патэлефанаваць дадзенаму кантакту доўгім націсканнем на абранай лічбе на панэлі набору нумароў.</string>
+    <!-- Settings -->
+    <string name="group_subsequent_calls">Групаваць наступныя выклікі з тым жа нумарам у журнале выклікаў</string>
+    <string name="open_dialpad_by_default">Адкрываць панэль набору нумароў пры запуску</string>
+    <string name="disable_proximity_sensor">Адключаць датчык набліжэння падчас выклікаў</string>
+    <string name="disable_swipe_to_answer">Выкарыстоўваць націсканне замест перацягвання пры адказе на ўваходныя выклікі</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
