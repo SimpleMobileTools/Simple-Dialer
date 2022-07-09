@@ -12,11 +12,14 @@ Varsayılan olarak materyal tasarım ve koyu tema ile birlikte gelir, kolay kull
 
 Hiçbir reklam veya gereksiz izin içermiyor.  Tamamen açık kaynaklıdır, özelleştirilebilir renkler sağlar.
 
-<b>Basit Araçlar paketinin tamamını burada görebilirsiniz:</b>
+Basit Araçlar paketinin tamamını burada görebilirsiniz:
 https://www.simplemobiletools.com
 
-<b>Facebook:</b>
+Facebook:
 https://www.facebook.com/simplemobiletools
 
-<b>Reddit:</b>
+Reddit:
 https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools
