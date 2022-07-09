@@ -12,7 +12,7 @@
     <string name="request_access">Запыт доступу</string>
     <string name="remove_confirmation">Выдаліць выбраныя запісы з журнала выклікаў\?</string>
     <string name="clear_history_confirmation">Выдаліць усе запісы з журнала выклікаў\?</string>
-    <string name="show_grouped_calls">Згрупаваць выклікі</string>
+    <string name="show_grouped_calls">Паказаць згрупаваныя выклікі</string>
     <string name="clear_call_history">Ачысціць журнал выклікаў</string>
     <string name="show_call_details">Паказаць звесткі аб выкліке</string>
     <!-- Dialpad -->
