@@ -465,7 +465,6 @@ class MainActivity : SimpleActivity() {
         val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL or LICENSE_AUTOFITTEXTVIEW
 
         val faqItems = arrayListOf(
-            FAQItem(R.string.faq_7_title_commons, R.string.faq_7_text_commons),
             FAQItem(R.string.faq_9_title_commons, R.string.faq_9_text_commons)
         )
 
