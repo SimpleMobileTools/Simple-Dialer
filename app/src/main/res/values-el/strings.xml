@@ -49,12 +49,12 @@
     <string name="hold_call">Αναμονή Κλήσης</string>
     <string name="resume_call">Συνέχιση Κλήσης</string>
     <string name="call_on_hold">Σε Αναμονή</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="call_swap">Εναλλαγή κλήσεων</string>
+    <string name="call_merge">Συγχώνευση κλήσεων</string>
+    <string name="call_split">Διαχωρισμός κλήσης</string>
+    <string name="call_add">Προσθήκη κλήσης</string>
+    <string name="conference_manage">Διαχείριση Συνδιάσκεψης</string>
+    <string name="conference">Συνδιάσκεψη</string>
 
     <!-- Speed dial -->
     <string name="speed_dial">Ταχεία κλήση</string>
