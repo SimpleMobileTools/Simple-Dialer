@@ -10,8 +10,8 @@
     <string name="no_previous_calls">Anrufliste ist leer</string>
     <string name="could_not_access_the_call_history">Kein Zugriff auf Anrufliste</string>
     <string name="request_access">Zugriff anfordern</string>
-    <string name="remove_confirmation">Ausgewählte Anrufe definitiv aus der Anrufliste löschen?</string>
-    <string name="clear_history_confirmation">Bist du sicher, dass du alles aus der Anrufliste löschen möchtest?</string>
+    <string name="remove_confirmation">Ausgewählte Anrufe definitiv aus der Anrufliste löschen\?</string>
+    <string name="clear_history_confirmation">Bist du sicher, dass du alles aus der Anrufliste löschen möchtest\?</string>
     <string name="show_grouped_calls">Gruppierte Anrufe zeigen</string>
     <string name="clear_call_history">Anrufliste löschen</string>
     <string name="show_call_details">Anrufdetails anzeigen</string>

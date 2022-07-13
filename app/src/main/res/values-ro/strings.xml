@@ -10,8 +10,8 @@
     <string name="no_previous_calls">Nu au fost găsite apeluri anterioare</string>
     <string name="could_not_access_the_call_history">Nu s-a putut accesa istoricul apelurilor</string>
     <string name="request_access">Solicitați acces</string>
-    <string name="remove_confirmation">Sunteți sigur că doriți să eliminați elementele selectate din istoricul apelurilor?</string>
-    <string name="clear_history_confirmation">Sunteți sigur că doriți să eliminați totul din istoricul apelurilor?</string>
+    <string name="remove_confirmation">Sunteți sigur că doriți să eliminați elementele selectate din istoricul apelurilor\?</string>
+    <string name="clear_history_confirmation">Sunteți sigur că doriți să eliminați totul din istoricul apelurilor\?</string>
     <string name="show_grouped_calls">Afișați apelurile grupate</string>
     <string name="clear_call_history">Ștergeți istoricul apelurilor</string>
     <string name="show_call_details">Afișați detaliile apelului</string>

@@ -10,8 +10,8 @@
     <string name="no_previous_calls">Ei puheluita</string>
     <string name="could_not_access_the_call_history">Ei käyttöoikeutta puheluhistoriaan</string>
     <string name="request_access">Pyydä käyttöoikeutta</string>
-    <string name="remove_confirmation">Haluatko varmasti poistaa valitut kohteet puheluhistoriasta?</string>
-    <string name="clear_history_confirmation">Haluatko varmasti tyhjentää koko puheluhistorian?</string>
+    <string name="remove_confirmation">Haluatko varmasti poistaa valitut kohteet puheluhistoriasta\?</string>
+    <string name="clear_history_confirmation">Haluatko varmasti tyhjentää koko puheluhistorian\?</string>
     <string name="show_grouped_calls">Näytä ryhmitetyt puhelut</string>
     <string name="clear_call_history">Tyhjennä puheluhistoria</string>
     <string name="show_call_details">Näytä puhelun tiedot</string>

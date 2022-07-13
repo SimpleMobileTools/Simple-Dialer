@@ -10,7 +10,7 @@
     <string name="no_previous_calls">Non sono state trovate chiamate precedenti</string>
     <string name="could_not_access_the_call_history">Impossibile accedere alla cronologia delle chiamate</string>
     <string name="request_access">Richiedo accesso</string>
-    <string name="remove_confirmation">Rimuovere davvero l\'elemento selezionato dalla cronologia delle chiamate?</string>
+    <string name="remove_confirmation">Rimuovere davvero l\'elemento selezionato dalla cronologia delle chiamate\?</string>
     <string name="clear_history_confirmation">Sicuro/a di voler svuotare la cronologia delle chiamate\?</string>
     <string name="show_grouped_calls">Mostra chiamate raggruppate</string>
     <string name="clear_call_history">Svuota la cronologia delle chiamate</string>
