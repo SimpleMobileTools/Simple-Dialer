@@ -1,0 +1,25 @@
+Un aplicativo para xestionar chamadas, independentemente do sitio no que estea. Posúe un rexistro de chamadas de acceso rápido.
+
+Existe tamén un marcador que suxire contactos.
+
+Pode bloquear números facilmente e evitar chamadas non desexadas.
+
+Pode ligar números á marcación rápida, facendo que chamar aos contactos favoritos sexa moito máis rápido.
+
+Para xestionar as suas chamadas, o aplicativo Teléfono tamén dá soporte aos contactos favoritos e permite crear atallos para os contactos na súa pantalla inicial.
+
+Dispoñible cun deseño material e cun tema escuro que proporciona unha experiencia moi agradable. Non pide acesso a Internet o que lle confire privacidade, seguranza e estabilidade.
+
+Non posúe anuncios nin utiliza permisos innecesarios. É de código aberto e permite personalización de cores.
+
+Consulta a nosa páxina aqui:
+https://www.simplemobiletools.com
+
+Facebook:
+https://www.facebook.com/simplemobiletools
+
+Reddit:
+https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools

@@ -1,0 +1,25 @@
+Une application légère pour gérer vos appels, où que vous soyez. Fourni avec un journal d'appels pratique pour initier facilement des appels.
+
+Il y aussi un clavier de numérotation rapide à votre service, avec une suggestion intelligente des contacts, qui prend également en charge les lettres.
+
+Vous pouvez facilement bloquer des numéros pour éviter les appels entrants indésirables.
+
+La numérotation rapide facilite l'appel de vos contacts préférés.
+
+Pour vous aider à gérer rapidement vos appels, l'application prend également en charge les contacts favoris et la création de raccourcis vers n'importe quel contact sur l'écran d'accueil.
+
+Avec un Material Design et un thème sombre par défaut, il offre une excellente expérience utilisateur pour une utilisation facile. L'absence d'accès à internet vous donne plus de confidentialité, de sécurité et de stabilité que les autres applications.
+
+Ne contient aucune publicité ou autorisation inutile. Il est entièrement open source, avec des couleurs personnalisables.
+
+Découvrez la suite complète des applications Simple Mobile Tools ici :
+https://www.simplemobiletools.com
+
+Facebook:
+https://www.facebook.com/simplemobiletools
+
+Reddit:
+https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools

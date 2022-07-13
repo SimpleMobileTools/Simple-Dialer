@@ -6,11 +6,14 @@
 
 Използва material дизайн и тъмна тема по подразбиране, осигуряващи страхотно потребителско изживяване на лесна употреба. Липсата на интернет достъпване ви осигурява повече поверителност, сигурност и стабилност от други приложения. Не съдържа реклами и ненужни резрешения. Напълно с отворен код е и има сменяеми цветове.
 
-<b>Вижте пълната колекция на Simple Tools тук:</b>
+Вижте пълната колекция на Simple Tools тук:
 https://www.simplemobiletools.com
 
-<b>Фейсбук:</b>
+Фейсбук:
 https://www.facebook.com/simplemobiletools
 
-<b>Redit:</b>
+Redit:
 https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools

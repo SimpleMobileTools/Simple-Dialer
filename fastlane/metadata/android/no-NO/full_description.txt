@@ -1,0 +1,21 @@
+En lett app for å håndtere samtalene dine, uansett hvor du er. Leveres med en praktisk anropslogg for enkel oppstart. Det er også en rask talltastatur til tjeneste, med smarte kontaktforslag. 
+
+Den støtter også bokstaver. Du kan enkelt blokkere telefonnumre for å unngå uønskede innkommende anrop. Støttet hurtigoppringing gjør det enkelt å ringe favorittkontaktene dine med denne ekte telefonen. 
+
+For å hjelpe deg med å administrere anropene dine raskt, støtter Telefon-appen også favorittkontakter og oppretter snarveier for enhver kontakt på startskjermen. 
+
+Den kommer med materialdesign og mørkt tema som standard, og gir god brukeropplevelse for enkel bruk. Mangelen på internettilgang gir deg mer personvern, sikkerhet og stabilitet enn andre apper. 
+
+Inneholder ingen annonser eller unødvendige tillatelser. Den er fullstendig åpen kildekode, gir tilpassbare farger. 
+
+Sjekk ut hele pakken med enkle verktøy her:
+https://www.simplemobiletools.com
+
+Facebook:
+https://www.facebook.com/simplemobiletools
+
+Reddit:
+https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools

@@ -1,0 +1,27 @@
+Lekka aplikacja do obsługi połączeń bez względu na to, gdzie jesteś. W zestawie podręczny dziennik połączeń ułatwiający inicjowanie połączeń. Możesz teraz łatwo wybierać numery za pomocą tej niesamowitej klawiatury bez żadnego problemu, ponieważ ta klawiatura zapewnia różne funkcje, które ułatwiają ogólne wrażenia podczas wykonywania połączenia lub prowadzenia rejestru połączeń. Pozostań w kontakcie ze znajomymi i rodziną, mając jednocześnie płynną obsługę w tej aplikacji. Dzięki większym cyfrom i literom łatwiej jest teraz wyświetlać i wybierać numery. Korzystając z tej klawiatury, możesz z łatwością uzyskać dostęp do swoich kontaktów i prowadzić dziennik połączeń. Funkcja rejestratora połączeń w tej klawiaturze jest również dodatkowym elementem tej aplikacji, która wyróżnia ją spośród innych aplikacji.
+
+Do Twojej dyspozycji jest również szybka klawiatura z inteligentnymi sugestiami dotyczącymi kontaktów. Obsługuje też litery. Korzystając z funkcji nagrywania rozmów, możesz nagrywać rozmowy innych osób, aby rejestrować wszystko, co mówisz.
+
+Możesz łatwo blokować numery telefonów, aby uniknąć niechcianych połączeń przychodzących. Tej funkcji brakuje w większości aplikacji dostępnych w sklepie. Korzystając z tej funkcji, możesz wybrać, kto może do Ciebie dzwonić. Dzięki tej funkcji można łatwo utrzymać bezpieczeństwo użytkownika, blokując numery, które są bezużyteczne lub zagrażające.
+
+Dzięki zaawansowanym funkcjom bezpieczeństwa tej aplikacji wpisywane cyfry są ściśle zabezpieczone, dzięki czemu możesz mieć bezproblemową obsługę bez obawy, że Twoje dane trafią w niepowołane ręce. Każdy Twój numer telefonu jest u Ciebie bezpieczny. Rejestrator rozmów w tej aplikacji zapisuje również rekordy w Twoim urządzeniu, zamiast zapisywać je w innym miejscu.
+
+Obsługiwane Szybkie wybieranie sprawia, że ​​dzwonienie do ulubionych kontaktów za pomocą tego prawdziwego telefonu jest dziecinnie proste. Możesz ustawić dowolny numer telefonu jako swój ulubiony, aby móc szybko go wybierać. W ten sposób możesz łatwo nawiązywać kontakty z ludźmi, nie szukając głęboko w innych liczbach.
+
+Aby pomóc Ci w szybkim zarządzaniu połączeniami, aplikacja numeru telefonu obsługuje również ulubione kontakty i tworzenie skrótów dowolnego kontaktu na ekranie głównym.
+
+Jest domyślnie wyposażony w materiałowy wygląd i ciemny motyw, zapewnia doskonałe wrażenia użytkownika i łatwe użytkowanie. Brak dostępu do Internetu zapewnia większą prywatność, bezpieczeństwo i stabilność niż inne aplikacje.
+
+Nie zawiera reklam ani niepotrzebnych uprawnień. Jest w pełni open source, zapewnia konfigurowalne kolory. Dodatkową zaletą tej aplikacji jest również śledzenie dzienników połączeń dla różnych numerów telefonów.
+
+Zobacz pełny zestaw prostych narzędzi tutaj:
+https://www.simplemobiletools.com
+
+Facebook:
+https://www.facebook.com/simplemobiletools
+
+Reddit:
+https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools

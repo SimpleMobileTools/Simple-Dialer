@@ -1,0 +1,1 @@
+Ein praktischer Anrufmanager für Telefonnummern mit Telefonbuch und Wählpad
