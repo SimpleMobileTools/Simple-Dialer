@@ -18,7 +18,7 @@
     <!-- Dialpad -->
     <string name="dialpad">Numerovalitsin</string>
     <string name="asterisk">Asteriski</string>
-    <string name="hashtag">Hashtag</string>
+    <string name="hashtag">Risuaita</string>
     <string name="call_number">Soita numeroon</string>
     <!-- Dialer -->
     <string name="dialer">Puhelin</string>
@@ -43,15 +43,15 @@
     <string name="show_dialpad">Näytä valintanäppäimistö</string>
     <string name="hide_dialpad">Piilota valintanäppäimistö</string>
     <string name="end_call">Lopeta puhelu</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="hold_call">Puhelu pitoon</string>
+    <string name="resume_call">Palaa puheluun</string>
+    <string name="call_on_hold">Pidossa</string>
+    <string name="call_swap">Vaihda puheluita</string>
+    <string name="call_merge">Yhdistä puhelut</string>
+    <string name="call_split">Jaa puhelu</string>
+    <string name="call_add">Lisää puhelu</string>
+    <string name="conference_manage">Hallinnoi puhelinneuvottelua</string>
+    <string name="conference">Neuvottelu</string>
     <!-- Speed dial -->
     <string name="speed_dial">Pikavalinta</string>
     <string name="manage_speed_dial">Pikavalinnan asetukset</string>
