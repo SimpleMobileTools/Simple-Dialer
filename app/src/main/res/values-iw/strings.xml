@@ -61,6 +61,7 @@
     <string name="open_dialpad_by_default">פתח את לוח החיוג כברירת מחדל כאשר האפליקציה נפתחת</string>
     <string name="disable_proximity_sensor">השבת את חיישן הקרבה במהלך שיחות</string>
     <string name="disable_swipe_to_answer">החלף החלקה בתגובה לשיחות נכנסות בלחיצה</string>
+    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

@@ -61,6 +61,7 @@
     <string name="open_dialpad_by_default">Tárcsázó alapértelmezett kinyitása az alkalmazás megnyitásakor</string>
     <string name="disable_proximity_sensor">Közelségérzékelő kikapcsolása a hívások során</string>
     <string name="disable_swipe_to_answer">Csúsztatás kattintásra cserélése a bejövő hívásoknál</string>
+    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

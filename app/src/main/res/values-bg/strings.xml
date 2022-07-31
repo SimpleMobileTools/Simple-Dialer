@@ -61,6 +61,7 @@
     <string name="open_dialpad_by_default">При стартиране се отваря панела за набиране</string>
     <string name="disable_proximity_sensor">Изключване на сензора за близост по време на обаждания</string>
     <string name="disable_swipe_to_answer">Смяна на плъзгането с докосване при отговаряне на обаждания</string>
+    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

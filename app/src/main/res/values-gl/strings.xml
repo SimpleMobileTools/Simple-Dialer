@@ -61,6 +61,7 @@
     <string name="open_dialpad_by_default">Abrir por defecto o marcador ao abrir a app</string>
     <string name="disable_proximity_sensor">Desactivar sensor de proximidade durante as chamadas</string>
     <string name="disable_swipe_to_answer">Substituír o xesto de desprazar por un click para responder</string>
+    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

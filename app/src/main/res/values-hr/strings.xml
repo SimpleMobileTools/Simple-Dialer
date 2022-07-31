@@ -61,6 +61,7 @@
     <string name="open_dialpad_by_default">Otvori brojčanik prema zadanim postavkama kada se aplikacija otvori</string>
     <string name="disable_proximity_sensor">Isključi senzor blizine tijekom poziva</string>
     <string name="disable_swipe_to_answer">Zamijeni povlačenje prstom za odgovaranje na dolazne pozive pritiskom</string>
+    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
