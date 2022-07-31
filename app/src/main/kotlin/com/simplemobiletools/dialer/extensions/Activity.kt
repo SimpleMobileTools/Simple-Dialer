@@ -36,7 +36,7 @@ fun SimpleActivity.launchCreateNewContactIntent() {
 fun BaseSimpleActivity.callContactWithSim(recipient: String, useMainSIM: Boolean) {
     handlePermission(PERMISSION_READ_PHONE_STATE) {
         val wantedSimIndex = if (useMainSIM) 0 else 1
-        val handle = getAvailableSIMCardLabels().sortedBy { it.id }[wantedSimIndex].handle
+        val handle = getAvailableSIMCardLabels().sortedBy { it.id }.getOrNull(wantedSimIndex)?.handle
         launchCallIntent(recipient, handle)
     }
 }
