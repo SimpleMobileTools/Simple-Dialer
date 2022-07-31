@@ -12,7 +12,7 @@ Den levereras med Material Design och mörkt tema som standard, och ger en bra a
 
 Innehåller ingen reklam eller onödiga behörigheter. Den har helt öppen källkod och anpassningsbara färger.
 
-Kolla in hela uppsättningen av Simple-verktyg här:
+Kolla in hela uppsättningen enkla verktyg här:
 https://www.simplemobiletools.com
 
 Facebook:
