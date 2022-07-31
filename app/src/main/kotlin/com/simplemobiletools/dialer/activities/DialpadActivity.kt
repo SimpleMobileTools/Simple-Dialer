@@ -11,8 +11,6 @@ import android.telephony.PhoneNumberUtils
 import android.telephony.TelephonyManager
 import android.util.TypedValue
 import android.view.KeyEvent
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
@@ -43,6 +41,7 @@ class DialpadActivity : SimpleActivity() {
             return
         }
 
+        setupOptionsMenu()
         speedDialValues = config.getSpeedDialValues()
         privateCursor = getMyContactsCursor(false, true)
 
@@ -127,21 +126,18 @@ class DialpadActivity : SimpleActivity() {
         super.onResume()
         updateTextColors(dialpad_holder)
         dialpad_clear_char.applyColorFilter(getProperTextColor())
-        updateNavigationBarColor(getBottomTabsBackgroundColor())
+        updateNavigationBarColor(getBottomNavigationBackgroundColor())
+        setupToolbar(dialpad_toolbar, NavigationIcon.Arrow)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_dialpad, menu)
-        updateMenuItemColors(menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.add_number_to_contact -> addNumberToContact()
-            else -> return super.onOptionsItemSelected(item)
+    private fun setupOptionsMenu() {
+        dialpad_toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.add_number_to_contact -> addNumberToContact()
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
         }
-        return true
     }
 
     private fun checkDialIntent(): Boolean {

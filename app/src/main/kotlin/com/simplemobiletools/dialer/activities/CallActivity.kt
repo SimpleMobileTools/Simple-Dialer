@@ -54,7 +54,6 @@ class CallActivity : SimpleActivity() {
     private var viewsUnderDialpad = arrayListOf<Pair<View, Float>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_call)
 
@@ -79,7 +78,7 @@ class CallActivity : SimpleActivity() {
     override fun onResume() {
         super.onResume()
         updateState()
-        updateNavigationBarColor(getBottomTabsBackgroundColor())
+        updateNavigationBarColor(getBottomNavigationBackgroundColor())
     }
 
     override fun onDestroy() {

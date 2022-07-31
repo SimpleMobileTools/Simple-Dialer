@@ -1,33 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/manage_speed_dial_scrollview"
+    android:id="@+id/manage_speed_dial_coordinator"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/manage_speed_dial_wrapper"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/manage_speed_dial_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/manage_speed_dial_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/color_primary"
+            app:title="@string/manage_speed_dial"
+            app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/manage_speed_dial_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="HardcodedText">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/manage_speed_dial_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/normal_margin"
-            android:text="@string/speed_dial_label"
-            android:textSize="@dimen/bigger_text_size" />
-
-        <com.simplemobiletools.commons.views.MyRecyclerView
-            android:id="@+id/speed_dial_list"
+        <LinearLayout
+            android:id="@+id/manage_speed_dial_wrapper"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:scrollbars="none"
-            app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="HardcodedText">
 
-    </LinearLayout>
-</ScrollView>
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/manage_speed_dial_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/normal_margin"
+                android:text="@string/speed_dial_label"
+                android:textSize="@dimen/bigger_text_size" />
+
+            <com.simplemobiletools.commons.views.MyRecyclerView
+                android:id="@+id/speed_dial_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:scrollbars="none"
+                app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

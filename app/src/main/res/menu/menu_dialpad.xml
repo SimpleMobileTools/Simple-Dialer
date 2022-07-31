@@ -5,5 +5,5 @@
         android:id="@+id/add_number_to_contact"
         android:icon="@drawable/ic_plus_vector"
         android:title="@string/add_number_to_contact"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 </menu>

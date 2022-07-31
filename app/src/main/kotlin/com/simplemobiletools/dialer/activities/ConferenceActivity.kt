@@ -1,6 +1,7 @@
 package com.simplemobiletools.dialer.activities
 
 import android.os.Bundle
+import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ConferenceCallsAdapter
 import com.simplemobiletools.dialer.helpers.CallManager
@@ -13,5 +14,10 @@ class ConferenceActivity : SimpleActivity() {
         setContentView(R.layout.activity_conference)
 
         conference_calls_list.adapter = ConferenceCallsAdapter(this, conference_calls_list, ArrayList(CallManager.getConferenceCalls())) {}
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setupToolbar(conference_toolbar, NavigationIcon.Arrow)
     }
 }

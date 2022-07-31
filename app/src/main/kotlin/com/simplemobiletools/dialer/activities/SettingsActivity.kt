@@ -25,6 +25,7 @@ class SettingsActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
+        setupToolbar(settings_toolbar, NavigationIcon.Arrow)
 
         setupPurchaseThankYou()
         setupCustomizeColors()
@@ -42,7 +43,6 @@ class SettingsActivity : SimpleActivity() {
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
         updateTextColors(settings_holder)
-        invalidateOptionsMenu()
 
         arrayOf(
             settings_color_customization_label,

@@ -3,6 +3,7 @@ package com.simplemobiletools.dialer.activities
 import android.os.Bundle
 import com.google.gson.Gson
 import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
@@ -28,6 +29,11 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
         }
 
         updateTextColors(manage_speed_dial_scrollview)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setupToolbar(manage_speed_dial_toolbar, NavigationIcon.Arrow)
     }
 
     override fun onStop() {

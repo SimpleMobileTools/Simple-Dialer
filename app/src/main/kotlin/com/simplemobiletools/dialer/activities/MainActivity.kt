@@ -47,7 +47,7 @@ import me.grantland.widget.AutofitHelper
 class MainActivity : SimpleActivity() {
     private var isSearchOpen = false
     private var launchedDialer = false
-    private var searchMenuItem: MenuItem? = null
+    private var mSearchMenuItem: MenuItem? = null
     private var storedShowTabs = 0
     private var searchQuery = ""
     var cachedContacts = ArrayList<SimpleContact>()
@@ -56,6 +56,8 @@ class MainActivity : SimpleActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
+        setupOptionsMenu()
+        refreshMenuItems()
 
         launchedDialer = savedInstanceState?.getBoolean(OPEN_DIAL_PAD_AT_LAUNCH) ?: false
 
@@ -81,11 +83,6 @@ class MainActivity : SimpleActivity() {
         SimpleContact.sorting = config.sorting
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putBoolean(OPEN_DIAL_PAD_AT_LAUNCH, launchedDialer)
-    }
-
     override fun onResume() {
         super.onResume()
         val properPrimaryColor = getProperPrimaryColor()
@@ -96,6 +93,7 @@ class MainActivity : SimpleActivity() {
         }
 
         setupTabColors()
+        setupToolbar(main_toolbar, searchMenuItem = mSearchMenuItem)
 
         getAllFragments().forEach {
             it?.setupColors(getProperTextColor(), getProperPrimaryColor(), getProperPrimaryColor())
@@ -121,31 +119,6 @@ class MainActivity : SimpleActivity() {
         config.lastUsedViewPagerPage = view_pager.currentItem
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
-        menu.apply {
-            findItem(R.id.clear_call_history).isVisible = getCurrentFragment() == recents_fragment
-            findItem(R.id.sort).isVisible = getCurrentFragment() != recents_fragment
-            findItem(R.id.create_new_contact).isVisible = getCurrentFragment() == contacts_fragment
-
-            setupSearch(this)
-            updateMenuItemColors(this)
-        }
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.clear_call_history -> clearCallHistory()
-            R.id.create_new_contact -> launchCreateNewContactIntent()
-            R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
-            R.id.settings -> launchSettings()
-            R.id.about -> launchAbout()
-            else -> return super.onOptionsItemSelected(item)
-        }
-        return true
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         super.onActivityResult(requestCode, resultCode, resultData)
         // we dont really care about the result, the app can work without being the default Dialer too
@@ -154,9 +127,46 @@ class MainActivity : SimpleActivity() {
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(OPEN_DIAL_PAD_AT_LAUNCH, launchedDialer)
+    }
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         refreshItems()
+    }
+
+    override fun onBackPressed() {
+        if (isSearchOpen && mSearchMenuItem != null) {
+            mSearchMenuItem!!.collapseActionView()
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    private fun refreshMenuItems() {
+        val currentFragment = getCurrentFragment()
+        main_toolbar.menu.apply {
+            findItem(R.id.clear_call_history).isVisible = currentFragment == recents_fragment
+            findItem(R.id.sort).isVisible = currentFragment != recents_fragment
+            findItem(R.id.create_new_contact).isVisible = currentFragment == contacts_fragment
+        }
+    }
+
+    private fun setupOptionsMenu() {
+        setupSearch(main_toolbar.menu)
+        main_toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.clear_call_history -> clearCallHistory()
+                R.id.create_new_contact -> launchCreateNewContactIntent()
+                R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
+                R.id.settings -> launchSettings()
+                R.id.about -> launchAbout()
+                else -> return@setOnMenuItemClickListener false
+            }
+            return@setOnMenuItemClickListener true
+        }
     }
 
     private fun checkContactPermissions() {
@@ -167,8 +177,8 @@ class MainActivity : SimpleActivity() {
 
     private fun setupSearch(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        searchMenuItem = menu.findItem(R.id.search)
-        (searchMenuItem!!.actionView as SearchView).apply {
+        mSearchMenuItem = menu.findItem(R.id.search)
+        (mSearchMenuItem!!.actionView as SearchView).apply {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
             isSubmitButtonEnabled = false
             queryHint = getString(R.string.search)
@@ -185,7 +195,7 @@ class MainActivity : SimpleActivity() {
             })
         }
 
-        MenuItemCompat.setOnActionExpandListener(searchMenuItem, object : MenuItemCompat.OnActionExpandListener {
+        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
                 isSearchOpen = true
                 main_dialpad_button.beGone()
@@ -254,7 +264,7 @@ class MainActivity : SimpleActivity() {
             updateBottomTabItemColors(inactiveView, false)
         }
 
-        val bottomBarColor = getBottomTabsBackgroundColor()
+        val bottomBarColor = getBottomNavigationBackgroundColor()
         main_tabs_holder.setBackgroundColor(bottomBarColor)
         updateNavigationBarColor(bottomBarColor)
     }
@@ -264,11 +274,7 @@ class MainActivity : SimpleActivity() {
     private fun initFragments() {
         view_pager.offscreenPageLimit = 2
         view_pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrollStateChanged(state: Int) {
-                if (state == ViewPager.SCROLL_STATE_SETTLING) {
-                    closeSearch()
-                }
-            }
+            override fun onPageScrollStateChanged(state: Int) {}
 
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
@@ -277,7 +283,7 @@ class MainActivity : SimpleActivity() {
                 getAllFragments().forEach {
                     it?.finishActMode()
                 }
-                invalidateOptionsMenu()
+                refreshMenuItems()
             }
         })
 
@@ -296,12 +302,16 @@ class MainActivity : SimpleActivity() {
                 }
 
                 main_tabs_holder.getTabAt(wantedTab)?.select()
-                invalidateOptionsMenu()
+                refreshMenuItems()
             }, 100L)
         }
 
         main_dialpad_button.setOnClickListener {
             launchDialpad()
+        }
+
+        view_pager.onGlobalLayout {
+            refreshMenuItems()
         }
 
         if (config.openDialPadAtLaunch && !launchedDialer) {
@@ -497,7 +507,7 @@ class MainActivity : SimpleActivity() {
             getAllFragments().forEach {
                 it?.onSearchQueryChanged("")
             }
-            searchMenuItem?.collapseActionView()
+            mSearchMenuItem?.collapseActionView()
         }
     }
 

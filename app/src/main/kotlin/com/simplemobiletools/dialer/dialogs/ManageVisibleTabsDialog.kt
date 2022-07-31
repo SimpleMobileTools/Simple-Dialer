@@ -1,11 +1,11 @@
 package com.simplemobiletools.dialer.dialogs
 
-import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
+import com.simplemobiletools.commons.helpers.TAB_CALL_HISTORY
 import com.simplemobiletools.commons.helpers.TAB_CONTACTS
 import com.simplemobiletools.commons.helpers.TAB_FAVORITES
-import com.simplemobiletools.commons.helpers.TAB_CALL_HISTORY
 import com.simplemobiletools.commons.views.MyAppCompatCheckbox
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.config
@@ -27,10 +27,10 @@ class ManageVisibleTabsDialog(val activity: BaseSimpleActivity) {
             view.findViewById<MyAppCompatCheckbox>(value).isChecked = showTabs and key != 0
         }
 
-        AlertDialog.Builder(activity)
+        activity.getAlertDialogBuilder()
             .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
             .setNegativeButton(R.string.cancel, null)
-            .create().apply {
+            .apply {
                 activity.setupDialogStuff(view, this)
             }
     }
