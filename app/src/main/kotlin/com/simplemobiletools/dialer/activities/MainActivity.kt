@@ -87,13 +87,11 @@ class MainActivity : SimpleActivity() {
         super.onResume()
         val properPrimaryColor = getProperPrimaryColor()
         val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, properPrimaryColor.getContrastColor())
-        main_dialpad_button.apply {
-            setImageDrawable(dialpadIcon)
-            background.applyColorFilter(properPrimaryColor)
-        }
+        main_dialpad_button.setImageDrawable(dialpadIcon)
 
         setupTabColors()
         setupToolbar(main_toolbar, searchMenuItem = mSearchMenuItem)
+        updateTextColors(main_holder)
 
         getAllFragments().forEach {
             it?.setupColors(getProperTextColor(), getProperPrimaryColor(), getProperPrimaryColor())
