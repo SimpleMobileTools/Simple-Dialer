@@ -61,7 +61,7 @@
     <string name="open_dialpad_by_default">应用程序打开时默认打开拨号盘</string>
     <string name="disable_proximity_sensor">在通话期间禁用接近传感器</string>
     <string name="disable_swipe_to_answer">用点击代替滑动来接听来电</string>
-    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_Screen">始终全屏显示来电</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
