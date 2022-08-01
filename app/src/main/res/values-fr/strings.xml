@@ -61,7 +61,7 @@
     <string name="open_dialpad_by_default">Ouvrir le pavé numérique par défaut à l\'ouverture de l\'application</string>
     <string name="disable_proximity_sensor">Désactiver le capteur de proximité pendant les appels</string>
     <string name="disable_swipe_to_answer">Remplacer le balayage pour répondre aux appels entrants par un clic</string>
-    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_Screen">Toujours afficher les appels entrants en plein écran</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
