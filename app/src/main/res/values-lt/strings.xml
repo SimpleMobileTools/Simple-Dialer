@@ -2,39 +2,39 @@
 <resources>
     <string name="app_name">Paprastas rinkiklis</string>
     <string name="app_launcher_name">Telefonas</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
-    <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <string name="default_phone_app_prompt">Padarykite šią programėlę numatytąja telefono programėle</string>
+    <string name="allow_displaying_over_other_apps">Prašome leisti rodyti per kitas programas, kad būtų užtikrintas patikimas elgesys</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Nepavyko gauti prieigos prie adresatų</string>
     <!-- Recents -->
     <string name="no_previous_calls">Nerasta jokių ankstesnių skambučių</string>
     <string name="could_not_access_the_call_history">Nepavyko pasiekti skambučių istorijos</string>
-    <string name="request_access">Request access</string>
-    <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History\?</string>
+    <string name="request_access">Prašyti prieigos</string>
+    <string name="remove_confirmation">Ar tikrai norite pašalinti pasirinktus elementus iš skambučių istorijos\?</string>
     <string name="clear_history_confirmation">Ar tikrai norite viską ištrinti iš skambučių istorijos\?</string>
-    <string name="show_grouped_calls">Show grouped calls</string>
+    <string name="show_grouped_calls">Rodyti sugrupuotus skambučius</string>
     <string name="clear_call_history">Išvalyti skambučių istoriją</string>
-    <string name="show_call_details">Show call details</string>
+    <string name="show_call_details">Rodyti skambučio informaciją</string>
     <!-- Dialpad -->
     <string name="dialpad">Numerio rinkiklis</string>
     <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="call_number">Call number</string>
+    <string name="hashtag">Grotelėmis</string>
+    <string name="call_number">Skambinti numeriu</string>
     <!-- Dialer -->
     <string name="dialer">Numerio rinkiklis</string>
-    <string name="accept">Accept</string>
+    <string name="accept">Priimti</string>
     <string name="accept_call">Atsiliepti</string>
     <string name="decline">Atmesti</string>
     <string name="decline_call">Atmesti skambutį</string>
-    <string name="unknown_caller">Unknown Caller</string>
+    <string name="unknown_caller">Nežinomas skambintojas</string>
     <string name="is_calling">Skambina…</string>
     <string name="dialing">Numerio rinkimas…</string>
-    <string name="call_ended">Call Ended</string>
-    <string name="call_ending">Call Ending</string>
-    <string name="ongoing_call">Ongoing Call</string>
-    <string name="select_sim">Select a SIM for this call</string>
+    <string name="call_ended">Skambutis baigtas</string>
+    <string name="call_ending">Skambučio pabaiga</string>
+    <string name="ongoing_call">Vykdomas skambutis</string>
+    <string name="select_sim">Pasirinkite SIM kortelę šiam skambučiui</string>
     <string name="always_use_this_sim">Šiam numeriui visada naudoti šią SIM kortelę</string>
-    <string name="unset_default_sim">Unset default SIM</string>
+    <string name="unset_default_sim">Atšaukti numatytąją SIM kortelę</string>
     <string name="calls">Skambučiai</string>
     <string name="turn_microphone_on">Įjungti mikrofoną</string>
     <string name="turn_microphone_off">Išjungti mikrofoną</string>
@@ -43,25 +43,25 @@
     <string name="show_dialpad">Rodyti numerio rinkiklį</string>
     <string name="hide_dialpad">Slėpti numerio rinkiklį</string>
     <string name="end_call">Užbaigti skambutį</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="hold_call">Sulaikyti skambutį</string>
+    <string name="resume_call">Tęsti skambutį</string>
+    <string name="call_on_hold">Sulaikyta</string>
+    <string name="call_swap">Keitimasis skambučiais</string>
+    <string name="call_merge">Sujungti skambučius</string>
+    <string name="call_split">Padalintas skambutis</string>
+    <string name="call_add">Pridėti skambutį</string>
+    <string name="conference_manage">Tvarkyti konferencinį skambutį</string>
+    <string name="conference">Konferencija</string>
     <!-- Speed dial -->
     <string name="speed_dial">Spartusis rinkimas</string>
     <string name="manage_speed_dial">Tvarkyti spartųjį rinkimą</string>
     <string name="speed_dial_label">Spustelėkite ant skaitmens, kad priskirtumėte jam adresatą. Tuomet, numerio rinkiklyje ilgai laikydami nurodytą skaitmenį, galėsite greitai pradėti skambinti nurodytam adresatui.</string>
     <!-- Settings -->
-    <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
+    <string name="group_subsequent_calls">Skambučių žurnale sugrupuokite paskesnius skambučius su tuo pačiu numeriu</string>
     <string name="open_dialpad_by_default">Atveriant programėlę, automatiškai pagal numatymą atverti numerio rinkiklį</string>
     <string name="disable_proximity_sensor">Skambučių metu išjungti artumo jutiklį</string>
-    <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
-    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
+    <string name="disable_swipe_to_answer">Atsiliepiant į įeinančius skambučius perbraukimą pakeiskite paspaudimu</string>
+    <string name="show_incoming_calls_full_Screen">Visada rodykite įeinančius skambučius per visą ekraną</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
