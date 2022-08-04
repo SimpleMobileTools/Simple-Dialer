@@ -61,7 +61,7 @@
     <string name="open_dialpad_by_default">Адкрываць панэль набору нумароў пры запуску</string>
     <string name="disable_proximity_sensor">Адключаць датчык набліжэння падчас выклікаў</string>
     <string name="disable_swipe_to_answer">Выкарыстоўваць націсканне замест перацягвання пры адказе на ўваходныя выклікі</string>
-    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_Screen">Заўсёды паказваць уваходныя выклікі ў поўнаэкранным рэжыме</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
