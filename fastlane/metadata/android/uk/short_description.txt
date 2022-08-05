@@ -1,1 +1,1 @@
-A handy phone call manager with phonebook, number blocking
+Керуйте телефонними дзвінками за допомогою цієї простої для набору номера
