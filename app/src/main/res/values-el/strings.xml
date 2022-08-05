@@ -58,7 +58,7 @@
     <string name="speed_dial_label">Κάντε κλικ σε έναν αριθμό για να αντιστοιχίσετε μια επαφή σε αυτόν. Στη συνέχεια, μπορείτε να καλέσετε γρήγορα τη δεδομένη επαφή πατώντας τον αριθμό αυτόν.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Ομαδοποίηση των επόμενων κλήσεων του ίδιου αριθμού στο αρχείο καταγραφής κλήσεων</string>
-    <string name="open_dialpad_by_default">Ανοίξτε το πληκτρολόγιο από προεπιλογή όταν ανοίγει η εφαρμογή</string>
+    <string name="open_dialpad_by_default">Άνοιγμα του πληκτρολογίου από προεπιλογή όταν ανοίγει η εφαρμογή</string>
     <string name="disable_proximity_sensor">Απενεργοποίηση του αισθητήρα εγγύτητας κατά τη διάρκεια κλήσεων</string>
     <string name="disable_swipe_to_answer">Αντικατάσταση Σάρωσης με Κλικ στην απάντηση εισερχόμενων κλήσεων</string>
     <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
