@@ -14,11 +14,13 @@ class SimpleCallScreeningService : CallScreeningService() {
 
     override fun onScreenCall(callDetails: Call.Details) {
         if (baseConfig.blockUnknownNumbers) {
-            val simpleContactsHelper = SimpleContactsHelper(this)
-            val number = Uri.decode(callDetails.handle?.toString()).substringAfter("tel:")
-            val privateCursor = getMyContactsCursor(false, true)
-            simpleContactsHelper.exists(number, privateCursor) { exists ->
-                respondToCall(callDetails, !exists)
+            if (callDetails.handle != null) {
+                val simpleContactsHelper = SimpleContactsHelper(this)
+                val number = Uri.decode(callDetails.handle?.toString() ?: "").substringAfter("tel:")
+                val privateCursor = getMyContactsCursor(false, true)
+                simpleContactsHelper.exists(number, privateCursor) { exists ->
+                    respondToCall(callDetails, !exists)
+                }
             }
         } else {
             respondToCall(callDetails, false)
