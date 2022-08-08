@@ -27,11 +27,11 @@ class CallNotificationManager(private val context: Context) {
     private val callContactAvatarHelper = CallContactAvatarHelper(context)
 
     @SuppressLint("NewApi")
-    fun setupNotification() {
+    fun setupNotification(forceLowPriority: Boolean = false) {
         getCallContact(context.applicationContext, CallManager.getPrimaryCall()) { callContact ->
             val callContactAvatar = callContactAvatarHelper.getCallContactAvatar(callContact)
             val callState = CallManager.getState()
-            val isHighPriority = context.powerManager.isInteractive && callState == Call.STATE_RINGING
+            val isHighPriority = context.powerManager.isInteractive && callState == Call.STATE_RINGING && !forceLowPriority
             val channelId = if (isHighPriority) "simple_dialer_call_high_priority" else "simple_dialer_call"
             if (isOreoPlus()) {
                 val importance = if (isHighPriority) NotificationManager.IMPORTANCE_HIGH else NotificationManager.IMPORTANCE_DEFAULT

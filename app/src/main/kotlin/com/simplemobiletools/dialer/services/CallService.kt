@@ -33,7 +33,7 @@ class CallService : InCallService() {
         val isScreenLocked = (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager).isDeviceLocked
         if (!powerManager.isInteractive || call.isOutgoing() || isScreenLocked) {
             try {
-                callNotificationManager.setupNotification()
+                callNotificationManager.setupNotification(true)
                 startActivity(CallActivity.getStartIntent(this))
             } catch (e: ActivityNotFoundException) {
                 // seems like startActivity can thrown AndroidRuntimeException and ActivityNotFoundException, not yet sure when and why, lets show a notification
