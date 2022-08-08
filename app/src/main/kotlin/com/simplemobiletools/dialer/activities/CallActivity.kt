@@ -46,6 +46,7 @@ class CallActivity : SimpleActivity() {
     private var isCallEnded = false
     private var callContact: CallContact? = null
     private var proximityWakeLock: PowerManager.WakeLock? = null
+    private var screenOnWakeLock: PowerManager.WakeLock? = null
     private var callDuration = 0
     private val callContactAvatarHelper by lazy { CallContactAvatarHelper(this) }
     private val callDurationHandler = Handler(Looper.getMainLooper())
@@ -85,6 +86,10 @@ class CallActivity : SimpleActivity() {
         super.onDestroy()
         CallManager.removeListener(callCallback)
         disableProximitySensor()
+
+        if (screenOnWakeLock?.isHeld == true) {
+            screenOnWakeLock!!.release()
+        }
     }
 
     override fun onBackPressed() {
@@ -608,6 +613,13 @@ class CallActivity : SimpleActivity() {
             (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager).requestDismissKeyguard(this, null)
         } else {
             window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD)
+        }
+
+        try {
+            val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
+            screenOnWakeLock = powerManager.newWakeLock(PowerManager.FULL_WAKE_LOCK, "com.simplemobiletools.dialer.pro:full_wake_lock")
+            screenOnWakeLock!!.acquire(5 * 1000L)
+        } catch (e: Exception) {
         }
     }
 
