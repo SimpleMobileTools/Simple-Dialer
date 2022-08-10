@@ -93,6 +93,8 @@ class DialpadActivity : SimpleActivity() {
         dialpad_clear_char.setOnLongClickListener { clearInput(); true }
         dialpad_call_button.setOnClickListener { initCall(dialpad_input.value, 0) }
         dialpad_input.onTextChangeListener { dialpadValueChanged(it) }
+        dialpad_input.requestFocus()
+
         SimpleContactsHelper(this).getAvailableContacts(false) { gotContacts(it) }
         disableKeyboardPopping()
 
