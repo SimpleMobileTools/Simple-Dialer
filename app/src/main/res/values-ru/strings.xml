@@ -16,7 +16,7 @@
     <string name="clear_call_history">Очистить историю вызовов</string>
     <string name="show_call_details">Показать сведения о вызове</string>
     <!-- Dialpad -->
-    <string name="dialpad">Диалог</string>
+    <string name="dialpad">Номеронабиратель</string>
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Хэштег</string>
     <string name="call_number">Номер вызова</string>
