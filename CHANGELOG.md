@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.14.1 *(2022-08-11)*
+----------------------------
+
+ * Fixed some glitches with incoming call screen and notification disappearing
+ * Added some stability, translation and UX improvements
+
 Version 5.14.0 *(2022-07-31)*
 ----------------------------
 
