@@ -50,8 +50,7 @@
         android:alpha="0.8"
         android:textSize="@dimen/call_status_text_size"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/call_sim_image"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/caller_number"
         tools:text="Is Calling" />
 
