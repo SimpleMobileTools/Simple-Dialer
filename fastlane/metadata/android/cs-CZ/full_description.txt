@@ -1,20 +1,20 @@
-A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation. You can now easily dial numbers using this amazing dial pad without any problem as this dial pad gives you different things to ease up your overall experience while making a call. Stay connected with your friends and family while having a smooth experience in this app. With bigger numbers and letters, it is now easier for you to see and dial numbers. Using this dialpad, you can access your contacts and maintain a call log with ease.
+Jednoduchá aplikace pro správu vašich telefonních hovorů, bez ohledu na to, kde jste. Obsahuje praktickou historii hovorů pro snadné zahájení hovoru. Nyní můžete s touto úžasnou aplikací vytáčet čísla snadno a bez problémů, protože toto vytáčení hovorů vám poskytuje různé drobnosti, které usnadňují váš celkový zážitek při volání. Zůstaňte ve spojení se svými přáteli a rodinou a zároveň mějte v této aplikaci bezproblémový zážitek. S většími čísly a písmeny je pro vás nyní snazší čísla vidět a vytočit. Pomocí tohoto vytáčení hovorů můžete snadno přistupovat ke svým kontaktům a snadno udržovat historii hovorů.
 
-There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too. You can use the quick search for finding your favorite contacts not just in the contact list, but also at the call history. Call log entries can be removed either one by one, but it can also be cleared out at once.
+Je zde k dispozici služba rychlého vytáčení s chytrým navrhováním kontaktů. Podporuje také písmena. Rychlé vyhledávání můžete použít pro nalezení svých oblíbených kontaktů nejen v seznamu kontaktů, ale také v historii hovorů. Položky historie volání lze odstranit jednu po druhé, ale lze je také vymazat všechny najednou.
 
-You can easily block phone numbers to avoid unwanted incoming calls. This feature is missing in most of the apps present on the store. Using this feature, you can choose who can call you. By this feature, the security of the user can be maintained easily by blocking numbers that are useless or threatening. You can block calls from not saved contacts too.
+Můžete snadno blokovat telefonní čísla, abyste se vyhnuli nežádoucím příchozím hovorům. Tato funkce chybí ve většině aplikací přítomných v obchodě. Pomocí této funkce si můžete vybrat, kdo vám může zavolat. Díky této funkci lze bezpečí uživatele snadno udržovat blokováním čísel, která jsou zbytečná nebo ohrožující. Můžete také blokovat hovory od neuložených kontaktů.
 
-With advanced security features of this app, the numbers you type are tightly secured so you can have a seamless experience without worrying about your data going in wrong hands. Each of your phone number is safe with you. 
+S pokročilými bezpečnostními funkcemi této aplikace jsou čísla, která zadáte, pevně zabezpečená, takže můžete mít bezproblémový zážitek, aniž byste se museli obávat o svá data, že se dostanou do špatných rukou. Každé z vašich telefonních čísel je s vámi bezpečné.
 
-Supported Speed dialing makes calling your favorite contacts with this true phone a breeze. You can make any phone number your favorite so you can quickly dial it. This way, you can easily make contacts with people without finding deep down in other numbers.
+Podpora rychlého vytáčení umožňuje, že volání na vaše oblíbené kontakty je s tímto telefonem skutečně hračkou. Můžete přidat libovolné telefonní číslo do svých oblíbených, abyste na něj mohli rychle zavolat. Tímto způsobem můžete snadno navázat kontakt s přáteli, aniž byste je museli hledat hluboko mezi jinými čísly.
 
-To help you manage your calls quickly the phone number app also supports favorite contacts and creating shortcuts of any contact on the home screen. Keeping track of call logs for different phone number is also a plus point of this app.
+Abychom rychle pomohli spravovat vaše hovory, aplikace telefonního čísla také podporuje oblíbené kontakty a vytváření zkratek pro jakýkoliv kontakt na domovskou obrazovku. Sledování historie hovorů pro různá telefonní čísla je také plus bodem této aplikace.
 
-It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+Ve výchozím nastavení přichází s designem ve stylu Material a tmavým motivem, což poskytuje skvělý uživatelský zážitek pro snadné použití. Nepoužívání přístupu k Internetu vám poskytuje větší soukromí, zabezpečení a stabilitu než jiné aplikace.
 
-Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+Neobsahuje žádné reklamy ani nepotřebná oprávnění. Má plně otevřený zdrojový kód, poskytuje možnost změny barev.
 
-Check out the full suite of Simple Tools here:
+Podívejte se na celou sadu jednoduchých nástrojů zde:
 https://www.simplemobiletools.com
 
 Facebook:
