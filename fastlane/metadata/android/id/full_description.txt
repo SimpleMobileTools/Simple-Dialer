@@ -12,7 +12,7 @@ Untuk membantu Anda mengelola panggilan dengan cepat, aplikasi nomor telepon jug
 
 Muncul dengan desain material dan tema gelap secara default, memberikan pengalaman pengguna yang luar biasa untuk penggunaan yang mudah. Kurangnya akses internet memberi Anda lebih banyak privasi, keamanan, dan stabilitas daripada aplikasi lain.
 
-Tidak mengandung iklan atau izin yang tidak perlu. Ini sepenuhnya open source, memberikan warna yang dapat disesuaikan. Melacak log panggilan untuk nomor telepon yang berbeda juga merupakan nilai tambah dari aplikasi ini.
+Tidak mengandung iklan atau izin yang tidak perlu. Ini sepenuhnya open source, memberikan warna yang dapat disesuaikan.
 
 Lihat rangkaian lengkap Alat Sederhana di sini:
 https://www.simplemobiletools.com
