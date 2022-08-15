@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Простой номеронабиратель</string>
-    <string name="app_launcher_name">номеронабиратель</string>
+    <string name="app_name">Simple Dialer</string>
+    <string name="app_launcher_name">Телефон</string>
     <string name="default_phone_app_prompt">Сделайте это приложение основным для совершения телефонных вызовов</string>
-    <string name="allow_displaying_over_other_apps">Пожалуйста, разрешите отображение поверх других приложений для надежного поведения</string>
+    <string name="allow_displaying_over_other_apps">Разрешите отображение поверх других приложений для надёжной работы</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Не удалось получить доступ к вашим контактам</string>
+    <string name="could_not_access_contacts">Невозможно получить доступ к контактам</string>
     <!-- Recents -->
     <string name="no_previous_calls">Предыдущие вызовы не найдены</string>
     <string name="could_not_access_the_call_history">Невозможно получить доступ к истории вызовов</string>
     <string name="request_access">Запрос доступа</string>
-    <string name="remove_confirmation">Вы уверены, что хотите удалить выбранные элементы из журнала вызовов\?</string>
-    <string name="clear_history_confirmation">Вы уверены, что хотите удалить все из журнала вызовов\?</string>
-    <string name="show_grouped_calls">Показать сгруппированные вызовы</string>
+    <string name="remove_confirmation">Удалить выбранные записи из истории вызовов\?</string>
+    <string name="clear_history_confirmation">Удалить всю историю вызовов\?</string>
+    <string name="show_grouped_calls">Сгруппировать вызовы</string>
     <string name="clear_call_history">Очистить историю вызовов</string>
     <string name="show_call_details">Показать сведения о вызове</string>
     <!-- Dialpad -->
     <string name="dialpad">Номеронабиратель</string>
-    <string name="asterisk">Звездочка</string>
+    <string name="asterisk">Asterisk</string>
     <string name="hashtag">Хэштег</string>
     <string name="call_number">Номер вызова</string>
     <!-- Dialer -->
-    <string name="dialer">номеронабиратель</string>
+    <string name="dialer">Телефон</string>
     <string name="accept">Принять</string>
     <string name="accept_call">Принять вызов</string>
-    <string name="decline">Снижение</string>
-    <string name="decline_call">Отклонить звонок</string>
+    <string name="decline">Отклонить</string>
+    <string name="decline_call">Отклонить вызов</string>
     <string name="unknown_caller">Неизвестный абонент</string>
     <string name="is_calling">Звонит…</string>
     <string name="dialing">Набор номера…</string>
@@ -34,8 +34,8 @@
     <string name="ongoing_call">Текущий вызов</string>
     <string name="select_sim">Выберите SIM для этого вызова</string>
     <string name="always_use_this_sim">Всегда использовать эту SIM для данного номера</string>
-    <string name="unset_default_sim">Сброс SIM-карты по умолчанию</string>
-    <string name="calls">Звонки</string>
+    <string name="unset_default_sim">Снять выбор SIM по умолчанию</string>
+    <string name="calls">Вызовы</string>
     <string name="turn_microphone_on">Включить микрофон</string>
     <string name="turn_microphone_off">Отключить микрофон</string>
     <string name="turn_speaker_on">Включить динамик</string>
@@ -45,7 +45,7 @@
     <string name="end_call">Завершить вызов</string>
     <string name="hold_call">Удержание вызова</string>
     <string name="resume_call">Продолжить вызов</string>
-    <string name="call_on_hold">На удержании</string>
+    <string name="call_on_hold">Удержание</string>
     <string name="call_swap">Переключить вызовы</string>
     <string name="call_merge">Объединить вызовы</string>
     <string name="call_split">Разделить вызовы</string>
@@ -53,12 +53,12 @@
     <string name="conference_manage">Управление конференц-связью</string>
     <string name="conference">Конференция</string>
     <!-- Speed dial -->
-    <string name="speed_dial">Быстрый набор</string>
-    <string name="manage_speed_dial">Управление быстрым набором</string>
+    <string name="speed_dial">Быстрый вызов</string>
+    <string name="manage_speed_dial">Управление быстрым вызовом</string>
     <string name="speed_dial_label">Нажмите на цифру, чтобы назначить ей контакт. Затем вы сможете быстро вызвать данный контакт длительным нажатием на выбранную цифру в номеронабирателе.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Группировать последующие вызовы с тем же номером в журнале вызовов</string>
-    <string name="open_dialpad_by_default">По умолчанию при открытии приложения открывается панель набора номера</string>
+    <string name="open_dialpad_by_default">По умолчанию открывать номеронабиратель при запуске приложения</string>
     <string name="disable_proximity_sensor">Отключать датчик приближения во время вызовов</string>
     <string name="disable_swipe_to_answer">Использовать нажатие вместо перетаскивания при ответе на входящие вызовы</string>
     <string name="show_incoming_calls_full_Screen">Всегда отображать входящие вызовы на полный экран</string>

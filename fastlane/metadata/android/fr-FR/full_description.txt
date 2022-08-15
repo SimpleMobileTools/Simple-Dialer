@@ -1,18 +1,20 @@
-Une application légère pour gérer vos appels, où que vous soyez. Fourni avec un journal d'appels pratique pour initier facilement des appels.
+Une application légère pour gérer vos appels, peu importe où vous êtes. Livré avec un journal d’appels pratique pour l’initiation d’appel facile. Vous pouvez maintenant facilement composer des numéros à l’aide de ce clavier sans aucun problème, car ce clavier vous donne différentes choses pour faciliter votre expérience globale tout en faisant un appel. Restez en contact avec vos amis et votre famille tout en ayant une expérience agréable dans cette application. Avec des chiffres et des lettres plus grands, il est maintenant plus facile pour vous de voir et de composer des numéros. À l’aide de ce clavier, vous pouvez accéder facilement à vos contacts et tenir un registre des appels.
 
-Il y aussi un clavier de numérotation rapide à votre service, avec une suggestion intelligente des contacts, qui prend également en charge les lettres.
+Il y a un clavier rapide à votre service aussi, avec des suggestions de contact intelligent. Il prend en charge les lettres aussi. Vous pouvez utiliser la recherche rapide pour trouver vos contacts préférés non seulement dans la liste de contacts, mais aussi dans l’historique des appels. Les entrées du journal d’appels peuvent être supprimées une par une, mais elles peuvent également être effacées à la fois.
 
-Vous pouvez facilement bloquer des numéros pour éviter les appels entrants indésirables.
+Vous pouvez facilement bloquer les numéros de téléphone pour éviter les appels entrants indésirables. Cette fonctionnalité est absente dans la plupart des applications présentes dans le magasin. En utilisant cette fonctionnalité, vous pouvez choisir qui peut vous appeler. Avec cette fonctionnalité, la sécurité de l’utilisateur peut être maintenue facilement en bloquant les numéros qui sont inutiles ou menaçants. Vous pouvez également bloquer les appels provenant de contacts non enregistrés.
 
-La numérotation rapide facilite l'appel de vos contacts préférés.
+Avec les fonctionnalités de sécurité avancées de cette application, les numéros que vous tapez sont étroitement sécurisés afin que vous puissiez avoir une expérience transparente sans se soucier de vos données allant dans les mauvaises mains. Chacun de vos numéros de téléphone est en sécurité avec vous. 
 
-Pour vous aider à gérer rapidement vos appels, l'application prend également en charge les contacts favoris et la création de raccourcis vers n'importe quel contact sur l'écran d'accueil.
+La composition rapide prise en charge rend l’appel de vos contacts préférés avec ce vrai téléphone un jeu d’enfant. Vous pouvez faire n’importe quel numéro de téléphone votre préféré afin que vous puissiez rapidement le composer. De cette façon, vous pouvez facilement prendre contact avec les gens sans trouver profondément dans d’autres numéros.
 
-Avec un Material Design et un thème sombre par défaut, il offre une excellente expérience utilisateur pour une utilisation facile. L'absence d'accès à internet vous donne plus de confidentialité, de sécurité et de stabilité que les autres applications.
+Pour vous aider à gérer vos appels rapidement, l’application de numéro de téléphone prend également en charge les contacts préférés et crée des raccourcis pour tout contact sur l’écran d’accueil. Garder une trace des journaux d’appels pour différents numéros de téléphone est également un point positif de cette application.
 
-Ne contient aucune publicité ou autorisation inutile. Il est entièrement open source, avec des couleurs personnalisables.
+Il est livré avec la conception du matériel et un thème sombre par défaut, offrant une grande expérience utilisateur pour une utilisation facile. Le manque d’accès à Internet vous donne plus de confidentialité, de sécurité et de stabilité que d’autres applications.
 
-Découvrez la suite complète des applications Simple Mobile Tools ici :
+Ne contient pas d’annonces ou d’autorisations inutiles. Il est entièrement open-source et fournit des couleurs personnalisables.
+
+Découvrez la gamme complète d’outils simples ici :
 https://www.simplemobiletools.com
 
 Facebook:
