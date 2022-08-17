@@ -228,11 +228,13 @@ class CallActivity : SimpleActivity() {
             } else {
                 call_decline.left.toFloat()
             }
+
             maxDragX = if (isRtl) {
                 call_decline.left.toFloat()
             } else {
                 call_accept.left.toFloat()
             }
+
             initialDraggableX = call_draggable.left.toFloat()
             initialLeftArrowX = call_left_arrow.x
             initialRightArrowX = call_right_arrow.x
@@ -245,6 +247,7 @@ class CallActivity : SimpleActivity() {
             } else {
                 -call_decline.x
             }
+
             rightArrowTranslation = if (isRtl) {
                 -call_accept.x
             } else {
@@ -255,6 +258,7 @@ class CallActivity : SimpleActivity() {
                 call_left_arrow.setImageResource(R.drawable.ic_chevron_right_vector)
                 call_right_arrow.setImageResource(R.drawable.ic_chevron_left_vector)
             }
+
             call_left_arrow.applyColorFilter(getColor(R.color.md_red_400))
             call_right_arrow.applyColorFilter(getColor(R.color.md_green_400))
 
