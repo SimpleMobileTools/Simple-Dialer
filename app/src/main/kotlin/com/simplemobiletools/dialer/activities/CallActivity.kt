@@ -30,6 +30,8 @@ import com.simplemobiletools.dialer.helpers.*
 import com.simplemobiletools.dialer.models.CallContact
 import kotlinx.android.synthetic.main.activity_call.*
 import kotlinx.android.synthetic.main.dialpad.*
+import kotlin.math.max
+import kotlin.math.min
 
 class CallActivity : SimpleActivity() {
     companion object {
@@ -219,9 +221,20 @@ class CallActivity : SimpleActivity() {
         var leftArrowTranslation = 0f
         var rightArrowTranslation = 0f
 
+        val isRtl = isRTLLayout
         call_accept.onGlobalLayout {
-            minDragX = call_decline.left.toFloat()
-            maxDragX = call_accept.left.toFloat()
+            minDragX = if (isRtl) {
+                call_accept.left.toFloat()
+            } else {
+                call_decline.left.toFloat()
+            }
+
+            maxDragX = if (isRtl) {
+                call_decline.left.toFloat()
+            } else {
+                call_accept.left.toFloat()
+            }
+
             initialDraggableX = call_draggable.left.toFloat()
             initialLeftArrowX = call_left_arrow.x
             initialRightArrowX = call_right_arrow.x
@@ -229,8 +242,22 @@ class CallActivity : SimpleActivity() {
             initialLeftArrowScaleY = call_left_arrow.scaleY
             initialRightArrowScaleX = call_right_arrow.scaleX
             initialRightArrowScaleY = call_right_arrow.scaleY
-            leftArrowTranslation = -call_decline.x
-            rightArrowTranslation = call_decline.x
+            leftArrowTranslation = if (isRtl) {
+                call_accept.x
+            } else {
+                -call_decline.x
+            }
+
+            rightArrowTranslation = if (isRtl) {
+                -call_accept.x
+            } else {
+                call_decline.x
+            }
+
+            if (isRtl) {
+                call_left_arrow.setImageResource(R.drawable.ic_chevron_right_vector)
+                call_right_arrow.setImageResource(R.drawable.ic_chevron_left_vector)
+            }
 
             call_left_arrow.applyColorFilter(getColor(R.color.md_red_400))
             call_right_arrow.applyColorFilter(getColor(R.color.md_green_400))
@@ -243,7 +270,7 @@ class CallActivity : SimpleActivity() {
         call_draggable_background.drawable.mutate().setTint(getProperTextColor())
 
         var lock = false
-        call_draggable.setOnTouchListener { v, event ->
+        call_draggable.setOnTouchListener { _, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     dragDownX = event.x
@@ -267,29 +294,47 @@ class CallActivity : SimpleActivity() {
                     startArrowAnimation(call_right_arrow, initialRightArrowX, initialRightArrowScaleX, initialRightArrowScaleY, rightArrowTranslation)
                 }
                 MotionEvent.ACTION_MOVE -> {
-                    call_draggable.x = Math.min(maxDragX, Math.max(minDragX, event.rawX - dragDownX))
+                    call_draggable.x = min(maxDragX, max(minDragX, event.rawX - dragDownX))
                     when {
                         call_draggable.x >= maxDragX - 50f -> {
                             if (!lock) {
                                 lock = true
                                 call_draggable.performHapticFeedback()
-                                acceptCall()
+                                if (isRtl) {
+                                    endCall()
+                                } else {
+                                    acceptCall()
+                                }
                             }
                         }
                         call_draggable.x <= minDragX + 50f -> {
                             if (!lock) {
                                 lock = true
                                 call_draggable.performHapticFeedback()
-                                endCall()
+                                if (isRtl) {
+                                    acceptCall()
+                                } else {
+                                    endCall()
+                                }
                             }
                         }
                         call_draggable.x > initialDraggableX -> {
                             lock = false
-                            call_draggable.setImageDrawable(getDrawable(R.drawable.ic_phone_green_vector))
+                            val drawableRes = if (isRtl) {
+                                R.drawable.ic_phone_down_red_vector
+                            } else {
+                                R.drawable.ic_phone_green_vector
+                            }
+                            call_draggable.setImageDrawable(getDrawable(drawableRes))
                         }
                         call_draggable.x <= initialDraggableX -> {
                             lock = false
-                            call_draggable.setImageDrawable(getDrawable(R.drawable.ic_phone_down_red_vector))
+                            val drawableRes = if (isRtl) {
+                                R.drawable.ic_phone_green_vector
+                            } else {
+                                R.drawable.ic_phone_down_red_vector
+                            }
+                            call_draggable.setImageDrawable(getDrawable(drawableRes))
                         }
                     }
                 }
