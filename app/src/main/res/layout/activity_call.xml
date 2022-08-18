@@ -24,6 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/normal_margin"
         android:gravity="center_horizontal"
+        android:paddingStart="@dimen/medium_margin"
+        android:paddingEnd="@dimen/medium_margin"
         android:textSize="@dimen/caller_name_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
