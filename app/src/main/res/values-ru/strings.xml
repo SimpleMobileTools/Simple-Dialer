@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
+    <string name="app_name">Простой телефон</string>
     <string name="app_launcher_name">Телефон</string>
     <string name="default_phone_app_prompt">Сделайте это приложение основным для совершения телефонных вызовов</string>
     <string name="allow_displaying_over_other_apps">Разрешите отображение поверх других приложений для надёжной работы</string>
@@ -31,7 +31,7 @@
     <string name="is_calling">Звонит…</string>
     <string name="dialing">Набор номера…</string>
     <string name="call_ended">Вызов завершён</string>
-    <string name="call_ending">Завершение звонка</string>
+    <string name="call_ending">Завершение вызова</string>
     <string name="ongoing_call">Текущий вызов</string>
     <string name="select_sim">Выберите SIM для этого вызова</string>
     <string name="always_use_this_sim">Всегда использовать эту SIM для данного номера</string>
