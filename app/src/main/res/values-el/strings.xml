@@ -20,7 +20,7 @@
     <string name="asterisk">Αστερίσκος</string>
     <string name="hashtag">Ετικέτα</string>
     <string name="call_number">Αριθμός κλήσης</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
+    <string name="dialpad_beeps">Ήχοι πληκτρολογίου κλήσης</string>
     <!-- Dialer -->
     <string name="dialer">Κλήση</string>
     <string name="accept">Αποδοχή</string>
@@ -62,7 +62,7 @@
     <string name="open_dialpad_by_default">Άνοιγμα του πληκτρολογίου από προεπιλογή όταν ανοίγει η εφαρμογή</string>
     <string name="disable_proximity_sensor">Απενεργοποίηση του αισθητήρα εγγύτητας κατά τη διάρκεια κλήσεων</string>
     <string name="disable_swipe_to_answer">Αντικατάσταση Σάρωσης με Κλικ στην απάντηση εισερχόμενων κλήσεων</string>
-    <string name="show_incoming_calls_full_Screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_Screen">Να εμφανίζονται πάντα οι εισερχόμενες κλήσεις σε πλήρη οθόνη</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
