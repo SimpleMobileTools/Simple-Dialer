@@ -20,6 +20,7 @@
     <string name="asterisk">Αστερίσκος</string>
     <string name="hashtag">Ετικέτα</string>
     <string name="call_number">Αριθμός κλήσης</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Κλήση</string>
     <string name="accept">Αποδοχή</string>

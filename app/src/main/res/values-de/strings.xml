@@ -20,6 +20,7 @@
     <string name="asterisk">Sternchen</string>
     <string name="hashtag">Raute</string>
     <string name="call_number">Rufnummer</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">akzeptieren</string>

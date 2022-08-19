@@ -20,6 +20,7 @@
     <string name="asterisk">Étoile</string>
     <string name="hashtag">Dièse</string>
     <string name="call_number">Numéro d\'appel</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Clavier</string>
     <string name="accept">Accepter</string>

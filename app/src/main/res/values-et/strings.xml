@@ -20,6 +20,7 @@
     <string name="asterisk">Tärn</string>
     <string name="hashtag">Teemaviide</string>
     <string name="call_number">Helista numbrile</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Nõustu</string>

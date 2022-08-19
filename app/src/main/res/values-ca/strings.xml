@@ -20,6 +20,7 @@
     <string name="asterisk">Asterisc</string>
     <string name="hashtag">Etiqueta</string>
     <string name="call_number">Número de trucada</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Marcador</string>
     <string name="accept">Accepta</string>

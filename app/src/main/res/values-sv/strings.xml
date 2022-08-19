@@ -20,6 +20,7 @@
     <string name="asterisk">Stjärna</string>
     <string name="hashtag">Fyrkant</string>
     <string name="call_number">Ring nummer</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Svara</string>

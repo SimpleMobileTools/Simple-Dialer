@@ -20,6 +20,7 @@
     <string name="asterisk">アスタリスク</string>
     <string name="hashtag">ハッシュタグ</string>
     <string name="call_number">電話番号</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">電話</string>
     <string name="accept">許可</string>

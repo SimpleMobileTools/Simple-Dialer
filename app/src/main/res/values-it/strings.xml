@@ -20,6 +20,7 @@
     <string name="asterisk">Asterisco</string>
     <string name="hashtag">Cancelletto</string>
     <string name="call_number">Numero di chiamata</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Compositore</string>
     <string name="accept">Accetta</string>

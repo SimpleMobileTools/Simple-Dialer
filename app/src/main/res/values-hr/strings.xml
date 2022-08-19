@@ -20,6 +20,7 @@
     <string name="asterisk">Zvjezdica</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Nazovi broj</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Birač</string>
     <string name="accept">Prihvati</string>

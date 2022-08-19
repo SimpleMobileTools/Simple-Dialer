@@ -20,6 +20,7 @@
     <string name="asterisk">Зорачка</string>
     <string name="hashtag">Рашотка</string>
     <string name="call_number">Нумар выкліку</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Тэлефон</string>
     <string name="accept">Прыняць</string>

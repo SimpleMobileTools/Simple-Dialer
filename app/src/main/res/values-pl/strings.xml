@@ -20,6 +20,7 @@
     <string name="asterisk">Gwiazdka</string>
     <string name="hashtag">Kratka</string>
     <string name="call_number">Zadzwoń na numer</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Odbierz</string>

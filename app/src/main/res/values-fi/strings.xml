@@ -20,6 +20,7 @@
     <string name="asterisk">Asteriski</string>
     <string name="hashtag">Risuaita</string>
     <string name="call_number">Soita numeroon</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Puhelin</string>
     <string name="accept">Hyväksy</string>

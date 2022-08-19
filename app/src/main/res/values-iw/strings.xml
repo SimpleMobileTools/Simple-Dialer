@@ -20,6 +20,7 @@
     <string name="asterisk">כוכבית</string>
     <string name="hashtag">סולמית</string>
     <string name="call_number">מספר שיחה</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">חייגן</string>
     <string name="accept">לקבל</string>

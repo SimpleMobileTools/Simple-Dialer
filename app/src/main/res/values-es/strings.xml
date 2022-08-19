@@ -20,6 +20,7 @@
     <string name="asterisk">Asterisco</string>
     <string name="hashtag">Almohadilla</string>
     <string name="call_number">Número de llamada</string>
+    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Marcador</string>
     <string name="accept">Aceptar</string>
