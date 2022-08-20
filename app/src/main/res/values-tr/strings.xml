@@ -20,7 +20,7 @@
     <string name="asterisk">Yıldız işareti</string>
     <string name="hashtag">Kare işareti</string>
     <string name="call_number">Numarayı ara</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
+    <string name="dialpad_beeps">Tuş takımı düğmelerine tıklandığında bip sesini etkinleştir</string>
     <!-- Dialer -->
     <string name="dialer">Çevirici</string>
     <string name="accept">Kabul Et</string>
