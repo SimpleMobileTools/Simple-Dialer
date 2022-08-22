@@ -20,7 +20,7 @@
     <string name="asterisk">Hvězdička</string>
     <string name="hashtag">Mřížka</string>
     <string name="call_number">Volané číslo</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
+    <string name="dialpad_beeps">Povolit pípání při kliknutí na tlačítka číselníku</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Přijmout</string>
