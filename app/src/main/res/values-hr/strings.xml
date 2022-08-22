@@ -20,15 +20,15 @@
     <string name="asterisk">Zvjezdica</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Nazovi broj</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Aktiviraj zvučne signale prilikom pritiskanja gumbova brojčanika</string>
+    <string name="dialpad_vibrations">Aktiviraj vibriranje prilikom pritiskanja gumbova brojčanika</string>
     <!-- Dialer -->
     <string name="dialer">Birač</string>
     <string name="accept">Prihvati</string>
     <string name="accept_call">Prihvati poziv</string>
     <string name="decline">Odbij</string>
     <string name="decline_call">Odbij poziv</string>
-    <string name="unknown_caller">Nepoznati pozivatelj</string>
+    <string name="unknown_caller">Nepoznat pozivatelj</string>
     <string name="is_calling">Zove…</string>
     <string name="dialing">Biranje…</string>
     <string name="call_ended">Poziv je završio</string>
