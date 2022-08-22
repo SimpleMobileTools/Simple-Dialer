@@ -21,6 +21,7 @@
     <string name="hashtag">Hekje</string>
     <string name="call_number">Nummer bellen</string>
     <string name="dialpad_beeps">Geluiden bij klikken op toetsenblok inschakelen</string>
+    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Telefoon</string>
     <string name="accept">Aannemen</string>

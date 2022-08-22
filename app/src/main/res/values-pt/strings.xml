@@ -21,6 +21,7 @@
     <string name="hashtag">hashtag</string>
     <string name="call_number">Ligar para o número</string>
     <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
+    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Discador</string>
     <string name="accept">Aceitar</string>

@@ -21,6 +21,7 @@
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Apelaţi numărul</string>
     <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
+    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Apeluri</string>
     <string name="accept">Acceptați</string>

@@ -21,6 +21,7 @@
     <string name="hashtag">Хэштег</string>
     <string name="call_number">Номер вызова</string>
     <string name="dialpad_beeps">Звуковые сигналы при нажатии кнопок набора номера</string>
+    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Телефон</string>
     <string name="accept">Принять</string>

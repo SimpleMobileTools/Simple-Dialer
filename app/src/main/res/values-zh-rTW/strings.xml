@@ -21,6 +21,7 @@
     <string name="hashtag">Hashtag</string>
     <string name="call_number">通話號碼</string>
     <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
+    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Dialer</string>
     <string name="accept">Accept</string>

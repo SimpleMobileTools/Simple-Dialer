@@ -21,6 +21,7 @@
     <string name="hashtag">Etiqueta</string>
     <string name="call_number">Número de trucada</string>
     <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
+    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Marcador</string>
     <string name="accept">Accepta</string>
