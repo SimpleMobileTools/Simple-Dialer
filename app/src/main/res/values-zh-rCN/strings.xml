@@ -20,7 +20,7 @@
     <string name="asterisk">星号键</string>
     <string name="hashtag">标签</string>
     <string name="call_number">呼叫号码</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
+    <string name="dialpad_beeps">单击拨号盘按钮时发出哔哔声</string>
     <!-- Dialer -->
     <string name="dialer">拨号器</string>
     <string name="accept">接听</string>
