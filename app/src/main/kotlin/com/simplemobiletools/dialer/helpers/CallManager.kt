@@ -1,10 +1,12 @@
 package com.simplemobiletools.dialer.helpers
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Handler
 import android.telecom.Call
 import android.telecom.InCallService
 import android.telecom.VideoProfile
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getStateCompat
 import com.simplemobiletools.dialer.extensions.hasCapability
 import com.simplemobiletools.dialer.extensions.isConference
@@ -168,11 +170,15 @@ class CallManager {
 
         fun getState() = getPrimaryCall()?.getStateCompat()
 
-        fun keypad(c: Char) {
-            call?.playDtmfTone(c)
-            Handler().postDelayed({
+        fun keypad(context: Context, char: Char) {
+            call?.playDtmfTone(char)
+            if (context.config.dialpadBeeps) {
+                Handler().postDelayed({
+                    call?.stopDtmfTone()
+                }, DIALPAD_TONE_LENGTH_MS)
+            } else {
                 call?.stopDtmfTone()
-            }, DIALPAD_TONE_LENGTH_MS)
+            }
         }
     }
 }

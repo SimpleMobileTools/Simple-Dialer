@@ -364,7 +364,7 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun dialpadPressed(char: Char) {
-        CallManager.keypad(char)
+        CallManager.keypad(this, char)
         dialpad_input.addCharacter(char)
     }
 
