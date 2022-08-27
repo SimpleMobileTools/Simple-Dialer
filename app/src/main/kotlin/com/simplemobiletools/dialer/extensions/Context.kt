@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.PowerManager
 import com.simplemobiletools.commons.extensions.telecomManager
 import com.simplemobiletools.dialer.helpers.Config
+import com.simplemobiletools.dialer.helpers.ToneGeneratorHelper
 import com.simplemobiletools.dialer.models.SIMAccount
 
 val Context.config: Config get() = Config.newInstance(applicationContext)
@@ -43,4 +44,12 @@ fun Context.areMultipleSIMsAvailable(): Boolean {
     } catch (ignored: Exception) {
         false
     }
+}
+
+private var toneGeneratorHelperInstance: ToneGeneratorHelper? = null
+fun Context.playOnetimeTone(char: Char) {
+    if (toneGeneratorHelperInstance == null) {
+        toneGeneratorHelperInstance = ToneGeneratorHelper(this)
+    }
+    toneGeneratorHelperInstance?.playTone(char)
 }

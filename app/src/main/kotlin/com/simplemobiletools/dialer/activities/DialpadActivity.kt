@@ -164,12 +164,13 @@ class DialpadActivity : SimpleActivity() {
 
     private fun dialpadPressed(char: Char, view: View?) {
         dialpad_input.addCharacter(char)
-        view?.performHapticFeedback()
+        maybePerformDialpadHapticFeedback(view)
+        maybePlayDialpadTone(char)
     }
 
     private fun clearChar(view: View) {
         dialpad_input.dispatchKeyEvent(dialpad_input.getKeyEvent(KeyEvent.KEYCODE_DEL))
-        view.performHapticFeedback()
+        maybePerformDialpadHapticFeedback(view)
     }
 
     private fun clearInput() {
@@ -271,6 +272,7 @@ class DialpadActivity : SimpleActivity() {
     }
 
     private fun speedDial(id: Int) {
+        maybePlayDialpadTone(id.digitToChar())
         if (dialpad_input.value.isEmpty()) {
             val speedDial = speedDialValues.firstOrNull { it.id == id }
             if (speedDial?.isValid() == true) {
@@ -288,5 +290,22 @@ class DialpadActivity : SimpleActivity() {
         russianCharsMap['ф'] = 7; russianCharsMap['х'] = 7; russianCharsMap['ц'] = 7; russianCharsMap['ч'] = 7
         russianCharsMap['ш'] = 8; russianCharsMap['щ'] = 8; russianCharsMap['ъ'] = 8; russianCharsMap['ы'] = 8
         russianCharsMap['ь'] = 9; russianCharsMap['э'] = 9; russianCharsMap['ю'] = 9; russianCharsMap['я'] = 9
+    }
+
+    private fun maybePlayDialpadTone(char: Char) {
+        if (config.dialpadBeeps) {
+            if (char == '+') {
+                // 0 is being long pressed
+                playOnetimeTone('0')
+            } else {
+                playOnetimeTone(char)
+            }
+        }
+    }
+
+    private fun maybePerformDialpadHapticFeedback(view: View?) {
+        if (config.dialpadVibration) {
+            view?.performHapticFeedback()
+        }
     }
 }
