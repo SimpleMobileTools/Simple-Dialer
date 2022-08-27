@@ -1,6 +1,7 @@
 package com.simplemobiletools.dialer.helpers
 
 import android.annotation.SuppressLint
+import android.os.Handler
 import android.telecom.Call
 import android.telecom.InCallService
 import android.telecom.VideoProfile
@@ -169,7 +170,9 @@ class CallManager {
 
         fun keypad(c: Char) {
             call?.playDtmfTone(c)
-            call?.stopDtmfTone()
+            Handler().postDelayed({
+                call?.stopDtmfTone()
+            }, DIALPAD_TONE_LENGTH_MS)
         }
     }
 }

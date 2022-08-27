@@ -14,7 +14,7 @@ class ToneGeneratorHelper(context: Context) {
 
     fun playTone(char: Char) = playTone(charToTone[char] ?: -1)
 
-    fun playTone(tone: Int, durationMs: Int = TONE_LENGTH_MS) {
+    fun playTone(tone: Int, durationMs: Int = DIALPAD_TONE_LENGTH_MS.toInt()) {
         if (tone != -1 && !isSilent) {
             toneGenerator.stopTone()
             toneGenerator.startTone(tone, durationMs)
@@ -22,7 +22,6 @@ class ToneGeneratorHelper(context: Context) {
     }
 
     companion object {
-        const val TONE_LENGTH_MS = 150 // The length of DTMF tones in milliseconds
         const val TONE_RELATIVE_VOLUME = 80 // The DTMF tone volume relative to other sounds in the stream
         const val DIAL_TONE_STREAM_TYPE = STREAM_DTMF
 
