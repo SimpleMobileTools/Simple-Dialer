@@ -47,6 +47,8 @@ class DialpadActivity : SimpleActivity() {
         speedDialValues = config.getSpeedDialValues()
         privateCursor = getMyContactsCursor(false, true)
 
+        toneGeneratorHelper = ToneGeneratorHelper(this)
+
         if (hasRussianLocale) {
             initRussianChars()
             dialpad_2_letters.append("\nАБВГ")
