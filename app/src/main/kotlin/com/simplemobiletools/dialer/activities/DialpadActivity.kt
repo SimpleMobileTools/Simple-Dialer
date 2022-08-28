@@ -19,6 +19,7 @@ import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.*
+import com.simplemobiletools.dialer.helpers.ToneGeneratorHelper
 import com.simplemobiletools.dialer.models.SpeedDial
 import kotlinx.android.synthetic.main.activity_dialpad.*
 import kotlinx.android.synthetic.main.activity_dialpad.dialpad_holder
@@ -31,6 +32,7 @@ class DialpadActivity : SimpleActivity() {
     private val russianCharsMap = HashMap<Char, Int>()
     private var hasRussianLocale = false
     private var privateCursor: Cursor? = null
+    private var toneGeneratorHelper: ToneGeneratorHelper? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -296,9 +298,9 @@ class DialpadActivity : SimpleActivity() {
         if (config.dialpadBeeps) {
             if (char == '+') {
                 // 0 is being long pressed
-                playOnetimeTone('0')
+                toneGeneratorHelper?.playTone('0')
             } else {
-                playOnetimeTone(char)
+                toneGeneratorHelper?.playTone(char)
             }
         }
     }
