@@ -63,7 +63,10 @@
     <string name="open_dialpad_by_default">Obre el teclat de marcatge de manera predeterminada quan s\'obri l\'aplicació</string>
     <string name="disable_proximity_sensor">Desactiva el sensor de proximitat durant les trucades</string>
     <string name="disable_swipe_to_answer">Substitueix el lliscament en respondre a les trucades entrants per fer clic</string>
-    <string name="show_incoming_calls_full_Screen">Mostra sempre les trucades entrants a pantalla completa</string>
+    <string name="show_incoming_calls_full_screen">Mostra sempre les trucades entrants a pantalla completa</string>
+    <!-- FAQ -->
+    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
+    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
