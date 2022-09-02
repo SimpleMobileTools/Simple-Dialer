@@ -2,12 +2,12 @@
 <resources>
     <string name="app_name">Marcador Simple</string>
     <string name="app_launcher_name">Marcador</string>
-    <string name="default_phone_app_prompt">Hacer esta app la predeterminada para hacer llamadas en tu dispositivo</string>
-    <string name="allow_displaying_over_other_apps">Por favor permita la función \"mostrar sobre otras aplicaciones\" para un compartimiento seguro</string>
+    <string name="default_phone_app_prompt">Por favor, haz que esta aplicación sea la aplicación de teléfono por defecto</string>
+    <string name="allow_displaying_over_other_apps">Por favor, permita la visualización sobre otras aplicaciones para un comportamiento fiable</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">No se pudo acceder a tus contactos</string>
+    <string name="could_not_access_contacts">No se ha podido acceder a tus contactos</string>
     <!-- Recents -->
-    <string name="no_previous_calls">No se han encontrado llamadas previas</string>
+    <string name="no_previous_calls">No se han encontrado llamadas anteriores</string>
     <string name="could_not_access_the_call_history">No se pudo acceder al historial de llamadas</string>
     <string name="request_access">Solicitar acceso</string>
     <string name="remove_confirmation">¿Estás seguro que quieres eliminar los elementos seleccionados del historial de llamadas\?</string>

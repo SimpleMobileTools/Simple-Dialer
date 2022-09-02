@@ -65,8 +65,8 @@
     <string name="disable_swipe_to_answer">Gelen aramalara yanıt vermek için kaydırmayı tıklamayla değiştir</string>
     <string name="show_incoming_calls_full_screen">Gelen aramaları her zaman tam ekranda görüntüle</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Gelen aramaları duyuyorum ama ekran açılmıyor. Ne yapabilirim\?</string>
+    <string name="faq_1_text">Bu tür sorunların aygıta ve sisteme özgü birçok nedeni olabilir, genel olarak söylemek zor. Aygıt ayarlarınıza bakmalı ve uygulamanın arka plandayken açılmasına ve diğer uygulamaların üzerinde görüntülenmesine izin verildiğinden emin olmalısınız.</string>
     <!--
         Bazı dizeleri bulamadınız mı? Burada daha fazlası var:
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
