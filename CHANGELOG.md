@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 5.15.0 *(2022-09-02)*
+----------------------------
+
+ * Allow toggling beeps and vibrations at the dial pad
+ * Allow pasting numbers at the dialpad
+ * Allow always displaying incoming calls on fullscreen
+ * Added Monochrome icon and Language picker support on Android 13+
+ * Added some translation, stability and UX improvements
+
 Version 5.14.1 *(2022-08-11)*
 ----------------------------
 
