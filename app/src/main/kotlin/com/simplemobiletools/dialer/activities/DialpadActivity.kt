@@ -304,7 +304,7 @@ class DialpadActivity : SimpleActivity() {
 
     private fun stopDialpadTone(char: Char) {
         if (config.dialpadBeeps) {
-            pressedKeys.remove(char)
+            if (!pressedKeys.remove(char)) return
             if (pressedKeys.isEmpty()) {
                 toneGeneratorHelper?.stopTone()
             } else {
