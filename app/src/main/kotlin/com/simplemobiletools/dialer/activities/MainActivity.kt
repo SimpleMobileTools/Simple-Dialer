@@ -75,6 +75,12 @@ class MainActivity : SimpleActivity() {
                 snackbar.setActionTextColor(getProperTextColor())
                 snackbar.show()
             }
+
+            handleNotificationPermission { granted ->
+                if (!granted) {
+                    toast(R.string.no_post_notifications_permissions)
+                }
+            }
         } else {
             launchSetDefaultDialerIntent()
         }
