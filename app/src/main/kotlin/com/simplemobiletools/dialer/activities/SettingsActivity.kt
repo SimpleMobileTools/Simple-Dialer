@@ -39,6 +39,8 @@ class SettingsActivity : SimpleActivity() {
         setupDialPadOpen()
         setupGroupSubsequentCalls()
         setupStartNameWithSurname()
+        setupDialpadVibrations()
+        setupDialpadBeeps()
         setupShowCallConfirmation()
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
@@ -203,6 +205,22 @@ class SettingsActivity : SimpleActivity() {
         settings_start_name_with_surname_holder.setOnClickListener {
             settings_start_name_with_surname.toggle()
             config.startNameWithSurname = settings_start_name_with_surname.isChecked
+        }
+    }
+
+    private fun setupDialpadVibrations() {
+        settings_dialpad_vibration.isChecked = config.dialpadVibration
+        settings_dialpad_vibration_holder.setOnClickListener {
+            settings_dialpad_vibration.toggle()
+            config.dialpadVibration = settings_dialpad_vibration.isChecked
+        }
+    }
+
+    private fun setupDialpadBeeps() {
+        settings_dialpad_beeps.isChecked = config.dialpadBeeps
+        settings_dialpad_beeps_holder.setOnClickListener {
+            settings_dialpad_beeps.toggle()
+            config.dialpadBeeps = settings_dialpad_beeps.isChecked
         }
     }
 

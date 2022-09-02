@@ -71,4 +71,12 @@ class Config(context: Context) : BaseConfig(context) {
     var wasOverlaySnackbarConfirmed: Boolean
         get() = prefs.getBoolean(WAS_OVERLAY_SNACKBAR_CONFIRMED, false)
         set(wasOverlaySnackbarConfirmed) = prefs.edit().putBoolean(WAS_OVERLAY_SNACKBAR_CONFIRMED, wasOverlaySnackbarConfirmed).apply()
+
+    var dialpadVibration: Boolean
+        get() = prefs.getBoolean(DIALPAD_VIBRATION, true)
+        set(dialpadVibration) = prefs.edit().putBoolean(DIALPAD_VIBRATION, dialpadVibration).apply()
+
+    var dialpadBeeps: Boolean
+        get() = prefs.getBoolean(DIALPAD_BEEPS, false)
+        set(dialpadBeeps) = prefs.edit().putBoolean(DIALPAD_BEEPS, dialpadBeeps).apply()
 }
