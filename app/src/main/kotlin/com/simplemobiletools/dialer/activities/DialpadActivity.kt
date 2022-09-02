@@ -327,6 +327,7 @@ class DialpadActivity : SimpleActivity() {
             val result = speedDial(char.digitToInt())
             if (result) {
                 stopDialpadTone(char)
+                clearChar(view)
             }
         }
     }
