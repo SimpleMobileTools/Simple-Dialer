@@ -13,14 +13,17 @@ class ToneGeneratorHelper(context: Context) {
         return audioManager.ringerMode in arrayOf(AudioManager.RINGER_MODE_SILENT, AudioManager.RINGER_MODE_VIBRATE)
     }
 
-    fun playTone(char: Char) = playTone(charToTone[char] ?: -1)
+    fun startTone(char: Char) {
+        startTone(charToTone[char] ?: -1)
+    }
 
-    fun playTone(tone: Int, durationMs: Int = DIALPAD_TONE_LENGTH_MS.toInt()) {
+    private fun startTone(tone: Int) {
         if (tone != -1 && !isSilent()) {
-            toneGenerator.stopTone()
-            toneGenerator.startTone(tone, durationMs)
+            toneGenerator.startTone(tone)
         }
     }
+
+    fun stopTone() = toneGenerator.stopTone()
 
     companion object {
         const val TONE_RELATIVE_VOLUME = 80 // The DTMF tone volume relative to other sounds in the stream

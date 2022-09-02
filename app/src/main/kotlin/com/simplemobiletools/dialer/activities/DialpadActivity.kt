@@ -1,17 +1,22 @@
 package com.simplemobiletools.dialer.activities
 
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.Telephony.Sms.Intents.SECRET_CODE_ACTION
 import android.telephony.PhoneNumberUtils
 import android.telephony.TelephonyManager
 import android.util.TypedValue
 import android.view.KeyEvent
+import android.view.MotionEvent
 import android.view.View
+import android.view.ViewConfiguration
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -33,6 +38,9 @@ class DialpadActivity : SimpleActivity() {
     private var hasRussianLocale = false
     private var privateCursor: Cursor? = null
     private var toneGeneratorHelper: ToneGeneratorHelper? = null
+    private val longPressTimeout = ViewConfiguration.getLongPressTimeout().toLong()
+    private val longPressHandler = Handler(Looper.getMainLooper())
+    private val pressedKeys = mutableSetOf<Char>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,30 +77,19 @@ class DialpadActivity : SimpleActivity() {
             }
         }
 
-        dialpad_0_holder.setOnClickListener { dialpadPressed('0', it) }
-        dialpad_1_holder.setOnClickListener { dialpadPressed('1', it) }
-        dialpad_2_holder.setOnClickListener { dialpadPressed('2', it) }
-        dialpad_3_holder.setOnClickListener { dialpadPressed('3', it) }
-        dialpad_4_holder.setOnClickListener { dialpadPressed('4', it) }
-        dialpad_5_holder.setOnClickListener { dialpadPressed('5', it) }
-        dialpad_6_holder.setOnClickListener { dialpadPressed('6', it) }
-        dialpad_7_holder.setOnClickListener { dialpadPressed('7', it) }
-        dialpad_8_holder.setOnClickListener { dialpadPressed('8', it) }
-        dialpad_9_holder.setOnClickListener { dialpadPressed('9', it) }
+        setupCharClick(dialpad_1_holder, '1')
+        setupCharClick(dialpad_2_holder, '2')
+        setupCharClick(dialpad_3_holder, '3')
+        setupCharClick(dialpad_4_holder, '4')
+        setupCharClick(dialpad_5_holder, '5')
+        setupCharClick(dialpad_6_holder, '6')
+        setupCharClick(dialpad_7_holder, '7')
+        setupCharClick(dialpad_8_holder, '8')
+        setupCharClick(dialpad_9_holder, '9')
+        setupCharClick(dialpad_0_holder, '0')
+        setupCharClick(dialpad_asterisk_holder, '*', longClickable = false)
+        setupCharClick(dialpad_hashtag_holder, '#', longClickable = false)
 
-        dialpad_1_holder.setOnLongClickListener { speedDial(1); true }
-        dialpad_2_holder.setOnLongClickListener { speedDial(2); true }
-        dialpad_3_holder.setOnLongClickListener { speedDial(3); true }
-        dialpad_4_holder.setOnLongClickListener { speedDial(4); true }
-        dialpad_5_holder.setOnLongClickListener { speedDial(5); true }
-        dialpad_6_holder.setOnLongClickListener { speedDial(6); true }
-        dialpad_7_holder.setOnLongClickListener { speedDial(7); true }
-        dialpad_8_holder.setOnLongClickListener { speedDial(8); true }
-        dialpad_9_holder.setOnLongClickListener { speedDial(9); true }
-
-        dialpad_0_holder.setOnLongClickListener { dialpadPressed('+', null); true }
-        dialpad_asterisk_holder.setOnClickListener { dialpadPressed('*', it) }
-        dialpad_hashtag_holder.setOnClickListener { dialpadPressed('#', it) }
         dialpad_clear_char.setOnClickListener { clearChar(it) }
         dialpad_clear_char.setOnLongClickListener { clearInput(); true }
         dialpad_call_button.setOnClickListener { initCall(dialpad_input.value, 0) }
@@ -169,7 +166,6 @@ class DialpadActivity : SimpleActivity() {
     private fun dialpadPressed(char: Char, view: View?) {
         dialpad_input.addCharacter(char)
         maybePerformDialpadHapticFeedback(view)
-        maybePlayDialpadTone(char)
     }
 
     private fun clearChar(view: View) {
@@ -275,14 +271,15 @@ class DialpadActivity : SimpleActivity() {
         }
     }
 
-    private fun speedDial(id: Int) {
-        maybePlayDialpadTone(id.digitToChar())
-        if (dialpad_input.value.isEmpty()) {
+    private fun speedDial(id: Int): Boolean {
+        if (dialpad_input.value.length == 1) {
             val speedDial = speedDialValues.firstOrNull { it.id == id }
             if (speedDial?.isValid() == true) {
                 initCall(speedDial.number, -1)
+                return true
             }
         }
+        return false
     }
 
     private fun initRussianChars() {
@@ -296,13 +293,20 @@ class DialpadActivity : SimpleActivity() {
         russianCharsMap['ь'] = 9; russianCharsMap['э'] = 9; russianCharsMap['ю'] = 9; russianCharsMap['я'] = 9
     }
 
-    private fun maybePlayDialpadTone(char: Char) {
+    private fun startDialpadTone(char: Char) {
         if (config.dialpadBeeps) {
-            if (char == '+') {
-                // 0 is being long pressed
-                toneGeneratorHelper?.playTone('0')
+            pressedKeys.add(char)
+            toneGeneratorHelper?.startTone(char)
+        }
+    }
+
+    private fun stopDialpadTone(char: Char) {
+        if (config.dialpadBeeps) {
+            pressedKeys.remove(char)
+            if (pressedKeys.isEmpty()) {
+                toneGeneratorHelper?.stopTone()
             } else {
-                toneGeneratorHelper?.playTone(char)
+                startDialpadTone(pressedKeys.last())
             }
         }
     }
@@ -310,6 +314,45 @@ class DialpadActivity : SimpleActivity() {
     private fun maybePerformDialpadHapticFeedback(view: View?) {
         if (config.dialpadVibration) {
             view?.performHapticFeedback()
+        }
+    }
+
+    private fun performLongClick(view: View, char: Char) {
+        if (char == '0') {
+            clearChar(view)
+            dialpadPressed('+', view)
+        } else {
+            val result = speedDial(char.digitToInt())
+            if (result) {
+                stopDialpadTone(char)
+            }
+        }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupCharClick(view: View, char: Char, longClickable: Boolean = true) {
+        view.isClickable = true
+        view.isLongClickable = true
+        view.setOnTouchListener { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    dialpadPressed(char, view)
+                    startDialpadTone(char)
+                    if (longClickable) {
+                        longPressHandler.removeCallbacksAndMessages(null)
+                        longPressHandler.postDelayed({
+                            performLongClick(view, char)
+                        }, longPressTimeout)
+                    }
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    stopDialpadTone(char)
+                    if (longClickable) {
+                        longPressHandler.removeCallbacksAndMessages(null)
+                    }
+                }
+            }
+            false
         }
     }
 }
