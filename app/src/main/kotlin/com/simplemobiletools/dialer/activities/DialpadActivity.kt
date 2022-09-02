@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.Intent
 import android.database.Cursor
+import android.graphics.Rect
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -30,6 +31,8 @@ import kotlinx.android.synthetic.main.activity_dialpad.*
 import kotlinx.android.synthetic.main.activity_dialpad.dialpad_holder
 import kotlinx.android.synthetic.main.dialpad.*
 import java.util.*
+import kotlin.math.roundToInt
+
 
 class DialpadActivity : SimpleActivity() {
     private var allContacts = ArrayList<SimpleContact>()
@@ -349,6 +352,18 @@ class DialpadActivity : SimpleActivity() {
                     stopDialpadTone(char)
                     if (longClickable) {
                         longPressHandler.removeCallbacksAndMessages(null)
+                    }
+                }
+                MotionEvent.ACTION_MOVE -> {
+                    val outLocation = IntArray(2)
+                    view.getLocationOnScreen(outLocation)
+                    val rect = Rect(outLocation[0], outLocation[1], outLocation[0] + view.width, outLocation[1] + view.height)
+                    val viewContainsTouchEvent = rect.contains(event.rawX.roundToInt(), event.rawY.roundToInt())
+                    if (!viewContainsTouchEvent) {
+                        stopDialpadTone(char)
+                        if (longClickable) {
+                            longPressHandler.removeCallbacksAndMessages(null)
+                        }
                     }
                 }
             }
