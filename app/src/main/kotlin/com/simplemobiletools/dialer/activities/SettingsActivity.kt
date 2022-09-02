@@ -46,6 +46,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowCallConfirmation()
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
+        setupAlwaysShowFullscreen()
         updateTextColors(settings_holder)
 
         arrayOf(
@@ -256,6 +257,14 @@ class SettingsActivity : SimpleActivity() {
         settings_disable_swipe_to_answer_holder.setOnClickListener {
             settings_disable_swipe_to_answer.toggle()
             config.disableSwipeToAnswer = settings_disable_swipe_to_answer.isChecked
+        }
+    }
+
+    private fun setupAlwaysShowFullscreen() {
+        settings_always_show_fullscreen.isChecked = config.alwaysShowFullscreen
+        settings_always_show_fullscreen_holder.setOnClickListener {
+            settings_always_show_fullscreen.toggle()
+            config.alwaysShowFullscreen = settings_always_show_fullscreen.isChecked
         }
     }
 }

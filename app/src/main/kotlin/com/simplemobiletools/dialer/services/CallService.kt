@@ -6,6 +6,7 @@ import android.content.Context
 import android.telecom.Call
 import android.telecom.InCallService
 import com.simplemobiletools.dialer.activities.CallActivity
+import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.isOutgoing
 import com.simplemobiletools.dialer.extensions.powerManager
 import com.simplemobiletools.dialer.helpers.CallManager
@@ -31,7 +32,7 @@ class CallService : InCallService() {
         call.registerCallback(callListener)
 
         val isScreenLocked = (getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager).isDeviceLocked
-        if (!powerManager.isInteractive || call.isOutgoing() || isScreenLocked) {
+        if (!powerManager.isInteractive || call.isOutgoing() || isScreenLocked || config.alwaysShowFullscreen) {
             try {
                 callNotificationManager.setupNotification(true)
                 startActivity(CallActivity.getStartIntent(this))
