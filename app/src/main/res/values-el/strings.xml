@@ -21,7 +21,7 @@
     <string name="hashtag">Ετικέτα</string>
     <string name="call_number">Αριθμός κλήσης</string>
     <string name="dialpad_beeps">Ενεργοποίηση ήχου στα αγγίγματα των κουμπιών του πληκτρολογίου κλήσης</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_vibrations">Ενεργοποίηση δονήσεων στα αγγίγματα των κουμπιών του πληκτρολογίου κλήσης</string>
     <!-- Dialer -->
     <string name="dialer">Κλήση</string>
     <string name="accept">Αποδοχή</string>
@@ -65,8 +65,8 @@
     <string name="disable_swipe_to_answer">Αντικατάσταση Σάρωσης με Κλικ στην απάντηση εισερχόμενων κλήσεων</string>
     <string name="show_incoming_calls_full_screen">Να εμφανίζονται πάντα οι εισερχόμενες κλήσεις σε πλήρη οθόνη</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Ακούω εισερχόμενες κλήσεις, αλλά η οθόνη δεν ανάβει. Τι μπορώ να κάνω;</string>
+    <string name="faq_1_text">Τέτοια θέματα μπορεί να έχουν πολλούς λόγους που σχετίζονται με τη συσκευή και το σύστημα, και είναι δύσκολο να ειπωθούν γενικά. Θα πρέπει να ψάξετε στις ρυθμίσεις της συσκευής σας και να βεβαιωθείτε ότι η εφαρμογή επιτρέπεται να εμφανίζεται όταν βρίσκεται στο παρασκήνιο και να επιτρέπει την εμφάνισή της πάνω από άλλες εφαρμογές.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
