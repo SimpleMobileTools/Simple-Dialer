@@ -20,8 +20,8 @@
     <string name="asterisk">Asterisco</string>
     <string name="hashtag">Cancelletto</string>
     <string name="call_number">Numero di chiamata</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Abilita i segnali acustici ai clic dei pulsanti della tastiera</string>
+    <string name="dialpad_vibrations">Abilita le vibrazioni sui clic dei pulsanti della tastiera</string>
     <!-- Dialer -->
     <string name="dialer">Compositore</string>
     <string name="accept">Accetta</string>
@@ -65,8 +65,8 @@
     <string name="disable_swipe_to_answer">Sostituisci lo scorrimento nel rispondere alle chiamate in arrivo con un clic</string>
     <string name="show_incoming_calls_full_screen">Visualizza sempre le chiamate in arrivo a schermo intero</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Sento le chiamate in arrivo, ma lo schermo non si accende. Cosa posso fare\?</string>
+    <string name="faq_1_text">Tali problemi possono avere molte ragioni specifiche per il dispositivo e il sistema, è difficile identificarle in generale. Dovresti dare un\'occhiata alle impostazioni del dispositivo e assicurarti che l\'app sia autorizzata a comparire quando è in background e che permetta la visualizzazione sopra le altre app.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
