@@ -20,8 +20,8 @@
     <string name="asterisk">アスタリスク</string>
     <string name="hashtag">ハッシュタグ</string>
     <string name="call_number">電話番号</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">ダイヤルパッドボタンのタップ時にビープ音を鳴らす</string>
+    <string name="dialpad_vibrations">ダイヤルパッドボタンのタップ時に振動させる</string>
     <!-- Dialer -->
     <string name="dialer">電話</string>
     <string name="accept">許可</string>
