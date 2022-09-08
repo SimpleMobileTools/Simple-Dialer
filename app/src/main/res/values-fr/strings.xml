@@ -20,8 +20,8 @@
     <string name="asterisk">Étoile</string>
     <string name="hashtag">Dièse</string>
     <string name="call_number">Numéro d\'appel</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Activer les bips lors des clics sur les boutons du clavier numérique</string>
+    <string name="dialpad_vibrations">Activation des vibrations lors des clics sur les boutons du clavier</string>
     <!-- Dialer -->
     <string name="dialer">Clavier</string>
     <string name="accept">Accepter</string>
@@ -65,8 +65,8 @@
     <string name="disable_swipe_to_answer">Remplacer le balayage pour répondre aux appels entrants par un clic</string>
     <string name="show_incoming_calls_full_screen">Toujours afficher les appels entrants en plein écran</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">J\'entends les appels entrants, mais l\'écran ne s\'allume pas. Que puis-je faire \?</string>
+    <string name="faq_1_text">Ces problèmes peuvent avoir de nombreuses raisons spécifiques à l\'appareil et au système, il est difficile d\'en parler en général. Vous devriez consulter les paramètres de votre appareil et vous assurer que l\'application est autorisée à apparaître en arrière-plan et à s\'afficher au-dessus des autres applications.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
