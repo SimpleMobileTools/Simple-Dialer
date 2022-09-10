@@ -2,7 +2,6 @@ package com.simplemobiletools.dialer.activities
 
 import android.annotation.SuppressLint
 import android.app.SearchManager
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ShortcutInfo
@@ -12,7 +11,6 @@ import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.os.Handler
-import android.provider.CallLog
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
@@ -43,6 +41,7 @@ import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_recents.*
 import me.grantland.widget.AutofitHelper
+
 
 class MainActivity : SimpleActivity() {
     private var isSearchOpen = false
@@ -301,7 +300,7 @@ class MainActivity : SimpleActivity() {
                     wantedTab = main_tabs_holder.tabCount - 1
 
                     ensureBackgroundThread {
-                        resetMissedCalls()
+                        clearMissedCalls()
                     }
                 }
 
@@ -450,21 +449,15 @@ class MainActivity : SimpleActivity() {
         }
     }
 
-    // clear the missed calls count. Doesn't seem to always work, but having it can't hurt
-    // found at https://android.googlesource.com/platform/packages/apps/Dialer/+/nougat-release/src/com/android/dialer/calllog/MissedCallNotifier.java#181
-    private fun resetMissedCalls() {
-        val values = ContentValues().apply {
-            put(CallLog.Calls.NEW, 0)
-            put(CallLog.Calls.IS_READ, 1)
-        }
-
-        val selection = "${CallLog.Calls.TYPE} = ?"
-        val selectionArgs = arrayOf(CallLog.Calls.MISSED_TYPE.toString())
-
+    @SuppressLint("MissingPermission")
+    private fun clearMissedCalls() {
         try {
-            val uri = CallLog.Calls.CONTENT_URI
-            contentResolver.update(uri, values, selection, selectionArgs)
+            // notification cancellation triggers MissedCallNotifier.clearMissedCalls() which, in turn,
+            // should update the database and reset the cached missed call count in MissedCallNotifier.java
+            // https://android.googlesource.com/platform/packages/services/Telecomm/+/master/src/com/android/server/telecom/ui/MissedCallNotifierImpl.java#170
+            telecomManager.cancelMissedCallsNotification()
         } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
