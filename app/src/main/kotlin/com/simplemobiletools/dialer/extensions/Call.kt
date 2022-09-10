@@ -1,5 +1,6 @@
 package com.simplemobiletools.dialer.extensions
 
+import android.net.Uri
 import android.telecom.Call
 import android.telecom.Call.STATE_CONNECTING
 import android.telecom.Call.STATE_DIALING
@@ -41,3 +42,18 @@ fun Call.isOutgoing(): Boolean {
 fun Call.hasCapability(capability: Int): Boolean = (details.callCapabilities and capability) != 0
 
 fun Call?.isConference(): Boolean = this?.details?.hasProperty(Call.Details.PROPERTY_CONFERENCE) == true
+
+fun Call.getCallerNumber(): String? {
+    val handle = try {
+        details?.handle?.toString()
+    } catch (e: NullPointerException) {
+        null
+    }
+    if (handle != null) {
+        val uri = Uri.decode(handle)
+        if (uri.startsWith("tel:")) {
+            return uri.substringAfter("tel:")
+        }
+    }
+    return null
+}
