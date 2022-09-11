@@ -42,7 +42,6 @@ import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_recents.*
 import me.grantland.widget.AutofitHelper
 
-
 class MainActivity : SimpleActivity() {
     private var isSearchOpen = false
     private var launchedDialer = false
@@ -456,8 +455,7 @@ class MainActivity : SimpleActivity() {
             // should update the database and reset the cached missed call count in MissedCallNotifier.java
             // https://android.googlesource.com/platform/packages/services/Telecomm/+/master/src/com/android/server/telecom/ui/MissedCallNotifierImpl.java#170
             telecomManager.cancelMissedCallsNotification()
-        } catch (e: Exception) {
-            e.printStackTrace()
+        } catch (ignored: Exception) {
         }
     }
 
