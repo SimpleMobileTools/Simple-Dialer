@@ -20,8 +20,8 @@
     <string name="asterisk">Stjärna</string>
     <string name="hashtag">Fyrkant</string>
     <string name="call_number">Ring nummer</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Aktivera knappsatsljud</string>
+    <string name="dialpad_vibrations">Aktivera knappsatsvibration</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Svara</string>
@@ -43,7 +43,7 @@
     <string name="turn_speaker_on">Sätt på högtalaren</string>
     <string name="turn_speaker_off">Stäng av högtalaren</string>
     <string name="show_dialpad">Visa knappsats</string>
-    <string name="hide_dialpad">Göm knappsats</string>
+    <string name="hide_dialpad">Dölj knappsats</string>
     <string name="end_call">Avsluta samtal</string>
     <string name="hold_call">Parkera samtal</string>
     <string name="resume_call">Återuppta samtal</string>
