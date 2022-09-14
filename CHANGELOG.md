@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 5.15.1 *(2022-09-14)*
+----------------------------
+
+ * Allow blocking numbers by patterns
+ * Properly clear missed calls count
+ * Added some stability and translation improvements
+
 Version 5.15.0 *(2022-09-02)*
 ----------------------------
 
