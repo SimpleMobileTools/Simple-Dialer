@@ -20,8 +20,8 @@
     <string name="asterisk">Tärn</string>
     <string name="hashtag">Teemaviide</string>
     <string name="call_number">Helista numbrile</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Helisignaalide lubamine valimisnupu klõpsamisel</string>
+    <string name="dialpad_vibrations">Võimaldab vibratsiooni valimisnuppude klõpsamisel</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Nõustu</string>
@@ -63,10 +63,10 @@
     <string name="open_dialpad_by_default">Rakenduse avamisel näita vaikimisi numbriklahvistikku</string>
     <string name="disable_proximity_sensor">Kõnede ajaks lülita lähedusandur välja</string>
     <string name="disable_swipe_to_answer">Kõnele vastamisel kasuta viipamise asemel klõpsimist</string>
-    <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_screen">Kuvage sissetulevad kõned alati täisekraanil</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Ma kuulen sissetulevaid kõnesid, kuid ekraan ei lülitu sisse. Mida ma saan teha\?</string>
+    <string name="faq_1_text">Sellistel probleemidel võib olla palju seadme- ja süsteemispetsiifilisi põhjusi, raske öelda üldiselt. Peaksite oma seadme seadetes ringi vaatama ja veenduma, et rakendusel on lubatud taustal hüpata ja lubada kuvamist üle teiste rakenduste.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
