@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Puhelin</string>
+    <string name="app_name">Yksinkertainen Numerovalitsin</string>
+    <string name="app_launcher_name">Numerovalitsin</string>
     <string name="default_phone_app_prompt">Aseta tämä sovellus oletukseksi puheluille</string>
     <string name="allow_displaying_over_other_apps">Hyväksy näkyminen muiden sovellusten päällä, jotta sovellus toimii luotettavasti</string>
     <!-- Contacts -->
@@ -16,14 +16,14 @@
     <string name="clear_call_history">Tyhjennä puheluhistoria</string>
     <string name="show_call_details">Näytä puhelun tiedot</string>
     <!-- Dialpad -->
-    <string name="dialpad">Numerovalitsin</string>
+    <string name="dialpad">Valintanäppäimistö</string>
     <string name="asterisk">Asteriski</string>
     <string name="hashtag">Risuaita</string>
     <string name="call_number">Soita numeroon</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Äänimerkkien ottaminen käyttöön valintanäppäimen napsautuksen yhteydessä</string>
+    <string name="dialpad_vibrations">Ota värinät käyttöön valintanäppäimen napsautuksista</string>
     <!-- Dialer -->
-    <string name="dialer">Puhelin</string>
+    <string name="dialer">Numerovalitsin</string>
     <string name="accept">Hyväksy</string>
     <string name="accept_call">Vastaa puheluun</string>
     <string name="decline">Hylkää</string>
@@ -63,10 +63,10 @@
     <string name="open_dialpad_by_default">Avaa numeronäppäimistö, kun sovellus avataan</string>
     <string name="disable_proximity_sensor">Poista läheisyysanturi käytöstä puheluiden aikana</string>
     <string name="disable_swipe_to_answer">Vastaa puheluihin painalluksella pyyhkäisyn sijaan</string>
-    <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_screen">Näytä saapuvat puhelut aina koko näytöllä</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Kuulen saapuvat puhelut, mutta näyttö ei käynnisty. Mitä voin tehdä\?</string>
+    <string name="faq_1_text">Tällaisiin ongelmiin voi olla monia laite- ja järjestelmäkohtaisia syitä, joita on vaikea sanoa yleisesti. Kannattaa tutkia laitteen asetuksia ja varmistaa, että sovelluksen on sallittu ponnahtaa esiin, kun se on taustalla, ja sallia sen näyttäminen muiden sovellusten yläpuolella.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
