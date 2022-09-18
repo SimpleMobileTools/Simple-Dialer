@@ -99,7 +99,7 @@ class DialpadActivity : SimpleActivity() {
         dialpad_input.requestFocus()
 
         SimpleContactsHelper(this).getAvailableContacts(false) { gotContacts(it) }
-        disableKeyboardPopping()
+        dialpad_input.disableKeyboard()
 
         val properPrimaryColor = getProperPrimaryColor()
         val callIconId = if (areMultipleSIMsAvailable()) {
@@ -177,10 +177,6 @@ class DialpadActivity : SimpleActivity() {
 
     private fun clearInput() {
         dialpad_input.setText("")
-    }
-
-    private fun disableKeyboardPopping() {
-        dialpad_input.showSoftInputOnFocus = false
     }
 
     private fun gotContacts(newContacts: ArrayList<SimpleContact>) {
