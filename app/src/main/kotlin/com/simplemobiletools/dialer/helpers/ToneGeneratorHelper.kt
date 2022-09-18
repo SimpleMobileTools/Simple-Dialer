@@ -4,16 +4,20 @@ import android.content.Context
 import android.media.AudioManager
 import android.media.AudioManager.STREAM_DTMF
 import android.media.ToneGenerator
+import android.os.Handler
+import android.os.Looper
 
-class ToneGeneratorHelper(context: Context) {
+class ToneGeneratorHelper(context: Context, private val minToneLengthMs: Long) {
     private val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
     private val toneGenerator = ToneGenerator(DIAL_TONE_STREAM_TYPE, TONE_RELATIVE_VOLUME)
+    private var toneStartTimeMs = 0L
 
     private fun isSilent(): Boolean {
         return audioManager.ringerMode in arrayOf(AudioManager.RINGER_MODE_SILENT, AudioManager.RINGER_MODE_VIBRATE)
     }
 
     fun startTone(char: Char) {
+        toneStartTimeMs = System.currentTimeMillis()
         startTone(charToTone[char] ?: -1)
     }
 
@@ -23,7 +27,16 @@ class ToneGeneratorHelper(context: Context) {
         }
     }
 
-    fun stopTone() = toneGenerator.stopTone()
+    fun stopTone() {
+        val timeSinceStartMs = System.currentTimeMillis() - toneStartTimeMs
+        if (timeSinceStartMs < minToneLengthMs) {
+            Handler(Looper.getMainLooper()).postDelayed({
+                toneGenerator.stopTone()
+            }, minToneLengthMs - timeSinceStartMs)
+        } else {
+            toneGenerator.stopTone()
+        }
+    }
 
     companion object {
         const val TONE_RELATIVE_VOLUME = 80 // The DTMF tone volume relative to other sounds in the stream

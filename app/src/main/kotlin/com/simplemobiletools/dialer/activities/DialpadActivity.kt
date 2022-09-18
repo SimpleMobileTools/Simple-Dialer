@@ -24,6 +24,7 @@ import com.simplemobiletools.commons.models.SimpleContact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.*
+import com.simplemobiletools.dialer.helpers.DIALPAD_TONE_LENGTH_MS
 import com.simplemobiletools.dialer.helpers.ToneGeneratorHelper
 import com.simplemobiletools.dialer.models.SpeedDial
 import kotlinx.android.synthetic.main.activity_dialpad.*
@@ -55,9 +56,9 @@ class DialpadActivity : SimpleActivity() {
 
         setupOptionsMenu()
         speedDialValues = config.getSpeedDialValues()
-        privateCursor = getMyContactsCursor(false, true)
+        privateCursor = getMyContactsCursor(favoritesOnly = false, withPhoneNumbersOnly = true)
 
-        toneGeneratorHelper = ToneGeneratorHelper(this)
+        toneGeneratorHelper = ToneGeneratorHelper(this, DIALPAD_TONE_LENGTH_MS)
 
         if (hasRussianLocale) {
             initRussianChars()
