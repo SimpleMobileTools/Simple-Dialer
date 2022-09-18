@@ -24,3 +24,7 @@ private fun getCharKeyCode(char: Char) = when (char) {
     '+' -> KeyEvent.KEYCODE_PLUS
     else -> KeyEvent.KEYCODE_POUND
 }
+
+fun EditText.disableKeyboard() {
+    showSoftInputOnFocus = false
+}
