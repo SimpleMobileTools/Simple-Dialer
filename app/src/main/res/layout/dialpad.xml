@@ -7,6 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
     android:focusableInTouchMode="true"
+    android:layoutDirection="ltr"
     android:paddingTop="@dimen/medium_margin"
     tools:ignore="HardcodedText">
 
