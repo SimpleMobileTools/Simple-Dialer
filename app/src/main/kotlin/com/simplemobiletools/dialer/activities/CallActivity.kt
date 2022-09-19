@@ -205,6 +205,7 @@ class CallActivity : SimpleActivity() {
         }
 
         call_sim_id.setTextColor(getProperTextColor().getContrastColor())
+        dialpad_input.disableKeyboard()
     }
 
     @SuppressLint("ClickableViewAccessibility")
