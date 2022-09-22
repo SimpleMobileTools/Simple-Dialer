@@ -20,7 +20,7 @@
     <string name="asterisk">Asterisco</string>
     <string name="hashtag">Cancelo</string>
     <string name="call_number">Chamar a número</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
+    <string name="dialpad_beeps">Activa os sons o premer no botón do teclado</string>
     <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
     <!-- Dialer -->
     <string name="dialer">Marcador</string>
@@ -45,15 +45,15 @@
     <string name="show_dialpad">Mostra marcador</string>
     <string name="hide_dialpad">Agochar marcador</string>
     <string name="end_call">Rematar chamada</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="hold_call">Manter unha chamada a espera</string>
+    <string name="resume_call">Retornar a chamada</string>
+    <string name="call_on_hold">A espera</string>
+    <string name="call_swap">Intercambiar chamadas</string>
+    <string name="call_merge">Xuntar chamadas</string>
+    <string name="call_split">Chamada dividida</string>
+    <string name="call_add">Engadir chamada</string>
+    <string name="conference_manage">Xestionar chamadas de conferencia</string>
+    <string name="conference">Conferencia</string>
     <!-- Speed dial -->
     <string name="speed_dial">Marcación rápida</string>
     <string name="manage_speed_dial">Xestionar marcacións rápidas</string>
@@ -63,10 +63,10 @@
     <string name="open_dialpad_by_default">Abrir por defecto o marcador ao abrir a app</string>
     <string name="disable_proximity_sensor">Desactivar sensor de proximidade durante as chamadas</string>
     <string name="disable_swipe_to_answer">Substituír o xesto de desprazar por un click para responder</string>
-    <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_screen">Mostrar sempre as chamadas entrantes a pantalla enteira</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Escoito chamadas entrantes, pero a pantalla non se acende. Que podo facer\?</string>
+    <string name="faq_1_text">Estes problemas poden ter moitas razóns específicas do dispositivo e do sistema, difíciles de dicir en xeral. Debes mirar ao teu redor na configuración do teu dispositivo e asegurarte de que a aplicación pode aparecer cando está en segundo plano e permitir que se vexa sobre outras aplicacións.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
