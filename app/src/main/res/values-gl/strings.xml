@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Marcador</string>
-    <string name="default_phone_app_prompt">Fai que esta sexa a app Teléfono por defecto</string>
-    <string name="allow_displaying_over_other_apps">Permite que se mostre noutras apps para ter un comportamento estable</string>
+    <string name="default_phone_app_prompt">Fai que sexa a aplición do Teléfono por predeterminada</string>
+    <string name="allow_displaying_over_other_apps">Permite mostrala por riba doutras aplicacións para un comportamento fiable</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Non foi posible acceder aos contactos</string>
     <!-- Recents -->
