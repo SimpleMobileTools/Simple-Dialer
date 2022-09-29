@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Dialer simplu</string>
     <string name="app_launcher_name">Dialer</string>
-    <string name="default_phone_app_prompt">Vă rugăm să schimbaţi această aplicație să fie aplicația implicită pentru telefon</string>
-    <string name="allow_displaying_over_other_apps">Vă rugăm să permiteți afișarea peste alte aplicații pentru un comportament fiabil</string>
+    <string name="default_phone_app_prompt">Vă rugăm să setați ca aplicația implicită pentru telefon</string>
+    <string name="allow_displaying_over_other_apps">Vă rugăm să permiteți afișarea peste alte aplicații pentru un aspect fiabil</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Contactele dumneavoastră nu au putut fi accesate</string>
     <!-- Recents -->
@@ -23,7 +23,7 @@
     <string name="dialpad_beeps">Activați semnalele sonore la apăsarea butoanelor tastaturii telefonice</string>
     <string name="dialpad_vibrations">Activați vibrațiile la apăsarea butoanelor tastaturii telefonice</string>
     <!-- Dialer -->
-    <string name="dialer">Apeluri</string>
+    <string name="dialer">Dialer</string>
     <string name="accept">Acceptați</string>
     <string name="accept_call">Acceptați apelul</string>
     <string name="decline">Refuzaţi</string>
@@ -32,7 +32,7 @@
     <string name="is_calling">Apelează…</string>
     <string name="dialing">Apelare…</string>
     <string name="call_ended">Apel terminat</string>
-    <string name="call_ending">Apel în terminare</string>
+    <string name="call_ending">Încheierea apelului</string>
     <string name="ongoing_call">Apel în curs de desfășurare</string>
     <string name="select_sim">Selectați un SIM pentru acest apel</string>
     <string name="always_use_this_sim">Utilizați întotdeauna acest SIM pentru acest număr</string>
@@ -49,15 +49,15 @@
     <string name="resume_call">Reluare apel</string>
     <string name="call_on_hold">Apel în așteptare</string>
     <string name="call_swap">Schimbați apelurile</string>
-    <string name="call_merge">Îmbinare apeluri</string>
-    <string name="call_split">Separare apel</string>
+    <string name="call_merge">Combinați apelurile</string>
+    <string name="call_split">Divizați apelul</string>
     <string name="call_add">Adăugați apel</string>
     <string name="conference_manage">Gestionați apelul de conferință</string>
     <string name="conference">Conferință</string>
     <!-- Speed dial -->
     <string name="speed_dial">Apelare rapidă</string>
     <string name="manage_speed_dial">Gestionați apelarea rapidă</string>
-    <string name="speed_dial_label">Apăsaţi pe un număr pentru a-i atribui un contact. Apoi, puteți apela rapid contactul dat prin apăsarea lungă a numărului dat în apelator.</string>
+    <string name="speed_dial_label">Apăsaţi pe un număr pentru a-i atribui un contact. Apoi, puteți apela rapid contactul dat prin apăsarea lungă a numărului dat în dialer.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Grupaţi apelurile ulterioare cu același număr în jurnalul de apeluri</string>
     <string name="open_dialpad_by_default">Deschideți în mod implicit tastatura telefonică la deschiderea aplicației</string>
@@ -66,7 +66,7 @@
     <string name="show_incoming_calls_full_screen">Afișați întotdeauna apelurile primite pe întreg ecranul</string>
     <!-- FAQ -->
     <string name="faq_1_title">Aud apelurile primite, dar ecranul nu se aprinde. Ce pot face\?</string>
-    <string name="faq_1_text">Astfel de probleme pot avea multe motive specifice dispozitivului și sistemului, fiind greu de definit în general. Ar trebui să vă uitați în setările dispozitivului și să vă asigurați că aplicația are permisiunea de a apărea atunci când este în fundal și că permite afișarea peste alte aplicații.</string>
+    <string name="faq_1_text">Aceste probleme pot avea multe motive specifice dispozitivului și sistemului, fiind greu de spus în general. Ar trebui să vă uitați în setările dispozitivului și să vă asigurați că aplicația este permisă să apară atunci când este în fundal și că permite afișarea peste alte aplicații.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
