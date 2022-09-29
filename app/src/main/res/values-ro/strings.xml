@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Apeluri</string>
+    <string name="app_name">Dialer simplu</string>
+    <string name="app_launcher_name">Dialer</string>
     <string name="default_phone_app_prompt">Vă rugăm să schimbaţi această aplicație să fie aplicația implicită pentru telefon</string>
     <string name="allow_displaying_over_other_apps">Vă rugăm să permiteți afișarea peste alte aplicații pentru un comportament fiabil</string>
     <!-- Contacts -->
