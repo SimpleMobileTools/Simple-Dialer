@@ -33,7 +33,6 @@ import kotlinx.android.synthetic.main.dialpad.*
 import java.util.*
 import kotlin.math.roundToInt
 
-
 class DialpadActivity : SimpleActivity() {
     private var allContacts = ArrayList<SimpleContact>()
     private var speedDialValues = ArrayList<SpeedDial>()
@@ -352,7 +351,12 @@ class DialpadActivity : SimpleActivity() {
                     }
                 }
                 MotionEvent.ACTION_MOVE -> {
-                    val viewContainsTouchEvent = view.boundingBox.contains(event.rawX.roundToInt(), event.rawY.roundToInt())
+                    val viewContainsTouchEvent = if (event.rawX.isNaN() || event.rawY.isNaN()) {
+                        false
+                    } else {
+                        view.boundingBox.contains(event.rawX.roundToInt(), event.rawY.roundToInt())
+                    }
+
                     if (!viewContainsTouchEvent) {
                         stopDialpadTone(char)
                         if (longClickable) {
