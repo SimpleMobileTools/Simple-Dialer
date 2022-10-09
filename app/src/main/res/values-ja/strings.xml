@@ -45,15 +45,15 @@
     <string name="show_dialpad">ダイヤルパッドを表示</string>
     <string name="hide_dialpad">ダイヤルパッドを隠す</string>
     <string name="end_call">通話を終了する</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="hold_call">通話を保留する</string>
+    <string name="resume_call">通話を再開する</string>
+    <string name="call_on_hold">保留中</string>
+    <string name="call_swap">通話を入れ替える</string>
+    <string name="call_merge">通話を統合する</string>
+    <string name="call_split">通話を分割する</string>
+    <string name="call_add">通話を追加する</string>
+    <string name="conference_manage">電話会議を管理する</string>
+    <string name="conference">会議</string>
     <!-- Speed dial -->
     <string name="speed_dial">スピードダイヤル</string>
     <string name="manage_speed_dial">スピードダイヤルの管理</string>
@@ -63,10 +63,10 @@
     <string name="open_dialpad_by_default">アプリが開いたら、デフォルトでダイヤルパッドを開きます</string>
     <string name="disable_proximity_sensor">通話中に近接センサーを無効にする</string>
     <string name="disable_swipe_to_answer">着信に応答する際のスワイプをクリックに置き換えます</string>
-    <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_screen">常に着信通知を全画面に表示する</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">着信音は聞こえるのですが、画面がつきません。どうしたらよいですか？</string>
+    <string name="faq_1_text">このような問題は、デバイスやシステム固有の理由が多く、一概には言えません。端末の設定を見て、アプリがバックグラウンドでポップアップすることを許可しているか、他のアプリの上に表示することを許可しているかを確認する必要があります。</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
