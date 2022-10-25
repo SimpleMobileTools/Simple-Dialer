@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 5.15.5 *(2022-10-25)*
+----------------------------
+
+ * Fixed a glitch with call notification getting stuck
+ * Added some translation and UX improvements
+
 Version 5.15.4 *(2022-10-06)*
 ----------------------------
 
