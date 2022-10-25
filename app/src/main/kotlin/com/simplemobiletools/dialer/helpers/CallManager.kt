@@ -109,6 +109,9 @@ class CallManager {
                     listener.onStateChanged()
                 }
             }
+
+            // remove all disconnected calls manually in case they are still here
+            calls.removeAll { it.getStateCompat() == Call.STATE_DISCONNECTED }
         }
 
         fun getPrimaryCall(): Call? {

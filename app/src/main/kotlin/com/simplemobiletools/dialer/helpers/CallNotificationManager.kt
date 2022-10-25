@@ -20,7 +20,7 @@ import com.simplemobiletools.dialer.extensions.powerManager
 import com.simplemobiletools.dialer.receivers.CallActionReceiver
 
 class CallNotificationManager(private val context: Context) {
-    private val CALL_NOTIFICATION_ID = 1
+    private val CALL_NOTIFICATION_ID = 42
     private val ACCEPT_CALL_CODE = 0
     private val DECLINE_CALL_CODE = 1
     private val notificationManager = context.notificationManager
@@ -99,7 +99,10 @@ class CallNotificationManager(private val context: Context) {
             }
 
             val notification = builder.build()
-            notificationManager.notify(CALL_NOTIFICATION_ID, notification)
+            // it's rare but possible for the call state to change by now
+            if (CallManager.getState() == callState) {
+                notificationManager.notify(CALL_NOTIFICATION_ID, notification)
+            }
         }
     }
 
