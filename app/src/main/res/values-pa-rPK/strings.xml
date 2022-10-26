@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Dialer</string>
-    <string name="no_previous_calls">No previous calls have been found</string>
+    <string name="app_name">سادی فون ڈائل</string>
+    <string name="app_launcher_name">فون ڈائل</string>
+    <string name="no_previous_calls">کوئی پچھلیا کالاں نہیں لبھیاں</string>
     <string name="could_not_access_the_call_history">Could not access the call history</string>
-    <string name="asterisk">Asterisk</string>
-    <string name="hashtag">Hashtag</string>
-    <string name="default_phone_app_prompt">Please make this app the default Phone app</string>
+    <string name="asterisk">ایسٹرسک</string>
+    <string name="hashtag">ہیش‌ٹیگ</string>
+    <string name="default_phone_app_prompt">سیٹنگاں وچ ایہہ اَیپ مول فون چاہدی</string>
     <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
-    <string name="could_not_access_contacts">Could not access your contacts</string>
+    <string name="could_not_access_contacts">تہاڈے فون‌بوک پہنچ نہیں سکے</string>
     <string name="request_access">Request access</string>
     <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History\?</string>
     <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History\?</string>
     <string name="show_grouped_calls">Show grouped calls</string>
-    <string name="clear_call_history">Clear call history</string>
+    <string name="clear_call_history">کال دی تریخ ہٹاؤ</string>
     <string name="show_call_details">Show call details</string>
-    <string name="call_number">Call number</string>
+    <string name="call_number">کال دا نمبر</string>
     <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
-    <string name="dialpad">Dialpad</string>
-    <string name="dialer">Dialer</string>
+    <string name="dialpad">فون کیبورڈ</string>
+    <string name="dialer">فون دائک</string>
     <string name="accept">Accept</string>
     <string name="accept_call">Accept call</string>
     <string name="decline">Decline</string>
