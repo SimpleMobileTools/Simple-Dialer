@@ -2,29 +2,32 @@
 <resources>
     <string name="app_name">سادی فون ڈائل</string>
     <string name="app_launcher_name">فون ڈائل</string>
-    <string name="no_previous_calls">کوئی پچھلیا کالاں نہیں لبھیاں</string>
-    <string name="could_not_access_the_call_history">Could not access the call history</string>
-    <string name="asterisk">ایسٹرسک</string>
-    <string name="hashtag">ہیش‌ٹیگ</string>
     <string name="default_phone_app_prompt">سیٹنگاں وچ ایہہ اَیپ مول فون چاہدی</string>
     <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
+    <!-- Contacts -->
     <string name="could_not_access_contacts">تہاڈے فون‌بوک پہنچ نہیں سکے</string>
+    <!-- Recents -->
+    <string name="no_previous_calls">کوئی پچھلیا کالاں نہیں لبھیاں</string>
+    <string name="could_not_access_the_call_history">Could not access the call history</string>
     <string name="request_access">Request access</string>
     <string name="remove_confirmation">Are you sure you want to remove the selected items from the Call History\?</string>
     <string name="clear_history_confirmation">Are you sure you want to remove everything from the Call History\?</string>
     <string name="show_grouped_calls">Show grouped calls</string>
     <string name="clear_call_history">کال دی تریخ ہٹاؤ</string>
     <string name="show_call_details">Show call details</string>
+    <!-- Dialpad -->
+    <string name="dialpad">فون کیبورڈ</string>
+    <string name="asterisk">ایسٹرسک</string>
+    <string name="hashtag">ہیش‌ٹیگ</string>
     <string name="call_number">کال دا نمبر</string>
     <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
-    <string name="dialpad">فون کیبورڈ</string>
+    <!-- Dialer -->
     <string name="dialer">فون دائک</string>
     <string name="accept">Accept</string>
     <string name="accept_call">Accept call</string>
     <string name="decline">Decline</string>
     <string name="decline_call">Decline call</string>
-    <string name="end_call">End call</string>
     <string name="unknown_caller">Unknown Caller</string>
     <string name="is_calling">Is Calling…</string>
     <string name="dialing">Dialing…</string>
@@ -41,6 +44,7 @@
     <string name="turn_speaker_off">Turn speaker off</string>
     <string name="show_dialpad">Show dialpad</string>
     <string name="hide_dialpad">Hide dialpad</string>
+    <string name="end_call">End call</string>
     <string name="hold_call">Hold call</string>
     <string name="resume_call">Resume call</string>
     <string name="call_on_hold">On Hold</string>
@@ -50,14 +54,17 @@
     <string name="call_add">Add call</string>
     <string name="conference_manage">Manage conference call</string>
     <string name="conference">Conference</string>
+    <!-- Speed dial -->
     <string name="speed_dial">Speed dial</string>
     <string name="manage_speed_dial">Manage speed dial</string>
     <string name="speed_dial_label">Click on a number to assign a contact to it. You can then quickly call the given contact by long pressing the given number at the dialer.</string>
+    <!-- Settings -->
     <string name="group_subsequent_calls">Group subsequent calls with the same number at the call log</string>
     <string name="open_dialpad_by_default">Open the dialpad by default when the app opens</string>
     <string name="disable_proximity_sensor">Disable proximity sensor during calls</string>
     <string name="disable_swipe_to_answer">Replace swiping at responding to incoming calls with clicking</string>
     <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>
+    <!-- FAQ -->
     <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do\?</string>
     <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
 </resources>
