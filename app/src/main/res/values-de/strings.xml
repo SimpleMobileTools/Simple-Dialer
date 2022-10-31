@@ -16,12 +16,12 @@
     <string name="clear_call_history">Anrufliste löschen</string>
     <string name="show_call_details">Anrufdetails anzeigen</string>
     <!-- Dialpad -->
-    <string name="dialpad">Wählpad</string>
+    <string name="dialpad">Wähltastenfeld</string>
     <string name="asterisk">Sternchen</string>
     <string name="hashtag">Raute</string>
     <string name="call_number">Rufnummer</string>
-    <string name="dialpad_beeps">Signaltöne bei Tastendruck auf Wählpad aktivieren</string>
-    <string name="dialpad_vibrations">Vibrationen bei Tastendruck auf Wählpad aktivieren</string>
+    <string name="dialpad_beeps">Signaltöne bei Tastendruck auf das Wähltastenfeld</string>
+    <string name="dialpad_vibrations">Vibration bei Tastendruck auf das Wähltastenfeld</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">akzeptieren</string>
@@ -42,8 +42,8 @@
     <string name="turn_microphone_off">Mikrofon ausschalten</string>
     <string name="turn_speaker_on">Lautsprecher einschalten</string>
     <string name="turn_speaker_off">Lautsprecher ausschalten</string>
-    <string name="show_dialpad">Wähltasten anzeigen</string>
-    <string name="hide_dialpad">Wähltasten ausblenden</string>
+    <string name="show_dialpad">Wähltastenfeld anzeigen</string>
+    <string name="hide_dialpad">Wähltastenfeld ausblenden</string>
     <string name="end_call">Anruf beenden</string>
     <string name="hold_call">Anruf halten</string>
     <string name="resume_call">Anruf fortsetzen</string>
@@ -60,7 +60,7 @@
     <string name="speed_dial_label">Auf eine Zahl klicken, um einen Kontakt zuzuweisen. Danach kann der Kontakt durch langes Drücken der entsprechenden Zahl schnell angerufen werden.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">In der Anrufliste aufeinanderfolgende Anrufe mit derselben Nummer gruppieren</string>
-    <string name="open_dialpad_by_default">Beim Öffnen der App immer das Wählfeld öffnen</string>
+    <string name="open_dialpad_by_default">Beim Öffnen der App immer das Wähltastenfeld öffnen</string>
     <string name="disable_proximity_sensor">Näherungssensor bei Anrufen deaktivieren</string>
     <string name="disable_swipe_to_answer">Anrufe durch Klicken statt durch Streichen annehmen</string>
     <string name="show_incoming_calls_full_screen">Eingehende Anrufe immer im Vollbildmodus anzeigen</string>
