@@ -1,6 +1,7 @@
 package com.simplemobiletools.dialer.activities
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
@@ -16,6 +17,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.viewpager.widget.ViewPager
@@ -83,6 +85,10 @@ class MainActivity : SimpleActivity() {
             launchSetDefaultDialerIntent()
         }
 
+        if (isQPlus() && config.blockUnknownNumbers) {
+            setDefaultCallerIdApp()
+        }
+
         setupTabs()
         SimpleContact.sorting = config.sorting
     }
@@ -123,9 +129,12 @@ class MainActivity : SimpleActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         super.onActivityResult(requestCode, resultCode, resultData)
-        // we dont really care about the result, the app can work without being the default Dialer too
+        // we don't really care about the result, the app can work without being the default Dialer too
         if (requestCode == REQUEST_CODE_SET_DEFAULT_DIALER) {
             checkContactPermissions()
+        } else if (requestCode == REQUEST_CODE_SET_DEFAULT_CALLER_ID && resultCode != Activity.RESULT_OK) {
+            toast(R.string.must_make_default_caller_id_app, length = Toast.LENGTH_LONG)
+            baseConfig.blockUnknownNumbers = false
         }
     }
 
