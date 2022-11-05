@@ -44,7 +44,7 @@ class CallActivity : SimpleActivity() {
     }
 
     private var isSpeakerOn = false
-    private var isMicrophoneOn = true
+    private var isMicrophoneOff = false
     private var isCallEnded = false
     private var callContact: CallContact? = null
     private var proximityWakeLock: PowerManager.WakeLock? = null
@@ -185,11 +185,17 @@ class CallActivity : SimpleActivity() {
         dialpad_hashtag_holder.setOnClickListener { dialpadPressed('#') }
 
         dialpad_wrapper.setBackgroundColor(getProperBackgroundColor())
-        arrayOf(
-            call_toggle_microphone, call_toggle_speaker, call_dialpad, dialpad_close,
-            call_sim_image, call_toggle_hold, call_add, call_swap, call_merge, call_manage
-        ).forEach {
+        arrayOf(dialpad_close, call_sim_image).forEach {
             it.applyColorFilter(getProperTextColor())
+        }
+
+        arrayOf(
+            call_toggle_microphone, call_toggle_speaker, call_dialpad,
+            call_toggle_hold, call_add, call_swap, call_merge, call_manage
+        ).forEach {
+            val bgColor = getInactiveButtonColor()
+            it.applyColorFilter(bgColor.getContrastColor())
+            it.background.applyColorFilter(getInactiveButtonColor())
         }
 
         arrayOf(
@@ -371,8 +377,10 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleSpeaker() {
         isSpeakerOn = !isSpeakerOn
-        val drawable = if (isSpeakerOn) R.drawable.ic_speaker_on_vector else R.drawable.ic_speaker_off_vector
-        call_toggle_speaker.setImageDrawable(getDrawable(drawable))
+        val color = if (isSpeakerOn) getActiveButtonColor() else getInactiveButtonColor()
+        call_toggle_speaker.background.applyColorFilter(color)
+        call_toggle_speaker.applyColorFilter(color.getContrastColor())
+
         audioManager.isSpeakerphoneOn = isSpeakerOn
 
         val newRoute = if (isSpeakerOn) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_EARPIECE
@@ -387,12 +395,13 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun toggleMicrophone() {
-        isMicrophoneOn = !isMicrophoneOn
-        val drawable = if (isMicrophoneOn) R.drawable.ic_microphone_vector else R.drawable.ic_microphone_off_vector
-        call_toggle_microphone.setImageDrawable(getDrawable(drawable))
-        audioManager.isMicrophoneMute = !isMicrophoneOn
-        CallManager.inCallService?.setMuted(!isMicrophoneOn)
-        call_toggle_microphone.contentDescription = getString(if (isMicrophoneOn) R.string.turn_microphone_off else R.string.turn_microphone_on)
+        isMicrophoneOff = !isMicrophoneOff
+        val color = if (isMicrophoneOff) getActiveButtonColor() else getInactiveButtonColor()
+        call_toggle_microphone.background.applyColorFilter(color)
+        call_toggle_microphone.applyColorFilter(color.getContrastColor())
+        audioManager.isMicrophoneMute = isMicrophoneOff
+        CallManager.inCallService?.setMuted(isMicrophoneOff)
+        call_toggle_microphone.contentDescription = getString(if (isMicrophoneOff) R.string.turn_microphone_on else R.string.turn_microphone_off)
     }
 
     private fun toggleDialpadVisibility() {
@@ -427,8 +436,9 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleHold() {
         val isOnHold = CallManager.toggleHold()
-        val drawable = if (isOnHold) R.drawable.ic_pause_crossed_vector else R.drawable.ic_pause_vector
-        call_toggle_hold.setImageDrawable(getDrawable(drawable))
+        val drawable = if (isOnHold) getActiveButtonColor() else getInactiveButtonColor()
+        call_toggle_hold.background.applyColorFilter(drawable)
+        call_toggle_hold.applyColorFilter(drawable.getContrastColor())
         call_toggle_hold.contentDescription = getString(if (isOnHold) R.string.resume_call else R.string.hold_call)
         hold_status_label.beVisibleIf(isOnHold)
     }
@@ -689,4 +699,8 @@ class CallActivity : SimpleActivity() {
             alpha = if (enabled) 1.0f else LOWER_ALPHA
         }
     }
+
+    private fun getActiveButtonColor() = getProperPrimaryColor()
+
+    private fun getInactiveButtonColor() = getProperBackgroundColor().darkenColor(4)
 }
