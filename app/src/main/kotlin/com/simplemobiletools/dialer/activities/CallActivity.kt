@@ -17,6 +17,7 @@ import android.telecom.CallAudioState
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import androidx.core.view.children
 import com.simplemobiletools.commons.extensions.*
@@ -35,7 +36,6 @@ import kotlin.math.min
 
 class CallActivity : SimpleActivity() {
     companion object {
-        private const val ANIMATION_DURATION = 250L
         fun getStartIntent(context: Context): Intent {
             val openAppIntent = Intent(context, CallActivity::class.java)
             openAppIntent.flags = Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
@@ -418,18 +418,18 @@ class CallActivity : SimpleActivity() {
         viewsUnderDialpad.addAll(findVisibleViewsUnderDialpad())
         viewsUnderDialpad.forEach { (view, _) ->
             view.run {
-                animate().scaleX(0f).alpha(0f).withEndAction { beGone() }.duration = ANIMATION_DURATION
-                animate().scaleY(0f).alpha(0f).withEndAction { beGone() }.duration = ANIMATION_DURATION
+                animate().scaleX(0f).alpha(0f).withEndAction { beGone() }.duration = 250L
+                animate().scaleY(0f).alpha(0f).withEndAction { beGone() }.duration = 250L
             }
         }
     }
 
     private fun hideDialpad() {
-        dialpad_wrapper.animate().alpha(0f).withEndAction { dialpad_wrapper.beGone() }
+        dialpad_wrapper.animate().alpha(0f).withEndAction { dialpad_wrapper.beGone() }.duration = 150L
         viewsUnderDialpad.forEach { (view, alpha) ->
             view.run {
-                animate().withStartAction { beVisible() }.scaleX(1f).alpha(alpha).duration = ANIMATION_DURATION
-                animate().withStartAction { beVisible() }.scaleY(1f).alpha(alpha).duration = ANIMATION_DURATION
+                animate().withStartAction { beVisible() }.setInterpolator(OvershootInterpolator()).scaleX(1f).alpha(alpha).duration = 250L
+                animate().withStartAction { beVisible() }.setInterpolator(OvershootInterpolator()).scaleY(1f).alpha(alpha).duration = 250L
             }
         }
     }
