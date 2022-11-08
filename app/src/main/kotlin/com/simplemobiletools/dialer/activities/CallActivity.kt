@@ -189,13 +189,14 @@ class CallActivity : SimpleActivity() {
             it.applyColorFilter(getProperTextColor())
         }
 
+        val bgColor = getProperBackgroundColor()
+        val inactiveColor = getInactiveButtonColor()
         arrayOf(
             call_toggle_microphone, call_toggle_speaker, call_dialpad,
             call_toggle_hold, call_add, call_swap, call_merge, call_manage
         ).forEach {
-            val bgColor = getInactiveButtonColor()
             it.applyColorFilter(bgColor.getContrastColor())
-            it.background.applyColorFilter(getInactiveButtonColor())
+            it.background.applyColorFilter(inactiveColor)
         }
 
         arrayOf(
@@ -377,9 +378,7 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleSpeaker() {
         isSpeakerOn = !isSpeakerOn
-        val color = if (isSpeakerOn) getActiveButtonColor() else getInactiveButtonColor()
-        call_toggle_speaker.background.applyColorFilter(color)
-        call_toggle_speaker.applyColorFilter(color.getContrastColor())
+        toggleButtonColor(call_toggle_speaker, isSpeakerOn)
 
         audioManager.isSpeakerphoneOn = isSpeakerOn
 
@@ -396,9 +395,7 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleMicrophone() {
         isMicrophoneOff = !isMicrophoneOff
-        val color = if (isMicrophoneOff) getActiveButtonColor() else getInactiveButtonColor()
-        call_toggle_microphone.background.applyColorFilter(color)
-        call_toggle_microphone.applyColorFilter(color.getContrastColor())
+        toggleButtonColor(call_toggle_microphone, isMicrophoneOff)
         audioManager.isMicrophoneMute = isMicrophoneOff
         CallManager.inCallService?.setMuted(isMicrophoneOff)
         call_toggle_microphone.contentDescription = getString(if (isMicrophoneOff) R.string.turn_microphone_on else R.string.turn_microphone_off)
@@ -436,9 +433,7 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleHold() {
         val isOnHold = CallManager.toggleHold()
-        val drawable = if (isOnHold) getActiveButtonColor() else getInactiveButtonColor()
-        call_toggle_hold.background.applyColorFilter(drawable)
-        call_toggle_hold.applyColorFilter(drawable.getContrastColor())
+        toggleButtonColor(call_toggle_hold, isOnHold)
         call_toggle_hold.contentDescription = getString(if (isOnHold) R.string.resume_call else R.string.hold_call)
         hold_status_label.beVisibleIf(isOnHold)
     }
@@ -702,5 +697,16 @@ class CallActivity : SimpleActivity() {
 
     private fun getActiveButtonColor() = getProperPrimaryColor()
 
-    private fun getInactiveButtonColor() = getProperBackgroundColor().darkenColor(4)
+    private fun getInactiveButtonColor() = getActiveButtonColor().adjustAlpha(0.2f)
+
+    private fun toggleButtonColor(view: ImageView, enabled: Boolean) {
+        if (enabled) {
+            val color = getActiveButtonColor()
+            view.background.applyColorFilter(color)
+            view.applyColorFilter(color.getContrastColor())
+        } else {
+            view.background.applyColorFilter(getInactiveButtonColor())
+            view.applyColorFilter(getProperBackgroundColor().getContrastColor())
+        }
+    }
 }
