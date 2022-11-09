@@ -721,7 +721,7 @@ class CallActivity : SimpleActivity() {
 
     private fun getActiveButtonColor() = getProperPrimaryColor()
 
-    private fun getInactiveButtonColor() = getActiveButtonColor().adjustAlpha(0.2f)
+    private fun getInactiveButtonColor() = getProperTextColor().adjustAlpha(0.10f)
 
     private fun toggleButtonColor(view: ImageView, enabled: Boolean) {
         if (enabled) {
