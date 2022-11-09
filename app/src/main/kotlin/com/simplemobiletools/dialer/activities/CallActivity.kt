@@ -17,6 +17,7 @@ import android.telecom.CallAudioState
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import androidx.core.view.children
@@ -55,6 +56,7 @@ class CallActivity : SimpleActivity() {
     private var dragDownX = 0f
     private var stopAnimation = false
     private var viewsUnderDialpad = arrayListOf<Pair<View, Float>>()
+    private var dialpadHeight = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -213,6 +215,10 @@ class CallActivity : SimpleActivity() {
 
         call_sim_id.setTextColor(getProperTextColor().getContrastColor())
         dialpad_input.disableKeyboard()
+
+        dialpad_wrapper.onGlobalLayout {
+            dialpadHeight = dialpad_wrapper.height.toFloat()
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -410,7 +416,18 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun showDialpad() {
-        dialpad_wrapper.animate().withStartAction { dialpad_wrapper.beVisible() }.alpha(1f)
+        dialpad_wrapper.apply {
+            translationY = dialpadHeight
+            alpha = 0f
+            animate()
+                .withStartAction { beVisible() }
+                .setInterpolator(AccelerateDecelerateInterpolator())
+                .setDuration(200L)
+                .alpha(1f)
+                .translationY(0f)
+                .start()
+        }
+
         viewsUnderDialpad.clear()
         viewsUnderDialpad.addAll(findVisibleViewsUnderDialpad())
         viewsUnderDialpad.forEach { (view, _) ->
@@ -422,7 +439,14 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun hideDialpad() {
-        dialpad_wrapper.animate().alpha(0f).withEndAction { dialpad_wrapper.beGone() }.duration = 150L
+        dialpad_wrapper.animate()
+            .withEndAction { dialpad_wrapper.beGone() }
+            .setInterpolator(AccelerateDecelerateInterpolator())
+            .setDuration(200L)
+            .alpha(0f)
+            .translationY(dialpadHeight)
+            .start()
+
         viewsUnderDialpad.forEach { (view, alpha) ->
             view.run {
                 animate().withStartAction { beVisible() }.setInterpolator(OvershootInterpolator()).scaleX(1f).alpha(alpha).duration = 250L
