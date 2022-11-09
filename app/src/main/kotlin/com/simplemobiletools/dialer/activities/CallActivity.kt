@@ -17,6 +17,8 @@ import android.telecom.CallAudioState
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import androidx.core.view.children
 import com.simplemobiletools.commons.extensions.*
@@ -35,7 +37,6 @@ import kotlin.math.min
 
 class CallActivity : SimpleActivity() {
     companion object {
-        private const val ANIMATION_DURATION = 250L
         fun getStartIntent(context: Context): Intent {
             val openAppIntent = Intent(context, CallActivity::class.java)
             openAppIntent.flags = Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
@@ -44,7 +45,7 @@ class CallActivity : SimpleActivity() {
     }
 
     private var isSpeakerOn = false
-    private var isMicrophoneOn = true
+    private var isMicrophoneOff = false
     private var isCallEnded = false
     private var callContact: CallContact? = null
     private var proximityWakeLock: PowerManager.WakeLock? = null
@@ -55,6 +56,7 @@ class CallActivity : SimpleActivity() {
     private var dragDownX = 0f
     private var stopAnimation = false
     private var viewsUnderDialpad = arrayListOf<Pair<View, Float>>()
+    private var dialpadHeight = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -185,11 +187,18 @@ class CallActivity : SimpleActivity() {
         dialpad_hashtag_holder.setOnClickListener { dialpadPressed('#') }
 
         dialpad_wrapper.setBackgroundColor(getProperBackgroundColor())
-        arrayOf(
-            call_toggle_microphone, call_toggle_speaker, call_dialpad, dialpad_close,
-            call_sim_image, call_toggle_hold, call_add, call_swap, call_merge, call_manage
-        ).forEach {
+        arrayOf(dialpad_close, call_sim_image).forEach {
             it.applyColorFilter(getProperTextColor())
+        }
+
+        val bgColor = getProperBackgroundColor()
+        val inactiveColor = getInactiveButtonColor()
+        arrayOf(
+            call_toggle_microphone, call_toggle_speaker, call_dialpad,
+            call_toggle_hold, call_add, call_swap, call_merge, call_manage
+        ).forEach {
+            it.applyColorFilter(bgColor.getContrastColor())
+            it.background.applyColorFilter(inactiveColor)
         }
 
         arrayOf(
@@ -206,6 +215,10 @@ class CallActivity : SimpleActivity() {
 
         call_sim_id.setTextColor(getProperTextColor().getContrastColor())
         dialpad_input.disableKeyboard()
+
+        dialpad_wrapper.onGlobalLayout {
+            dialpadHeight = dialpad_wrapper.height.toFloat()
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -371,8 +384,8 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleSpeaker() {
         isSpeakerOn = !isSpeakerOn
-        val drawable = if (isSpeakerOn) R.drawable.ic_speaker_on_vector else R.drawable.ic_speaker_off_vector
-        call_toggle_speaker.setImageDrawable(getDrawable(drawable))
+        toggleButtonColor(call_toggle_speaker, isSpeakerOn)
+
         audioManager.isSpeakerphoneOn = isSpeakerOn
 
         val newRoute = if (isSpeakerOn) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_EARPIECE
@@ -387,12 +400,11 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun toggleMicrophone() {
-        isMicrophoneOn = !isMicrophoneOn
-        val drawable = if (isMicrophoneOn) R.drawable.ic_microphone_vector else R.drawable.ic_microphone_off_vector
-        call_toggle_microphone.setImageDrawable(getDrawable(drawable))
-        audioManager.isMicrophoneMute = !isMicrophoneOn
-        CallManager.inCallService?.setMuted(!isMicrophoneOn)
-        call_toggle_microphone.contentDescription = getString(if (isMicrophoneOn) R.string.turn_microphone_off else R.string.turn_microphone_on)
+        isMicrophoneOff = !isMicrophoneOff
+        toggleButtonColor(call_toggle_microphone, isMicrophoneOff)
+        audioManager.isMicrophoneMute = isMicrophoneOff
+        CallManager.inCallService?.setMuted(isMicrophoneOff)
+        call_toggle_microphone.contentDescription = getString(if (isMicrophoneOff) R.string.turn_microphone_on else R.string.turn_microphone_off)
     }
 
     private fun toggleDialpadVisibility() {
@@ -404,31 +416,48 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun showDialpad() {
-        dialpad_wrapper.animate().withStartAction { dialpad_wrapper.beVisible() }.alpha(1f)
+        dialpad_wrapper.apply {
+            translationY = dialpadHeight
+            alpha = 0f
+            animate()
+                .withStartAction { beVisible() }
+                .setInterpolator(AccelerateDecelerateInterpolator())
+                .setDuration(200L)
+                .alpha(1f)
+                .translationY(0f)
+                .start()
+        }
+
         viewsUnderDialpad.clear()
         viewsUnderDialpad.addAll(findVisibleViewsUnderDialpad())
         viewsUnderDialpad.forEach { (view, _) ->
             view.run {
-                animate().scaleX(0f).alpha(0f).withEndAction { beGone() }.duration = ANIMATION_DURATION
-                animate().scaleY(0f).alpha(0f).withEndAction { beGone() }.duration = ANIMATION_DURATION
+                animate().scaleX(0f).alpha(0f).withEndAction { beGone() }.duration = 250L
+                animate().scaleY(0f).alpha(0f).withEndAction { beGone() }.duration = 250L
             }
         }
     }
 
     private fun hideDialpad() {
-        dialpad_wrapper.animate().alpha(0f).withEndAction { dialpad_wrapper.beGone() }
+        dialpad_wrapper.animate()
+            .withEndAction { dialpad_wrapper.beGone() }
+            .setInterpolator(AccelerateDecelerateInterpolator())
+            .setDuration(200L)
+            .alpha(0f)
+            .translationY(dialpadHeight)
+            .start()
+
         viewsUnderDialpad.forEach { (view, alpha) ->
             view.run {
-                animate().withStartAction { beVisible() }.scaleX(1f).alpha(alpha).duration = ANIMATION_DURATION
-                animate().withStartAction { beVisible() }.scaleY(1f).alpha(alpha).duration = ANIMATION_DURATION
+                animate().withStartAction { beVisible() }.setInterpolator(OvershootInterpolator()).scaleX(1f).alpha(alpha).duration = 250L
+                animate().withStartAction { beVisible() }.setInterpolator(OvershootInterpolator()).scaleY(1f).alpha(alpha).duration = 250L
             }
         }
     }
 
     private fun toggleHold() {
         val isOnHold = CallManager.toggleHold()
-        val drawable = if (isOnHold) R.drawable.ic_pause_crossed_vector else R.drawable.ic_pause_vector
-        call_toggle_hold.setImageDrawable(getDrawable(drawable))
+        toggleButtonColor(call_toggle_hold, isOnHold)
         call_toggle_hold.contentDescription = getString(if (isOnHold) R.string.resume_call else R.string.hold_call)
         hold_status_label.beVisibleIf(isOnHold)
     }
@@ -687,6 +716,21 @@ class CallActivity : SimpleActivity() {
         button.apply {
             isEnabled = enabled
             alpha = if (enabled) 1.0f else LOWER_ALPHA
+        }
+    }
+
+    private fun getActiveButtonColor() = getProperPrimaryColor()
+
+    private fun getInactiveButtonColor() = getProperTextColor().adjustAlpha(0.10f)
+
+    private fun toggleButtonColor(view: ImageView, enabled: Boolean) {
+        if (enabled) {
+            val color = getActiveButtonColor()
+            view.background.applyColorFilter(color)
+            view.applyColorFilter(color.getContrastColor())
+        } else {
+            view.background.applyColorFilter(getInactiveButtonColor())
+            view.applyColorFilter(getProperBackgroundColor().getContrastColor())
         }
     }
 }
