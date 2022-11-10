@@ -54,6 +54,12 @@
     <string name="call_add">הוסף שיחה</string>
     <string name="conference_manage">ניהול שיחת ועידה</string>
     <string name="conference">ועידה</string>
+    <string name="audio_route_speaker">Speaker</string>
+    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_bluetooth">Bluetooth</string>
+    <string name="audio_route_wired_headset">Wired Headset</string>
+    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
+    <string name="choose_audio_route">Choose audio route</string>
     <!-- Speed dial -->
     <string name="speed_dial">חיוג מהיר</string>
     <string name="manage_speed_dial">נהל חיוג מהיר</string>

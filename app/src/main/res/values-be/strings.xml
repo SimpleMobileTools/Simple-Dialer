@@ -54,6 +54,12 @@
     <string name="call_add">Дадаць выклік</string>
     <string name="conference_manage">Кіраванне канферэнц-сувяззю</string>
     <string name="conference">Канферэнц-сувязь</string>
+    <string name="audio_route_speaker">Speaker</string>
+    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_bluetooth">Bluetooth</string>
+    <string name="audio_route_wired_headset">Wired Headset</string>
+    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
+    <string name="choose_audio_route">Choose audio route</string>
     <!-- Speed dial -->
     <string name="speed_dial">Хуткі набор</string>
     <string name="manage_speed_dial">Кіраванне хуткім наборам</string>

@@ -180,7 +180,7 @@
             android:background="@drawable/circle_background"
             android:contentDescription="@string/turn_speaker_on"
             android:padding="@dimen/activity_margin"
-            android:src="@drawable/ic_speaker_on_vector"
+            android:src="@drawable/ic_volume_up_vector"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/call_dialpad"
             app:layout_constraintStart_toEndOf="@+id/call_toggle_microphone"
