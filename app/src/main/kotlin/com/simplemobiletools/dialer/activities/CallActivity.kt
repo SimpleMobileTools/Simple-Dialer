@@ -430,6 +430,7 @@ class CallActivity : SimpleActivity() {
                 } else {
                     getString(if (isSpeakerOn) R.string.turn_speaker_off else R.string.turn_speaker_on)
                 }
+                // show speaker icon when a headset is connected, a headset icon maybe confusing to some
                 if (route == AudioRoute.WIRED_HEADSET) {
                     setImageResource(R.drawable.ic_volume_down_vector)
                 } else {
