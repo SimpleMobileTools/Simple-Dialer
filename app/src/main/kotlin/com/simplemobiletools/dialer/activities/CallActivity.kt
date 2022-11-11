@@ -402,7 +402,7 @@ class CallActivity : SimpleActivity() {
         val callAudioRoute = CallManager.getCallAudioRoute()
         val items = routes
             .sortedByDescending { it.route }
-            .map { SimpleListItem(it.route, it.iconRes, it.stringRes, selected = it == callAudioRoute) }
+            .map { SimpleListItem(id = it.route, textRes = it.stringRes, imageRes = it.iconRes, selected = it == callAudioRoute) }
             .toTypedArray()
 
         if (audioRouteChooserDialog?.isVisible == true) {
