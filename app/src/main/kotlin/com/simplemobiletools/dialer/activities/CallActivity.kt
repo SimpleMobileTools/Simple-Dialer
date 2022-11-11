@@ -21,7 +21,6 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import androidx.core.view.children
-import com.simplemobiletools.commons.dialogs.SimpleBottomSheetChooserDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.LOWER_ALPHA
 import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
@@ -29,6 +28,7 @@ import com.simplemobiletools.commons.helpers.isOreoMr1Plus
 import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.commons.models.SimpleListItem
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.dialogs.DynamicBottomSheetChooserDialog
 import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.*
 import com.simplemobiletools.dialer.models.AudioRoute
@@ -61,7 +61,7 @@ class CallActivity : SimpleActivity() {
     private var viewsUnderDialpad = arrayListOf<Pair<View, Float>>()
     private var dialpadHeight = 0f
 
-    private var audioRouteChooserDialog: SimpleBottomSheetChooserDialog? = null
+    private var audioRouteChooserDialog: DynamicBottomSheetChooserDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -399,19 +399,19 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun createOrUpdateAudioRouteChooser(routes: Array<AudioRoute>, create: Boolean = true) {
+        val callAudioRoute = CallManager.getCallAudioRoute()
         val items = routes
             .sortedByDescending { it.route }
-            .map { SimpleListItem(it.route, it.iconRes, it.stringRes) }
+            .map { SimpleListItem(it.route, it.iconRes, it.stringRes, selected = it == callAudioRoute) }
             .toTypedArray()
 
         if (audioRouteChooserDialog?.isVisible == true) {
             audioRouteChooserDialog?.updateChooserItems(items)
         } else if (create) {
-            audioRouteChooserDialog = SimpleBottomSheetChooserDialog.createChooser(
+            audioRouteChooserDialog = DynamicBottomSheetChooserDialog.createChooser(
                 fragmentManager = supportFragmentManager,
                 title = R.string.choose_audio_route,
-                subtitle = null,
-                data = items
+                items = items
             ) {
                 audioRouteChooserDialog = null
                 CallManager.setAudioRoute(it.id)
