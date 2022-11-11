@@ -4,12 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Handler
 import android.telecom.Call
+import android.telecom.CallAudioState
 import android.telecom.InCallService
 import android.telecom.VideoProfile
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getStateCompat
 import com.simplemobiletools.dialer.extensions.hasCapability
 import com.simplemobiletools.dialer.extensions.isConference
+import com.simplemobiletools.dialer.models.AudioRoute
 import java.util.concurrent.CopyOnWriteArraySet
 
 // inspired by https://github.com/Chooloo/call_manage
@@ -45,6 +47,13 @@ class CallManager {
         fun onCallRemoved(call: Call) {
             calls.remove(call)
             updateState()
+        }
+
+        fun onAudioStateChanged(audioState: CallAudioState) {
+            val route = AudioRoute.fromRoute(audioState.route) ?: return
+            for (listener in listeners) {
+                listener.onAudioStateChanged(route)
+            }
         }
 
         fun getPhoneState(): PhoneState {
@@ -86,6 +95,25 @@ class CallManager {
                     }
                 }
             }
+        }
+
+        private fun getCallAudioState() = inCallService?.callAudioState
+
+        fun getSupportedAudioRoutes(): Array<AudioRoute> {
+            return AudioRoute.values().filter {
+                val supportedRouteMask = getCallAudioState()?.supportedRouteMask
+                if (supportedRouteMask != null) {
+                    supportedRouteMask and it.route == it.route
+                } else {
+                    false
+                }
+            }.toTypedArray()
+        }
+
+        fun getCallAudioRoute() = AudioRoute.fromRoute(getCallAudioState()?.route)
+
+        fun setAudioRoute(newRoute: Int) {
+            inCallService?.setAudioRoute(newRoute)
         }
 
         private fun updateState() {
@@ -188,6 +216,7 @@ class CallManager {
 
 interface CallManagerListener {
     fun onStateChanged()
+    fun onAudioStateChanged(audioState: AudioRoute)
     fun onPrimaryCallChanged(call: Call)
 }
 

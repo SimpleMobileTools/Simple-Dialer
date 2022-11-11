@@ -3,6 +3,7 @@ package com.simplemobiletools.dialer.services
 import android.app.KeyguardManager
 import android.content.Context
 import android.telecom.Call
+import android.telecom.CallAudioState
 import android.telecom.InCallService
 import com.simplemobiletools.dialer.activities.CallActivity
 import com.simplemobiletools.dialer.extensions.config
@@ -59,6 +60,13 @@ class CallService : InCallService() {
             if (wasPrimaryCall) {
                 startActivity(CallActivity.getStartIntent(this))
             }
+        }
+    }
+
+    override fun onCallAudioStateChanged(audioState: CallAudioState?) {
+        super.onCallAudioStateChanged(audioState)
+        if (audioState != null) {
+            CallManager.onAudioStateChanged(audioState)
         }
     }
 

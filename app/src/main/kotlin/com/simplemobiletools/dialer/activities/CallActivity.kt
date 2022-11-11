@@ -26,9 +26,12 @@ import com.simplemobiletools.commons.helpers.LOWER_ALPHA
 import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
 import com.simplemobiletools.commons.helpers.isOreoMr1Plus
 import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.models.SimpleListItem
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.dialogs.DynamicBottomSheetChooserDialog
 import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.*
+import com.simplemobiletools.dialer.models.AudioRoute
 import com.simplemobiletools.dialer.models.CallContact
 import kotlinx.android.synthetic.main.activity_call.*
 import kotlinx.android.synthetic.main.dialpad.*
@@ -57,6 +60,8 @@ class CallActivity : SimpleActivity() {
     private var stopAnimation = false
     private var viewsUnderDialpad = arrayListOf<Pair<View, Float>>()
     private var dialpadHeight = 0f
+
+    private var audioRouteChooserDialog: DynamicBottomSheetChooserDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -133,7 +138,7 @@ class CallActivity : SimpleActivity() {
         }
 
         call_toggle_speaker.setOnClickListener {
-            toggleSpeaker()
+            changeCallAudioRoute()
         }
 
         call_dialpad.setOnClickListener {
@@ -382,20 +387,66 @@ class CallActivity : SimpleActivity() {
         dialpad_input.addCharacter(char)
     }
 
-    private fun toggleSpeaker() {
-        isSpeakerOn = !isSpeakerOn
-        toggleButtonColor(call_toggle_speaker, isSpeakerOn)
-
-        audioManager.isSpeakerphoneOn = isSpeakerOn
-
-        val newRoute = if (isSpeakerOn) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_EARPIECE
-        CallManager.inCallService?.setAudioRoute(newRoute)
-        call_toggle_speaker.contentDescription = getString(if (isSpeakerOn) R.string.turn_speaker_off else R.string.turn_speaker_on)
-
-        if (isSpeakerOn) {
-            disableProximitySensor()
+    private fun changeCallAudioRoute() {
+        val supportAudioRoutes = CallManager.getSupportedAudioRoutes()
+        if (supportAudioRoutes.contains(AudioRoute.BLUETOOTH)) {
+            createOrUpdateAudioRouteChooser(supportAudioRoutes)
         } else {
-            enableProximitySensor()
+            val isSpeakerOn = !isSpeakerOn
+            val newRoute = if (isSpeakerOn) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_WIRED_OR_EARPIECE
+            CallManager.setAudioRoute(newRoute)
+        }
+    }
+
+    private fun createOrUpdateAudioRouteChooser(routes: Array<AudioRoute>, create: Boolean = true) {
+        val callAudioRoute = CallManager.getCallAudioRoute()
+        val items = routes
+            .sortedByDescending { it.route }
+            .map {
+                SimpleListItem(id = it.route, textRes = it.stringRes, imageRes = it.iconRes, selected = it == callAudioRoute)
+            }
+            .toTypedArray()
+
+        if (audioRouteChooserDialog?.isVisible == true) {
+            audioRouteChooserDialog?.updateChooserItems(items)
+        } else if (create) {
+            audioRouteChooserDialog = DynamicBottomSheetChooserDialog.createChooser(
+                fragmentManager = supportFragmentManager,
+                title = R.string.choose_audio_route,
+                items = items
+            ) {
+                audioRouteChooserDialog = null
+                CallManager.setAudioRoute(it.id)
+            }
+        }
+    }
+
+    private fun updateCallAudioState(route: AudioRoute?) {
+        if (route != null) {
+            isSpeakerOn = route == AudioRoute.SPEAKER
+            val supportedAudioRoutes = CallManager.getSupportedAudioRoutes()
+            call_toggle_speaker.apply {
+                val bluetoothConnected = supportedAudioRoutes.contains(AudioRoute.BLUETOOTH)
+                contentDescription = if (bluetoothConnected) {
+                    getString(R.string.choose_audio_route)
+                } else {
+                    getString(if (isSpeakerOn) R.string.turn_speaker_off else R.string.turn_speaker_on)
+                }
+                // show speaker icon when a headset is connected, a headset icon maybe confusing to some
+                if (route == AudioRoute.WIRED_HEADSET) {
+                    setImageResource(R.drawable.ic_volume_down_vector)
+                } else {
+                    setImageResource(route.iconRes)
+                }
+            }
+            toggleButtonColor(call_toggle_speaker, enabled = route != AudioRoute.EARPIECE && route != AudioRoute.WIRED_HEADSET)
+            createOrUpdateAudioRouteChooser(supportedAudioRoutes, create = false)
+
+            if (isSpeakerOn) {
+                disableProximitySensor()
+            } else {
+                enableProximitySensor()
+            }
         }
     }
 
@@ -560,6 +611,8 @@ class CallActivity : SimpleActivity() {
             updateCallState(phoneState.active)
             updateCallOnHoldState(phoneState.onHold)
         }
+
+        updateCallAudioState(CallManager.getCallAudioRoute())
     }
 
     private fun updateCallOnHoldState(call: Call?) {
@@ -623,6 +676,7 @@ class CallActivity : SimpleActivity() {
     private fun endCall() {
         CallManager.reject()
         disableProximitySensor()
+        audioRouteChooserDialog?.dismissAllowingStateLoss()
 
         if (isCallEnded) {
             finishAndRemoveTask()
@@ -651,6 +705,10 @@ class CallActivity : SimpleActivity() {
     private val callCallback = object : CallManagerListener {
         override fun onStateChanged() {
             updateState()
+        }
+
+        override fun onAudioStateChanged(audioState: AudioRoute) {
+            updateCallAudioState(audioState)
         }
 
         override fun onPrimaryCallChanged(call: Call) {

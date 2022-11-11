@@ -54,6 +54,12 @@
     <string name="call_add">Pridėti skambutį</string>
     <string name="conference_manage">Tvarkyti konferencinį skambutį</string>
     <string name="conference">Konferencija</string>
+    <string name="audio_route_speaker">Speaker</string>
+    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_bluetooth">Bluetooth</string>
+    <string name="audio_route_wired_headset">Wired Headset</string>
+    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
+    <string name="choose_audio_route">Choose audio route</string>
     <!-- Speed dial -->
     <string name="speed_dial">Spartusis rinkimas</string>
     <string name="manage_speed_dial">Tvarkyti spartųjį rinkimą</string>
