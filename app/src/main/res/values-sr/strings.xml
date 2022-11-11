@@ -73,4 +73,10 @@
     <!-- FAQ -->
     <string name="faq_1_title">Чујем долазне позиве, али екран се не укључује. Шта могу да урадим\?</string>
     <string name="faq_1_text">Такви проблеми могу имати много специфичних разлога за уређај и систем, што је уопштено тешко рећи. Требало би да погледате около у подешавањима уређаја и уверите се да је апликацији дозвољено да искаче када је у позадини и да дозволи приказивање преко других апликација.</string>
+    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Speaker</string>
+    <string name="audio_route_bluetooth">Bluetooth</string>
+    <string name="audio_route_wired_headset">Wired Headset</string>
+    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
+    <string name="choose_audio_route">Choose audio route</string>
 </resources>
