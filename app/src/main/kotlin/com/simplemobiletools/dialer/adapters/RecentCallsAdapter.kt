@@ -11,6 +11,7 @@ import android.widget.PopupMenu
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
+import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleContact
@@ -61,6 +62,7 @@ class RecentCallsAdapter(
             findItem(R.id.cab_call_sim_2).isVisible = hasMultipleSIMs && isOneItemSelected
             findItem(R.id.cab_remove_default_sim).isVisible = isOneItemSelected && activity.config.getCustomSIM(selectedNumber) != ""
 
+            findItem(R.id.cab_block_number).title = activity.addLockedLabelIfNeeded(R.string.block_number)
             findItem(R.id.cab_block_number).isVisible = isNougatPlus()
             findItem(R.id.cab_add_number).isVisible = isOneItemSelected
             findItem(R.id.cab_copy_number).isVisible = isOneItemSelected
@@ -78,7 +80,7 @@ class RecentCallsAdapter(
             R.id.cab_call_sim_1 -> callContact(true)
             R.id.cab_call_sim_2 -> callContact(false)
             R.id.cab_remove_default_sim -> removeDefaultSIM()
-            R.id.cab_block_number -> askConfirmBlock()
+            R.id.cab_block_number -> tryBlocking()
             R.id.cab_add_number -> addNumberToContact()
             R.id.cab_send_sms -> sendSMS()
             R.id.cab_show_call_details -> showCallDetails()
@@ -140,6 +142,14 @@ class RecentCallsAdapter(
         val phoneNumber = getSelectedPhoneNumber() ?: return
         activity.config.removeCustomSIM("tel:$phoneNumber")
         finishActMode()
+    }
+
+    private fun tryBlocking() {
+        if (activity.isOrWasThankYouInstalled()) {
+            askConfirmBlock()
+        } else {
+            FeatureLockedDialog(activity) { }
+        }
     }
 
     private fun askConfirmBlock() {

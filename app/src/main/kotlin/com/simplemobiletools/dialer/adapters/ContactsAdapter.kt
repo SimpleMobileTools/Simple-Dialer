@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
+import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_CALL_PHONE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CONTACTS
@@ -83,6 +84,7 @@ class ContactsAdapter(
             findItem(R.id.cab_remove_default_sim).isVisible = isOneItemSelected && activity.config.getCustomSIM(selectedNumber) != ""
 
             findItem(R.id.cab_delete).isVisible = showDeleteButton
+            findItem(R.id.cab_create_shortcut).title = activity.addLockedLabelIfNeeded(R.string.create_shortcut)
             findItem(R.id.cab_create_shortcut).isVisible = isOneItemSelected && isOreoPlus()
             findItem(R.id.cab_view_details).isVisible = isOneItemSelected
         }
@@ -100,7 +102,7 @@ class ContactsAdapter(
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_send_sms -> sendSMS()
             R.id.cab_view_details -> viewContactDetails()
-            R.id.cab_create_shortcut -> createShortcut()
+            R.id.cab_create_shortcut -> tryCreateShortcut()
             R.id.cab_select_all -> selectAll()
         }
     }
@@ -225,6 +227,14 @@ class ContactsAdapter(
         val numbers = getSelectedItems().firstOrNull()?.phoneNumbers
         val primaryNumber = numbers?.firstOrNull { it.isPrimary }
         return primaryNumber?.normalizedNumber ?: numbers?.firstOrNull()?.normalizedNumber
+    }
+
+    private fun tryCreateShortcut() {
+        if (activity.isOrWasThankYouInstalled()) {
+            createShortcut()
+        } else {
+            FeatureLockedDialog(activity) { }
+        }
     }
 
     @SuppressLint("NewApi")

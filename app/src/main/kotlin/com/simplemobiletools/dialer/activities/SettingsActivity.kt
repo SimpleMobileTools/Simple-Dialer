@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity
 import com.simplemobiletools.commons.dialogs.ChangeDateTimeFormatDialog
+import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -120,6 +121,7 @@ class SettingsActivity : SimpleActivity() {
     // support for device-wise blocking came on Android 7, rely only on that
     @TargetApi(Build.VERSION_CODES.N)
     private fun setupManageBlockedNumbers() {
+        settings_manage_blocked_numbers_label.text = addLockedLabelIfNeeded(R.string.manage_blocked_numbers)
         settings_manage_blocked_numbers_holder.beVisibleIf(isNougatPlus())
 
         if (settings_use_english_holder.isGone() && settings_purchase_thank_you_holder.isGone() && settings_manage_blocked_numbers_holder.isGone()) {
@@ -127,8 +129,12 @@ class SettingsActivity : SimpleActivity() {
         }
 
         settings_manage_blocked_numbers_holder.setOnClickListener {
-            Intent(this, ManageBlockedNumbersActivity::class.java).apply {
-                startActivity(this)
+            if (isOrWasThankYouInstalled()) {
+                Intent(this, ManageBlockedNumbersActivity::class.java).apply {
+                    startActivity(this)
+                }
+            } else {
+                FeatureLockedDialog(this) { }
             }
         }
     }
