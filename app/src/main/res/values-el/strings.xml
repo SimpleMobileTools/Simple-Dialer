@@ -54,12 +54,12 @@
     <string name="call_add">Προσθήκη κλήσης</string>
     <string name="conference_manage">Διαχείριση Συνδιάσκεψης</string>
     <string name="conference">Συνδιάσκεψη</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Ηχείο</string>
+    <string name="audio_route_earpiece">Ακουστικα</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Ενσύρματα κεφαλής</string>
+    <string name="audio_route_wired_or_earpiece">Ενσύρματα ή ακουστικά</string>
+    <string name="choose_audio_route">Επιλογή διαδρομής ήχου</string>
     <!-- Speed dial -->
     <string name="speed_dial">Ταχεία κλήση</string>
     <string name="manage_speed_dial">Διαχείριση ταχείας κλήσης</string>
