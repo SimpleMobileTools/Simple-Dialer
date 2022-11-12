@@ -54,12 +54,12 @@
     <string name="call_add">Afegeix una trucada</string>
     <string name="conference_manage">Gestiona una trucada de conferència</string>
     <string name="conference">Conferència</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Altaveu</string>
+    <string name="audio_route_earpiece">Auricular</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Auriculars amb cable</string>
+    <string name="audio_route_wired_or_earpiece">Amb cable o auricular</string>
+    <string name="choose_audio_route">Trieu la sortida d\'àudio</string>
     <!-- Speed dial -->
     <string name="speed_dial">Marcatge ràpid</string>
     <string name="manage_speed_dial">Gestiona el marcatge ràpid</string>
