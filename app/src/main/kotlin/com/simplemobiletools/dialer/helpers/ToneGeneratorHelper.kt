@@ -9,7 +9,12 @@ import android.os.Looper
 
 class ToneGeneratorHelper(context: Context, private val minToneLengthMs: Long) {
     private val audioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
-    private val toneGenerator = ToneGenerator(DIAL_TONE_STREAM_TYPE, TONE_RELATIVE_VOLUME)
+    private val toneGenerator: ToneGenerator? = try {
+        ToneGenerator(DIAL_TONE_STREAM_TYPE, TONE_RELATIVE_VOLUME)
+    } catch (ignored: Exception) {
+        null
+    }
+
     private var toneStartTimeMs = 0L
 
     private fun isSilent(): Boolean {
@@ -23,7 +28,7 @@ class ToneGeneratorHelper(context: Context, private val minToneLengthMs: Long) {
 
     private fun startTone(tone: Int) {
         if (tone != -1 && !isSilent()) {
-            toneGenerator.startTone(tone)
+            toneGenerator?.startTone(tone)
         }
     }
 
@@ -31,10 +36,10 @@ class ToneGeneratorHelper(context: Context, private val minToneLengthMs: Long) {
         val timeSinceStartMs = System.currentTimeMillis() - toneStartTimeMs
         if (timeSinceStartMs < minToneLengthMs) {
             Handler(Looper.getMainLooper()).postDelayed({
-                toneGenerator.stopTone()
+                toneGenerator?.stopTone()
             }, minToneLengthMs - timeSinceStartMs)
         } else {
-            toneGenerator.stopTone()
+            toneGenerator?.stopTone()
         }
     }
 
