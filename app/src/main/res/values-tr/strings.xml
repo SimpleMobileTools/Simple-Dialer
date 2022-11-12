@@ -54,12 +54,12 @@
     <string name="call_add">Arama ekle</string>
     <string name="conference_manage">Konferans aramasını yönet</string>
     <string name="conference">Konferans</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Hoparlör</string>
+    <string name="audio_route_earpiece">Kulaklık</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Kablolu Kulaklık</string>
+    <string name="audio_route_wired_or_earpiece">Kablolu veya Kulaklık</string>
+    <string name="choose_audio_route">Ses çıkışını seçin</string>
     <!-- Speed dial -->
     <string name="speed_dial">Hızlı arama</string>
     <string name="manage_speed_dial">Hızlı aramayı yönet</string>
