@@ -54,12 +54,12 @@
     <string name="call_add">Añadir llamada</string>
     <string name="conference_manage">Administrar conferencia</string>
     <string name="conference">Conferencia</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Altavoz</string>
+    <string name="audio_route_earpiece">Auricular</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Auricular con cable</string>
+    <string name="audio_route_wired_or_earpiece">Auricular inalámbrico</string>
+    <string name="choose_audio_route">Elija la salida del audio</string>
     <!-- Speed dial -->
     <string name="speed_dial">Marcado rápido</string>
     <string name="manage_speed_dial">Administrar marcado rápido</string>
