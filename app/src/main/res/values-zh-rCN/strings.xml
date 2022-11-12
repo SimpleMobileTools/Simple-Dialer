@@ -54,12 +54,12 @@
     <string name="call_add">添加通话</string>
     <string name="conference_manage">管理电话会议</string>
     <string name="conference">会议</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">扬声器</string>
+    <string name="audio_route_earpiece">听筒</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">有线耳机</string>
+    <string name="audio_route_wired_or_earpiece">有线或听筒</string>
+    <string name="choose_audio_route">选择音频线路</string>
     <!-- Speed dial -->
     <string name="speed_dial">快速拨号</string>
     <string name="manage_speed_dial">管理快速拨号</string>
