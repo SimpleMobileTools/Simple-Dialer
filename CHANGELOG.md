@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 5.16.0 *(2022-11-12)*
+----------------------------
+
+ * Allow changing the audio route during calls
+ * Require Simple Thank You for some features
+ * Added some stability, translation and UX improvements
+
 Version 5.15.5 *(2022-10-25)*
 ----------------------------
 
