@@ -54,12 +54,12 @@
     <string name="call_add">Gesprek toevoegen</string>
     <string name="conference_manage">Groepsgesprek beheren</string>
     <string name="conference">Groepsgesprek</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Luidspreker(s)</string>
+    <string name="audio_route_earpiece">Oordopje(s)</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Bedrade koptelefoon</string>
+    <string name="audio_route_wired_or_earpiece">Bedraad of via oordopje(s)</string>
+    <string name="choose_audio_route">Geluidsroute kiezen</string>
     <!-- Speed dial -->
     <string name="speed_dial">Snelkiesnummer</string>
     <string name="manage_speed_dial">Snelkiezen beheren</string>
