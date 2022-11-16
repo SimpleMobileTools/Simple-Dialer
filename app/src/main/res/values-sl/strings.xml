@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Dialer</string>
     <string name="app_launcher_name">Telefon</string>
@@ -53,12 +54,12 @@
     <string name="call_add">Dodaj klic</string>
     <string name="conference_manage">Upravljaj konferenčni klic</string>
     <string name="conference">Konferenca</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Zvočnik</string>
+    <string name="audio_route_earpiece">Slušalke</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Ožičene slušalke</string>
+    <string name="audio_route_wired_or_earpiece">Ožičeno ali brezžično</string>
+    <string name="choose_audio_route">Izberi smer zvoka</string>
     <!-- Speed dial -->
     <string name="speed_dial">Hitro klicanje</string>
     <string name="manage_speed_dial">Upravljanje hitrega klica</string>
