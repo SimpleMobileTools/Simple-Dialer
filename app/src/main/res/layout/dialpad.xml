@@ -18,6 +18,7 @@
         android:layout_marginStart="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/one"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/dialpad_2_holder"
         app:layout_constraintEnd_toStartOf="@+id/dialpad_2_holder"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +41,7 @@
         android:layout_marginBottom="@dimen/medium_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/two"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/dialpad_5_holder"
         app:layout_constraintEnd_toStartOf="@+id/dialpad_3_holder"
         app:layout_constraintStart_toEndOf="@+id/dialpad_1_holder">
@@ -61,7 +63,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/medium_margin"
             android:gravity="center_horizontal"
-            android:text="ABC" />
+            android:text="ABC"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -71,6 +74,7 @@
         android:layout_marginEnd="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/three"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/dialpad_2_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dialpad_2_holder"
@@ -103,6 +107,7 @@
         android:layout_marginStart="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/four"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/dialpad_5_holder"
         app:layout_constraintEnd_toStartOf="@+id/dialpad_5_holder"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,6 +140,7 @@
         android:layout_marginBottom="@dimen/medium_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/five"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/dialpad_8_holder"
         app:layout_constraintEnd_toStartOf="@+id/dialpad_6_holder"
         app:layout_constraintStart_toEndOf="@+id/dialpad_4_holder">
@@ -166,6 +172,7 @@
         android:layout_marginEnd="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/six"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/dialpad_5_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dialpad_5_holder"
@@ -198,6 +205,7 @@
         android:layout_marginStart="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/seven"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/dialpad_8_holder"
         app:layout_constraintEnd_toStartOf="@+id/dialpad_8_holder"
         app:layout_constraintStart_toStartOf="parent"
@@ -230,6 +238,7 @@
         android:layout_marginBottom="@dimen/medium_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/eight"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/dialpad_0_holder"
         app:layout_constraintEnd_toStartOf="@+id/dialpad_9_holder"
         app:layout_constraintStart_toEndOf="@+id/dialpad_7_holder">
@@ -261,6 +270,7 @@
         android:layout_marginEnd="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/nine"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/dialpad_8_holder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dialpad_8_holder"
@@ -315,6 +325,7 @@
         android:layout_marginBottom="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/zero"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dialpad_hashtag_holder"
         app:layout_constraintStart_toEndOf="@+id/dialpad_asterisk_holder">
@@ -335,6 +346,31 @@
             android:layout_alignBottom="@+id/dialpad_0"
             android:layout_centerHorizontal="true"
             android:layout_toEndOf="@+id/dialpad_0"
+            android:gravity="center"
+            android:paddingStart="@dimen/small_margin"
+            android:paddingTop="@dimen/small_margin"
+            android:text="+"
+            android:textSize="@dimen/actionbar_text_size" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/dialpad_plus_holder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/zero"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dialpad_hashtag_holder"
+        app:layout_constraintStart_toEndOf="@+id/dialpad_asterisk_holder">
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/dialpad_plus_alt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:gravity="center"
             android:paddingStart="@dimen/small_margin"
             android:paddingTop="@dimen/small_margin"

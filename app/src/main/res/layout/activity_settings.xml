@@ -228,6 +228,22 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/settings_hide_dialpad_numbers_holder"
+                    style="@style/SettingsHolderCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_background">
+
+                    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                        android:id="@+id/settings_hide_dialpad_numbers"
+                        style="@style/SettingsCheckboxStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hide dialpad numbers" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:id="@+id/settings_dialpad_vibration_holder"
                     style="@style/SettingsHolderCheckboxStyle"
                     android:layout_width="match_parent"

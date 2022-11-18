@@ -17,6 +17,7 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
+import androidx.core.view.isVisible
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -52,6 +53,21 @@ class DialpadActivity : SimpleActivity() {
         if (checkAppSideloading()) {
             return
         }
+
+        if (config.hideDialpadNumbers) {
+            dialpad_1_holder.isVisible = false
+            dialpad_2_holder.isVisible = false
+            dialpad_3_holder.isVisible = false
+            dialpad_4_holder.isVisible = false
+            dialpad_5_holder.isVisible = false
+            dialpad_6_holder.isVisible = false
+            dialpad_7_holder.isVisible = false
+            dialpad_8_holder.isVisible = false
+            dialpad_9_holder.isVisible = false
+            dialpad_plus_holder.isVisible = true
+            dialpad_0_holder.visibility = View.INVISIBLE
+        }
+
 
         setupOptionsMenu()
         speedDialValues = config.getSpeedDialValues()
@@ -89,6 +105,7 @@ class DialpadActivity : SimpleActivity() {
         setupCharClick(dialpad_8_holder, '8')
         setupCharClick(dialpad_9_holder, '9')
         setupCharClick(dialpad_0_holder, '0')
+        setupCharClick(dialpad_plus_holder, '+')
         setupCharClick(dialpad_asterisk_holder, '*', longClickable = false)
         setupCharClick(dialpad_hashtag_holder, '#', longClickable = false)
 

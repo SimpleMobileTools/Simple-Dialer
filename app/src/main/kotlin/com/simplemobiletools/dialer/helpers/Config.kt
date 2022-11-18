@@ -76,6 +76,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(DIALPAD_VIBRATION, true)
         set(dialpadVibration) = prefs.edit().putBoolean(DIALPAD_VIBRATION, dialpadVibration).apply()
 
+    var hideDialpadNumbers: Boolean
+        get() = prefs.getBoolean(HIDE_DIALPAD_NUMBERS, false)
+        set(hideDialpadNumbers) = prefs.edit().putBoolean(HIDE_DIALPAD_NUMBERS, hideDialpadNumbers).apply()
+
     var dialpadBeeps: Boolean
         get() = prefs.getBoolean(DIALPAD_BEEPS, true)
         set(dialpadBeeps) = prefs.edit().putBoolean(DIALPAD_BEEPS, dialpadBeeps).apply()

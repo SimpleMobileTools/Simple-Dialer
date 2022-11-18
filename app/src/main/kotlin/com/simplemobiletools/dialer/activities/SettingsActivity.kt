@@ -43,6 +43,7 @@ class SettingsActivity : SimpleActivity() {
         setupGroupSubsequentCalls()
         setupStartNameWithSurname()
         setupDialpadVibrations()
+        setupDialpadNumbers()
         setupDialpadBeeps()
         setupShowCallConfirmation()
         setupDisableProximitySensor()
@@ -231,6 +232,14 @@ class SettingsActivity : SimpleActivity() {
         settings_dialpad_vibration_holder.setOnClickListener {
             settings_dialpad_vibration.toggle()
             config.dialpadVibration = settings_dialpad_vibration.isChecked
+        }
+    }
+
+    private fun setupDialpadNumbers() {
+        settings_hide_dialpad_numbers.isChecked = config.hideDialpadNumbers
+        settings_hide_dialpad_numbers_holder.setOnClickListener {
+            settings_hide_dialpad_numbers.toggle()
+            config.hideDialpadNumbers = settings_hide_dialpad_numbers.isChecked
         }
     }
 
