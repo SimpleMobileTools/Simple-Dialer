@@ -239,7 +239,7 @@
                         style="@style/SettingsCheckboxStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Hide dialpad numbers" />
+                        android:text="@string/hide_dialpad_numbers" />
 
                 </RelativeLayout>
 

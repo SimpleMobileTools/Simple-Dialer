@@ -70,6 +70,8 @@
     <string name="disable_proximity_sensor">Désactiver le capteur de proximité pendant les appels</string>
     <string name="disable_swipe_to_answer">Remplacer le balayage pour répondre aux appels entrants par un clic</string>
     <string name="show_incoming_calls_full_screen">Toujours afficher les appels entrants en plein écran</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">J\'entends les appels entrants, mais l\'écran ne s\'allume pas. Que puis-je faire \?</string>
     <string name="faq_1_text">Ces problèmes peuvent avoir de nombreuses raisons spécifiques à l\'appareil et au système, il est difficile d\'en parler en général. Vous devriez consulter les paramètres de votre appareil et vous assurer que l\'application est autorisée à apparaître en arrière-plan et à s\'afficher au-dessus des autres applications.</string>

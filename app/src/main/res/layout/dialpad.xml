@@ -63,8 +63,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/medium_margin"
             android:gravity="center_horizontal"
-            android:text="ABC"
-            android:visibility="gone" />
+            android:text="ABC" />
     </RelativeLayout>
 
     <RelativeLayout

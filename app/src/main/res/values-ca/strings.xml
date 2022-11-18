@@ -70,6 +70,8 @@
     <string name="disable_proximity_sensor">Desactiva el sensor de proximitat durant les trucades</string>
     <string name="disable_swipe_to_answer">Substitueix el lliscament en respondre a les trucades entrants per fer clic</string>
     <string name="show_incoming_calls_full_screen">Mostra sempre les trucades entrants a pantalla completa</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Sento trucades entrants, però la pantalla no s\'encén. Què puc fer\?</string>
     <string name="faq_1_text">Aquests problemes poden tenir moltes raons específiques del dispositiu i del sistema, difícils de dir en general. Hauríeu de mirar per la configuració del dispositiu i assegurar-vos que l\'aplicació pugui aparèixer en segon pla i permetre que es mostri sobre altres aplicacions.</string>

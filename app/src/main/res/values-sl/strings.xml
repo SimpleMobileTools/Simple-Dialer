@@ -69,6 +69,8 @@
     <string name="disable_proximity_sensor">Onemogoči senzor bližine med klici</string>
     <string name="disable_swipe_to_answer">Pri odzivanju na dohodne klice zamenjajte poteg s prstom na odziv s klikanjem</string>
     <string name="show_incoming_calls_full_screen">Dohodne klice vedno prikaži na celotnem zaslonu</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Slišim dohodne klice, vendar se zaslon ne vklopi. Kaj lahko storim\?</string>
     <string name="faq_1_text">Takšne težave imajo lahko veliko razlogov, ki so specifični za napravo in sistem, zato jih je na splošno težko opredeliti. Oglejte si nastavitve naprave in se prepričajte, da je aplikaciji dovoljeno, da se prikaže, ko je v ozadju, in da omogoča prikaz nad drugimi aplikacijami.</string>
