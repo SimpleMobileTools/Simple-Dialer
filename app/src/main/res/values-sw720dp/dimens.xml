@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialpad_button_size">96dp</dimen>
+    <dimen name="dialpad_button_padding">20dp</dimen>
+    <dimen name="dialpad_button_size_small">64dp</dimen>
+    <dimen name="incoming_call_arrow_size">64dp</dimen>
+    <dimen name="incoming_call_button_size">80dp</dimen>
+    <dimen name="call_notification_button_size">56dp</dimen>
+    <dimen name="incoming_call_avatar_size">160dp</dimen>
+
+    <dimen name="dialpad_text_size">42sp</dimen>
+    <dimen name="caller_name_text_size">46sp</dimen>
+    <dimen name="call_status_text_size">30sp</dimen>
+</resources>
