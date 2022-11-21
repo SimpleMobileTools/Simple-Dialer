@@ -105,7 +105,7 @@ class DialpadActivity : SimpleActivity() {
         setupCharClick(dialpad_8_holder, '8')
         setupCharClick(dialpad_9_holder, '9')
         setupCharClick(dialpad_0_holder, '0')
-        setupCharClick(dialpad_plus_holder, '+')
+        setupCharClick(dialpad_plus_holder, '+', longClickable =  false)
         setupCharClick(dialpad_asterisk_holder, '*', longClickable = false)
         setupCharClick(dialpad_hashtag_holder, '#', longClickable = false)
 
