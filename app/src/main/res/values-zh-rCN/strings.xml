@@ -56,7 +56,7 @@
     <string name="conference">会议</string>
     <string name="audio_route_speaker">扬声器</string>
     <string name="audio_route_earpiece">听筒</string>
-    <string name="audio_route_bluetooth">Bluetooth</string>
+    <string name="audio_route_bluetooth">蓝牙</string>
     <string name="audio_route_wired_headset">有线耳机</string>
     <string name="audio_route_wired_or_earpiece">有线或听筒</string>
     <string name="choose_audio_route">选择音频线路</string>
