@@ -54,12 +54,12 @@
     <string name="call_add">Přidat hovor</string>
     <string name="conference_manage">Spravovat konferenční hovor</string>
     <string name="conference">Konference</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Reproduktor</string>
+    <string name="audio_route_earpiece">Sluchátka</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Náhlavní souprava s kabelem</string>
+    <string name="audio_route_wired_or_earpiece">Kabel nebo sluchátka</string>
+    <string name="choose_audio_route">Vybrat směrování zvuku</string>
     <!-- Speed dial -->
     <string name="speed_dial">Rychlé vytáčení</string>
     <string name="manage_speed_dial">Spravovat rychlá vytáčení</string>
