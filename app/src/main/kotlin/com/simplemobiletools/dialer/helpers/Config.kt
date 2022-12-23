@@ -1,7 +1,9 @@
 package com.simplemobiletools.dialer.helpers
 
+import android.content.ComponentName
 import android.content.Context
 import android.net.Uri
+import android.telecom.PhoneAccountHandle
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
@@ -30,11 +32,24 @@ class Config(context: Context) : BaseConfig(context) {
         return speedDialValues
     }
 
-    fun saveCustomSIM(number: String, SIMlabel: String) {
-        prefs.edit().putString(REMEMBER_SIM_PREFIX + number, Uri.encode(SIMlabel)).apply()
+    fun saveCustomSIM(number: String, handle: PhoneAccountHandle) {
+        prefs.edit().putPhoneAccountHandle(REMEMBER_SIM_PREFIX + number,handle).apply()
     }
 
-    fun getCustomSIM(number: String) = prefs.getString(REMEMBER_SIM_PREFIX + number, "")
+    fun getCustomSIM(number: String): PhoneAccountHandle? {
+        val myPhoneAccountHandle =
+            prefs.getPhoneAccountHandleModel(REMEMBER_SIM_PREFIX + number, null)
+        return if (myPhoneAccountHandle != null) {
+            val packageName = myPhoneAccountHandle.packageName
+            val className = myPhoneAccountHandle.className
+            val componentName = ComponentName(packageName, className)
+            val id = myPhoneAccountHandle.id
+
+            PhoneAccountHandle(componentName, id)
+        } else {
+            null
+        }
+    }
 
     fun removeCustomSIM(number: String) {
         prefs.edit().remove(REMEMBER_SIM_PREFIX + number).apply()

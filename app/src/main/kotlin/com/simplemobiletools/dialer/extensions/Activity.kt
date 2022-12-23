@@ -75,12 +75,10 @@ fun SimpleActivity.getHandleToUse(intent: Intent?, phoneNumber: String, callback
             val defaultHandle = telecomManager.getDefaultOutgoingPhoneAccount(PhoneAccount.SCHEME_TEL)
             when {
                 intent?.hasExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE) == true -> callback(intent.getParcelableExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE)!!)
-                config.getCustomSIM(phoneNumber)?.isNotEmpty() == true -> {
-                    val storedLabel = Uri.decode(config.getCustomSIM(phoneNumber))
-                    val availableSIMs = getAvailableSIMCardLabels()
-                    val firstOrNull = availableSIMs.firstOrNull { it.label == storedLabel }?.handle ?: availableSIMs.first().handle
-                    callback(firstOrNull)
+                config.getCustomSIM() != null -> {
+                    callback(config.getCustomSIM())
                 }
+
                 defaultHandle != null -> callback(defaultHandle)
                 else -> {
                     SelectSIMDialog(this, phoneNumber) { handle ->
