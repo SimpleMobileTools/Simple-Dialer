@@ -36,6 +36,12 @@ class DialerActivity : SimpleActivity() {
     @SuppressLint("MissingPermission")
     private fun initOutgoingCall() {
         try {
+            if (this.isNumberBlocked(callNumber.toString().replace("tel:", ""), this.getBlockedNumbers())) {
+                toast(R.string.blocked_number)
+                finish()
+                return
+            }
+
             getHandleToUse(intent, callNumber.toString()) { handle ->
                 if (handle != null) {
                     Bundle().apply {

@@ -22,6 +22,7 @@
     <string name="call_number">Call number</string>
     <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="calling_blocked_numbe">الرقم الذي تحاول الإتصال به محظور</string>
     <!-- Dialer -->
     <string name="dialer">Dialer</string>
     <string name="accept">Accept</string>
