@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Auriculars amb cable</string>
     <string name="audio_route_wired_or_earpiece">Amb cable o auricular</string>
     <string name="choose_audio_route">Trieu la sortida d\'àudio</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Marcatge ràpid</string>
     <string name="manage_speed_dial">Gestiona el marcatge ràpid</string>

@@ -22,7 +22,6 @@
     <string name="call_number">Call number</string>
     <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
     <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
-    <string name="calling_blocked_number">الرقم الذي تتصل به محظور</string>
     <!-- Dialer -->
     <string name="dialer">Dialer</string>
     <string name="accept">Accept</string>
@@ -61,6 +60,7 @@
     <string name="audio_route_wired_headset">Wired Headset</string>
     <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
     <string name="choose_audio_route">Choose audio route</string>
+    <string name="calling_blocked_number">الرقم الذي تتصل به محظور</string>
     <!-- Speed dial -->
     <string name="speed_dial">Speed dial</string>
     <string name="manage_speed_dial">Manage speed dial</string>

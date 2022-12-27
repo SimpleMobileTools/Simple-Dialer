@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">有線ヘッドセット</string>
     <string name="audio_route_wired_or_earpiece">有線またはイヤーピース</string>
     <string name="choose_audio_route">音声の出力先を選択</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">スピードダイヤル</string>
     <string name="manage_speed_dial">スピードダイヤルの管理</string>

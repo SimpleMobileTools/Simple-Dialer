@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Auricular con cable</string>
     <string name="audio_route_wired_or_earpiece">Auricular inalámbrico</string>
     <string name="choose_audio_route">Elija la salida del audio</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Marcado rápido</string>
     <string name="manage_speed_dial">Administrar marcado rápido</string>
