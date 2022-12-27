@@ -37,7 +37,7 @@ class DialerActivity : SimpleActivity() {
     private fun initOutgoingCall() {
         try {
             if (this.isNumberBlocked(callNumber.toString().replace("tel:", ""), this.getBlockedNumbers())) {
-                toast(R.string.calling_blocked_numbe)
+                toast(R.string.calling_blocked_number)
                 finish()
                 return
             }
