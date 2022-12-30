@@ -190,4 +190,6 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         (fragment_list.adapter as? ContactsAdapter)?.updateItems(contacts, text)
         setupLetterFastscroller(contacts)
     }
+
+    override fun getScrollingView() = fragment_list
 }

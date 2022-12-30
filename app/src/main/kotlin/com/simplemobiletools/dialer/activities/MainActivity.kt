@@ -53,11 +53,13 @@ class MainActivity : SimpleActivity() {
     var cachedContacts = ArrayList<SimpleContact>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
         setupOptionsMenu()
         refreshMenuItems()
+        updateMaterialActivityViews(main_coordinator, main_holder, false)
 
         launchedDialer = savedInstanceState?.getBoolean(OPEN_DIAL_PAD_AT_LAUNCH) ?: false
 
@@ -95,13 +97,19 @@ class MainActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
+        val statusBarColor = if (getCurrentFragment()?.getScrollingView() == null) {
+            getProperBackgroundColor()
+        } else {
+            window.statusBarColor
+        }
+
         val properPrimaryColor = getProperPrimaryColor()
         val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, properPrimaryColor.getContrastColor())
         main_dialpad_button.setImageDrawable(dialpadIcon)
 
-        setupTabColors()
-        setupToolbar(main_toolbar, searchMenuItem = mSearchMenuItem)
+        setupToolbar(main_toolbar, statusBarColor = statusBarColor, searchMenuItem = mSearchMenuItem)
         updateTextColors(main_holder)
+        setupTabColors()
 
         getAllFragments().forEach {
             it?.setupColors(getProperTextColor(), getProperPrimaryColor(), getProperPrimaryColor())
@@ -268,6 +276,11 @@ class MainActivity : SimpleActivity() {
             .build()
     }
 
+    private fun updateStatusBarChanger() {
+        setupMaterialScrollListener(getCurrentFragment()?.getScrollingView(), main_toolbar)
+        updateStatusBarOnPageChange()
+    }
+
     private fun setupTabColors() {
         val activeView = main_tabs_holder.getTabAt(view_pager.currentItem)?.customView
         updateBottomTabItemColors(activeView, true)
@@ -297,6 +310,7 @@ class MainActivity : SimpleActivity() {
                     it?.finishActMode()
                 }
                 refreshMenuItems()
+                updateStatusBarChanger()
             }
         })
 
@@ -359,6 +373,9 @@ class MainActivity : SimpleActivity() {
         )
 
         main_tabs_holder.beGoneIf(main_tabs_holder.tabCount == 1)
+        main_tabs_holder.onGlobalLayout {
+            updateStatusBarChanger()
+        }
         storedShowTabs = config.showTabs
     }
 

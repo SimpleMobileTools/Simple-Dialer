@@ -143,4 +143,6 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         recents_placeholder.beVisibleIf(recentCalls.isEmpty())
         (recents_list.adapter as? RecentCallsAdapter)?.updateItems(recentCalls, text)
     }
+
+    override fun getScrollingView() = recents_list
 }
