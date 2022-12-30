@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 5.17.0 *(2022-12-30)*
+----------------------------
+
+ * Do not allow calling blocked numbers
+ * Allow hiding numbers on the dialpad
+ * Use Material You theme by default on Android 12+
+ * Added some UI, translation and stability improvements
+
 Version 5.16.0 *(2022-11-12)*
 ----------------------------
 
