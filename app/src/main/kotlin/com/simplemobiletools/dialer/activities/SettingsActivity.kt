@@ -20,9 +20,14 @@ import java.util.*
 import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
+        updateMaterialActivityViews(settings_coordinator, settings_holder, true)
+        setupMaterialScrollListener(settings_nested_scrollview, settings_toolbar)
     }
 
     override fun onResume() {
@@ -52,21 +57,12 @@ class SettingsActivity : SimpleActivity() {
         updateTextColors(settings_holder)
 
         arrayOf(
-            settings_color_customization_label,
+            settings_color_customization_section_label,
             settings_general_settings_label,
             settings_startup_label,
             settings_calls_label
         ).forEach {
             it.setTextColor(getProperPrimaryColor())
-        }
-
-        arrayOf(
-            settings_color_customization_holder,
-            settings_general_settings_holder,
-            settings_startup_holder,
-            settings_calls_holder
-        ).forEach {
-            it.background.applyColorFilter(getProperBackgroundColor().getContrastColor())
         }
     }
 
@@ -77,21 +73,14 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupPurchaseThankYou() {
         settings_purchase_thank_you_holder.beGoneIf(isOrWasThankYouInstalled())
-
-        // make sure the corners at ripple fit the stroke rounded corners
-        if (settings_purchase_thank_you_holder.isGone()) {
-            settings_use_english_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-            settings_manage_blocked_numbers_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        }
-
         settings_purchase_thank_you_holder.setOnClickListener {
             launchPurchaseThankYouIntent()
         }
     }
 
     private fun setupCustomizeColors() {
-        settings_customize_colors_label.text = getCustomizeColorsString()
-        settings_customize_colors_holder.setOnClickListener {
+        settings_color_customization_label.text = getCustomizeColorsString()
+        settings_color_customization_holder.setOnClickListener {
             handleCustomizeColorsClick()
         }
     }
@@ -109,11 +98,6 @@ class SettingsActivity : SimpleActivity() {
     private fun setupLanguage() {
         settings_language.text = Locale.getDefault().displayLanguage
         settings_language_holder.beVisibleIf(isTiramisuPlus())
-
-        if (settings_use_english_holder.isGone() && settings_language_holder.isGone() && settings_purchase_thank_you_holder.isGone()) {
-            settings_manage_blocked_numbers_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        }
-
         settings_language_holder.setOnClickListener {
             launchChangeAppLanguageIntent()
         }
@@ -124,11 +108,6 @@ class SettingsActivity : SimpleActivity() {
     private fun setupManageBlockedNumbers() {
         settings_manage_blocked_numbers_label.text = addLockedLabelIfNeeded(R.string.manage_blocked_numbers)
         settings_manage_blocked_numbers_holder.beVisibleIf(isNougatPlus())
-
-        if (settings_use_english_holder.isGone() && settings_purchase_thank_you_holder.isGone() && settings_manage_blocked_numbers_holder.isGone()) {
-            settings_change_date_time_format_holder.background = resources.getDrawable(R.drawable.ripple_top_corners, theme)
-        }
-
         settings_manage_blocked_numbers_holder.setOnClickListener {
             if (isOrWasThankYouInstalled()) {
                 Intent(this, ManageBlockedNumbersActivity::class.java).apply {
