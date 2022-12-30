@@ -120,10 +120,10 @@
 
         <activity
             android:name=".activities.DialpadActivity"
-            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/dialpad"
             android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
 
             <intent-filter>
