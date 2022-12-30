@@ -298,7 +298,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_0"
             android:layout_marginBottom="@dimen/small_margin"
-            android:text="ABC" />
+            android:text="+" />
 
     </RelativeLayout>
 
