@@ -236,7 +236,8 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun clearCallHistory() {
-        ConfirmationDialog(this, "", R.string.clear_history_confirmation) {
+        val confirmationText = "${getString(R.string.remove_confirmation)}\n\n${getString(R.string.cannot_be_undone)}"
+        ConfirmationDialog(this, confirmationText) {
             RecentsHelper(this).removeAllRecentCalls(this) {
                 runOnUiThread {
                     recents_fragment?.refreshItems()
