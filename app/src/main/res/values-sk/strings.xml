@@ -60,7 +60,7 @@
     <string name="audio_route_wired_headset">Káblové slúchadlo</string>
     <string name="audio_route_wired_or_earpiece">Káblové alebo slúchadlo</string>
     <string name="choose_audio_route">Zvoľte audio výstup Choose audio route</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="calling_blocked_number">Volané číslo máte zablokované</string>
     <!-- Speed dial -->
     <string name="speed_dial">Rýchle vytáčanie</string>
     <string name="manage_speed_dial">Spravovať rýchle vytáčanie</string>
