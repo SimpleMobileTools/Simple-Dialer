@@ -17,6 +17,7 @@ import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
@@ -50,6 +51,10 @@ class DialpadActivity : SimpleActivity() {
         setContentView(R.layout.activity_dialpad)
         hasRussianLocale = Locale.getDefault().language == "ru"
 
+        updateMaterialActivityViews(dialpad_coordinator, dialpad_holder, true)
+        setupMaterialScrollListener(dialpad_list, dialpad_toolbar)
+        updateNavigationBarColor(getProperBackgroundColor())
+
         if (checkAppSideloading()) {
             return
         }
@@ -68,6 +73,24 @@ class DialpadActivity : SimpleActivity() {
             dialpad_0_holder.visibility = View.INVISIBLE
         }
 
+        arrayOf(
+            dialpad_0_holder,
+            dialpad_1_holder,
+            dialpad_2_holder,
+            dialpad_3_holder,
+            dialpad_4_holder,
+            dialpad_5_holder,
+            dialpad_6_holder,
+            dialpad_7_holder,
+            dialpad_8_holder,
+            dialpad_9_holder,
+            dialpad_plus_holder,
+            dialpad_asterisk_holder,
+            dialpad_hashtag_holder
+        ).forEach {
+            it.background = ResourcesCompat.getDrawable(resources, R.drawable.dialpad_button_background, theme)
+            it.background?.alpha = 50
+        }
 
         setupOptionsMenu()
         speedDialValues = config.getSpeedDialValues()
@@ -105,7 +128,7 @@ class DialpadActivity : SimpleActivity() {
         setupCharClick(dialpad_8_holder, '8')
         setupCharClick(dialpad_9_holder, '9')
         setupCharClick(dialpad_0_holder, '0')
-        setupCharClick(dialpad_plus_holder, '+', longClickable =  false)
+        setupCharClick(dialpad_plus_holder, '+', longClickable = false)
         setupCharClick(dialpad_asterisk_holder, '*', longClickable = false)
         setupCharClick(dialpad_hashtag_holder, '#', longClickable = false)
 
@@ -148,7 +171,7 @@ class DialpadActivity : SimpleActivity() {
         super.onResume()
         updateTextColors(dialpad_holder)
         dialpad_clear_char.applyColorFilter(getProperTextColor())
-        updateNavigationBarColor(getBottomNavigationBackgroundColor())
+        updateNavigationBarColor(getProperBackgroundColor())
         setupToolbar(dialpad_toolbar, NavigationIcon.Arrow)
     }
 
