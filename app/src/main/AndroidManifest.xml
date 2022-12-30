@@ -62,36 +62,42 @@
 
         <activity
             android:name="com.simplemobiletools.commons.activities.AboutActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/about"
             android:parentActivityName=".activities.MainActivity" />
 
         <activity
             android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/customize_colors"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name="com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/blocked_numbers"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.ManageSpeedDialActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/speed_dial"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.ConferenceActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/conference"
             android:parentActivityName=".activities.CallActivity" />
 
         <activity
             android:name=".activities.SettingsActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/settings"
             android:parentActivityName=".activities.MainActivity">
@@ -113,6 +119,7 @@
 
         <activity
             android:name=".activities.DialpadActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/dialpad"
             android:parentActivityName=".activities.MainActivity"
@@ -144,6 +151,7 @@
 
         <activity
             android:name=".activities.DialerActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/dialer"
             android:theme="@style/Theme.Transparent">

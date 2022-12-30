@@ -19,7 +19,7 @@
     <string name="dialpad">Panel wybierania</string>
     <string name="asterisk">Gwiazdka</string>
     <string name="hashtag">Kratka</string>
-    <string name="call_number">Zadzwoń na numer</string>
+    <string name="call_number">Zadzwoń pod numer</string>
     <string name="dialpad_beeps">Włącz sygnały dźwiękowe przy naciśnięciach przycisków na panelu wybierania</string>
     <string name="dialpad_vibrations">Włącz wibracje przy naciśnięciach przycisków na panelu wybierania</string>
     <!-- Dialer -->
@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Słuchawki przewodowe</string>
     <string name="audio_route_wired_or_earpiece">Słuchawka urządzenia lub przewodowa</string>
     <string name="choose_audio_route">Wybierz urządzenie audio</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Szybkie wybieranie</string>
     <string name="manage_speed_dial">Zarządzaj szybkim wybieraniem</string>

@@ -274,7 +274,7 @@ class RecentCallsAdapter(
 
     private fun setupView(view: View, call: RecentCall) {
         view.apply {
-            item_recents_frame.isSelected = selectedKeys.contains(call.id)
+            item_recents_holder.isSelected = selectedKeys.contains(call.id)
             var nameToShow = SpannableString(call.name)
             if (call.specificType.isNotEmpty()) {
                 nameToShow = SpannableString("${call.name} - ${call.specificType}")

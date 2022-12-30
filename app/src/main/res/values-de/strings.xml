@@ -24,9 +24,9 @@
     <string name="dialpad_vibrations">Vibration bei Tastendruck auf das Wähltastenfeld</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
-    <string name="accept">akzeptieren</string>
+    <string name="accept">Annehmen</string>
     <string name="accept_call">Anruf annehmen</string>
-    <string name="decline">ablehnen</string>
+    <string name="decline">Ablehnen</string>
     <string name="decline_call">Anruf ablehnen</string>
     <string name="unknown_caller">Unbekannter Anruf</string>
     <string name="is_calling">Ruft an …</string>
@@ -55,11 +55,12 @@
     <string name="conference_manage">Telefonkonferenz verwalten</string>
     <string name="conference">Konferenz</string>
     <string name="audio_route_speaker">Lautsprecher</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_earpiece">Kopfhörer</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
     <string name="audio_route_wired_headset">Kabelgebundenes Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_or_earpiece">Kabelgebunden oder über Kopfhörer</string>
+    <string name="choose_audio_route">Audio-Ausgang wählen</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kurzwahl</string>
     <string name="manage_speed_dial">Kurzwahlnummern verwalten</string>

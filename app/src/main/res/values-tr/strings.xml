@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Kablolu Kulaklık</string>
     <string name="audio_route_wired_or_earpiece">Kablolu veya Kulaklık</string>
     <string name="choose_audio_route">Ses çıkışını seçin</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Hızlı arama</string>
     <string name="manage_speed_dial">Hızlı aramayı yönet</string>

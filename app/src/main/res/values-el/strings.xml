@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Ενσύρματα κεφαλής</string>
     <string name="audio_route_wired_or_earpiece">Ενσύρματα ή ακουστικά</string>
     <string name="choose_audio_route">Επιλογή διαδρομής ήχου</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Ταχεία κλήση</string>
     <string name="manage_speed_dial">Διαχείριση ταχείας κλήσης</string>

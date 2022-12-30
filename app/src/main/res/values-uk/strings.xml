@@ -3,7 +3,7 @@
     <string name="app_name">Простий Телефон</string>
     <string name="app_launcher_name">Телефон</string>
     <string name="default_phone_app_prompt">Будь ласка, зробіть цю програму типовою для телефонних викликів</string>
-    <string name="allow_displaying_over_other_apps">Дозвольте відображення над іншими додатками для надійної роботи</string>
+    <string name="allow_displaying_over_other_apps">Дозвольте відображення над іншими застосунками для надійної роботи</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Не вдалося отримати доступ до контактів</string>
     <!-- Recents -->
@@ -60,13 +60,14 @@
     <string name="audio_route_wired_headset">Wired Headset</string>
     <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
     <string name="choose_audio_route">Choose audio route</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Швидкий виклик</string>
     <string name="manage_speed_dial">Управління швидким викликом</string>
     <string name="speed_dial_label">Натисніть на номер, щоб призначити йому контакт. Потім ви зможете швидко зателефонувати вказаному контакту, довго натискаючи вказаний номер на цифровій панелі.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Групувати наступні дзвінки з тим самим номером у журналі викликів</string>
-    <string name="open_dialpad_by_default">За замовчуванням відкривати цифрову панель при запуску додатку</string>
+    <string name="open_dialpad_by_default">За замовчуванням відкривати цифрову панель при запуску застосунку</string>
     <string name="disable_proximity_sensor">Вимикати датник наближення під час викликів</string>
     <string name="disable_swipe_to_answer">Замінити перетягування на натискання під час відповіді на вхідні виклики</string>
     <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>

@@ -54,21 +54,22 @@
     <string name="call_add">通話を追加する</string>
     <string name="conference_manage">電話会議を管理する</string>
     <string name="conference">会議</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">スピーカー</string>
+    <string name="audio_route_earpiece">イヤーピース</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">有線ヘッドセット</string>
+    <string name="audio_route_wired_or_earpiece">有線またはイヤーピース</string>
+    <string name="choose_audio_route">音声の出力先を選択</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">スピードダイヤル</string>
     <string name="manage_speed_dial">スピードダイヤルの管理</string>
-    <string name="speed_dial_label">番号をクリックすると連絡先を割り当てることが出来ます。電話で指定された番号を長押しすると、指定された連絡先に素早く電話をかけることが出来ます。</string>
+    <string name="speed_dial_label">番号をタップすると連絡先を割り当てることが出来ます。ダイヤルパッドで割り当てた番号を長押しすると、割り当てた連絡先に素早く電話をかけることが出来ます。</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">後続の通話をコールログの同じ番号でグループ化する</string>
     <string name="open_dialpad_by_default">アプリを開いたときにデフォルトでダイヤルパッドを開く</string>
     <string name="disable_proximity_sensor">通話中に近接センサーを無効にする</string>
-    <string name="disable_swipe_to_answer">着信に応答する際のスワイプ操作をクリック操作に置き換える</string>
+    <string name="disable_swipe_to_answer">着信に応答する際のスワイプ操作をタップ操作に置き換える</string>
     <string name="show_incoming_calls_full_screen">常に着信通知を全画面に表示する</string>
     <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
 

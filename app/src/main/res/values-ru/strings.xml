@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Проводная гарнитура</string>
     <string name="audio_route_wired_or_earpiece">Проводные или внутриканальные наушники</string>
     <string name="choose_audio_route">Выберите аудиовыход</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Быстрый вызов</string>
     <string name="manage_speed_dial">Управление быстрым вызовом</string>
