@@ -16,7 +16,7 @@
     </style>
 
     <style name="DialpadLetterStyle">
-        <item name="android:textSize">@dimen/smaller_text_size</item>
+        <item name="android:textSize">@dimen/dialpad_letters_text_size</item>
         <item name="android:alpha">0.8</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>

@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_2"
-            android:layout_marginBottom="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/small_margin"
             android:text="ABC" />
     </RelativeLayout>
 
@@ -86,7 +86,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_3"
-            android:layout_marginBottom="@dimen/medium_margin"
             android:text="DEF" />
     </RelativeLayout>
 
@@ -114,7 +113,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_4"
-            android:layout_marginBottom="@dimen/medium_margin"
             android:text="GHI" />
     </RelativeLayout>
 
@@ -142,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_5"
-            android:layout_marginBottom="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/small_margin"
             android:text="JKL" />
     </RelativeLayout>
 
@@ -170,7 +168,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_6"
-            android:layout_marginBottom="@dimen/medium_margin"
             android:text="MNO" />
     </RelativeLayout>
 
@@ -198,7 +195,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_7"
-            android:layout_marginBottom="@dimen/medium_margin"
             android:text="PQRS" />
     </RelativeLayout>
 
@@ -226,7 +222,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_8"
-            android:layout_marginBottom="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/small_margin"
             android:text="TUV" />
     </RelativeLayout>
 
@@ -254,7 +250,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_9"
-            android:layout_marginBottom="@dimen/medium_margin"
             android:text="WXYZ" />
     </RelativeLayout>
 
@@ -302,7 +297,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/dialpad_0"
-            android:layout_marginBottom="@dimen/medium_margin"
+            android:layout_marginBottom="@dimen/small_margin"
             android:text="ABC" />
 
     </RelativeLayout>
