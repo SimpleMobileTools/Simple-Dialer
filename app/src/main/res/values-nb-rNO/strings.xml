@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Wired Headset</string>
     <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
     <string name="choose_audio_route">Choose audio route</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Hurtigvalg</string>
     <string name="manage_speed_dial">Administrer hurtigvalg</string>

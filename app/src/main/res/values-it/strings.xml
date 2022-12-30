@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Cuffia cablata</string>
     <string name="audio_route_wired_or_earpiece">Cablato o auricolare</string>
     <string name="choose_audio_route">Scegli l\'uscita audio</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Contatti veloci</string>
     <string name="manage_speed_dial">Gestisci i contatti veloci</string>

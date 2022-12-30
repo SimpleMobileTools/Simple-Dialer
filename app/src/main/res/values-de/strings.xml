@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Kabelgebundenes Headset</string>
     <string name="audio_route_wired_or_earpiece">Kabelgebunden oder über Kopfhörer</string>
     <string name="choose_audio_route">Audio-Ausgang wählen</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kurzwahl</string>
     <string name="manage_speed_dial">Kurzwahlnummern verwalten</string>

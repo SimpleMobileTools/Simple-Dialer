@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">有线耳机</string>
     <string name="audio_route_wired_or_earpiece">有线或听筒</string>
     <string name="choose_audio_route">选择音频线路</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">快速拨号</string>
     <string name="manage_speed_dial">管理快速拨号</string>

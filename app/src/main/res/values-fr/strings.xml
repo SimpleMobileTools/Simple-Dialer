@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Casque filaire</string>
     <string name="audio_route_wired_or_earpiece">Filaire ou écouteur</string>
     <string name="choose_audio_route">Choisir la sortie audio</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Numérotation rapide</string>
     <string name="manage_speed_dial">Gérer la numérotation rapide</string>

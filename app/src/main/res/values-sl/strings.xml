@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Ožičene slušalke</string>
     <string name="audio_route_wired_or_earpiece">Ožičeno ali brezžično</string>
     <string name="choose_audio_route">Izberi smer zvoka</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Hitro klicanje</string>
     <string name="manage_speed_dial">Upravljanje hitrega klica</string>

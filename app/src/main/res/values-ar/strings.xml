@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">سماعة الرأس السلكية</string>
     <string name="audio_route_wired_or_earpiece">سلكي أو سماعة أذن</string>
     <string name="choose_audio_route">اختر مسار الصوت</string>
+    <string name="calling_blocked_number">الرقم الذي تتصل به محظور</string>
     <!-- Speed dial -->
     <string name="speed_dial">اتصال سريع</string>
     <string name="manage_speed_dial">إدارة الاتصال السريع</string>

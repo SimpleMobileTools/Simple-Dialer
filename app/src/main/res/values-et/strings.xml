@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Juhtmega kõrvaklapid</string>
     <string name="audio_route_wired_or_earpiece">Juhtmega või kõrvasisesed kõrvaklapid</string>
     <string name="choose_audio_route">Vali heliruuting</string>
+    <string name="calling_blocked_number">The number you are calling is blocked</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kiirvalimine</string>
     <string name="speed_dial_label">Klõpsa numbrit ja seosta ta konkreetse telefoniraamatu kirjega. Hiljem saad samale numbrile pikalt vajutades alustada kõnet määratud telefoninumbrile.</string>
