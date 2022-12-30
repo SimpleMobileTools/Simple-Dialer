@@ -71,6 +71,7 @@
     <string name="disable_proximity_sensor">تعطيل مستشعر القرب أثناء المكالمات</string>
     <string name="disable_swipe_to_answer">استبدل التمرير عند الرد على المكالمات الواردة بالنقر</string>
     <string name="show_incoming_calls_full_screen">عرض المكالمات الواردة دائما في وضع ملء الشاشة</string>
+    <string name="hide_dialpad_numbers">اخفي ارقام لوحت المفاتيح</string>
     <!-- FAQ -->
     <string name="faq_1_title">أسمع مكالمات واردة، ولكن الشاشة لا تعمل. ماذا أفعل؟</string>
     <string name="faq_1_text">يمكن أن يكون لمثل هذه المشكلات العديد من الأسباب الخاصة بالجهاز والنظام ، والتي يصعب تحديدها بشكل عام. يجب أن تنظر حولك في إعدادات جهازك وتأكد من السماح للتطبيق بالظهور عندما يكون في الخلفية والسماح بالعرض فوق التطبيقات الأخرى.</string>

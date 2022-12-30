@@ -71,6 +71,8 @@
     <string name="disable_proximity_sensor">通話中に近接センサーを無効にする</string>
     <string name="disable_swipe_to_answer">着信に応答する際のスワイプ操作をタップ操作に置き換える</string>
     <string name="show_incoming_calls_full_screen">常に着信通知を全画面に表示する</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">着信音は聞こえるのですが、画面がつきません。どうしたらよいですか？</string>
     <string name="faq_1_text">このような問題は、デバイスやシステム固有の理由が多く、一概には言えません。端末の設定を見て、アプリがバックグラウンドでポップアップすることを許可しているか、他のアプリの上に表示することを許可しているかを確認する必要があります。</string>

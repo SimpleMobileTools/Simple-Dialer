@@ -71,6 +71,8 @@
     <string name="disable_proximity_sensor">Онемогућите сензор близине током позива</string>
     <string name="disable_swipe_to_answer">Замените превлачење при одговарању на долазне позиве кликом</string>
     <string name="show_incoming_calls_full_screen">Увек прикажи долазне позиве преко целог екрана</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Чујем долазне позиве, али екран се не укључује. Шта могу да урадим\?</string>
     <string name="faq_1_text">Такви проблеми могу имати много специфичних разлога за уређај и систем, што је уопштено тешко рећи. Требало би да погледате около у подешавањима уређаја и уверите се да је апликацији дозвољено да искаче када је у позадини и да дозволи приказивање преко других апликација.</string>

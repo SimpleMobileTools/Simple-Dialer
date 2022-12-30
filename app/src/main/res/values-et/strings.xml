@@ -71,6 +71,8 @@
     <string name="disable_proximity_sensor">Kõnede ajaks lülita lähedusandur välja</string>
     <string name="disable_swipe_to_answer">Kõnele vastamisel kasuta viipamise asemel klõpsimist</string>
     <string name="show_incoming_calls_full_screen">Kuvage sissetulevad kõned alati täisekraanil</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Ma kuulen sissetulevaid kõnesid, kuid ekraan ei lülitu sisse. Mida ma saan teha\?</string>
     <string name="faq_1_text">Sellistel probleemidel võib olla palju seadme- ja süsteemispetsiifilisi põhjusi, raske öelda üldiselt. Peaksite oma seadme seadetes ringi vaatama ja veenduma, et rakendusel on lubatud taustal hüpata ja lubada kuvamist üle teiste rakenduste.</string>

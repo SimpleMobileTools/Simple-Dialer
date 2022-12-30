@@ -71,6 +71,8 @@
     <string name="disable_proximity_sensor">在通话期间禁用接近传感器</string>
     <string name="disable_swipe_to_answer">用点击代替滑动来接听来电</string>
     <string name="show_incoming_calls_full_screen">始终全屏显示来电</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">我听到来电声音，但屏幕不亮。我该怎么办\?</string>
     <string name="faq_1_text">这样的问题可能有很多设备和系统的具体原因，很难笼统地说。你应该查看你的设备设置，确保应用在后台时被允许弹出，并允许其显示在其他应用上方。</string>

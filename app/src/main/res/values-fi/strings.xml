@@ -71,6 +71,8 @@
     <string name="disable_proximity_sensor">Poista läheisyysanturi käytöstä puheluiden aikana</string>
     <string name="disable_swipe_to_answer">Vastaa puheluihin painalluksella pyyhkäisyn sijaan</string>
     <string name="show_incoming_calls_full_screen">Näytä saapuvat puhelut aina koko näytöllä</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Kuulen saapuvat puhelut, mutta näyttö ei käynnisty. Mitä voin tehdä\?</string>
     <string name="faq_1_text">Tällaisiin ongelmiin voi olla monia laite- ja järjestelmäkohtaisia syitä, joita on vaikea sanoa yleisesti. Kannattaa tutkia laitteen asetuksia ja varmistaa, että sovelluksen on sallittu ponnahtaa esiin, kun se on taustalla, ja sallia sen näyttäminen muiden sovellusten yläpuolella.</string>

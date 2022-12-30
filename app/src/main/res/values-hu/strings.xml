@@ -71,6 +71,8 @@
     <string name="disable_proximity_sensor">Közelségérzékelő kikapcsolása a hívások során</string>
     <string name="disable_swipe_to_answer">Csúsztatás kattintásra cserélése a bejövő hívásoknál</string>
     <string name="show_incoming_calls_full_screen">Bejövő hívások megjelenítése mindig teljes képernyőn</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Bejövő hívást hallok, de a képernyő nem kapcsol be. Mit tehetek\?</string>
     <string name="faq_1_text">Az ilyen problémáknak számos eszköz- és rendszerfüggő oka lehet, általánosságban nehéz megmondani. Nézzen körül az eszközbeállításokban, és győződjön meg róla, hogy az alkalmazás előbújhat-e a háttérből, és megjelenhet-e más alkalmazások felett.</string>

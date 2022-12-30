@@ -71,6 +71,8 @@
     <string name="disable_proximity_sensor">Vypnúť počas hovorov senzor priblíženia</string>
     <string name="disable_swipe_to_answer">Nahradiť potiahnutie prstom pri odpovedaní na prichádzajúce hovory kliknutím</string>
     <string name="show_incoming_calls_full_screen">Stále zobraziť prichádzajúce hovory na celú obrazovku</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Počujem prichádzajúce hovory, obrazovka sa ale nezapne. Čo s tým?</string>
     <string name="faq_1_text">Takéto problémy majú často dôvody špecifické pre dané zariadenie alebo systém, ťažko teda dať všeobecné riešenie. Mali by ste sa poobzerať v nasteniach zariadenia a uistiť sa, že apka má povolenie na zobrazovanie sa z pozadia a na zobrazovanie sa nad ostatnými apkami.</string>

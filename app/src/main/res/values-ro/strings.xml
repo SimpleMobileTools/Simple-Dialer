@@ -71,6 +71,8 @@
     <string name="disable_proximity_sensor">Dezactivați senzorul de proximitate în timpul apelurilor</string>
     <string name="disable_swipe_to_answer">Înlocuiți glisarea pentru a răspunde la apelurile primite cu o singură apăsare</string>
     <string name="show_incoming_calls_full_screen">Afișați întotdeauna apelurile primite pe întreg ecranul</string>
+    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Aud apelurile primite, dar ecranul nu se aprinde. Ce pot face\?</string>
     <string name="faq_1_text">Aceste probleme pot avea multe motive specifice dispozitivului și sistemului, fiind greu de spus în general. Ar trebui să vă uitați în setările dispozitivului și să vă asigurați că aplicația este permisă să apară atunci când este în fundal și că permite afișarea peste alte aplicații.</string>

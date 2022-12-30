@@ -344,6 +344,31 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/dialpad_plus_holder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/zero"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dialpad_hashtag_holder"
+        app:layout_constraintStart_toEndOf="@+id/dialpad_asterisk_holder">
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/dialpad_plus_alt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:paddingStart="@dimen/small_margin"
+            android:paddingTop="@dimen/small_margin"
+            android:text="+"
+            android:textSize="@dimen/actionbar_text_size" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/dialpad_hashtag_holder"
         android:layout_width="0dp"
         android:layout_height="0dp"
