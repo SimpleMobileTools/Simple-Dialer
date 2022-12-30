@@ -6,29 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/manage_speed_dial_app_bar_layout"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/manage_speed_dial_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_primary"
+        app:title="@string/manage_speed_dial"
+        app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/manage_speed_dial_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/color_primary"
-            app:title="@string/manage_speed_dial"
-            app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/manage_speed_dial_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fillViewport="true"
+        android:scrollbars="none">
 
         <LinearLayout
-            android:id="@+id/manage_speed_dial_wrapper"
+            android:id="@+id/manage_speed_dial_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -51,5 +46,5 @@
                 app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
