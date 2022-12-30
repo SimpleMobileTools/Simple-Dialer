@@ -13,7 +13,7 @@ class ConferenceActivity : SimpleActivity() {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conference)
-        updateMaterialActivityViews(conference_coordinator, conference_frame, true)
+        updateMaterialActivityViews(conference_coordinator, conference_list, true)
         setupMaterialScrollListener(conference_list, conference_toolbar)
         conference_list.adapter = ConferenceCallsAdapter(this, conference_list, ArrayList(CallManager.getConferenceCalls())) {}
     }
