@@ -60,7 +60,7 @@
     <string name="audio_route_wired_headset">Słuchawki przewodowe</string>
     <string name="audio_route_wired_or_earpiece">Słuchawka urządzenia lub przewodowa</string>
     <string name="choose_audio_route">Wybierz urządzenie audio</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="calling_blocked_number">Numer, pod który dzwonisz, jest zablokowany</string>
     <!-- Speed dial -->
     <string name="speed_dial">Szybkie wybieranie</string>
     <string name="manage_speed_dial">Zarządzaj szybkim wybieraniem</string>
