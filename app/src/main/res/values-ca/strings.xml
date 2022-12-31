@@ -60,7 +60,7 @@
     <string name="audio_route_wired_headset">Auriculars amb cable</string>
     <string name="audio_route_wired_or_earpiece">Amb cable o auricular</string>
     <string name="choose_audio_route">Trieu la sortida d\'àudio</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="calling_blocked_number">El número al qual esteu trucant està bloquejat</string>
     <!-- Speed dial -->
     <string name="speed_dial">Marcatge ràpid</string>
     <string name="manage_speed_dial">Gestiona el marcatge ràpid</string>
@@ -71,8 +71,7 @@
     <string name="disable_proximity_sensor">Desactiva el sensor de proximitat durant les trucades</string>
     <string name="disable_swipe_to_answer">Substitueix el lliscament en respondre a les trucades entrants per fer clic</string>
     <string name="show_incoming_calls_full_screen">Mostra sempre les trucades entrants a pantalla completa</string>
-    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
-
+    <string name="hide_dialpad_numbers">Oculta els números del teclat numèric</string>
     <!-- FAQ -->
     <string name="faq_1_title">Sento trucades entrants, però la pantalla no s\'encén. Què puc fer\?</string>
     <string name="faq_1_text">Aquests problemes poden tenir moltes raons específiques del dispositiu i del sistema, difícils de dir en general. Hauríeu de mirar per la configuració del dispositiu i assegurar-vos que l\'aplicació pugui aparèixer en segon pla i permetre que es mostri sobre altres aplicacions.</string>
