@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Marcador</string>
+    <string name="app_launcher_name">Telefone</string>
     <string name="default_phone_app_prompt">Por favor, faça deste aplicativo o aplicativo de telefone padrão</string>
     <string name="allow_displaying_over_other_apps">Por favor, permita exibir sobre outros aplicativos para um comportamento confiável</string>
     <!-- Contacts -->
