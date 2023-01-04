@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/search"
-        android:icon="@drawable/ic_search_vector"
-        android:title="@string/search"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="collapseActionView|always" />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="AlwaysShowAction,AppCompatResource">
     <item
         android:id="@+id/sort"
         android:icon="@drawable/ic_sort_vector"
+        android:showAsAction="always"
         android:title="@string/sort_by"
         app:showAsAction="always" />
     <item
         android:id="@+id/create_new_contact"
         android:icon="@drawable/ic_plus_vector"
         android:title="@string/create_new_contact"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/clear_call_history"
         android:icon="@drawable/ic_delete_vector"
         android:title="@string/clear_call_history"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/more_apps_from_us"
         android:icon="@drawable/ic_google_play_vector"
         android:title="@string/more_apps_from_us"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/settings"
         android:icon="@drawable/ic_settings_cog_vector"
