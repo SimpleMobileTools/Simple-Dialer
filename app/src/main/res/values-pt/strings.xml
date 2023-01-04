@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Marcador</string>
+    <string name="app_launcher_name">Telefone</string>
     <string name="default_phone_app_prompt">Por favor, faça deste aplicativo o aplicativo de telefone padrão</string>
     <string name="allow_displaying_over_other_apps">Por favor, permita exibir sobre outros aplicativos para um comportamento confiável</string>
     <!-- Contacts -->
@@ -18,10 +18,10 @@
     <!-- Dialpad -->
     <string name="dialpad">Teclado de discagem</string>
     <string name="asterisk">Asterisco</string>
-    <string name="hashtag">hashtag</string>
+    <string name="hashtag">Cerquilha</string>
     <string name="call_number">Ligar para o número</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Ativar sons do teclado</string>
+    <string name="dialpad_vibrations">Ativar resposta tátil do teclado</string>
     <!-- Dialer -->
     <string name="dialer">Discador</string>
     <string name="accept">Aceitar</string>
@@ -42,8 +42,8 @@
     <string name="turn_microphone_off">Desligar o microfone</string>
     <string name="turn_speaker_on">Ligar alta-voz</string>
     <string name="turn_speaker_off">Desligar alta-voz</string>
-    <string name="show_dialpad">Mostrar marcador</string>
-    <string name="hide_dialpad">Ocultar marcador</string>
+    <string name="show_dialpad">Mostrar discador</string>
+    <string name="hide_dialpad">Ocultar discador</string>
     <string name="end_call">Terminar a chamada</string>
     <string name="hold_call">Reter chamada</string>
     <string name="resume_call">Retomar chamada</string>
@@ -54,28 +54,28 @@
     <string name="call_add">Adicionar chamada</string>
     <string name="conference_manage">Gerenciar chamada de conferência</string>
     <string name="conference">Conferência</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Altifalante</string>
+    <string name="audio_route_earpiece">Auricular</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
+    <string name="audio_route_wired_headset">Auscultador cabeado</string>
     <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="choose_audio_route">Escolha a rota de áudio</string>
+    <string name="calling_blocked_number">O número que está a chamar encontra-se bloqueado</string>
     <!-- Speed dial -->
-    <string name="speed_dial">Marcação rápida</string>
-    <string name="manage_speed_dial">Gerir marcações rápidas</string>
-    <string name="speed_dial_label">Clique num número para atribuir um contacto à marcação rápida. Poderá assim, ligar diretamente ao contacto ao premir longamente a tecla de marcação rápida.</string>
+    <string name="speed_dial">Discagem rápida</string>
+    <string name="manage_speed_dial">Gerir discagens rápidas</string>
+    <string name="speed_dial_label">Clique num número para atribuir um contacto à discagem rápida. Poderá assim, ligar diretamente ao contacto ao premir longamente a tecla de discagem rápida.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Agrupar, no registo, as chamadas para o mesmo contacto</string>
-    <string name="open_dialpad_by_default">Mostrar Marcador por padrâo ao abrir a aplicação</string>
+    <string name="open_dialpad_by_default">Mostrar Discador por padrâo ao abrir a aplicação</string>
     <string name="disable_proximity_sensor">Desativar sensor de proximidade durante as chamadas</string>
     <string name="disable_swipe_to_answer">Clicar em vez de deslizar para atender</string>
-    <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>
-    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+    <string name="show_incoming_calls_full_screen">Sempre exibir as chamadas recebidas em ecrã inteiro</string>
+    <string name="hide_dialpad_numbers">Ocultar números do teclado de discagem</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Ouço chamadas recebidas, mas o ecrã não liga. O que eu posso fazer?</string>
+    <string name="faq_1_text">Esses problemas podem ter muitos motivos específicos do dispositivo e do sistema, difíceis de dizer em geral. Você deve olhar em volta nas configurações do seu dispositivo e certificar-se de que a aplicação pode aceder quando estiver em segundo plano e permitir a exibição sobre outras aplicações.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
