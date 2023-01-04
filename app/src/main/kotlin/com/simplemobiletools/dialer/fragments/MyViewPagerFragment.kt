@@ -3,7 +3,6 @@ package com.simplemobiletools.dialer.fragments
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
-import androidx.core.view.ScrollingView
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.getProperPrimaryColor
 import com.simplemobiletools.commons.extensions.getProperTextColor
@@ -40,6 +39,4 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
     abstract fun onSearchClosed()
 
     abstract fun onSearchQueryChanged(text: String)
-
-    abstract fun getScrollingView(): ScrollingView?
 }
