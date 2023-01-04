@@ -23,10 +23,7 @@ import android.widget.ImageView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.children
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.LOWER_ALPHA
-import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
-import com.simplemobiletools.commons.helpers.isOreoMr1Plus
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleListItem
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.dialogs.DynamicBottomSheetChooserDialog
@@ -203,8 +200,8 @@ class CallActivity : SimpleActivity() {
             dialpad_asterisk_holder,
             dialpad_hashtag_holder
         ).forEach {
-            it.background = ResourcesCompat.getDrawable(resources, R.drawable.dialpad_button_background, theme)
-            it.background?.alpha = 50
+            it.background = ResourcesCompat.getDrawable(resources, R.drawable.pill_background, theme)
+            it.background?.alpha = LOWER_ALPHA_INT
         }
 
         dialpad_0_holder.setOnLongClickListener { dialpadPressed('+'); true }

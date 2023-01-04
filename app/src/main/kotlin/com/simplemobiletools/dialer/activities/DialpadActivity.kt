@@ -51,7 +51,7 @@ class DialpadActivity : SimpleActivity() {
         setContentView(R.layout.activity_dialpad)
         hasRussianLocale = Locale.getDefault().language == "ru"
 
-        updateMaterialActivityViews(dialpad_coordinator, dialpad_holder, true)
+        updateMaterialActivityViews(dialpad_coordinator, dialpad_holder, useTransparentNavigation = true, useTopSearchMenu = false)
         setupMaterialScrollListener(dialpad_list, dialpad_toolbar)
         updateNavigationBarColor(getProperBackgroundColor())
 
@@ -88,8 +88,8 @@ class DialpadActivity : SimpleActivity() {
             dialpad_asterisk_holder,
             dialpad_hashtag_holder
         ).forEach {
-            it.background = ResourcesCompat.getDrawable(resources, R.drawable.dialpad_button_background, theme)
-            it.background?.alpha = 50
+            it.background = ResourcesCompat.getDrawable(resources, R.drawable.pill_background, theme)
+            it.background?.alpha = LOWER_ALPHA_INT
         }
 
         setupOptionsMenu()

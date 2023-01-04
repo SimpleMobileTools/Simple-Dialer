@@ -23,7 +23,7 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manage_speed_dial)
 
-        updateMaterialActivityViews(manage_speed_dial_coordinator, manage_speed_dial_holder, true)
+        updateMaterialActivityViews(manage_speed_dial_coordinator, manage_speed_dial_holder, useTransparentNavigation = true, useTopSearchMenu = false)
         setupMaterialScrollListener(manage_speed_dial_scrollview, manage_speed_dial_toolbar)
 
         speedDialValues = config.getSpeedDialValues()
