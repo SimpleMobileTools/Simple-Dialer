@@ -97,6 +97,12 @@ class MainActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
+        if (storedShowTabs != config.showTabs) {
+            config.lastUsedViewPagerPage = 0
+            System.exit(0)
+            return
+        }
+
         val statusBarColor = if (getCurrentFragment()?.getScrollingView() == null) {
             getProperBackgroundColor()
         } else {
@@ -116,10 +122,6 @@ class MainActivity : SimpleActivity() {
         }
 
         if (!isSearchOpen) {
-            if (storedShowTabs != config.showTabs) {
-                System.exit(0)
-                return
-            }
             refreshItems(true)
         }
 
@@ -296,19 +298,45 @@ class MainActivity : SimpleActivity() {
         updateNavigationBarColor(bottomBarColor)
     }
 
-    private fun getInactiveTabIndexes(activeIndex: Int) = (0 until tabsList.size).filter { it != activeIndex }
+    private fun getInactiveTabIndexes(activeIndex: Int) = (0 until main_tabs_holder.tabCount).filter { it != activeIndex }
 
-    private fun getSelectedTabDrawableIds() = arrayOf(
-        R.drawable.ic_person_vector,
-        R.drawable.ic_star_vector,
-        R.drawable.ic_clock_filled_vector
-    )
+    private fun getSelectedTabDrawableIds(): ArrayList<Int> {
+        val showTabs = config.showTabs
+        val icons = ArrayList<Int>()
 
-    private fun getDeselectedTabDrawableIds() = arrayOf(
-        R.drawable.ic_person_outline_vector,
-        R.drawable.ic_star_outline_vector,
-        R.drawable.ic_clock_vector
-    )
+        if (showTabs and TAB_CONTACTS != 0) {
+            icons.add(R.drawable.ic_person_vector)
+        }
+
+        if (showTabs and TAB_FAVORITES != 0) {
+            icons.add(R.drawable.ic_star_vector)
+        }
+
+        if (showTabs and TAB_CALL_HISTORY != 0) {
+            icons.add(R.drawable.ic_clock_filled_vector)
+        }
+
+        return icons
+    }
+
+    private fun getDeselectedTabDrawableIds(): ArrayList<Int> {
+        val showTabs = config.showTabs
+        val icons = ArrayList<Int>()
+
+        if (showTabs and TAB_CONTACTS != 0) {
+            icons.add(R.drawable.ic_person_outline_vector)
+        }
+
+        if (showTabs and TAB_FAVORITES != 0) {
+            icons.add(R.drawable.ic_star_outline_vector)
+        }
+
+        if (showTabs and TAB_CALL_HISTORY != 0) {
+            icons.add(R.drawable.ic_clock_vector)
+        }
+
+        return icons
+    }
 
     private fun initFragments() {
         view_pager.offscreenPageLimit = 2
