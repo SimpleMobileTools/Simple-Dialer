@@ -12,7 +12,7 @@
     <string name="request_access">Zugriff anfordern</string>
     <string name="remove_confirmation">Ausgewählte Anrufe definitiv aus der Anrufliste löschen\?</string>
     <string name="clear_history_confirmation">Sicher, dass die gesamte Anrufliste gelöscht werden soll\?</string>
-    <string name="show_grouped_calls">Gruppierte Anrufe zeigen</string>
+    <string name="show_grouped_calls">Gruppierte Anrufe anzeigen</string>
     <string name="clear_call_history">Anrufliste löschen</string>
     <string name="show_call_details">Anrufdetails anzeigen</string>
     <!-- Dialpad -->
