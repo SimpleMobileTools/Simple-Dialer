@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="AppTheme.Base" />
 
     <style name="DialpadButtonStyle">
-        <item name="android:background">@drawable/dialpad_button_background</item>
+        <item name="android:background">@drawable/pill_background</item>
         <item name="android:layout_marginStart">@dimen/small_margin</item>
         <item name="android:layout_marginEnd">@dimen/small_margin</item>
         <item name="android:paddingTop">@dimen/one_dp</item>

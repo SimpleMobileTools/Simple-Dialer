@@ -59,7 +59,7 @@ class MainActivity : SimpleActivity() {
         appLaunched(BuildConfig.APPLICATION_ID)
         setupOptionsMenu()
         refreshMenuItems()
-        updateMaterialActivityViews(main_coordinator, main_holder, false)
+        updateMaterialActivityViews(main_coordinator, main_holder, useTransparentNavigation = false, useTopSearchMenu = false)
 
         launchedDialer = savedInstanceState?.getBoolean(OPEN_DIAL_PAD_AT_LAUNCH) ?: false
 

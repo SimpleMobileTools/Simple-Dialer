@@ -60,7 +60,7 @@
     <string name="audio_route_wired_headset">Проводная гарнитура</string>
     <string name="audio_route_wired_or_earpiece">Проводные или внутриканальные наушники</string>
     <string name="choose_audio_route">Выберите аудиовыход</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="calling_blocked_number">Набранный вами номер заблокирован</string>
     <!-- Speed dial -->
     <string name="speed_dial">Быстрый вызов</string>
     <string name="manage_speed_dial">Управление быстрым вызовом</string>
@@ -71,8 +71,7 @@
     <string name="disable_proximity_sensor">Отключать датчик приближения во время вызовов</string>
     <string name="disable_swipe_to_answer">Использовать нажатие вместо перетаскивания при ответе на входящие вызовы</string>
     <string name="show_incoming_calls_full_screen">Всегда отображать входящие вызовы на полный экран</string>
-    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
-
+    <string name="hide_dialpad_numbers">Скрыть цифры на номеронабирателе</string>
     <!-- FAQ -->
     <string name="faq_1_title">Я слышу сигналы входящих вызовов, но экран не включается. Что можно сделать\?</string>
     <string name="faq_1_text">Такие проблемы могут иметь множество специфических для устройства и системы причин, о которых трудно говорить в общем. Следует проверить настройки устройства и убедиться, что приложению разрешено отображение всплывающих уведомлений в фоновом режиме и отображение поверх других приложений.</string>

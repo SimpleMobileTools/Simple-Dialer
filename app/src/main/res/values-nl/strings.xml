@@ -60,7 +60,7 @@
     <string name="audio_route_wired_headset">Bedrade koptelefoon</string>
     <string name="audio_route_wired_or_earpiece">Bedraad of via oordopje(s)</string>
     <string name="choose_audio_route">Geluidsroute kiezen</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="calling_blocked_number">Het gebelde nummer is geblokkeerd</string>
     <!-- Speed dial -->
     <string name="speed_dial">Snelkiesnummer</string>
     <string name="manage_speed_dial">Snelkiezen beheren</string>
@@ -71,8 +71,7 @@
     <string name="disable_proximity_sensor">Nabijheidssensor uitschakelen tijdens bellen</string>
     <string name="disable_swipe_to_answer">Vervang vegen door klikken bij het aannemen van gesprekken</string>
     <string name="show_incoming_calls_full_screen">Inkomende gesprekken altijd op volledig scherm tonen</string>
-    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
-
+    <string name="hide_dialpad_numbers">Toetsenblokcijfers verbergen</string>
     <!-- FAQ -->
     <string name="faq_1_title">Ik hoor dat er een gesprek binnenkomt, maar het scherm gaat niet aan. Wat kan ik doen\?</string>
     <string name="faq_1_text">Dit soort problemen kan vele oorzaken hebben, specifiek voor bepaalde apparaten en software. Controleer in ieder geval of voor deze app in de systeeminstellingen \"Weergeven vóór andere apps\" is toegestaan en of bij meldingen voor inkomende gesprekken \"Weergeven op scherm\" is ingeschakeld.</string>
