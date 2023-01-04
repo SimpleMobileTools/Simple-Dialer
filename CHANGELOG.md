@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 5.17.1 *(2023-01-04)*
+----------------------------
+
+ * Added the new search bar at the top menu
+
 Version 5.17.0 *(2022-12-30)*
 ----------------------------
 
