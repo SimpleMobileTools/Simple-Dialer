@@ -267,18 +267,17 @@ class MainActivity : SimpleActivity() {
         val showTabs = config.showTabs
         val icons = ArrayList<Int>()
 
-        if (showTabs and TAB_CONTACTS != 0) {
-            icons.add(R.drawable.ic_person_vector)
+        if (showTabs and TAB_CALL_HISTORY != 0) {
+            icons.add(R.drawable.ic_clock_filled_vector)
         }
 
         if (showTabs and TAB_FAVORITES != 0) {
             icons.add(R.drawable.ic_star_vector)
         }
 
-        if (showTabs and TAB_CALL_HISTORY != 0) {
-            icons.add(R.drawable.ic_clock_filled_vector)
+        if (showTabs and TAB_CONTACTS != 0) {
+            icons.add(R.drawable.ic_person_vector)
         }
-
         return icons
     }
 
@@ -286,18 +285,17 @@ class MainActivity : SimpleActivity() {
         val showTabs = config.showTabs
         val icons = ArrayList<Int>()
 
-        if (showTabs and TAB_CONTACTS != 0) {
-            icons.add(R.drawable.ic_person_outline_vector)
+        if (showTabs and TAB_CALL_HISTORY != 0) {
+            icons.add(R.drawable.ic_clock_vector)
         }
 
         if (showTabs and TAB_FAVORITES != 0) {
             icons.add(R.drawable.ic_star_outline_vector)
         }
 
-        if (showTabs and TAB_CALL_HISTORY != 0) {
-            icons.add(R.drawable.ic_clock_vector)
+        if (showTabs and TAB_CONTACTS != 0) {
+            icons.add(R.drawable.ic_person_outline_vector)
         }
-
         return icons
     }
 
@@ -381,9 +379,9 @@ class MainActivity : SimpleActivity() {
 
     private fun getTabIcon(position: Int): Drawable {
         val drawableId = when (position) {
-            0 -> R.drawable.ic_person_vector
+            0 -> R.drawable.ic_clock_vector
             1 -> R.drawable.ic_star_vector
-            else -> R.drawable.ic_clock_vector
+            else ->  R.drawable.ic_person_vector
         }
 
         return resources.getColoredDrawableWithColor(drawableId, getProperTextColor())
@@ -391,9 +389,9 @@ class MainActivity : SimpleActivity() {
 
     private fun getTabLabel(position: Int): String {
         val stringId = when (position) {
-            0 -> R.string.contacts_tab
+            0 -> R.string.call_history_tab
             1 -> R.string.favorites_tab
-            else -> R.string.call_history_tab
+            else -> R.string.contacts_tab
         }
 
         return resources.getString(stringId)
@@ -422,27 +420,26 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun refreshFragments() {
-        contacts_fragment?.refreshItems()
-        favorites_fragment?.refreshItems()
         recents_fragment?.refreshItems()
+        favorites_fragment?.refreshItems()
+        contacts_fragment?.refreshItems()
     }
 
     private fun getAllFragments(): ArrayList<MyViewPagerFragment?> {
         val showTabs = config.showTabs
         val fragments = arrayListOf<MyViewPagerFragment?>()
 
-        if (showTabs and TAB_CONTACTS > 0) {
-            fragments.add(contacts_fragment)
+        if (showTabs and TAB_CALL_HISTORY > 0) {
+            fragments.add(recents_fragment)
         }
 
         if (showTabs and TAB_FAVORITES > 0) {
             fragments.add(favorites_fragment)
         }
 
-        if (showTabs and TAB_CALL_HISTORY > 0) {
-            fragments.add(recents_fragment)
+        if (showTabs and TAB_CONTACTS > 0) {
+            fragments.add(contacts_fragment)
         }
-
         return fragments
     }
 
