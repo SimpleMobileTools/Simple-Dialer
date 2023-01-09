@@ -165,12 +165,8 @@ class MainActivity : SimpleActivity() {
         main_menu.getToolbar().inflateMenu(R.menu.menu)
         main_menu.toggleHideOnScroll(false)
         main_menu.setupMenu()
-        main_menu.onSearchOpenListener = {
-            main_dialpad_button.beGone()
-        }
 
         main_menu.onSearchClosedListener = {
-            main_dialpad_button.beVisible()
             getAllFragments().forEach {
                 it?.onSearchQueryChanged("")
             }
