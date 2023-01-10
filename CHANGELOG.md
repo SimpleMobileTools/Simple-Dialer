@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 5.17.2 *(2023-01-10)*
+----------------------------
+
+ * Fixed a glitch with dialpad button not being visible on some devices
+
 Version 5.17.1 *(2023-01-04)*
 ----------------------------
 
