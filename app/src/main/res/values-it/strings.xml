@@ -60,7 +60,7 @@
     <string name="audio_route_wired_headset">Cuffia cablata</string>
     <string name="audio_route_wired_or_earpiece">Cablato o auricolare</string>
     <string name="choose_audio_route">Scegli l\'uscita audio</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="calling_blocked_number">Il numero che stai chiamando è bloccato</string>
     <!-- Speed dial -->
     <string name="speed_dial">Contatti veloci</string>
     <string name="manage_speed_dial">Gestisci i contatti veloci</string>
@@ -71,8 +71,7 @@
     <string name="disable_proximity_sensor">Disattiva il sensore di prossimità durante le chiamate</string>
     <string name="disable_swipe_to_answer">Sostituisci lo scorrimento nel rispondere alle chiamate in arrivo con un clic</string>
     <string name="show_incoming_calls_full_screen">Visualizza sempre le chiamate in arrivo a schermo intero</string>
-    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
-
+    <string name="hide_dialpad_numbers">Nascondi i numeri del tastierino</string>
     <!-- FAQ -->
     <string name="faq_1_title">Sento le chiamate in arrivo, ma lo schermo non si accende. Cosa posso fare\?</string>
     <string name="faq_1_text">Tali problemi possono avere molte ragioni specifiche per il dispositivo e il sistema, è difficile identificarle in generale. Dovresti dare un\'occhiata alle impostazioni del dispositivo e assicurarti che l\'app sia autorizzata a comparire quando è in background e che permetta la visualizzazione sopra le altre app.</string>
