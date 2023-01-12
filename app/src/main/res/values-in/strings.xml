@@ -20,8 +20,8 @@
     <string name="asterisk">Bintang</string>
     <string name="hashtag">Pagar</string>
     <string name="call_number">Nomor telepon</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Aktifkan suara ketika tombol papan ditekan</string>
+    <string name="dialpad_vibrations">Aktifkan getaran ketika tombol papan ditekan</string>
     <!-- Dialer -->
     <string name="dialer">Dialer</string>
     <string name="accept">Menerima</string>
@@ -45,22 +45,22 @@
     <string name="show_dialpad">Tampilkan dialpad</string>
     <string name="hide_dialpad">Sembunyikan dialpad</string>
     <string name="end_call">Akhiri panggilan</string>
-    <string name="hold_call">Hold call</string>
-    <string name="resume_call">Resume call</string>
-    <string name="call_on_hold">On Hold</string>
-    <string name="call_swap">Swap calls</string>
-    <string name="call_merge">Merge calls</string>
-    <string name="call_split">Split call</string>
-    <string name="call_add">Add call</string>
-    <string name="conference_manage">Manage conference call</string>
-    <string name="conference">Conference</string>
+    <string name="hold_call">Jeda panggilan</string>
+    <string name="resume_call">Lanjutkan panggilan</string>
+    <string name="call_on_hold">Dijeda</string>
+    <string name="call_swap">Ubah panggilan</string>
+    <string name="call_merge">Gabungkan panggilan</string>
+    <string name="call_split">Pisahkan panggilan</string>
+    <string name="call_add">Tambahkan panggilan</string>
+    <string name="conference_manage">Kelola panggilan konferensi</string>
+    <string name="conference">Konferensi</string>
     <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_earpiece">Earphone</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="audio_route_wired_headset">Headset Kabel</string>
+    <string name="audio_route_wired_or_earpiece">Kabel atau Earphone</string>
+    <string name="choose_audio_route">Pilih rute audio</string>
+    <string name="calling_blocked_number">Nomor yang Anda panggil diblokir</string>
     <!-- Speed dial -->
     <string name="speed_dial">Panggilan cepat</string>
     <string name="manage_speed_dial">Kelola panggilan cepat</string>
@@ -70,12 +70,11 @@
     <string name="open_dialpad_by_default">Buka dialpad secara default ketika aplikasi dibuka</string>
     <string name="disable_proximity_sensor">Nonaktifkan sensor kedekatan saat ada di panggilan</string>
     <string name="disable_swipe_to_answer">Ganti menggesek saat menanggapi panggilan masuk dengan mengklik</string>
-    <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>
-    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
-
+    <string name="show_incoming_calls_full_screen">Selalu tampilkan panggilan masuk dengan layar penuh</string>
+    <string name="hide_dialpad_numbers">Sembunyikan nomor tombol papan</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Saya mendengar panggilan masuk, tetapi layarnya tidak menyala\? Apa yang bisa saya lakukan\?</string>
+    <string name="faq_1_text">Beberapa masalah dapat memiliki alasan perangkat dan sistem spesifik, tidak mudah untuk diberi tahu secara umum. Anda seharusnya melihat dalam pengaturan perangkat Anda dan memastikan bahwa aplikasi diperbolehkan untuk muncul ketika dalam latar belakang dan memperbolehkan menampilkan di atas aplikasi lain.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
