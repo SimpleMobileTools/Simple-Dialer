@@ -202,13 +202,11 @@ class CallManager {
         fun getState() = getPrimaryCall()?.getStateCompat()
 
         fun keypad(context: Context, char: Char) {
-            call?.playDtmfTone(char)
             if (context.config.dialpadBeeps) {
+                call?.playDtmfTone(char)
                 Handler().postDelayed({
                     call?.stopDtmfTone()
                 }, DIALPAD_TONE_LENGTH_MS)
-            } else {
-                call?.stopDtmfTone()
             }
         }
     }
