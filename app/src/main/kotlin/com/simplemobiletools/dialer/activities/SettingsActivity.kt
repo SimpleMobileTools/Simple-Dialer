@@ -54,6 +54,7 @@ class SettingsActivity : SimpleActivity() {
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
         setupAlwaysShowFullscreen()
+        setupDisableWakeOnCall()
         updateTextColors(settings_holder)
 
         arrayOf(
@@ -259,6 +260,14 @@ class SettingsActivity : SimpleActivity() {
         settings_always_show_fullscreen_holder.setOnClickListener {
             settings_always_show_fullscreen.toggle()
             config.alwaysShowFullscreen = settings_always_show_fullscreen.isChecked
+        }
+    }
+
+    private fun setupDisableWakeOnCall() {
+        settings_disable_wake_on_call.isChecked = config.disableWakeOnCall
+        settings_disable_wake_on_call_holder.setOnClickListener {
+            settings_disable_wake_on_call.toggle()
+            config.disableWakeOnCall = settings_disable_wake_on_call.isChecked
         }
     }
 }

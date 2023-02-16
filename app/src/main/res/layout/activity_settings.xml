@@ -393,6 +393,21 @@
                     android:text="@string/show_incoming_calls_full_screen" />
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_disable_wake_on_call_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_disable_wake_on_call"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/disable_wake_on_call" />
+
+            </RelativeLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

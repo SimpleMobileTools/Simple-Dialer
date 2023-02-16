@@ -73,7 +73,8 @@ class CallActivity : SimpleActivity() {
         updateTextColors(call_holder)
         initButtons()
         audioManager.mode = AudioManager.MODE_IN_CALL
-        addLockScreenFlags()
+        if (!config.disableWakeOnCall)
+            addLockScreenFlags()
         CallManager.addListener(callCallback)
         updateCallContactInfo(CallManager.getPrimaryCall())
     }
