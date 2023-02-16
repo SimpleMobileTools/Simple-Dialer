@@ -3,9 +3,10 @@ package com.simplemobiletools.dialer.activities
 import android.os.Bundle
 import com.google.gson.Gson
 import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.NavigationIcon
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.SpeedDialAdapter
 import com.simplemobiletools.dialer.dialogs.SelectContactDialog
@@ -15,7 +16,7 @@ import com.simplemobiletools.dialer.models.SpeedDial
 import kotlinx.android.synthetic.main.activity_manage_speed_dial.*
 
 class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
-    private var allContacts = ArrayList<SimpleContact>()
+    private var allContacts = ArrayList<Contact>()
     private var speedDialValues = ArrayList<SpeedDial>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +29,7 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
 
         speedDialValues = config.getSpeedDialValues()
         updateAdapter()
-        SimpleContactsHelper(this).getAvailableContacts(false) { contacts ->
+        ContactsHelper(this).getContacts(false) { contacts ->
             allContacts = contacts
         }
 

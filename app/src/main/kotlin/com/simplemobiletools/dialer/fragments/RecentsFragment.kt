@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.SimpleContactsHelper
@@ -49,8 +50,8 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         val privateCursor = context?.getMyContactsCursor(false, true)
         val groupSubsequentCalls = context?.config?.groupSubsequentCalls ?: false
         RecentsHelper(context).getRecentCalls(groupSubsequentCalls) { recents ->
-            SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
-                val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+            ContactsHelper(context).getContacts { contacts ->
+                val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
 
                 recents.filter { it.phoneNumber == it.name }.forEach { recent ->
                     var wasNameFilled = false
@@ -63,7 +64,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                     }
 
                     if (!wasNameFilled) {
-                        val contact = contacts.firstOrNull { it.phoneNumbers.first().normalizedNumber == recent.phoneNumber }
+                        val contact = contacts.filter { it.phoneNumbers.isNotEmpty() }.firstOrNull { it.phoneNumbers.first().normalizedNumber == recent.phoneNumber }
                         if (contact != null) {
                             recent.name = contact.name
                         }

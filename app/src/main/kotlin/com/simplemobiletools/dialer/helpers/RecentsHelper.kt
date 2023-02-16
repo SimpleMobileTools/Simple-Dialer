@@ -5,7 +5,7 @@ import android.content.Context
 import android.provider.CallLog.Calls
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
@@ -24,8 +24,8 @@ class RecentsHelper(private val context: Context) {
                 return@ensureBackgroundThread
             }
 
-            SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
-                val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+            ContactsHelper(context).getContacts(false) { contacts ->
+                val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
                 if (privateContacts.isNotEmpty()) {
                     contacts.addAll(privateContacts)
                 }
@@ -36,7 +36,8 @@ class RecentsHelper(private val context: Context) {
     }
 
     @SuppressLint("NewApi")
-    private fun getRecents(contacts: ArrayList<SimpleContact>, groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
+    private fun getRecents(contacts: ArrayList<Contact>, groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
+
         var recentCalls = ArrayList<RecentCall>()
         var previousRecentCallFrom = ""
         var previousStartTS = 0
@@ -96,7 +97,7 @@ class RecentsHelper(private val context: Context) {
                     } else {
                         val normalizedNumber = number.normalizePhoneNumber()
                         if (normalizedNumber!!.length >= COMPARABLE_PHONE_NUMBER_LENGTH) {
-                            name = contacts.firstOrNull { contact ->
+                            name = contacts.filter { it.phoneNumbers.isNotEmpty() }.firstOrNull { contact ->
                                 val curNumber = contact.phoneNumbers.first().normalizedNumber
                                 if (curNumber.length >= COMPARABLE_PHONE_NUMBER_LENGTH) {
                                     if (curNumber.substring(curNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH) == normalizedNumber.substring(normalizedNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH)) {

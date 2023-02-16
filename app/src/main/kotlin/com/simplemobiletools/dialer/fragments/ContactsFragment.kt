@@ -5,10 +5,8 @@ import android.util.AttributeSet
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.MyContactsContentProvider
-import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.MainActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -20,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.*
 
 class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
-    private var allContacts = ArrayList<SimpleContact>()
+    private var allContacts = ArrayList<Contact>()
 
     override fun setupFragment() {
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
@@ -64,10 +62,10 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
     override fun refreshItems(callback: (() -> Unit)?) {
         val privateCursor = context?.getMyContactsCursor(false, true)
-        SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
+        ContactsHelper(context).getContacts { contacts ->
             allContacts = contacts
 
-            val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+            val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
             if (privateContacts.isNotEmpty()) {
                 allContacts.addAll(privateContacts)
                 allContacts.sort()
@@ -82,7 +80,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         }
     }
 
-    private fun gotContacts(contacts: ArrayList<SimpleContact>) {
+    private fun gotContacts(contacts: ArrayList<Contact>) {
         setupLetterFastscroller(contacts)
         if (contacts.isEmpty()) {
             fragment_placeholder.beVisible()
@@ -96,7 +94,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             val currAdapter = fragment_list.adapter
             if (currAdapter == null) {
                 ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this) {
-                    val contact = it as SimpleContact
+                    val contact = it as Contact
                     activity?.startContactDetailsIntent(contact)
                 }.apply {
                     fragment_list.adapter = this
@@ -111,7 +109,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         }
     }
 
-    private fun setupLetterFastscroller(contacts: ArrayList<SimpleContact>) {
+    private fun setupLetterFastscroller(contacts: ArrayList<Contact>) {
         letter_fastscroller.setupWithRecyclerView(fragment_list, { position ->
             try {
                 val name = contacts[position].name
@@ -130,26 +128,37 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     }
 
     override fun onSearchQueryChanged(text: String) {
-        val contacts = allContacts.filter {
-            it.doesContainPhoneNumber(text) ||
-                it.name.contains(text, true) ||
-                it.name.normalizeString().contains(text, true) ||
-                it.name.contains(text.normalizeString(), true)
-        }.sortedByDescending {
-            it.name.startsWith(text, true)
-        }.toMutableList() as ArrayList<SimpleContact>
+            val shouldNormalize = text.normalizeString() == text
+            val filtered = allContacts.filter {
+                getProperText(it.name, shouldNormalize).contains(text, true) ||
+                    getProperText(it.nickname, shouldNormalize).contains(text, true) ||
+                    it.phoneNumbers.any {
+                        text.normalizePhoneNumber().isNotEmpty() && it.normalizedNumber.contains(text.normalizePhoneNumber(), true)
+                    } ||
+                    it.emails.any { it.value.contains(text, true) } ||
+                    it.addresses.any { getProperText(it.value, shouldNormalize).contains(text, true) } ||
+                    it.IMs.any { it.value.contains(text, true) } ||
+                    getProperText(it.notes, shouldNormalize).contains(text, true) ||
+                    getProperText(it.organization.company, shouldNormalize).contains(text, true) ||
+                    getProperText(it.organization.jobPosition, shouldNormalize).contains(text, true) ||
+                    it.websites.any { it.contains(text, true) }
+            } as ArrayList
 
-        fragment_placeholder.beVisibleIf(contacts.isEmpty())
-        (fragment_list.adapter as? ContactsAdapter)?.updateItems(contacts, text)
-        setupLetterFastscroller(contacts)
-    }
+            filtered.sortBy {
+                val nameToDisplay = it.name
+                !getProperText(nameToDisplay, shouldNormalize).startsWith(text, true) && !nameToDisplay.contains(text, true)
+            }
 
+        fragment_placeholder.beVisibleIf(filtered.isEmpty())
+        (fragment_list.adapter as? ContactsAdapter)?.updateItems(filtered, text)
+        setupLetterFastscroller(filtered)
+        }
     private fun requestReadContactsPermission() {
         activity?.handlePermission(PERMISSION_READ_CONTACTS) {
             if (it) {
                 fragment_placeholder.text = context.getString(R.string.no_contacts_found)
                 fragment_placeholder_2.text = context.getString(R.string.create_new_contact)
-                SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
+                ContactsHelper(context).getContacts(false) { contacts ->
                     activity?.runOnUiThread {
                         gotContacts(contacts)
                     }

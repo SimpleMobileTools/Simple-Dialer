@@ -20,7 +20,7 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
@@ -41,7 +41,7 @@ import me.grantland.widget.AutofitHelper
 class MainActivity : SimpleActivity() {
     private var launchedDialer = false
     private var storedShowTabs = 0
-    var cachedContacts = ArrayList<SimpleContact>()
+    var cachedContacts = ArrayList<Contact>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
@@ -83,7 +83,7 @@ class MainActivity : SimpleActivity() {
         }
 
         setupTabs()
-        SimpleContact.sorting = config.sorting
+        Contact.sorting = config.sorting
     }
 
     override fun onResume() {
@@ -520,7 +520,7 @@ class MainActivity : SimpleActivity() {
         }
     }
 
-    fun cacheContacts(contacts: List<SimpleContact>) {
+    fun cacheContacts(contacts: List<Contact>) {
         try {
             cachedContacts.clear()
             cachedContacts.addAll(contacts)
