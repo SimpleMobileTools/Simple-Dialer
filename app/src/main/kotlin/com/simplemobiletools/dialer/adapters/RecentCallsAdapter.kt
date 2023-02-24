@@ -14,7 +14,7 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.MainActivity
@@ -246,11 +246,11 @@ class RecentCallsAdapter(
         }
     }
 
-    private fun findContactByCall(recentCall: RecentCall): SimpleContact? {
+    private fun findContactByCall(recentCall: RecentCall): Contact? {
         return (activity as MainActivity).cachedContacts.find { it.name == recentCall.name && it.doesHavePhoneNumber(recentCall.phoneNumber) }
     }
 
-    private fun launchContactDetailsIntent(contact: SimpleContact?) {
+    private fun launchContactDetailsIntent(contact: Contact?) {
         if (contact != null) {
             activity.startContactDetailsIntent(contact)
         }

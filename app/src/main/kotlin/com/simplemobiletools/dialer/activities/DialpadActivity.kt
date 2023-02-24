@@ -22,7 +22,7 @@ import androidx.core.view.isVisible
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.extensions.*
@@ -36,7 +36,7 @@ import java.util.*
 import kotlin.math.roundToInt
 
 class DialpadActivity : SimpleActivity() {
-    private var allContacts = ArrayList<SimpleContact>()
+    private var allContacts = ArrayList<Contact>()
     private var speedDialValues = ArrayList<SpeedDial>()
     private val russianCharsMap = HashMap<Char, Int>()
     private var hasRussianLocale = false
@@ -138,7 +138,7 @@ class DialpadActivity : SimpleActivity() {
         dialpad_input.onTextChangeListener { dialpadValueChanged(it) }
         dialpad_input.requestFocus()
 
-        SimpleContactsHelper(this).getAvailableContacts(false) { gotContacts(it) }
+        ContactsHelper(this).getContacts{ gotContacts(it) }
         dialpad_input.disableKeyboard()
 
         val properPrimaryColor = getProperPrimaryColor()
@@ -219,10 +219,10 @@ class DialpadActivity : SimpleActivity() {
         dialpad_input.setText("")
     }
 
-    private fun gotContacts(newContacts: ArrayList<SimpleContact>) {
+    private fun gotContacts(newContacts: ArrayList<Contact>) {
         allContacts = newContacts
 
-        val privateContacts = MyContactsContentProvider.getSimpleContacts(this, privateCursor)
+        val privateContacts = MyContactsContentProvider.getContacts(this, privateCursor)
         if (privateContacts.isNotEmpty()) {
             allContacts.addAll(privateContacts)
             allContacts.sort()
@@ -270,7 +270,7 @@ class DialpadActivity : SimpleActivity() {
             it.doesContainPhoneNumber(text) || (convertedName.contains(text, true))
         }.sortedWith(compareBy {
             !it.doesContainPhoneNumber(text)
-        }).toMutableList() as ArrayList<SimpleContact>
+        }).toMutableList() as ArrayList<Contact>
 
         letter_fastscroller.setupWithRecyclerView(dialpad_list, { position ->
             try {
@@ -283,7 +283,7 @@ class DialpadActivity : SimpleActivity() {
         })
 
         ContactsAdapter(this, filtered, dialpad_list, null, text) {
-            startCallIntent((it as SimpleContact).phoneNumbers.first().normalizedNumber)
+            startCallIntent((it as Contact).phoneNumbers.first().normalizedNumber)
         }.apply {
             dialpad_list.adapter = this
         }

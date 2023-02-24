@@ -28,7 +28,7 @@ import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.commons.interfaces.ItemMoveCallback
 import com.simplemobiletools.commons.interfaces.ItemTouchHelperContract
 import com.simplemobiletools.commons.interfaces.StartReorderDragListener
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -41,7 +41,7 @@ import java.util.*
 
 class ContactsAdapter(
     activity: SimpleActivity,
-    var contacts: ArrayList<SimpleContact>,
+    var contacts: ArrayList<Contact>,
     recyclerView: MyRecyclerView,
     val refreshItemsListener: RefreshItemsListener? = null,
     highlightText: String = "",
@@ -135,9 +135,9 @@ class ContactsAdapter(
 
     override fun getItemCount() = contacts.size
 
-    fun updateItems(newItems: ArrayList<SimpleContact>, highlightText: String = "") {
+    fun updateItems(newItems: ArrayList<Contact>, highlightText: String = "") {
         if (newItems.hashCode() != contacts.hashCode()) {
-            contacts = newItems.clone() as ArrayList<SimpleContact>
+            contacts = newItems.clone() as ArrayList<Contact>
             textToHighlight = highlightText
             notifyDataSetChanged()
             finishActMode()
@@ -221,7 +221,7 @@ class ContactsAdapter(
         }
     }
 
-    private fun getSelectedItems() = contacts.filter { selectedKeys.contains(it.rawId) } as ArrayList<SimpleContact>
+    private fun getSelectedItems() = contacts.filter { selectedKeys.contains(it.rawId) } as ArrayList<Contact>
 
     private fun getSelectedPhoneNumber(): String? {
         val numbers = getSelectedItems().firstOrNull()?.phoneNumbers
@@ -270,7 +270,7 @@ class ContactsAdapter(
         }
     }
 
-    private fun setupView(view: View, contact: SimpleContact, holder: ViewHolder) {
+    private fun setupView(view: View, contact: Contact, holder: ViewHolder) {
         view.apply {
             findViewById<FrameLayout>(R.id.item_contact_frame).isSelected = selectedKeys.contains(contact.rawId)
             findViewById<TextView>(R.id.item_contact_name).apply {
