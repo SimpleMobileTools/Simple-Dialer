@@ -11,11 +11,6 @@ class Config(context: Context) : BaseConfig(context) {
     companion object {
         fun newInstance(context: Context) = Config(context)
     }
-
-    var speedDial: String
-        get() = prefs.getString(SPEED_DIAL, "")!!
-        set(speedDial) = prefs.edit().putString(SPEED_DIAL, speedDial).apply()
-
     fun getSpeedDialValues(): ArrayList<SpeedDial> {
         val speedDialType = object : TypeToken<List<SpeedDial>>() {}.type
         val speedDialValues = Gson().fromJson<ArrayList<SpeedDial>>(speedDial, speedDialType) ?: ArrayList(1)
@@ -55,18 +50,6 @@ class Config(context: Context) : BaseConfig(context) {
     var disableSwipeToAnswer: Boolean
         get() = prefs.getBoolean(DISABLE_SWIPE_TO_ANSWER, false)
         set(disableSwipeToAnswer) = prefs.edit().putBoolean(DISABLE_SWIPE_TO_ANSWER, disableSwipeToAnswer).apply()
-
-    var showTabs: Int
-        get() = prefs.getInt(SHOW_TABS, ALL_TABS_MASK)
-        set(showTabs) = prefs.edit().putInt(SHOW_TABS, showTabs).apply()
-
-    var favoritesContactsOrder: String
-        get() = prefs.getString(FAVORITES_CONTACTS_ORDER, "")!!
-        set(order) = prefs.edit().putString(FAVORITES_CONTACTS_ORDER, order).apply()
-
-    var isCustomOrderSelected: Boolean
-        get() = prefs.getBoolean(FAVORITES_CUSTOM_ORDER_SELECTED, false)
-        set(selected) = prefs.edit().putBoolean(FAVORITES_CUSTOM_ORDER_SELECTED, selected).apply()
 
     var wasOverlaySnackbarConfirmed: Boolean
         get() = prefs.getBoolean(WAS_OVERLAY_SNACKBAR_CONFIRMED, false)
