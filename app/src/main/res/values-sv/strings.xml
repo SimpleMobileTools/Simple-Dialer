@@ -38,9 +38,9 @@
     <string name="always_use_this_sim">Använd alltid det här SIM-kortet för detta nummer</string>
     <string name="unset_default_sim">Ta bort standard-SIM-kort</string>
     <string name="calls">Samtal</string>
-    <string name="turn_microphone_on">Sätt på mikrofonen</string>
+    <string name="turn_microphone_on">Slå på mikrofonen</string>
     <string name="turn_microphone_off">Stäng av mikrofonen</string>
-    <string name="turn_speaker_on">Sätt på högtalaren</string>
+    <string name="turn_speaker_on">Slå på högtalaren</string>
     <string name="turn_speaker_off">Stäng av högtalaren</string>
     <string name="show_dialpad">Visa knappsats</string>
     <string name="hide_dialpad">Dölj knappsats</string>
@@ -54,13 +54,13 @@
     <string name="call_add">Lägg till samtal</string>
     <string name="conference_manage">Hantera konferenssamtal</string>
     <string name="conference">Konferens</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Högtalare</string>
+    <string name="audio_route_earpiece">Lur</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="audio_route_wired_headset">Kabelanslutet headset</string>
+    <string name="audio_route_wired_or_earpiece">Kabel eller lur</string>
+    <string name="choose_audio_route">Välj ljudväg</string>
+    <string name="calling_blocked_number">Numret du ringer är blockerat</string>
     <!-- Speed dial -->
     <string name="speed_dial">Snabbuppringning</string>
     <string name="manage_speed_dial">Hantera snabbuppringning</string>
@@ -72,7 +72,6 @@
     <string name="disable_swipe_to_answer">Ersätt svepning vid besvarande av inkommande samtal med tryckning</string>
     <string name="show_incoming_calls_full_screen">Visa alltid inkommande samtal i helskärm</string>
     <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
-
     <!-- FAQ -->
     <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
     <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
