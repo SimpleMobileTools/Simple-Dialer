@@ -112,7 +112,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     private fun setupLetterFastscroller(contacts: ArrayList<Contact>) {
         letter_fastscroller.setupWithRecyclerView(fragment_list, { position ->
             try {
-                val name = contacts[position].name
+                val name = contacts[position].getNameToDisplay()
                 val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
                 FastScrollItemIndicator.Text(character.toUpperCase(Locale.getDefault()).normalizeString())
             } catch (e: Exception) {
@@ -130,7 +130,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     override fun onSearchQueryChanged(text: String) {
             val shouldNormalize = text.normalizeString() == text
             val filtered = allContacts.filter {
-                getProperText(it.name, shouldNormalize).contains(text, true) ||
+                getProperText(it.getNameToDisplay(), shouldNormalize).contains(text, true) ||
                     getProperText(it.nickname, shouldNormalize).contains(text, true) ||
                     it.phoneNumbers.any {
                         text.normalizePhoneNumber().isNotEmpty() && it.normalizedNumber.contains(text.normalizePhoneNumber(), true)
@@ -145,7 +145,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             } as ArrayList
 
             filtered.sortBy {
-                val nameToDisplay = it.name
+                val nameToDisplay = it.getNameToDisplay()
                 !getProperText(nameToDisplay, shouldNormalize).startsWith(text, true) && !nameToDisplay.contains(text, true)
             }
 

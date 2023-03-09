@@ -275,13 +275,14 @@ class RecentCallsAdapter(
     private fun setupView(view: View, call: RecentCall) {
         view.apply {
             item_recents_holder.isSelected = selectedKeys.contains(call.id)
-            var nameToShow = SpannableString(call.name)
+            val name = findContactByCall(call)?.getNameToDisplay() ?: call.name
+            var nameToShow = SpannableString(name)
             if (call.specificType.isNotEmpty()) {
-                nameToShow = SpannableString("${call.name} - ${call.specificType}")
+                nameToShow = SpannableString("${name} - ${call.specificType}")
 
                 // show specific number at "Show call details" dialog too
                 if (refreshItemsListener == null) {
-                    nameToShow = SpannableString("${call.name} - ${call.specificType}, ${call.specificNumber}")
+                    nameToShow = SpannableString("${name} - ${call.specificType}, ${call.specificNumber}")
                 }
             }
 

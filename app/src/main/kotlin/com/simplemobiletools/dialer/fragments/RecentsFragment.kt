@@ -7,7 +7,6 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
@@ -58,7 +57,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                     if (privateContacts.isNotEmpty()) {
                         val privateContact = privateContacts.firstOrNull { it.doesContainPhoneNumber(recent.phoneNumber) }
                         if (privateContact != null) {
-                            recent.name = privateContact.name
+                            recent.name = privateContact.getNameToDisplay()
                             wasNameFilled = true
                         }
                     }
@@ -66,7 +65,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                     if (!wasNameFilled) {
                         val contact = contacts.filter { it.phoneNumbers.isNotEmpty() }.firstOrNull { it.phoneNumbers.first().normalizedNumber == recent.phoneNumber }
                         if (contact != null) {
-                            recent.name = contact.name
+                            recent.name = contact.getNameToDisplay()
                         }
                     }
                 }

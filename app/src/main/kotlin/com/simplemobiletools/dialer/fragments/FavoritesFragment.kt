@@ -92,7 +92,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                     enableDrag = true,
                 ) {
                     if (context.config.showCallConfirmation) {
-                        CallConfirmationDialog(activity as SimpleActivity, (it as Contact).name) {
+                        CallConfirmationDialog(activity as SimpleActivity, (it as Contact).getNameToDisplay()) {
                             callContact(it)
                         }
                     } else {
@@ -167,7 +167,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     private fun setupLetterFastscroller(contacts: ArrayList<Contact>) {
         letter_fastscroller.setupWithRecyclerView(fragment_list, { position ->
             try {
-                val name = contacts[position].name
+                val name = contacts[position].getNameToDisplay()
                 val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
                 FastScrollItemIndicator.Text(character.toUpperCase(Locale.getDefault()).normalizeString())
             } catch (e: Exception) {

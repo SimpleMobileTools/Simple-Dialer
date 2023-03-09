@@ -274,7 +274,7 @@ class DialpadActivity : SimpleActivity() {
 
         letter_fastscroller.setupWithRecyclerView(dialpad_list, { position ->
             try {
-                val name = filtered[position].name
+                val name = filtered[position].getNameToDisplay()
                 val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
                 FastScrollItemIndicator.Text(character.toUpperCase(Locale.getDefault()))
             } catch (e: Exception) {
