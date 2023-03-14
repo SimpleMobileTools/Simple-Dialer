@@ -23,7 +23,7 @@ class SelectContactDialog(val activity: SimpleActivity, contacts: ArrayList<Cont
 
             letter_fastscroller.setupWithRecyclerView(select_contact_list, { position ->
                 try {
-                    val name = contacts[position].name
+                    val name = contacts[position].getNameToDisplay()
                     val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
                     FastScrollItemIndicator.Text(character.toUpperCase(Locale.getDefault()))
                 } catch (e: Exception) {

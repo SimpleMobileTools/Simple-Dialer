@@ -5,7 +5,6 @@ import com.google.gson.Gson
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.NavigationIcon
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.SpeedDialAdapter
@@ -55,7 +54,7 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
 
             SelectContactDialog(this, allContacts) { selectedContact ->
                 speedDialValues.first { it.id == clickedContact.id }.apply {
-                    displayName = selectedContact.name
+                    displayName = selectedContact.getNameToDisplay()
                     number = selectedContact.phoneNumbers.first().normalizedNumber
                 }
                 updateAdapter()

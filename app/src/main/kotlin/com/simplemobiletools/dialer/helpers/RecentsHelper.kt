@@ -101,7 +101,7 @@ class RecentsHelper(private val context: Context) {
                                 val curNumber = contact.phoneNumbers.first().normalizedNumber
                                 if (curNumber.length >= COMPARABLE_PHONE_NUMBER_LENGTH) {
                                     if (curNumber.substring(curNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH) == normalizedNumber.substring(normalizedNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH)) {
-                                        contactsNumbersMap[number] = contact.name
+                                        contactsNumbersMap[number] = contact.getNameToDisplay()
                                         return@firstOrNull true
                                     }
                                 }

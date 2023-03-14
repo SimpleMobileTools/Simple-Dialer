@@ -184,7 +184,7 @@ class ContactsAdapter(
         val itemsCnt = selectedKeys.size
         val firstItem = getSelectedItems().firstOrNull() ?: return
         val items = if (itemsCnt == 1) {
-            "\"${firstItem.name}\""
+            "\"${firstItem.getNameToDisplay()}\""
         } else {
             resources.getQuantityString(R.plurals.delete_contacts, itemsCnt, itemsCnt)
         }
@@ -242,7 +242,7 @@ class ContactsAdapter(
         val contact = contacts.firstOrNull { selectedKeys.contains(it.rawId) } ?: return
         val manager = activity.shortcutManager
         if (manager.isRequestPinShortcutSupported) {
-            SimpleContactsHelper(activity).getShortcutImage(contact.photoUri, contact.name) { image ->
+            SimpleContactsHelper(activity).getShortcutImage(contact.photoUri, contact.getNameToDisplay()) { image ->
                 activity.runOnUiThread {
                     activity.handlePermission(PERMISSION_CALL_PHONE) { hasPermission ->
                         val action = if (hasPermission) Intent.ACTION_CALL else Intent.ACTION_DIAL
@@ -251,7 +251,7 @@ class ContactsAdapter(
                         }
 
                         val shortcut = ShortcutInfo.Builder(activity, contact.hashCode().toString())
-                            .setShortLabel(contact.name)
+                            .setShortLabel(contact.getNameToDisplay())
                             .setIcon(Icon.createWithBitmap(image))
                             .setIntent(intent)
                             .build()
@@ -277,11 +277,12 @@ class ContactsAdapter(
                 setTextColor(textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
 
-                text = if (textToHighlight.isEmpty()) contact.name else {
-                    if (contact.name.contains(textToHighlight, true)) {
-                        contact.name.highlightTextPart(textToHighlight, properPrimaryColor)
+                val name = contact.getNameToDisplay()
+                text = if (textToHighlight.isEmpty()) name else {
+                    if (name.contains(textToHighlight, true)) {
+                        name.highlightTextPart(textToHighlight, properPrimaryColor)
                     } else {
-                        contact.name.highlightTextFromNumbers(textToHighlight, properPrimaryColor)
+                        name.highlightTextFromNumbers(textToHighlight, properPrimaryColor)
                     }
                 }
             }
@@ -306,7 +307,7 @@ class ContactsAdapter(
             }
 
             if (!activity.isDestroyed) {
-                SimpleContactsHelper(context).loadContactImage(contact.photoUri, findViewById(R.id.item_contact_image), contact.name)
+                SimpleContactsHelper(context).loadContactImage(contact.photoUri, findViewById(R.id.item_contact_image), contact.getNameToDisplay())
             }
         }
     }

@@ -42,6 +42,7 @@ import me.grantland.widget.AutofitHelper
 class MainActivity : SimpleActivity() {
     private var launchedDialer = false
     private var storedShowTabs = 0
+    private var storedStartNameWithSurname = false
     var cachedContacts = ArrayList<Contact>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,6 +108,13 @@ class MainActivity : SimpleActivity() {
             it?.setupColors(getProperTextColor(), getProperPrimaryColor(), getProperPrimaryColor())
         }
 
+        val configStartNameWithSurname = config.startNameWithSurname
+        if (storedStartNameWithSurname != configStartNameWithSurname) {
+            contacts_fragment?.startNameWithSurnameChanged(configStartNameWithSurname)
+            favorites_fragment?.startNameWithSurnameChanged(configStartNameWithSurname)
+            storedStartNameWithSurname = config.startNameWithSurname
+        }
+
         if (!main_menu.isSearchOpen) {
             refreshItems(true)
         }
@@ -120,6 +128,7 @@ class MainActivity : SimpleActivity() {
     override fun onPause() {
         super.onPause()
         storedShowTabs = config.showTabs
+        storedStartNameWithSurname = config.startNameWithSurname
         config.lastUsedViewPagerPage = view_pager.currentItem
     }
 
@@ -375,6 +384,7 @@ class MainActivity : SimpleActivity() {
 
         main_tabs_holder.beGoneIf(main_tabs_holder.tabCount == 1)
         storedShowTabs = config.showTabs
+        storedStartNameWithSurname = config.startNameWithSurname
     }
 
     private fun getTabIcon(position: Int): Drawable {
@@ -419,7 +429,7 @@ class MainActivity : SimpleActivity() {
         }
     }
 
-    private fun refreshFragments() {
+    fun refreshFragments() {
         contacts_fragment?.refreshItems()
         favorites_fragment?.refreshItems()
         recents_fragment?.refreshItems()
