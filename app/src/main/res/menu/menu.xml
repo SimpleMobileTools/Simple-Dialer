@@ -10,6 +10,11 @@
         android:title="@string/sort_by"
         app:showAsAction="always" />
     <item
+        android:id="@+id/filter"
+        android:icon="@drawable/ic_filter_vector"
+        android:title="@string/filter"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/create_new_contact"
         android:icon="@drawable/ic_plus_vector"
         android:title="@string/create_new_contact"

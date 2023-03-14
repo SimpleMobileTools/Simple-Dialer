@@ -25,6 +25,7 @@ import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
+import com.simplemobiletools.dialer.dialogs.FilterContactSourcesDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
 import com.simplemobiletools.dialer.fragments.FavoritesFragment
@@ -181,6 +182,7 @@ class MainActivity : SimpleActivity() {
                 R.id.clear_call_history -> clearCallHistory()
                 R.id.create_new_contact -> launchCreateNewContactIntent()
                 R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
+                R.id.filter -> showFilterDialog()
                 R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
                 R.id.settings -> launchSettings()
                 R.id.about -> launchAbout()
@@ -519,7 +521,21 @@ class MainActivity : SimpleActivity() {
             }
         }
     }
+    fun showFilterDialog() {
+        FilterContactSourcesDialog(this) {
+            favorites_fragment?.refreshItems {
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
+                }
+            }
 
+            contacts_fragment?.refreshItems {
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
+                }
+            }
+        }
+    }
     fun cacheContacts(contacts: List<Contact>) {
         try {
             cachedContacts.clear()
