@@ -83,7 +83,11 @@ fun SimpleActivity.getHandleToUse(intent: Intent?, phoneNumber: String, callback
                 }
                 defaultHandle != null -> callback(defaultHandle)
                 else -> {
-                    SelectSIMDialog(this, phoneNumber) { handle ->
+                    SelectSIMDialog(this, phoneNumber, onDismiss = {
+                        if (this is DialerActivity) {
+                            finish()
+                        }
+                    }) { handle ->
                         callback(handle)
                     }
                 }
