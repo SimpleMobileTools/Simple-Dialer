@@ -73,8 +73,8 @@
     <string name="show_incoming_calls_full_screen">Visa alltid inkommande samtal i helskärm</string>
     <string name="hide_dialpad_numbers">Dölj knappsatsens siffror</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Jag hör inkommande samtal men skärmen vaknar inte. Vad gör jag\?</string>
+    <string name="faq_1_text">Sådana problem kan bero specifikt på apparat eller ditt sytem, det är svårt att svara på generellt. Du bör kolla i dina inställningar och säkerställa att appen har behörighet att synas i förgrunden och tillåts att synas över andra appar.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
