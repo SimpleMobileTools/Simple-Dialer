@@ -156,9 +156,10 @@ class CallManager {
 
         fun reject() {
             if (call != null) {
-                if (getState() == Call.STATE_RINGING) {
+                val state = getState()
+                if (state == Call.STATE_RINGING) {
                     call!!.reject(false, null)
-                } else {
+                } else if (state != Call.STATE_DISCONNECTED && state != Call.STATE_DISCONNECTING) {
                     call!!.disconnect()
                 }
             }
