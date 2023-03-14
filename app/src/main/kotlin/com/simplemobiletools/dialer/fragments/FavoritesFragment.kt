@@ -59,7 +59,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             }
             val favorites = contacts.filter { it.starred == 1 } as ArrayList<Contact>
 
-            allContacts =  if (activity!!.config.isCustomOrderSelected) {
+            allContacts = if (activity!!.config.isCustomOrderSelected) {
                 sortByCustomOrder(favorites)
             } else {
                 favorites
@@ -144,7 +144,9 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
 
     private fun callContact(simpleContact: Contact) {
         val phoneNumbers = simpleContact.phoneNumbers
-        if (phoneNumbers.size <= 1) {
+        if (phoneNumbers.isEmpty()) {
+            return
+        } else if (phoneNumbers.size <= 1) {
             activity?.launchCallIntent(phoneNumbers.first().normalizedNumber)
         } else {
             val primaryNumber = simpleContact.phoneNumbers.find { it.isPrimary }
