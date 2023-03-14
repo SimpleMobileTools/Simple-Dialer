@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Simpel telefon</string>
     <string name="app_launcher_name">Telefon</string>
-    <string name="default_phone_app_prompt">Vänligen gör den här appen till standardtelefonapp</string>
+    <string name="default_phone_app_prompt">Gör den här appen till standardtelefonapp</string>
     <string name="allow_displaying_over_other_apps">Tillåt visning över andra appar för att få ett tillförlitligt beteende</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Det gick inte att komma åt dina kontakter</string>
@@ -38,9 +38,9 @@
     <string name="always_use_this_sim">Använd alltid det här SIM-kortet för detta nummer</string>
     <string name="unset_default_sim">Ta bort standard-SIM-kort</string>
     <string name="calls">Samtal</string>
-    <string name="turn_microphone_on">Sätt på mikrofonen</string>
+    <string name="turn_microphone_on">Slå på mikrofonen</string>
     <string name="turn_microphone_off">Stäng av mikrofonen</string>
-    <string name="turn_speaker_on">Sätt på högtalaren</string>
+    <string name="turn_speaker_on">Slå på högtalaren</string>
     <string name="turn_speaker_off">Stäng av högtalaren</string>
     <string name="show_dialpad">Visa knappsats</string>
     <string name="hide_dialpad">Dölj knappsats</string>
@@ -54,13 +54,13 @@
     <string name="call_add">Lägg till samtal</string>
     <string name="conference_manage">Hantera konferenssamtal</string>
     <string name="conference">Konferens</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Högtalare</string>
+    <string name="audio_route_earpiece">Lur</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="audio_route_wired_headset">Kabelanslutet headset</string>
+    <string name="audio_route_wired_or_earpiece">Kabel eller lur</string>
+    <string name="choose_audio_route">Välj ljudväg</string>
+    <string name="calling_blocked_number">Numret du ringer är blockerat</string>
     <!-- Speed dial -->
     <string name="speed_dial">Snabbuppringning</string>
     <string name="manage_speed_dial">Hantera snabbuppringning</string>
@@ -71,11 +71,10 @@
     <string name="disable_proximity_sensor">Inaktivera närhetssensor under samtal</string>
     <string name="disable_swipe_to_answer">Ersätt svepning vid besvarande av inkommande samtal med tryckning</string>
     <string name="show_incoming_calls_full_screen">Visa alltid inkommande samtal i helskärm</string>
-    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
-
+    <string name="hide_dialpad_numbers">Dölj knappsatsens siffror</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Jag hör inkommande samtal men skärmen vaknar inte. Vad gör jag\?</string>
+    <string name="faq_1_text">Sådana problem kan bero specifikt på apparat eller ditt sytem, det är svårt att svara på generellt. Du bör kolla i dina inställningar och säkerställa att appen har behörighet att synas i förgrunden och tillåts att synas över andra appar.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

@@ -34,6 +34,8 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textSize="@dimen/bigger_text_size"
+        android:textDirection="locale"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@id/item_recents_date_time"
         app:layout_constraintEnd_toStartOf="@+id/overflow_menu_icon"
         app:layout_constraintStart_toEndOf="@+id/item_recents_image"
@@ -81,7 +83,6 @@
         android:src="@drawable/ic_incoming_call_vector"
         app:layout_constraintBottom_toBottomOf="@+id/item_recents_date_time"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@id/item_recents_date_time"
         app:layout_constraintStart_toEndOf="@+id/item_recents_sim_image"
         app:layout_constraintTop_toTopOf="@+id/item_recents_date_time" />
 

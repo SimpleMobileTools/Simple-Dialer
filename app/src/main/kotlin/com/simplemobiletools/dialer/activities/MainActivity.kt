@@ -20,11 +20,12 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
+import com.simplemobiletools.dialer.dialogs.FilterContactSourcesDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
 import com.simplemobiletools.dialer.fragments.FavoritesFragment
@@ -41,7 +42,8 @@ import me.grantland.widget.AutofitHelper
 class MainActivity : SimpleActivity() {
     private var launchedDialer = false
     private var storedShowTabs = 0
-    var cachedContacts = ArrayList<SimpleContact>()
+    private var storedStartNameWithSurname = false
+    var cachedContacts = ArrayList<Contact>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
@@ -83,7 +85,7 @@ class MainActivity : SimpleActivity() {
         }
 
         setupTabs()
-        SimpleContact.sorting = config.sorting
+        Contact.sorting = config.sorting
     }
 
     override fun onResume() {
@@ -106,6 +108,13 @@ class MainActivity : SimpleActivity() {
             it?.setupColors(getProperTextColor(), getProperPrimaryColor(), getProperPrimaryColor())
         }
 
+        val configStartNameWithSurname = config.startNameWithSurname
+        if (storedStartNameWithSurname != configStartNameWithSurname) {
+            contacts_fragment?.startNameWithSurnameChanged(configStartNameWithSurname)
+            favorites_fragment?.startNameWithSurnameChanged(configStartNameWithSurname)
+            storedStartNameWithSurname = config.startNameWithSurname
+        }
+
         if (!main_menu.isSearchOpen) {
             refreshItems(true)
         }
@@ -119,6 +128,7 @@ class MainActivity : SimpleActivity() {
     override fun onPause() {
         super.onPause()
         storedShowTabs = config.showTabs
+        storedStartNameWithSurname = config.startNameWithSurname
         config.lastUsedViewPagerPage = view_pager.currentItem
     }
 
@@ -181,6 +191,7 @@ class MainActivity : SimpleActivity() {
                 R.id.clear_call_history -> clearCallHistory()
                 R.id.create_new_contact -> launchCreateNewContactIntent()
                 R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
+                R.id.filter -> showFilterDialog()
                 R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
                 R.id.settings -> launchSettings()
                 R.id.about -> launchAbout()
@@ -373,6 +384,7 @@ class MainActivity : SimpleActivity() {
 
         main_tabs_holder.beGoneIf(main_tabs_holder.tabCount == 1)
         storedShowTabs = config.showTabs
+        storedStartNameWithSurname = config.startNameWithSurname
     }
 
     private fun getTabIcon(position: Int): Drawable {
@@ -417,7 +429,7 @@ class MainActivity : SimpleActivity() {
         }
     }
 
-    private fun refreshFragments() {
+    fun refreshFragments() {
         contacts_fragment?.refreshItems()
         favorites_fragment?.refreshItems()
         recents_fragment?.refreshItems()
@@ -519,8 +531,22 @@ class MainActivity : SimpleActivity() {
             }
         }
     }
+    fun showFilterDialog() {
+        FilterContactSourcesDialog(this) {
+            favorites_fragment?.refreshItems {
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
+                }
+            }
 
-    fun cacheContacts(contacts: List<SimpleContact>) {
+            contacts_fragment?.refreshItems {
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
+                }
+            }
+        }
+    }
+    fun cacheContacts(contacts: List<Contact>) {
         try {
             cachedContacts.clear()
             cachedContacts.addAll(contacts)
