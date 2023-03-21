@@ -35,7 +35,7 @@
     <string name="call_ending">Anruf beenden</string>
     <string name="ongoing_call">Aktueller Anruf</string>
     <string name="select_sim">Wähle die SIM-Karte für diesen Anruf aus</string>
-    <string name="always_use_this_sim">Für diese Nummer immer diese SIM-Karte benutzen</string>
+    <string name="always_use_this_sim">Für diese Nummer immer diese SIM-Karte verwenden</string>
     <string name="unset_default_sim">Als Standard-SIM abwählen</string>
     <string name="calls">Anrufe</string>
     <string name="turn_microphone_on">Mikrofon einschalten</string>
@@ -59,7 +59,7 @@
     <string name="audio_route_bluetooth">Bluetooth</string>
     <string name="audio_route_wired_headset">Kabelgebundenes Headset</string>
     <string name="audio_route_wired_or_earpiece">Kabelgebunden oder über Kopfhörer</string>
-    <string name="choose_audio_route">Audio-Ausgang wählen</string>
+    <string name="choose_audio_route">Audioausgang wählen</string>
     <string name="calling_blocked_number">Die angerufene Nummer ist gesperrt</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kurzwahl</string>
