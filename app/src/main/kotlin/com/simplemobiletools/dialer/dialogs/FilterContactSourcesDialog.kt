@@ -2,10 +2,12 @@ package com.simplemobiletools.dialer.dialogs
 
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
+import com.simplemobiletools.commons.extensions.getMyContactsCursor
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.helpers.SMT_PRIVATE
 import com.simplemobiletools.commons.extensions.getVisibleContactSources
 import com.simplemobiletools.commons.helpers.ContactsHelper
+import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.models.contacts.*
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -22,15 +24,18 @@ class FilterContactSourcesDialog(val activity: SimpleActivity, private val callb
     private var isContactsReady = false
 
     init {
-        val contactHelper = ContactsHelper(activity)
+            val contactHelper = ContactsHelper(activity)
             contactHelper.getContactSources { contactSources ->
             contactSources.mapTo(this@FilterContactSourcesDialog.contactSources) { it.copy() }
             isContactSourcesReady = true
             processDataIfReady()
         }
 
-        contactHelper.getContacts(getAll = true) { contacts ->
-            contacts.mapTo(this@FilterContactSourcesDialog.contacts) { it.copy() }
+        contactHelper.getContacts(getAll = true) {
+            it.mapTo(contacts) { contact -> contact.copy() }
+            val privateCursor = activity.getMyContactsCursor(false, true)
+            val privateContacts = MyContactsContentProvider.getContacts(activity, privateCursor)
+            this.contacts.addAll(privateContacts)
             isContactsReady = true
             processDataIfReady()
         }
