@@ -53,7 +53,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         ContactsHelper(context).getContacts { contacts ->
             allContacts = contacts
 
-            if(SMT_PRIVATE !in context.baseConfig.ignoredContactSources) {
+            if (SMT_PRIVATE !in context.baseConfig.ignoredContactSources) {
                 val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
                 if (privateContacts.isNotEmpty()) {
                     allContacts.addAll(privateContacts)
