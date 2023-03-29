@@ -531,7 +531,7 @@ class MainActivity : SimpleActivity() {
             }
         }
     }
-    fun showFilterDialog() {
+    private fun showFilterDialog() {
         FilterContactSourcesDialog(this) {
             favorites_fragment?.refreshItems {
                 if (main_menu.isSearchOpen) {
@@ -540,6 +540,12 @@ class MainActivity : SimpleActivity() {
             }
 
             contacts_fragment?.refreshItems {
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
+                }
+            }
+
+            recents_fragment.refreshItems{
                 if (main_menu.isSearchOpen) {
                     getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
                 }

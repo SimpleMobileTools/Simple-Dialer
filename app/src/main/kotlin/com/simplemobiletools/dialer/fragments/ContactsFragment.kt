@@ -65,12 +65,13 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         ContactsHelper(context).getContacts { contacts ->
             allContacts = contacts
 
-            val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
-            if (privateContacts.isNotEmpty()) {
-                allContacts.addAll(privateContacts)
-                allContacts.sort()
+            if (SMT_PRIVATE !in context.baseConfig.ignoredContactSources) {
+                val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
+                if (privateContacts.isNotEmpty()) {
+                    allContacts.addAll(privateContacts)
+                    allContacts.sort()
+                }
             }
-
             (activity as MainActivity).cacheContacts(allContacts)
 
             activity?.runOnUiThread {

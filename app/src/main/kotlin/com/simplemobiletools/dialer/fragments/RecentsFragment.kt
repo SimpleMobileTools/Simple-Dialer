@@ -7,6 +7,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
+import com.simplemobiletools.commons.helpers.SMT_PRIVATE
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
@@ -69,10 +70,18 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                         }
                     }
                 }
-
                 allRecentCalls = recents
+
+                // hide private contacts from recent calls
+                if (SMT_PRIVATE in context.baseConfig.ignoredContactSources) {
+                    allRecentCalls = recents.filterNot { recent ->
+                        val privateNumbers = privateContacts.flatMap { it.phoneNumbers }.map { it.value }
+                        recent.phoneNumber in privateNumbers
+                    } as ArrayList
+                }
+
                 activity?.runOnUiThread {
-                    gotRecents(recents)
+                    gotRecents(allRecentCalls)
                 }
             }
         }
