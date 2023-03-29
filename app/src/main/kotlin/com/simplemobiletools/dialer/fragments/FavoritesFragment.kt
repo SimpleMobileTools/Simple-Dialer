@@ -11,6 +11,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
+import com.simplemobiletools.commons.helpers.SMT_PRIVATE
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
@@ -52,10 +53,12 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         ContactsHelper(context).getContacts { contacts ->
             allContacts = contacts
 
-            val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
-            if (privateContacts.isNotEmpty()) {
-                allContacts.addAll(privateContacts)
-                allContacts.sort()
+            if(SMT_PRIVATE !in context.baseConfig.ignoredContactSources) {
+                val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
+                if (privateContacts.isNotEmpty()) {
+                    allContacts.addAll(privateContacts)
+                    allContacts.sort()
+                }
             }
             val favorites = contacts.filter { it.starred == 1 } as ArrayList<Contact>
 
