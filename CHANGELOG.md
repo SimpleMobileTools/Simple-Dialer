@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 5.17.5 *(2023-03-29)*
+----------------------------
+
+ * Allow filtering contacts
+ * Fix displaying contacts, if name starts with surname
+ * Fixed some right-to-left layout glitches
+ * Added some stability, translation and UX improvements
+
 Version 5.17.4 *(2023-03-21)*
 ----------------------------
 
