@@ -137,9 +137,13 @@ class DialpadActivity : SimpleActivity() {
         dialpad_call_button.setOnClickListener { initCall(dialpad_input.value, 0) }
         dialpad_input.onTextChangeListener { dialpadValueChanged(it) }
         dialpad_input.requestFocus()
-
-        ContactsHelper(this).getContacts{ gotContacts(it) }
         dialpad_input.disableKeyboard()
+
+        ContactsHelper(this).getContacts { allContacts ->
+            val contactsWithNumber = allContacts.filter { it.phoneNumbers.isNotEmpty() }.toList() as ArrayList<Contact>
+            gotContacts(contactsWithNumber)
+        }
+
 
         val properPrimaryColor = getProperPrimaryColor()
         val callIconId = if (areMultipleSIMsAvailable()) {
