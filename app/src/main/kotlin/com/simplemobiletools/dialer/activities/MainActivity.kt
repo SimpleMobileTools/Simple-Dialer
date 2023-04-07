@@ -545,7 +545,7 @@ class MainActivity : SimpleActivity() {
                 }
             }
 
-            recents_fragment.refreshItems{
+            recents_fragment?.refreshItems{
                 if (main_menu.isSearchOpen) {
                     getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
                 }
