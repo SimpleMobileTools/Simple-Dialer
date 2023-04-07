@@ -400,7 +400,7 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun dialpadPressed(char: Char) {
-        CallManager.keypad(this, char)
+        CallManager.keypad(char)
         dialpad_input.addCharacter(char)
     }
 
