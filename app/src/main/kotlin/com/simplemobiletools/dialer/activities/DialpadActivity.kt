@@ -288,15 +288,10 @@ class DialpadActivity : SimpleActivity() {
         })
 
         ContactsAdapter(this, filtered, dialpad_list, null, text) {
-            startCallIntent((it as Contact).phoneNumbers.first().normalizedNumber)
-        }.apply {
-            dialpad_list.adapter = this
-        }
-        ContactsAdapter(this, filtered, dialpad_list, null, text) {
             //Fix#DP001: Show missing call confirmation box
             val contact = it as Contact
             if (config.showCallConfirmation) {
-                CallConfirmationDialog(this as SimpleActivity, contact.name) {
+                CallConfirmationDialog(this as SimpleActivity, System.lineSeparator()+contact.name) {
                     startCallIntent((it as Contact).phoneNumbers.first().normalizedNumber)
                 }
             } else {
