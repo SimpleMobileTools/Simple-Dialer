@@ -20,6 +20,7 @@ import android.view.ViewConfiguration
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
+import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.contacts.Contact
@@ -287,11 +288,18 @@ class DialpadActivity : SimpleActivity() {
         })
 
         ContactsAdapter(this, filtered, dialpad_list, null, text) {
-            startCallIntent((it as Contact).phoneNumbers.first().normalizedNumber)
+            //Fix#DP001 : Show missing call confirmation box
+            val contact = it as Contact
+            if (config.showCallConfirmation) {
+                CallConfirmationDialog(this as SimpleActivity, contact.name) {
+                    startCallIntent((it as Contact).phoneNumbers.first().normalizedNumber)
+                }
+            } else {
+                startCallIntent((it as Contact).phoneNumbers.first().normalizedNumber)
+            }
         }.apply {
             dialpad_list.adapter = this
         }
-
         dialpad_placeholder.beVisibleIf(filtered.isEmpty())
         dialpad_list.beVisibleIf(filtered.isNotEmpty())
     }
