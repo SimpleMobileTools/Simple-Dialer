@@ -31,7 +31,7 @@ class FilterContactSourcesDialog(val activity: SimpleActivity, private val callb
             processDataIfReady()
         }
 
-        contactHelper.getContacts(getAll = true) {
+        contactHelper.getContacts(getAll = true, showOnlyContactsWithNumbers = true) {
             it.mapTo(contacts) { contact -> contact.copy() }
             val privateCursor = activity.getMyContactsCursor(false, true)
             val privateContacts = MyContactsContentProvider.getContacts(activity, privateCursor)
