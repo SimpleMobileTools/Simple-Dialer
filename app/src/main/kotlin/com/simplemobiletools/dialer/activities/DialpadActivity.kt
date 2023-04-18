@@ -291,10 +291,10 @@ class DialpadActivity : SimpleActivity() {
             val contact = it as Contact
             if (config.showCallConfirmation) {
                 CallConfirmationDialog(this@DialpadActivity, contact.getNameToDisplay()) {
-                    startCallIntent(contact.phoneNumbers.first().normalizedNumber)
+                    startCallIntent(contact.getPrimaryNumber() ?: return@CallConfirmationDialog)
                 }
-            }else{
-                startCallIntent(contact.phoneNumbers.first().normalizedNumber)
+            } else {
+                startCallIntent(contact.getPrimaryNumber() ?: return@ContactsAdapter)
             }
         }.apply {
             dialpad_list.adapter = this

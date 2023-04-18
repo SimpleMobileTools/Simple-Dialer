@@ -224,9 +224,7 @@ class ContactsAdapter(
     private fun getSelectedItems() = contacts.filter { selectedKeys.contains(it.rawId) } as ArrayList<Contact>
 
     private fun getSelectedPhoneNumber(): String? {
-        val numbers = getSelectedItems().firstOrNull()?.phoneNumbers
-        val primaryNumber = numbers?.firstOrNull { it.isPrimary }
-        return primaryNumber?.normalizedNumber ?: numbers?.firstOrNull()?.normalizedNumber
+        return getSelectedItems().firstOrNull()?.getPrimaryNumber()
     }
 
     private fun tryCreateShortcut() {
