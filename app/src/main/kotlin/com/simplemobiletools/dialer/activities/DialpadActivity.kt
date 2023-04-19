@@ -20,6 +20,7 @@ import android.view.ViewConfiguration
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
+import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.contacts.Contact
@@ -287,7 +288,14 @@ class DialpadActivity : SimpleActivity() {
         })
 
         ContactsAdapter(this, filtered, dialpad_list, null, text) {
-            startCallIntent((it as Contact).phoneNumbers.first().normalizedNumber)
+            val contact = it as Contact
+            if (config.showCallConfirmation) {
+                CallConfirmationDialog(this@DialpadActivity, contact.getNameToDisplay()) {
+                    startCallIntent(contact.getPrimaryNumber() ?: return@CallConfirmationDialog)
+                }
+            } else {
+                startCallIntent(contact.getPrimaryNumber() ?: return@ContactsAdapter)
+            }
         }.apply {
             dialpad_list.adapter = this
         }
@@ -306,9 +314,21 @@ class DialpadActivity : SimpleActivity() {
     private fun initCall(number: String = dialpad_input.value, handleIndex: Int) {
         if (number.isNotEmpty()) {
             if (handleIndex != -1 && areMultipleSIMsAvailable()) {
-                callContactWithSim(number, handleIndex == 0)
+                if (config.showCallConfirmation) {
+                    CallConfirmationDialog(this, number) {
+                        callContactWithSim(number, handleIndex == 0)
+                    }
+                }else{
+                    callContactWithSim(number, handleIndex == 0)
+                }
             } else {
-                startCallIntent(number)
+                if (config.showCallConfirmation) {
+                    CallConfirmationDialog(this, number) {
+                        startCallIntent(number)
+                    }
+                }else{
+                    startCallIntent(number)
+                }
             }
         }
     }
