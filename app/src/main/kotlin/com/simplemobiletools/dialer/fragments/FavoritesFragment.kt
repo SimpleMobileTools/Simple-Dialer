@@ -49,7 +49,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     override fun refreshItems(callback: (() -> Unit)?) {
-        ContactsHelper(context).getContacts { contacts ->
+        ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
             allContacts = contacts
 
             if (SMT_PRIVATE !in context.baseConfig.ignoredContactSources) {

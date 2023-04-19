@@ -50,7 +50,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         val privateCursor = context?.getMyContactsCursor(false, true)
         val groupSubsequentCalls = context?.config?.groupSubsequentCalls ?: false
         RecentsHelper(context).getRecentCalls(groupSubsequentCalls) { recents ->
-            ContactsHelper(context).getContacts { contacts ->
+            ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
                 val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
 
                 recents.filter { it.phoneNumber == it.name }.forEach { recent ->

@@ -28,7 +28,7 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
 
         speedDialValues = config.getSpeedDialValues()
         updateAdapter()
-        ContactsHelper(this).getContacts(false) { contacts ->
+        ContactsHelper(this).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
             allContacts = contacts
         }
 

@@ -35,7 +35,7 @@ fun getCallContact(context: Context, call: Call?, callback: (CallContact) -> Uni
         val uri = Uri.decode(handle)
         if (uri.startsWith("tel:")) {
             val number = uri.substringAfter("tel:")
-            ContactsHelper(context).getContacts{ contacts ->
+            ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
                 val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
                 if (privateContacts.isNotEmpty()) {
                     contacts.addAll(privateContacts)

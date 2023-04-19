@@ -140,9 +140,8 @@ class DialpadActivity : SimpleActivity() {
         dialpad_input.requestFocus()
         dialpad_input.disableKeyboard()
 
-        ContactsHelper(this).getContacts { allContacts ->
-            val contactsWithNumber = allContacts.filter { it.phoneNumbers.isNotEmpty() }.toMutableList() as ArrayList<Contact>
-            gotContacts(contactsWithNumber)
+        ContactsHelper(this).getContacts(showOnlyContactsWithNumbers = true) { allContacts ->
+            gotContacts(allContacts)
         }
 
 
