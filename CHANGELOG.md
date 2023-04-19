@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 5.17.8 *(2023-04-19)*
+----------------------------
+
+ * Avoid showing contacts without a phone number
+ * Fixed multiple contact handling related glitches
+ * Added some stability, translation and UX improvements
+
 Version 5.17.7 *(2023-04-12)*
 ----------------------------
 
