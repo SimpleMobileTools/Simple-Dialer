@@ -106,7 +106,7 @@ class RecentsHelper(private val context: Context) {
                                     }
                                 }
                                 false
-                            }?.name ?: number
+                            }?.displayname ?: number
                         }
                     }
                 }

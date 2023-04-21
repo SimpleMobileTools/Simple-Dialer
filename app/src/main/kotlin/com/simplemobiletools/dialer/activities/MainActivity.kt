@@ -85,7 +85,7 @@ class MainActivity : SimpleActivity() {
         }
 
         setupTabs()
-        Contact.sorting = config.sorting
+        Contact.setSortOrder(config.sorting)
     }
 
     override fun onResume() {

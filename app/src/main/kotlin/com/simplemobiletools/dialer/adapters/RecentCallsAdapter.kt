@@ -247,7 +247,7 @@ class RecentCallsAdapter(
     }
 
     private fun findContactByCall(recentCall: RecentCall): Contact? {
-        return (activity as MainActivity).cachedContacts.find { it.name == recentCall.name && it.doesHavePhoneNumber(recentCall.phoneNumber) }
+        return (activity as MainActivity).cachedContacts.find { it.displayname == recentCall.name && it.doesHavePhoneNumber(recentCall.phoneNumber) }
     }
 
     private fun launchContactDetailsIntent(contact: Contact?) {

@@ -132,17 +132,19 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             val shouldNormalize = text.normalizeString() == text
             val filtered = allContacts.filter {
                 getProperText(it.getNameToDisplay(), shouldNormalize).contains(text, true) ||
-                    getProperText(it.nickname, shouldNormalize).contains(text, true) ||
+                    it.nicknames.any {
+                        nickname -> getProperText(nickname.name, shouldNormalize).contains(text, true)
+                    } ||
                     it.phoneNumbers.any {
                         text.normalizePhoneNumber().isNotEmpty() && it.normalizedNumber.contains(text.normalizePhoneNumber(), true)
                     } ||
-                    it.emails.any { it.value.contains(text, true) } ||
-                    it.addresses.any { getProperText(it.value, shouldNormalize).contains(text, true) } ||
-                    it.IMs.any { it.value.contains(text, true) } ||
+                    it.emails.any { it.address.contains(text, true) } ||
+                    it.addresses.any { getProperText(it.formattedAddress, shouldNormalize).contains(text, true) } ||
+                    it.IMs.any { it.data.contains(text, true) } ||
                     getProperText(it.notes, shouldNormalize).contains(text, true) ||
                     getProperText(it.organization.company, shouldNormalize).contains(text, true) ||
-                    getProperText(it.organization.jobPosition, shouldNormalize).contains(text, true) ||
-                    it.websites.any { it.contains(text, true) }
+                    getProperText(it.organization.jobTitle, shouldNormalize).contains(text, true) ||
+                    it.websites.any { it.URL.contains(text, true) }
             } as ArrayList
 
             filtered.sortBy {

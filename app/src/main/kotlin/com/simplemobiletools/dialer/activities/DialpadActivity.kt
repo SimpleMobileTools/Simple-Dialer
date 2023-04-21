@@ -256,7 +256,7 @@ class DialpadActivity : SimpleActivity() {
         (dialpad_list.adapter as? ContactsAdapter)?.finishActMode()
 
         val filtered = allContacts.filter {
-            var convertedName = PhoneNumberUtils.convertKeypadLettersToDigits(it.name.normalizeString())
+            var convertedName = PhoneNumberUtils.convertKeypadLettersToDigits(it.displayname.normalizeString())
 
             if (hasRussianLocale) {
                 var currConvertedName = ""
