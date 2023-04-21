@@ -62,7 +62,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
     override fun refreshItems(callback: (() -> Unit)?) {
         val privateCursor = context?.getMyContactsCursor(false, true)
-        ContactsHelper(context).getContacts { contacts ->
+        ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
             allContacts = contacts
 
             if (SMT_PRIVATE !in context.baseConfig.ignoredContactSources) {
@@ -161,7 +161,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             if (it) {
                 fragment_placeholder.text = context.getString(R.string.no_contacts_found)
                 fragment_placeholder_2.text = context.getString(R.string.create_new_contact)
-                ContactsHelper(context).getContacts(false) { contacts ->
+                ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
                     activity?.runOnUiThread {
                         gotContacts(contacts)
                     }

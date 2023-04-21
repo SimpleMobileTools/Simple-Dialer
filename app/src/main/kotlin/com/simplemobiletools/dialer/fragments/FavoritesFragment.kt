@@ -49,12 +49,14 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     override fun refreshItems(callback: (() -> Unit)?) {
-        val privateCursor = context?.getMyContactsCursor(true, true)
-        ContactsHelper(context).getContacts { contacts ->
+        ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
             allContacts = contacts
 
             if (SMT_PRIVATE !in context.baseConfig.ignoredContactSources) {
-                val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
+                val privateCursor = context?.getMyContactsCursor(true, true)
+                val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor).map {
+                    it.copy(starred = 1)
+                }
                 if (privateContacts.isNotEmpty()) {
                     allContacts.addAll(privateContacts)
                     allContacts.sort()

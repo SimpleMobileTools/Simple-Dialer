@@ -60,7 +60,7 @@
     <string name="audio_route_wired_headset">Náhlavní souprava s kabelem</string>
     <string name="audio_route_wired_or_earpiece">Kabel nebo sluchátka</string>
     <string name="choose_audio_route">Vybrat směrování zvuku</string>
-    <string name="calling_blocked_number">The number you are calling is blocked</string>
+    <string name="calling_blocked_number">Číslo, které voláte, je blokované</string>
     <!-- Speed dial -->
     <string name="speed_dial">Rychlé vytáčení</string>
     <string name="manage_speed_dial">Spravovat rychlá vytáčení</string>
@@ -71,8 +71,7 @@
     <string name="disable_proximity_sensor">Vypnout senzor přiblížení během hovoru</string>
     <string name="disable_swipe_to_answer">Nahradit přejetí prstem při odpovídání na příchozí hovory za klepnutí</string>
     <string name="show_incoming_calls_full_screen">Vždy zobrazovat příchozí hovory na celou obrazovku</string>
-    <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
-
+    <string name="hide_dialpad_numbers">Skrýt čísla číselníku</string>
     <!-- FAQ -->
     <string name="faq_1_title">Slyším příchozí hovor, ale obrazovka se nezapne. Co mohu dělat\?</string>
     <string name="faq_1_text">Takové problémy mohou mít mnoho důvodů specifických pro zařízení a systém, takže je těžké říci něco obecně. Měli byste zkontrolovat nastavení zařízení a ujistit se, že se aplikace může otevřít, když běží na pozadí, a umožnit zobrazení přes jiné aplikace.</string>
