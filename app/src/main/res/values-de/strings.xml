@@ -10,9 +10,9 @@
     <string name="no_previous_calls">Anrufliste ist leer</string>
     <string name="could_not_access_the_call_history">Kein Zugriff auf Anrufliste</string>
     <string name="request_access">Zugriff anfordern</string>
-    <string name="remove_confirmation">Ausgewählte Anrufe definitiv aus der Anrufliste löschen\?</string>
-    <string name="clear_history_confirmation">Sicher, dass die gesamte Anrufliste gelöscht werden soll\?</string>
-    <string name="show_grouped_calls">Gruppierte Anrufe zeigen</string>
+    <string name="remove_confirmation">Sollen wirklich die ausgewählten Einträge aus der Anrufliste gelöscht werden\?</string>
+    <string name="clear_history_confirmation">Soll wirklich die gesamte Anrufliste gelöscht werden\?</string>
+    <string name="show_grouped_calls">Gruppierte Anrufe anzeigen</string>
     <string name="clear_call_history">Anrufliste löschen</string>
     <string name="show_call_details">Anrufdetails anzeigen</string>
     <!-- Dialpad -->
@@ -35,7 +35,7 @@
     <string name="call_ending">Anruf beenden</string>
     <string name="ongoing_call">Aktueller Anruf</string>
     <string name="select_sim">Wähle die SIM-Karte für diesen Anruf aus</string>
-    <string name="always_use_this_sim">Für diese Nummer immer diese SIM-Karte benutzen</string>
+    <string name="always_use_this_sim">Für diese Nummer immer diese SIM-Karte verwenden</string>
     <string name="unset_default_sim">Als Standard-SIM abwählen</string>
     <string name="calls">Anrufe</string>
     <string name="turn_microphone_on">Mikrofon einschalten</string>
@@ -59,7 +59,8 @@
     <string name="audio_route_bluetooth">Bluetooth</string>
     <string name="audio_route_wired_headset">Kabelgebundenes Headset</string>
     <string name="audio_route_wired_or_earpiece">Kabelgebunden oder über Kopfhörer</string>
-    <string name="choose_audio_route">Audio-Ausgang wählen</string>
+    <string name="choose_audio_route">Audioausgang wählen</string>
+    <string name="calling_blocked_number">Die angerufene Nummer ist gesperrt</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kurzwahl</string>
     <string name="manage_speed_dial">Kurzwahlnummern verwalten</string>
@@ -70,6 +71,7 @@
     <string name="disable_proximity_sensor">Näherungssensor bei Anrufen deaktivieren</string>
     <string name="disable_swipe_to_answer">Anrufe durch Klicken statt durch Streichen annehmen</string>
     <string name="show_incoming_calls_full_screen">Eingehende Anrufe immer im Vollbildmodus anzeigen</string>
+    <string name="hide_dialpad_numbers">Wähltastenfeld-Nummern ausblenden</string>
     <!-- FAQ -->
     <string name="faq_1_title">Ich höre eingehende Anrufe, aber der Bildschirm schaltet sich nicht ein. Was kann ich tun\?</string>
     <string name="faq_1_text">Eine allgemeine Antwort auf die Frage ist schwer, denn solche Probleme können viele geräte- und systemspezifische Gründe haben. Du solltest dich in den Einstellungen des Geräts umsehen und sicherstellen, dass die App im Hintergrund angezeigt werden darf und die Einblendung über anderen Apps erlaubt ist.</string>

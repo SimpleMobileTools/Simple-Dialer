@@ -3,7 +3,7 @@
     <string name="app_name">Простий Телефон</string>
     <string name="app_launcher_name">Телефон</string>
     <string name="default_phone_app_prompt">Будь ласка, зробіть цю програму типовою для телефонних викликів</string>
-    <string name="allow_displaying_over_other_apps">Дозвольте відображення над іншими додатками для надійної роботи</string>
+    <string name="allow_displaying_over_other_apps">Дозвольте відображення над іншими застосунками для надійної роботи</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Не вдалося отримати доступ до контактів</string>
     <!-- Recents -->
@@ -20,8 +20,8 @@
     <string name="asterisk">Asterisk</string>
     <string name="hashtag">Хештег</string>
     <string name="call_number">Номер виклику</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Увімкнути звукові сигнали при наборі номеру</string>
+    <string name="dialpad_vibrations">Увімкнути вібрації при наборі номеру</string>
     <!-- Dialer -->
     <string name="dialer">Телефон</string>
     <string name="accept">Прийняти</string>
@@ -54,25 +54,27 @@
     <string name="call_add">Додати дзвінок</string>
     <string name="conference_manage">Керувати конференц-викликом</string>
     <string name="conference">Конференц-виклик</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Динамік</string>
+    <string name="audio_route_earpiece">Навушники</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Провідна гарнітура</string>
+    <string name="audio_route_wired_or_earpiece">Провідний або навушник</string>
+    <string name="choose_audio_route">Оберіть аудіовихід</string>
+    <string name="calling_blocked_number">Номер, на який ви телефонуєте, заблоковано</string>
     <!-- Speed dial -->
     <string name="speed_dial">Швидкий виклик</string>
     <string name="manage_speed_dial">Управління швидким викликом</string>
     <string name="speed_dial_label">Натисніть на номер, щоб призначити йому контакт. Потім ви зможете швидко зателефонувати вказаному контакту, довго натискаючи вказаний номер на цифровій панелі.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Групувати наступні дзвінки з тим самим номером у журналі викликів</string>
-    <string name="open_dialpad_by_default">За замовчуванням відкривати цифрову панель при запуску додатку</string>
+    <string name="open_dialpad_by_default">За замовчуванням відкривати цифрову панель при запуску застосунку</string>
     <string name="disable_proximity_sensor">Вимикати датник наближення під час викликів</string>
     <string name="disable_swipe_to_answer">Замінити перетягування на натискання під час відповіді на вхідні виклики</string>
-    <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_screen">Завжди відображати вхідні дзвінки на весь екран</string>
+    <string name="hide_dialpad_numbers">Приховати номери цифрової клавіатури</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Я чую вхідні дзвінки, але екран не вмикається. Що я можу зробити\?</string>
+    <string name="faq_1_text">Такі проблеми можуть мати багато специфічних для пристрою та системи причин, важко сказати в цілому. Вам слід подивитися в налаштуваннях свого пристрою та переконатися, що застосунку дозволено відображати у фоновому режимі та дозволяти відображення над іншими застосунками.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

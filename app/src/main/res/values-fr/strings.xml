@@ -54,12 +54,13 @@
     <string name="call_add">Ajouter un appel</string>
     <string name="conference_manage">Gérer une conférence téléphonique</string>
     <string name="conference">Conférence</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Haut-parleur</string>
+    <string name="audio_route_earpiece">Écouteur</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Casque filaire</string>
+    <string name="audio_route_wired_or_earpiece">Filaire ou écouteur</string>
+    <string name="choose_audio_route">Choisir la sortie audio</string>
+    <string name="calling_blocked_number">Le numéro que vous appelez est bloqué</string>
     <!-- Speed dial -->
     <string name="speed_dial">Numérotation rapide</string>
     <string name="manage_speed_dial">Gérer la numérotation rapide</string>
@@ -70,6 +71,7 @@
     <string name="disable_proximity_sensor">Désactiver le capteur de proximité pendant les appels</string>
     <string name="disable_swipe_to_answer">Remplacer le balayage pour répondre aux appels entrants par un clic</string>
     <string name="show_incoming_calls_full_screen">Toujours afficher les appels entrants en plein écran</string>
+    <string name="hide_dialpad_numbers">Masquer les numéros du clavier</string>
     <!-- FAQ -->
     <string name="faq_1_title">J\'entends les appels entrants, mais l\'écran ne s\'allume pas. Que puis-je faire \?</string>
     <string name="faq_1_text">Ces problèmes peuvent avoir de nombreuses raisons spécifiques à l\'appareil et au système, il est difficile d\'en parler en général. Vous devriez consulter les paramètres de votre appareil et vous assurer que l\'application est autorisée à apparaître en arrière-plan et à s\'afficher au-dessus des autres applications.</string>

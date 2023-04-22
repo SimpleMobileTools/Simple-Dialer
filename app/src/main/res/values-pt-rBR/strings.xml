@@ -20,8 +20,8 @@
     <string name="asterisk">Asterisco</string>
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Numero de telefone</string>
-    <string name="dialpad_beeps">Enable beeps on dialpad button clicks</string>
-    <string name="dialpad_vibrations">Enable vibrations on dialpad button clicks</string>
+    <string name="dialpad_beeps">Ativar sons do teclado</string>
+    <string name="dialpad_vibrations">Ativar vibrações do teclado</string>
     <!-- Dialer -->
     <string name="dialer">Discador</string>
     <string name="accept">Aceitar</string>
@@ -54,12 +54,13 @@
     <string name="call_add">Adicionar chamada</string>
     <string name="conference_manage">Gerenciar chamada em conferência</string>
     <string name="conference">Conferência</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Alto falante</string>
+    <string name="audio_route_earpiece">Fone de ouvido</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
+    <string name="audio_route_wired_headset">Headset com fio</string>
     <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="choose_audio_route">Escolha a rota de áudio</string>
+    <string name="calling_blocked_number">O número que você está ligando está bloqueado</string>
     <!-- Speed dial -->
     <string name="speed_dial">Ligação rápida</string>
     <string name="manage_speed_dial">Gerenciar ligações rápidas</string>
@@ -69,10 +70,11 @@
     <string name="open_dialpad_by_default">Mostrar o discador ao abrir o aplicativo</string>
     <string name="disable_proximity_sensor">Desativar sensor de proximidade durante as chamadas</string>
     <string name="disable_swipe_to_answer">Clicar em vez de deslizar para responder chamadas</string>
-    <string name="show_incoming_calls_full_screen">Always display incoming calls on full screen</string>
+    <string name="show_incoming_calls_full_screen">Sempre exibir as chamadas recebidas em tela cheia</string>
+    <string name="hide_dialpad_numbers">Ocultar números do teclado</string>
     <!-- FAQ -->
-    <string name="faq_1_title">I hear incoming calls, but the screen doesn\'t turn on. What can I do?</string>
-    <string name="faq_1_text">Such issues can have many device and system specific reasons, hard to say in general. You should look around in your device settings and make sure that the app is allowed to pop up when in background and allow displaying over other apps.</string>
+    <string name="faq_1_title">Ouço chamadas recebidas, mas a tela não liga. O que eu posso fazer?</string>
+    <string name="faq_1_text">Esses problemas podem ter muitos motivos específicos do dispositivo e do sistema, difíceis de dizer em geral. Você deve olhar em volta nas configurações do seu dispositivo e certificar-se de que o aplicativo pode aparecer quando estiver em segundo plano e permitir a exibição sobre outros aplicativos.</string>
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

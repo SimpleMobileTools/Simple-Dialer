@@ -5,29 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/dialpad_app_bar_layout"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/dialpad_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/dialpad_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/color_primary"
-            app:menu="@menu/menu_dialpad"
-            app:title="@string/dialpad"
-            app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_primary"
+        app:menu="@menu/menu_dialpad"
+        app:title="@string/dialpad"
+        app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/dialpad_holder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
-        android:focusableInTouchMode="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:focusableInTouchMode="true">
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/dialpad_placeholder"
@@ -86,7 +79,7 @@
             android:id="@+id/dialpad_input"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_margin"
+            android:layout_marginStart="64dp"
             android:gravity="center"
             android:inputType="phone"
             android:layoutDirection="ltr"
@@ -98,13 +91,13 @@
 
         <ImageView
             android:id="@+id/dialpad_clear_char"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/normal_icon_size"
             android:layout_height="0dp"
             android:layout_marginEnd="@dimen/activity_margin"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:layoutDirection="ltr"
-            android:paddingStart="@dimen/activity_margin"
-            android:paddingEnd="@dimen/activity_margin"
+            android:paddingStart="@dimen/normal_margin"
+            android:paddingEnd="@dimen/normal_margin"
             android:src="@drawable/ic_clear_vector"
             app:layout_constraintBottom_toBottomOf="@+id/dialpad_input"
             app:layout_constraintEnd_toEndOf="parent"
@@ -122,7 +115,7 @@
             android:layout_width="@dimen/dialpad_button_size"
             android:layout_height="@dimen/dialpad_button_size"
             android:layout_marginBottom="@dimen/activity_margin"
-            android:background="@drawable/circle_background"
+            android:background="@drawable/circle_button_background_ripple"
             android:contentDescription="@string/call_number"
             android:elevation="@dimen/medium_margin"
             android:padding="@dimen/normal_margin"
@@ -136,7 +129,7 @@
             android:layout_width="@dimen/dialpad_button_size_small"
             android:layout_height="@dimen/dialpad_button_size_small"
             android:layout_marginBottom="@dimen/activity_margin"
-            android:background="@drawable/circle_background"
+            android:background="@drawable/circle_button_background_ripple"
             android:contentDescription="@string/call_number"
             android:elevation="@dimen/medium_margin"
             android:padding="@dimen/normal_margin"

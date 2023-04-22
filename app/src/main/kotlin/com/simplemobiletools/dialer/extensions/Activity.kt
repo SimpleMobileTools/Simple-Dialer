@@ -11,7 +11,8 @@ import android.telecom.TelecomManager
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
+import com.simplemobiletools.dialer.activities.DialerActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.dialogs.SelectSIMDialog
 
@@ -42,7 +43,7 @@ fun BaseSimpleActivity.callContactWithSim(recipient: String, useMainSIM: Boolean
 }
 
 // handle private contacts differently, only Simple Contacts Pro can open them
-fun Activity.startContactDetailsIntent(contact: SimpleContact) {
+fun Activity.startContactDetailsIntent(contact: Contact) {
     val simpleContacts = "com.simplemobiletools.contacts.pro"
     val simpleContactsDebug = "com.simplemobiletools.contacts.pro.debug"
     if (contact.rawId > 1000000 && contact.contactId > 1000000 && contact.rawId == contact.contactId &&
@@ -81,7 +82,11 @@ fun SimpleActivity.getHandleToUse(intent: Intent?, phoneNumber: String, callback
 
                 defaultHandle != null -> callback(defaultHandle)
                 else -> {
-                    SelectSIMDialog(this, phoneNumber) { handle ->
+                    SelectSIMDialog(this, phoneNumber, onDismiss = {
+                        if (this is DialerActivity) {
+                            finish()
+                        }
+                    }) { handle ->
                         callback(handle)
                     }
                 }

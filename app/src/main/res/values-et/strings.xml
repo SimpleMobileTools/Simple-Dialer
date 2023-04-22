@@ -20,8 +20,8 @@
     <string name="asterisk">Tärn</string>
     <string name="hashtag">Teemaviide</string>
     <string name="call_number">Helista numbrile</string>
-    <string name="dialpad_beeps">Helisignaalide lubamine valimisnupu klõpsamisel</string>
-    <string name="dialpad_vibrations">Võimaldab vibratsiooni valimisnuppude klõpsamisel</string>
+    <string name="dialpad_beeps">Numbriklahvistiku nupu klõpsamisel esita helisignaali</string>
+    <string name="dialpad_vibrations">Numbriklahvistiku nupu klõpsamisel värista telefoni</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>
     <string name="accept">Nõustu</string>
@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Juhtmega kõrvaklapid</string>
     <string name="audio_route_wired_or_earpiece">Juhtmega või kõrvasisesed kõrvaklapid</string>
     <string name="choose_audio_route">Vali heliruuting</string>
+    <string name="calling_blocked_number">Sa üritad helistada blokeeritud numbrile</string>
     <!-- Speed dial -->
     <string name="speed_dial">Kiirvalimine</string>
     <string name="speed_dial_label">Klõpsa numbrit ja seosta ta konkreetse telefoniraamatu kirjega. Hiljem saad samale numbrile pikalt vajutades alustada kõnet määratud telefoninumbrile.</string>
@@ -70,6 +71,7 @@
     <string name="disable_proximity_sensor">Kõnede ajaks lülita lähedusandur välja</string>
     <string name="disable_swipe_to_answer">Kõnele vastamisel kasuta viipamise asemel klõpsimist</string>
     <string name="show_incoming_calls_full_screen">Kuvage sissetulevad kõned alati täisekraanil</string>
+    <string name="hide_dialpad_numbers">Peida numbriklahvistik</string>
     <!-- FAQ -->
     <string name="faq_1_title">Ma kuulen sissetulevaid kõnesid, kuid ekraan ei lülitu sisse. Mida ma saan teha\?</string>
     <string name="faq_1_text">Sellistel probleemidel võib olla palju seadme- ja süsteemispetsiifilisi põhjusi, raske öelda üldiselt. Peaksite oma seadme seadetes ringi vaatama ja veenduma, et rakendusel on lubatud taustal hüpata ja lubada kuvamist üle teiste rakenduste.</string>

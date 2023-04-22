@@ -4,9 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
+import com.simplemobiletools.commons.helpers.SMT_PRIVATE
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
@@ -49,30 +50,38 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         val privateCursor = context?.getMyContactsCursor(false, true)
         val groupSubsequentCalls = context?.config?.groupSubsequentCalls ?: false
         RecentsHelper(context).getRecentCalls(groupSubsequentCalls) { recents ->
-            SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
-                val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+            ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
+                val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
 
                 recents.filter { it.phoneNumber == it.name }.forEach { recent ->
                     var wasNameFilled = false
                     if (privateContacts.isNotEmpty()) {
                         val privateContact = privateContacts.firstOrNull { it.doesContainPhoneNumber(recent.phoneNumber) }
                         if (privateContact != null) {
-                            recent.name = privateContact.name
+                            recent.name = privateContact.getNameToDisplay()
                             wasNameFilled = true
                         }
                     }
 
                     if (!wasNameFilled) {
-                        val contact = contacts.firstOrNull { it.phoneNumbers.first().normalizedNumber == recent.phoneNumber }
+                        val contact = contacts.filter { it.phoneNumbers.isNotEmpty() }.firstOrNull { it.phoneNumbers.first().normalizedNumber == recent.phoneNumber }
                         if (contact != null) {
-                            recent.name = contact.name
+                            recent.name = contact.getNameToDisplay()
                         }
                     }
                 }
-
                 allRecentCalls = recents
+
+                // hide private contacts from recent calls
+                if (SMT_PRIVATE in context.baseConfig.ignoredContactSources) {
+                    allRecentCalls = recents.filterNot { recent ->
+                        val privateNumbers = privateContacts.flatMap { it.phoneNumbers }.map { it.value }
+                        recent.phoneNumber in privateNumbers
+                    } as ArrayList
+                }
+
                 activity?.runOnUiThread {
-                    gotRecents(recents)
+                    gotRecents(allRecentCalls)
                 }
             }
         }

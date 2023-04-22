@@ -1,6 +1,63 @@
 Changelog
 ==========
 
+Version 5.17.8 *(2023-04-19)*
+----------------------------
+
+ * Avoid showing contacts without a phone number
+ * Fixed multiple contact handling related glitches
+ * Added some stability, translation and UX improvements
+
+Version 5.17.7 *(2023-04-12)*
+----------------------------
+
+ * Added some stability, translation and UX improvements
+
+Version 5.17.6 *(2023-04-07)*
+----------------------------
+
+ * Fixed number presses during call
+ * Added some stability, translation and UX improvements
+
+Version 5.17.5 *(2023-03-29)*
+----------------------------
+
+ * Allow filtering contacts
+ * Fix displaying contacts, if name starts with surname
+ * Fixed some right-to-left layout glitches
+ * Added some stability, translation and UX improvements
+
+Version 5.17.4 *(2023-03-21)*
+----------------------------
+
+ * Allow filtering contacts
+ * Fix displaying contacts, if name starts with surname
+ * Fixed some right-to-left layout glitches
+ * Added some stability, translation and UX improvements
+
+Version 5.17.3 *(2023-01-12)*
+----------------------------
+
+ * Fixed a search glitch on some devices
+
+Version 5.17.2 *(2023-01-10)*
+----------------------------
+
+ * Fixed a glitch with dialpad button not being visible on some devices
+
+Version 5.17.1 *(2023-01-04)*
+----------------------------
+
+ * Added the new search bar at the top menu
+
+Version 5.17.0 *(2022-12-30)*
+----------------------------
+
+ * Do not allow calling blocked numbers
+ * Allow hiding numbers on the dialpad
+ * Use Material You theme by default on Android 12+
+ * Added some UI, translation and stability improvements
+
 Version 5.16.0 *(2022-11-12)*
 ----------------------------
 

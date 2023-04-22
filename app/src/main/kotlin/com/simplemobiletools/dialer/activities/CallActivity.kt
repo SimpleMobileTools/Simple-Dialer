@@ -20,12 +20,10 @@ import android.view.WindowManager
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.children
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.LOWER_ALPHA
-import com.simplemobiletools.commons.helpers.MINUTE_SECONDS
-import com.simplemobiletools.commons.helpers.isOreoMr1Plus
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleListItem
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.dialogs.DynamicBottomSheetChooserDialog
@@ -88,7 +86,7 @@ class CallActivity : SimpleActivity() {
     override fun onResume() {
         super.onResume()
         updateState()
-        updateNavigationBarColor(getBottomNavigationBackgroundColor())
+        updateNavigationBarColor(getProperBackgroundColor())
     }
 
     override fun onDestroy() {
@@ -186,6 +184,25 @@ class CallActivity : SimpleActivity() {
         dialpad_7_holder.setOnClickListener { dialpadPressed('7') }
         dialpad_8_holder.setOnClickListener { dialpadPressed('8') }
         dialpad_9_holder.setOnClickListener { dialpadPressed('9') }
+
+        arrayOf(
+            dialpad_0_holder,
+            dialpad_1_holder,
+            dialpad_2_holder,
+            dialpad_3_holder,
+            dialpad_4_holder,
+            dialpad_5_holder,
+            dialpad_6_holder,
+            dialpad_7_holder,
+            dialpad_8_holder,
+            dialpad_9_holder,
+            dialpad_plus_holder,
+            dialpad_asterisk_holder,
+            dialpad_hashtag_holder
+        ).forEach {
+            it.background = ResourcesCompat.getDrawable(resources, R.drawable.pill_background, theme)
+            it.background?.alpha = LOWER_ALPHA_INT
+        }
 
         dialpad_0_holder.setOnLongClickListener { dialpadPressed('+'); true }
         dialpad_asterisk_holder.setOnClickListener { dialpadPressed('*') }
@@ -383,7 +400,7 @@ class CallActivity : SimpleActivity() {
     }
 
     private fun dialpadPressed(char: Char) {
-        CallManager.keypad(this, char)
+        CallManager.keypad(char)
         dialpad_input.addCharacter(char)
     }
 

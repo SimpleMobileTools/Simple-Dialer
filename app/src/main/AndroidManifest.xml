@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -20,6 +21,7 @@
     <uses-permission android:name="android.telecom.action.CONFIGURE_PHONE_ACCOUNT" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
 
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -62,36 +64,42 @@
 
         <activity
             android:name="com.simplemobiletools.commons.activities.AboutActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/about"
             android:parentActivityName=".activities.MainActivity" />
 
         <activity
             android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/customize_colors"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name="com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/blocked_numbers"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.ManageSpeedDialActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/speed_dial"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
             android:name=".activities.ConferenceActivity"
+            android:configChanges="orientation"
             android:exported="false"
             android:label="@string/conference"
             android:parentActivityName=".activities.CallActivity" />
 
         <activity
             android:name=".activities.SettingsActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/settings"
             android:parentActivityName=".activities.MainActivity">
@@ -116,6 +124,7 @@
             android:exported="true"
             android:label="@string/dialpad"
             android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
 
             <intent-filter>
@@ -144,6 +153,7 @@
 
         <activity
             android:name=".activities.DialerActivity"
+            android:configChanges="orientation"
             android:exported="true"
             android:label="@string/dialer"
             android:theme="@style/Theme.Transparent">

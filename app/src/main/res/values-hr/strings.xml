@@ -54,12 +54,13 @@
     <string name="call_add">Dodaj poziv</string>
     <string name="conference_manage">Upravljaj konferencijskim pozivima</string>
     <string name="conference">Konferencija</string>
-    <string name="audio_route_speaker">Speaker</string>
-    <string name="audio_route_earpiece">Earpiece</string>
+    <string name="audio_route_speaker">Zvučnik</string>
+    <string name="audio_route_earpiece">Slušalica</string>
     <string name="audio_route_bluetooth">Bluetooth</string>
-    <string name="audio_route_wired_headset">Wired Headset</string>
-    <string name="audio_route_wired_or_earpiece">Wired or Earpiece</string>
-    <string name="choose_audio_route">Choose audio route</string>
+    <string name="audio_route_wired_headset">Analogna slušalica s mikrofonom</string>
+    <string name="audio_route_wired_or_earpiece">Analogno ili slušalica</string>
+    <string name="choose_audio_route">Odaberi audio izlaz</string>
+    <string name="calling_blocked_number">Broj koji zoveš je blokiran</string>
     <!-- Speed dial -->
     <string name="speed_dial">Brzo biranje</string>
     <string name="manage_speed_dial">Upravljaj brzim biranjem</string>
@@ -70,6 +71,7 @@
     <string name="disable_proximity_sensor">Isključi senzor blizine tijekom poziva</string>
     <string name="disable_swipe_to_answer">Zamijeni povlačenje prstom za odgovaranje na dolazne pozive pritiskom</string>
     <string name="show_incoming_calls_full_screen">Uvijek prikaži dolazne pozive u cjeloekranskom prikazu</string>
+    <string name="hide_dialpad_numbers">Sakrij brojeve tipkovnice telefona</string>
     <!-- FAQ -->
     <string name="faq_1_title">Čujem dolazne pozive, ali ekran se ne uključuje. Što mogu učiniti\?</string>
     <string name="faq_1_text">Takvi problemi mogu imati mnogo razloga specifičnih za uređaj i sustav, koje je teško reći općenito. Trebali biste pogledati uokolo u postavkama svog uređaja i provjeriti je li aplikaciji dopušteno iskakanje u pozadini i dopuštenje prikazivanja preko drugih aplikacija.</string>

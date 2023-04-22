@@ -10,10 +10,12 @@ import kotlinx.android.synthetic.main.activity_conference.*
 class ConferenceActivity : SimpleActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conference)
-
-        conference_calls_list.adapter = ConferenceCallsAdapter(this, conference_calls_list, ArrayList(CallManager.getConferenceCalls())) {}
+        updateMaterialActivityViews(conference_coordinator, conference_list, useTransparentNavigation = true, useTopSearchMenu = false)
+        setupMaterialScrollListener(conference_list, conference_toolbar)
+        conference_list.adapter = ConferenceCallsAdapter(this, conference_list, ArrayList(CallManager.getConferenceCalls())) {}
     }
 
     override fun onResume() {

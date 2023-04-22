@@ -60,6 +60,7 @@
     <string name="audio_route_wired_headset">Auriculares con cable</string>
     <string name="audio_route_wired_or_earpiece">Auriculares sen fíos</string>
     <string name="choose_audio_route">Escollela saida do audio</string>
+    <string name="calling_blocked_number">O número ao que estás chamando está bloqueado</string>
     <!-- Speed dial -->
     <string name="speed_dial">Marcación rápida</string>
     <string name="manage_speed_dial">Xestionar marcacións rápidas</string>
@@ -70,6 +71,7 @@
     <string name="disable_proximity_sensor">Desactivar sensor de proximidade durante as chamadas</string>
     <string name="disable_swipe_to_answer">Substituír o xesto de desprazar por un click para responder</string>
     <string name="show_incoming_calls_full_screen">Mostrar sempre as chamadas entrantes a pantalla enteira</string>
+    <string name="hide_dialpad_numbers">Ocultalos números do teclado</string>
     <!-- FAQ -->
     <string name="faq_1_title">Escoito chamadas entrantes, pero a pantalla non se acende. Que podo facer\?</string>
     <string name="faq_1_text">Estes problemas poden ter moitas razóns específicas do dispositivo e do sistema, difíciles de dicir en xeral. Debes mirar ao teu redor na configuración do teu dispositivo e asegurarte de que a aplicación pode aparecer cando está en segundo plano e permitir que se vexa sobre outras aplicacións.</string>

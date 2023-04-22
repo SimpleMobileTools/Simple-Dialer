@@ -2,8 +2,6 @@ package com.simplemobiletools.dialer.activities
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.SearchManager
-import android.content.Context
 import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.content.res.Configuration
@@ -13,24 +11,21 @@ import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuItemCompat
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.snackbar.Snackbar
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
+import com.simplemobiletools.dialer.dialogs.FilterContactSourcesDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
 import com.simplemobiletools.dialer.fragments.FavoritesFragment
@@ -45,19 +40,19 @@ import kotlinx.android.synthetic.main.fragment_recents.*
 import me.grantland.widget.AutofitHelper
 
 class MainActivity : SimpleActivity() {
-    private var isSearchOpen = false
     private var launchedDialer = false
-    private var mSearchMenuItem: MenuItem? = null
     private var storedShowTabs = 0
-    private var searchQuery = ""
-    var cachedContacts = ArrayList<SimpleContact>()
+    private var storedStartNameWithSurname = false
+    var cachedContacts = ArrayList<Contact>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
         setupOptionsMenu()
         refreshMenuItems()
+        updateMaterialActivityViews(main_coordinator, main_holder, useTransparentNavigation = false, useTopSearchMenu = true)
 
         launchedDialer = savedInstanceState?.getBoolean(OPEN_DIAL_PAD_AT_LAUNCH) ?: false
 
@@ -90,28 +85,37 @@ class MainActivity : SimpleActivity() {
         }
 
         setupTabs()
-        SimpleContact.sorting = config.sorting
+        Contact.sorting = config.sorting
     }
 
     override fun onResume() {
         super.onResume()
+        if (storedShowTabs != config.showTabs) {
+            config.lastUsedViewPagerPage = 0
+            System.exit(0)
+            return
+        }
+
+        updateMenuColors()
         val properPrimaryColor = getProperPrimaryColor()
         val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, properPrimaryColor.getContrastColor())
         main_dialpad_button.setImageDrawable(dialpadIcon)
 
-        setupTabColors()
-        setupToolbar(main_toolbar, searchMenuItem = mSearchMenuItem)
         updateTextColors(main_holder)
+        setupTabColors()
 
         getAllFragments().forEach {
             it?.setupColors(getProperTextColor(), getProperPrimaryColor(), getProperPrimaryColor())
         }
 
-        if (!isSearchOpen) {
-            if (storedShowTabs != config.showTabs) {
-                System.exit(0)
-                return
-            }
+        val configStartNameWithSurname = config.startNameWithSurname
+        if (storedStartNameWithSurname != configStartNameWithSurname) {
+            contacts_fragment?.startNameWithSurnameChanged(configStartNameWithSurname)
+            favorites_fragment?.startNameWithSurnameChanged(configStartNameWithSurname)
+            storedStartNameWithSurname = config.startNameWithSurname
+        }
+
+        if (!main_menu.isSearchOpen) {
             refreshItems(true)
         }
 
@@ -124,6 +128,7 @@ class MainActivity : SimpleActivity() {
     override fun onPause() {
         super.onPause()
         storedShowTabs = config.showTabs
+        storedStartNameWithSurname = config.startNameWithSurname
         config.lastUsedViewPagerPage = view_pager.currentItem
     }
 
@@ -149,8 +154,8 @@ class MainActivity : SimpleActivity() {
     }
 
     override fun onBackPressed() {
-        if (isSearchOpen && mSearchMenuItem != null) {
-            mSearchMenuItem!!.collapseActionView()
+        if (main_menu.isSearchOpen) {
+            main_menu.closeSearch()
         } else {
             super.onBackPressed()
         }
@@ -158,7 +163,7 @@ class MainActivity : SimpleActivity() {
 
     private fun refreshMenuItems() {
         val currentFragment = getCurrentFragment()
-        main_toolbar.menu.apply {
+        main_menu.getToolbar().menu.apply {
             findItem(R.id.clear_call_history).isVisible = currentFragment == recents_fragment
             findItem(R.id.sort).isVisible = currentFragment != recents_fragment
             findItem(R.id.create_new_contact).isVisible = currentFragment == contacts_fragment
@@ -167,12 +172,26 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun setupOptionsMenu() {
-        setupSearch(main_toolbar.menu)
-        main_toolbar.setOnMenuItemClickListener { menuItem ->
+        main_menu.getToolbar().inflateMenu(R.menu.menu)
+        main_menu.toggleHideOnScroll(false)
+        main_menu.setupMenu()
+
+        main_menu.onSearchClosedListener = {
+            getAllFragments().forEach {
+                it?.onSearchQueryChanged("")
+            }
+        }
+
+        main_menu.onSearchTextChangedListener = { text ->
+            getCurrentFragment()?.onSearchQueryChanged(text)
+        }
+
+        main_menu.getToolbar().setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.clear_call_history -> clearCallHistory()
                 R.id.create_new_contact -> launchCreateNewContactIntent()
                 R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
+                R.id.filter -> showFilterDialog()
                 R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
                 R.id.settings -> launchSettings()
                 R.id.about -> launchAbout()
@@ -182,53 +201,20 @@ class MainActivity : SimpleActivity() {
         }
     }
 
+    private fun updateMenuColors() {
+        updateStatusbarColor(getProperBackgroundColor())
+        main_menu.updateColors()
+    }
+
     private fun checkContactPermissions() {
         handlePermission(PERMISSION_READ_CONTACTS) {
             initFragments()
         }
     }
 
-    private fun setupSearch(menu: Menu) {
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        mSearchMenuItem = menu.findItem(R.id.search)
-        (mSearchMenuItem!!.actionView as SearchView).apply {
-            setSearchableInfo(searchManager.getSearchableInfo(componentName))
-            isSubmitButtonEnabled = false
-            queryHint = getString(R.string.search)
-            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String) = false
-
-                override fun onQueryTextChange(newText: String): Boolean {
-                    if (isSearchOpen) {
-                        searchQuery = newText
-                        getCurrentFragment()?.onSearchQueryChanged(newText)
-                    }
-                    return true
-                }
-            })
-        }
-
-        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
-            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
-                isSearchOpen = true
-                main_dialpad_button.beGone()
-                return true
-            }
-
-            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                if (isSearchOpen) {
-                    getCurrentFragment()?.onSearchClosed()
-                }
-
-                isSearchOpen = false
-                main_dialpad_button.beVisible()
-                return true
-            }
-        })
-    }
-
     private fun clearCallHistory() {
-        ConfirmationDialog(this, "", R.string.clear_history_confirmation) {
+        val confirmationText = "${getString(R.string.remove_confirmation)}\n\n${getString(R.string.cannot_be_undone)}"
+        ConfirmationDialog(this, confirmationText) {
             RecentsHelper(this).removeAllRecentCalls(this) {
                 runOnUiThread {
                     recents_fragment?.refreshItems()
@@ -270,11 +256,11 @@ class MainActivity : SimpleActivity() {
 
     private fun setupTabColors() {
         val activeView = main_tabs_holder.getTabAt(view_pager.currentItem)?.customView
-        updateBottomTabItemColors(activeView, true)
+        updateBottomTabItemColors(activeView, true, getSelectedTabDrawableIds()[view_pager.currentItem])
 
         getInactiveTabIndexes(view_pager.currentItem).forEach { index ->
             val inactiveView = main_tabs_holder.getTabAt(index)?.customView
-            updateBottomTabItemColors(inactiveView, false)
+            updateBottomTabItemColors(inactiveView, false, getDeselectedTabDrawableIds()[index])
         }
 
         val bottomBarColor = getBottomNavigationBackgroundColor()
@@ -282,7 +268,45 @@ class MainActivity : SimpleActivity() {
         updateNavigationBarColor(bottomBarColor)
     }
 
-    private fun getInactiveTabIndexes(activeIndex: Int) = (0 until tabsList.size).filter { it != activeIndex }
+    private fun getInactiveTabIndexes(activeIndex: Int) = (0 until main_tabs_holder.tabCount).filter { it != activeIndex }
+
+    private fun getSelectedTabDrawableIds(): ArrayList<Int> {
+        val showTabs = config.showTabs
+        val icons = ArrayList<Int>()
+
+        if (showTabs and TAB_CONTACTS != 0) {
+            icons.add(R.drawable.ic_person_vector)
+        }
+
+        if (showTabs and TAB_FAVORITES != 0) {
+            icons.add(R.drawable.ic_star_vector)
+        }
+
+        if (showTabs and TAB_CALL_HISTORY != 0) {
+            icons.add(R.drawable.ic_clock_filled_vector)
+        }
+
+        return icons
+    }
+
+    private fun getDeselectedTabDrawableIds(): ArrayList<Int> {
+        val showTabs = config.showTabs
+        val icons = ArrayList<Int>()
+
+        if (showTabs and TAB_CONTACTS != 0) {
+            icons.add(R.drawable.ic_person_outline_vector)
+        }
+
+        if (showTabs and TAB_FAVORITES != 0) {
+            icons.add(R.drawable.ic_star_outline_vector)
+        }
+
+        if (showTabs and TAB_CALL_HISTORY != 0) {
+            icons.add(R.drawable.ic_clock_vector)
+        }
+
+        return icons
+    }
 
     private fun initFragments() {
         view_pager.offscreenPageLimit = 2
@@ -349,17 +373,18 @@ class MainActivity : SimpleActivity() {
 
         main_tabs_holder.onTabSelectionChanged(
             tabUnselectedAction = {
-                updateBottomTabItemColors(it.customView, false)
+                updateBottomTabItemColors(it.customView, false, getDeselectedTabDrawableIds()[it.position])
             },
             tabSelectedAction = {
-                closeSearch()
+                main_menu.closeSearch()
                 view_pager.currentItem = it.position
-                updateBottomTabItemColors(it.customView, true)
+                updateBottomTabItemColors(it.customView, true, getSelectedTabDrawableIds()[it.position])
             }
         )
 
         main_tabs_holder.beGoneIf(main_tabs_holder.tabCount == 1)
         storedShowTabs = config.showTabs
+        storedStartNameWithSurname = config.startNameWithSurname
     }
 
     private fun getTabIcon(position: Int): Drawable {
@@ -404,7 +429,7 @@ class MainActivity : SimpleActivity() {
         }
     }
 
-    private fun refreshFragments() {
+    fun refreshFragments() {
         contacts_fragment?.refreshItems()
         favorites_fragment?.refreshItems()
         recents_fragment?.refreshItems()
@@ -471,13 +496,11 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun launchSettings() {
-        closeSearch()
         hideKeyboard()
         startActivity(Intent(applicationContext, SettingsActivity::class.java))
     }
 
     private fun launchAbout() {
-        closeSearch()
         val licenses = LICENSE_GLIDE or LICENSE_INDICATOR_FAST_SCROLL or LICENSE_AUTOFITTEXTVIEW
 
         val faqItems = arrayListOf(
@@ -496,29 +519,40 @@ class MainActivity : SimpleActivity() {
     private fun showSortingDialog(showCustomSorting: Boolean) {
         ChangeSortingDialog(this, showCustomSorting) {
             favorites_fragment?.refreshItems {
-                if (isSearchOpen) {
-                    getCurrentFragment()?.onSearchQueryChanged(searchQuery)
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
                 }
             }
 
             contacts_fragment?.refreshItems {
-                if (isSearchOpen) {
-                    getCurrentFragment()?.onSearchQueryChanged(searchQuery)
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
                 }
             }
         }
     }
-
-    private fun closeSearch() {
-        if (isSearchOpen) {
-            getAllFragments().forEach {
-                it?.onSearchQueryChanged("")
+    private fun showFilterDialog() {
+        FilterContactSourcesDialog(this) {
+            favorites_fragment?.refreshItems {
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
+                }
             }
-            mSearchMenuItem?.collapseActionView()
+
+            contacts_fragment?.refreshItems {
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
+                }
+            }
+
+            recents_fragment?.refreshItems{
+                if (main_menu.isSearchOpen) {
+                    getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
+                }
+            }
         }
     }
-
-    fun cacheContacts(contacts: List<SimpleContact>) {
+    fun cacheContacts(contacts: List<Contact>) {
         try {
             cachedContacts.clear()
             cachedContacts.addAll(contacts)

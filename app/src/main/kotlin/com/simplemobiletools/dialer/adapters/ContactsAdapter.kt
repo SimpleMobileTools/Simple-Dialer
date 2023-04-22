@@ -28,7 +28,7 @@ import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.commons.interfaces.ItemMoveCallback
 import com.simplemobiletools.commons.interfaces.ItemTouchHelperContract
 import com.simplemobiletools.commons.interfaces.StartReorderDragListener
-import com.simplemobiletools.commons.models.SimpleContact
+import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -41,7 +41,7 @@ import java.util.*
 
 class ContactsAdapter(
     activity: SimpleActivity,
-    var contacts: ArrayList<SimpleContact>,
+    var contacts: ArrayList<Contact>,
     recyclerView: MyRecyclerView,
     val refreshItemsListener: RefreshItemsListener? = null,
     highlightText: String = "",
@@ -135,9 +135,9 @@ class ContactsAdapter(
 
     override fun getItemCount() = contacts.size
 
-    fun updateItems(newItems: ArrayList<SimpleContact>, highlightText: String = "") {
+    fun updateItems(newItems: ArrayList<Contact>, highlightText: String = "") {
         if (newItems.hashCode() != contacts.hashCode()) {
-            contacts = newItems.clone() as ArrayList<SimpleContact>
+            contacts = newItems.clone() as ArrayList<Contact>
             textToHighlight = highlightText
             notifyDataSetChanged()
             finishActMode()
@@ -184,7 +184,7 @@ class ContactsAdapter(
         val itemsCnt = selectedKeys.size
         val firstItem = getSelectedItems().firstOrNull() ?: return
         val items = if (itemsCnt == 1) {
-            "\"${firstItem.name}\""
+            "\"${firstItem.getNameToDisplay()}\""
         } else {
             resources.getQuantityString(R.plurals.delete_contacts, itemsCnt, itemsCnt)
         }
@@ -221,12 +221,10 @@ class ContactsAdapter(
         }
     }
 
-    private fun getSelectedItems() = contacts.filter { selectedKeys.contains(it.rawId) } as ArrayList<SimpleContact>
+    private fun getSelectedItems() = contacts.filter { selectedKeys.contains(it.rawId) } as ArrayList<Contact>
 
     private fun getSelectedPhoneNumber(): String? {
-        val numbers = getSelectedItems().firstOrNull()?.phoneNumbers
-        val primaryNumber = numbers?.firstOrNull { it.isPrimary }
-        return primaryNumber?.normalizedNumber ?: numbers?.firstOrNull()?.normalizedNumber
+        return getSelectedItems().firstOrNull()?.getPrimaryNumber()
     }
 
     private fun tryCreateShortcut() {
@@ -242,16 +240,16 @@ class ContactsAdapter(
         val contact = contacts.firstOrNull { selectedKeys.contains(it.rawId) } ?: return
         val manager = activity.shortcutManager
         if (manager.isRequestPinShortcutSupported) {
-            SimpleContactsHelper(activity).getShortcutImage(contact.photoUri, contact.name) { image ->
+            SimpleContactsHelper(activity).getShortcutImage(contact.photoUri, contact.getNameToDisplay()) { image ->
                 activity.runOnUiThread {
                     activity.handlePermission(PERMISSION_CALL_PHONE) { hasPermission ->
                         val action = if (hasPermission) Intent.ACTION_CALL else Intent.ACTION_DIAL
                         val intent = Intent(action).apply {
-                            data = Uri.fromParts("tel", contact.phoneNumbers.first().normalizedNumber, null)
+                            data = Uri.fromParts("tel", getSelectedPhoneNumber(), null)
                         }
 
                         val shortcut = ShortcutInfo.Builder(activity, contact.hashCode().toString())
-                            .setShortLabel(contact.name)
+                            .setShortLabel(contact.getNameToDisplay())
                             .setIcon(Icon.createWithBitmap(image))
                             .setIntent(intent)
                             .build()
@@ -270,18 +268,19 @@ class ContactsAdapter(
         }
     }
 
-    private fun setupView(view: View, contact: SimpleContact, holder: ViewHolder) {
+    private fun setupView(view: View, contact: Contact, holder: ViewHolder) {
         view.apply {
             findViewById<FrameLayout>(R.id.item_contact_frame).isSelected = selectedKeys.contains(contact.rawId)
             findViewById<TextView>(R.id.item_contact_name).apply {
                 setTextColor(textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
 
-                text = if (textToHighlight.isEmpty()) contact.name else {
-                    if (contact.name.contains(textToHighlight, true)) {
-                        contact.name.highlightTextPart(textToHighlight, properPrimaryColor)
+                val name = contact.getNameToDisplay()
+                text = if (textToHighlight.isEmpty()) name else {
+                    if (name.contains(textToHighlight, true)) {
+                        name.highlightTextPart(textToHighlight, properPrimaryColor)
                     } else {
-                        contact.name.highlightTextFromNumbers(textToHighlight, properPrimaryColor)
+                        name.highlightTextFromNumbers(textToHighlight, properPrimaryColor)
                     }
                 }
             }
@@ -306,7 +305,7 @@ class ContactsAdapter(
             }
 
             if (!activity.isDestroyed) {
-                SimpleContactsHelper(context).loadContactImage(contact.photoUri, findViewById(R.id.item_contact_image), contact.name)
+                SimpleContactsHelper(context).loadContactImage(contact.photoUri, findViewById(R.id.item_contact_image), contact.getNameToDisplay())
             }
         }
     }

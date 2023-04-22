@@ -15,8 +15,8 @@ android {
         applicationId "com.simplemobiletools.dialer"
         minSdkVersion 23
         targetSdkVersion 33
-        versionCode 46
-        versionName "5.16.0"
+        versionCode 55
+        versionName "5.17.8"
         setProperty("archivesBaseName", "dialer")
     }
 
@@ -62,7 +62,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:5b5a6b083f'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:ee2e127758'
     implementation 'com.github.tibbi:IndicatorFastScroll:4524cd0b61'
     implementation 'me.grantland:autofittextview:0.2.1'
 }

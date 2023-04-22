@@ -5,8 +5,8 @@ import android.net.Uri
 import android.telecom.Call
 import com.simplemobiletools.commons.extensions.getMyContactsCursor
 import com.simplemobiletools.commons.extensions.getPhoneNumberTypeText
+import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.extensions.isConference
@@ -35,8 +35,8 @@ fun getCallContact(context: Context, call: Call?, callback: (CallContact) -> Uni
         val uri = Uri.decode(handle)
         if (uri.startsWith("tel:")) {
             val number = uri.substringAfter("tel:")
-            SimpleContactsHelper(context).getAvailableContacts(false) { contacts ->
-                val privateContacts = MyContactsContentProvider.getSimpleContacts(context, privateCursor)
+            ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
+                val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
                 if (privateContacts.isNotEmpty()) {
                     contacts.addAll(privateContacts)
                 }
@@ -53,7 +53,7 @@ fun getCallContact(context: Context, call: Call?, callback: (CallContact) -> Uni
                 callContact.number = number
                 val contact = contacts.firstOrNull { it.doesHavePhoneNumber(number) }
                 if (contact != null) {
-                    callContact.name = contact.name
+                    callContact.name = contact.getNameToDisplay()
                     callContact.photoUri = contact.photoUri
 
                     if (contact.phoneNumbers.size > 1) {

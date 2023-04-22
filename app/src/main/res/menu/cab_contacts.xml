@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="AppCompatResource">
+    tools:ignore="AppCompatResource,AlwaysShowAction">
     <item
         android:id="@+id/cab_call_sim_1"
         android:icon="@drawable/ic_phone_one_vector"
@@ -16,16 +16,19 @@
     <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete_vector"
+        android:showAsAction="always"
         android:title="@string/delete"
         app:showAsAction="always" />
     <item
         android:id="@+id/cab_view_details"
         android:icon="@drawable/ic_view_contact_details_vector"
+        android:showAsAction="always"
         android:title="@string/view_contact_details"
         app:showAsAction="always" />
     <item
         android:id="@+id/cab_send_sms"
         android:icon="@drawable/ic_sms_vector"
+        android:showAsAction="always"
         android:title="@string/send_sms"
         app:showAsAction="always" />
     <item
