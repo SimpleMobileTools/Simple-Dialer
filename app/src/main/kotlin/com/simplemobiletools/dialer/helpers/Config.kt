@@ -2,11 +2,12 @@ package com.simplemobiletools.dialer.helpers
 
 import android.content.ComponentName
 import android.content.Context
-import android.net.Uri
 import android.telecom.PhoneAccountHandle
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
+import com.simplemobiletools.dialer.extensions.getPhoneAccountHandleModel
+import com.simplemobiletools.dialer.extensions.putPhoneAccountHandle
 import com.simplemobiletools.dialer.models.SpeedDial
 
 class Config(context: Context) : BaseConfig(context) {
@@ -28,7 +29,7 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     fun saveCustomSIM(number: String, handle: PhoneAccountHandle) {
-        prefs.edit().putPhoneAccountHandle(REMEMBER_SIM_PREFIX + number,handle).apply()
+        prefs.edit().putPhoneAccountHandle(REMEMBER_SIM_PREFIX + number, handle).apply()
     }
 
     fun getCustomSIM(number: String): PhoneAccountHandle? {

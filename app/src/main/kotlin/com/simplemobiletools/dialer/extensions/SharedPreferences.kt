@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import android.telecom.PhoneAccountHandle
 import com.simplemobiletools.dialer.models.PhoneAccountHandleModel
 import com.google.gson.Gson
+import com.google.gson.JsonSyntaxException
 
 fun SharedPreferences.Editor.putPhoneAccountHandle(
     key: String,

@@ -76,8 +76,8 @@ fun SimpleActivity.getHandleToUse(intent: Intent?, phoneNumber: String, callback
             val defaultHandle = telecomManager.getDefaultOutgoingPhoneAccount(PhoneAccount.SCHEME_TEL)
             when {
                 intent?.hasExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE) == true -> callback(intent.getParcelableExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE)!!)
-                config.getCustomSIM() != null -> {
-                    callback(config.getCustomSIM())
+                config.getCustomSIM(phoneNumber) != null -> {
+                    callback(config.getCustomSIM(phoneNumber))
                 }
 
                 defaultHandle != null -> callback(defaultHandle)
