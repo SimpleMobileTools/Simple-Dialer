@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.snackbar.Snackbar
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
+import com.simplemobiletools.commons.dialogs.PermissionRequiredDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
@@ -73,7 +74,7 @@ class MainActivity : SimpleActivity() {
 
             handleNotificationPermission { granted ->
                 if (!granted) {
-                    toast(R.string.no_post_notifications_permissions)
+                    PermissionRequiredDialog(this, R.string.allow_notifications_incoming_calls)
                 }
             }
         } else {

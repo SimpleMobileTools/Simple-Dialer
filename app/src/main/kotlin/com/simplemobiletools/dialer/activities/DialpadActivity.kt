@@ -144,7 +144,6 @@ class DialpadActivity : SimpleActivity() {
             gotContacts(allContacts)
         }
 
-
         val properPrimaryColor = getProperPrimaryColor()
         val callIconId = if (areMultipleSIMsAvailable()) {
             val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_two_vector, properPrimaryColor.getContrastColor())
