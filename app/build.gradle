@@ -62,7 +62,8 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:dfe84c0ee2'
+    // implementation 'com.github.SimpleMobileTools:Simple-Commons:ee2e127758'
+    implementation project(path: ':commons')
     implementation 'com.github.tibbi:IndicatorFastScroll:4524cd0b61'
     implementation 'me.grantland:autofittextview:0.2.1'
 }
