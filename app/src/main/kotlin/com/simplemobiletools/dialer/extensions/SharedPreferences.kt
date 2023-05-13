@@ -2,9 +2,9 @@ package com.simplemobiletools.dialer.extensions
 
 import android.content.SharedPreferences
 import android.telecom.PhoneAccountHandle
-import com.simplemobiletools.dialer.models.PhoneAccountHandleModel
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
+import com.simplemobiletools.dialer.models.PhoneAccountHandleModel
 
 fun SharedPreferences.Editor.putPhoneAccountHandle(
     key: String,
@@ -24,9 +24,11 @@ inline fun <reified T : PhoneAccountHandleModel?> SharedPreferences.getPhoneAcco
 ): T {
     val json = getString(key, null)
     return try {
-        if (json != null)
+        if (json != null) {
             Gson().fromJson(json, T::class.java)
-        else default
+        } else {
+            default
+        }
     } catch (_: JsonSyntaxException) {
         default
     }
