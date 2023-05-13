@@ -60,7 +60,7 @@ class RecentCallsAdapter(
         menu.apply {
             findItem(R.id.cab_call_sim_1).isVisible = hasMultipleSIMs && isOneItemSelected
             findItem(R.id.cab_call_sim_2).isVisible = hasMultipleSIMs && isOneItemSelected
-            findItem(R.id.cab_remove_default_sim).isVisible = isOneItemSelected && activity.config.getCustomSIM(selectedNumber) != ""
+            findItem(R.id.cab_remove_default_sim).isVisible = isOneItemSelected && (activity.config.getCustomSIM(selectedNumber) ?: "") != ""
 
             findItem(R.id.cab_block_number).title = activity.addLockedLabelIfNeeded(R.string.block_number)
             findItem(R.id.cab_block_number).isVisible = isNougatPlus()
@@ -364,7 +364,7 @@ class RecentCallsAdapter(
                 findItem(R.id.cab_view_details).isVisible = contact != null
                 findItem(R.id.cab_block_number).title = activity.addLockedLabelIfNeeded(R.string.block_number)
                 findItem(R.id.cab_block_number).isVisible = isNougatPlus()
-                findItem(R.id.cab_remove_default_sim).isVisible = activity.config.getCustomSIM(selectedNumber) != ""
+                findItem(R.id.cab_remove_default_sim).isVisible = (activity.config.getCustomSIM(selectedNumber) ?: "") != ""
             }
             setOnMenuItemClickListener { item ->
                 val callId = call.id
