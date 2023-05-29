@@ -8,10 +8,12 @@ import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CALL_LOG
 import com.simplemobiletools.commons.helpers.SMT_PRIVATE
+import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.helpers.MIN_RECENT_TRESHOLD
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
@@ -49,7 +51,8 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     override fun refreshItems(callback: (() -> Unit)?) {
         val privateCursor = context?.getMyContactsCursor(false, true)
         val groupSubsequentCalls = context?.config?.groupSubsequentCalls ?: false
-        RecentsHelper(context).getRecentCalls(groupSubsequentCalls) { recents ->
+        val size = allRecentCalls.count() + MIN_RECENT_TRESHOLD
+        RecentsHelper(context).getRecentCalls(groupSubsequentCalls, size) { recents ->
             ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
                 val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
 
@@ -117,6 +120,15 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                 }
             } else {
                 (currAdapter as RecentCallsAdapter).updateItems(recents)
+            }
+
+            recents_list.endlessScrollListener = object : MyRecyclerView.EndlessScrollListener {
+                override fun updateTop() {
+                }
+
+                override fun updateBottom() {
+                    refreshItems()
+                }
             }
         }
     }
