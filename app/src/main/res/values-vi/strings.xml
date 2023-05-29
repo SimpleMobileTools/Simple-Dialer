@@ -15,8 +15,8 @@
     <string name="speed_dial">Speed dial</string>
     <string name="manage_speed_dial">Manage speed dial</string>
     <string name="could_not_access_the_call_history">Could not access the call history</string>
-    <string name="app_name">Simple Dialer</string>
-    <string name="app_launcher_name">Dialer</string>
+    <string name="app_name">Trình quay số đơn giản</string>
+    <string name="app_launcher_name">Trình quay số</string>
     <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
     <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
     <string name="could_not_access_contacts">Could not access your contacts</string>
