@@ -9,6 +9,7 @@ import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.SpeedDialAdapter
 import com.simplemobiletools.dialer.dialogs.SelectContactDialog
+import com.simplemobiletools.dialer.dialogs.SelectNumberDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.interfaces.RemoveSpeedDialListener
 import com.simplemobiletools.dialer.models.SpeedDial
@@ -53,11 +54,22 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
             }
 
             SelectContactDialog(this, allContacts) { selectedContact ->
-                speedDialValues.first { it.id == clickedContact.id }.apply {
-                    displayName = selectedContact.getNameToDisplay()
-                    number = selectedContact.phoneNumbers.first().normalizedNumber
+                if (selectedContact.phoneNumbers.size > 1) {
+                    SelectNumberDialog(this, selectedContact.phoneNumbers) { selectedNumber ->
+                        speedDialValues.first { it.id == clickedContact.id }.apply {
+                            displayName = selectedContact.getNameToDisplay()
+                            number = selectedNumber.normalizedNumber
+                        }
+                        updateAdapter()
+                    }
+                } else {
+                    speedDialValues.first { it.id == clickedContact.id }.apply {
+                        displayName = selectedContact.getNameToDisplay()
+                        number = selectedContact.phoneNumbers.first().normalizedNumber
+                    }
+                    updateAdapter()
                 }
-                updateAdapter()
+
             }
         }.apply {
             speed_dial_list.adapter = this

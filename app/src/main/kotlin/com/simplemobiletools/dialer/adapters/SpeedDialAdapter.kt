@@ -9,8 +9,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.interfaces.RemoveSpeedDialListener
 import com.simplemobiletools.dialer.models.SpeedDial
-import kotlinx.android.synthetic.main.item_speed_dial.view.*
-import java.util.*
+import kotlinx.android.synthetic.main.item_speed_dial.view.speed_dial_label
 
 class SpeedDialAdapter(
     activity: SimpleActivity, var speedDialValues: ArrayList<SpeedDial>, private val removeListener: RemoveSpeedDialListener,
@@ -69,7 +68,7 @@ class SpeedDialAdapter(
     private fun setupView(view: View, speedDial: SpeedDial) {
         view.apply {
             var displayName = "${speedDial.id}. "
-            displayName += if (speedDial.isValid()) speedDial.displayName else ""
+            displayName += if (speedDial.isValid()) "${speedDial.displayName} (${speedDial.number})" else ""
 
             speed_dial_label.apply {
                 text = displayName
