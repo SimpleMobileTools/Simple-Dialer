@@ -87,6 +87,10 @@ class CallActivity : SimpleActivity() {
         super.onResume()
         updateState()
         updateNavigationBarColor(getProperBackgroundColor())
+
+        if (config.isUsingSystemTheme) {
+            updateStatusbarColor(getProperBackgroundColor())
+        }
     }
 
     override fun onDestroy() {
