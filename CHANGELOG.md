@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 5.18.0 *(2023-06-08)*
+----------------------------
+
+ * Improved speed dial handling at contacts with multiple numbers
+ * Properly display organization contact names
+ * Added some stability, translation and UX improvements
+
 Version 5.17.8 *(2023-04-19)*
 ----------------------------
 

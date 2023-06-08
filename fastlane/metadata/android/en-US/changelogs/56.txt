@@ -1,0 +1,3 @@
+ * Improved speed dial handling at contacts with multiple numbers
+ * Properly display organization contact names
+ * Added some stability, translation and UX improvements
