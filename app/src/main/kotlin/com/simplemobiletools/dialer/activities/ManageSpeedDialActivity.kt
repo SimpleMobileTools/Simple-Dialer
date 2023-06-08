@@ -2,9 +2,12 @@ package com.simplemobiletools.dialer.activities
 
 import android.os.Bundle
 import com.google.gson.Gson
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.NavigationIcon
+import com.simplemobiletools.commons.models.PhoneNumber
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.SpeedDialAdapter
@@ -53,11 +56,28 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
             }
 
             SelectContactDialog(this, allContacts) { selectedContact ->
-                speedDialValues.first { it.id == clickedContact.id }.apply {
-                    displayName = selectedContact.getNameToDisplay()
-                    number = selectedContact.phoneNumbers.first().normalizedNumber
+                if (selectedContact.phoneNumbers.size > 1) {
+                    val radioItems = selectedContact.phoneNumbers.mapIndexed { index, item ->
+                        RadioItem(index, item.normalizedNumber, item)
+                    }
+                    val userPhoneNumbersList = selectedContact.phoneNumbers.map { it.value }
+                    val checkedItemId = userPhoneNumbersList.indexOf(clickedContact.number)
+                    RadioGroupDialog(this, ArrayList(radioItems), checkedItemId = checkedItemId) { selectedValue ->
+                        val selectedNumber = selectedValue as PhoneNumber
+                        speedDialValues.first { it.id == clickedContact.id }.apply {
+                            displayName = selectedContact.getNameToDisplay()
+                            number = selectedNumber.normalizedNumber
+                        }
+                        updateAdapter()
+                    }
+                } else {
+                    speedDialValues.first { it.id == clickedContact.id }.apply {
+                        displayName = selectedContact.getNameToDisplay()
+                        number = selectedContact.phoneNumbers.first().normalizedNumber
+                    }
+                    updateAdapter()
                 }
-                updateAdapter()
+
             }
         }.apply {
             speed_dial_list.adapter = this
