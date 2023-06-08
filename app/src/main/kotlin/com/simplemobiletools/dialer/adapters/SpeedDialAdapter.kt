@@ -9,7 +9,7 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.interfaces.RemoveSpeedDialListener
 import com.simplemobiletools.dialer.models.SpeedDial
-import kotlinx.android.synthetic.main.item_speed_dial.view.speed_dial_label
+import kotlinx.android.synthetic.main.item_speed_dial.view.*
 
 class SpeedDialAdapter(
     activity: SimpleActivity, var speedDialValues: ArrayList<SpeedDial>, private val removeListener: RemoveSpeedDialListener,
