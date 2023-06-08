@@ -4,6 +4,8 @@ Changelog
 Version 5.18.0 *(2023-06-08)*
 ----------------------------
 
+ * Fixed the inability of setting the app as default for handling calls on some devices
+ * Fixed some issues with incoming calls not being shown sometimes
  * Improved speed dial handling at contacts with multiple numbers
  * Properly display organization contact names
  * Added some stability, translation and UX improvements
