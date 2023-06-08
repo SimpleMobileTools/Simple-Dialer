@@ -2,14 +2,16 @@ package com.simplemobiletools.dialer.activities
 
 import android.os.Bundle
 import com.google.gson.Gson
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.NavigationIcon
+import com.simplemobiletools.commons.models.PhoneNumber
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.SpeedDialAdapter
 import com.simplemobiletools.dialer.dialogs.SelectContactDialog
-import com.simplemobiletools.dialer.dialogs.SelectNumberDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.interfaces.RemoveSpeedDialListener
 import com.simplemobiletools.dialer.models.SpeedDial
@@ -55,7 +57,11 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
 
             SelectContactDialog(this, allContacts) { selectedContact ->
                 if (selectedContact.phoneNumbers.size > 1) {
-                    SelectNumberDialog(this, selectedContact.phoneNumbers) { selectedNumber ->
+                    val radioItems = selectedContact.phoneNumbers.mapIndexed { index, item ->
+                        RadioItem(index, item.normalizedNumber, item)
+                    }
+                    RadioGroupDialog(this, ArrayList(radioItems)) { selectedValue ->
+                        val selectedNumber = selectedValue as PhoneNumber
                         speedDialValues.first { it.id == clickedContact.id }.apply {
                             displayName = selectedContact.getNameToDisplay()
                             number = selectedNumber.normalizedNumber
