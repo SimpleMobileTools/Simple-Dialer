@@ -60,7 +60,9 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
                     val radioItems = selectedContact.phoneNumbers.mapIndexed { index, item ->
                         RadioItem(index, item.normalizedNumber, item)
                     }
-                    RadioGroupDialog(this, ArrayList(radioItems)) { selectedValue ->
+                    val userPhoneNumbersList = selectedContact.phoneNumbers.map { it.value }
+                    val checkedItemId = userPhoneNumbersList.indexOf(clickedContact.number)
+                    RadioGroupDialog(this, ArrayList(radioItems), checkedItemId = checkedItemId) { selectedValue ->
                         val selectedNumber = selectedValue as PhoneNumber
                         speedDialValues.first { it.id == clickedContact.id }.apply {
                             displayName = selectedContact.getNameToDisplay()
