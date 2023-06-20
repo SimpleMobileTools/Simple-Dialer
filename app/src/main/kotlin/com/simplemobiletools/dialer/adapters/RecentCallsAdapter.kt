@@ -260,6 +260,7 @@ class RecentCallsAdapter(
         if (newItems.hashCode() != recentCalls.hashCode()) {
             recentCalls = newItems.clone() as ArrayList<RecentCall>
             textToHighlight = highlightText
+            recyclerView.resetItemCount()
             notifyDataSetChanged()
             finishActMode()
         } else if (textToHighlight != highlightText) {
