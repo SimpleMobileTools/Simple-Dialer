@@ -18,9 +18,7 @@ import com.simplemobiletools.dialer.helpers.MIN_RECENTS_THRESHOLD
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
-import kotlinx.android.synthetic.main.fragment_recents.view.recents_list
-import kotlinx.android.synthetic.main.fragment_recents.view.recents_placeholder
-import kotlinx.android.synthetic.main.fragment_recents.view.recents_placeholder_2
+import kotlinx.android.synthetic.main.fragment_recents.view.*
 
 class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
     private var allRecentCalls = ArrayList<RecentCall>()
