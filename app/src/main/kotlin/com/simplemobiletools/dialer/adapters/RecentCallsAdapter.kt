@@ -278,7 +278,7 @@ class RecentCallsAdapter(
     private fun getSelectedPhoneNumber() = getSelectedItems().firstOrNull()?.phoneNumber
 
     private fun setupView(view: View, call: RecentCall) {
-        val showShowOverflowMenu = showOverflowMenu && !call.isUnknownNumber
+        val shouldShowOverflowMenu = showOverflowMenu && !call.isUnknownNumber
         view.apply {
             item_recents_holder.isSelected = selectedKeys.contains(call.id)
             val name = findContactByCall(call)?.getNameToDisplay() ?: call.name
@@ -317,7 +317,7 @@ class RecentCallsAdapter(
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
-                if (!showShowOverflowMenu) {
+                if (!shouldShowOverflowMenu) {
                     item_recents_duration.setPadding(0, 0, durationPadding, 0)
                 }
             }
@@ -340,8 +340,8 @@ class RecentCallsAdapter(
 
             item_recents_type.setImageDrawable(drawable)
 
-            overflow_menu_icon.beVisibleIf(showShowOverflowMenu)
-            if (showShowOverflowMenu) {
+            overflow_menu_icon.beVisibleIf(shouldShowOverflowMenu)
+            if (shouldShowOverflowMenu) {
                 overflow_menu_icon.drawable.apply {
                     mutate()
                     setTint(activity.getProperTextColor())
