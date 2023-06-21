@@ -82,16 +82,25 @@ class RecentsHelper(private val context: Context) {
             }
         }
 
-        if (cursor?.moveToFirst() == true) {
+        cursor?.use {
+            if (!cursor.moveToFirst()) {
+                return@use
+            }
             do {
                 val id = cursor.getIntValue(Calls._ID)
-                val number = cursor.getStringValue(Calls.NUMBER) ?: continue
-                var name = cursor.getStringValue(Calls.CACHED_NAME)
-                if (name == null || name.isEmpty()) {
+                var isUnknownNumber = false
+                var number = cursor.getStringValueOrNull(Calls.NUMBER)
+                if (number == null) {
+                    number = context.getString(R.string.unknown)
+                    isUnknownNumber = true
+                }
+
+                var name = cursor.getStringValueOrNull(Calls.CACHED_NAME)
+                if (name.isNullOrEmpty()) {
                     name = number
                 }
 
-                if (name == number) {
+                if (name == number && !isUnknownNumber) {
                     if (contactsNumbersMap.containsKey(number)) {
                         name = contactsNumbersMap[number]!!
                     } else {
@@ -100,7 +109,10 @@ class RecentsHelper(private val context: Context) {
                             name = contacts.filter { it.phoneNumbers.isNotEmpty() }.firstOrNull { contact ->
                                 val curNumber = contact.phoneNumbers.first().normalizedNumber
                                 if (curNumber.length >= COMPARABLE_PHONE_NUMBER_LENGTH) {
-                                    if (curNumber.substring(curNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH) == normalizedNumber.substring(normalizedNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH)) {
+                                    if (curNumber.substring(curNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH) == normalizedNumber.substring(
+                                            normalizedNumber.length - COMPARABLE_PHONE_NUMBER_LENGTH
+                                        )
+                                    ) {
                                         contactsNumbersMap[number] = contact.getNameToDisplay()
                                         return@firstOrNull true
                                     }
@@ -153,7 +165,20 @@ class RecentsHelper(private val context: Context) {
                     }
                 }
 
-                val recentCall = RecentCall(id, number, name, photoUri, startTS, duration, type, neighbourIDs, simID, specificNumber, specificType)
+                val recentCall = RecentCall(
+                    id = id,
+                    phoneNumber = number,
+                    name = name,
+                    photoUri = photoUri,
+                    startTS = startTS,
+                    duration = duration,
+                    type = type,
+                    neighbourIDs = neighbourIDs,
+                    simID = simID,
+                    specificNumber = specificNumber,
+                    specificType = specificType,
+                    isUnknownNumber = isUnknownNumber
+                )
 
                 // if we have multiple missed calls from the same number, show it just once
                 if (!groupSubsequentCalls || "$number$name$simID" != previousRecentCallFrom) {
@@ -165,7 +190,6 @@ class RecentsHelper(private val context: Context) {
                 previousRecentCallFrom = "$number$name$simID"
             } while (cursor.moveToNext() && recentCalls.size < maxSize)
         }
-        cursor?.close()
 
         val blockedNumbers = context.getBlockedNumbers()
         recentCalls = recentCalls.filter { !context.isNumberBlocked(it.phoneNumber, blockedNumbers) }.toMutableList() as ArrayList<RecentCall>

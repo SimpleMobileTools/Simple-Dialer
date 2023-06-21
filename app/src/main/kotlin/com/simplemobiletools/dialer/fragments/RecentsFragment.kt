@@ -179,22 +179,19 @@ private fun List<RecentCall>.hidePrivateContacts(privateContacts: ArrayList<Cont
 }
 
 private fun ArrayList<RecentCall>.setNamesIfEmpty(contacts: ArrayList<Contact>, privateContacts: ArrayList<Contact>): ArrayList<RecentCall> {
-    filter { it.phoneNumber == it.name }.forEach { recent ->
-        var wasNameFilled = false
-        if (privateContacts.isNotEmpty()) {
+    val contactsWithNumbers = contacts.filter { it.phoneNumbers.isNotEmpty() }
+    return map { recent ->
+        if (recent.phoneNumber == recent.name) {
             val privateContact = privateContacts.firstOrNull { it.doesContainPhoneNumber(recent.phoneNumber) }
-            if (privateContact != null) {
-                recent.name = privateContact.getNameToDisplay()
-                wasNameFilled = true
-            }
-        }
+            val contact = contactsWithNumbers.firstOrNull { it.phoneNumbers.first().normalizedNumber == recent.phoneNumber }
 
-        if (!wasNameFilled) {
-            val contact = contacts.filter { it.phoneNumbers.isNotEmpty() }.firstOrNull { it.phoneNumbers.first().normalizedNumber == recent.phoneNumber }
-            if (contact != null) {
-                recent.name = contact.getNameToDisplay()
+            when {
+                privateContact != null -> recent.copy(name = privateContact.getNameToDisplay())
+                contact != null -> recent.copy(name = contact.getNameToDisplay())
+                else -> recent
             }
+        } else {
+            recent
         }
-    }
-    return this
+    } as ArrayList
 }

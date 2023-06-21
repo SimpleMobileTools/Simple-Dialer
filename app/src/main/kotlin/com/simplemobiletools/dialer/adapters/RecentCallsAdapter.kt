@@ -107,7 +107,11 @@ class RecentCallsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val recentCall = recentCalls[position]
-        holder.bindView(recentCall, refreshItemsListener != null, refreshItemsListener != null) { itemView, layoutPosition ->
+        holder.bindView(
+            any = recentCall,
+            allowSingleClick = refreshItemsListener != null && !recentCall.isUnknownNumber,
+            allowLongClick = refreshItemsListener != null && !recentCall.isUnknownNumber
+        ) { itemView, _ ->
             setupView(itemView, recentCall)
         }
         bindViewHolder(holder)
@@ -274,6 +278,7 @@ class RecentCallsAdapter(
     private fun getSelectedPhoneNumber() = getSelectedItems().firstOrNull()?.phoneNumber
 
     private fun setupView(view: View, call: RecentCall) {
+        val showShowOverflowMenu = showOverflowMenu && !call.isUnknownNumber
         view.apply {
             item_recents_holder.isSelected = selectedKeys.contains(call.id)
             val name = findContactByCall(call)?.getNameToDisplay() ?: call.name
@@ -312,7 +317,7 @@ class RecentCallsAdapter(
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
-                if (!showOverflowMenu) {
+                if (!showShowOverflowMenu) {
                     item_recents_duration.setPadding(0, 0, durationPadding, 0)
                 }
             }
@@ -335,8 +340,8 @@ class RecentCallsAdapter(
 
             item_recents_type.setImageDrawable(drawable)
 
-            overflow_menu_icon.beVisibleIf(showOverflowMenu)
-            if (showOverflowMenu) {
+            overflow_menu_icon.beVisibleIf(showShowOverflowMenu)
+            if (showShowOverflowMenu) {
                 overflow_menu_icon.drawable.apply {
                     mutate()
                     setTint(activity.getProperTextColor())
@@ -375,49 +380,59 @@ class RecentCallsAdapter(
                             callContact()
                         }
                     }
+
                     R.id.cab_call_sim_1 -> {
                         executeItemMenuOperation(callId) {
                             callContact(true)
                         }
                     }
+
                     R.id.cab_call_sim_2 -> {
                         executeItemMenuOperation(callId) {
                             callContact(false)
                         }
                     }
+
                     R.id.cab_send_sms -> {
                         executeItemMenuOperation(callId) {
                             sendSMS()
                         }
                     }
+
                     R.id.cab_view_details -> {
                         executeItemMenuOperation(callId) {
                             launchContactDetailsIntent(contact)
                         }
                     }
+
                     R.id.cab_add_number -> {
                         executeItemMenuOperation(callId) {
                             addNumberToContact()
                         }
                     }
+
                     R.id.cab_show_call_details -> {
                         executeItemMenuOperation(callId) {
                             showCallDetails()
                         }
                     }
+
                     R.id.cab_block_number -> {
                         selectedKeys.add(callId)
                         tryBlocking()
                     }
+
                     R.id.cab_remove -> {
                         selectedKeys.add(callId)
                         askConfirmRemove()
                     }
+
                     R.id.cab_copy_number -> {
                         executeItemMenuOperation(callId) {
                             copyNumber()
                         }
                     }
+
                     R.id.cab_remove_default_sim -> {
                         executeItemMenuOperation(callId) {
                             removeDefaultSIM()
