@@ -13,10 +13,10 @@ import com.simplemobiletools.dialer.models.RecentCall
 
 class RecentsHelper(private val context: Context) {
     private val COMPARABLE_PHONE_NUMBER_LENGTH = 9
-    private val QUERY_LIMIT = "200"
+    private val QUERY_LIMIT = 200
 
     @SuppressLint("MissingPermission")
-    fun getRecentCalls(groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
+    fun getRecentCalls(groupSubsequentCalls: Boolean, maxSize: Int = QUERY_LIMIT, callback: (ArrayList<RecentCall>) -> Unit) {
         val privateCursor = context.getMyContactsCursor(false, true)
         ensureBackgroundThread {
             if (!context.hasPermission(PERMISSION_READ_CALL_LOG)) {
@@ -30,13 +30,13 @@ class RecentsHelper(private val context: Context) {
                     contacts.addAll(privateContacts)
                 }
 
-                getRecents(contacts, groupSubsequentCalls, callback)
+                getRecents(contacts, groupSubsequentCalls, maxSize, callback = callback)
             }
         }
     }
 
     @SuppressLint("NewApi")
-    private fun getRecents(contacts: ArrayList<Contact>, groupSubsequentCalls: Boolean, callback: (ArrayList<RecentCall>) -> Unit) {
+    private fun getRecents(contacts: ArrayList<Contact>, groupSubsequentCalls: Boolean, maxSize: Int, callback: (ArrayList<RecentCall>) -> Unit) {
 
         var recentCalls = ArrayList<RecentCall>()
         var previousRecentCallFrom = ""
@@ -64,7 +64,7 @@ class RecentsHelper(private val context: Context) {
         val cursor = if (isNougatPlus()) {
             // https://issuetracker.google.com/issues/175198972?pli=1#comment6
             val limitedUri = uri.buildUpon()
-                .appendQueryParameter(Calls.LIMIT_PARAM_KEY, QUERY_LIMIT)
+                .appendQueryParameter(Calls.LIMIT_PARAM_KEY, QUERY_LIMIT.toString())
                 .build()
             val sortOrder = "${Calls._ID} DESC"
             context.contentResolver.query(limitedUri, projection, null, null, sortOrder)
@@ -163,7 +163,7 @@ class RecentsHelper(private val context: Context) {
                 }
 
                 previousRecentCallFrom = "$number$name$simID"
-            } while (cursor.moveToNext())
+            } while (cursor.moveToNext() && recentCalls.size < maxSize)
         }
         cursor?.close()
 
