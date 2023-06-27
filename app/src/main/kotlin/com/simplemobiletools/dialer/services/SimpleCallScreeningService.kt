@@ -1,6 +1,5 @@
 package com.simplemobiletools.dialer.services
 
-import android.net.Uri
 import android.os.Build
 import android.telecom.Call
 import android.telecom.CallScreeningService
@@ -15,17 +14,27 @@ import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 class SimpleCallScreeningService : CallScreeningService() {
 
     override fun onScreenCall(callDetails: Call.Details) {
-        val number = Uri.decode(callDetails.handle?.toString())?.substringAfter("tel:")
-        if (number != null && isNumberBlocked(number.normalizePhoneNumber())) {
-            respondToCall(callDetails, isBlocked = true)
-        } else if (number != null && baseConfig.blockUnknownNumbers) {
-            val simpleContactsHelper = SimpleContactsHelper(this)
-            val privateCursor = getMyContactsCursor(favoritesOnly = false, withPhoneNumbersOnly = true)
-            simpleContactsHelper.exists(number, privateCursor) { exists ->
-                respondToCall(callDetails, isBlocked = !exists)
+        val number = callDetails.handle?.schemeSpecificPart
+        when {
+            number != null && isNumberBlocked(number.normalizePhoneNumber()) -> {
+                respondToCall(callDetails, isBlocked = true)
             }
-        } else {
-            respondToCall(callDetails, isBlocked = false)
+
+            number != null && baseConfig.blockUnknownNumbers -> {
+                val simpleContactsHelper = SimpleContactsHelper(this)
+                val privateCursor = getMyContactsCursor(favoritesOnly = false, withPhoneNumbersOnly = true)
+                simpleContactsHelper.exists(number, privateCursor) { exists ->
+                    respondToCall(callDetails, isBlocked = !exists)
+                }
+            }
+
+            number == null && baseConfig.blockHiddenNumbers -> {
+                respondToCall(callDetails, isBlocked = true)
+            }
+
+            else -> {
+                respondToCall(callDetails, isBlocked = false)
+            }
         }
     }
 

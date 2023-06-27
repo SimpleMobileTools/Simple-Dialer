@@ -81,7 +81,7 @@ class MainActivity : SimpleActivity() {
             launchSetDefaultDialerIntent()
         }
 
-        if (isQPlus() && config.blockUnknownNumbers) {
+        if (isQPlus() && (config.blockUnknownNumbers || config.blockHiddenNumbers)) {
             setDefaultCallerIdApp()
         }
 
@@ -141,6 +141,7 @@ class MainActivity : SimpleActivity() {
         } else if (requestCode == REQUEST_CODE_SET_DEFAULT_CALLER_ID && resultCode != Activity.RESULT_OK) {
             toast(R.string.must_make_default_caller_id_app, length = Toast.LENGTH_LONG)
             baseConfig.blockUnknownNumbers = false
+            baseConfig.blockHiddenNumbers = false
         }
     }
 
