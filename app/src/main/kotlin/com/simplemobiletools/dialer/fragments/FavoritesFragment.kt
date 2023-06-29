@@ -6,13 +6,11 @@ import com.google.gson.Gson
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
-import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ContactsHelper
 import com.simplemobiletools.commons.helpers.MyContactsContentProvider
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
 import com.simplemobiletools.commons.helpers.SMT_PRIVATE
-import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
@@ -21,7 +19,7 @@ import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.Converters
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
-import java.util.*
+import java.util.Locale
 
 class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
     private var allContacts = ArrayList<Contact>()
@@ -98,10 +96,14 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                 ) {
                     if (context.config.showCallConfirmation) {
                         CallConfirmationDialog(activity as SimpleActivity, (it as Contact).getNameToDisplay()) {
-                            callContact(it)
+                            activity?.apply {
+                                initiateCall(it) { launchCallIntent(it) }
+                            }
                         }
                     } else {
-                        callContact(it as Contact)
+                        activity?.apply {
+                            initiateCall(it as Contact) { launchCallIntent(it) }
+                        }
                     }
                 }.apply {
                     fragment_list.adapter = this
@@ -147,36 +149,12 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         }
     }
 
-    private fun callContact(simpleContact: Contact) {
-        val phoneNumbers = simpleContact.phoneNumbers
-        if (phoneNumbers.isEmpty()) {
-            return
-        } else if (phoneNumbers.size <= 1) {
-            activity?.launchCallIntent(phoneNumbers.first().normalizedNumber)
-        } else {
-            val primaryNumber = simpleContact.phoneNumbers.find { it.isPrimary }
-            if (primaryNumber != null) {
-                activity?.launchCallIntent(primaryNumber.value)
-            } else {
-                val items = ArrayList<RadioItem>()
-                phoneNumbers.forEachIndexed { index, phoneNumber ->
-                    val type = context.getPhoneNumberTypeText(phoneNumber.type, phoneNumber.label)
-                    items.add(RadioItem(index, "${phoneNumber.normalizedNumber} ($type)", phoneNumber.normalizedNumber))
-                }
-
-                RadioGroupDialog(activity!!, items) {
-                    activity?.launchCallIntent(it as String)
-                }
-            }
-        }
-    }
-
     private fun setupLetterFastscroller(contacts: ArrayList<Contact>) {
         letter_fastscroller.setupWithRecyclerView(fragment_list, { position ->
             try {
                 val name = contacts[position].getNameToDisplay()
                 val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
-                FastScrollItemIndicator.Text(character.toUpperCase(Locale.getDefault()).normalizeString())
+                FastScrollItemIndicator.Text(character.uppercase(Locale.getDefault()).normalizeString())
             } catch (e: Exception) {
                 FastScrollItemIndicator.Text("")
             }
