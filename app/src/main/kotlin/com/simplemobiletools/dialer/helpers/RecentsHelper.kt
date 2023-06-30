@@ -90,13 +90,13 @@ class RecentsHelper(private val context: Context) {
                 val id = cursor.getIntValue(Calls._ID)
                 var isUnknownNumber = false
                 var number = cursor.getStringValueOrNull(Calls.NUMBER)
-                if (number == null) {
+                if (number == null || number == "-1") {
                     number = context.getString(R.string.unknown)
                     isUnknownNumber = true
                 }
 
                 var name = cursor.getStringValueOrNull(Calls.CACHED_NAME)
-                if (name.isNullOrEmpty()) {
+                if (name.isNullOrEmpty() || name == "-1") {
                     name = number
                 }
 
@@ -123,7 +123,7 @@ class RecentsHelper(private val context: Context) {
                     }
                 }
 
-                if (name.isEmpty()) {
+                if (name.isEmpty() || name == "-1") {
                     name = context.getString(R.string.unknown)
                 }
 
