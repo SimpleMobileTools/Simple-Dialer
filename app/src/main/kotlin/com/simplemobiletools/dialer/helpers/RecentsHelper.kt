@@ -86,6 +86,7 @@ class RecentsHelper(private val context: Context) {
             if (!cursor.moveToFirst()) {
                 return@use
             }
+
             do {
                 val id = cursor.getIntValue(Calls._ID)
                 var isUnknownNumber = false
