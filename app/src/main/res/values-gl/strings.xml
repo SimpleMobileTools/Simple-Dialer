@@ -72,9 +72,13 @@
     <string name="disable_swipe_to_answer">Substituír o xesto de desprazar por un click para responder</string>
     <string name="show_incoming_calls_full_screen">Mostrar sempre as chamadas entrantes a pantalla enteira</string>
     <string name="hide_dialpad_numbers">Ocultalos números do teclado</string>
+    <string name="export_call_history">Export call history</string>
+    <string name="import_call_history">Import call history</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Escoito chamadas entrantes, pero a pantalla non se acende. Que podo facer\?</string>
     <string name="faq_1_text">Estes problemas poden ter moitas razóns específicas do dispositivo e do sistema, difíciles de dicir en xeral. Debes mirar ao teu redor na configuración do teu dispositivo e asegurarte de que a aplicación pode aparecer cando está en segundo plano e permitir que se vexa sobre outras aplicacións.</string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

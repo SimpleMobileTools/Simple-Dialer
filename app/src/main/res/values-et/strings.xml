@@ -72,9 +72,13 @@
     <string name="disable_swipe_to_answer">Kõnele vastamisel kasuta viipamise asemel klõpsimist</string>
     <string name="show_incoming_calls_full_screen">Kuvage sissetulevad kõned alati täisekraanil</string>
     <string name="hide_dialpad_numbers">Peida numbriklahvistik</string>
+    <string name="export_call_history">Export call history</string>
+    <string name="import_call_history">Import call history</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Ma kuulen sissetulevaid kõnesid, kuid ekraan ei lülitu sisse. Mida ma saan teha\?</string>
     <string name="faq_1_text">Sellistel probleemidel võib olla palju seadme- ja süsteemispetsiifilisi põhjusi, raske öelda üldiselt. Peaksite oma seadme seadetes ringi vaatama ja veenduma, et rakendusel on lubatud taustal hüpata ja lubada kuvamist üle teiste rakenduste.</string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

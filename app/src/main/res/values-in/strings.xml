@@ -72,9 +72,13 @@
     <string name="disable_swipe_to_answer">Ganti menggesek saat menanggapi panggilan masuk dengan mengklik</string>
     <string name="show_incoming_calls_full_screen">Selalu tampilkan panggilan masuk dengan layar penuh</string>
     <string name="hide_dialpad_numbers">Sembunyikan nomor tombol papan</string>
+    <string name="export_call_history">Export call history</string>
+    <string name="import_call_history">Import call history</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Saya mendengar panggilan masuk, tetapi layarnya tidak menyala\? Apa yang bisa saya lakukan\?</string>
     <string name="faq_1_text">Beberapa masalah dapat memiliki alasan perangkat dan sistem spesifik, tidak mudah untuk diberi tahu secara umum. Anda seharusnya melihat dalam pengaturan perangkat Anda dan memastikan bahwa aplikasi diperbolehkan untuk muncul ketika dalam latar belakang dan memperbolehkan menampilkan di atas aplikasi lain.</string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

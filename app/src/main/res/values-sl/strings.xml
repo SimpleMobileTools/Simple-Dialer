@@ -72,10 +72,13 @@
     <string name="disable_swipe_to_answer">Pri odzivanju na dohodne klice zamenjajte poteg s prstom na odziv s klikanjem</string>
     <string name="show_incoming_calls_full_screen">Dohodne klice vedno prikaži na celotnem zaslonu</string>
     <string name="hide_dialpad_numbers">Hide dialpad numbers</string>
+    <string name="export_call_history">Export call history</string>
+    <string name="import_call_history">Import call history</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Slišim dohodne klice, vendar se zaslon ne vklopi. Kaj lahko storim\?</string>
     <string name="faq_1_text">Takšne težave imajo lahko veliko razlogov, ki so specifični za napravo in sistem, zato jih je na splošno težko opredeliti. Oglejte si nastavitve naprave in se prepričajte, da je aplikaciji dovoljeno, da se prikaže, ko je v ozadju, in da omogoča prikaz nad drugimi aplikacijami.</string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

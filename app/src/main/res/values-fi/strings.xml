@@ -72,9 +72,13 @@
     <string name="disable_swipe_to_answer">Vastaa puheluihin painalluksella pyyhkäisyn sijaan</string>
     <string name="show_incoming_calls_full_screen">Näytä saapuvat puhelut aina koko näytöllä</string>
     <string name="hide_dialpad_numbers">Piilota numeronäppäimet</string>
+    <string name="export_call_history">Export call history</string>
+    <string name="import_call_history">Import call history</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Kuulen saapuvat puhelut, mutta näyttö on pimeänä. Mitä voin tehdä\?</string>
     <string name="faq_1_text">Tällaisiin ongelmiin voi olla monia laite- ja järjestelmäkohtaisia syitä, joiden yleistäminen on hankalaa. Kannattaa tutkia laitteen asetuksia ja varmistaa, että sovelluksella on oikeus ponnahtaa esiin taustalta ja näkyä muiden sovellusten päällä.</string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
