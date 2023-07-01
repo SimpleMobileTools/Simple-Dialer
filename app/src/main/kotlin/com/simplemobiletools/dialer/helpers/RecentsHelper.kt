@@ -1,6 +1,7 @@
 package com.simplemobiletools.dialer.helpers
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Context
 import android.provider.CallLog.Calls
 import com.simplemobiletools.commons.extensions.*
@@ -14,8 +15,8 @@ import com.simplemobiletools.dialer.models.RecentCall
 class RecentsHelper(private val context: Context) {
     private val COMPARABLE_PHONE_NUMBER_LENGTH = 9
     private val QUERY_LIMIT = 200
+    private val contentUri = Calls.CONTENT_URI
 
-    @SuppressLint("MissingPermission")
     fun getRecentCalls(groupSubsequentCalls: Boolean, maxSize: Int = QUERY_LIMIT, callback: (ArrayList<RecentCall>) -> Unit) {
         val privateCursor = context.getMyContactsCursor(false, true)
         ensureBackgroundThread {
@@ -38,13 +39,12 @@ class RecentsHelper(private val context: Context) {
     @SuppressLint("NewApi")
     private fun getRecents(contacts: ArrayList<Contact>, groupSubsequentCalls: Boolean, maxSize: Int, callback: (ArrayList<RecentCall>) -> Unit) {
 
-        var recentCalls = ArrayList<RecentCall>()
+        val recentCalls = mutableListOf<RecentCall>()
         var previousRecentCallFrom = ""
         var previousStartTS = 0
         val contactsNumbersMap = HashMap<String, String>()
         val contactPhotosMap = HashMap<String, String>()
 
-        val uri = Calls.CONTENT_URI
         val projection = arrayOf(
             Calls._ID,
             Calls.NUMBER,
@@ -63,14 +63,14 @@ class RecentsHelper(private val context: Context) {
 
         val cursor = if (isNougatPlus()) {
             // https://issuetracker.google.com/issues/175198972?pli=1#comment6
-            val limitedUri = uri.buildUpon()
+            val limitedUri = contentUri.buildUpon()
                 .appendQueryParameter(Calls.LIMIT_PARAM_KEY, QUERY_LIMIT.toString())
                 .build()
-            val sortOrder = "${Calls._ID} DESC"
+            val sortOrder = "${Calls.DATE} DESC"
             context.contentResolver.query(limitedUri, projection, null, null, sortOrder)
         } else {
-            val sortOrder = "${Calls._ID} DESC LIMIT $QUERY_LIMIT"
-            context.contentResolver.query(uri, projection, null, null, sortOrder)
+            val sortOrder = "${Calls.DATE} DESC LIMIT $QUERY_LIMIT"
+            context.contentResolver.query(contentUri, projection, null, null, sortOrder)
         }
 
         val contactsWithMultipleNumbers = contacts.filter { it.phoneNumbers.size > 1 }
@@ -89,15 +89,14 @@ class RecentsHelper(private val context: Context) {
             do {
                 val id = cursor.getIntValue(Calls._ID)
                 var isUnknownNumber = false
-                var number = cursor.getStringValueOrNull(Calls.NUMBER)
+                val number = cursor.getStringValueOrNull(Calls.NUMBER)
                 if (number == null) {
-                    number = context.getString(R.string.unknown)
                     isUnknownNumber = true
                 }
 
                 var name = cursor.getStringValueOrNull(Calls.CACHED_NAME)
                 if (name.isNullOrEmpty()) {
-                    name = number
+                    name = number.orEmpty()
                 }
 
                 if (name == number && !isUnknownNumber) {
@@ -128,7 +127,7 @@ class RecentsHelper(private val context: Context) {
                 }
 
                 var photoUri = cursor.getStringValue(Calls.CACHED_PHOTO_URI) ?: ""
-                if (photoUri.isEmpty()) {
+                if (photoUri.isEmpty() && !number.isNullOrEmpty()) {
                     if (contactPhotosMap.containsKey(number)) {
                         photoUri = contactPhotosMap[number]!!
                     } else {
@@ -167,7 +166,7 @@ class RecentsHelper(private val context: Context) {
 
                 val recentCall = RecentCall(
                     id = id,
-                    phoneNumber = number,
+                    phoneNumber = number.orEmpty(),
                     name = name,
                     photoUri = photoUri,
                     startTS = startTS,
@@ -192,18 +191,19 @@ class RecentsHelper(private val context: Context) {
         }
 
         val blockedNumbers = context.getBlockedNumbers()
-        recentCalls = recentCalls.filter { !context.isNumberBlocked(it.phoneNumber, blockedNumbers) }.toMutableList() as ArrayList<RecentCall>
-        callback(recentCalls)
+
+        val recentResult = recentCalls
+            .filter { !context.isNumberBlocked(it.phoneNumber, blockedNumbers) }
+
+        callback(ArrayList(recentResult))
     }
 
-    @SuppressLint("MissingPermission")
     fun removeRecentCalls(ids: ArrayList<Int>, callback: () -> Unit) {
         ensureBackgroundThread {
-            val uri = Calls.CONTENT_URI
             ids.chunked(30).forEach { chunk ->
                 val selection = "${Calls._ID} IN (${getQuestionMarks(chunk.size)})"
                 val selectionArgs = chunk.map { it.toString() }.toTypedArray()
-                context.contentResolver.delete(uri, selection, selectionArgs)
+                context.contentResolver.delete(contentUri, selection, selectionArgs)
             }
             callback()
         }
@@ -214,8 +214,29 @@ class RecentsHelper(private val context: Context) {
         activity.handlePermission(PERMISSION_WRITE_CALL_LOG) {
             if (it) {
                 ensureBackgroundThread {
-                    val uri = Calls.CONTENT_URI
-                    context.contentResolver.delete(uri, null, null)
+                    context.contentResolver.delete(contentUri, null, null)
+                    callback()
+                }
+            }
+        }
+    }
+
+    fun restoreRecentCalls(activity: SimpleActivity, objects: List<RecentCall>, callback: () -> Unit) {
+        activity.handlePermission(PERMISSION_WRITE_CALL_LOG) {
+            if (it) {
+                ensureBackgroundThread {
+                    val values = objects.map {
+                        ContentValues().apply {
+                            put(Calls.NUMBER, it.phoneNumber)
+                            put(Calls.TYPE, it.type)
+                            put(Calls.DATE, it.startTS.toLong() * 1000L)
+                            put(Calls.DURATION, it.duration)
+                            put(Calls.CACHED_NAME, it.name)
+                        }
+                    }.toTypedArray()
+
+                    context.contentResolver.bulkInsert(contentUri, values)
+
                     callback()
                 }
             }
