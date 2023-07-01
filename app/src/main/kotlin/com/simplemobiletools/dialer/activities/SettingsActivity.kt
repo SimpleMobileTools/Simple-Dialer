@@ -2,9 +2,13 @@ package com.simplemobiletools.dialer.activities
 
 import android.annotation.TargetApi
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import androidx.activity.result.contract.ActivityResultContracts
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity
 import com.simplemobiletools.commons.dialogs.ChangeDateTimeFormatDialog
 import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
@@ -15,11 +19,35 @@ import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.dialogs.ManageVisibleTabsDialog
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.helpers.RecentsHelper
+import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.activity_settings.*
 import java.util.*
 import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
+
+    private val callHistoryFileType = "application/json"
+
+    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        if (uri != null) {
+            toast(R.string.importing)
+            importCallHistory(uri)
+        } else {
+            toast(R.string.importing_failed)
+        }
+    }
+
+    private val saveDocument = registerForActivityResult(ActivityResultContracts.CreateDocument(callHistoryFileType)) { uri ->
+        if (uri != null) {
+            toast(R.string.exporting)
+            RecentsHelper(this).getRecentCalls(false, Int.MAX_VALUE) { recents ->
+                exportCallHistory(recents, uri)
+            }
+        } else {
+            toast(R.string.exporting_failed)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
@@ -54,6 +82,7 @@ class SettingsActivity : SimpleActivity() {
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
         setupAlwaysShowFullscreen()
+        setupCallsImportExport()
         updateTextColors(settings_holder)
 
         arrayOf(
@@ -259,6 +288,54 @@ class SettingsActivity : SimpleActivity() {
         settings_always_show_fullscreen_holder.setOnClickListener {
             settings_always_show_fullscreen.toggle()
             config.alwaysShowFullscreen = settings_always_show_fullscreen.isChecked
+        }
+    }
+
+    private fun setupCallsImportExport() {
+        settings_calls_import_holder.setOnClickListener {
+            getContent.launch(callHistoryFileType)
+        }
+
+        settings_calls_export_holder.setOnClickListener {
+            val fileName = "call_history_${getCurrentFormattedDateTime()}"
+            saveDocument.launch(fileName)
+        }
+    }
+
+
+    private fun importCallHistory(uri: Uri) {
+        runCatching {
+            val jsonString = contentResolver.openInputStream(uri)!!.use { inputStream ->
+                inputStream.bufferedReader().readText()
+            }
+
+            val recentsType = object : TypeToken<List<RecentCall>>() {}.type
+            val objects = Gson().fromJson<List<RecentCall>>(jsonString, recentsType)
+
+            RecentsHelper(this).restoreRecentCalls(this, objects) {
+                toast(R.string.importing_successful)
+            }
+        }.onFailure {
+            toast(R.string.importing_failed)
+        }
+    }
+
+    private fun exportCallHistory(recents: ArrayList<RecentCall>, uri: Uri) {
+        if (recents.isEmpty()) {
+            toast(R.string.no_entries_for_exporting)
+        } else {
+            runCatching {
+                val outputStream = contentResolver.openOutputStream(uri)!!
+
+                val jsonString = Gson().toJson(recents)
+                outputStream.use {
+                    it.write(jsonString.toByteArray())
+                }
+            }.onSuccess {
+                toast(R.string.exporting_successful)
+            }.onFailure {
+                toast(R.string.exporting_failed)
+            }
         }
     }
 }
