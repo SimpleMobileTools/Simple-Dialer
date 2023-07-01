@@ -393,6 +393,37 @@
                     android:text="@string/show_incoming_calls_full_screen" />
 
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_calls_import_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_calls_import"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/import_call_history" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_calls_export_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_calls_export"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/export_call_history" />
+
+            </RelativeLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
