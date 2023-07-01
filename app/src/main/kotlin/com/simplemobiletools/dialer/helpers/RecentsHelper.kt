@@ -226,15 +226,17 @@ class RecentsHelper(private val context: Context) {
         activity.handlePermission(PERMISSION_WRITE_CALL_LOG) {
             if (it) {
                 ensureBackgroundThread {
-                    val values = objects.map {
-                        ContentValues().apply {
-                            put(Calls.NUMBER, it.phoneNumber)
-                            put(Calls.TYPE, it.type)
-                            put(Calls.DATE, it.startTS.toLong() * 1000L)
-                            put(Calls.DURATION, it.duration)
-                            put(Calls.CACHED_NAME, it.name)
-                        }
-                    }.toTypedArray()
+                    val values = objects
+                        .sortedBy { it.startTS }
+                        .map {
+                            ContentValues().apply {
+                                put(Calls.NUMBER, it.phoneNumber)
+                                put(Calls.TYPE, it.type)
+                                put(Calls.DATE, it.startTS.toLong() * 1000L)
+                                put(Calls.DURATION, it.duration)
+                                put(Calls.CACHED_NAME, it.name)
+                            }
+                        }.toTypedArray()
 
                     context.contentResolver.bulkInsert(contentUri, values)
 
