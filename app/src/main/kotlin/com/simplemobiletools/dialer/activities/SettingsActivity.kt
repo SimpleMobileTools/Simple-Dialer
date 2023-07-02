@@ -320,7 +320,7 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun exportCallHistory(recents: ArrayList<RecentCall>, uri: Uri) {
+    private fun exportCallHistory(recents: List<RecentCall>, uri: Uri) {
         if (recents.isEmpty()) {
             toast(R.string.no_entries_for_exporting)
         } else {

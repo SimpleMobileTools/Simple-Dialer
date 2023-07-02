@@ -16,7 +16,7 @@ data class RecentCall(
     val startTS: Int,
     val duration: Int,
     val type: Int,
-    val neighbourIDs: ArrayList<Int>,
+    val neighbourIDs: MutableList<Int>,
     val simID: Int,
     val specificNumber: String,
     val specificType: String,

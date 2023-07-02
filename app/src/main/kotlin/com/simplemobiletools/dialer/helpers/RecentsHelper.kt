@@ -17,7 +17,7 @@ class RecentsHelper(private val context: Context) {
     private val QUERY_LIMIT = 200
     private val contentUri = Calls.CONTENT_URI
 
-    fun getRecentCalls(groupSubsequentCalls: Boolean, maxSize: Int = QUERY_LIMIT, callback: (ArrayList<RecentCall>) -> Unit) {
+    fun getRecentCalls(groupSubsequentCalls: Boolean, maxSize: Int = QUERY_LIMIT, callback: (List<RecentCall>) -> Unit) {
         val privateCursor = context.getMyContactsCursor(false, true)
         ensureBackgroundThread {
             if (!context.hasPermission(PERMISSION_READ_CALL_LOG)) {
@@ -37,7 +37,7 @@ class RecentsHelper(private val context: Context) {
     }
 
     @SuppressLint("NewApi")
-    private fun getRecents(contacts: ArrayList<Contact>, groupSubsequentCalls: Boolean, maxSize: Int, callback: (ArrayList<RecentCall>) -> Unit) {
+    private fun getRecents(contacts: List<Contact>, groupSubsequentCalls: Boolean, maxSize: Int, callback: (List<RecentCall>) -> Unit) {
 
         val recentCalls = mutableListOf<RecentCall>()
         var previousRecentCallFrom = ""
@@ -151,7 +151,7 @@ class RecentsHelper(private val context: Context) {
                 val type = cursor.getIntValue(Calls.TYPE)
                 val accountId = cursor.getStringValue(Calls.PHONE_ACCOUNT_ID)
                 val simID = accountIdToSimIDMap[accountId] ?: -1
-                val neighbourIDs = ArrayList<Int>()
+                val neighbourIDs = mutableListOf<Int>()
                 var specificNumber = ""
                 var specificType = ""
 
@@ -196,10 +196,10 @@ class RecentsHelper(private val context: Context) {
         val recentResult = recentCalls
             .filter { !context.isNumberBlocked(it.phoneNumber, blockedNumbers) }
 
-        callback(ArrayList(recentResult))
+        callback(recentResult)
     }
 
-    fun removeRecentCalls(ids: ArrayList<Int>, callback: () -> Unit) {
+    fun removeRecentCalls(ids: List<Int>, callback: () -> Unit) {
         ensureBackgroundThread {
             ids.chunked(30).forEach { chunk ->
                 val selection = "${Calls._ID} IN (${getQuestionMarks(chunk.size)})"

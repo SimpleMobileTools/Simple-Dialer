@@ -16,8 +16,8 @@ val Context.audioManager: AudioManager get() = getSystemService(Context.AUDIO_SE
 val Context.powerManager: PowerManager get() = getSystemService(Context.POWER_SERVICE) as PowerManager
 
 @SuppressLint("MissingPermission")
-fun Context.getAvailableSIMCardLabels(): ArrayList<SIMAccount> {
-    val SIMAccounts = ArrayList<SIMAccount>()
+fun Context.getAvailableSIMCardLabels(): List<SIMAccount> {
+    val SIMAccounts = mutableListOf<SIMAccount>()
     try {
         telecomManager.callCapablePhoneAccounts.forEachIndexed { index, account ->
             val phoneAccount = telecomManager.getPhoneAccount(account)

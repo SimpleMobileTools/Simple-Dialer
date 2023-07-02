@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.item_recent_call.view.*
 
 class RecentCallsAdapter(
     activity: SimpleActivity,
-    var recentCalls: ArrayList<RecentCall>,
+    private var recentCalls: MutableList<RecentCall>,
     recyclerView: MyRecyclerView,
     private val refreshItemsListener: RefreshItemsListener?,
     private val showOverflowMenu: Boolean,
@@ -260,9 +260,9 @@ class RecentCallsAdapter(
         }
     }
 
-    fun updateItems(newItems: ArrayList<RecentCall>, highlightText: String = "") {
+    fun updateItems(newItems: List<RecentCall>, highlightText: String = "") {
         if (newItems.hashCode() != recentCalls.hashCode()) {
-            recentCalls = newItems.clone() as ArrayList<RecentCall>
+            recentCalls = newItems.toMutableList()
             textToHighlight = highlightText
             recyclerView.resetItemCount()
             notifyDataSetChanged()
