@@ -33,8 +33,6 @@ class SettingsActivity : SimpleActivity() {
         if (uri != null) {
             toast(R.string.importing)
             importCallHistory(uri)
-        } else {
-            toast(R.string.importing_failed)
         }
     }
 
@@ -44,8 +42,6 @@ class SettingsActivity : SimpleActivity() {
             RecentsHelper(this).getRecentCalls(false, Int.MAX_VALUE) { recents ->
                 exportCallHistory(recents, uri)
             }
-        } else {
-            toast(R.string.exporting_failed)
         }
     }
 
