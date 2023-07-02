@@ -302,7 +302,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-
     private fun importCallHistory(uri: Uri) {
         try {
             val jsonString = contentResolver.openInputStream(uri)!!.use { inputStream ->

@@ -394,20 +394,16 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/settings_calls_import_holder"
-                style="@style/SettingsHolderTextViewOneLinerStyle"
+            <include
+                android:id="@+id/settings_migration_divider"
+                layout="@layout/divider" />
+
+            <TextView
+                android:id="@+id/settings_migration_section_label"
+                style="@style/SettingsSectionLabelStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.simplemobiletools.commons.views.MyTextView
-                    android:id="@+id/settings_calls_import"
-                    style="@style/SettingsTextLabelStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/import_call_history" />
-
-            </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:text="@string/migrating" />
 
             <RelativeLayout
                 android:id="@+id/settings_calls_export_holder"
@@ -421,6 +417,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/export_call_history" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/settings_calls_import_holder"
+                style="@style/SettingsHolderTextViewOneLinerStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.simplemobiletools.commons.views.MyTextView
+                    android:id="@+id/settings_calls_import"
+                    style="@style/SettingsTextLabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/import_call_history" />
 
             </RelativeLayout>
 
