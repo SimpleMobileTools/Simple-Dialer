@@ -17,6 +17,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.dialogs.ExportCallHistoryDialog
 import com.simplemobiletools.dialer.dialogs.ManageVisibleTabsDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
@@ -293,8 +294,9 @@ class SettingsActivity : SimpleActivity() {
         }
 
         settings_calls_export_holder.setOnClickListener {
-            val fileName = "call_history_${getCurrentFormattedDateTime()}"
-            saveDocument.launch(fileName)
+            ExportCallHistoryDialog(this) { filename ->
+                saveDocument.launch(filename)
+            }
         }
     }
 
