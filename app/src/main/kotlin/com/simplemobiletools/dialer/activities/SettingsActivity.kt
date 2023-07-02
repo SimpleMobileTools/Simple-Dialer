@@ -304,7 +304,7 @@ class SettingsActivity : SimpleActivity() {
 
 
     private fun importCallHistory(uri: Uri) {
-        runCatching {
+        try {
             val jsonString = contentResolver.openInputStream(uri)!!.use { inputStream ->
                 inputStream.bufferedReader().readText()
             }
@@ -315,8 +315,8 @@ class SettingsActivity : SimpleActivity() {
             RecentsHelper(this).restoreRecentCalls(this, objects) {
                 toast(R.string.importing_successful)
             }
-        }.onFailure {
-            toast(R.string.importing_failed)
+        } catch (e: Exception) {
+            showErrorToast(e)
         }
     }
 
@@ -324,17 +324,16 @@ class SettingsActivity : SimpleActivity() {
         if (recents.isEmpty()) {
             toast(R.string.no_entries_for_exporting)
         } else {
-            runCatching {
+            try {
                 val outputStream = contentResolver.openOutputStream(uri)!!
 
                 val jsonString = Gson().toJson(recents)
                 outputStream.use {
                     it.write(jsonString.toByteArray())
                 }
-            }.onSuccess {
                 toast(R.string.exporting_successful)
-            }.onFailure {
-                toast(R.string.exporting_failed)
+            } catch (e: Exception) {
+                showErrorToast(e)
             }
         }
     }
