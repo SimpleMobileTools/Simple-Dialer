@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.gson.Gson
+import com.google.gson.JsonParseException
+import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity
 import com.simplemobiletools.commons.dialogs.ChangeDateTimeFormatDialog
@@ -312,6 +314,10 @@ class SettingsActivity : SimpleActivity() {
             RecentsHelper(this).restoreRecentCalls(this, objects) {
                 toast(R.string.importing_successful)
             }
+        } catch (_: JsonParseException) {
+            toast(R.string.invalid_file_format)
+        } catch (_: JsonSyntaxException) {
+            toast(R.string.invalid_file_format)
         } catch (e: Exception) {
             showErrorToast(e)
         }
