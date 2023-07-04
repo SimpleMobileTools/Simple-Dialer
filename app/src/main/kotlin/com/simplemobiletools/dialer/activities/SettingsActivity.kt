@@ -309,7 +309,12 @@ class SettingsActivity : SimpleActivity() {
             }
 
             val recentsType = object : TypeToken<List<RecentCall>>() {}.type
-            val objects = Gson().fromJson<List<RecentCall>>(jsonString, recentsType)
+            val objects = Gson().fromJson<List<RecentCall>>(jsonString, recentsType).orEmpty()
+
+            if (objects.isEmpty()) {
+                toast(R.string.no_entries_for_importing)
+                return
+            }
 
             RecentsHelper(this).restoreRecentCalls(this, objects) {
                 toast(R.string.importing_successful)
