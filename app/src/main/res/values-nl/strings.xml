@@ -72,13 +72,11 @@
     <string name="disable_swipe_to_answer">Vervang vegen door klikken bij het aannemen van gesprekken</string>
     <string name="show_incoming_calls_full_screen">Inkomende gesprekken altijd op volledig scherm tonen</string>
     <string name="hide_dialpad_numbers">Toetsenblokcijfers verbergen</string>
-    <string name="export_call_history">Export call history</string>
-    <string name="import_call_history">Import call history</string>
-
+    <string name="export_call_history">Gespreksgeschiedenis exporteren</string>
+    <string name="import_call_history">Gespreksgeschiedenis importeren</string>
     <!-- FAQ -->
     <string name="faq_1_title">Ik hoor dat er een gesprek binnenkomt, maar het scherm gaat niet aan. Wat kan ik doen\?</string>
     <string name="faq_1_text">Dit soort problemen kan vele oorzaken hebben, specifiek voor bepaalde apparaten en software. Controleer in ieder geval of voor deze app in de systeeminstellingen \"Weergeven vóór andere apps\" is toegestaan en of bij meldingen voor inkomende gesprekken \"Weergeven op scherm\" is ingeschakeld.</string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
