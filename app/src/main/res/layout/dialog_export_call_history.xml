@@ -29,6 +29,5 @@
                 android:textSize="@dimen/bigger_text_size" />
 
         </com.simplemobiletools.commons.views.MyTextInputLayout>
-
     </LinearLayout>
 </ScrollView>
