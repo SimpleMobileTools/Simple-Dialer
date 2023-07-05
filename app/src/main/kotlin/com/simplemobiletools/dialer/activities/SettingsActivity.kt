@@ -88,7 +88,8 @@ class SettingsActivity : SimpleActivity() {
             settings_color_customization_section_label,
             settings_general_settings_label,
             settings_startup_label,
-            settings_calls_label
+            settings_calls_label,
+            settings_migration_section_label
         ).forEach {
             it.setTextColor(getProperPrimaryColor())
         }
