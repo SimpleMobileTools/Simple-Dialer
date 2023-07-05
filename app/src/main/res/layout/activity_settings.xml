@@ -406,13 +406,13 @@
                 android:text="@string/migrating" />
 
             <RelativeLayout
-                android:id="@+id/settings_calls_export_holder"
+                android:id="@+id/settings_export_calls_holder"
                 style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <com.simplemobiletools.commons.views.MyTextView
-                    android:id="@+id/settings_calls_export"
+                    android:id="@+id/settings_export_calls"
                     style="@style/SettingsTextLabelStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -421,20 +421,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/settings_calls_import_holder"
+                android:id="@+id/settings_import_calls_holder"
                 style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <com.simplemobiletools.commons.views.MyTextView
-                    android:id="@+id/settings_calls_import"
+                    android:id="@+id/settings_import_calls"
                     style="@style/SettingsTextLabelStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/import_call_history" />
 
             </RelativeLayout>
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
