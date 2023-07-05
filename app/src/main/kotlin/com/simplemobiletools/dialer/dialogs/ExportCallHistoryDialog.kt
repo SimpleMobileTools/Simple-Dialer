@@ -33,4 +33,3 @@ class ExportCallHistoryDialog(val activity: SimpleActivity, callback: (filename:
         }
     }
 }
-
