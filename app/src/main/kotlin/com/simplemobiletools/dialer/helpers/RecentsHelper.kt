@@ -239,7 +239,6 @@ class RecentsHelper(private val context: Context) {
                         }.toTypedArray()
 
                     context.contentResolver.bulkInsert(contentUri, values)
-
                     callback()
                 }
             }
