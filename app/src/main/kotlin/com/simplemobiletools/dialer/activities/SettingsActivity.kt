@@ -81,7 +81,8 @@ class SettingsActivity : SimpleActivity() {
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
         setupAlwaysShowFullscreen()
-        setupCallsImportExport()
+        setupCallsExport()
+        setupCallsImport()
         updateTextColors(settings_holder)
 
         arrayOf(
@@ -291,15 +292,17 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupCallsImportExport() {
-        settings_calls_import_holder.setOnClickListener {
-            getContent.launch(callHistoryFileType)
-        }
-
+    private fun setupCallsExport() {
         settings_calls_export_holder.setOnClickListener {
             ExportCallHistoryDialog(this) { filename ->
                 saveDocument.launch(filename)
             }
+        }
+    }
+
+    private fun setupCallsImport() {
+        settings_calls_import_holder.setOnClickListener {
+            getContent.launch(callHistoryFileType)
         }
     }
 
