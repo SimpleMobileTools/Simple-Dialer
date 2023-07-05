@@ -7,10 +7,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import androidx.activity.result.contract.ActivityResultContracts
-import com.google.gson.Gson
-import com.google.gson.JsonParseException
-import com.google.gson.JsonSyntaxException
-import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity
 import com.simplemobiletools.commons.dialogs.ChangeDateTimeFormatDialog
 import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
@@ -25,6 +21,10 @@ import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.activity_settings.*
+import kotlinx.serialization.SerializationException
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import java.util.*
 import kotlin.system.exitProcess
 
@@ -308,8 +308,7 @@ class SettingsActivity : SimpleActivity() {
                 inputStream.bufferedReader().readText()
             }
 
-            val recentsType = object : TypeToken<List<RecentCall>>() {}.type
-            val objects = Gson().fromJson<List<RecentCall>>(jsonString, recentsType).orEmpty()
+            val objects = Json.decodeFromString<List<RecentCall>>(jsonString)
 
             if (objects.isEmpty()) {
                 toast(R.string.no_entries_for_importing)
@@ -319,9 +318,9 @@ class SettingsActivity : SimpleActivity() {
             RecentsHelper(this).restoreRecentCalls(this, objects) {
                 toast(R.string.importing_successful)
             }
-        } catch (_: JsonParseException) {
+        } catch (_: SerializationException) {
             toast(R.string.invalid_file_format)
-        } catch (_: JsonSyntaxException) {
+        } catch (_: IllegalArgumentException) {
             toast(R.string.invalid_file_format)
         } catch (e: Exception) {
             showErrorToast(e)
@@ -335,7 +334,7 @@ class SettingsActivity : SimpleActivity() {
             try {
                 val outputStream = contentResolver.openOutputStream(uri)!!
 
-                val jsonString = Gson().toJson(recents)
+                val jsonString = Json.encodeToString(recents)
                 outputStream.use {
                     it.write(jsonString.toByteArray())
                 }
