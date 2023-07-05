@@ -72,13 +72,11 @@
     <string name="disable_swipe_to_answer">Substitueix el lliscament en respondre a les trucades entrants per fer clic</string>
     <string name="show_incoming_calls_full_screen">Mostra sempre les trucades entrants a pantalla completa</string>
     <string name="hide_dialpad_numbers">Oculta els números del teclat numèric</string>
-    <string name="export_call_history">Export call history</string>
-    <string name="import_call_history">Import call history</string>
-
+    <string name="export_call_history">Exporta l\'historial de trucades</string>
+    <string name="import_call_history">Importa l\'historial de trucades</string>
     <!-- FAQ -->
     <string name="faq_1_title">Sento trucades entrants, però la pantalla no s\'encén. Què puc fer\?</string>
     <string name="faq_1_text">Aquests problemes poden tenir moltes raons específiques del dispositiu i del sistema, difícils de dir en general. Hauríeu de mirar per la configuració del dispositiu i assegurar-vos que l\'aplicació pugui aparèixer en segon pla i permetre que es mostri sobre altres aplicacions.</string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
