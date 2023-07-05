@@ -65,16 +65,20 @@
     <string name="speed_dial">Quay số nhanh</string>
     <string name="manage_speed_dial">Quản lý quay số nhanh</string>
     <string name="speed_dial_label">Bấm vào một số để chỉ định một số liên lạc cho nó. Sau đó, bạn có thể nhanh chóng gọi cho số liên lạc đã cho bằng cách nhấn và giữ số đã cho ở trình quay số.</string>
-    <!-- Settings -->    
+    <!-- Settings -->
     <string name="group_subsequent_calls">Nhóm các cuộc gọi tiếp theo với cùng một số trong nhật ký cuộc gọi</string>
     <string name="open_dialpad_by_default">Mở bàn phím quay số theo mặc định khi mở ứng dụng</string>
     <string name="disable_proximity_sensor">Tắt cảm biến tiệm cận trong khi gọi</string>
     <string name="disable_swipe_to_answer">Thay thế thao tác vuốt khi trả lời cuộc gọi đến bằng thao tác nhấp</string>
     <string name="show_incoming_calls_full_screen">Luôn hiển thị các cuộc gọi đến trên toàn màn hình</string>
     <string name="hide_dialpad_numbers">Ẩn số bàn phím quay số</string>
+    <string name="export_call_history">Export call history</string>
+    <string name="import_call_history">Import call history</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Tôi nghe thấy cuộc gọi đến, nhưng màn hình không bật. Tôi có thể làm gì\?</string>
     <string name="faq_1_text">Những vấn đề như vậy có thể có nhiều lý do cụ thể của thiết bị và hệ thống, khó nói chung. Bạn nên xem trong cài đặt thiết bị của mình và đảm bảo rằng ứng dụng được phép bật lên khi ở chế độ nền và cho phép hiển thị trên các ứng dụng khác.</string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

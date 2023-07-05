@@ -72,9 +72,13 @@
     <string name="disable_swipe_to_answer">Nahradit přejetí prstem při odpovídání na příchozí hovory za klepnutí</string>
     <string name="show_incoming_calls_full_screen">Vždy zobrazovat příchozí hovory na celou obrazovku</string>
     <string name="hide_dialpad_numbers">Skrýt čísla číselníku</string>
+    <string name="export_call_history">Export call history</string>
+    <string name="import_call_history">Import call history</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Slyším příchozí hovor, ale obrazovka se nezapne. Co mohu dělat\?</string>
     <string name="faq_1_text">Takové problémy mohou mít mnoho důvodů specifických pro zařízení a systém, takže je těžké říci něco obecně. Měli byste zkontrolovat nastavení zařízení a ujistit se, že se aplikace může otevřít, když běží na pozadí, a umožnit zobrazení přes jiné aplikace.</string>
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

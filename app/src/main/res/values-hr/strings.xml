@@ -72,6 +72,9 @@
     <string name="disable_swipe_to_answer">Prihvati pozive dodirom umjesto povlačenjem</string>
     <string name="show_incoming_calls_full_screen">Uvijek prikaži dolazne pozive u cjeloekranskom prikazu</string>
     <string name="hide_dialpad_numbers">Sakrij brojeve tipkovnice telefona</string>
+    <string name="export_call_history">Export call history</string>
+    <string name="import_call_history">Import call history</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Čujem dolazne pozive, ali se ekran ne uključuje. Što mogu učiniti\?</string>
     <string name="faq_1_text">Takvi problemi mogu imati mnogo razloga specifičnih za uređaj i sustav, koje je teško reći općenito. Trebali biste pogledati uokolo u postavkama svog uređaja i provjeriti je li aplikaciji dopušteno iskakanje u pozadini i dopuštenje prikazivanja preko drugih aplikacija.</string>

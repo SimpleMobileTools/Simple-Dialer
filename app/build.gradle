@@ -1,6 +1,9 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlin_version"
+}
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
@@ -65,4 +68,5 @@ dependencies {
     implementation 'com.github.SimpleMobileTools:Simple-Commons:35d685c042'
     implementation 'com.github.tibbi:IndicatorFastScroll:4524cd0b61'
     implementation 'me.grantland:autofittextview:0.2.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
 }

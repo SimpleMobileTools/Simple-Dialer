@@ -3,7 +3,11 @@ package com.simplemobiletools.dialer.models
 import android.telephony.PhoneNumberUtils
 import com.simplemobiletools.commons.extensions.normalizePhoneNumber
 
-// model used at displaying recent calls, for contacts with multiple numbers specifify the number and type
+/**
+ * Used at displaying recent calls.
+ * For contacts with multiple numbers specify the number and type
+ */
+@kotlinx.serialization.Serializable
 data class RecentCall(
     val id: Int,
     val phoneNumber: String,
@@ -12,7 +16,7 @@ data class RecentCall(
     val startTS: Int,
     val duration: Int,
     val type: Int,
-    val neighbourIDs: ArrayList<Int>,
+    val neighbourIDs: MutableList<Int>,
     val simID: Int,
     val specificNumber: String,
     val specificType: String,

@@ -272,9 +272,9 @@ class MainActivity : SimpleActivity() {
 
     private fun getInactiveTabIndexes(activeIndex: Int) = (0 until main_tabs_holder.tabCount).filter { it != activeIndex }
 
-    private fun getSelectedTabDrawableIds(): ArrayList<Int> {
+    private fun getSelectedTabDrawableIds(): List<Int> {
         val showTabs = config.showTabs
-        val icons = ArrayList<Int>()
+        val icons = mutableListOf<Int>()
 
         if (showTabs and TAB_CONTACTS != 0) {
             icons.add(R.drawable.ic_person_vector)

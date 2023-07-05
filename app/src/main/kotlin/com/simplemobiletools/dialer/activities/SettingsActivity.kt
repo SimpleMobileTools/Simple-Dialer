@@ -2,9 +2,11 @@ package com.simplemobiletools.dialer.activities
 
 import android.annotation.TargetApi
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
+import androidx.activity.result.contract.ActivityResultContracts
 import com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity
 import com.simplemobiletools.commons.dialogs.ChangeDateTimeFormatDialog
 import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
@@ -13,13 +15,38 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.dialogs.ExportCallHistoryDialog
 import com.simplemobiletools.dialer.dialogs.ManageVisibleTabsDialog
 import com.simplemobiletools.dialer.extensions.config
+import com.simplemobiletools.dialer.helpers.RecentsHelper
+import com.simplemobiletools.dialer.models.RecentCall
 import kotlinx.android.synthetic.main.activity_settings.*
+import kotlinx.serialization.SerializationException
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import java.util.*
 import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
+
+    private val callHistoryFileType = "application/json"
+
+    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        if (uri != null) {
+            toast(R.string.importing)
+            importCallHistory(uri)
+        }
+    }
+
+    private val saveDocument = registerForActivityResult(ActivityResultContracts.CreateDocument(callHistoryFileType)) { uri ->
+        if (uri != null) {
+            toast(R.string.exporting)
+            RecentsHelper(this).getRecentCalls(false, Int.MAX_VALUE) { recents ->
+                exportCallHistory(recents, uri)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
@@ -54,13 +81,16 @@ class SettingsActivity : SimpleActivity() {
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
         setupAlwaysShowFullscreen()
+        setupCallsExport()
+        setupCallsImport()
         updateTextColors(settings_holder)
 
         arrayOf(
             settings_color_customization_section_label,
             settings_general_settings_label,
             settings_startup_label,
-            settings_calls_label
+            settings_calls_label,
+            settings_migration_section_label
         ).forEach {
             it.setTextColor(getProperPrimaryColor())
         }
@@ -259,6 +289,63 @@ class SettingsActivity : SimpleActivity() {
         settings_always_show_fullscreen_holder.setOnClickListener {
             settings_always_show_fullscreen.toggle()
             config.alwaysShowFullscreen = settings_always_show_fullscreen.isChecked
+        }
+    }
+
+    private fun setupCallsExport() {
+        settings_export_calls_holder.setOnClickListener {
+            ExportCallHistoryDialog(this) { filename ->
+                saveDocument.launch(filename)
+            }
+        }
+    }
+
+    private fun setupCallsImport() {
+        settings_import_calls_holder.setOnClickListener {
+            getContent.launch(callHistoryFileType)
+        }
+    }
+
+    private fun importCallHistory(uri: Uri) {
+        try {
+            val jsonString = contentResolver.openInputStream(uri)!!.use { inputStream ->
+                inputStream.bufferedReader().readText()
+            }
+
+            val objects = Json.decodeFromString<List<RecentCall>>(jsonString)
+
+            if (objects.isEmpty()) {
+                toast(R.string.no_entries_for_importing)
+                return
+            }
+
+            RecentsHelper(this).restoreRecentCalls(this, objects) {
+                toast(R.string.importing_successful)
+            }
+        } catch (_: SerializationException) {
+            toast(R.string.invalid_file_format)
+        } catch (_: IllegalArgumentException) {
+            toast(R.string.invalid_file_format)
+        } catch (e: Exception) {
+            showErrorToast(e)
+        }
+    }
+
+    private fun exportCallHistory(recents: List<RecentCall>, uri: Uri) {
+        if (recents.isEmpty()) {
+            toast(R.string.no_entries_for_exporting)
+        } else {
+            try {
+                val outputStream = contentResolver.openOutputStream(uri)!!
+
+                val jsonString = Json.encodeToString(recents)
+                outputStream.use {
+                    it.write(jsonString.toByteArray())
+                }
+                toast(R.string.exporting_successful)
+            } catch (e: Exception) {
+                showErrorToast(e)
+            }
         }
     }
 }

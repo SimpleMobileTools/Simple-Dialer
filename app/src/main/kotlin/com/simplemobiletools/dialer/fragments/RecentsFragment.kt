@@ -18,10 +18,12 @@ import com.simplemobiletools.dialer.helpers.MIN_RECENTS_THRESHOLD
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
-import kotlinx.android.synthetic.main.fragment_recents.view.*
+import kotlinx.android.synthetic.main.fragment_recents.view.recents_list
+import kotlinx.android.synthetic.main.fragment_recents.view.recents_placeholder
+import kotlinx.android.synthetic.main.fragment_recents.view.recents_placeholder_2
 
 class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
-    private var allRecentCalls = ArrayList<RecentCall>()
+    private var allRecentCalls = listOf<RecentCall>()
     private var recentsAdapter: RecentCallsAdapter? = null
 
     override fun setupFragment() {
@@ -69,7 +71,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
         }
     }
 
-    private fun gotRecents(recents: ArrayList<RecentCall>) {
+    private fun gotRecents(recents: List<RecentCall>) {
         if (recents.isEmpty()) {
             recents_placeholder.beVisible()
             recents_placeholder_2.beGoneIf(context.hasPermission(PERMISSION_READ_CALL_LOG))
@@ -81,7 +83,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
             val currAdapter = recents_list.adapter
             if (currAdapter == null) {
-                recentsAdapter = RecentCallsAdapter(activity as SimpleActivity, recents, recents_list, this, true) {
+                recentsAdapter = RecentCallsAdapter(activity as SimpleActivity, recents.toMutableList(), recents_list, this, true) {
                     val recentCall = it as RecentCall
                     if (context.config.showCallConfirmation) {
                         CallConfirmationDialog(activity as SimpleActivity, recentCall.name) {
@@ -165,18 +167,18 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 }
 
 // hide private contacts from recent calls
-private fun List<RecentCall>.hidePrivateContacts(privateContacts: ArrayList<Contact>, shouldHide: Boolean): ArrayList<RecentCall> {
+private fun List<RecentCall>.hidePrivateContacts(privateContacts: List<Contact>, shouldHide: Boolean): List<RecentCall> {
     return if (shouldHide) {
         filterNot { recent ->
             val privateNumbers = privateContacts.flatMap { it.phoneNumbers }.map { it.value }
             recent.phoneNumber in privateNumbers
-        } as ArrayList
+        }
     } else {
-        this as ArrayList
+        this
     }
 }
 
-private fun ArrayList<RecentCall>.setNamesIfEmpty(contacts: ArrayList<Contact>, privateContacts: ArrayList<Contact>): ArrayList<RecentCall> {
+private fun List<RecentCall>.setNamesIfEmpty(contacts: List<Contact>, privateContacts: List<Contact>): ArrayList<RecentCall> {
     val contactsWithNumbers = contacts.filter { it.phoneNumbers.isNotEmpty() }
     return map { recent ->
         if (recent.phoneNumber == recent.name) {
