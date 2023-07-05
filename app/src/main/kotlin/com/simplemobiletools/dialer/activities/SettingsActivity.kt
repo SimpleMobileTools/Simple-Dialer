@@ -293,7 +293,7 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupCallsExport() {
-        settings_calls_export_holder.setOnClickListener {
+        settings_export_calls_holder.setOnClickListener {
             ExportCallHistoryDialog(this) { filename ->
                 saveDocument.launch(filename)
             }
@@ -301,7 +301,7 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupCallsImport() {
-        settings_calls_import_holder.setOnClickListener {
+        settings_import_calls_holder.setOnClickListener {
             getContent.launch(callHistoryFileType)
         }
     }
