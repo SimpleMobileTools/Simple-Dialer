@@ -72,13 +72,11 @@
     <string name="disable_swipe_to_answer">用点击代替滑动来接听来电</string>
     <string name="show_incoming_calls_full_screen">始终全屏显示来电</string>
     <string name="hide_dialpad_numbers">隐藏拨号盘号码</string>
-    <string name="export_call_history">Export call history</string>
-    <string name="import_call_history">Import call history</string>
-
+    <string name="export_call_history">导出通话记录</string>
+    <string name="import_call_history">导入通话记录</string>
     <!-- FAQ -->
     <string name="faq_1_title">我听到来电声音，但屏幕不亮。我该怎么办\?</string>
     <string name="faq_1_text">这样的问题可能有很多设备和系统的具体原因，很难笼统地说。你应该查看你的设备设置，确保应用在后台时被允许弹出，并允许其显示在其他应用上方。</string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
