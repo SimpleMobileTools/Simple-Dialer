@@ -7,10 +7,12 @@ import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import kotlinx.android.synthetic.main.dialog_select_contact.view.*
-import java.util.*
+import kotlinx.android.synthetic.main.dialog_select_contact.view.letter_fastscroller
+import kotlinx.android.synthetic.main.dialog_select_contact.view.letter_fastscroller_thumb
+import kotlinx.android.synthetic.main.dialog_select_contact.view.select_contact_list
+import java.util.Locale
 
-class SelectContactDialog(val activity: SimpleActivity, contacts: ArrayList<Contact>, val callback: (selectedContact: Contact) -> Unit) {
+class SelectContactDialog(val activity: SimpleActivity, contacts: MutableList<Contact>, val callback: (selectedContact: Contact) -> Unit) {
     private var dialog: AlertDialog? = null
     private var view = activity.layoutInflater.inflate(R.layout.dialog_select_contact, null)
 
@@ -25,7 +27,7 @@ class SelectContactDialog(val activity: SimpleActivity, contacts: ArrayList<Cont
                 try {
                     val name = contacts[position].getNameToDisplay()
                     val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
-                    FastScrollItemIndicator.Text(character.toUpperCase(Locale.getDefault()))
+                    FastScrollItemIndicator.Text(character.uppercase(Locale.getDefault()))
                 } catch (e: Exception) {
                     FastScrollItemIndicator.Text("")
                 }

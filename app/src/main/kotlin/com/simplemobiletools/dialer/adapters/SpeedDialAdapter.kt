@@ -9,10 +9,10 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.interfaces.RemoveSpeedDialListener
 import com.simplemobiletools.dialer.models.SpeedDial
-import kotlinx.android.synthetic.main.item_speed_dial.view.*
+import kotlinx.android.synthetic.main.item_speed_dial.view.speed_dial_label
 
 class SpeedDialAdapter(
-    activity: SimpleActivity, var speedDialValues: ArrayList<SpeedDial>, private val removeListener: RemoveSpeedDialListener,
+    activity: SimpleActivity, var speedDialValues: List<SpeedDial>, private val removeListener: RemoveSpeedDialListener,
     recyclerView: MyRecyclerView, itemClick: (Any) -> Unit
 ) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
     init {
