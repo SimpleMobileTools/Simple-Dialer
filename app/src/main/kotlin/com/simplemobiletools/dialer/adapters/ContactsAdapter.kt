@@ -41,7 +41,7 @@ import java.util.*
 
 class ContactsAdapter(
     activity: SimpleActivity,
-    var contacts: ArrayList<Contact>,
+    var contacts: MutableList<Contact>,
     recyclerView: MyRecyclerView,
     val refreshItemsListener: RefreshItemsListener? = null,
     highlightText: String = "",
