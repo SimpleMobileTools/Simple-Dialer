@@ -208,7 +208,7 @@ class MainActivity : SimpleActivity() {
 
     private fun changeViewType() {
         ChangeViewTypeDialog(this) {
-
+            favorites_fragment.updateListAdapter()
         }
     }
 

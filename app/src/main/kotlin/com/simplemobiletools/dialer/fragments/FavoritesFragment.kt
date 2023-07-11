@@ -7,11 +7,10 @@ import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.ContactsHelper
-import com.simplemobiletools.commons.helpers.MyContactsContentProvider
-import com.simplemobiletools.commons.helpers.PERMISSION_READ_CONTACTS
-import com.simplemobiletools.commons.helpers.SMT_PRIVATE
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.contacts.Contact
+import com.simplemobiletools.commons.views.MyGridLayoutManager
+import com.simplemobiletools.commons.views.MyLinearLayoutManager
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
@@ -84,46 +83,49 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             fragment_placeholder.beGone()
             fragment_list.beVisible()
 
-            val currAdapter = fragment_list.adapter
-            if (currAdapter == null) {
-                ContactsAdapter(
-                    activity = activity as SimpleActivity,
-                    contacts = contacts,
-                    recyclerView = fragment_list,
-                    refreshItemsListener = this,
-                    showDeleteButton = false,
-                    enableDrag = true,
-                ) {
-                    if (context.config.showCallConfirmation) {
-                        CallConfirmationDialog(activity as SimpleActivity, (it as Contact).getNameToDisplay()) {
-                            activity?.apply {
-                                initiateCall(it) { launchCallIntent(it) }
-                            }
-                        }
-                    } else {
-                        activity?.apply {
-                            initiateCall(it as Contact) { launchCallIntent(it) }
-                        }
-                    }
-                }.apply {
-                    fragment_list.adapter = this
+            updateListAdapter()
+        }
+    }
 
-                    onDragEndListener = {
-                        val adapter = fragment_list?.adapter
-                        if (adapter is ContactsAdapter) {
-                            val items = adapter.contacts
-                            saveCustomOrderToPrefs(items)
-                            setupLetterFastScroller(items)
-                        }
-                    }
-                }
+    fun updateListAdapter() {
+        val viewType = context.config.viewType
+        setViewType(viewType)
 
-                if (context.areSystemAnimationsEnabled) {
-                    fragment_list.scheduleLayoutAnimation()
+        ContactsAdapter(
+            activity = activity as SimpleActivity,
+            contacts = allContacts,
+            recyclerView = fragment_list,
+            refreshItemsListener = this,
+            viewType = viewType,
+            showDeleteButton = false,
+            enableDrag = true,
+        ) {
+            if (context.config.showCallConfirmation) {
+                CallConfirmationDialog(activity as SimpleActivity, (it as Contact).getNameToDisplay()) {
+                    activity?.apply {
+                        initiateCall(it) { launchCallIntent(it) }
+                    }
                 }
             } else {
-                (currAdapter as ContactsAdapter).updateItems(contacts)
+                activity?.apply {
+                    initiateCall(it as Contact) { launchCallIntent(it) }
+                }
             }
+        }.apply {
+            fragment_list.adapter = this
+
+            onDragEndListener = {
+                val adapter = fragment_list?.adapter
+                if (adapter is ContactsAdapter) {
+                    val items = adapter.contacts
+                    saveCustomOrderToPrefs(items)
+                    setupLetterFastScroller(items)
+                }
+            }
+        }
+
+        if (context.areSystemAnimationsEnabled) {
+            fragment_list.scheduleLayoutAnimation()
         }
     }
 
@@ -177,5 +179,16 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         fragment_placeholder.beVisibleIf(contacts.isEmpty())
         (fragment_list.adapter as? ContactsAdapter)?.updateItems(contacts, text)
         setupLetterFastScroller(contacts)
+    }
+
+    private fun setViewType(viewType: Int) {
+        val layoutManager = if (viewType == VIEW_TYPE_GRID) {
+            letter_fastscroller.beGone()
+            MyGridLayoutManager(context, 3)
+        } else {
+            letter_fastscroller.beVisible()
+            MyLinearLayoutManager(context)
+        }
+        fragment_list.layoutManager = layoutManager
     }
 }
