@@ -21,10 +21,7 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_CALL_PHONE
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_CONTACTS
-import com.simplemobiletools.commons.helpers.SimpleContactsHelper
-import com.simplemobiletools.commons.helpers.isOreoPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.interfaces.ItemMoveCallback
 import com.simplemobiletools.commons.interfaces.ItemTouchHelperContract
 import com.simplemobiletools.commons.interfaces.StartReorderDragListener
@@ -43,9 +40,10 @@ class ContactsAdapter(
     activity: SimpleActivity,
     var contacts: MutableList<Contact>,
     recyclerView: MyRecyclerView,
-    val refreshItemsListener: RefreshItemsListener? = null,
     highlightText: String = "",
-    val showDeleteButton: Boolean = true,
+    private val refreshItemsListener: RefreshItemsListener? = null,
+    private val viewType: Int = VIEW_TYPE_LIST,
+    private val showDeleteButton: Boolean = true,
     private val enableDrag: Boolean = false,
     itemClick: (Any) -> Unit
 ) : MyRecyclerViewAdapter(activity, recyclerView, itemClick), ItemTouchHelperContract {
@@ -123,7 +121,17 @@ class ContactsAdapter(
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_contact_without_number, parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val layout = when (viewType) {
+            VIEW_TYPE_GRID -> R.layout.item_contact_grid
+            else -> R.layout.item_contact_without_number
+        }
+        return createViewHolder(layout, parent)
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return viewType
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contact = contacts[position]

@@ -263,7 +263,7 @@ class DialpadActivity : SimpleActivity() {
 
             if (hasRussianLocale) {
                 var currConvertedName = ""
-                convertedName.toLowerCase().forEach { char ->
+                convertedName.lowercase(Locale.getDefault()).forEach { char ->
                     val convertedChar = russianCharsMap.getOrElse(char) { char }
                     currConvertedName += convertedChar
                 }
@@ -279,13 +279,18 @@ class DialpadActivity : SimpleActivity() {
             try {
                 val name = filtered[position].getNameToDisplay()
                 val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
-                FastScrollItemIndicator.Text(character.toUpperCase(Locale.getDefault()))
+                FastScrollItemIndicator.Text(character.uppercase(Locale.getDefault()))
             } catch (e: Exception) {
                 FastScrollItemIndicator.Text("")
             }
         })
 
-        ContactsAdapter(this, filtered, dialpad_list, null, text) {
+        ContactsAdapter(
+            activity = this,
+            contacts = filtered,
+            recyclerView = dialpad_list,
+            highlightText = text
+        ) {
             val contact = it as Contact
             if (config.showCallConfirmation) {
                 CallConfirmationDialog(this@DialpadActivity, contact.getNameToDisplay()) {
@@ -316,7 +321,7 @@ class DialpadActivity : SimpleActivity() {
                     CallConfirmationDialog(this, number) {
                         callContactWithSim(number, handleIndex == 0)
                     }
-                }else{
+                } else {
                     callContactWithSim(number, handleIndex == 0)
                 }
             } else {
@@ -324,7 +329,7 @@ class DialpadActivity : SimpleActivity() {
                     CallConfirmationDialog(this, number) {
                         startCallIntent(number)
                     }
-                }else{
+                } else {
                     startCallIntent(number)
                 }
             }
@@ -406,12 +411,14 @@ class DialpadActivity : SimpleActivity() {
                         }, longPressTimeout)
                     }
                 }
+
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                     stopDialpadTone(char)
                     if (longClickable) {
                         longPressHandler.removeCallbacksAndMessages(null)
                     }
                 }
+
                 MotionEvent.ACTION_MOVE -> {
                     val viewContainsTouchEvent = if (event.rawX.isNaN() || event.rawY.isNaN()) {
                         false

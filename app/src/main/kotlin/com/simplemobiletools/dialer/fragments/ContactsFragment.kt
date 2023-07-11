@@ -15,7 +15,7 @@ import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
-import java.util.*
+import java.util.Locale
 
 class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
     private var allContacts = ArrayList<Contact>()
@@ -82,7 +82,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     }
 
     private fun gotContacts(contacts: ArrayList<Contact>) {
-        setupLetterFastscroller(contacts)
+        setupLetterFastScroller(contacts)
         if (contacts.isEmpty()) {
             fragment_placeholder.beVisible()
             fragment_placeholder_2.beVisible()
@@ -94,7 +94,12 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
             val currAdapter = fragment_list.adapter
             if (currAdapter == null) {
-                ContactsAdapter(activity as SimpleActivity, contacts, fragment_list, this) {
+                ContactsAdapter(
+                    activity = activity as SimpleActivity,
+                    contacts = contacts,
+                    recyclerView = fragment_list,
+                    refreshItemsListener = this
+                ) {
                     val contact = it as Contact
                     activity?.startContactDetailsIntent(contact)
                 }.apply {
@@ -110,12 +115,12 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         }
     }
 
-    private fun setupLetterFastscroller(contacts: ArrayList<Contact>) {
+    private fun setupLetterFastScroller(contacts: ArrayList<Contact>) {
         letter_fastscroller.setupWithRecyclerView(fragment_list, { position ->
             try {
                 val name = contacts[position].getNameToDisplay()
                 val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
-                FastScrollItemIndicator.Text(character.toUpperCase(Locale.getDefault()).normalizeString())
+                FastScrollItemIndicator.Text(character.uppercase(Locale.getDefault()).normalizeString())
             } catch (e: Exception) {
                 FastScrollItemIndicator.Text("")
             }
@@ -125,35 +130,36 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     override fun onSearchClosed() {
         fragment_placeholder.beVisibleIf(allContacts.isEmpty())
         (fragment_list.adapter as? ContactsAdapter)?.updateItems(allContacts)
-        setupLetterFastscroller(allContacts)
+        setupLetterFastScroller(allContacts)
     }
 
     override fun onSearchQueryChanged(text: String) {
-            val shouldNormalize = text.normalizeString() == text
-            val filtered = allContacts.filter {
-                getProperText(it.getNameToDisplay(), shouldNormalize).contains(text, true) ||
-                    getProperText(it.nickname, shouldNormalize).contains(text, true) ||
-                    it.phoneNumbers.any {
-                        text.normalizePhoneNumber().isNotEmpty() && it.normalizedNumber.contains(text.normalizePhoneNumber(), true)
-                    } ||
-                    it.emails.any { it.value.contains(text, true) } ||
-                    it.addresses.any { getProperText(it.value, shouldNormalize).contains(text, true) } ||
-                    it.IMs.any { it.value.contains(text, true) } ||
-                    getProperText(it.notes, shouldNormalize).contains(text, true) ||
-                    getProperText(it.organization.company, shouldNormalize).contains(text, true) ||
-                    getProperText(it.organization.jobPosition, shouldNormalize).contains(text, true) ||
-                    it.websites.any { it.contains(text, true) }
-            } as ArrayList
+        val shouldNormalize = text.normalizeString() == text
+        val filtered = allContacts.filter {
+            getProperText(it.getNameToDisplay(), shouldNormalize).contains(text, true) ||
+                getProperText(it.nickname, shouldNormalize).contains(text, true) ||
+                it.phoneNumbers.any {
+                    text.normalizePhoneNumber().isNotEmpty() && it.normalizedNumber.contains(text.normalizePhoneNumber(), true)
+                } ||
+                it.emails.any { it.value.contains(text, true) } ||
+                it.addresses.any { getProperText(it.value, shouldNormalize).contains(text, true) } ||
+                it.IMs.any { it.value.contains(text, true) } ||
+                getProperText(it.notes, shouldNormalize).contains(text, true) ||
+                getProperText(it.organization.company, shouldNormalize).contains(text, true) ||
+                getProperText(it.organization.jobPosition, shouldNormalize).contains(text, true) ||
+                it.websites.any { it.contains(text, true) }
+        } as ArrayList
 
-            filtered.sortBy {
-                val nameToDisplay = it.getNameToDisplay()
-                !getProperText(nameToDisplay, shouldNormalize).startsWith(text, true) && !nameToDisplay.contains(text, true)
-            }
+        filtered.sortBy {
+            val nameToDisplay = it.getNameToDisplay()
+            !getProperText(nameToDisplay, shouldNormalize).startsWith(text, true) && !nameToDisplay.contains(text, true)
+        }
 
         fragment_placeholder.beVisibleIf(filtered.isEmpty())
         (fragment_list.adapter as? ContactsAdapter)?.updateItems(filtered, text)
-        setupLetterFastscroller(filtered)
-        }
+        setupLetterFastScroller(filtered)
+    }
+
     private fun requestReadContactsPermission() {
         activity?.handlePermission(PERMISSION_READ_CONTACTS) {
             if (it) {
