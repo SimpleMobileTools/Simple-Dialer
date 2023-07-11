@@ -6,6 +6,7 @@ import android.telecom.PhoneAccountHandle
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
+import com.simplemobiletools.commons.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.dialer.extensions.getPhoneAccountHandleModel
 import com.simplemobiletools.dialer.extensions.putPhoneAccountHandle
 import com.simplemobiletools.dialer.models.SpeedDial
@@ -89,4 +90,9 @@ class Config(context: Context) : BaseConfig(context) {
     var alwaysShowFullscreen: Boolean
         get() = prefs.getBoolean(ALWAYS_SHOW_FULLSCREEN, false)
         set(alwaysShowFullscreen) = prefs.edit().putBoolean(ALWAYS_SHOW_FULLSCREEN, alwaysShowFullscreen).apply()
+
+    var viewType: Int
+        get() = prefs.getInt(VIEW_TYPE, VIEW_TYPE_LIST)
+        set(viewTypeFiles) = prefs.edit().putInt(VIEW_TYPE, viewTypeFiles).apply()
+
 }
