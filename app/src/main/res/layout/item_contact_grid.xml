@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_contact_frame"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/tiny_margin"
+    android:background="@drawable/selector_clickable"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingBottom="@dimen/medium_margin">
+
+    <com.simplemobiletools.commons.views.MySquareImageView
+        android:id="@+id/item_contact_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/small_margin"
+        android:padding="@dimen/tiny_margin"
+        android:paddingStart="@dimen/normal_margin"
+        android:paddingTop="@dimen/medium_margin"
+        android:paddingEnd="@dimen/normal_margin"
+        android:src="@drawable/ic_person_vector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/item_contact_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_contact_image"
+        android:layout_marginTop="@dimen/small_margin"
+        android:ellipsize="middle"
+        android:gravity="center_horizontal"
+        android:maxLines="1"
+        android:paddingHorizontal="@dimen/small_margin"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/item_contact_image"
+        app:layout_constraintStart_toStartOf="@+id/item_contact_image"
+        app:layout_constraintTop_toBottomOf="@+id/item_contact_image"
+        tools:text="John Doe" />
+
+    <ImageView
+        android:id="@+id/drag_handle_icon"
+        android:layout_width="@dimen/normal_icon_size"
+        android:layout_height="@dimen/normal_icon_size"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@null"
+        android:paddingHorizontal="@dimen/normal_margin"
+        android:src="@drawable/ic_drag_handle_vector"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
