@@ -26,6 +26,7 @@ import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
+import com.simplemobiletools.dialer.dialogs.ChangeViewTypeDialog
 import com.simplemobiletools.dialer.dialogs.FilterContactSourcesDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
@@ -169,6 +170,7 @@ class MainActivity : SimpleActivity() {
             findItem(R.id.clear_call_history).isVisible = currentFragment == recents_fragment
             findItem(R.id.sort).isVisible = currentFragment != recents_fragment
             findItem(R.id.create_new_contact).isVisible = currentFragment == contacts_fragment
+            findItem(R.id.change_view_type).isVisible = currentFragment == favorites_fragment
             findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
         }
     }
@@ -196,10 +198,17 @@ class MainActivity : SimpleActivity() {
                 R.id.filter -> showFilterDialog()
                 R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
                 R.id.settings -> launchSettings()
+                R.id.change_view_type -> changeViewType()
                 R.id.about -> launchAbout()
                 else -> return@setOnMenuItemClickListener false
             }
             return@setOnMenuItemClickListener true
+        }
+    }
+
+    private fun changeViewType() {
+        ChangeViewTypeDialog(this) {
+
         }
     }
 
