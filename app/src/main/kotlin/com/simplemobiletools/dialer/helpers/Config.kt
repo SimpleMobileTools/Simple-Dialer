@@ -93,6 +93,10 @@ class Config(context: Context) : BaseConfig(context) {
 
     var viewType: Int
         get() = prefs.getInt(VIEW_TYPE, VIEW_TYPE_LIST)
-        set(viewTypeFiles) = prefs.edit().putInt(VIEW_TYPE, viewTypeFiles).apply()
+        set(viewType) = prefs.edit().putInt(VIEW_TYPE, viewType).apply()
+
+    var gridLayoutSpanCount: Int
+        get() = prefs.getInt(GRID_LAYOUT_SPAN_COUNT, DEFAULT_GRID_SPAN_COUNT)
+        set(gridLayoutSpanCount) = prefs.edit().putInt(GRID_LAYOUT_SPAN_COUNT, gridLayoutSpanCount).apply()
 
 }

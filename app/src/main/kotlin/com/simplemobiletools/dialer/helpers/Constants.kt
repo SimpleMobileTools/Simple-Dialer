@@ -20,6 +20,8 @@ const val DIALPAD_BEEPS = "dialpad_beeps"
 const val HIDE_DIALPAD_NUMBERS = "hide_dialpad_numbers"
 const val ALWAYS_SHOW_FULLSCREEN = "always_show_fullscreen"
 const val VIEW_TYPE = "view_type"
+const val GRID_LAYOUT_SPAN_COUNT = "grid_layout_span_count"
+
 
 const val ALL_TABS_MASK = TAB_CONTACTS or TAB_FAVORITES or TAB_CALL_HISTORY
 
@@ -32,3 +34,5 @@ const val DECLINE_CALL = PATH + "decline_call"
 const val DIALPAD_TONE_LENGTH_MS = 150L // The length of DTMF tones in milliseconds
 
 const val MIN_RECENTS_THRESHOLD = 30
+
+const val DEFAULT_GRID_SPAN_COUNT = 3
