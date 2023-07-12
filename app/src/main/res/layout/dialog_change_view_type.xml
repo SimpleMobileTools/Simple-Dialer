@@ -27,6 +27,13 @@
                 android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/grid" />
 
+            <com.google.android.material.slider.Slider
+                android:id="@+id/grid_span_count_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="1.0"
+                android:visibility="gone" />
+
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/change_view_type_dialog_radio_list"
                 android:layout_width="match_parent"

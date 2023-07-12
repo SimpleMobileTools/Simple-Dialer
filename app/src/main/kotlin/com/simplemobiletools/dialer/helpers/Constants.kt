@@ -35,4 +35,6 @@ const val DIALPAD_TONE_LENGTH_MS = 150L // The length of DTMF tones in milliseco
 
 const val MIN_RECENTS_THRESHOLD = 30
 
-const val DEFAULT_GRID_SPAN_COUNT = 3
+const val GRID_DEFAULT_SPAN_COUNT = 3
+const val GRID_MIN_SPAN_COUNT = 2
+const val GRID_MAX_SPAN_COUNT = 6
