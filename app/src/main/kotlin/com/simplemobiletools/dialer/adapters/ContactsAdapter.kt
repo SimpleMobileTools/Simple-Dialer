@@ -7,13 +7,11 @@ import android.graphics.drawable.Icon
 import android.net.Uri
 import android.text.TextUtils
 import android.util.TypedValue
-import android.view.Menu
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -42,20 +40,26 @@ class ContactsAdapter(
     recyclerView: MyRecyclerView,
     highlightText: String = "",
     private val refreshItemsListener: RefreshItemsListener? = null,
-    private val viewType: Int = VIEW_TYPE_LIST,
+    var viewType: Int = VIEW_TYPE_LIST,
     private val showDeleteButton: Boolean = true,
     private val enableDrag: Boolean = false,
     itemClick: (Any) -> Unit
-) : MyRecyclerViewAdapter(activity, recyclerView, itemClick), ItemTouchHelperContract {
+) : MyRecyclerViewAdapter(activity, recyclerView, itemClick),
+    ItemTouchHelperContract, MyRecyclerView.MyZoomListener {
 
     private var textToHighlight = highlightText
     private var fontSize = activity.getTextSize()
     private var touchHelper: ItemTouchHelper? = null
     private var startReorderDragListener: StartReorderDragListener? = null
     var onDragEndListener: (() -> Unit)? = null
+    var onSpanCountListener: (Int) -> Unit = {}
 
     init {
         setupDragListener(true)
+
+        if (recyclerView.layoutManager is GridLayoutManager) {
+            setupZoomListener(this)
+        }
 
         if (enableDrag) {
             touchHelper = ItemTouchHelper(ItemMoveCallback(this, viewType == VIEW_TYPE_GRID))
@@ -340,4 +344,33 @@ class ContactsAdapter(
     override fun onRowClear(myViewHolder: ViewHolder?) {
         onDragEndListener?.invoke()
     }
+
+    override fun zoomIn() {
+        val layoutManager = recyclerView.layoutManager
+        if (layoutManager is GridLayoutManager) {
+            val currentSpanCount = layoutManager.spanCount
+            val newSpanCount = (currentSpanCount - 1).coerceIn(MIN_COLUMNS, MAX_COLUMNS)
+            layoutManager.spanCount = newSpanCount
+            recyclerView.requestLayout()
+            onSpanCountListener(newSpanCount)
+        }
+    }
+
+    override fun zoomOut() {
+        val layoutManager = recyclerView.layoutManager
+        if (layoutManager is GridLayoutManager) {
+            val currentSpanCount = layoutManager.spanCount
+            val newSpanCount = (currentSpanCount + 1).coerceIn(MIN_COLUMNS, MAX_COLUMNS)
+            layoutManager.spanCount = newSpanCount
+            recyclerView.requestLayout()
+            onSpanCountListener(newSpanCount)
+        }
+    }
+
+    companion object {
+        private const val MIN_COLUMNS = 2
+        private const val MAX_COLUMNS = 6
+    }
+
+
 }

@@ -91,42 +91,56 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         val viewType = context.config.viewType
         setViewType(viewType)
 
-        ContactsAdapter(
-            activity = activity as SimpleActivity,
-            contacts = allContacts,
-            recyclerView = fragment_list,
-            refreshItemsListener = this,
-            viewType = viewType,
-            showDeleteButton = false,
-            enableDrag = true,
-        ) {
-            if (context.config.showCallConfirmation) {
-                CallConfirmationDialog(activity as SimpleActivity, (it as Contact).getNameToDisplay()) {
+
+        val currAdapter = fragment_list.adapter as ContactsAdapter?
+        if (currAdapter == null) {
+            ContactsAdapter(
+                activity = activity as SimpleActivity,
+                contacts = allContacts,
+                recyclerView = fragment_list,
+                refreshItemsListener = this,
+                viewType = viewType,
+                showDeleteButton = false,
+                enableDrag = true,
+            ) {
+                if (context.config.showCallConfirmation) {
+                    CallConfirmationDialog(activity as SimpleActivity, (it as Contact).getNameToDisplay()) {
+                        activity?.apply {
+                            initiateCall(it) { launchCallIntent(it) }
+                        }
+                    }
+                } else {
                     activity?.apply {
-                        initiateCall(it) { launchCallIntent(it) }
+                        initiateCall(it as Contact) { launchCallIntent(it) }
                     }
                 }
-            } else {
-                activity?.apply {
-                    initiateCall(it as Contact) { launchCallIntent(it) }
+            }.apply {
+                fragment_list.adapter = this
+
+                onDragEndListener = {
+                    val adapter = fragment_list?.adapter
+                    if (adapter is ContactsAdapter) {
+                        val items = adapter.contacts
+                        saveCustomOrderToPrefs(items)
+                        setupLetterFastScroller(items)
+                    }
+                }
+
+                onSpanCountListener = { newSpanCount ->
+                    context.config.gridLayoutSpanCount = newSpanCount
                 }
             }
-        }.apply {
-            fragment_list.adapter = this
 
-            onDragEndListener = {
-                val adapter = fragment_list?.adapter
-                if (adapter is ContactsAdapter) {
-                    val items = adapter.contacts
-                    saveCustomOrderToPrefs(items)
-                    setupLetterFastScroller(items)
-                }
+
+            if (context.areSystemAnimationsEnabled) {
+                fragment_list.scheduleLayoutAnimation()
             }
+        } else {
+            currAdapter.updateItems(allContacts)
+            currAdapter.viewType = viewType
+            currAdapter.recyclerView.requestLayout()
         }
 
-        if (context.areSystemAnimationsEnabled) {
-            fragment_list.scheduleLayoutAnimation()
-        }
     }
 
     private fun sortByCustomOrder(favorites: List<Contact>): ArrayList<Contact> {
@@ -182,9 +196,11 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     private fun setViewType(viewType: Int) {
+        val spanCount = context.config.gridLayoutSpanCount
+
         val layoutManager = if (viewType == VIEW_TYPE_GRID) {
             letter_fastscroller.beGone()
-            MyGridLayoutManager(context, 3)
+            MyGridLayoutManager(context, spanCount)
         } else {
             letter_fastscroller.beVisible()
             MyLinearLayoutManager(context)
