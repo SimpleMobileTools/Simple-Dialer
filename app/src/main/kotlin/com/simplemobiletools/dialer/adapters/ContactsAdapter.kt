@@ -31,8 +31,8 @@ import com.simplemobiletools.dialer.extensions.areMultipleSIMsAvailable
 import com.simplemobiletools.dialer.extensions.callContactWithSim
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
-import com.simplemobiletools.dialer.helpers.GRID_MAX_SPAN_COUNT
-import com.simplemobiletools.dialer.helpers.GRID_MIN_SPAN_COUNT
+import com.simplemobiletools.dialer.helpers.GRID_MAX_COLUMNS_COUNT
+import com.simplemobiletools.dialer.helpers.GRID_MIN_COLUMNS_COUNT
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import java.util.*
 
@@ -351,7 +351,7 @@ class ContactsAdapter(
         val layoutManager = recyclerView.layoutManager
         if (layoutManager is GridLayoutManager) {
             val currentSpanCount = layoutManager.spanCount
-            val newSpanCount = (currentSpanCount - 1).coerceIn(GRID_MIN_SPAN_COUNT, GRID_MAX_SPAN_COUNT)
+            val newSpanCount = (currentSpanCount - 1).coerceIn(GRID_MIN_COLUMNS_COUNT, GRID_MAX_COLUMNS_COUNT)
             layoutManager.spanCount = newSpanCount
             recyclerView.requestLayout()
             onSpanCountListener(newSpanCount)
@@ -362,7 +362,7 @@ class ContactsAdapter(
         val layoutManager = recyclerView.layoutManager
         if (layoutManager is GridLayoutManager) {
             val currentSpanCount = layoutManager.spanCount
-            val newSpanCount = (currentSpanCount + 1).coerceIn(GRID_MIN_SPAN_COUNT, GRID_MAX_SPAN_COUNT)
+            val newSpanCount = (currentSpanCount + 1).coerceIn(GRID_MIN_COLUMNS_COUNT, GRID_MAX_COLUMNS_COUNT)
             layoutManager.spanCount = newSpanCount
             recyclerView.requestLayout()
             onSpanCountListener(newSpanCount)
