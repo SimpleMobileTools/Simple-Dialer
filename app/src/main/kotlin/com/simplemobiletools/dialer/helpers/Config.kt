@@ -95,8 +95,8 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(VIEW_TYPE, VIEW_TYPE_LIST)
         set(viewType) = prefs.edit().putInt(VIEW_TYPE, viewType).apply()
 
-    var gridLayoutSpanCount: Int
-        get() = prefs.getInt(GRID_LAYOUT_SPAN_COUNT, GRID_DEFAULT_SPAN_COUNT)
-        set(gridLayoutSpanCount) = prefs.edit().putInt(GRID_LAYOUT_SPAN_COUNT, gridLayoutSpanCount).apply()
+    var favoritesColumnCnt: Int
+        get() = prefs.getInt(FAVOURITES_COLUMN_COUNT, GRID_DEFAULT_COLUMNS_COUNT)
+        set(gridLayoutSpanCount) = prefs.edit().putInt(FAVOURITES_COLUMN_COUNT, gridLayoutSpanCount).apply()
 
 }
