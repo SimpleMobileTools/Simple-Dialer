@@ -129,7 +129,7 @@ class ContactsAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layout = when (viewType) {
-            VIEW_TYPE_GRID -> R.layout.item_contact_grid
+            VIEW_TYPE_GRID -> R.layout.item_contact_without_number_grid
             else -> R.layout.item_contact_without_number
         }
         return createViewHolder(layout, parent)
