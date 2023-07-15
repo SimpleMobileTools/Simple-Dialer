@@ -16,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.snackbar.Snackbar
+import com.simplemobiletools.commons.dialogs.ChangeViewTypeDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PermissionRequiredDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
@@ -28,7 +29,6 @@ import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ViewPagerAdapter
 import com.simplemobiletools.dialer.dialogs.ChangeSortingDialog
-import com.simplemobiletools.dialer.dialogs.ChangeViewTypeDialog
 import com.simplemobiletools.dialer.dialogs.FilterContactSourcesDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
@@ -209,15 +209,15 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun changeColumnCount() {
-        val items = (GRID_MIN_COLUMNS_COUNT..GRID_MAX_COLUMNS_COUNT).map {
+        val items = (CONTACTS_GRID_MIN_COLUMNS_COUNT..CONTACTS_GRID_MAX_COLUMNS_COUNT).map {
             RadioItem(it, resources.getQuantityString(R.plurals.column_counts, it, it))
         }
 
-        val currentColumnCount = config.favoritesColumnCnt
+        val currentColumnCount = config.contactsGridColumnCnt
         RadioGroupDialog(this, ArrayList(items), currentColumnCount) {
             val newColumnCount = it as Int
             if (currentColumnCount != newColumnCount) {
-                config.favoritesColumnCnt = newColumnCount
+                config.contactsGridColumnCnt = newColumnCount
                 favorites_fragment.updateListAdapter()
             }
         }

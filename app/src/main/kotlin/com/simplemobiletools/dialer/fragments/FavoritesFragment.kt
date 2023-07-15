@@ -91,7 +91,6 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         val viewType = context.config.viewType
         setViewType(viewType)
 
-
         val currAdapter = fragment_list.adapter as ContactsAdapter?
         if (currAdapter == null) {
             ContactsAdapter(
@@ -127,7 +126,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                 }
 
                 onSpanCountListener = { newSpanCount ->
-                    context.config.favoritesColumnCnt = newSpanCount
+                    context.config.contactsGridColumnCnt = newSpanCount
                 }
             }
 
@@ -196,7 +195,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     private fun setViewType(viewType: Int) {
-        val spanCount = context.config.favoritesColumnCnt
+        val spanCount = context.config.contactsGridColumnCnt
 
         val layoutManager = if (viewType == VIEW_TYPE_GRID) {
             letter_fastscroller.beGone()
