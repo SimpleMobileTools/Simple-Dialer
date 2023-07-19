@@ -38,8 +38,7 @@ class RecentCallsAdapter(
     private lateinit var outgoingCallIcon: Drawable
     private lateinit var incomingCallIcon: Drawable
     private lateinit var incomingMissedCallIcon: Drawable
-    private val fontSize: Float
-        get() = activity.getTextSize()
+    var fontSize: Float = activity.getTextSize()
     private val areMultipleSIMsAvailable = activity.areMultipleSIMsAvailable()
     private val redColor = resources.getColor(R.color.md_red_700)
     private var textToHighlight = ""

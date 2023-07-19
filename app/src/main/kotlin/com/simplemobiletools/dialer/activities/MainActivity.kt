@@ -44,6 +44,7 @@ import me.grantland.widget.AutofitHelper
 class MainActivity : SimpleActivity() {
     private var launchedDialer = false
     private var storedShowTabs = 0
+    private var storedFontSize = 0
     private var storedStartNameWithSurname = false
     var cachedContacts = ArrayList<Contact>()
 
@@ -119,6 +120,13 @@ class MainActivity : SimpleActivity() {
 
         if (!main_menu.isSearchOpen) {
             refreshItems(true)
+        }
+
+        val configFontSize = config.fontSize
+        if (storedFontSize != configFontSize) {
+            getAllFragments().forEach {
+                it?.fontSizeChanged()
+            }
         }
 
         checkShortcuts()
