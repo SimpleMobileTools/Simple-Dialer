@@ -225,6 +225,7 @@ class MainActivity : SimpleActivity() {
 
     private fun changeViewType() {
         ChangeViewTypeDialog(this) {
+            refreshMenuItems()
             favorites_fragment.updateListAdapter()
         }
     }
