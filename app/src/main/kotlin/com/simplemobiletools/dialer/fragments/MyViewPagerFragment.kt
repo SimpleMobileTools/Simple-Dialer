@@ -49,12 +49,12 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
 
     fun fontSizeChanged() {
         if (this is RecentsFragment) {
-            (fragment_list.adapter as? RecentCallsAdapter)?.apply {
+            (recents_list?.adapter as? RecentCallsAdapter)?.apply {
                 fontSize = activity.getTextSize()
                 notifyDataSetChanged()
             }
         } else {
-            (fragment_list.adapter as? ContactsAdapter)?.apply {
+            (fragment_list?.adapter as? ContactsAdapter)?.apply {
                 fontSize = activity.getTextSize()
                 notifyDataSetChanged()
             }
