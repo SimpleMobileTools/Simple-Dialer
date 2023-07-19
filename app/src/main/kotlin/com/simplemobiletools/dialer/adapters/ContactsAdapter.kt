@@ -48,7 +48,8 @@ class ContactsAdapter(
     ItemTouchHelperContract, MyRecyclerView.MyZoomListener {
 
     private var textToHighlight = highlightText
-    private var fontSize = activity.getTextSize()
+    private val fontSize: Float
+        get() = activity.getTextSize()
     private var touchHelper: ItemTouchHelper? = null
     private var startReorderDragListener: StartReorderDragListener? = null
     var onDragEndListener: (() -> Unit)? = null

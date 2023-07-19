@@ -38,7 +38,8 @@ class RecentCallsAdapter(
     private lateinit var outgoingCallIcon: Drawable
     private lateinit var incomingCallIcon: Drawable
     private lateinit var incomingMissedCallIcon: Drawable
-    private var fontSize = activity.getTextSize()
+    private val fontSize: Float
+        get() = activity.getTextSize()
     private val areMultipleSIMsAvailable = activity.areMultipleSIMsAvailable()
     private val redColor = resources.getColor(R.color.md_red_700)
     private var textToHighlight = ""
@@ -279,6 +280,7 @@ class RecentCallsAdapter(
 
     private fun setupView(view: View, call: RecentCall) {
         view.apply {
+            val currentFontSize = fontSize
             item_recents_holder.isSelected = selectedKeys.contains(call.id)
             val name = findContactByCall(call)?.getNameToDisplay() ?: call.name
             var nameToShow = SpannableString(name)
@@ -302,20 +304,20 @@ class RecentCallsAdapter(
             item_recents_name.apply {
                 text = nameToShow
                 setTextColor(textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize)
+                setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize)
             }
 
             item_recents_date_time.apply {
                 text = call.startTS.formatDateOrTime(context, refreshItemsListener != null, false)
                 setTextColor(if (call.type == Calls.MISSED_TYPE) redColor else textColor)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
+                setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
             }
 
             item_recents_duration.apply {
                 text = call.duration.getFormattedDuration()
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
-                setTextSize(TypedValue.COMPLEX_UNIT_PX, fontSize * 0.8f)
+                setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
                 if (!showOverflowMenu) {
                     item_recents_duration.setPadding(0, 0, durationPadding, 0)
                 }
