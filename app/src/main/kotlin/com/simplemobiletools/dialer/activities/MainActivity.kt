@@ -75,7 +75,12 @@ class MainActivity : SimpleActivity() {
 
             handleNotificationPermission { granted ->
                 if (!granted) {
-                    PermissionRequiredDialog(this, R.string.allow_notifications_incoming_calls)
+                    PermissionRequiredDialog(this,
+                        textId = R.string.allow_notifications_incoming_calls,
+                        positiveActionCallback = {
+                            openNotificationSettings()
+                        }
+                    )
                 }
             }
         } else {
@@ -213,11 +218,11 @@ class MainActivity : SimpleActivity() {
             RadioItem(it, resources.getQuantityString(R.plurals.column_counts, it, it))
         }
 
-        val currentColumnCount = config.contactsGridColumnCnt
+        val currentColumnCount = config.contactsGridColumnCount
         RadioGroupDialog(this, ArrayList(items), currentColumnCount) {
             val newColumnCount = it as Int
             if (currentColumnCount != newColumnCount) {
-                config.contactsGridColumnCnt = newColumnCount
+                config.contactsGridColumnCount = newColumnCount
                 favorites_fragment.updateListAdapter()
             }
         }
@@ -559,6 +564,7 @@ class MainActivity : SimpleActivity() {
             }
         }
     }
+
     private fun showFilterDialog() {
         FilterContactSourcesDialog(this) {
             favorites_fragment?.refreshItems {
@@ -573,13 +579,14 @@ class MainActivity : SimpleActivity() {
                 }
             }
 
-            recents_fragment?.refreshItems{
+            recents_fragment?.refreshItems {
                 if (main_menu.isSearchOpen) {
                     getCurrentFragment()?.onSearchQueryChanged(main_menu.getCurrentQuery())
                 }
             }
         }
     }
+
     fun cacheContacts(contacts: List<Contact>) {
         try {
             cachedContacts.clear()

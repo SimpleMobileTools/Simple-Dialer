@@ -12,7 +12,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.simplemobiletools.dialer"
@@ -47,7 +47,7 @@ android {
         }
     }
 
-    flavorDimensions "variants"
+    flavorDimensions = ["variants"]
     productFlavors {
         core {}
         fdroid {}
