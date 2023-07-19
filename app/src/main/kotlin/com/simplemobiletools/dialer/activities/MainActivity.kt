@@ -176,7 +176,7 @@ class MainActivity : SimpleActivity() {
             findItem(R.id.sort).isVisible = currentFragment != recents_fragment
             findItem(R.id.create_new_contact).isVisible = currentFragment == contacts_fragment
             findItem(R.id.change_view_type).isVisible = currentFragment == favorites_fragment
-            findItem(R.id.column_count).isVisible = config.viewType == VIEW_TYPE_GRID
+            findItem(R.id.column_count).isVisible = currentFragment == favorites_fragment && config.viewType == VIEW_TYPE_GRID
             findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
         }
     }
