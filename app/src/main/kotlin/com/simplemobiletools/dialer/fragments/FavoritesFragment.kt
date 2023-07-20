@@ -130,7 +130,6 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                 }
             }
 
-
             if (context.areSystemAnimationsEnabled) {
                 fragment_list.scheduleLayoutAnimation()
             }
@@ -138,7 +137,6 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             currAdapter.viewType = viewType
             currAdapter.updateItems(allContacts)
         }
-
     }
 
     fun columnCountChanged() {
