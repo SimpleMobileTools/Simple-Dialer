@@ -47,6 +47,7 @@ class ContactsAdapter(
     highlightText: String = "",
     val showDeleteButton: Boolean = true,
     private val enableDrag: Boolean = false,
+    private val allowLongClick: Boolean = true,
     itemClick: (Any) -> Unit
 ) : MyRecyclerViewAdapter(activity, recyclerView, itemClick), ItemTouchHelperContract {
 
@@ -127,7 +128,7 @@ class ContactsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val contact = contacts[position]
-        holder.bindView(contact, true, true) { itemView, layoutPosition ->
+        holder.bindView(contact, true, allowLongClick) { itemView, layoutPosition ->
             setupView(itemView, contact, holder)
         }
         bindViewHolder(holder)

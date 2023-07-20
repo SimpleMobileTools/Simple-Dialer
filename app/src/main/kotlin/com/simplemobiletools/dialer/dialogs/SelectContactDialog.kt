@@ -33,7 +33,7 @@ class SelectContactDialog(val activity: SimpleActivity, contacts: MutableList<Co
                 }
             })
 
-            select_contact_list.adapter = ContactsAdapter(activity, contacts, select_contact_list) {
+            select_contact_list.adapter = ContactsAdapter(activity, contacts, select_contact_list, allowLongClick = false) {
                 callback(it as Contact)
                 dialog?.dismiss()
             }
