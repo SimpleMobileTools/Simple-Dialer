@@ -87,7 +87,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         }
     }
 
-    fun updateListAdapter() {
+    private fun updateListAdapter() {
         val viewType = context.config.viewType
         setViewType(viewType)
 
@@ -135,11 +135,17 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                 fragment_list.scheduleLayoutAnimation()
             }
         } else {
-            currAdapter.updateItems(allContacts)
             currAdapter.viewType = viewType
-            currAdapter.recyclerView.requestLayout()
+            currAdapter.updateItems(allContacts)
         }
 
+    }
+
+    fun columnCountChanged() {
+        (fragment_list.layoutManager as MyGridLayoutManager).spanCount = context!!.config.contactsGridColumnCount
+        fragment_list?.adapter?.apply {
+            notifyItemRangeChanged(0, allContacts.size)
+        }
     }
 
     private fun sortByCustomOrder(favorites: List<Contact>): ArrayList<Contact> {
