@@ -74,7 +74,7 @@ class MainActivity : SimpleActivity() {
 
             handleNotificationPermission { granted ->
                 if (!granted) {
-                    PermissionRequiredDialog(this, R.string.allow_notifications_incoming_calls)
+                    PermissionRequiredDialog(this, R.string.allow_notifications_incoming_calls, { openNotificationSettings() })
                 }
             }
         } else {
