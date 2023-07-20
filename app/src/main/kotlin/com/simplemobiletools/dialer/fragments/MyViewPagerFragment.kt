@@ -6,15 +6,17 @@ import android.widget.RelativeLayout
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.extensions.getProperPrimaryColor
 import com.simplemobiletools.commons.extensions.getProperTextColor
+import com.simplemobiletools.commons.extensions.getTextSize
 import com.simplemobiletools.commons.helpers.SORT_BY_FIRST_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_SURNAME
 import com.simplemobiletools.dialer.activities.MainActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
+import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.Config
-import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
-import kotlinx.android.synthetic.main.fragment_recents.view.*
+import kotlinx.android.synthetic.main.fragment_letters_layout.view.fragment_list
+import kotlinx.android.synthetic.main.fragment_recents.view.recents_list
 
 abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet) : RelativeLayout(context, attributeSet) {
     protected var activity: SimpleActivity? = null
@@ -43,6 +45,20 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
     fun finishActMode() {
         (fragment_list?.adapter as? MyRecyclerViewAdapter)?.finishActMode()
         (recents_list?.adapter as? MyRecyclerViewAdapter)?.finishActMode()
+    }
+
+    fun fontSizeChanged() {
+        if (this is RecentsFragment) {
+            (recents_list?.adapter as? RecentCallsAdapter)?.apply {
+                fontSize = activity.getTextSize()
+                notifyDataSetChanged()
+            }
+        } else {
+            (fragment_list?.adapter as? ContactsAdapter)?.apply {
+                fontSize = activity.getTextSize()
+                notifyDataSetChanged()
+            }
+        }
     }
 
     abstract fun setupFragment()

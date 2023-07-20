@@ -16,11 +16,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.snackbar.Snackbar
+import com.simplemobiletools.commons.dialogs.ChangeViewTypeDialog
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PermissionRequiredDialog
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.BuildConfig
 import com.simplemobiletools.dialer.R
@@ -31,9 +34,7 @@ import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
 import com.simplemobiletools.dialer.fragments.FavoritesFragment
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
-import com.simplemobiletools.dialer.helpers.OPEN_DIAL_PAD_AT_LAUNCH
-import com.simplemobiletools.dialer.helpers.RecentsHelper
-import com.simplemobiletools.dialer.helpers.tabsList
+import com.simplemobiletools.dialer.helpers.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_contacts.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
@@ -43,6 +44,7 @@ import me.grantland.widget.AutofitHelper
 class MainActivity : SimpleActivity() {
     private var launchedDialer = false
     private var storedShowTabs = 0
+    private var storedFontSize = 0
     private var storedStartNameWithSurname = false
     var cachedContacts = ArrayList<Contact>()
 
@@ -120,6 +122,13 @@ class MainActivity : SimpleActivity() {
             refreshItems(true)
         }
 
+        val configFontSize = config.fontSize
+        if (storedFontSize != configFontSize) {
+            getAllFragments().forEach {
+                it?.fontSizeChanged()
+            }
+        }
+
         checkShortcuts()
         Handler().postDelayed({
             recents_fragment?.refreshItems()
@@ -169,6 +178,8 @@ class MainActivity : SimpleActivity() {
             findItem(R.id.clear_call_history).isVisible = currentFragment == recents_fragment
             findItem(R.id.sort).isVisible = currentFragment != recents_fragment
             findItem(R.id.create_new_contact).isVisible = currentFragment == contacts_fragment
+            findItem(R.id.change_view_type).isVisible = currentFragment == favorites_fragment
+            findItem(R.id.column_count).isVisible = currentFragment == favorites_fragment && config.viewType == VIEW_TYPE_GRID
             findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
         }
     }
@@ -196,10 +207,34 @@ class MainActivity : SimpleActivity() {
                 R.id.filter -> showFilterDialog()
                 R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
                 R.id.settings -> launchSettings()
+                R.id.change_view_type -> changeViewType()
+                R.id.column_count -> changeColumnCount()
                 R.id.about -> launchAbout()
                 else -> return@setOnMenuItemClickListener false
             }
             return@setOnMenuItemClickListener true
+        }
+    }
+
+    private fun changeColumnCount() {
+        val items = (CONTACTS_GRID_MIN_COLUMNS_COUNT..CONTACTS_GRID_MAX_COLUMNS_COUNT).map {
+            RadioItem(it, resources.getQuantityString(R.plurals.column_counts, it, it))
+        }
+
+        val currentColumnCount = config.contactsGridColumnCount
+        RadioGroupDialog(this, ArrayList(items), currentColumnCount) {
+            val newColumnCount = it as Int
+            if (currentColumnCount != newColumnCount) {
+                config.contactsGridColumnCount = newColumnCount
+                favorites_fragment?.columnCountChanged()
+            }
+        }
+    }
+
+    private fun changeViewType() {
+        ChangeViewTypeDialog(this) {
+            refreshMenuItems()
+            favorites_fragment?.refreshItems()
         }
     }
 
