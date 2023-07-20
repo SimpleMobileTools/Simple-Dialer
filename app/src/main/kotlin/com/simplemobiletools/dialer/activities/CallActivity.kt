@@ -444,6 +444,9 @@ class CallActivity : SimpleActivity() {
 
     private fun updateCallAudioState(route: AudioRoute?) {
         if (route != null) {
+            isMicrophoneOff = audioManager.isMicrophoneMute
+            updateMicrophoneButton()
+
             isSpeakerOn = route == AudioRoute.SPEAKER
             val supportedAudioRoutes = CallManager.getSupportedAudioRoutes()
             call_toggle_speaker.apply {
@@ -473,9 +476,13 @@ class CallActivity : SimpleActivity() {
 
     private fun toggleMicrophone() {
         isMicrophoneOff = !isMicrophoneOff
-        toggleButtonColor(call_toggle_microphone, isMicrophoneOff)
         audioManager.isMicrophoneMute = isMicrophoneOff
         CallManager.inCallService?.setMuted(isMicrophoneOff)
+        updateMicrophoneButton()
+    }
+
+    private fun updateMicrophoneButton() {
+        toggleButtonColor(call_toggle_microphone, isMicrophoneOff)
         call_toggle_microphone.contentDescription = getString(if (isMicrophoneOff) R.string.turn_microphone_on else R.string.turn_microphone_off)
     }
 
