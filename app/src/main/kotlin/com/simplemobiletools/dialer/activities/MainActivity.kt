@@ -217,8 +217,9 @@ class MainActivity : SimpleActivity() {
     }
 
     private fun changeColumnCount() {
-        val items = (CONTACTS_GRID_MIN_COLUMNS_COUNT..CONTACTS_GRID_MAX_COLUMNS_COUNT).map {
-            RadioItem(it, resources.getQuantityString(R.plurals.column_counts, it, it))
+        val items = ArrayList<RadioItem>()
+        for (i in 1..CONTACTS_GRID_MAX_COLUMNS_COUNT) {
+            items.add(RadioItem(i, resources.getQuantityString(R.plurals.column_counts, i, i)))
         }
 
         val currentColumnCount = config.contactsGridColumnCount
