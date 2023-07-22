@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Parima töökindluse tagamiseks palun luba seda rakendust käivtada teiste rakenduste peal</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Puudub ligipääs telefoniraamatule</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Varasemaid kõnesid ei leidu</string>
     <string name="could_not_access_the_call_history">Puudub ligipääs kõnede ajaloole</string>

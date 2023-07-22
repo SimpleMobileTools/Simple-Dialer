@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Pro správné fungování prosíme povolte zobrazování nad ostatními aplikacemi</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Nelze získat přístup k vašim kontaktům</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Nebyly nalezeny žádné předchozí hovory</string>
     <string name="could_not_access_the_call_history">Nelze získat přístup k historii hovorů</string>

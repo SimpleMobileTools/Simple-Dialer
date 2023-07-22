@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Por favor, permita a sobreposição sobre outros aplicativos para um comportamento mais estável</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Não foi possível acessar seus contatos</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Nenhuma chamada anterior foi encontrada</string>
     <string name="could_not_access_the_call_history">Não foi possível acessar o histórico de chamadas</string>

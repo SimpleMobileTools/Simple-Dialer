@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Bitte erlauben Sie die Anzeige über andere Anwendungen für ein zuverlässiges Verhalten</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Kein Zugriff auf Kontakte</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Anrufliste ist leer</string>
     <string name="could_not_access_the_call_history">Kein Zugriff auf Anrufliste</string>

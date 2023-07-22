@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Si prega di consentire la visualizzazione su altre app per un comportamento affidabile</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Impossibile accedere ai contatti</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Non sono state trovate chiamate precedenti</string>
     <string name="could_not_access_the_call_history">Impossibile accedere alla cronologia delle chiamate</string>

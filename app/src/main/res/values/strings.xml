@@ -7,6 +7,7 @@
 
     <!-- Contacts -->
     <string name="could_not_access_contacts">Could not access your contacts</string>
+    <string name="select_contact">Select contact</string>
 
     <!-- Recents -->
     <string name="no_previous_calls">No previous calls have been found</string>

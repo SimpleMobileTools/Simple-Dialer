@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">אנא אפשר הצגה מעל אפליקציות אחרות לצורך התנהגות אמינה</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">לא ניתן היה לגשת לאנשי הקשר שלך נא אפשר ידנית דרך הגדרות האפליקציה</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">לא נמצאו שיחות קודמות</string>
     <string name="could_not_access_the_call_history">לא ניתן היה לגשת להיסטוריית השיחות נא התקן מחדש או אפשר הרשאות</string>

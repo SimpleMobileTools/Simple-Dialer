@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Vă rugăm să permiteți afișarea peste alte aplicații pentru un aspect fiabil</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Contactele dumneavoastră nu au putut fi accesate</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Nu au fost găsite apeluri anterioare</string>
     <string name="could_not_access_the_call_history">Nu s-a putut accesa istoricul apelurilor</string>

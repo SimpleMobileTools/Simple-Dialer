@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Prosimo, dovolite prikaz nad drugimi aplikacijami za zanesljivo obnašanje</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Ni bilo mogoče dostopati do vaših stikov</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Najden ni bil noben prejšnji klic</string>
     <string name="could_not_access_the_call_history">Ni bilo mogoče dostopati do zgodovine klicev</string>

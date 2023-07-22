@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Geef toestemming tot weergave vóór andere apps voor betrouwbare werking</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Kon geen toegang krijgen tot de contactenlijst</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Er zijn geen eerdere gesprekken gevonden</string>
     <string name="could_not_access_the_call_history">Kon geen toegang krijgen tot de gespreksgeschiedenis</string>

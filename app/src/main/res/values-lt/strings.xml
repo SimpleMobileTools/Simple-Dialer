@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Prašome leisti rodyti per kitas programas, kad būtų užtikrintas patikimas elgesys</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Nepavyko gauti prieigos prie adresatų</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Nerasta jokių ankstesnių skambučių</string>
     <string name="could_not_access_the_call_history">Nepavyko pasiekti skambučių istorijos</string>

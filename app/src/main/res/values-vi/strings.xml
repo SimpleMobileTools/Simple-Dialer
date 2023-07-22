@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">Vui lòng cho phép hiển thị trên các ứng dụng khác để có hành vi đáng tin cậy</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Không thể truy cập danh bạ của bạn</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Không tìm thấy cuộc gọi nào trước đây</string>
     <string name="could_not_access_the_call_history">Không vào được lịch sử cuộc gọi</string>

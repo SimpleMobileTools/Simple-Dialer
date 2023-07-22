@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">വിശ്വസനീയമായ പെരുമാറ്റത്തിനായി മറ്റ് ആപ്പുകളിൽ പ്രദർശിപ്പിക്കാൻ അനുവദിക്കുക</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">നിങ്ങളുടെ കോൺ‌ടാക്റ്റുകൾ‌ ആക്‌സസ് ചെയ്യാൻ‌ കഴിഞ്ഞില്ല</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">മുമ്പത്തെ കോളുകളൊന്നും കണ്ടെത്തിയില്ല</string>
     <string name="could_not_access_the_call_history">കോൾ ചരിത്രം ആക്‌സസ്സുചെയ്യാനായില്ല</string>

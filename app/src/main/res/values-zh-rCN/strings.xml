@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">为了应用能稳定工作，请允许其显示在其他应用上方</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">无法访问您的通讯录</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">未找到先前的通话</string>
     <string name="could_not_access_the_call_history">无法访问通话记录</string>

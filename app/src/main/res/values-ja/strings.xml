@@ -6,6 +6,7 @@
     <string name="allow_displaying_over_other_apps">安定した動作のために、他のアプリの上に重ねて表示することを許可して下さい</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">連絡先にアクセスできませんでした</string>
+    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">通話履歴が見つかりませんでした</string>
     <string name="could_not_access_the_call_history">通話履歴にアクセスできませんでした</string>
