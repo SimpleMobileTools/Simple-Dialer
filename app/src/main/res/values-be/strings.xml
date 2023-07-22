@@ -6,7 +6,6 @@
     <string name="allow_displaying_over_other_apps">Дазвольце паказ над іншымі прыкладаннямі для надзейнай працы</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Не атрымалася атрымаць доступ да кантактаў</string>
-    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Папярэднія выклікі не знойдзены</string>
     <string name="could_not_access_the_call_history">Не атрымалася атрымаць доступ да журнала выклікаў</string>

@@ -6,7 +6,6 @@
     <string name="allow_displaying_over_other_apps">Please allow displaying over other apps for reliable behaviour</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">無法存取您的通訊錄</string>
-    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">No previous calls have been found</string>
     <string name="could_not_access_the_call_history">無法存取通話歷史紀錄</string>

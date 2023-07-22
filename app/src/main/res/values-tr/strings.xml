@@ -6,7 +6,6 @@
     <string name="allow_displaying_over_other_apps">Düzgün çalışması için lütfen diğer uygulamaların üzerinde görüntülemeye izin verin</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Kişilerinize erişilemedi</string>
-    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Önceki arama bulunamadı</string>
     <string name="could_not_access_the_call_history">Arama geçmişine erişilemedi</string>

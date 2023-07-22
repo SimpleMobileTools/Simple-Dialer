@@ -6,7 +6,6 @@
     <string name="allow_displaying_over_other_apps">Permeteu la visualització sobre d\'altres aplicacions per a un comportament fiable</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">No s\'ha pogut accedir als contactes</string>
-    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">No s\'ha trobat cap trucada anterior</string>
     <string name="could_not_access_the_call_history">No s\'ha pogut accedir a l\'historial de trucades</string>

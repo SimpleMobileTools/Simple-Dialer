@@ -6,7 +6,6 @@
     <string name="allow_displaying_over_other_apps">الرجاء السماح بالعرض فوق التطبيقات الأخرى للحصول على سلوك موثوق</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">تعذر الوصول إلى جهات الاتصال</string>
-    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">لاتوجد مكالمات سابقة</string>
     <string name="could_not_access_the_call_history">تعذر الوصول إلى سجل المكالمات</string>

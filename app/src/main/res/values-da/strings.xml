@@ -6,7 +6,6 @@
     <string name="allow_displaying_over_other_apps">Tillad venligst visning over andre apps for pålidelig adfærd</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Kunne ikke få adgang til dine kontakter</string>
-    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Der blev ikke fundet nogle tidligere opkald</string>
     <string name="could_not_access_the_call_history">Kunne ikke få adgang til opkaldshistorikken</string>

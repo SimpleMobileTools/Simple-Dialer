@@ -6,7 +6,6 @@
     <string name="allow_displaying_over_other_apps">A kiszámítható viselkedés érdekében engedélyezze a más alkalmazások feletti megjelenítést</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">A névjegyei nem érhetők el</string>
-    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Nem találhatók híváselőzmények</string>
     <string name="could_not_access_the_call_history">A híváselőzmények nem érhetők el</string>

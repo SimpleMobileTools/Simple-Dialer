@@ -6,7 +6,6 @@
     <string name="allow_displaying_over_other_apps">Salli näkyminen muiden sovellusten päällä, jotta sovellus toimii luotettavasti</string>
     <!-- Contacts -->
     <string name="could_not_access_contacts">Yhteystietojen käyttöoikeutta ei ole</string>
-    <string name="select_contact">Select contact</string>
     <!-- Recents -->
     <string name="no_previous_calls">Aiempia puheluita ei löytynyt</string>
     <string name="could_not_access_the_call_history">Puheluhistorian käyttöoikeutta ei ole</string>
