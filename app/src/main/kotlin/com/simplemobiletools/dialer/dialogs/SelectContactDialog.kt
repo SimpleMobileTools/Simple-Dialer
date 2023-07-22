@@ -49,7 +49,7 @@ class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Conta
                 true
             }
             .apply {
-                activity.setupDialogStuff(view, this, R.string.select_contact) { alertDialog ->
+                activity.setupDialogStuff(view, this, R.string.choose_contact) { alertDialog ->
                     dialog = alertDialog
                 }
             }
