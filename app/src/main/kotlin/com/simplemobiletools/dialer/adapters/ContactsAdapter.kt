@@ -149,9 +149,9 @@ class ContactsAdapter(
 
     override fun getItemCount() = contacts.size
 
-    fun updateItems(newItems: ArrayList<Contact>, highlightText: String = "") {
+    fun updateItems(newItems: List<Contact>, highlightText: String = "") {
         if (newItems.hashCode() != contacts.hashCode()) {
-            contacts = newItems.clone() as ArrayList<Contact>
+            contacts = ArrayList(newItems)
             textToHighlight = highlightText
             notifyDataSetChanged()
             finishActMode()
