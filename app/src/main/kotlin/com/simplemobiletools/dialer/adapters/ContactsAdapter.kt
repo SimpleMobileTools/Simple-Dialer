@@ -149,9 +149,9 @@ class ContactsAdapter(
 
     override fun getItemCount() = contacts.size
 
-    fun updateItems(newItems: ArrayList<Contact>, highlightText: String = "") {
+    fun updateItems(newItems: List<Contact>, highlightText: String = "") {
         if (newItems.hashCode() != contacts.hashCode()) {
-            contacts = newItems.clone() as ArrayList<Contact>
+            contacts = ArrayList(newItems)
             textToHighlight = highlightText
             notifyDataSetChanged()
             finishActMode()
@@ -351,7 +351,7 @@ class ContactsAdapter(
         val layoutManager = recyclerView.layoutManager
         if (layoutManager is GridLayoutManager) {
             val currentSpanCount = layoutManager.spanCount
-            val newSpanCount = (currentSpanCount - 1).coerceIn(CONTACTS_GRID_MIN_COLUMNS_COUNT, CONTACTS_GRID_MAX_COLUMNS_COUNT)
+            val newSpanCount = (currentSpanCount - 1).coerceIn(1, CONTACTS_GRID_MAX_COLUMNS_COUNT)
             layoutManager.spanCount = newSpanCount
             recyclerView.requestLayout()
             onSpanCountListener(newSpanCount)
@@ -362,7 +362,7 @@ class ContactsAdapter(
         val layoutManager = recyclerView.layoutManager
         if (layoutManager is GridLayoutManager) {
             val currentSpanCount = layoutManager.spanCount
-            val newSpanCount = (currentSpanCount + 1).coerceIn(CONTACTS_GRID_MIN_COLUMNS_COUNT, CONTACTS_GRID_MAX_COLUMNS_COUNT)
+            val newSpanCount = (currentSpanCount + 1).coerceIn(1, CONTACTS_GRID_MAX_COLUMNS_COUNT)
             layoutManager.spanCount = newSpanCount
             recyclerView.requestLayout()
             onSpanCountListener(newSpanCount)

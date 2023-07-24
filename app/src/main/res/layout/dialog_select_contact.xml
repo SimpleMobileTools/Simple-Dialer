@@ -5,10 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <com.simplemobiletools.commons.views.MySearchMenu
+        android:id="@+id/contact_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/medium_margin"
+        android:paddingTop="@dimen/medium_margin" />
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/contacts_empty_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_search_view"
+        android:alpha="0.8"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingEnd="@dimen/activity_margin"
+        android:text="@string/no_contacts_found"
+        android:textSize="@dimen/bigger_text_size"
+        android:textStyle="italic"
+        android:visibility="gone" />
+
     <com.simplemobiletools.commons.views.MyRecyclerView
         android:id="@+id/select_contact_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/contacts_empty_placeholder"
         android:clipToPadding="false"
         android:scrollbars="none"
         app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
@@ -17,6 +40,7 @@
         android:id="@+id/letter_fastscroller"
         android:layout_width="32dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/contact_search_view"
         android:layout_alignParentEnd="true"
         android:paddingTop="@dimen/big_margin"
         android:paddingBottom="@dimen/big_margin" />
@@ -29,5 +53,4 @@
         android:layout_alignBottom="@+id/letter_fastscroller"
         android:layout_marginEnd="@dimen/activity_margin"
         android:layout_toStartOf="@+id/letter_fastscroller" />
-
 </RelativeLayout>
