@@ -133,6 +133,7 @@ class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Conta
         }
 
         letter_fastscroller.beVisibleIf(contacts_empty_placeholder.isGone())
+        letter_fastscroller_thumb.beVisibleIf(contacts_empty_placeholder.isGone())
     }
 
     private fun backPressed() {
