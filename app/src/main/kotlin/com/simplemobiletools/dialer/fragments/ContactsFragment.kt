@@ -72,10 +72,26 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
         }
     }
 
+    fun isBlocked(number: String): Boolean {
+        val normalizedNumber = number.normalizePhoneNumber()
+        val blockedNumbers = context.getBlockedNumbers()
+        return blockedNumbers.any { it.normalizedNumber == normalizedNumber }
+    }
     override fun refreshItems(callback: (() -> Unit)?) {
         val privateCursor = context?.getMyContactsCursor(false, true)
         ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
             allContacts = contacts
+
+            val blockedNumbers: List<String> = context.getBlockedNumbers().map { it.number }
+            val phoneNumbers: List<String> = allContacts.map { it.phoneNumbers }.flatten().map { it.value }
+            val nonBlockedNumbers = phoneNumbers.filter { !blockedNumbers.contains(it) }
+            val nonBlockedContacts = allContacts.filter { contact ->
+                contact.phoneNumbers.any { phoneNumber ->
+                    nonBlockedNumbers.contains(phoneNumber.value)
+                }
+            }
+
+            allContacts = ArrayList(nonBlockedContacts)
 
             if (SMT_PRIVATE !in context.baseConfig.ignoredContactSources) {
                 val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor)
@@ -87,7 +103,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             (activity as? MainActivity)?.cacheContacts(allContacts)
 
             activity?.runOnUiThread {
-                gotContacts(contacts)
+                gotContacts(allContacts)
                 callback?.invoke()
             }
         }

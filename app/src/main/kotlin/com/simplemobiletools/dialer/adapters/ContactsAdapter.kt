@@ -20,11 +20,14 @@ import com.simplemobiletools.commons.databinding.ItemContactWithoutNumberBinding
 import com.simplemobiletools.commons.databinding.ItemContactWithoutNumberGridBinding
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.interfaces.ItemMoveCallback
 import com.simplemobiletools.commons.interfaces.ItemTouchHelperContract
 import com.simplemobiletools.commons.interfaces.StartReorderDragListener
+import com.simplemobiletools.commons.models.BlockedNumber
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
@@ -35,6 +38,7 @@ import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import java.util.*
+import kotlin.collections.ArrayList
 
 class ContactsAdapter(
     activity: SimpleActivity,
@@ -110,6 +114,7 @@ class ContactsAdapter(
             R.id.cab_view_details -> viewContactDetails()
             R.id.cab_create_shortcut -> tryCreateShortcut()
             R.id.cab_select_all -> selectAll()
+            R.id.cab_block_number -> tryBlocking()
         }
     }
 
@@ -195,6 +200,67 @@ class ContactsAdapter(
         val contact = getSelectedItems().firstOrNull() ?: return
         activity.startContactDetailsIntent(contact)
     }
+
+    private fun tryBlocking() {
+        if (activity.isOrWasThankYouInstalled()) {
+            askConfirmBlock()
+        } else {
+            FeatureLockedDialog(activity) { }
+        }
+    }
+
+    private fun askConfirmBlock() {
+        val blockedNumbers: List<String> = activity.getBlockedNumbers().map { it.number }
+        val phoneNumbers = getSelectedItems().map { it.phoneNumbers }.flatten().map { it.value }
+        val nonBlockedNumbers = phoneNumbers.filter { !blockedNumbers.contains(it) }
+
+        val numbers = TextUtils.join(", ", nonBlockedNumbers)
+        val baseString = R.string.block_confirmation
+        val question = String.format(resources.getString(baseString), numbers)
+
+        ConfirmationDialog(activity, question) {
+            blockNumbers()
+        }
+    }
+
+    private fun blockNumbers() {
+        if (selectedKeys.isEmpty()) {
+            return
+        }
+
+        val contactsToBlock = getSelectedItems()
+        val positions = getSelectedItemPositions()
+
+        val blockedNumbers: List<String> = activity.getBlockedNumbers().map { it.number }
+        val phoneNumbers: List<String> = contactsToBlock.map { it.phoneNumbers }.flatten().map { it.value }
+        val nonBlockedNumbers = phoneNumbers.filter { !blockedNumbers.contains(it) }
+
+        if (nonBlockedNumbers.isEmpty()) {
+            activity.runOnUiThread {
+                removeSelectedItems(positions)
+                contacts.removeAll(contactsToBlock)
+                finishActMode()
+            }
+        } else if (nonBlockedNumbers.size > 1) {
+            val radioItem: ArrayList<RadioItem> =
+                nonBlockedNumbers.mapIndexed { index, s -> RadioItem(id = index, title = s, value = s) } as ArrayList<RadioItem>
+            RadioGroupDialog(activity, items = radioItem) { value ->
+                ensureBackgroundThread {
+                    activity.addBlockedNumber(value as String)
+                }
+            }
+        } else {
+            contacts.removeAll(contactsToBlock)
+            ensureBackgroundThread {
+                activity.addBlockedNumber(nonBlockedNumbers[0])
+            }
+            activity.runOnUiThread {
+                removeSelectedItems(positions)
+                finishActMode()
+            }
+        }
+    }
+
 
     private fun askConfirmDelete() {
         val itemsCnt = selectedKeys.size

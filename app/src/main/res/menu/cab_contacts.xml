@@ -46,4 +46,10 @@
         android:showAsAction="never"
         android:title="@string/select_all"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/cab_block_number"
+        android:showAsAction="never"
+        android:title="@string/block_number"
+        app:showAsAction="never" />
 </menu>

@@ -61,6 +61,18 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
             allContacts = contacts
 
+            val blockedNumbers: List<String> = context.getBlockedNumbers().map { it.number }
+            val phoneNumbers: List<String> = allContacts.map { it.phoneNumbers }.flatten().map { it.value }
+            val nonBlockedNumbers = phoneNumbers.filter { !blockedNumbers.contains(it) }
+            val nonBlockedContacts = allContacts.filter { contact ->
+                contact.phoneNumbers.any { phoneNumber ->
+                    nonBlockedNumbers.contains(phoneNumber.value)
+                }
+            }
+
+            allContacts = ArrayList(nonBlockedContacts)
+
+
             if (SMT_PRIVATE !in context.baseConfig.ignoredContactSources) {
                 val privateCursor = context?.getMyContactsCursor(true, true)
                 val privateContacts = MyContactsContentProvider.getContacts(context, privateCursor).map {
@@ -71,7 +83,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                     allContacts.sort()
                 }
             }
-            val favorites = contacts.filter { it.starred == 1 } as ArrayList<Contact>
+            val favorites = allContacts.filter { it.starred == 1 } as ArrayList<Contact>
 
             allContacts = if (activity?.config?.isCustomOrderSelected == true) {
                 sortByCustomOrder(favorites)
