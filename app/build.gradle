@@ -12,12 +12,12 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.simplemobiletools.dialer"
         minSdkVersion 23
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 56
         versionName "5.18.0"
         setProperty("archivesBaseName", "dialer")
@@ -62,6 +62,7 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+    namespace 'com.simplemobiletools.dialer'
 }
 
 dependencies {
