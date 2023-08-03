@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Dialer</string>
+    <string name="app_name">Simple Dialer: Marcador</string>
     <string name="app_launcher_name">Marcador</string>
     <string name="default_phone_app_prompt">Fai que sexa a aplición do Teléfono por predeterminada</string>
     <string name="allow_displaying_over_other_apps">Permite mostrala por riba doutras aplicacións para un comportamento fiable</string>
@@ -72,13 +72,11 @@
     <string name="disable_swipe_to_answer">Substituír o xesto de desprazar por un click para responder</string>
     <string name="show_incoming_calls_full_screen">Mostrar sempre as chamadas entrantes a pantalla enteira</string>
     <string name="hide_dialpad_numbers">Ocultalos números do teclado</string>
-    <string name="export_call_history">Export call history</string>
-    <string name="import_call_history">Import call history</string>
-
+    <string name="export_call_history">Exportar historial de chamadas</string>
+    <string name="import_call_history">Importar historial de chamadas</string>
     <!-- FAQ -->
     <string name="faq_1_title">Escoito chamadas entrantes, pero a pantalla non se acende. Que podo facer\?</string>
     <string name="faq_1_text">Estes problemas poden ter moitas razóns específicas do dispositivo e do sistema, difíciles de dicir en xeral. Debes mirar ao teu redor na configuración do teu dispositivo e asegurarte de que a aplicación pode aparecer cando está en segundo plano e permitir que se vexa sobre outras aplicacións.</string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
