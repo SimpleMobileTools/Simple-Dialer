@@ -70,7 +70,7 @@
     <string name="open_dialpad_by_default">Beim Öffnen der App immer das Wähltastenfeld öffnen</string>
     <string name="disable_proximity_sensor">Näherungssensor bei Anrufen deaktivieren</string>
     <string name="disable_swipe_to_answer">Anrufe durch Klicken statt durch Streichen annehmen</string>
-    <string name="show_incoming_calls_full_screen">Eingehende Anrufe immer im Vollbildmodus anzeigen</string>
+    <string name="show_incoming_calls_full_screen">Eingehende Anrufe immer im Vollbild anzeigen</string>
     <string name="hide_dialpad_numbers">Wähltastenfeld-Nummern ausblenden</string>
     <string name="export_call_history">Anrufliste exportieren</string>
     <string name="import_call_history">Anrufliste importieren</string>
