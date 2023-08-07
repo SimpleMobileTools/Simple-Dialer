@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ContactsHelper
@@ -13,18 +14,24 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
+import com.simplemobiletools.dialer.databinding.FragmentRecentsContentBinding
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.MIN_RECENTS_THRESHOLD
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
-import kotlinx.android.synthetic.main.fragment_recents.view.recents_list
-import kotlinx.android.synthetic.main.fragment_recents.view.recents_placeholder
-import kotlinx.android.synthetic.main.fragment_recents.view.recents_placeholder_2
 
-class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
+class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment<MyViewPagerFragment.RecentsFragmentLayout>(context, attributeSet),
+    RefreshItemsListener {
     private var allRecentCalls = listOf<RecentCall>()
     private var recentsAdapter: RecentCallsAdapter? = null
+    lateinit var binding: FragmentRecentsContentBinding
+
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+        binding = FragmentRecentsContentBinding.bind(this)
+        innerBinding = RecentsFragmentLayout(FragmentRecentsContentBinding.bind(binding.root))
+    }
 
     override fun setupFragment() {
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CALL_LOG)) {
@@ -33,8 +40,8 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             R.string.could_not_access_the_call_history
         }
 
-        recents_placeholder.text = context.getString(placeholderResId)
-        recents_placeholder_2.apply {
+        innerBinding?.fragmentPlaceholder?.text = context.getString(placeholderResId)
+        innerBinding?.fragmentPlaceholder2?.apply {
             underlineText()
             setOnClickListener {
                 requestCallLogPermission()
@@ -43,8 +50,9 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     }
 
     override fun setupColors(textColor: Int, primaryColor: Int, properPrimaryColor: Int) {
-        recents_placeholder.setTextColor(textColor)
-        recents_placeholder_2.setTextColor(properPrimaryColor)
+
+        innerBinding?.fragmentPlaceholder?.setTextColor(textColor)
+        innerBinding?.fragmentPlaceholder2?.setTextColor(properPrimaryColor)
 
         recentsAdapter?.apply {
             initDrawables()
@@ -73,17 +81,18 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
     private fun gotRecents(recents: List<RecentCall>) {
         if (recents.isEmpty()) {
-            recents_placeholder.beVisible()
-            recents_placeholder_2.beGoneIf(context.hasPermission(PERMISSION_READ_CALL_LOG))
-            recents_list.beGone()
-        } else {
-            recents_placeholder.beGone()
-            recents_placeholder_2.beGone()
-            recents_list.beVisible()
 
-            val currAdapter = recents_list.adapter
+            innerBinding?.fragmentPlaceholder?.beVisible()
+            innerBinding?.fragmentPlaceholder2?.beGoneIf(context.hasPermission(PERMISSION_READ_CALL_LOG))
+            innerBinding?.fragmentList?.beGone()
+        } else {
+            innerBinding?.fragmentPlaceholder?.beGone()
+            innerBinding?.fragmentPlaceholder2?.beGone()
+            innerBinding?.fragmentList?.beVisible()
+
+            val currAdapter = innerBinding?.fragmentList?.adapter
             if (currAdapter == null) {
-                recentsAdapter = RecentCallsAdapter(activity as SimpleActivity, recents.toMutableList(), recents_list, this, true) {
+                recentsAdapter = RecentCallsAdapter(activity as SimpleActivity, recents.toMutableList(), innerBinding.fragmentList, this, true) {
                     val recentCall = it as RecentCall
                     if (context.config.showCallConfirmation) {
                         CallConfirmationDialog(activity as SimpleActivity, recentCall.name) {
@@ -94,13 +103,13 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
                     }
                 }
 
-                recents_list.adapter = recentsAdapter
+                innerBinding.fragmentList?.adapter = recentsAdapter
 
                 if (context.areSystemAnimationsEnabled) {
-                    recents_list.scheduleLayoutAnimation()
+                    innerBinding.fragmentList?.scheduleLayoutAnimation()
                 }
 
-                recents_list.endlessScrollListener = object : MyRecyclerView.EndlessScrollListener {
+                innerBinding.fragmentList?.endlessScrollListener = object : MyRecyclerView.EndlessScrollListener {
                     override fun updateTop() {}
 
                     override fun updateBottom() {
@@ -136,8 +145,8 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     private fun requestCallLogPermission() {
         activity?.handlePermission(PERMISSION_READ_CALL_LOG) {
             if (it) {
-                recents_placeholder.text = context.getString(R.string.no_previous_calls)
-                recents_placeholder_2.beGone()
+                innerBinding?.fragmentPlaceholder?.text = context.getString(R.string.no_previous_calls)
+                innerBinding?.fragmentPlaceholder2?.beGone()
 
                 val groupSubsequentCalls = context?.config?.groupSubsequentCalls ?: false
                 RecentsHelper(context).getRecentCalls(groupSubsequentCalls) { recents ->
@@ -150,7 +159,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
     }
 
     override fun onSearchClosed() {
-        recents_placeholder.beVisibleIf(allRecentCalls.isEmpty())
+        innerBinding?.fragmentPlaceholder?.beVisibleIf(allRecentCalls.isEmpty())
         recentsAdapter?.updateItems(allRecentCalls)
     }
 
@@ -161,7 +170,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
             it.name.startsWith(text, true)
         }.toMutableList() as ArrayList<RecentCall>
 
-        recents_placeholder.beVisibleIf(recentCalls.isEmpty())
+        innerBinding?.fragmentPlaceholder?.beVisibleIf(recentCalls.isEmpty())
         recentsAdapter?.updateItems(recentCalls, text)
     }
 }

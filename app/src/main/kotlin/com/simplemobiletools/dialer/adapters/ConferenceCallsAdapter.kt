@@ -1,6 +1,7 @@
 package com.simplemobiletools.dialer.adapters
 
 import android.telecom.Call
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
@@ -11,9 +12,9 @@ import com.simplemobiletools.commons.helpers.SimpleContactsHelper
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.databinding.ItemConferenceCallBinding
 import com.simplemobiletools.dialer.extensions.hasCapability
 import com.simplemobiletools.dialer.helpers.getCallContact
-import kotlinx.android.synthetic.main.item_conference_call.view.*
 
 class ConferenceCallsAdapter(
     activity: SimpleActivity, recyclerView: MyRecyclerView, val data: ArrayList<Call>, itemClick: (Any) -> Unit
@@ -39,17 +40,22 @@ class ConferenceCallsAdapter(
 
     override fun prepareActionMode(menu: Menu) {}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_conference_call, parent)
+    private lateinit var binding : ItemConferenceCallBinding
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        binding = ItemConferenceCallBinding.inflate(LayoutInflater.from(parent.context), parent,false)
+        return createViewHolder(binding.root)
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val call = data[position]
         holder.bindView(call, allowSingleClick = false, allowLongClick = false) { itemView, _ ->
             getCallContact(itemView.context, call) { callContact ->
                 itemView.post {
-                    itemView.item_conference_call_name.text = callContact.name.ifEmpty { itemView.context.getString(R.string.unknown_caller) }
+                    binding.itemConferenceCallName.text = callContact.name.ifEmpty { itemView.context.getString(R.string.unknown_caller) }
                     SimpleContactsHelper(activity).loadContactImage(
                         callContact.photoUri,
-                        itemView.item_conference_call_image,
+                        binding.itemConferenceCallImage,
                         callContact.name,
                         activity.getDrawable(R.drawable.ic_person_vector)
                     )
@@ -57,9 +63,9 @@ class ConferenceCallsAdapter(
             }
             val canSeparate = call.hasCapability(Call.Details.CAPABILITY_SEPARATE_FROM_CONFERENCE)
             val canDisconnect = call.hasCapability(Call.Details.CAPABILITY_DISCONNECT_FROM_CONFERENCE)
-            itemView.item_conference_call_split.isEnabled = canSeparate
-            itemView.item_conference_call_split.alpha = if (canSeparate) 1.0f else LOWER_ALPHA
-            itemView.item_conference_call_split.setOnClickListener {
+            binding.itemConferenceCallSplit.isEnabled = canSeparate
+            binding.itemConferenceCallSplit.alpha = if (canSeparate) 1.0f else LOWER_ALPHA
+            binding.itemConferenceCallSplit.setOnClickListener {
                 call.splitFromConference()
                 data.removeAt(position)
                 notifyItemRemoved(position)
@@ -67,15 +73,16 @@ class ConferenceCallsAdapter(
                     activity.finish()
                 }
             }
-            itemView.item_conference_call_split.setOnLongClickListener {
+            binding.itemConferenceCallSplit.setOnLongClickListener {
                 if (!it.contentDescription.isNullOrEmpty()) {
                     itemView.context.toast(it.contentDescription.toString())
                 }
                 true
             }
-            itemView.item_conference_call_end.isEnabled = canDisconnect
-            itemView.item_conference_call_end.alpha = if (canDisconnect) 1.0f else LOWER_ALPHA
-            itemView.item_conference_call_end.setOnClickListener {
+
+            binding.itemConferenceCallEnd.isEnabled = canDisconnect
+            binding.itemConferenceCallEnd.alpha = if (canDisconnect) 1.0f else LOWER_ALPHA
+            binding.itemConferenceCallEnd.setOnClickListener {
                 call.disconnect()
                 data.removeAt(position)
                 notifyItemRemoved(position)
@@ -83,7 +90,7 @@ class ConferenceCallsAdapter(
                     activity.finish()
                 }
             }
-            itemView.item_conference_call_end.setOnLongClickListener {
+            binding.itemConferenceCallEnd.setOnLongClickListener {
                 if (!it.contentDescription.isNullOrEmpty()) {
                     itemView.context.toast(it.contentDescription.toString())
                 }
@@ -96,7 +103,7 @@ class ConferenceCallsAdapter(
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isDestroyed && !activity.isFinishing) {
-            Glide.with(activity).clear(holder.itemView.item_conference_call_image)
+            Glide.with(activity).clear(binding.itemConferenceCallImage)
         }
     }
 }

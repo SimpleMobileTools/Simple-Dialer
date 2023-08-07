@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.databinding.ItemContactWithoutNumberBinding
+import com.simplemobiletools.commons.databinding.ItemContactWithoutNumberGridBinding
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FeatureLockedDialog
 import com.simplemobiletools.commons.extensions.*
@@ -128,11 +130,11 @@ class ContactsAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layout = when (viewType) {
-            VIEW_TYPE_GRID -> R.layout.item_contact_without_number_grid
-            else -> R.layout.item_contact_without_number
+        val binding = when (viewType) {
+            VIEW_TYPE_GRID -> ItemContactWithoutNumberGridBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            else -> ItemContactWithoutNumberBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         }
-        return createViewHolder(layout, parent)
+        return createViewHolder(binding.root)
     }
 
     override fun getItemViewType(position: Int): Int {

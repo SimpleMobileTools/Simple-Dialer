@@ -11,14 +11,23 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.MainActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
+import com.simplemobiletools.dialer.databinding.FragmentContactsBinding
+import com.simplemobiletools.dialer.databinding.FragmentLettersLayoutBinding
 import com.simplemobiletools.dialer.extensions.launchCreateNewContactIntent
 import com.simplemobiletools.dialer.extensions.startContactDetailsIntent
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
-import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.Locale
 
-class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
+class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment<MyViewPagerFragment.LetterLayout>(context, attributeSet),
+    RefreshItemsListener {
     private var allContacts = ArrayList<Contact>()
+
+    lateinit var binding: FragmentContactsBinding
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+        binding = FragmentContactsBinding.bind(this)
+        innerBinding = LetterLayout(FragmentLettersLayoutBinding.bind(binding.root))
+    }
 
     override fun setupFragment() {
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
@@ -27,7 +36,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             R.string.could_not_access_contacts
         }
 
-        fragment_placeholder.text = context.getString(placeholderResId)
+        innerBinding?.fragmentPlaceholder?.text = context.getString(placeholderResId)
 
         val placeholderActionResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
             R.string.create_new_contact
@@ -35,7 +44,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             R.string.request_access
         }
 
-        fragment_placeholder_2.apply {
+        innerBinding?.fragmentPlaceholder2?.apply {
             text = context.getString(placeholderActionResId)
             underlineText()
             setOnClickListener {
@@ -49,15 +58,18 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     }
 
     override fun setupColors(textColor: Int, primaryColor: Int, properPrimaryColor: Int) {
-        (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
-        fragment_placeholder.setTextColor(textColor)
-        fragment_placeholder_2.setTextColor(properPrimaryColor)
+        with(innerBinding) {
+            (fragmentList?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
 
-        letter_fastscroller.textColor = textColor.getColorStateList()
-        letter_fastscroller.pressedTextColor = properPrimaryColor
-        letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = properPrimaryColor.getContrastColor()
-        letter_fastscroller_thumb.thumbColor = properPrimaryColor.getColorStateList()
+            fragmentPlaceholder?.setTextColor(textColor)
+            fragmentPlaceholder2?.setTextColor(properPrimaryColor)
+
+            letterFastscroller?.textColor = textColor.getColorStateList()
+            letterFastscroller?.pressedTextColor = properPrimaryColor
+            letterFastscrollerThumb?.setupWithFastScroller(innerBinding?.letterFastscroller!!)
+            letterFastscrollerThumb?.textColor = properPrimaryColor.getContrastColor()
+            letterFastscrollerThumb?.thumbColor = properPrimaryColor.getColorStateList()
+        }
     }
 
     override fun refreshItems(callback: (() -> Unit)?) {
@@ -72,7 +84,7 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
                     allContacts.sort()
                 }
             }
-            (activity as MainActivity).cacheContacts(allContacts)
+            (activity as? MainActivity)?.cacheContacts(allContacts)
 
             activity?.runOnUiThread {
                 gotContacts(contacts)
@@ -83,40 +95,45 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
 
     private fun gotContacts(contacts: ArrayList<Contact>) {
         setupLetterFastScroller(contacts)
-        if (contacts.isEmpty()) {
-            fragment_placeholder.beVisible()
-            fragment_placeholder_2.beVisible()
-            fragment_list.beGone()
-        } else {
-            fragment_placeholder.beGone()
-            fragment_placeholder_2.beGone()
-            fragment_list.beVisible()
-
-            val currAdapter = fragment_list.adapter
-            if (currAdapter == null) {
-                ContactsAdapter(
-                    activity = activity as SimpleActivity,
-                    contacts = contacts,
-                    recyclerView = fragment_list,
-                    refreshItemsListener = this
-                ) {
-                    val contact = it as Contact
-                    activity?.startContactDetailsIntent(contact)
-                }.apply {
-                    fragment_list.adapter = this
-                }
-
-                if (context.areSystemAnimationsEnabled) {
-                    fragment_list.scheduleLayoutAnimation()
-                }
+        with(innerBinding) {
+            if (contacts.isEmpty()) {
+                fragmentPlaceholder?.beVisible()
+                fragmentPlaceholder2?.beVisible()
+                fragmentList?.beGone()
             } else {
-                (currAdapter as ContactsAdapter).updateItems(contacts)
+                fragmentPlaceholder?.beGone()
+                fragmentPlaceholder2?.beGone()
+                fragmentList?.beVisible()
+
+                val currAdapter = fragmentList?.adapter
+                if (currAdapter == null) {
+                    fragmentList?.let {
+                        ContactsAdapter(
+                            activity = activity as SimpleActivity,
+                            contacts = contacts,
+                            recyclerView = it,
+                            refreshItemsListener = this@ContactsFragment
+                        ) {
+                            val contact = it as Contact
+                            activity?.startContactDetailsIntent(contact)
+                        }.apply {
+                            fragmentList?.adapter = this
+                        }
+                    }
+
+                    if (context.areSystemAnimationsEnabled) {
+                        fragmentList?.scheduleLayoutAnimation()
+                    }
+                } else {
+                    (currAdapter as ContactsAdapter).updateItems(contacts)
+                }
             }
         }
+
     }
 
     private fun setupLetterFastScroller(contacts: ArrayList<Contact>) {
-        letter_fastscroller.setupWithRecyclerView(fragment_list, { position ->
+        innerBinding?.letterFastscroller?.setupWithRecyclerView(innerBinding?.fragmentList!!, { position ->
             try {
                 val name = contacts[position].getNameToDisplay()
                 val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
@@ -128,8 +145,8 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
     }
 
     override fun onSearchClosed() {
-        fragment_placeholder.beVisibleIf(allContacts.isEmpty())
-        (fragment_list.adapter as? ContactsAdapter)?.updateItems(allContacts)
+        innerBinding?.fragmentPlaceholder?.beVisibleIf(allContacts.isEmpty())
+        (innerBinding?.fragmentList?.adapter as? ContactsAdapter)?.updateItems(allContacts)
         setupLetterFastScroller(allContacts)
     }
 
@@ -155,16 +172,16 @@ class ContactsFragment(context: Context, attributeSet: AttributeSet) : MyViewPag
             !getProperText(nameToDisplay, shouldNormalize).startsWith(text, true) && !nameToDisplay.contains(text, true)
         }
 
-        fragment_placeholder.beVisibleIf(filtered.isEmpty())
-        (fragment_list.adapter as? ContactsAdapter)?.updateItems(filtered, text)
+        innerBinding?.fragmentPlaceholder?.beVisibleIf(filtered.isEmpty())
+        (innerBinding?.fragmentList?.adapter as? ContactsAdapter)?.updateItems(filtered, text)
         setupLetterFastScroller(filtered)
     }
 
     private fun requestReadContactsPermission() {
         activity?.handlePermission(PERMISSION_READ_CONTACTS) {
             if (it) {
-                fragment_placeholder.text = context.getString(R.string.no_contacts_found)
-                fragment_placeholder_2.text = context.getString(R.string.create_new_contact)
+                innerBinding?.fragmentPlaceholder?.text = context.getString(R.string.no_contacts_found)
+                innerBinding?.fragmentPlaceholder2?.text = context.getString(R.string.create_new_contact)
                 ContactsHelper(context).getContacts(showOnlyContactsWithNumbers = true) { contacts ->
                     activity?.runOnUiThread {
                         gotContacts(contacts)

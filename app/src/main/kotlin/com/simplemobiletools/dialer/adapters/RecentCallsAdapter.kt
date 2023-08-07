@@ -19,12 +19,12 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.MainActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.databinding.ItemRecentCallBinding
 import com.simplemobiletools.dialer.dialogs.ShowGroupedCallsDialog
 import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
-import kotlinx.android.synthetic.main.item_recent_call.view.*
 
 class RecentCallsAdapter(
     activity: SimpleActivity,
@@ -43,6 +43,7 @@ class RecentCallsAdapter(
     private val redColor = resources.getColor(R.color.md_red_700)
     private var textToHighlight = ""
     private var durationPadding = resources.getDimension(R.dimen.normal_margin).toInt()
+    private lateinit var binding: ItemRecentCallBinding
 
     init {
         initDrawables()
@@ -103,7 +104,10 @@ class RecentCallsAdapter(
 
     override fun onActionModeDestroyed() {}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_recent_call, parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        binding = ItemRecentCallBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return createViewHolder(binding.root)
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val recentCall = recentCalls[position]
@@ -122,7 +126,7 @@ class RecentCallsAdapter(
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isDestroyed && !activity.isFinishing) {
-            Glide.with(activity).clear(holder.itemView.item_recents_image)
+            Glide.with(activity).clear(binding.itemRecentsImage)
         }
     }
 
@@ -280,7 +284,7 @@ class RecentCallsAdapter(
     private fun setupView(view: View, call: RecentCall) {
         view.apply {
             val currentFontSize = fontSize
-            item_recents_holder.isSelected = selectedKeys.contains(call.id)
+            binding.itemRecentsHolder.isSelected = selectedKeys.contains(call.id)
             val name = findContactByCall(call)?.getNameToDisplay() ?: call.name
             var nameToShow = SpannableString(name)
             if (call.specificType.isNotEmpty()) {
@@ -300,37 +304,37 @@ class RecentCallsAdapter(
                 nameToShow = SpannableString(nameToShow.toString().highlightTextPart(textToHighlight, properPrimaryColor))
             }
 
-            item_recents_name.apply {
+            binding.itemRecentsName.apply {
                 text = nameToShow
                 setTextColor(textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize)
             }
 
-            item_recents_date_time.apply {
+            binding.itemRecentsDateTime.apply {
                 text = call.startTS.formatDateOrTime(context, refreshItemsListener != null, false)
                 setTextColor(if (call.type == Calls.MISSED_TYPE) redColor else textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
             }
 
-            item_recents_duration.apply {
+            binding.itemRecentsDuration.apply {
                 text = call.duration.getFormattedDuration()
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
                 if (!showOverflowMenu) {
-                    item_recents_duration.setPadding(0, 0, durationPadding, 0)
+                    binding.itemRecentsDuration.setPadding(0, 0, durationPadding, 0)
                 }
             }
 
-            item_recents_sim_image.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
-            item_recents_sim_id.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
+            binding.itemRecentsSimImage.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
+            binding.itemRecentsSimId.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
             if (areMultipleSIMsAvailable && call.simID != -1) {
-                item_recents_sim_image.applyColorFilter(textColor)
-                item_recents_sim_id.setTextColor(textColor.getContrastColor())
-                item_recents_sim_id.text = call.simID.toString()
+                binding.itemRecentsSimImage.applyColorFilter(textColor)
+                binding.itemRecentsSimId.setTextColor(textColor.getContrastColor())
+                binding.itemRecentsSimId.text = call.simID.toString()
             }
 
-            SimpleContactsHelper(context).loadContactImage(call.photoUri, item_recents_image, call.name)
+            SimpleContactsHelper(context).loadContactImage(call.photoUri, binding.itemRecentsImage, call.name)
 
             val drawable = when (call.type) {
                 Calls.OUTGOING_TYPE -> outgoingCallIcon
@@ -338,15 +342,15 @@ class RecentCallsAdapter(
                 else -> incomingCallIcon
             }
 
-            item_recents_type.setImageDrawable(drawable)
+            binding.itemRecentsType.setImageDrawable(drawable)
 
-            overflow_menu_icon.beVisibleIf(showOverflowMenu)
-            overflow_menu_icon.drawable.apply {
+            binding.overflowMenuIcon.beVisibleIf(showOverflowMenu)
+            binding.overflowMenuIcon.drawable.apply {
                 mutate()
                 setTint(activity.getProperTextColor())
             }
-            overflow_menu_icon.setOnClickListener {
-                showPopupMenu(overflow_menu_anchor, call)
+            binding.overflowMenuIcon.setOnClickListener {
+                showPopupMenu(binding.overflowMenuAnchor, call)
             }
         }
     }

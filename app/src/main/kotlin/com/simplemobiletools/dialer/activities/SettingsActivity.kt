@@ -15,14 +15,14 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.databinding.ActivityMainBinding
+import com.simplemobiletools.dialer.databinding.ActivitySettingsBinding
 import com.simplemobiletools.dialer.dialogs.ExportCallHistoryDialog
 import com.simplemobiletools.dialer.dialogs.ManageVisibleTabsDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.models.RecentCall
-import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.serialization.SerializationException
-import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.util.*
@@ -30,6 +30,7 @@ import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
 
+    private val settingsActivityBinding: ActivitySettingsBinding by viewBinding(ActivitySettingsBinding::inflate)
     private val callHistoryFileType = "application/json"
 
     private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
@@ -51,15 +52,20 @@ class SettingsActivity : SimpleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
+        setContentView(settingsActivityBinding.root)
 
-        updateMaterialActivityViews(settings_coordinator, settings_holder, useTransparentNavigation = true, useTopSearchMenu = false)
-        setupMaterialScrollListener(settings_nested_scrollview, settings_toolbar)
+        updateMaterialActivityViews(
+            settingsActivityBinding.settingsCoordinator,
+            settingsActivityBinding.settingsHolder,
+            useTransparentNavigation = true,
+            useTopSearchMenu = false
+        )
+        setupMaterialScrollListener(settingsActivityBinding.settingsNestedScrollview, settingsActivityBinding.settingsToolbar)
     }
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(settings_toolbar, NavigationIcon.Arrow)
+        setupToolbar(settingsActivityBinding.settingsToolbar, NavigationIcon.Arrow)
 
         setupPurchaseThankYou()
         setupCustomizeColors()
@@ -83,14 +89,14 @@ class SettingsActivity : SimpleActivity() {
         setupAlwaysShowFullscreen()
         setupCallsExport()
         setupCallsImport()
-        updateTextColors(settings_holder)
+        updateTextColors(settingsActivityBinding.settingsHolder)
 
         arrayOf(
-            settings_color_customization_section_label,
-            settings_general_settings_label,
-            settings_startup_label,
-            settings_calls_label,
-            settings_migration_section_label
+            settingsActivityBinding.settingsColorCustomizationSectionLabel,
+            settingsActivityBinding.settingsGeneralSettingsLabel,
+            settingsActivityBinding.settingsStartupLabel,
+            settingsActivityBinding.settingsCallsLabel,
+            settingsActivityBinding.settingsMigrationSectionLabel
         ).forEach {
             it.setTextColor(getProperPrimaryColor())
         }
@@ -102,33 +108,34 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupPurchaseThankYou() {
-        settings_purchase_thank_you_holder.beGoneIf(isOrWasThankYouInstalled())
-        settings_purchase_thank_you_holder.setOnClickListener {
+        settingsActivityBinding.settingsPurchaseThankYouHolder.beGoneIf(isOrWasThankYouInstalled())
+        settingsActivityBinding.settingsPurchaseThankYouHolder.setOnClickListener {
             launchPurchaseThankYouIntent()
         }
     }
 
     private fun setupCustomizeColors() {
-        settings_color_customization_label.text = getCustomizeColorsString()
-        settings_color_customization_holder.setOnClickListener {
+        settingsActivityBinding.settingsColorCustomizationLabel.text = getCustomizeColorsString()
+        settingsActivityBinding.settingsColorCustomizationHolder.setOnClickListener {
             handleCustomizeColorsClick()
         }
     }
 
     private fun setupUseEnglish() {
-        settings_use_english_holder.beVisibleIf((config.wasUseEnglishToggled || Locale.getDefault().language != "en") && !isTiramisuPlus())
-        settings_use_english.isChecked = config.useEnglish
-        settings_use_english_holder.setOnClickListener {
-            settings_use_english.toggle()
-            config.useEnglish = settings_use_english.isChecked
+        settingsActivityBinding.settingsUseEnglishHolder.beVisibleIf((config.wasUseEnglishToggled || Locale.getDefault().language != "en") && !isTiramisuPlus())
+        settingsActivityBinding.settingsUseEnglish.isChecked = config.useEnglish
+        settingsActivityBinding.settingsUseEnglishHolder.setOnClickListener {
+            settingsActivityBinding.settingsUseEnglish.toggle()
+            config.useEnglish = settingsActivityBinding.settingsUseEnglish.isChecked
             exitProcess(0)
         }
     }
 
     private fun setupLanguage() {
-        settings_language.text = Locale.getDefault().displayLanguage
-        settings_language_holder.beVisibleIf(isTiramisuPlus())
-        settings_language_holder.setOnClickListener {
+
+        settingsActivityBinding.settingsLanguage.text = Locale.getDefault().displayLanguage
+        settingsActivityBinding.settingsLanguageHolder.beVisibleIf(isTiramisuPlus())
+        settingsActivityBinding.settingsLanguageHolder.setOnClickListener {
             launchChangeAppLanguageIntent()
         }
     }
@@ -136,9 +143,9 @@ class SettingsActivity : SimpleActivity() {
     // support for device-wise blocking came on Android 7, rely only on that
     @TargetApi(Build.VERSION_CODES.N)
     private fun setupManageBlockedNumbers() {
-        settings_manage_blocked_numbers_label.text = addLockedLabelIfNeeded(R.string.manage_blocked_numbers)
-        settings_manage_blocked_numbers_holder.beVisibleIf(isNougatPlus())
-        settings_manage_blocked_numbers_holder.setOnClickListener {
+        settingsActivityBinding.settingsManageBlockedNumbersLabel.text = addLockedLabelIfNeeded(R.string.manage_blocked_numbers)
+        settingsActivityBinding.settingsManageBlockedNumbersHolder.beVisibleIf(isNougatPlus())
+        settingsActivityBinding.settingsManageBlockedNumbersHolder.setOnClickListener {
             if (isOrWasThankYouInstalled()) {
                 Intent(this, ManageBlockedNumbersActivity::class.java).apply {
                     startActivity(this)
@@ -150,7 +157,7 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupManageSpeedDial() {
-        settings_manage_speed_dial_holder.setOnClickListener {
+        settingsActivityBinding.settingsManageSpeedDialHolder.setOnClickListener {
             Intent(this, ManageSpeedDialActivity::class.java).apply {
                 startActivity(this)
             }
@@ -158,14 +165,14 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupChangeDateTimeFormat() {
-        settings_change_date_time_format_holder.setOnClickListener {
+        settingsActivityBinding.settingsChangeDateTimeFormatHolder.setOnClickListener {
             ChangeDateTimeFormatDialog(this) {}
         }
     }
 
     private fun setupFontSize() {
-        settings_font_size.text = getFontSizeText()
-        settings_font_size_holder.setOnClickListener {
+        settingsActivityBinding.settingsFontSize.text = getFontSizeText()
+        settingsActivityBinding.settingsFontSizeHolder.setOnClickListener {
             val items = arrayListOf(
                 RadioItem(FONT_SIZE_SMALL, getString(R.string.small)),
                 RadioItem(FONT_SIZE_MEDIUM, getString(R.string.medium)),
@@ -175,20 +182,20 @@ class SettingsActivity : SimpleActivity() {
 
             RadioGroupDialog(this@SettingsActivity, items, config.fontSize) {
                 config.fontSize = it as Int
-                settings_font_size.text = getFontSizeText()
+                settingsActivityBinding.settingsFontSize.text = getFontSizeText()
             }
         }
     }
 
     private fun setupManageShownTabs() {
-        settings_manage_tabs_holder.setOnClickListener {
+        settingsActivityBinding.settingsManageTabsHolder.setOnClickListener {
             ManageVisibleTabsDialog(this)
         }
     }
 
     private fun setupDefaultTab() {
-        settings_default_tab.text = getDefaultTabText()
-        settings_default_tab_holder.setOnClickListener {
+        settingsActivityBinding.settingsDefaultTab.text = getDefaultTabText()
+        settingsActivityBinding.settingsDefaultTabHolder.setOnClickListener {
             val items = arrayListOf(
                 RadioItem(TAB_CONTACTS, getString(R.string.contacts_tab)),
                 RadioItem(TAB_FAVORITES, getString(R.string.favorites_tab)),
@@ -198,7 +205,7 @@ class SettingsActivity : SimpleActivity() {
 
             RadioGroupDialog(this@SettingsActivity, items, config.defaultTab) {
                 config.defaultTab = it as Int
-                settings_default_tab.text = getDefaultTabText()
+                settingsActivityBinding.settingsDefaultTab.text = getDefaultTabText()
             }
         }
     }
@@ -213,87 +220,88 @@ class SettingsActivity : SimpleActivity() {
     )
 
     private fun setupDialPadOpen() {
-        settings_open_dialpad_at_launch.isChecked = config.openDialPadAtLaunch
-        settings_open_dialpad_at_launch_holder.setOnClickListener {
-            settings_open_dialpad_at_launch.toggle()
-            config.openDialPadAtLaunch = settings_open_dialpad_at_launch.isChecked
+
+        settingsActivityBinding.settingsOpenDialpadAtLaunch.isChecked = config.openDialPadAtLaunch
+        settingsActivityBinding.settingsOpenDialpadAtLaunchHolder.setOnClickListener {
+            settingsActivityBinding.settingsOpenDialpadAtLaunch.toggle()
+            config.openDialPadAtLaunch = settingsActivityBinding.settingsOpenDialpadAtLaunch.isChecked
         }
     }
 
     private fun setupGroupSubsequentCalls() {
-        settings_group_subsequent_calls.isChecked = config.groupSubsequentCalls
-        settings_group_subsequent_calls_holder.setOnClickListener {
-            settings_group_subsequent_calls.toggle()
-            config.groupSubsequentCalls = settings_group_subsequent_calls.isChecked
+        settingsActivityBinding.settingsGroupSubsequentCalls.isChecked = config.groupSubsequentCalls
+        settingsActivityBinding.settingsGroupSubsequentCallsHolder.setOnClickListener {
+            settingsActivityBinding.settingsGroupSubsequentCalls.toggle()
+            config.groupSubsequentCalls = settingsActivityBinding.settingsGroupSubsequentCalls.isChecked
         }
     }
 
     private fun setupStartNameWithSurname() {
-        settings_start_name_with_surname.isChecked = config.startNameWithSurname
-        settings_start_name_with_surname_holder.setOnClickListener {
-            settings_start_name_with_surname.toggle()
-            config.startNameWithSurname = settings_start_name_with_surname.isChecked
+        settingsActivityBinding.settingsStartNameWithSurname.isChecked = config.startNameWithSurname
+        settingsActivityBinding.settingsStartNameWithSurnameHolder.setOnClickListener {
+            settingsActivityBinding.settingsStartNameWithSurname.toggle()
+            config.startNameWithSurname = settingsActivityBinding.settingsStartNameWithSurname.isChecked
         }
     }
 
     private fun setupDialpadVibrations() {
-        settings_dialpad_vibration.isChecked = config.dialpadVibration
-        settings_dialpad_vibration_holder.setOnClickListener {
-            settings_dialpad_vibration.toggle()
-            config.dialpadVibration = settings_dialpad_vibration.isChecked
+        settingsActivityBinding.settingsDialpadVibration.isChecked = config.dialpadVibration
+        settingsActivityBinding.settingsDialpadVibrationHolder.setOnClickListener {
+            settingsActivityBinding.settingsDialpadVibration.toggle()
+            config.dialpadVibration = settingsActivityBinding.settingsDialpadVibration.isChecked
         }
     }
 
     private fun setupDialpadNumbers() {
-        settings_hide_dialpad_numbers.isChecked = config.hideDialpadNumbers
-        settings_hide_dialpad_numbers_holder.setOnClickListener {
-            settings_hide_dialpad_numbers.toggle()
-            config.hideDialpadNumbers = settings_hide_dialpad_numbers.isChecked
+        settingsActivityBinding.settingsHideDialpadNumbers.isChecked = config.hideDialpadNumbers
+        settingsActivityBinding.settingsHideDialpadNumbersHolder.setOnClickListener {
+            settingsActivityBinding.settingsHideDialpadNumbers.toggle()
+            config.hideDialpadNumbers = settingsActivityBinding.settingsHideDialpadNumbers.isChecked
         }
     }
 
     private fun setupDialpadBeeps() {
-        settings_dialpad_beeps.isChecked = config.dialpadBeeps
-        settings_dialpad_beeps_holder.setOnClickListener {
-            settings_dialpad_beeps.toggle()
-            config.dialpadBeeps = settings_dialpad_beeps.isChecked
+        settingsActivityBinding.settingsDialpadBeeps.isChecked = config.dialpadBeeps
+        settingsActivityBinding.settingsDialpadBeepsHolder.setOnClickListener {
+            settingsActivityBinding.settingsDialpadBeeps.toggle()
+            config.dialpadBeeps = settingsActivityBinding.settingsDialpadBeeps.isChecked
         }
     }
 
     private fun setupShowCallConfirmation() {
-        settings_show_call_confirmation.isChecked = config.showCallConfirmation
-        settings_show_call_confirmation_holder.setOnClickListener {
-            settings_show_call_confirmation.toggle()
-            config.showCallConfirmation = settings_show_call_confirmation.isChecked
+        settingsActivityBinding.settingsShowCallConfirmation.isChecked = config.showCallConfirmation
+        settingsActivityBinding.settingsShowCallConfirmationHolder.setOnClickListener {
+            settingsActivityBinding.settingsShowCallConfirmation.toggle()
+            config.showCallConfirmation = settingsActivityBinding.settingsShowCallConfirmation.isChecked
         }
     }
 
     private fun setupDisableProximitySensor() {
-        settings_disable_proximity_sensor.isChecked = config.disableProximitySensor
-        settings_disable_proximity_sensor_holder.setOnClickListener {
-            settings_disable_proximity_sensor.toggle()
-            config.disableProximitySensor = settings_disable_proximity_sensor.isChecked
+        settingsActivityBinding.settingsDisableProximitySensor.isChecked = config.disableProximitySensor
+        settingsActivityBinding.settingsDisableProximitySensorHolder.setOnClickListener {
+            settingsActivityBinding.settingsDisableProximitySensor.toggle()
+            config.disableProximitySensor = settingsActivityBinding.settingsDisableProximitySensor.isChecked
         }
     }
 
     private fun setupDisableSwipeToAnswer() {
-        settings_disable_swipe_to_answer.isChecked = config.disableSwipeToAnswer
-        settings_disable_swipe_to_answer_holder.setOnClickListener {
-            settings_disable_swipe_to_answer.toggle()
-            config.disableSwipeToAnswer = settings_disable_swipe_to_answer.isChecked
+        settingsActivityBinding.settingsDisableSwipeToAnswer.isChecked = config.disableSwipeToAnswer
+        settingsActivityBinding.settingsDisableSwipeToAnswerHolder.setOnClickListener {
+            settingsActivityBinding.settingsDisableSwipeToAnswer.toggle()
+            config.disableSwipeToAnswer = settingsActivityBinding.settingsDisableSwipeToAnswer.isChecked
         }
     }
 
     private fun setupAlwaysShowFullscreen() {
-        settings_always_show_fullscreen.isChecked = config.alwaysShowFullscreen
-        settings_always_show_fullscreen_holder.setOnClickListener {
-            settings_always_show_fullscreen.toggle()
-            config.alwaysShowFullscreen = settings_always_show_fullscreen.isChecked
+        settingsActivityBinding.settingsAlwaysShowFullscreen.isChecked = config.alwaysShowFullscreen
+        settingsActivityBinding.settingsAlwaysShowFullscreenHolder.setOnClickListener {
+            settingsActivityBinding.settingsAlwaysShowFullscreen.toggle()
+            config.alwaysShowFullscreen = settingsActivityBinding.settingsAlwaysShowFullscreen.isChecked
         }
     }
 
     private fun setupCallsExport() {
-        settings_export_calls_holder.setOnClickListener {
+        settingsActivityBinding.settingsExportCallsHolder.setOnClickListener {
             ExportCallHistoryDialog(this) { filename ->
                 saveDocument.launch(filename)
             }
@@ -301,7 +309,7 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupCallsImport() {
-        settings_import_calls_holder.setOnClickListener {
+        settingsActivityBinding.settingsImportCallsHolder.setOnClickListener {
             getContent.launch(callHistoryFileType)
         }
     }

@@ -6,17 +6,16 @@ import androidx.fragment.app.FragmentManager
 import com.simplemobiletools.commons.adapters.SimpleListItemAdapter
 import com.simplemobiletools.commons.fragments.BaseBottomSheetDialogFragment
 import com.simplemobiletools.commons.models.SimpleListItem
-import com.simplemobiletools.dialer.R
-import kotlinx.android.synthetic.main.layout_simple_recycler_view.*
+import com.simplemobiletools.dialer.databinding.LayoutSimpleRecyclerViewBinding
 
 // same as BottomSheetChooserDialog but with dynamic updates
 class DynamicBottomSheetChooserDialog : BaseBottomSheetDialogFragment() {
 
     var onItemClick: ((SimpleListItem) -> Unit)? = null
-
+    private lateinit var binding : LayoutSimpleRecyclerViewBinding
     override fun setupContentView(parent: ViewGroup) {
-        val child = layoutInflater.inflate(R.layout.layout_simple_recycler_view, parent, false)
-        parent.addView(child)
+        binding = LayoutSimpleRecyclerViewBinding.inflate(layoutInflater, parent, false)
+        parent.addView(binding.root)
         setupRecyclerView()
     }
 
@@ -27,13 +26,14 @@ class DynamicBottomSheetChooserDialog : BaseBottomSheetDialogFragment() {
     }
 
     private fun getRecyclerViewAdapter(): SimpleListItemAdapter {
-        var adapter = recycler_view.adapter as? SimpleListItemAdapter
+
+        var adapter = binding.recyclerView.adapter as? SimpleListItemAdapter
         if (adapter == null) {
             adapter = SimpleListItemAdapter(requireActivity()) {
                 onItemClick?.invoke(it)
                 dismissAllowingStateLoss()
             }
-            recycler_view.adapter = adapter
+            binding.recyclerView.adapter = adapter
         }
         return adapter
     }

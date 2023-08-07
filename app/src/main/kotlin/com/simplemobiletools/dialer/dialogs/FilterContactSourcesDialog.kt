@@ -12,20 +12,20 @@ import com.simplemobiletools.commons.models.contacts.*
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.FilterContactSourcesAdapter
+import com.simplemobiletools.dialer.databinding.DialogFilterContactSourcesBinding
 import com.simplemobiletools.dialer.extensions.config
-import kotlinx.android.synthetic.main.dialog_filter_contact_sources.view.*
 
 class FilterContactSourcesDialog(val activity: SimpleActivity, private val callback: () -> Unit) {
     private var dialog: AlertDialog? = null
-    private val view = activity.layoutInflater.inflate(R.layout.dialog_filter_contact_sources, null)
+    private var binding: DialogFilterContactSourcesBinding = DialogFilterContactSourcesBinding.inflate(activity.layoutInflater, null, false)
     private var contactSources = ArrayList<ContactSource>()
     private var contacts = ArrayList<Contact>()
     private var isContactSourcesReady = false
     private var isContactsReady = false
 
     init {
-            val contactHelper = ContactsHelper(activity)
-            contactHelper.getContactSources { contactSources ->
+        val contactHelper = ContactsHelper(activity)
+        contactHelper.getContactSources { contactSources ->
             contactSources.mapTo(this@FilterContactSourcesDialog.contactSources) { it.copy() }
             isContactSourcesReady = true
             processDataIfReady()
@@ -61,14 +61,15 @@ class FilterContactSourcesDialog(val activity: SimpleActivity, private val callb
 
         activity.runOnUiThread {
             val selectedSources = activity.getVisibleContactSources()
-            view.filter_contact_sources_list.adapter = FilterContactSourcesAdapter(activity, contactSourcesWithCount, selectedSources)
+
+            binding.filterContactSourcesList.adapter = FilterContactSourcesAdapter(activity, contactSourcesWithCount, selectedSources)
 
             if (dialog == null) {
                 activity.getAlertDialogBuilder()
                     .setPositiveButton(R.string.ok) { dialogInterface, i -> confirmContactSources() }
                     .setNegativeButton(R.string.cancel, null)
                     .apply {
-                        activity.setupDialogStuff(view, this) { alertDialog ->
+                        activity.setupDialogStuff(binding.root, this) { alertDialog ->
                             dialog = alertDialog
                         }
                     }
@@ -77,7 +78,7 @@ class FilterContactSourcesDialog(val activity: SimpleActivity, private val callb
     }
 
     private fun confirmContactSources() {
-        val selectedContactSources = (view.filter_contact_sources_list.adapter as FilterContactSourcesAdapter).getSelectedContactSources()
+        val selectedContactSources = (binding.filterContactSourcesList.adapter as FilterContactSourcesAdapter).getSelectedContactSources()
         val ignoredContactSources = contactSources.filter { !selectedContactSources.contains(it) }.map {
             if (it.type == SMT_PRIVATE) SMT_PRIVATE else it.getFullIdentifier()
         }.toHashSet()

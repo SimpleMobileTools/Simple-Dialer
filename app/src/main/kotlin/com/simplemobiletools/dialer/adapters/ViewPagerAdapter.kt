@@ -6,8 +6,10 @@ import androidx.viewpager.widget.PagerAdapter
 import com.simplemobiletools.commons.helpers.TAB_CALL_HISTORY
 import com.simplemobiletools.commons.helpers.TAB_CONTACTS
 import com.simplemobiletools.commons.helpers.TAB_FAVORITES
-import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.databinding.FragmentContactsBinding
+import com.simplemobiletools.dialer.databinding.FragmentFavoritesBinding
+import com.simplemobiletools.dialer.databinding.FragmentRecentsBinding
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.fragments.MyViewPagerFragment
 import com.simplemobiletools.dialer.helpers.tabsList
@@ -15,11 +17,10 @@ import com.simplemobiletools.dialer.helpers.tabsList
 class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val layout = getFragment(position)
-        val view = activity.layoutInflater.inflate(layout, container, false)
+        val view = getFragment(position, container)
         container.addView(view)
 
-        (view as MyViewPagerFragment).apply {
+        (view as  MyViewPagerFragment<*>).apply {
             setupFragment(activity)
         }
 
@@ -34,21 +35,21 @@ class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
 
     override fun isViewFromObject(view: View, item: Any) = view == item
 
-    private fun getFragment(position: Int): Int {
+    private fun getFragment(position: Int, container: ViewGroup): View {
         val showTabs = activity.config.showTabs
-        val fragments = arrayListOf<Int>()
+        val views = arrayListOf<View>()
         if (showTabs and TAB_CONTACTS > 0) {
-            fragments.add(R.layout.fragment_contacts)
+            views.add(FragmentContactsBinding.inflate(activity.layoutInflater,container,false).root)
         }
 
         if (showTabs and TAB_FAVORITES > 0) {
-            fragments.add(R.layout.fragment_favorites)
+            views.add(FragmentFavoritesBinding.inflate(activity.layoutInflater,container,false).root)
         }
 
         if (showTabs and TAB_CALL_HISTORY > 0) {
-            fragments.add(R.layout.fragment_recents)
+            views.add(FragmentRecentsBinding.inflate(activity.layoutInflater,container,false).root)
         }
 
-        return if (position < fragments.size) fragments[position] else fragments.last()
+        return if (position < views.size) views[position] else views.last()
     }
 }

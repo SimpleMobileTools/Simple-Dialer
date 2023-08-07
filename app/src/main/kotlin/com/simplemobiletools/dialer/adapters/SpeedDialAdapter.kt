@@ -1,5 +1,6 @@
 package com.simplemobiletools.dialer.adapters
 
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -7,14 +8,16 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.databinding.ItemSpeedDialBinding
 import com.simplemobiletools.dialer.interfaces.RemoveSpeedDialListener
 import com.simplemobiletools.dialer.models.SpeedDial
-import kotlinx.android.synthetic.main.item_speed_dial.view.speed_dial_label
 
 class SpeedDialAdapter(
     activity: SimpleActivity, var speedDialValues: List<SpeedDial>, private val removeListener: RemoveSpeedDialListener,
     recyclerView: MyRecyclerView, itemClick: (Any) -> Unit
 ) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
+
+    private lateinit var binding : ItemSpeedDialBinding
     init {
         setupDragListener(true)
     }
@@ -45,7 +48,10 @@ class SpeedDialAdapter(
 
     override fun onActionModeDestroyed() {}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_speed_dial, parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ViewHolder{
+        binding = ItemSpeedDialBinding.inflate(LayoutInflater.from(parent.context), parent,false)
+        return createViewHolder(binding.root)
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val speedDial = speedDialValues[position]
@@ -70,7 +76,7 @@ class SpeedDialAdapter(
             var displayName = "${speedDial.id}. "
             displayName += if (speedDial.isValid()) speedDial.displayName else ""
 
-            speed_dial_label.apply {
+            binding.speedDialLabel.apply {
                 text = displayName
                 isSelected = selectedKeys.contains(speedDial.hashCode())
                 setTextColor(textColor)

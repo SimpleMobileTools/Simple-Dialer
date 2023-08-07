@@ -13,23 +13,32 @@ import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.contacts.Contact
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.SpeedDialAdapter
+import com.simplemobiletools.dialer.databinding.ActivityManageSpeedDialBinding
 import com.simplemobiletools.dialer.dialogs.SelectContactDialog
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.interfaces.RemoveSpeedDialListener
 import com.simplemobiletools.dialer.models.SpeedDial
-import kotlinx.android.synthetic.main.activity_manage_speed_dial.*
 
 class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
+
+    private lateinit var manageSpeedActivityBinding: ActivityManageSpeedDialBinding
+
     private var allContacts = mutableListOf<Contact>()
     private var speedDialValues = mutableListOf<SpeedDial>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         isMaterialActivity = true
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manage_speed_dial)
+        manageSpeedActivityBinding = ActivityManageSpeedDialBinding.inflate(layoutInflater)
+        setContentView(manageSpeedActivityBinding.root)
 
-        updateMaterialActivityViews(manage_speed_dial_coordinator, manage_speed_dial_holder, useTransparentNavigation = true, useTopSearchMenu = false)
-        setupMaterialScrollListener(manage_speed_dial_scrollview, manage_speed_dial_toolbar)
+        updateMaterialActivityViews(
+            manageSpeedActivityBinding.manageSpeedDialCoordinator,
+            manageSpeedActivityBinding.manageSpeedDialHolder,
+            useTransparentNavigation = true,
+            useTopSearchMenu = false
+        )
+        setupMaterialScrollListener(manageSpeedActivityBinding.manageSpeedDialScrollview, manageSpeedActivityBinding.manageSpeedDialToolbar)
 
         speedDialValues = config.getSpeedDialValues()
         updateAdapter()
@@ -43,12 +52,12 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
             allContacts.sort()
         }
 
-        updateTextColors(manage_speed_dial_scrollview)
+        updateTextColors(manageSpeedActivityBinding.manageSpeedDialScrollview)
     }
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(manage_speed_dial_toolbar, NavigationIcon.Arrow)
+        setupToolbar(manageSpeedActivityBinding.manageSpeedDialToolbar, NavigationIcon.Arrow)
     }
 
     override fun onStop() {
@@ -57,7 +66,7 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
     }
 
     private fun updateAdapter() {
-        SpeedDialAdapter(this, speedDialValues, this, speed_dial_list) {
+        SpeedDialAdapter(this, speedDialValues, this, manageSpeedActivityBinding.speedDialList) {
             val clickedContact = it as SpeedDial
             if (allContacts.isEmpty()) {
                 return@SpeedDialAdapter
@@ -88,7 +97,7 @@ class ManageSpeedDialActivity : SimpleActivity(), RemoveSpeedDialListener {
 
             }
         }.apply {
-            speed_dial_list.adapter = this
+            manageSpeedActivityBinding.speedDialList.adapter = this
         }
     }
 

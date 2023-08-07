@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import com.google.gson.Gson
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
@@ -14,14 +15,23 @@ import com.simplemobiletools.commons.views.MyLinearLayoutManager
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
+import com.simplemobiletools.dialer.databinding.FragmentFavoritesBinding
+import com.simplemobiletools.dialer.databinding.FragmentLettersLayoutBinding
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.Converters
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
-import kotlinx.android.synthetic.main.fragment_letters_layout.view.*
 import java.util.Locale
 
-class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet), RefreshItemsListener {
+class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment<MyViewPagerFragment.LetterLayout>(context, attributeSet),
+    RefreshItemsListener {
     private var allContacts = ArrayList<Contact>()
+    lateinit var binding: FragmentFavoritesBinding
+
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+        binding = FragmentFavoritesBinding.bind(this)
+        innerBinding = LetterLayout(FragmentLettersLayoutBinding.bind(binding.root))
+    }
 
     override fun setupFragment() {
         val placeholderResId = if (context.hasPermission(PERMISSION_READ_CONTACTS)) {
@@ -30,19 +40,21 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             R.string.could_not_access_contacts
         }
 
-        fragment_placeholder.text = context.getString(placeholderResId)
-        fragment_placeholder_2.beGone()
+        innerBinding?.fragmentPlaceholder?.text = context.getString(placeholderResId)
+        innerBinding?.fragmentPlaceholder2?.beGone()
     }
 
     override fun setupColors(textColor: Int, primaryColor: Int, properPrimaryColor: Int) {
-        fragment_placeholder.setTextColor(textColor)
-        (fragment_list?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
+        with(innerBinding) {
+            fragmentPlaceholder?.setTextColor(textColor)
+            (fragmentList?.adapter as? MyRecyclerViewAdapter)?.updateTextColor(textColor)
 
-        letter_fastscroller.textColor = textColor.getColorStateList()
-        letter_fastscroller.pressedTextColor = properPrimaryColor
-        letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-        letter_fastscroller_thumb.textColor = properPrimaryColor.getContrastColor()
-        letter_fastscroller_thumb.thumbColor = properPrimaryColor.getColorStateList()
+            letterFastscroller?.textColor = textColor.getColorStateList()
+            letterFastscroller?.pressedTextColor = properPrimaryColor
+            letterFastscrollerThumb?.setupWithFastScroller(letterFastscroller!!)
+            letterFastscrollerThumb?.textColor = properPrimaryColor.getContrastColor()
+            letterFastscrollerThumb?.thumbColor = properPrimaryColor.getColorStateList()
+        }
     }
 
     override fun refreshItems(callback: (() -> Unit)?) {
@@ -61,7 +73,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             }
             val favorites = contacts.filter { it.starred == 1 } as ArrayList<Contact>
 
-            allContacts = if (activity!!.config.isCustomOrderSelected) {
+            allContacts = if (activity?.config?.isCustomOrderSelected == true) {
                 sortByCustomOrder(favorites)
             } else {
                 favorites
@@ -76,14 +88,16 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
 
     private fun gotContacts(contacts: ArrayList<Contact>) {
         setupLetterFastScroller(contacts)
-        if (contacts.isEmpty()) {
-            fragment_placeholder.beVisible()
-            fragment_list.beGone()
-        } else {
-            fragment_placeholder.beGone()
-            fragment_list.beVisible()
+        with(innerBinding) {
+            if (contacts.isEmpty()) {
+                fragmentPlaceholder?.beVisible()
+                fragmentList?.beGone()
+            } else {
+                fragmentPlaceholder?.beGone()
+                fragmentList?.beVisible()
 
-            updateListAdapter()
+                updateListAdapter()
+            }
         }
     }
 
@@ -91,12 +105,12 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         val viewType = context.config.viewType
         setViewType(viewType)
 
-        val currAdapter = fragment_list.adapter as ContactsAdapter?
+        val currAdapter = innerBinding?.fragmentList?.adapter as ContactsAdapter?
         if (currAdapter == null) {
             ContactsAdapter(
                 activity = activity as SimpleActivity,
                 contacts = allContacts,
-                recyclerView = fragment_list,
+                recyclerView = innerBinding?.fragmentList!!,
                 refreshItemsListener = this,
                 viewType = viewType,
                 showDeleteButton = false,
@@ -114,10 +128,10 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
                     }
                 }
             }.apply {
-                fragment_list.adapter = this
+                innerBinding?.fragmentList?.adapter = this
 
                 onDragEndListener = {
-                    val adapter = fragment_list?.adapter
+                    val adapter = innerBinding?.fragmentList?.adapter
                     if (adapter is ContactsAdapter) {
                         val items = adapter.contacts
                         saveCustomOrderToPrefs(items)
@@ -131,7 +145,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             }
 
             if (context.areSystemAnimationsEnabled) {
-                fragment_list.scheduleLayoutAnimation()
+                innerBinding?.fragmentList?.scheduleLayoutAnimation()
             }
         } else {
             currAdapter.viewType = viewType
@@ -140,8 +154,8 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     fun columnCountChanged() {
-        (fragment_list.layoutManager as MyGridLayoutManager).spanCount = context!!.config.contactsGridColumnCount
-        fragment_list?.adapter?.apply {
+        (innerBinding?.fragmentList?.layoutManager as MyGridLayoutManager).spanCount = context!!.config.contactsGridColumnCount
+        innerBinding?.fragmentList?.adapter?.apply {
             notifyItemRangeChanged(0, allContacts.size)
         }
     }
@@ -169,7 +183,7 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     private fun setupLetterFastScroller(contacts: List<Contact>) {
-        letter_fastscroller.setupWithRecyclerView(fragment_list, { position ->
+        innerBinding?.letterFastscroller?.setupWithRecyclerView(innerBinding?.fragmentList!!, { position ->
             try {
                 val name = contacts[position].getNameToDisplay()
                 val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
@@ -181,8 +195,8 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
     }
 
     override fun onSearchClosed() {
-        fragment_placeholder.beVisibleIf(allContacts.isEmpty())
-        (fragment_list.adapter as? ContactsAdapter)?.updateItems(allContacts)
+        innerBinding?.fragmentPlaceholder?.beVisibleIf(allContacts.isEmpty())
+        (innerBinding?.fragmentList?.adapter as? ContactsAdapter)?.updateItems(allContacts)
         setupLetterFastScroller(allContacts)
     }
 
@@ -193,8 +207,8 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
             it.name.startsWith(text, true)
         }.toMutableList() as ArrayList<Contact>
 
-        fragment_placeholder.beVisibleIf(contacts.isEmpty())
-        (fragment_list.adapter as? ContactsAdapter)?.updateItems(contacts, text)
+        innerBinding?.fragmentPlaceholder?.beVisibleIf(contacts.isEmpty())
+        (innerBinding?.fragmentList?.adapter as? ContactsAdapter)?.updateItems(contacts, text)
         setupLetterFastScroller(contacts)
     }
 
@@ -202,12 +216,12 @@ class FavoritesFragment(context: Context, attributeSet: AttributeSet) : MyViewPa
         val spanCount = context.config.contactsGridColumnCount
 
         val layoutManager = if (viewType == VIEW_TYPE_GRID) {
-            letter_fastscroller.beGone()
+            innerBinding?.letterFastscroller?.beGone()
             MyGridLayoutManager(context, spanCount)
         } else {
-            letter_fastscroller.beVisible()
+            innerBinding?.letterFastscroller?.beVisible()
             MyLinearLayoutManager(context)
         }
-        fragment_list.layoutManager = layoutManager
+        innerBinding?.fragmentList?.layoutManager = layoutManager
     }
 }

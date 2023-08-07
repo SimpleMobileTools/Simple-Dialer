@@ -475,7 +475,7 @@
         </RelativeLayout>
 
         <include
-            android:id="@+id/dialpad_include"
+            android:id="@+id/dialpadContainer"
             layout="@layout/dialpad" />
 
     </LinearLayout>

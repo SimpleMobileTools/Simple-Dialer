@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'org.jetbrains.kotlin.plugin.serialization' version "$kotlin_version"
 }
 
@@ -31,6 +30,17 @@ android {
                 storeFile file(keystoreProperties['storeFile'])
                 storePassword keystoreProperties['storePassword']
             }
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17))
         }
     }
 
@@ -66,7 +76,9 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.SimpleMobileTools:Simple-Commons:91763fe00f'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.SimpleMobileTools:Simple-Commons:c5a32fb1f3'
     implementation 'com.github.tibbi:IndicatorFastScroll:4524cd0b61'
     implementation 'me.grantland:autofittextview:0.2.1'
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"

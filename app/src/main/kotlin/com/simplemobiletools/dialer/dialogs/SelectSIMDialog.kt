@@ -10,9 +10,9 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.databinding.DialogSelectSimBinding
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
-import kotlinx.android.synthetic.main.dialog_select_sim.view.*
 
 @SuppressLint("MissingPermission")
 class SelectSIMDialog(
@@ -23,12 +23,13 @@ class SelectSIMDialog(
 ) {
     private var dialog: AlertDialog? = null
     private val view = activity.layoutInflater.inflate(R.layout.dialog_select_sim, null)
+    private val binding : DialogSelectSimBinding = DialogSelectSimBinding.bind(view)
 
     init {
-        val radioGroup = view.select_sim_radio_group
-        view.apply {
-            select_sim_remember_holder.setOnClickListener {
-                select_sim_remember.toggle()
+        val radioGroup = binding.selectSimRadioGroup
+        binding.root.apply {
+            binding.selectSimRememberHolder.setOnClickListener {
+                binding.selectSimRemember.toggle()
             }
         }
 
@@ -43,7 +44,7 @@ class SelectSIMDialog(
 
         activity.getAlertDialogBuilder()
             .apply {
-                activity.setupDialogStuff(view, this) { alertDialog ->
+                activity.setupDialogStuff(binding.root, this) { alertDialog ->
                     dialog = alertDialog
                 }
             }
@@ -54,7 +55,7 @@ class SelectSIMDialog(
     }
 
     private fun selectedSIM(handle: PhoneAccountHandle) {
-        if (view.select_sim_remember.isChecked) {
+        if (binding.selectSimRemember.isChecked) {
             activity.config.saveCustomSIM(phoneNumber, handle)
         }
 
