@@ -1,0 +1,42 @@
+[versions]
+#jetbrains
+kotlin = "1.9.0"
+#KSP
+ksp = "1.9.0-1.0.12"
+#KTX
+ktx = "1.10.1"
+#AutoFitTextView
+autofittextview = "0.2.1"
+#IndicatorFastScroll
+indicatorfastscroll = "4524cd0b61"
+#Simple tools
+simple-commons = "c5a32fb1f3"
+#Gradle
+gradlePlugins-agp = "8.1.0"
+#build
+app-build-compileSDKVersion = "34"
+app-build-targetSDK = "34"
+app-build-minimumSDK = "23"
+app-build-javaVersion = "VERSION_17"
+app-build-kotlinJVMTarget = "17"
+#versioning
+app-version-appId = "com.simplemobiletools.dialer"
+app-version-versionCode = "56"
+app-version-versionName = "5.18.0"
+[libraries]
+#AndroidX
+androidx-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
+android-support-multidex = { module = "com.android.support:multidex", version = "1.0.3" }
+#KotlinX
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.4.1" }
+#AutoFitTextView
+autofittextview = { module = "me.grantland:autofittextview", version.ref = "autofittextview" }
+#IndicatorFastScroll
+indicatorfastscroll = { module = "com.github.tibbi:IndicatorFastScroll", version.ref = "indicatorfastscroll" }
+#Simple Mobile Tools
+simple-tools-commons = { module = "com.github.SimpleMobileTools:Simple-Commons", version.ref = "simple-commons" }
+[plugins]
+android = { id = "com.android.application", version.ref = "gradlePlugins-agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
