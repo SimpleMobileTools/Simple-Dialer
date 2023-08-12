@@ -37,7 +37,7 @@ import kotlin.math.roundToInt
 
 class DialpadActivity : SimpleActivity() {
 
-    private lateinit var dialpadActivityBinding: ActivityDialpadBinding
+    private val dialpadActivityBinding by viewBinding(ActivityDialpadBinding::inflate)
     private var allContacts = ArrayList<Contact>()
     private var speedDialValues = ArrayList<SpeedDial>()
     private val russianCharsMap = HashMap<Char, Int>()
@@ -50,7 +50,6 @@ class DialpadActivity : SimpleActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        dialpadActivityBinding = ActivityDialpadBinding.inflate(layoutInflater)
         setContentView(dialpadActivityBinding.root)
         hasRussianLocale = Locale.getDefault().language == "ru"
 

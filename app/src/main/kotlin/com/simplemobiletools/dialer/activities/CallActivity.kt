@@ -61,12 +61,11 @@ class CallActivity : SimpleActivity() {
 
     private var audioRouteChooserDialog: DynamicBottomSheetChooserDialog? = null
 
-    private lateinit var binding: ActivityCallBinding
+    private val binding by viewBinding(ActivityCallBinding::inflate)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCallBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         if (CallManager.getPhoneState() == NoCall) {
             finish()
             return
@@ -210,9 +209,9 @@ class CallActivity : SimpleActivity() {
             it.background?.alpha = LOWER_ALPHA_INT
         }
 
-       binding.dialpadContainer.dialpad0Holder.setOnLongClickListener { dialpadPressed('+'); true }
-       binding.dialpadContainer.dialpadAsteriskHolder.setOnClickListener { dialpadPressed('*') }
-       binding.dialpadContainer.dialpadHashtagHolder.setOnClickListener { dialpadPressed('#') }
+        binding.dialpadContainer.dialpad0Holder.setOnLongClickListener { dialpadPressed('+'); true }
+        binding.dialpadContainer.dialpadAsteriskHolder.setOnClickListener { dialpadPressed('*') }
+        binding.dialpadContainer.dialpadHashtagHolder.setOnClickListener { dialpadPressed('#') }
 
         binding.dialpadWrapper.setBackgroundColor(getProperBackgroundColor())
         arrayOf(binding.dialpadClose, binding.callSimImage).forEach {
