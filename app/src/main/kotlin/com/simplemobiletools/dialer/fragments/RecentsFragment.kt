@@ -2,7 +2,6 @@ package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
 import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ContactsHelper
@@ -81,7 +80,6 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
     private fun gotRecents(recents: List<RecentCall>) {
         if (recents.isEmpty()) {
-
             innerBinding.fragmentPlaceholder.beVisible()
             innerBinding.fragmentPlaceholder2.beGoneIf(context.hasPermission(PERMISSION_READ_CALL_LOG))
             innerBinding.fragmentList.beGone()

@@ -126,7 +126,9 @@ class RecentCallsAdapter(
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isDestroyed && !activity.isFinishing) {
-            Glide.with(activity).clear(binding.itemRecentsImage)
+            ItemRecentCallBinding.bind(holder.itemView).apply {
+                Glide.with(activity).clear(itemRecentsImage)
+            }
         }
     }
 
@@ -282,9 +284,9 @@ class RecentCallsAdapter(
     private fun getSelectedPhoneNumber() = getSelectedItems().firstOrNull()?.phoneNumber
 
     private fun setupView(view: View, call: RecentCall) {
-        view.apply {
+        ItemRecentCallBinding.bind(view).apply {
             val currentFontSize = fontSize
-            binding.itemRecentsHolder.isSelected = selectedKeys.contains(call.id)
+            itemRecentsHolder.isSelected = selectedKeys.contains(call.id)
             val name = findContactByCall(call)?.getNameToDisplay() ?: call.name
             var nameToShow = SpannableString(name)
             if (call.specificType.isNotEmpty()) {
@@ -304,37 +306,37 @@ class RecentCallsAdapter(
                 nameToShow = SpannableString(nameToShow.toString().highlightTextPart(textToHighlight, properPrimaryColor))
             }
 
-            binding.itemRecentsName.apply {
+            itemRecentsName.apply {
                 text = nameToShow
                 setTextColor(textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize)
             }
 
-            binding.itemRecentsDateTime.apply {
+            itemRecentsDateTime.apply {
                 text = call.startTS.formatDateOrTime(context, refreshItemsListener != null, false)
                 setTextColor(if (call.type == Calls.MISSED_TYPE) redColor else textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
             }
 
-            binding.itemRecentsDuration.apply {
+            itemRecentsDuration.apply {
                 text = call.duration.getFormattedDuration()
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
                 if (!showOverflowMenu) {
-                    binding.itemRecentsDuration.setPadding(0, 0, durationPadding, 0)
+                    itemRecentsDuration.setPadding(0, 0, durationPadding, 0)
                 }
             }
 
-            binding.itemRecentsSimImage.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
-            binding.itemRecentsSimId.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
+            itemRecentsSimImage.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
+            itemRecentsSimId.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
             if (areMultipleSIMsAvailable && call.simID != -1) {
-                binding.itemRecentsSimImage.applyColorFilter(textColor)
-                binding.itemRecentsSimId.setTextColor(textColor.getContrastColor())
-                binding.itemRecentsSimId.text = call.simID.toString()
+                itemRecentsSimImage.applyColorFilter(textColor)
+                itemRecentsSimId.setTextColor(textColor.getContrastColor())
+                itemRecentsSimId.text = call.simID.toString()
             }
 
-            SimpleContactsHelper(context).loadContactImage(call.photoUri, binding.itemRecentsImage, call.name)
+            SimpleContactsHelper(context = view.context).loadContactImage(call.photoUri, itemRecentsImage, call.name)
 
             val drawable = when (call.type) {
                 Calls.OUTGOING_TYPE -> outgoingCallIcon
@@ -342,15 +344,15 @@ class RecentCallsAdapter(
                 else -> incomingCallIcon
             }
 
-            binding.itemRecentsType.setImageDrawable(drawable)
+            itemRecentsType.setImageDrawable(drawable)
 
-            binding.overflowMenuIcon.beVisibleIf(showOverflowMenu)
-            binding.overflowMenuIcon.drawable.apply {
+            overflowMenuIcon.beVisibleIf(showOverflowMenu)
+            overflowMenuIcon.drawable.apply {
                 mutate()
                 setTint(activity.getProperTextColor())
             }
-            binding.overflowMenuIcon.setOnClickListener {
-                showPopupMenu(binding.overflowMenuAnchor, call)
+            overflowMenuIcon.setOnClickListener {
+                showPopupMenu(it, call)
             }
         }
     }

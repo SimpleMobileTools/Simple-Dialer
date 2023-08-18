@@ -42,7 +42,7 @@ abstract class MyViewPagerFragment<BINDING : MyViewPagerFragment.InnerBinding>(c
 
     fun startNameWithSurnameChanged(startNameWithSurname: Boolean) {
         if (this !is RecentsFragment) {
-            (innerBinding.fragmentList?.adapter as? ContactsAdapter)?.apply {
+            (innerBinding.fragmentList.adapter as? ContactsAdapter)?.apply {
                 config.sorting = if (startNameWithSurname) SORT_BY_SURNAME else SORT_BY_FIRST_NAME
                 (this@MyViewPagerFragment.activity!! as MainActivity).refreshFragments()
             }
@@ -50,11 +50,11 @@ abstract class MyViewPagerFragment<BINDING : MyViewPagerFragment.InnerBinding>(c
     }
 
     fun finishActMode() {
-        (innerBinding.fragmentList?.adapter as? MyRecyclerViewAdapter)?.finishActMode()
+        (innerBinding.fragmentList.adapter as? MyRecyclerViewAdapter)?.finishActMode()
     }
 
     fun fontSizeChanged() {
-        (innerBinding.fragmentList?.adapter as? RecentCallsAdapter)?.apply {
+        (innerBinding.fragmentList.adapter as? RecentCallsAdapter)?.apply {
             fontSize = activity.getTextSize()
             notifyDataSetChanged()
         }

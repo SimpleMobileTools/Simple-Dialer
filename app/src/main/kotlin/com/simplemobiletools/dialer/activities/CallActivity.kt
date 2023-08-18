@@ -27,7 +27,6 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.SimpleListItem
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.databinding.ActivityCallBinding
-import com.simplemobiletools.dialer.databinding.DialpadBinding
 import com.simplemobiletools.dialer.dialogs.DynamicBottomSheetChooserDialog
 import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.*
