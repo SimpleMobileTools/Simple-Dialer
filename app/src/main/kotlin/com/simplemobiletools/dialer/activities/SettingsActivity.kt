@@ -15,7 +15,6 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.dialer.R
-import com.simplemobiletools.dialer.databinding.ActivityMainBinding
 import com.simplemobiletools.dialer.databinding.ActivitySettingsBinding
 import com.simplemobiletools.dialer.dialogs.ExportCallHistoryDialog
 import com.simplemobiletools.dialer.dialogs.ManageVisibleTabsDialog

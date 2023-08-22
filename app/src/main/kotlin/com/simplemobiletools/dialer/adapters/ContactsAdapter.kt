@@ -246,7 +246,17 @@ class ContactsAdapter(
                 nonBlockedNumbers.mapIndexed { index, s -> RadioItem(id = index, title = s, value = s) } as ArrayList<RadioItem>
             RadioGroupDialog(activity, items = radioItem) { value ->
                 ensureBackgroundThread {
+                    val contactToBlock = contacts.filter { it.phoneNumbers.any { it.value == value } } as ArrayList<Contact>
+                    contacts.removeAll(contactToBlock)
+
                     activity.addBlockedNumber(value as String)
+                    val contactPosition = contacts.indexOfFirst { it -> it.phoneNumbers.any { it.value == value } }
+                    val blockedPosition = arrayListOf(contactPosition)
+
+                    activity.runOnUiThread {
+                        removeSelectedItems(blockedPosition)
+                        finishActMode()
+                    }
                 }
             }
         } else {
