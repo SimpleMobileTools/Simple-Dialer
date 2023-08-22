@@ -72,13 +72,11 @@
     <string name="disable_swipe_to_answer">Sostituisci lo scorrimento nel rispondere alle chiamate in arrivo con un clic</string>
     <string name="show_incoming_calls_full_screen">Visualizza sempre le chiamate in arrivo a schermo intero</string>
     <string name="hide_dialpad_numbers">Nascondi i numeri del tastierino</string>
-    <string name="export_call_history">Export call history</string>
-    <string name="import_call_history">Import call history</string>
-
+    <string name="export_call_history">Esporta la cronologia delle chiamate</string>
+    <string name="import_call_history">Importa la cronologia delle chiamate</string>
     <!-- FAQ -->
     <string name="faq_1_title">Sento le chiamate in arrivo, ma lo schermo non si accende. Cosa posso fare\?</string>
     <string name="faq_1_text">Tali problemi possono avere molte ragioni specifiche per il dispositivo e il sistema, è difficile identificarle in generale. Dovresti dare un\'occhiata alle impostazioni del dispositivo e assicurarti che l\'app sia autorizzata a comparire quando è in background e che permetta la visualizzazione sopra le altre app.</string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
