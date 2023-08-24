@@ -9,18 +9,20 @@ import com.simplemobiletools.commons.extensions.getProperTextColor
 import com.simplemobiletools.commons.extensions.getTextSize
 import com.simplemobiletools.commons.helpers.SORT_BY_FIRST_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_SURNAME
+import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.activities.MainActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.adapters.RecentCallsAdapter
+import com.simplemobiletools.dialer.databinding.FragmentLettersLayoutBinding
+import com.simplemobiletools.dialer.databinding.FragmentRecentsBinding
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.helpers.Config
-import kotlinx.android.synthetic.main.fragment_letters_layout.view.fragment_list
-import kotlinx.android.synthetic.main.fragment_recents.view.recents_list
 
-abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet) : RelativeLayout(context, attributeSet) {
+abstract class MyViewPagerFragment<BINDING : MyViewPagerFragment.InnerBinding>(context: Context, attributeSet: AttributeSet) :
+    RelativeLayout(context, attributeSet) {
     protected var activity: SimpleActivity? = null
-
+    protected lateinit var innerBinding: BINDING
     private lateinit var config: Config
 
     fun setupFragment(activity: SimpleActivity) {
@@ -35,7 +37,7 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
 
     fun startNameWithSurnameChanged(startNameWithSurname: Boolean) {
         if (this !is RecentsFragment) {
-            (fragment_list.adapter as? ContactsAdapter)?.apply {
+            (innerBinding.fragmentList?.adapter as? ContactsAdapter)?.apply {
                 config.sorting = if (startNameWithSurname) SORT_BY_SURNAME else SORT_BY_FIRST_NAME
                 (this@MyViewPagerFragment.activity!! as MainActivity).refreshFragments()
             }
@@ -43,18 +45,18 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
     }
 
     fun finishActMode() {
-        (fragment_list?.adapter as? MyRecyclerViewAdapter)?.finishActMode()
-        (recents_list?.adapter as? MyRecyclerViewAdapter)?.finishActMode()
+        (innerBinding.fragmentList?.adapter as? MyRecyclerViewAdapter)?.finishActMode()
+        (innerBinding.recentsList?.adapter as? MyRecyclerViewAdapter)?.finishActMode()
     }
 
     fun fontSizeChanged() {
         if (this is RecentsFragment) {
-            (recents_list?.adapter as? RecentCallsAdapter)?.apply {
+            (innerBinding.recentsList?.adapter as? RecentCallsAdapter)?.apply {
                 fontSize = activity.getTextSize()
                 notifyDataSetChanged()
             }
         } else {
-            (fragment_list?.adapter as? ContactsAdapter)?.apply {
+            (innerBinding.fragmentList?.adapter as? ContactsAdapter)?.apply {
                 fontSize = activity.getTextSize()
                 notifyDataSetChanged()
             }
@@ -68,4 +70,19 @@ abstract class MyViewPagerFragment(context: Context, attributeSet: AttributeSet)
     abstract fun onSearchClosed()
 
     abstract fun onSearchQueryChanged(text: String)
+
+    interface InnerBinding {
+        val fragmentList: MyRecyclerView?
+        val recentsList: MyRecyclerView?
+    }
+
+    class LettersInnerBinding(val binding: FragmentLettersLayoutBinding) : InnerBinding {
+        override val fragmentList: MyRecyclerView = binding.fragmentList
+        override val recentsList = null
+    }
+
+    class RecentsInnerBinding(val binding: FragmentRecentsBinding) : InnerBinding {
+        override val fragmentList = null
+        override val recentsList = binding.recentsList
+    }
 }
