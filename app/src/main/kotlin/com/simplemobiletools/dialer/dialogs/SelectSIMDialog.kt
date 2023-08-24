@@ -9,10 +9,11 @@ import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.getAlertDialogBuilder
 import com.simplemobiletools.commons.extensions.setupDialogStuff
+import com.simplemobiletools.commons.extensions.viewBinding
 import com.simplemobiletools.dialer.R
+import com.simplemobiletools.dialer.databinding.DialogSelectSimBinding
 import com.simplemobiletools.dialer.extensions.config
 import com.simplemobiletools.dialer.extensions.getAvailableSIMCardLabels
-import kotlinx.android.synthetic.main.dialog_select_sim.view.*
 
 @SuppressLint("MissingPermission")
 class SelectSIMDialog(
@@ -22,14 +23,11 @@ class SelectSIMDialog(
     val callback: (handle: PhoneAccountHandle?) -> Unit
 ) {
     private var dialog: AlertDialog? = null
-    private val view = activity.layoutInflater.inflate(R.layout.dialog_select_sim, null)
+    private val binding by activity.viewBinding(DialogSelectSimBinding::inflate)
 
     init {
-        val radioGroup = view.select_sim_radio_group
-        view.apply {
-            select_sim_remember_holder.setOnClickListener {
-                select_sim_remember.toggle()
-            }
+        binding.selectSimRememberHolder.setOnClickListener {
+            binding.selectSimRemember.toggle()
         }
 
         activity.getAvailableSIMCardLabels().forEachIndexed { index, SIMAccount ->
@@ -38,12 +36,12 @@ class SelectSIMDialog(
                 id = index
                 setOnClickListener { selectedSIM(SIMAccount.handle) }
             }
-            radioGroup!!.addView(radioButton, RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+            binding.selectSimRadioGroup.addView(radioButton, RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
 
         activity.getAlertDialogBuilder()
             .apply {
-                activity.setupDialogStuff(view, this) { alertDialog ->
+                activity.setupDialogStuff(binding.root, this) { alertDialog ->
                     dialog = alertDialog
                 }
             }
@@ -54,7 +52,7 @@ class SelectSIMDialog(
     }
 
     private fun selectedSIM(handle: PhoneAccountHandle) {
-        if (view.select_sim_remember.isChecked) {
+        if (binding.selectSimRemember.isChecked) {
             activity.config.saveCustomSIM(phoneNumber, handle)
         }
 

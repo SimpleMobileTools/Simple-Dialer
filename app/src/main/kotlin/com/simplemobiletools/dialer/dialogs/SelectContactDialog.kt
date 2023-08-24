@@ -2,9 +2,7 @@ package com.simplemobiletools.dialer.dialogs
 
 import android.graphics.Color
 import android.view.KeyEvent
-import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
@@ -14,27 +12,25 @@ import com.simplemobiletools.commons.views.MySearchMenu
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.SimpleActivity
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
-import kotlinx.android.synthetic.main.dialog_select_contact.view.*
+import com.simplemobiletools.dialer.databinding.DialogSelectContactBinding
 import java.util.Locale
 
 class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Contact>, val callback: (selectedContact: Contact) -> Unit) {
+    private val binding by activity.viewBinding(DialogSelectContactBinding::inflate)
+
     private var dialog: AlertDialog? = null
-    private var view = activity.layoutInflater.inflate(R.layout.dialog_select_contact, null)
-    private val searchView = view.contact_search_view
-    private val searchEditText = view.findViewById<EditText>(R.id.top_toolbar_search)
-    private val searchViewAppBarLayout = view.findViewById<View>(R.id.top_app_bar_layout)
 
     init {
-        view.apply {
-            letter_fastscroller.textColor = context.getProperTextColor().getColorStateList()
-            letter_fastscroller_thumb.setupWithFastScroller(letter_fastscroller)
-            letter_fastscroller_thumb.textColor = context.getProperPrimaryColor().getContrastColor()
-            letter_fastscroller_thumb.thumbColor = context.getProperPrimaryColor().getColorStateList()
+        binding.apply {
+            letterFastscroller.textColor = activity.getProperTextColor().getColorStateList()
+            letterFastscrollerThumb.setupWithFastScroller(letterFastscroller)
+            letterFastscrollerThumb.textColor = activity.getProperPrimaryColor().getContrastColor()
+            letterFastscrollerThumb.thumbColor = activity.getProperPrimaryColor().getColorStateList()
 
             setupLetterFastScroller(contacts)
             configureSearchView()
 
-            select_contact_list.adapter = ContactsAdapter(activity, contacts.toMutableList(), select_contact_list, allowLongClick = false) {
+            selectContactList.adapter = ContactsAdapter(activity, contacts.toMutableList(), selectContactList, allowLongClick = false) {
                 callback(it as Contact)
                 dialog?.dismiss()
             }
@@ -49,14 +45,14 @@ class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Conta
                 true
             }
             .apply {
-                activity.setupDialogStuff(view, this, R.string.choose_contact) { alertDialog ->
+                activity.setupDialogStuff(binding.root, this, R.string.choose_contact) { alertDialog ->
                     dialog = alertDialog
                 }
             }
     }
 
     private fun setupLetterFastScroller(contacts: List<Contact>) {
-        view.letter_fastscroller.setupWithRecyclerView(view.select_contact_list, { position ->
+        binding.letterFastscroller.setupWithRecyclerView(binding.selectContactList, { position ->
             try {
                 val name = contacts[position].getNameToDisplay()
                 val character = if (name.isNotEmpty()) name.substring(0, 1) else ""
@@ -67,9 +63,9 @@ class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Conta
         })
     }
 
-    private fun configureSearchView() = with(searchView) {
+    private fun configureSearchView() = with(binding.contactSearchView) {
         updateHintText(context.getString(R.string.search_contacts))
-        searchEditText.imeOptions = EditorInfo.IME_ACTION_DONE
+        binding.topToolbarSearch.imeOptions = EditorInfo.IME_ACTION_DONE
 
         toggleHideOnScroll(true)
         setupMenu()
@@ -81,7 +77,7 @@ class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Conta
         getToolbar().beInvisible()
         updateColors()
         setBackgroundColor(Color.TRANSPARENT)
-        searchViewAppBarLayout.setBackgroundColor(Color.TRANSPARENT)
+        binding.topAppBarLayout.setBackgroundColor(Color.TRANSPARENT)
     }
 
     private fun MySearchMenu.setSearchViewListeners() {
@@ -89,8 +85,8 @@ class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Conta
             updateSearchViewLeftIcon(R.drawable.ic_cross_vector)
         }
         onSearchClosedListener = {
-            searchEditText.clearFocus()
-            activity.hideKeyboard(searchEditText)
+            binding.topToolbarSearch.clearFocus()
+            activity.hideKeyboard(binding.topToolbarSearch)
             updateSearchViewLeftIcon(R.drawable.ic_search_vector)
         }
 
@@ -99,14 +95,14 @@ class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Conta
         }
     }
 
-    private fun updateSearchViewLeftIcon(iconResId: Int) = with(view.findViewById<ImageView>(R.id.top_toolbar_search_icon)) {
+    private fun updateSearchViewLeftIcon(iconResId: Int) = with(binding.root.findViewById<ImageView>(R.id.top_toolbar_search_icon)) {
         post {
             setImageResource(iconResId)
         }
     }
 
     private fun filterContactListBySearchQuery(query: String) {
-        val adapter = view.select_contact_list.adapter as? ContactsAdapter
+        val adapter = binding.selectContactList.adapter as? ContactsAdapter
         var contactsToShow = contacts
         if (query.isNotEmpty()) {
             contactsToShow = contacts.filter { it.name.contains(query, true) }
@@ -117,7 +113,7 @@ class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Conta
             adapter?.updateItems(contactsToShow)
             setupLetterFastScroller(contactsToShow)
 
-            view.select_contact_list.apply {
+            binding.selectContactList.apply {
                 post {
                     scrollToPosition(0)
                 }
@@ -125,20 +121,20 @@ class SelectContactDialog(val activity: SimpleActivity, val contacts: List<Conta
         }
     }
 
-    private fun checkPlaceholderVisibility(contacts: List<Contact>) = with(view) {
-        contacts_empty_placeholder.beVisibleIf(contacts.isEmpty())
+    private fun checkPlaceholderVisibility(contacts: List<Contact>) = with(binding) {
+        contactsEmptyPlaceholder.beVisibleIf(contacts.isEmpty())
 
-        if (contact_search_view.isSearchOpen) {
-            contacts_empty_placeholder.text = context.getString(R.string.no_items_found)
+        if (contactSearchView.isSearchOpen) {
+            contactsEmptyPlaceholder.text = activity.getString(R.string.no_items_found)
         }
 
-        letter_fastscroller.beVisibleIf(contacts_empty_placeholder.isGone())
-        letter_fastscroller_thumb.beVisibleIf(contacts_empty_placeholder.isGone())
+        letterFastscroller.beVisibleIf(contactsEmptyPlaceholder.isGone())
+        letterFastscrollerThumb.beVisibleIf(contactsEmptyPlaceholder.isGone())
     }
 
     private fun backPressed() {
-        if (searchView.isSearchOpen) {
-            searchView.closeSearch()
+        if (binding.contactSearchView.isSearchOpen) {
+            binding.contactSearchView.closeSearch()
         } else {
             dialog?.dismiss()
         }
