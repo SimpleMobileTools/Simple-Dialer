@@ -50,7 +50,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 
     override fun setupColors(textColor: Int, primaryColor: Int, properPrimaryColor: Int) {
         binding.recentsPlaceholder.setTextColor(textColor)
-        binding.recentsPlaceholder.setTextColor(properPrimaryColor)
+        binding.recentsPlaceholder2.setTextColor(properPrimaryColor)
 
         recentsAdapter?.apply {
             initDrawables()
