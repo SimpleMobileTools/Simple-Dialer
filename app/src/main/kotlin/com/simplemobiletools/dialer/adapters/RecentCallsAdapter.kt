@@ -19,12 +19,12 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.activities.MainActivity
 import com.simplemobiletools.dialer.activities.SimpleActivity
+import com.simplemobiletools.dialer.databinding.ItemRecentCallBinding
 import com.simplemobiletools.dialer.dialogs.ShowGroupedCallsDialog
 import com.simplemobiletools.dialer.extensions.*
 import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.interfaces.RefreshItemsListener
 import com.simplemobiletools.dialer.models.RecentCall
-import kotlinx.android.synthetic.main.item_recent_call.view.*
 
 class RecentCallsAdapter(
     activity: SimpleActivity,
@@ -103,7 +103,9 @@ class RecentCallsAdapter(
 
     override fun onActionModeDestroyed() {}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_recent_call, parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return createViewHolder(ItemRecentCallBinding.inflate(layoutInflater, parent, false).root)
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val recentCall = recentCalls[position]
@@ -112,7 +114,8 @@ class RecentCallsAdapter(
             allowSingleClick = refreshItemsListener != null && !recentCall.isUnknownNumber,
             allowLongClick = refreshItemsListener != null && !recentCall.isUnknownNumber
         ) { itemView, _ ->
-            setupView(itemView, recentCall)
+            val binding = ItemRecentCallBinding.bind(itemView)
+            setupView(binding, recentCall)
         }
         bindViewHolder(holder)
     }
@@ -122,7 +125,9 @@ class RecentCallsAdapter(
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isDestroyed && !activity.isFinishing) {
-            Glide.with(activity).clear(holder.itemView.item_recents_image)
+            ItemRecentCallBinding.bind(holder.itemView).apply {
+                Glide.with(activity).clear(itemRecentsImage)
+            }
         }
     }
 
@@ -277,10 +282,10 @@ class RecentCallsAdapter(
 
     private fun getSelectedPhoneNumber() = getSelectedItems().firstOrNull()?.phoneNumber
 
-    private fun setupView(view: View, call: RecentCall) {
-        view.apply {
+    private fun setupView(binding: ItemRecentCallBinding, call: RecentCall) {
+        binding.apply {
             val currentFontSize = fontSize
-            item_recents_holder.isSelected = selectedKeys.contains(call.id)
+            itemRecentsHolder.isSelected = selectedKeys.contains(call.id)
             val name = findContactByCall(call)?.getNameToDisplay() ?: call.name
             var nameToShow = SpannableString(name)
             if (call.specificType.isNotEmpty()) {
@@ -300,37 +305,37 @@ class RecentCallsAdapter(
                 nameToShow = SpannableString(nameToShow.toString().highlightTextPart(textToHighlight, properPrimaryColor))
             }
 
-            item_recents_name.apply {
+            itemRecentsName.apply {
                 text = nameToShow
                 setTextColor(textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize)
             }
 
-            item_recents_date_time.apply {
+            itemRecentsDateTime.apply {
                 text = call.startTS.formatDateOrTime(context, refreshItemsListener != null, false)
                 setTextColor(if (call.type == Calls.MISSED_TYPE) redColor else textColor)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
             }
 
-            item_recents_duration.apply {
+            itemRecentsDuration.apply {
                 text = call.duration.getFormattedDuration()
                 setTextColor(textColor)
                 beVisibleIf(call.type != Calls.MISSED_TYPE && call.type != Calls.REJECTED_TYPE && call.duration > 0)
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, currentFontSize * 0.8f)
                 if (!showOverflowMenu) {
-                    item_recents_duration.setPadding(0, 0, durationPadding, 0)
+                    itemRecentsDuration.setPadding(0, 0, durationPadding, 0)
                 }
             }
 
-            item_recents_sim_image.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
-            item_recents_sim_id.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
+            itemRecentsSimImage.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
+            itemRecentsSimId.beVisibleIf(areMultipleSIMsAvailable && call.simID != -1)
             if (areMultipleSIMsAvailable && call.simID != -1) {
-                item_recents_sim_image.applyColorFilter(textColor)
-                item_recents_sim_id.setTextColor(textColor.getContrastColor())
-                item_recents_sim_id.text = call.simID.toString()
+                itemRecentsSimImage.applyColorFilter(textColor)
+                itemRecentsSimId.setTextColor(textColor.getContrastColor())
+                itemRecentsSimId.text = call.simID.toString()
             }
 
-            SimpleContactsHelper(context).loadContactImage(call.photoUri, item_recents_image, call.name)
+            SimpleContactsHelper(root.context).loadContactImage(call.photoUri, itemRecentsImage, call.name)
 
             val drawable = when (call.type) {
                 Calls.OUTGOING_TYPE -> outgoingCallIcon
@@ -338,15 +343,15 @@ class RecentCallsAdapter(
                 else -> incomingCallIcon
             }
 
-            item_recents_type.setImageDrawable(drawable)
+            itemRecentsType.setImageDrawable(drawable)
 
-            overflow_menu_icon.beVisibleIf(showOverflowMenu)
-            overflow_menu_icon.drawable.apply {
+            overflowMenuIcon.beVisibleIf(showOverflowMenu)
+            overflowMenuIcon.drawable.apply {
                 mutate()
                 setTint(activity.getProperTextColor())
             }
-            overflow_menu_icon.setOnClickListener {
-                showPopupMenu(overflow_menu_anchor, call)
+            overflowMenuIcon.setOnClickListener {
+                showPopupMenu(overflowMenuAnchor, call)
             }
         }
     }
