@@ -19,7 +19,7 @@ class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
         val view = activity.layoutInflater.inflate(layout, container, false)
         container.addView(view)
 
-        (view as MyViewPagerFragment).apply {
+        (view as MyViewPagerFragment<*>).apply {
             setupFragment(activity)
         }
 
