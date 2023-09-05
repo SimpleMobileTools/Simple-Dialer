@@ -81,7 +81,6 @@
             android:name="com.simplemobiletools.commons.activities.ManageBlockedNumbersActivity"
             android:configChanges="orientation"
             android:exported="false"
-            android:label="@string/blocked_numbers"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
