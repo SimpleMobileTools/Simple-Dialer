@@ -94,6 +94,10 @@ class ContactsAdapter(
             findItem(R.id.cab_create_shortcut).title = activity.addLockedLabelIfNeeded(R.string.create_shortcut)
             findItem(R.id.cab_create_shortcut).isVisible = isOneItemSelected && isOreoPlus()
             findItem(R.id.cab_view_details).isVisible = isOneItemSelected
+            findItem(R.id.cab_block_unblock_contact).isVisible = isOneItemSelected && isNougatPlus()
+            getCabBlockContactTitle { title ->
+                findItem(R.id.cab_block_unblock_contact).title = title
+            }
         }
     }
 
@@ -103,6 +107,7 @@ class ContactsAdapter(
         }
 
         when (id) {
+            R.id.cab_block_unblock_contact -> tryBlockingUnblocking()
             R.id.cab_call_sim_1 -> callContact(true)
             R.id.cab_call_sim_2 -> callContact(false)
             R.id.cab_remove_default_sim -> removeDefaultSIM()
@@ -149,6 +154,71 @@ class ContactsAdapter(
     }
 
     override fun getItemCount() = contacts.size
+
+    private fun getCabBlockContactTitle(callback: (String) -> Unit) {
+        val contact = getSelectedItems().firstOrNull() ?: return callback("")
+
+        activity.isContactBlocked(contact) { blocked ->
+            val cabItemTitleRes = if (blocked) {
+                R.string.unblock_contact
+            } else {
+                R.string.block_contact
+            }
+
+            callback(activity.addLockedLabelIfNeeded(cabItemTitleRes))
+        }
+    }
+
+    private fun tryBlockingUnblocking() {
+        val contact = getSelectedItems().firstOrNull() ?: return
+
+        if (activity.isOrWasThankYouInstalled()) {
+            activity.isContactBlocked(contact) { blocked ->
+                if (blocked) {
+                    tryUnblocking(contact)
+                } else {
+                    tryBlocking(contact)
+                }
+            }
+        } else {
+            FeatureLockedDialog(activity) { }
+        }
+    }
+
+    private fun tryBlocking(contact: Contact) {
+        askConfirmBlock(contact) { contactBlocked ->
+            val resultMsg = if (contactBlocked) {
+                R.string.block_contact_success
+            } else {
+                R.string.block_contact_fail
+            }
+
+            activity.toast(resultMsg)
+            finishActMode()
+        }
+    }
+
+    private fun tryUnblocking(contact: Contact) {
+        val contactUnblocked = activity.unblockContact(contact)
+        val resultMsg = if (contactUnblocked) {
+            R.string.unblock_contact_success
+        } else {
+            R.string.unblock_contact_fail
+        }
+
+        activity.toast(resultMsg)
+        finishActMode()
+    }
+
+    private fun askConfirmBlock(contact: Contact, callback: (Boolean) -> Unit) {
+        val baseString = R.string.block_confirmation
+        val question = String.format(resources.getString(baseString), contact.name)
+
+        ConfirmationDialog(activity, question) {
+            val contactBlocked = activity.blockContact(contact)
+            callback(contactBlocked)
+        }
+    }
 
     fun updateItems(newItems: List<Contact>, highlightText: String = "") {
         if (newItems.hashCode() != contacts.hashCode()) {
