@@ -5,10 +5,10 @@
     <string name="default_phone_app_prompt">Bitte machen Sie diese Anwendung zur Standard-Telefonanwendung</string>
     <string name="allow_displaying_over_other_apps">Bitte erlauben Sie die Anzeige über andere Anwendungen für ein zuverlässiges Verhalten</string>
     <!-- Contacts -->
-    <string name="could_not_access_contacts">Kein Zugriff auf Kontakte</string>
+    <string name="could_not_access_contacts">Kein Zugriff auf deine Kontakte möglich</string>
     <!-- Recents -->
     <string name="no_previous_calls">Anrufliste ist leer</string>
-    <string name="could_not_access_the_call_history">Kein Zugriff auf Anrufliste</string>
+    <string name="could_not_access_the_call_history">Kein Zugriff auf die Anrufliste möglich</string>
     <string name="request_access">Zugriff anfordern</string>
     <string name="remove_confirmation">Sollen wirklich die ausgewählten Einträge aus der Anrufliste gelöscht werden\?</string>
     <string name="clear_history_confirmation">Soll wirklich die gesamte Anrufliste gelöscht werden\?</string>
