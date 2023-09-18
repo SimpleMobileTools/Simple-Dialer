@@ -81,7 +81,8 @@
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/blocked_numbers"
-            android:parentActivityName=".activities.SettingsActivity" />
+            android:parentActivityName=".activities.SettingsActivity"
+            tools:replace="android:label" />
 
         <activity
             android:name=".activities.ManageSpeedDialActivity"
