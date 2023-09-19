@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 5.18.1 *(2023-09-19)*
+----------------------------
+
+ * Allow blocking contacts easier
+ * Added a grid view to favorites
+ * Added blocking calls from hidden numbers
+ * Added some stability, translation and UX improvements
+
 Version 5.18.0 *(2023-06-08)*
 ----------------------------
 
