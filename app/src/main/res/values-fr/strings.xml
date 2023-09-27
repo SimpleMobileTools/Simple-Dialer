@@ -20,10 +20,10 @@
     <string name="asterisk">Étoile</string>
     <string name="hashtag">Dièse</string>
     <string name="call_number">Numéro d\'appel</string>
-    <string name="dialpad_beeps">Activer les bips lors des clics sur les boutons du clavier numérique</string>
-    <string name="dialpad_vibrations">Activation des vibrations lors des clics sur les boutons du clavier</string>
+    <string name="dialpad_beeps">Activer les sons lors de l\'appui sur les touches du pavé numérique</string>
+    <string name="dialpad_vibrations">Activer les vibrations lors de l\'appui sur les touches du pavé numérique</string>
     <!-- Dialer -->
-    <string name="dialer">Clavier</string>
+    <string name="dialer">Pavé numérique</string>
     <string name="accept">Accepter</string>
     <string name="accept_call">Accepter l\'appel</string>
     <string name="decline">Décliner</string>
@@ -42,8 +42,8 @@
     <string name="turn_microphone_off">Désactiver le microphone</string>
     <string name="turn_speaker_on">Activer le haut-parleur</string>
     <string name="turn_speaker_off">Désactiver le haut-parleur</string>
-    <string name="show_dialpad">Afficher le clavier</string>
-    <string name="hide_dialpad">Masquer le clavier</string>
+    <string name="show_dialpad">Afficher le pavé numérique</string>
+    <string name="hide_dialpad">Masquer le pavé numérique</string>
     <string name="end_call">Finir l\'appel</string>
     <string name="hold_call">Mettre l\'appel en attente</string>
     <string name="resume_call">Reprendre l\'appel</string>
@@ -71,7 +71,7 @@
     <string name="disable_proximity_sensor">Désactiver le capteur de proximité pendant les appels</string>
     <string name="disable_swipe_to_answer">Remplacer le balayage pour répondre aux appels entrants par un clic</string>
     <string name="show_incoming_calls_full_screen">Toujours afficher les appels entrants en plein écran</string>
-    <string name="hide_dialpad_numbers">Masquer les numéros du clavier</string>
+    <string name="hide_dialpad_numbers">Masquer les numéros du pavé numérique</string>
     <string name="export_call_history">Exporter l\'historique d\'appels</string>
     <string name="import_call_history">Importer l\'historique d\'appels</string>
     <!-- FAQ -->
