@@ -61,6 +61,10 @@
     <string name="audio_route_wired_or_earpiece">Có dây hoặc Tai nghe</string>
     <string name="choose_audio_route">Chọn tuyến đường âm thanh</string>
     <string name="calling_blocked_number">Số bạn đang gọi bị chặn</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="accessibility_layout">Only show speaker button in-call</string>
+    <string name="speaker_auto_on">Automatically turn on in-call speaker</string>
+    <string name="volume_auto_set">Automatically set in-call volume to %s%%</string>
     <!-- Speed dial -->
     <string name="speed_dial">Quay số nhanh</string>
     <string name="manage_speed_dial">Quản lý quay số nhanh</string>

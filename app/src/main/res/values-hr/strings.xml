@@ -61,6 +61,10 @@
     <string name="audio_route_wired_or_earpiece">Analogno ili slušalica</string>
     <string name="choose_audio_route">Odaberi audio izlaz</string>
     <string name="calling_blocked_number">Broj koji zoveš je blokiran</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="accessibility_layout">Only show speaker button in-call</string>
+    <string name="speaker_auto_on">Automatically turn on in-call speaker</string>
+    <string name="volume_auto_set">Automatically set in-call volume to %s%%</string>
     <!-- Speed dial -->
     <string name="speed_dial">Brzo biranje</string>
     <string name="manage_speed_dial">Upravljaj brzim biranjem</string>

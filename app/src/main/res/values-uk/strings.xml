@@ -61,6 +61,10 @@
     <string name="audio_route_wired_or_earpiece">Провідний або навушник</string>
     <string name="choose_audio_route">Оберіть аудіовихід</string>
     <string name="calling_blocked_number">Номер, на який ви телефонуєте, заблоковано</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="accessibility_layout">Only show speaker button in-call</string>
+    <string name="speaker_auto_on">Automatically turn on in-call speaker</string>
+    <string name="volume_auto_set">Automatically set in-call volume to %s%%</string>
     <!-- Speed dial -->
     <string name="speed_dial">Швидкий виклик</string>
     <string name="manage_speed_dial">Управління швидким викликом</string>

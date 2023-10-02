@@ -61,6 +61,10 @@
     <string name="audio_route_wired_or_earpiece">有線或耳機</string>
     <string name="choose_audio_route">選擇音訊路徑</string>
     <string name="calling_blocked_number">您撥打的號碼已被封鎖</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="accessibility_layout">Only show speaker button in-call</string>
+    <string name="speaker_auto_on">Automatically turn on in-call speaker</string>
+    <string name="volume_auto_set">Automatically set in-call volume to %s%%</string>
     <!-- Speed dial -->
     <string name="speed_dial">快速撥號</string>
     <string name="manage_speed_dial">管理快速撥號</string>
