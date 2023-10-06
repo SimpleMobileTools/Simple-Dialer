@@ -377,31 +377,6 @@ class DialpadActivity : SimpleActivity() {
                     .newEditable(it)
             }
         }
-        else {
-          setLastDialedNumber()
-        }
-    }
-
-    private fun setLastDialedNumber() {
-
-        var lastDialed: String?
-
-        val privateCursor = this.getMyContactsCursor(false, true)
-        val groupSubsequentCalls = this.config.groupSubsequentCalls
-        val querySize = MIN_RECENTS_THRESHOLD
-        RecentsHelper(this).getRecentCalls(groupSubsequentCalls, querySize) { recents ->
-
-                val privateContacts = MyContactsContentProvider.getContacts(this, privateCursor)
-
-                lastDialed = recents
-                    .hidePrivateContacts(privateContacts,
-                        SMT_PRIVATE in this.baseConfig.ignoredContactSources).firstOrNull()?.phoneNumber
-
-            lastDialed?.let {
-                binding.dialpadInput.text = Editable.Factory.getInstance()
-                    .newEditable(it)
-            }
-        }
     }
 
     private fun speedDial(id: Int): Boolean {
