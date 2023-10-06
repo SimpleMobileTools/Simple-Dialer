@@ -176,7 +176,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 }
 
 // hide private contacts from recent calls
-private fun List<RecentCall>.hidePrivateContacts(privateContacts: List<Contact>, shouldHide: Boolean): List<RecentCall> {
+fun List<RecentCall>.hidePrivateContacts(privateContacts: List<Contact>, shouldHide: Boolean): List<RecentCall> {
     return if (shouldHide) {
         filterNot { recent ->
             val privateNumbers = privateContacts.flatMap { it.phoneNumbers }.map { it.value }

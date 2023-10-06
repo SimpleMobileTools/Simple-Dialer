@@ -12,6 +12,7 @@ import android.os.Looper
 import android.provider.Telephony.Sms.Intents.SECRET_CODE_ACTION
 import android.telephony.PhoneNumberUtils
 import android.telephony.TelephonyManager
+import android.text.Editable
 import android.util.TypedValue
 import android.view.KeyEvent
 import android.view.MotionEvent
@@ -28,7 +29,10 @@ import com.simplemobiletools.dialer.R
 import com.simplemobiletools.dialer.adapters.ContactsAdapter
 import com.simplemobiletools.dialer.databinding.ActivityDialpadBinding
 import com.simplemobiletools.dialer.extensions.*
+import com.simplemobiletools.dialer.fragments.hidePrivateContacts
 import com.simplemobiletools.dialer.helpers.DIALPAD_TONE_LENGTH_MS
+import com.simplemobiletools.dialer.helpers.MIN_RECENTS_THRESHOLD
+import com.simplemobiletools.dialer.helpers.RecentsHelper
 import com.simplemobiletools.dialer.helpers.ToneGeneratorHelper
 import com.simplemobiletools.dialer.models.SpeedDial
 import java.util.*
@@ -345,6 +349,32 @@ class DialpadActivity : SimpleActivity() {
                 } else {
                     startCallIntent(number)
                 }
+            }
+        } else {
+            setLastDialedNumber()
+        }
+    }
+
+    private fun setLastDialedNumber() {
+
+        var lastDialed: String?
+
+        val privateCursor = this.getMyContactsCursor(false, true)
+        val groupSubsequentCalls = this.config.groupSubsequentCalls
+        val querySize = MIN_RECENTS_THRESHOLD
+        RecentsHelper(this).getRecentCalls(groupSubsequentCalls, querySize) { recents ->
+
+            val privateContacts = MyContactsContentProvider.getContacts(this, privateCursor)
+
+            lastDialed = recents
+                .hidePrivateContacts(
+                    privateContacts,
+                    SMT_PRIVATE in this.baseConfig.ignoredContactSources
+                ).firstOrNull()?.phoneNumber
+
+            lastDialed?.let {
+                binding.dialpadInput.text = Editable.Factory.getInstance()
+                    .newEditable(it)
             }
         }
     }
