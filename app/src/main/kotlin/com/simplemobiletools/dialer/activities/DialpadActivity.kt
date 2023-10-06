@@ -356,9 +356,7 @@ class DialpadActivity : SimpleActivity() {
     }
 
     private fun setLastDialedNumber() {
-
         var lastDialed: String?
-
         val privateCursor = this.getMyContactsCursor(false, true)
         val groupSubsequentCalls = this.config.groupSubsequentCalls
         val querySize = MIN_RECENTS_THRESHOLD
