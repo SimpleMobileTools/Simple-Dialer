@@ -361,15 +361,12 @@ class DialpadActivity : SimpleActivity() {
         val groupSubsequentCalls = this.config.groupSubsequentCalls
         val querySize = MIN_RECENTS_THRESHOLD
         RecentsHelper(this).getRecentCalls(groupSubsequentCalls, querySize) { recents ->
-
             val privateContacts = MyContactsContentProvider.getContacts(this, privateCursor)
-
             lastDialed = recents
                 .hidePrivateContacts(
                     privateContacts,
                     SMT_PRIVATE in this.baseConfig.ignoredContactSources
                 ).firstOrNull()?.phoneNumber
-
             lastDialed?.let {
                 binding.dialpadInput.text = Editable.Factory.getInstance()
                     .newEditable(it)
