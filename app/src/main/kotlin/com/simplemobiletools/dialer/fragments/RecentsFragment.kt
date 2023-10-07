@@ -2,6 +2,7 @@ package com.simplemobiletools.dialer.fragments
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import com.simplemobiletools.commons.dialogs.CallConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ContactsHelper
@@ -176,7 +177,7 @@ class RecentsFragment(context: Context, attributeSet: AttributeSet) : MyViewPage
 }
 
 // hide private contacts from recent calls
-private fun List<RecentCall>.hidePrivateContacts(privateContacts: List<Contact>, shouldHide: Boolean): List<RecentCall> {
+fun List<RecentCall>.hidePrivateContacts(privateContacts: List<Contact>, shouldHide: Boolean): List<RecentCall> {
     return if (shouldHide) {
         filterNot { recent ->
             val privateNumbers = privateContacts.flatMap { it.phoneNumbers }.map { it.value }
