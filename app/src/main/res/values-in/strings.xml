@@ -21,6 +21,7 @@
     <string name="hashtag">Pagar</string>
     <string name="call_number">Nomor telepon</string>
     <string name="dialpad_beeps">Aktifkan suara ketika tombol papan ditekan</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Aktifkan getaran ketika tombol papan ditekan</string>
     <!-- Dialer -->
     <string name="dialer">Dialer</string>

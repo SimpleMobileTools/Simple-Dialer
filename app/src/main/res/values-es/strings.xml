@@ -21,6 +21,7 @@
     <string name="hashtag">Almohadilla</string>
     <string name="call_number">Número de llamada</string>
     <string name="dialpad_beeps">Activar los pitidos al pulsar los botones del teclado telefónico</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Activar las vibraciones al pulsar los botones del teclado</string>
     <!-- Dialer -->
     <string name="dialer">Marcador</string>

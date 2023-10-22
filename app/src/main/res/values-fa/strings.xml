@@ -21,6 +21,7 @@
     <string name="hashtag">مربع</string>
     <string name="call_number">شماره تماس</string>
     <string name="dialpad_beeps">فعال کردن صدا هنگام لمس دکمه‌های شماره‌گیر</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">فعال کردن لرزش هنگام لمس دکمه‌های شماره‌گیر</string>
     <!-- Dialer -->
     <string name="dialer">تلفن</string>

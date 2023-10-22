@@ -21,6 +21,7 @@
     <string name="hashtag">Etiqueta</string>
     <string name="call_number">Número de trucada</string>
     <string name="dialpad_beeps">Activa els sons en fer clic als botons del teclat de marcatge</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Activa les vibracions en fer clic als botons del teclat de marcatge</string>
     <!-- Dialer -->
     <string name="dialer">Marcador</string>

@@ -374,7 +374,11 @@ class DialpadActivity : SimpleActivity() {
     private fun startDialpadTone(char: Char) {
         if (config.dialpadBeeps) {
             pressedKeys.add(char)
-            toneGeneratorHelper?.startTone(char)
+            if (config.dialpadRandomBeeps) {
+                toneGeneratorHelper?.startRandomTone()
+            } else {
+                toneGeneratorHelper?.startTone(char)
+            }
         }
     }
 

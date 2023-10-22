@@ -244,6 +244,21 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/settings_dialpad_random_beeps_holder"
+                style="@style/SettingsHolderCheckboxStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                    android:id="@+id/settings_dialpad_random_beeps"
+                    style="@style/SettingsCheckboxStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dialpad_random_beeps" />
+
+            </RelativeLayout>
+
             <include
                 android:id="@+id/settings_general_settings_divider"
                 layout="@layout/divider" />

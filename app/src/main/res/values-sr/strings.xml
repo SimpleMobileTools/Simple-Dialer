@@ -21,6 +21,7 @@
     <string name="hashtag">Хаштег</string>
     <string name="call_number">Позив број</string>
     <string name="dialpad_beeps">Омогућите звучне сигнале при кликовима на дугме на тастатури</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Омогућите звучне сигнале при кликовима на дугме на тастатури</string>
     <!-- Dialer -->
     <string name="dialer">Диалер</string>

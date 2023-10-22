@@ -21,6 +21,7 @@
     <string name="hashtag">Cancelo</string>
     <string name="call_number">Chamar a número</string>
     <string name="dialpad_beeps">Activa os sons o premer no botón do teclado</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Activa as vibracións o premer no botón do teclado de marcación</string>
     <!-- Dialer -->
     <string name="dialer">Marcador</string>

@@ -80,6 +80,7 @@ class SettingsActivity : SimpleActivity() {
         setupDialpadVibrations()
         setupDialpadNumbers()
         setupDialpadBeeps()
+        setupDialpadRandomBeeps()
         setupShowCallConfirmation()
         setupDisableProximitySensor()
         setupDisableSwipeToAnswer()
@@ -276,9 +277,21 @@ class SettingsActivity : SimpleActivity() {
     private fun setupDialpadBeeps() {
         binding.apply {
             settingsDialpadBeeps.isChecked = config.dialpadBeeps
+            settingsDialpadRandomBeepsHolder.beVisibleIf(config.dialpadBeeps)
             settingsDialpadBeepsHolder.setOnClickListener {
                 settingsDialpadBeeps.toggle()
                 config.dialpadBeeps = settingsDialpadBeeps.isChecked
+                settingsDialpadRandomBeepsHolder.beVisibleIf(config.dialpadBeeps)
+            }
+        }
+    }
+
+    private fun setupDialpadRandomBeeps() {
+        binding.apply {
+            settingsDialpadRandomBeeps.isChecked = config.dialpadRandomBeeps
+            settingsDialpadRandomBeepsHolder.setOnClickListener {
+                settingsDialpadRandomBeeps.toggle()
+                config.dialpadRandomBeeps = settingsDialpadRandomBeeps.isChecked
             }
         }
     }

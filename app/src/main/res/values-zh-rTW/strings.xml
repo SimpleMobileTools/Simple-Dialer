@@ -21,6 +21,7 @@
     <string name="hashtag">井號</string>
     <string name="call_number">撥打電話號碼</string>
     <string name="dialpad_beeps">啟用撥號鍵盤按鈕點選的提示音</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">啟用撥號鍵盤按鈕點選的震動</string>
     <!-- Dialer -->
     <string name="dialer">撥號器</string>

@@ -21,6 +21,7 @@
     <string name="hashtag">Cancelletto</string>
     <string name="call_number">Numero di chiamata</string>
     <string name="dialpad_beeps">Abilita i segnali acustici ai clic dei pulsanti della tastiera</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Abilita le vibrazioni sui clic dei pulsanti della tastiera</string>
     <!-- Dialer -->
     <string name="dialer">Compositore</string>

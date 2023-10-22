@@ -21,6 +21,7 @@
     <string name="hashtag">Kare işareti</string>
     <string name="call_number">Numarayı ara</string>
     <string name="dialpad_beeps">Tuş takımı düğmelerine tıklandığında bip sesini etkinleştir</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Tuş takımı düğmelerine tıklandığında titreşimi etkinleştir</string>
     <!-- Dialer -->
     <string name="dialer">Çevirici</string>

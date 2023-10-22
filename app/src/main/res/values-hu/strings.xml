@@ -21,6 +21,7 @@
     <string name="hashtag">Kettőskereszt</string>
     <string name="call_number">Hívószám</string>
     <string name="dialpad_beeps">Pittyegés a tárcsázógombokra történő kattintás során</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Rezgés a tárcsázógombokra történő kattintás során</string>
     <!-- Dialer -->
     <string name="dialer">Tárcsázó</string>

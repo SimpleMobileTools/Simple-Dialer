@@ -21,6 +21,7 @@
     <string name="hashtag">Хештег</string>
     <string name="call_number">Номер виклику</string>
     <string name="dialpad_beeps">Увімкнути звукові сигнали при наборі номеру</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Увімкнути вібрації при наборі номеру</string>
     <!-- Dialer -->
     <string name="dialer">Телефон</string>

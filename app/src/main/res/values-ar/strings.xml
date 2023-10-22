@@ -21,6 +21,7 @@
     <string name="hashtag">وسم</string>
     <string name="call_number">رقم الاتصال</string>
     <string name="dialpad_beeps">تمكين الصفير عند نقر أزرار لوحة الاتصال</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">تمكين الاهتزازات عند نقر أزرار لوحة الاتصال</string>
     <!-- Dialer -->
     <string name="dialer">الهاتف</string>

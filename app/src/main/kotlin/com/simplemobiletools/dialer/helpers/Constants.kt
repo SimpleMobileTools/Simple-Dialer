@@ -17,6 +17,7 @@ const val FAVORITES_CUSTOM_ORDER_SELECTED = "favorites_custom_order_selected"
 const val WAS_OVERLAY_SNACKBAR_CONFIRMED = "was_overlay_snackbar_confirmed"
 const val DIALPAD_VIBRATION = "dialpad_vibration"
 const val DIALPAD_BEEPS = "dialpad_beeps"
+const val DIALPAD_RANDOM_BEEPS = "dialpad_random_beeps"
 const val HIDE_DIALPAD_NUMBERS = "hide_dialpad_numbers"
 const val ALWAYS_SHOW_FULLSCREEN = "always_show_fullscreen"
 

@@ -21,6 +21,7 @@
     <string name="hashtag">Dấu thăng</string>
     <string name="call_number">Số điện thoại</string>
     <string name="dialpad_beeps">Bật tiếng bíp khi bấm vào nút quay số</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Bật rung khi nhấp vào nút quay số</string>
     <!-- Dialer -->
     <string name="dialer">Trình quay số</string>

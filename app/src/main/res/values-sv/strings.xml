@@ -21,6 +21,7 @@
     <string name="hashtag">Fyrkant</string>
     <string name="call_number">Ring nummer</string>
     <string name="dialpad_beeps">Aktivera knappsatsljud</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Aktivera knappsatsvibration</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>

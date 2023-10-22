@@ -21,6 +21,7 @@
     <string name="hashtag">Ετικέτα</string>
     <string name="call_number">Αριθμός κλήσης</string>
     <string name="dialpad_beeps">Ενεργοποίηση ήχου στα αγγίγματα των κουμπιών του πληκτρολογίου κλήσης</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Ενεργοποίηση δονήσεων στα αγγίγματα των κουμπιών του πληκτρολογίου κλήσης</string>
     <!-- Dialer -->
     <string name="dialer">Κλήση</string>

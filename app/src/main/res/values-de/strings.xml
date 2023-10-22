@@ -21,6 +21,7 @@
     <string name="hashtag">Raute</string>
     <string name="call_number">Rufnummer</string>
     <string name="dialpad_beeps">Signaltöne bei Tastendruck auf das Wähltastenfeld</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Vibration bei Tastendruck auf das Wähltastenfeld</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>

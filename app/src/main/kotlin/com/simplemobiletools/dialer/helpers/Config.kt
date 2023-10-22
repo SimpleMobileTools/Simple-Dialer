@@ -86,6 +86,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(DIALPAD_BEEPS, true)
         set(dialpadBeeps) = prefs.edit().putBoolean(DIALPAD_BEEPS, dialpadBeeps).apply()
 
+    var dialpadRandomBeeps: Boolean
+        get() = prefs.getBoolean(DIALPAD_RANDOM_BEEPS, false)
+        set(dialpadRandomBeeps) = prefs.edit().putBoolean(DIALPAD_RANDOM_BEEPS, dialpadRandomBeeps).apply()
+
     var alwaysShowFullscreen: Boolean
         get() = prefs.getBoolean(ALWAYS_SHOW_FULLSCREEN, false)
         set(alwaysShowFullscreen) = prefs.edit().putBoolean(ALWAYS_SHOW_FULLSCREEN, alwaysShowFullscreen).apply()

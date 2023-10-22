@@ -21,6 +21,7 @@
     <string name="hashtag">Ruutu</string>
     <string name="call_number">Soita numeroon</string>
     <string name="dialpad_beeps">Piippaa numeronäppäimistön painalluksista</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Värähdä numeronäppäimistön painalluksista</string>
     <!-- Dialer -->
     <string name="dialer">Puhelin</string>

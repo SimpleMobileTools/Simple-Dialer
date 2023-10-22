@@ -21,6 +21,10 @@ class ToneGeneratorHelper(context: Context, private val minToneLengthMs: Long) {
         return audioManager.ringerMode in arrayOf(AudioManager.RINGER_MODE_SILENT, AudioManager.RINGER_MODE_VIBRATE)
     }
 
+    fun startRandomTone() {
+        startTone(charToTone.values.random())
+    }
+
     fun startTone(char: Char) {
         toneStartTimeMs = System.currentTimeMillis()
         startTone(charToTone[char] ?: -1)

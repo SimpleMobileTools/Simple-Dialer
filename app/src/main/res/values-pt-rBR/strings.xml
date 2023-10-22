@@ -21,6 +21,7 @@
     <string name="hashtag">Hashtag</string>
     <string name="call_number">Numero de telefone</string>
     <string name="dialpad_beeps">Ativar sons do teclado</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Ativar vibrações do teclado</string>
     <!-- Dialer -->
     <string name="dialer">Discador</string>

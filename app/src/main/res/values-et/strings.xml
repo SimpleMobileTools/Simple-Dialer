@@ -21,6 +21,7 @@
     <string name="hashtag">Teemaviide</string>
     <string name="call_number">Helista numbrile</string>
     <string name="dialpad_beeps">Numbriklahvistiku nupu klõpsamisel esita helisignaali</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Numbriklahvistiku nupu klõpsamisel värista telefoni</string>
     <!-- Dialer -->
     <string name="dialer">Telefon</string>

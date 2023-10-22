@@ -21,6 +21,7 @@
     <string name="hashtag">Dièse</string>
     <string name="call_number">Numéro d\'appel</string>
     <string name="dialpad_beeps">Activer les sons lors de l\'appui sur les touches du pavé numérique</string>
+    <string name="dialpad_random_beeps">Randomize beep tone on dialpad button clicks</string>
     <string name="dialpad_vibrations">Activer les vibrations lors de l\'appui sur les touches du pavé numérique</string>
     <!-- Dialer -->
     <string name="dialer">Pavé numérique</string>
