@@ -18,7 +18,7 @@
     <!-- Dialpad -->
     <string name="dialpad">Číselník</string>
     <string name="asterisk">Hvězdička</string>
-    <string name="hashtag">Mřížka</string>
+    <string name="hashtag">Hastag</string>
     <string name="call_number">Volané číslo</string>
     <string name="dialpad_beeps">Povolit pípání při kliknutí na tlačítka číselníku</string>
     <string name="dialpad_vibrations">Povolit vibrace při kliknutí na tlačítka číselníku</string>
