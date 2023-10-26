@@ -1,21 +1,28 @@
 # Simple Dialer
 <img alt="Logo" src="graphics/icon.png" width="120" />
 
-A lightweight app for handling your calls, no matter where are you. Comes with a handy call log for easy call initiation. You can now easily dial numbers using this amazing dial pad without any problem as this dial pad gives you different things to ease up your overall experience while making a call. Stay connected with your friends and family while having a smooth experience in this app. With bigger numbers and letters, it is now easier for you to see and dial numbers. Using this dialpad, you can access your contacts and maintain a call log with ease.
+A lightweight app for handling your calls, no matter where you are. Stay connected with your friends and family while having a smooth experience in this app.
 
-There is a quick dialpad at your service too, with smart contact suggestions. It supports letters too. You can use the quick search for finding your favorite contacts not just in the contact list, but also at the call history. Call log entries can be removed either one by one, but it can also be cleared out at once.
+## Features
+• Call Management: Handle your calls with ease, featuring a convenient call log and a user-friendly dial pad. 📞
 
-You can easily block phone numbers to avoid unwanted incoming calls. This feature is missing in most of the apps present on the store. Using this feature, you can choose who can call you. By this feature, the security of the user can be maintained easily by blocking numbers that are useless or threatening. You can block calls from not saved contacts too.
+• Quick Dialpad: Access a quick dial pad with smart contact suggestions. 📱
 
-With advanced security features of this app, the numbers you type are tightly secured so you can have a seamless experience without worrying about your data going in wrong hands. Each of your phone number is safe with you. 
+• Call Blocking: Block unwanted incoming calls to enhance user security. 🚫
 
-Supported Speed dialing makes calling your favorite contacts with this true phone a breeze. You can make any phone number your favorite so you can quickly dial it. This way, you can easily make contacts with people without finding deep down in other numbers.
+• Advanced Security: Your data is securely handled for a seamless experience. 🔒
 
-To help you manage your calls quickly the phone number app also supports favorite contacts and creating shortcuts of any contact on the home screen.
+• Speed Dialing: Set your favorite contacts for quick and easy dialing. ⚡️
 
-It comes with material design and dark theme by default, provides great user experience for easy usage. The lack of internet access gives you more privacy, security and stability than other apps.
+• Customization: Enjoy a material design with a dark theme, customizable colors, and no ads. 🎨
 
-Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors. Keeping track of call logs for different phone number is also a plus point of this app.
+• Open Source: This app is fully open source, providing transparency and customization options. 🌐
+
+• Privacy and Stability: This app works without internet access, ensuring privacy, security, and stability. 🏠
+
+• Ad-Free and Permissions-Free: Contains no ads or unnecessary permissions, offering a clean and private experience. 🚀
+
+• Call Logs: Keep track of call logs for different phone numbers easily. 📋
 
 Check out the full suite of Simple Tools here:  
 https://www.simplemobiletools.com
