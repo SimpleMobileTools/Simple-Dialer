@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Једноставан бирач бројева</string>
-    <string name="app_launcher_name">Бирач бројева</string>
+    <string name="app_name">Једноставан бројчаник</string>
+    <string name="app_launcher_name">Бројчаник</string>
     <string name="default_phone_app_prompt">Учините ову апликацију подразумеваном апликацијом за телефон</string>
     <string name="allow_displaying_over_other_apps">Дозволите приказивање преко других апликација ради поузданог понашања</string>
     <!-- Contacts -->
@@ -23,7 +23,7 @@
     <string name="dialpad_beeps">Омогући звучне сигнале при додиру на дугмад на тастатури</string>
     <string name="dialpad_vibrations">Омогући вибрације при додиру на дугмад на тастатури</string>
     <!-- Dialer -->
-    <string name="dialer">Бирач бројева</string>
+    <string name="dialer">Бројчаник</string>
     <string name="accept">Прихвати</string>
     <string name="accept_call">Прихвати позив</string>
     <string name="decline">Одбиј</string>
@@ -64,7 +64,7 @@
     <!-- Speed dial -->
     <string name="speed_dial">Брзо бирање</string>
     <string name="manage_speed_dial">Управљање брзим бирањем</string>
-    <string name="speed_dial_label">Кликните на број да бисте му доделили контакт. Затим, можете брзо да позовете дати контакт дугим притиском на дати број на бирачу.</string>
+    <string name="speed_dial_label">Кликните на број да бисте му доделили контакт. Затим, можете брзо да позовете дати контакт дугим притиском на дати број на бројчанику.</string>
     <!-- Settings -->
     <string name="group_subsequent_calls">Групиши следеће позиве са истим бројем у евиденцији позива</string>
     <string name="open_dialpad_by_default">Подразумевано отвори тастатуру за бирање бројева када се апликација отвори</string>
