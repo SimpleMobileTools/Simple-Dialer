@@ -1,0 +1,27 @@
+Một ứng dụng nhẹ để xử lý cuộc gọi của bạn, bất kể bạn ở đâu. Đi kèm với nhật ký cuộc gọi tiện dụng để bắt đầu cuộc gọi dễ dàng. Giờ đây, bạn có thể dễ dàng quay số bằng cách sử dụng bàn phím quay số tuyệt vời này mà không gặp vấn đề gì vì bàn phím quay số này mang đến cho bạn những thứ khác nhau để giúp bạn dễ dàng trải nghiệm tổng thể khi thực hiện cuộc gọi. Luôn kết nối với bạn bè và gia đình của bạn trong khi có trải nghiệm mượt mà trong ứng dụng này. Với số và chữ cái lớn hơn, giờ đây bạn có thể xem và quay số dễ dàng hơn. Sử dụng bàn phím quay số này, bạn có thể truy cập danh bạ của mình và duy trì nhật ký cuộc gọi một cách dễ dàng.
+
+Dịch vụ của bạn cũng có bàn phím quay số nhanh với các gợi ý liên hệ thông minh. Nó cũng hỗ trợ các chữ cái. Bạn có thể sử dụng tính năng tìm kiếm nhanh để tìm các liên hệ yêu thích của mình không chỉ trong danh sách liên hệ mà còn ở lịch sử cuộc gọi. Các mục nhật ký cuộc gọi có thể bị xóa từng mục một nhưng cũng có thể bị xóa cùng một lúc.
+
+Bạn có thể dễ dàng chặn số điện thoại để tránh các cuộc gọi đến không mong muốn. Tính năng này bị thiếu trong hầu hết các ứng dụng có trên cửa hàng. Sử dụng tính năng này, bạn có thể chọn người có thể gọi cho bạn. Bằng tính năng này, tính bảo mật của người dùng có thể được duy trì dễ dàng bằng cách chặn các số vô dụng hoặc mang tính đe dọa. Bạn cũng có thể chặn cuộc gọi từ những liên hệ chưa được lưu.
+
+Với các tính năng bảo mật nâng cao của ứng dụng này, các số bạn nhập được bảo mật chặt chẽ để bạn có thể có trải nghiệm liền mạch mà không lo dữ liệu của mình rơi vào tay kẻ xấu. Mỗi số điện thoại của bạn đều an toàn với bạn. 
+
+Quay số nhanh được hỗ trợ giúp việc gọi các số liên lạc yêu thích của bạn bằng điện thoại thực sự này trở nên dễ dàng. Bạn có thể đặt bất kỳ số điện thoại nào bạn yêu thích để có thể quay số nhanh chóng. Bằng cách này, bạn có thể dễ dàng liên lạc với mọi người mà không cần tìm sâu ở những con số khác.
+
+Để giúp bạn quản lý cuộc gọi nhanh chóng, ứng dụng số điện thoại còn hỗ trợ các số liên lạc yêu thích và tạo lối tắt của số liên lạc bất kỳ trên màn hình chính. Theo dõi nhật ký cuộc gọi của các số điện thoại khác nhau cũng là một điểm cộng của ứng dụng này.
+
+Nó đi kèm với thiết kế vật liệu và chủ đề tối theo mặc định, mang lại trải nghiệm người dùng tuyệt vời để dễ dàng sử dụng. Việc không có quyền truy cập Internet mang lại cho bạn sự riêng tư, bảo mật và ổn định hơn các ứng dụng khác.
+
+Không chứa quảng cáo hoặc quyền không cần thiết. Nó hoàn toàn là mã nguồn mở, cung cấp màu sắc có thể tùy chỉnh.
+
+Kiểm tra bộ công cụ đơn giản đầy đủ ở đây:
+https://www.simplemobiletools.com
+
+Facebook:
+https://www.facebook.com/simplemobiletools
+
+Reddit:
+https://www.reddit.com/r/SimpleMobileTools
+
+Telegram:
+https://t.me/SimpleMobileTools
