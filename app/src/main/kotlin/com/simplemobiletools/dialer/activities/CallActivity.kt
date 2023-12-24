@@ -648,9 +648,11 @@ class CallActivity : SimpleActivity() {
                 callStatusLabel.text = getString(statusTextId)
             }
 
-            callManage.beVisibleIf(call.hasCapability(Call.Details.CAPABILITY_MANAGE_CONFERENCE))
-            setActionButtonEnabled(callSwap, state == Call.STATE_ACTIVE)
-            setActionButtonEnabled(callMerge, state == Call.STATE_ACTIVE)
+            if (!config.accessibilityLayout) {
+                callManage.beVisibleIf(call.hasCapability(Call.Details.CAPABILITY_MANAGE_CONFERENCE))
+                setActionButtonEnabled(callSwap, state == Call.STATE_ACTIVE)
+                setActionButtonEnabled(callMerge, state == Call.STATE_ACTIVE)
+            }
         }
     }
 
